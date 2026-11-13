@@ -529,18 +529,21 @@
       return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
     });
     items = sortQuests(items, sort);
+    // Quests in progress go first, in their own group.
+    items = items.filter(function (x) { return x.started; }).concat(items.filter(function (x) { return !x.started; }));
+    function gOf(x) { return x.started ? 'In progress' : groupOf(x.q, sort); }
     var h = '<p class="qmeta" id="qcount">' + (items.length === S.list.quests.length ? plural(items.length, 'quest', 'quests') :
       items.length + ' of ' + plural(S.list.quests.length, 'quest', 'quests')) +
       (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</p>';
     if (!items.length) return h + '<p class="empty">No quests match. Press Open to look for \u201c' + esc(S.input.trim()) + '\u201d on the wiki.</p>';
     var group = null, open = false;
     items.forEach(function (x) {
-      var g = groupOf(x.q, sort);
+      var g = gOf(x);
       if (g !== group) {
         if (open) h += '</ul>';
         group = g;
         open = true;
-        var n = items.filter(function (y) { return groupOf(y.q, sort) === g; }).length;
+        var n = items.filter(function (y) { return gOf(y) === g; }).length;
         var shut = !!S.closed[sort + ':' + g];
         h += '<h2 class="gh"><button class="ghb" type="button" data-group="' + esc(g) + '" aria-expanded="' + (shut ? 'false' : 'true') + '">' +
           I.chev + '<span class="n">' + esc(g) + '</span><span class="c">' + n + '</span></button></h2><ul class="ql"' + (shut ? ' hidden' : '') + '>';
