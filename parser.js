@@ -911,8 +911,170 @@
     return q;
   }
 
+  // ---------- the list of all quests ----------
+  function getJson(url) {
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 25000) : 0;
+    return fetch(url, { signal: ctrl ? ctrl.signal : undefined, credentials: 'omit' }).then(function (r) {
+      return r.json().then(function (j) { return j; }, function () { return null; }).then(function (j) {
+        clearTimeout(timer);
+        return { ok: r.ok, status: r.status, json: j };
+      });
+    }, function (err) {
+      clearTimeout(timer);
+      if (err && err.name === 'AbortError') { var e = new Error('The wiki took too long to answer.'); e.code = 'timeout'; throw e; }
+      throw err;
+    });
+  }
+  function colKey(t) {
+    t = t.toLowerCase();
+    if (/^(name|quest)\b/.test(t)) return 'name';
+    if (/member/.test(t)) return 'members';
+    if (/length/.test(t)) return 'length';
+    if (/^age\b/.test(t)) return 'age';
+    if (/difficult/.test(t)) return 'difficulty';
+    if (/combat/.test(t)) return 'combat';
+    if (/^qp\b|quest points/.test(t)) return 'qp';
+    if (/series/.test(t)) return 'series';
+    if (/release|date/.test(t)) return 'release';
+    return '';
+  }
+  function cellText(td) {
+    if (!td) return '';
+    var c = td.cloneNode(true);
+    arr(c.querySelectorAll('sup, style, script')).forEach(function (n) { n.parentNode.removeChild(n); });
+    return text(c);
+  }
+  // Everything a cell says, also in picture names and tooltips (the members column is an icon).
+  function cellHints(td) {
+    if (!td) return '';
+    var s = [cellText(td), td.getAttribute('data-sort-value') || '', td.getAttribute('title') || ''];
+    arr(td.querySelectorAll('img, a, span')).forEach(function (n) {
+      s.push(n.getAttribute('alt') || '', n.getAttribute('title') || '', n.getAttribute('src') || '');
+    });
+    return s.join(' ');
+  }
+  // html of https://runescape.wiki/w/List_of_quests -> [{ name, page, members, length, age, difficulty, combat, qp, series, release }]
+  function parseQuestList(html) {
+    var doc = new DOMParser().parseFromString('<!doctype html><html><body>' + html + '</body></html>', 'text/html');
+    var out = [], seen = {};
+    arr(doc.querySelectorAll('table')).forEach(function (t) {
+      var col = null;
+      arr(t.querySelectorAll('tr')).forEach(function (tr) {
+        if (tr.closest('table') !== t) return;
+        var cells = kids(tr);
+        if (!col) {
+          var c = {};
+          cells.forEach(function (cell, i) { var k = colKey(cellText(cell) + ' ' + (cell.getAttribute('title') || '')); if (k && c[k] == null) c[k] = i; });
+          if (c.name != null && Object.keys(c).length >= 3) col = c;
+          return;
+        }
+        var nc = cells[col.name];
+        if (!nc || cells.length < 3) return;
+        var a = arr(nc.querySelectorAll('a[href]')).filter(function (x) {
+          return /^\/w\/[^:?#]+$/.test(x.getAttribute('href')) || /^\/w\/(?!File:|Category:|Special:)/.test(x.getAttribute('href'));
+        })[0];
+        var name = a ? text(a) : cellText(nc);
+        if (!name) return;
+        var page = a ? clean(decodeSafe(a.getAttribute('href').slice(3).split('#')[0]).replace(/_/g, ' ')) : name;
+        if (seen[page]) return;
+        seen[page] = 1;
+        function get(k) { return col[k] == null ? '' : cellText(cells[col[k]]); }
+        var mh = col.members == null ? '' : cellHints(cells[col.members]);
+        var qp = parseInt(get('qp'), 10);
+        var combat = get('combat').replace(/^NPC combat level\s*/i, '');
+        var series = get('series');
+        out.push({
+          name: name,
+          page: page,
+          members: /free|f2p/i.test(mh) ? false : /member|p2p/i.test(mh) ? true : null,
+          length: get('length'),
+          age: get('age'),
+          difficulty: get('difficulty'),
+          combat: /^(none|n\/a|-)?$/i.test(combat) ? '' : combat,
+          qp: isFinite(qp) ? qp : null,
+          series: /^(n\/a|none|-)?$/i.test(series) ? '' : series,
+          release: get('release')
+        });
+      });
+    });
+    return out;
+  }
+  function loadQuestList() {
+    return fetchPage('List of quests').then(function (p) {
+      var list = parseQuestList(p.html);
+      if (!list.length) { var e = new Error('The wiki\'s quest list looks different than expected.'); e.code = 'format'; throw e; }
+      return { version: VERSION, source: pageUrl('List of quests'), fetchedAt: new Date().toISOString(), count: list.length, list: list };
+    });
+  }
+
+  // ---------- player stats (the same places the wiki's own quest checker asks) ----------
+  var SYNC = 'https://sync.runescape.wiki/runescape/player/';
+  var HISCORE_SKILLS = ['Overall', 'Attack', 'Defence', 'Strength', 'Constitution', 'Ranged', 'Prayer', 'Magic', 'Cooking',
+    'Woodcutting', 'Fletching', 'Fishing', 'Firemaking', 'Crafting', 'Smithing', 'Mining', 'Herblore', 'Agility', 'Thieving',
+    'Slayer', 'Farming', 'Runecrafting', 'Hunter', 'Construction', 'Summoning', 'Dungeoneering', 'Divination', 'Invention',
+    'Archaeology', 'Necromancy'];
+  // "Rune Mysteries" and "rune mysteries!" are the same quest.
+  function normName(s) {
+    return clean(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
+  }
+  function playerResult(name, source, quests, levels) {
+    var done = 0, started = 0;
+    Object.keys(quests).forEach(function (k) { if (quests[k] === 2) done++; else if (quests[k] === 1) started++; });
+    return { name: name, source: source, at: new Date().toISOString(), quests: quests, levels: levels, done: done, started: started };
+  }
+  function fromSync(name) {
+    return getJson(SYNC + encodeURIComponent(name) + '/STANDARD').then(function (r) {
+      var j = r.json;
+      if (!r.ok || !j || !j.quests || typeof j.quests !== 'object') {
+        var e = new Error('No WikiSync data.'); e.code = (j && j.code) || 'http'; throw e;
+      }
+      var quests = {}, levels = {};
+      Object.keys(j.quests).forEach(function (k) { var v = +j.quests[k]; quests[normName(k)] = v === 2 ? 2 : v === 1 ? 1 : 0; });
+      Object.keys(j.levels || {}).forEach(function (k) { var v = +j.levels[k]; if (isFinite(v)) levels[k.toLowerCase()] = v; });
+      return playerResult(name, 'WikiSync', quests, levels);
+    });
+  }
+  function fromRuneMetrics(name) {
+    var enc = encodeURIComponent(name), fails = [];
+    function soft(p) { return p.then(function (r) { return r.ok ? r.json : null; }, function (e) { fails.push(e); return null; }); }
+    return Promise.all([
+      soft(getJson(WIKI + '/cors/m=adventurers-log/api/v1/playerQuests/' + enc)),
+      soft(getJson(WIKI + '/cors/m=hiscore/index_lite.json?player=' + enc))
+    ]).then(function (res) {
+      var quests = {}, levels = {}, got = false;
+      var ql = res[0] && res[0].quests;
+      (Array.isArray(ql) ? ql : ql && typeof ql === 'object' ? Object.keys(ql).map(function (k) { return ql[k]; }) : []).forEach(function (it) {
+        if (!it || !it.title) return;
+        got = true;
+        quests[normName(it.title)] = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
+      });
+      (res[1] && Array.isArray(res[1].skills) ? res[1].skills : []).forEach(function (it) {
+        var nm = it && HISCORE_SKILLS[it.id];
+        if (!nm || !isFinite(+it.level)) return;
+        got = true;
+        levels[nm.toLowerCase()] = +it.level;
+      });
+      if (!got) {
+        var e = new Error('No player data.');
+        e.code = fails.length === 2 ? (fails[0] && fails[0].code === 'timeout' ? 'timeout' : 'network') : 'nodata';
+        throw e;
+      }
+      return playerResult(name, 'RuneMetrics', quests, levels);
+    });
+  }
+  // Tries WikiSync first, then the official RuneMetrics data through the wiki.
+  function loadPlayer(name) {
+    name = clean(name);
+    return fromSync(name).catch(function () { return fromRuneMetrics(name); });
+  }
+
   root.QuickGuide = {
     VERSION: VERSION,
+    loadQuestList: loadQuestList,
+    parseQuestList: parseQuestList,
+    loadPlayer: loadPlayer,
+    normName: normName,
     MAP_VERSION: MAP_VERSION,
     WIKI: WIKI,
     titleFromInput: titleFromInput,

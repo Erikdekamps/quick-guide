@@ -1,22 +1,39 @@
 /*!
  * Quick Guide - app.js
  * A tick list for RuneScape Wiki quest quick guides, made for the Alt1 browser.
+ *
+ * What is kept in localStorage (all keys start with "qg1."):
+ *   list            every quest from the wiki's "List of quests" page: { at, quests: [...] }
+ *   meta            one small entry per opened quest: { "<page>": { title, done, total, at } }
+ *   quest.<page>    the full parsed guide of one quest (JSON)
+ *   prog.<page>     your ticks for that quest
+ *   settings, last  display settings, and the quest that was open last
+ * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
   'use strict';
 
   var QG = window.QuickGuide;
+  var D = window.QuickGuideData;
   var app = document.getElementById('app');
+  if (!QG || !D || !app) {
+    if (app) app.textContent = 'The app could not start: ' + (!QG ? 'parser.js' : 'quests.js') + ' is missing. Upload all the files again, then reload.';
+    return;
+  }
   var PREFIX = 'qg1.';
-  var MAX_RECENT = 8;
-  var FONT_MIN = 12, FONT_MAX = 20, FONT_DEFAULT = 14;
+  var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
+  var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
   var TABS = [
     ['overview', 'Overview'], ['skills', 'Skills'], ['items', 'Items'],
     ['enemies', 'Enemies'], ['steps', 'Steps'], ['rewards', 'Rewards']
   ];
+  var SORTS = [['name', 'A to Z'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
+  var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
+  var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
 
   // ---------- storage (falls back to memory if the browser blocks it) ----------
   var memory = {};
+  var S = null;
   function sget(k) {
     try {
       var v = window.localStorage.getItem(PREFIX + k);
@@ -24,9 +41,31 @@
     } catch (e) { /* blocked or broken */ }
     return Object.prototype.hasOwnProperty.call(memory, k) ? memory[k] : null;
   }
+  // Drops the saved guide that was opened longest ago. Returns false if there is nothing to drop.
+  function evict(keep) {
+    var best = null, m = sget('meta') || {}, pre = PREFIX + 'quest.';
+    try {
+      var ls = window.localStorage;
+      for (var i = 0; i < ls.length; i++) {
+        var k = ls.key(i);
+        if (!k || k.indexOf(pre) !== 0) continue;
+        var key = k.slice(pre.length);
+        if ('quest.' + key === keep || (S && key === S.key)) continue;
+        var at = (m[key] && m[key].at) || 0;
+        if (!best || at < best.at) best = { k: k, at: at, key: key };
+      }
+      if (!best) return false;
+      ls.removeItem(best.k);
+      delete memory['quest.' + best.key];
+      return true;
+    } catch (e) { return false; }
+  }
   function sset(k, v) {
     memory[k] = v;
-    try { window.localStorage.setItem(PREFIX + k, JSON.stringify(v)); } catch (e) { /* full or blocked */ }
+    var s = JSON.stringify(v);
+    for (var tries = 0; tries < 40; tries++) {
+      try { window.localStorage.setItem(PREFIX + k, s); return; } catch (e) { if (!evict(k)) return; }
+    }
   }
   function sdel(k) {
     delete memory[k];
@@ -59,15 +98,16 @@
   }
   var I = {
     dots: svg('<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>'),
+    cog: svg('<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>'),
+    back: svg('<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>'),
     chev: svg('<path d="m9 18 6-6-6-6"/>', 'chev'),
     locate: svg('<path d="M2 12h3"/><path d="M19 12h3"/><path d="M12 2v3"/><path d="M12 19v3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>'),
-    eyeOff: svg('<path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/>'),
+    eye: svg('<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>'),
     check: svg('<path d="M20 6 9 17l-5-5"/>'),
     image: svg('<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>'),
     table: svg('<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M12 3v18"/>'),
     info: svg('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>'),
     alert: svg('<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>'),
-    link: svg('<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>'),
     refresh: svg('<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>'),
     ext: svg('<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'),
     reset: svg('<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>'),
@@ -89,14 +129,23 @@
 
   // ---------- state ----------
   function clampFont(n) { n = Math.round(+n || FONT_DEFAULT); return Math.max(FONT_MIN, Math.min(FONT_MAX, n)); }
+  function pick(list, v, d) { return list.some(function (x) { return x[0] === v; }) ? v : d; }
   var saved = sget('settings') || {};
-  var S = {
+  var savedList = sget('list');
+  S = {
     view: 'start',
     q: null,          // the quest JSON
     key: '',          // the wiki page it came from
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
-    set: { hideDone: !!saved.hideDone, compact: !!saved.compact, fontSize: clampFont(saved.fontSize || FONT_DEFAULT) },
+    set: {
+      showDone: !!saved.showDone, compact: !!saved.compact, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
+      sort: pick(SORTS, saved.sort, 'name')
+    },
+    list: savedList && Array.isArray(savedList.quests) ? savedList : null,
+    listBusy: false,
+    listError: '',
+    closed: {},       // letter groups in the quest list that are folded shut
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
     loading: false,
@@ -120,25 +169,35 @@
     });
     return out;
   }
-  function recentList() { var r = sget('recent'); return Array.isArray(r) ? r : []; }
+  function metaAll() {
+    var m = sget('meta');
+    if (m && typeof m === 'object' && !Array.isArray(m)) return m;
+    // The first version kept a short "recent" list instead.
+    m = {};
+    var old = sget('recent');
+    if (Array.isArray(old)) {
+      old.forEach(function (x, i) { if (x && x.key) m[x.key] = { title: x.title || x.key, done: x.done || 0, total: x.total || 0, at: Date.now() - i * 1000 }; });
+      sset('meta', m);
+      sdel('recent');
+    }
+    return m;
+  }
   function remember(key, title, doneCount, total) {
-    var old = {};
-    var list = recentList().filter(function (x) { if (x.key === key) { old = x; return false; } return true; });
-    list.unshift({
-      key: key,
+    var m = metaAll(), old = m[key] || {};
+    m[key] = {
       title: title || old.title || key,
       done: doneCount != null ? doneCount : (old.done || 0),
-      total: total != null ? total : (old.total || 0)
-    });
-    list.slice(MAX_RECENT).forEach(function (x) { sdel('quest.' + x.key); });
-    sset('recent', list.slice(0, MAX_RECENT));
+      total: total != null ? total : (old.total || 0),
+      at: Date.now()
+    };
+    sset('meta', m);
   }
   function storeQuest(q) {
-    sset('quest.' + q.page, q);
     var ids = topSteps(q), p = sget('prog.' + q.page) || {}, steps = p.steps || {};
     remember(q.page, q.title, ids.filter(function (id) { return steps[id]; }).length, ids.length);
+    sset('quest.' + q.page, q);
   }
-  function validTab(t) { return TABS.some(function (x) { return x[0] === t; }) ? t : 'overview'; }
+  function validTab(t) { return pick(TABS, t, 'overview'); }
   function loadProg(key) {
     var p = sget('prog.' + key) || {};
     return { steps: p.steps || {}, items: p.items || {}, tab: validTab(p.tab), open: p.open || {} };
@@ -232,32 +291,45 @@
     if (!cur) return;
     jumpTo(changeStep(cur, true), true);
   }
+  // After a tick: the next step goes to the top of the list.
+  function tickStep(id, val) {
+    var after = changeStep(id, val);
+    if (val) jumpTo(after, true);
+  }
+  // Puts an element exactly at the top of the list (just under the part's header, which stays in view).
+  function alignTop(el, animate) {
+    var main = byId('main');
+    if (!main || !el) return;
+    var sec = el.closest('.sec'), head = sec && sec !== el && sec.querySelector('.sh');
+    var off = head ? head.offsetHeight : 0;
+    var top = el.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop - off;
+    top = Math.max(0, Math.round(top));
+    if (animate && smooth() === 'smooth' && main.scrollTo) main.scrollTo({ top: top, behavior: 'smooth' });
+    else main.scrollTop = top;
+  }
   function jumpTo(id, animate) {
     var main = byId('main');
     if (!main) return;
     if (!id) {
       var c = byId('complete');
-      if (c && !c.hidden) c.scrollIntoView({ block: 'start', behavior: animate ? smooth() : 'auto' });
+      if (c && !c.hidden) alignTop(c, animate);
       return;
     }
     var sid = S.idx.secOf[id];
     if (sid && !isOpen(S.idx.secs[sid], current())) { S.prog.open[sid] = true; refresh(); }
     var li = main.querySelector('li[data-step="' + id + '"]');
     if (!li) return;
-    // For the first step of a part, show the part's header and "Bring" box too (if they fit).
+    // For the first step of a part, start at the top of the part, so its "Bring" box and notes come first.
     var target = li, sec = S.idx.secs[sid];
     var first = sec && sec.blocks.filter(function (b) { return b.type === 'step'; })[0];
-    var secEl = main.querySelector('[data-sec="' + sid + '"]');
-    if (first && first.id === id && secEl &&
-        li.getBoundingClientRect().top - secEl.getBoundingClientRect().top < main.clientHeight * 0.6) {
-      target = secEl;
-    }
-    target.scrollIntoView({ block: 'start', behavior: animate ? smooth() : 'auto' });
+    var body = main.querySelector('[data-sec="' + sid + '"] .secb');
+    if (first && first.id === id && body) target = body;
+    alignTop(target, animate);
   }
 
   // ---------- loading ----------
   function inputError(code) {
-    if (code === 'empty') return 'Paste a link first.';
+    if (code === 'empty') return 'Type a quest name or paste a link first.';
     if (code === 'osrs') return 'That is the Old School wiki. This app reads the RuneScape 3 wiki.';
     if (code === 'not-wiki') return 'That is not a RuneScape Wiki link.';
     if (code === 'no-page') return 'That link does not point to a wiki page.';
@@ -272,11 +344,8 @@
     if (e instanceof TypeError) return 'Could not reach the wiki. Check your internet, then try again.';
     return (e && e.message) || 'Something went wrong. Try again.';
   }
-  function startLoad(value) {
-    var t = QG.titleFromInput(value);
-    S.input = value;
-    if (t.error) { S.error = inputError(t.error); renderStart(); return; }
-    S.loading = true;
+  function loadGuide(t, label) {
+    S.loading = label || t.base;
     S.error = '';
     renderStart();
     QG.load(t).then(function (q) {
@@ -289,6 +358,20 @@
       S.error = loadError(e);
       renderStart();
     });
+  }
+  function startLoad(value) {
+    var t = QG.titleFromInput(value);
+    S.input = value;
+    if (t.error) { S.error = inputError(t.error); renderStart(); return; }
+    loadGuide(t);
+  }
+  // Opens a quest from the list: from storage if it is saved, else from the wiki.
+  function openTitle(title) {
+    var m = metaAll(), want = D.norm(title), key = '';
+    Object.keys(m).forEach(function (k) { if (!key && D.norm(m[k].title) === want) key = k; });
+    S.error = '';
+    if (key && sget('quest.' + key)) { openQuest(key); return; }
+    loadGuide({ base: title, title: title + '/Quick guide' }, title);
   }
   function openQuest(key, q) {
     q = q || sget('quest.' + key);
@@ -327,66 +410,176 @@
       if (!silent) toast('Could not update. ' + loadError(e));
     });
   }
+  function fetchList(silent, say) {
+    if (S.listBusy) return;
+    S.listBusy = true;
+    S.listError = '';
+    if (!silent) drawList();
+    if (say) toast('Updating the quest list\u2026', 0);
+    D.loadList().then(function (l) {
+      S.listBusy = false;
+      S.list = l;
+      sset('list', l);
+      drawList();
+      if (say) toast('Quest list updated.');
+    }, function (e) {
+      S.listBusy = false;
+      if (!silent || !S.list) S.listError = 'Could not get the quest list. ' + loadError(e);
+      drawList();
+      if (say) toast('Could not update the quest list. ' + loadError(e), 5000);
+    });
+  }
 
-  // ---------- menu (actions and settings) ----------
-  function settingsHtml() {
-    return '<p class="mh">Settings</p>' +
-      '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + S.set.compact + '" data-act="compact">' +
-      I.rows + '<span class="ml">Compact layout</span><span class="tg" aria-hidden="true"></span></button>' +
+  // ---------- menus: the cog (settings) and the dots (quest actions) ----------
+  function toggleHtml(act, icon, label, on) {
+    return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
+      icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
+  }
+  function cogHtml() {
+    return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
+      '<div class="menu" id="cog" hidden>' +
+      (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
+      '<p class="mh">Display</p>' +
+      toggleHtml('compact', I.rows, 'Compact layout', S.set.compact) +
+      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
       '<button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"' + (S.set.fontSize >= FONT_MAX ? ' disabled' : '') + '>' + I.plus + '</button>' +
+      '</div>' +
+      '<hr><button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
       '</div>';
   }
-  function menuHtml(withQuest) {
-    var q = S.q;
-    return '<button class="ib" type="button" id="menu-btn" aria-label="Menu and settings" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Menu and settings">' + I.dots + '</button>' +
+  function dotsHtml() {
+    return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +
       '<div class="menu" id="menu" role="menu" hidden>' +
-      (withQuest ?
-        '<button class="mi" type="button" role="menuitem" data-act="change">' + I.link + 'Change quest</button>' +
-        '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
-        '<a class="mi" role="menuitem" href="' + esc(q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
-        '<hr>' : '') +
-      settingsHtml() +
-      (withQuest ? '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' : '') +
+      '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
+      '<a class="mi" role="menuitem" href="' + esc(S.q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
+      '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
       '</div>';
   }
 
-  // ---------- start screen ----------
+  // ---------- start screen: all quests ----------
   function alt1Html() {
     if (window.alt1 || !/^https?:$/.test(location.protocol)) return '';
     var cfg;
     try { cfg = new URL('appconfig.json', location.href).href; } catch (e) { return ''; }
     return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
   }
-  function recentHtml(r) {
-    return '<li><button class="rec" type="button" data-open="' + esc(r.key) + '">' +
-      '<span class="r1"><b>' + esc(r.title) + '</b><span class="cnt">' + (r.done || 0) + ' / ' + (r.total || 0) + ' steps</span></span>' +
-      '<progress class="pg" value="' + (r.done || 0) + '" max="' + Math.max(r.total || 0, 1) + '" aria-hidden="true"></progress>' +
-      '</button></li>';
+  function isLink(v) { return /\//.test(v) || /^[\w-]+(\.[\w-]+)+$/.test(v) || /^https?:/i.test(v); }
+  // Everything the list needs to know about one quest.
+  function questInfo(q, byTitle) {
+    var m = byTitle[D.norm(q.t)] || null;
+    var isDone = !!m && m.total > 0 && m.done >= m.total;
+    return { q: q, m: m, done: isDone, started: !!m && m.done > 0 && !isDone };
+  }
+  function groupOf(q, sort) {
+    if (sort === 'dif') return q.dif || 'Other';
+    if (sort === 'len') return q.len || 'Other';
+    if (sort === 'ser') return q.ser && !/^(none|n\/a|-)$/i.test(q.ser) ? q.ser : 'No series';
+    if (sort === 'rel') { var y = /\b(\d{4})\b/.exec(q.rel || ''); return y ? y[1] : 'Unknown'; }
+    var c = q.t.replace(/^[^A-Za-z0-9]+/, '').charAt(0).toUpperCase();
+    return /[A-Z]/.test(c) ? c : '#';
+  }
+  function rank(list, v) { var i = list.indexOf(String(v || '').toLowerCase()); return i < 0 ? list.length : i; }
+  function sortKey(t) { return t.replace(/^[^A-Za-z0-9]+/, '').toLowerCase(); }
+  function sortQuests(items, sort) {
+    function byName(a, b) { return sortKey(a.q.t) < sortKey(b.q.t) ? -1 : sortKey(a.q.t) > sortKey(b.q.t) ? 1 : 0; }
+    return items.slice().sort(function (a, b) {
+      var d = 0;
+      if (sort === 'dif') d = rank(DIF_ORDER, a.q.dif) - rank(DIF_ORDER, b.q.dif) || String(a.q.dif).localeCompare(String(b.q.dif));
+      else if (sort === 'len') d = rank(LEN_ORDER, a.q.len) - rank(LEN_ORDER, b.q.len) || String(a.q.len).localeCompare(String(b.q.len));
+      else if (sort === 'ser') {
+        var ga = groupOf(a.q, sort), gb = groupOf(b.q, sort);
+        d = (ga === 'No series') - (gb === 'No series') || ga.localeCompare(gb);
+      } else if (sort === 'rel') d = (Date.parse(b.q.rel) || 0) - (Date.parse(a.q.rel) || 0);
+      return d || byName(a, b);
+    });
+  }
+  function questRow(x) {
+    var q = x.q, bits = [], status = '';
+    if (q.dif) bits.push(esc(q.dif));
+    if (q.len) bits.push(esc(q.len));
+    if (q.m === true) bits.push('Members'); else if (q.m === false) bits.push('Free');
+    if (q.qp) bits.push(q.qp + ' QP');
+    if (x.m && x.m.total && x.m.done > 0) status = '<span class="qs' + (x.done ? ' ok' : '') + '">' + (x.done ? '\u2713 ' : '') + x.m.done + ' / ' + x.m.total + '</span>';
+    var bar = x.started && x.m && x.m.total && x.m.done > 0 ?
+      '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
+    return '<li><button class="q' + (x.done ? ' done' : '') + '" type="button" data-quest="' + esc(q.t) + '">' +
+      '<span class="q1"><b>' + esc(q.t) + '</b>' + status + '</span>' +
+      (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
+  }
+  function matchQuests(v) {
+    var n = String(v || '').toLowerCase().trim();
+    if (!S.list || !n) return [];
+    var hits = S.list.quests.filter(function (q) { return q.t.toLowerCase().indexOf(n) >= 0; });
+    function score(q) { var t = q.t.toLowerCase(); return t === n ? 0 : sortKey(q.t).indexOf(n) === 0 ? 1 : 2; }
+    return hits.sort(function (a, b) { return score(a) - score(b); });
+  }
+  function listHtml() {
+    if (!S.list) {
+      if (S.listBusy) return '<div class="state" role="status">' + I.loader + '<p>Getting the quest list\u2026</p></div>';
+      return '<p class="err pad" role="alert">' + esc(S.listError || 'The quest list is not loaded.') + '</p>' +
+        '<p class="pad"><button class="btn" type="button" data-act="list-refresh">Try again</button></p>';
+    }
+    var m = metaAll(), byTitle = {};
+    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = m[k]; });
+    var v = isLink(S.input.trim()) ? '' : S.input.toLowerCase().trim();
+    var sort = S.set.sort;
+    var items = S.list.quests.map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
+      return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
+    });
+    items = sortQuests(items, sort);
+    var h = '<p class="qmeta" id="qcount">' + (items.length === S.list.quests.length ? plural(items.length, 'quest', 'quests') :
+      items.length + ' of ' + plural(S.list.quests.length, 'quest', 'quests')) +
+      (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</p>';
+    if (!items.length) return h + '<p class="empty">No quests match. Press Open to look for \u201c' + esc(S.input.trim()) + '\u201d on the wiki.</p>';
+    var group = null, open = false;
+    items.forEach(function (x) {
+      var g = groupOf(x.q, sort);
+      if (g !== group) {
+        if (open) h += '</ul>';
+        group = g;
+        open = true;
+        var n = items.filter(function (y) { return groupOf(y.q, sort) === g; }).length;
+        var shut = !!S.closed[sort + ':' + g];
+        h += '<h2 class="gh"><button class="ghb" type="button" data-group="' + esc(g) + '" aria-expanded="' + (shut ? 'false' : 'true') + '">' +
+          I.chev + '<span class="n">' + esc(g) + '</span><span class="c">' + n + '</span></button></h2><ul class="ql"' + (shut ? ' hidden' : '') + '>';
+      }
+      h += questRow(x);
+    });
+    return h + '</ul>';
+  }
+  // Redraws only the list, so the search box keeps its text and focus.
+  function drawList() {
+    var el = byId('qarea');
+    if (el && S.view === 'start') el.innerHTML = S.loading ? '' : listHtml();
   }
   function renderStart() {
     S.view = 'start';
     dropMaps();
-    var list = recentList();
     app.innerHTML =
-      '<header class="hdr"><h1 class="qt">Quick Guide</h1>' + menuHtml(false) + '</header>' +
+      '<header class="hdr"><h1 class="qt">Quick Guide</h1>' + cogHtml() + '</header>' +
       '<main class="scroll" id="main">' +
-      '<form class="start" id="load-form" novalidate>' +
-      '<label class="fl" for="quest-link">Quest guide link</label>' +
-      '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text" inputmode="url"' +
-      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://runescape.wiki/w/\u2026" value="' + esc(S.input) + '"' +
+      '<form class="find" id="load-form" novalidate>' +
+      '<label class="vh" for="quest-link">Search quests or paste a wiki link</label>' +
+      '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text"' +
+      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search quests or paste a wiki link" value="' + esc(S.input) + '"' +
       (S.error ? ' aria-invalid="true" aria-describedby="load-err"' : '') + (S.loading ? ' disabled' : '') + '>' +
-      '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Load</button></div>' +
+      '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
       (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
-      '<p class="hint">Paste a quest link from the RuneScape Wiki. The quest page or its Quick guide both work, or type a quest name. Your ticks are saved on this computer.</p>' +
       '</form>' +
-      (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading the wiki\u2026</p></div>' : '') +
-      (list.length ? '<h2 class="bh">Recent</h2><ul class="recent">' + list.map(recentHtml).join('') + '</ul>' : '') +
+      '<div class="filters">' +
+      '<select class="sel" id="sort" aria-label="Sort by">' + SORTS.map(function (s) {
+        return '<option value="' + s[0] + '"' + (S.set.sort === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
+      }).join('') + '</select></div>' +
+      (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
+      '<div id="qarea">' + (S.loading ? '' : listHtml()) + '</div>' +
       alt1Html() +
-      '<p class="foot">Guide text comes from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>' +
-      '</main>';
+      '<p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>' +
+      '</main>' +
+      '<div class="toast low" id="toast" role="status" aria-live="polite" hidden></div>';
+    if (!S.list && !S.listBusy && !S.listError) fetchList(false);
   }
 
   // ---------- shared pieces ----------
@@ -464,7 +657,9 @@
   function bringHtml(b, sec, i) {
     var next = null;
     for (var k = i + 1; k < sec.blocks.length; k++) { if (sec.blocks[k].type === 'step') { next = sec.blocks[k]; break; } }
-    var open = !next || !done(next.id);
+    var all = (b.needed || []).concat(b.recommended || []);
+    var allTicked = all.length > 0 && all.every(function (it) { return S.prog.items[it.id]; });
+    var open = (!next || !done(next.id)) && !allTicked;
     function list(kind, items) {
       if (!items || !items.length) return '';
       return '<p class="bl"><span>' + kind + '</span><span class="c"></span></p><ul class="steps blist">' +
@@ -507,7 +702,7 @@
     var h = '<div class="complete" id="complete" hidden>' + I.scroll +
       '<div><b>Quest complete!</b><span>All ' + plural(S.idx.order.length, 'step', 'steps') + ' done.</span></div></div>';
     q.sections.forEach(function (sec) { h += sectionHtml(sec, cur); });
-    return h;
+    return h + '<div class="tail" aria-hidden="true"></div>';
   }
 
   // ---------- other tabs ----------
@@ -556,7 +751,8 @@
     if (o.startMap) h += '<div class="blk">' + mapAcc(o.startMap) + '</div>';
     if (o.description) h += '<p class="para">' + esc(o.description) + '</p>';
     if (o.questReqs && o.questReqs.length) {
-      h += '<h2 class="bh">Quests</h2><div class="blk">' + acc('', 'Quest tree', plural(o.questReqs.length, 'entry', 'entries'),
+      h += '<h2 class="bh">Quests</h2><div class="blk">' + acc('', 'Quest tree',
+        plural(o.questReqs.length, 'entry', 'entries'),
         '<ul class="tree">' + o.questReqs.map(function (e) {
           return '<li style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' + esc(e.text) + '</li>';
         }).join('') + '</ul>') + '</div>';
@@ -577,7 +773,7 @@
     var o = S.q.overview, h = '';
     if (o.skillReqs && o.skillReqs.length) {
       h += '<h2 class="bh">Skill levels</h2><ul class="skills">' + o.skillReqs.map(function (s) {
-        return '<li class="chip"><b>' + s.level + '</b>' + esc(s.skill) + (s.note ? ' <span class="x">' + esc(s.note) + '</span>' : '') + '</li>';
+        return '<li class="chip"><b>' + esc(s.level) + '</b><span class="sn">' + esc(s.skill) + (s.note ? ' <span class="x">' + esc(s.note) + '</span>' : '') + '</span></li>';
       }).join('') + '</ul>';
     }
     if (o.otherReqs && o.otherReqs.length) {
@@ -632,16 +828,14 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1>' + menuHtml(true) + '</header>' +
+      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button>' +
+      '<h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1>' + cogHtml() + dotsHtml() + '</header>' +
       '<div class="prog"><progress class="pg" id="pg" value="0" max="1" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt"></span></div>' +
       '<nav class="tabs" role="tablist" aria-label="Guide parts">' + TABS.map(tabHtml).join('') + '</nav>' +
-      '<main class="scroll' + (tab === 'steps' && S.set.hideDone ? ' hide-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
+      '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
       (tab === 'steps' ?
         '<footer class="ftr">' +
-        '<button class="ib lg" type="button" data-act="jump" aria-label="Jump to next step" title="Jump to next step">' + I.locate + '</button>' +
         '<button class="next" type="button" id="next-btn" data-act="next">' + I.check + '<span>Done, next step</span></button>' +
-        '<button class="ib lg' + (S.set.hideDone ? ' on' : '') + '" type="button" data-act="hide" aria-label="Hide done steps" aria-pressed="' +
-        (S.set.hideDone ? 'true' : 'false') + '" title="Hide done steps">' + I.eyeOff + '</button>' +
         '</footer>' : '') +
       '<div class="toast' + (tab === 'steps' ? '' : ' low') + '" id="toast" role="status" aria-live="polite" hidden></div>';
     var main = byId('main');
@@ -649,7 +843,6 @@
     main.addEventListener('scroll', function () { S.scroll[tab] = main.scrollTop; }, { passive: true });
     refresh();
   }
-
   // Updates ticks, counts and open parts without rebuilding the page.
   function refresh() {
     if (S.view !== 'quest') return;
@@ -681,6 +874,7 @@
         var c = ul.previousElementSibling && ul.previousElementSibling.querySelector('.c');
         if (c) c.textContent = lists.length > 1 ? g + ' / ' + n : '';
       });
+      det.classList.toggle('alldone', all > 0 && got === all);
       var m = det.querySelector('[data-bcount]');
       if (m) m.textContent = (all && got === all ? '\u2713 ' : '') + got + ' / ' + all;
     });
@@ -779,17 +973,21 @@
     var s = document.querySelector('[data-act="reset"] span');
     if (s) s.textContent = 'Reset progress';
   }
-  function toggleMenu() {
-    var m = byId('menu'), b = byId('menu-btn');
+  function closeMenus(except) {
+    ['cog', 'menu'].forEach(function (id) {
+      if (id === except) return;
+      var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
+      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); }
+    });
+  }
+  function toggleMenu(id) {
+    var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
     if (!m) return;
+    closeMenus(id);
     var show = m.hidden;
     m.hidden = !show;
-    b.setAttribute('aria-expanded', show ? 'true' : 'false');
-    if (!show) disarmReset();
-  }
-  function closeMenu() {
-    var m = byId('menu'), b = byId('menu-btn');
-    if (m && !m.hidden) { m.hidden = true; b.setAttribute('aria-expanded', 'false'); disarmReset(); }
+    if (b) b.setAttribute('aria-expanded', show ? 'true' : 'false');
+    if (!show && id === 'menu') disarmReset();
   }
   function resetClick(btn) {
     if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
@@ -810,18 +1008,28 @@
     S.set.fontSize = clampFont(S.set.fontSize + delta);
     saveSettings();
     applySettings();
+    resizeMaps();
     var v = byId('fsv');
     if (v) v.textContent = S.set.fontSize;
     var down = document.querySelector('[data-act="font-down"]'), up = document.querySelector('[data-act="font-up"]');
     if (down) down.disabled = S.set.fontSize <= FONT_MIN;
     if (up) up.disabled = S.set.fontSize >= FONT_MAX;
   }
-  function toggleCompact(btn) {
+  function toggleCompact() {
     S.set.compact = !S.set.compact;
     saveSettings();
     applySettings();
     resizeMaps();
-    btn.setAttribute('aria-checked', S.set.compact ? 'true' : 'false');
+    var b = document.querySelector('.mi[data-act="compact"]');
+    if (b) b.setAttribute('aria-checked', S.set.compact ? 'true' : 'false');
+  }
+  function toggleShowDone() {
+    S.set.showDone = !S.set.showDone;
+    saveSettings();
+    var on = S.set.showDone ? 'true' : 'false';
+    var main = byId('main'), mi = document.querySelector('.mi[data-act="showdone"]');
+    if (main && S.view === 'quest') main.classList.toggle('show-done', S.set.showDone);
+    if (mi) mi.setAttribute('aria-checked', on);
   }
   function switchTab(tab) {
     tab = validTab(tab);
@@ -836,48 +1044,71 @@
     if (!sec) return;
     S.prog.open[id] = !isOpen(sec, current());
     refresh();
-  }
-  function toggleHide() {
-    S.set.hideDone = !S.set.hideDone;
-    saveSettings();
-    var main = byId('main'), b = document.querySelector('[data-act="hide"]');
-    if (main) main.classList.toggle('hide-done', S.set.hideDone);
-    if (b) { b.classList.toggle('on', S.set.hideDone); b.setAttribute('aria-pressed', S.set.hideDone ? 'true' : 'false'); }
+    // Keep the part you just opened or closed at the top, so you do not lose your place.
+    alignTop(document.querySelector('[data-sec="' + id + '"]'), false);
   }
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
-    if (ev.target.id !== 'load-form') return;
     ev.preventDefault();
-    startLoad(ev.target.elements.link.value);
+    if (ev.target.id !== 'load-form') return;
+    var v = ev.target.elements.link.value.trim();
+    S.input = v;
+    if (!v) { S.error = inputError('empty'); renderStart(); return; }
+    if (isLink(v)) { startLoad(v); return; }
+    var hits = matchQuests(v);
+    if (hits.length) openTitle(hits[0].t); else startLoad(v);
+  });
+  app.addEventListener('input', function (ev) {
+    if (ev.target.id !== 'quest-link') return;
+    S.input = ev.target.value;
+    if (S.error) {
+      S.error = '';
+      var e = byId('load-err');
+      if (e) e.hidden = true;
+      ev.target.classList.remove('bad');
+    }
+    drawList();
   });
   app.addEventListener('change', function (ev) {
     var t = ev.target;
-    if (t.hasAttribute('data-scb')) { changeStep(t.getAttribute('data-scb'), t.checked); return; }
+    if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
+    if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-icb')) {
       var id = t.getAttribute('data-icb');
       if (t.checked) S.prog.items[id] = 1; else delete S.prog.items[id];
       refresh();
+      // When everything in a "Bring" box is ticked, the box closes.
+      var det = t.closest('details.bring');
+      if (det && t.checked && det.classList.contains('alldone')) det.open = false;
     }
   });
   app.addEventListener('click', function (ev) {
-    var t = ev.target.closest('[data-open], [data-tab], [data-act], [data-sec-btn], #menu-btn');
+    var t = ev.target.closest('[data-quest], [data-group], [data-tab], [data-act], [data-sec-btn], [data-menu]');
     if (t) {
-      if (t.id === 'menu-btn') { toggleMenu(); return; }
-      if (t.hasAttribute('data-open')) { S.error = ''; openQuest(t.getAttribute('data-open')); return; }
+      if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
+      if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
+      if (t.hasAttribute('data-group')) {
+        var gk = S.set.sort + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
+        S.closed[gk] = !S.closed[gk];
+        t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
+        if (ul) ul.hidden = !!S.closed[gk];
+        return;
+      }
       if (t.hasAttribute('data-tab')) { switchTab(t.getAttribute('data-tab')); return; }
       if (t.hasAttribute('data-sec-btn')) { toggleSection(t.getAttribute('data-sec-btn')); return; }
       var act = t.getAttribute('data-act');
       if (act === 'next') nextStep();
-      else if (act === 'jump') jumpTo(current(), true);
-      else if (act === 'hide') toggleHide();
-      else if (act === 'change') { closeMenu(); S.error = ''; renderStart(); }
-      else if (act === 'refresh') { closeMenu(); refreshQuest(false); }
-      else if (act === 'wiki') closeMenu();
+      else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
+      else if (act === 'showdone') toggleShowDone();
+      else if (act === 'change') { S.error = ''; S.input = ''; renderStart(); }
+      else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
+      else if (act === 'wiki') closeMenus();
       else if (act === 'reset') resetClick(t);
-      else if (act === 'compact') toggleCompact(t);
-      else if (act === 'font-down') setFont(-1);
-      else if (act === 'font-up') setFont(1);
+      else if (act === 'compact') toggleCompact();
+      else if (act === 'font-down') setFont(-FONT_STEP);
+      else if (act === 'font-up') setFont(FONT_STEP);
+      else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); }
       return;
     }
     // Click anywhere on a step or item row to tick it. Links, pictures, tables and maps keep working.
@@ -901,10 +1132,16 @@
     if (el && !el.getAttribute('data-ready')) initMap(el);
   }, true);
   document.addEventListener('click', function (ev) {
-    var m = byId('menu');
-    if (m && !m.hidden && !ev.target.closest('#menu, #menu-btn')) closeMenu();
+    if (!ev.target.closest('.menu, [data-menu]')) closeMenus();
   });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenu(); });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenus(); });
+  // Phones: no pinch zoom and no double-tap zoom. The page stays as it is. (Maps still zoom by themselves.)
+  ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (n) {
+    document.addEventListener(n, function (ev) { ev.preventDefault(); }, { passive: false });
+  });
+  document.addEventListener('touchmove', function (ev) {
+    if (ev.touches && ev.touches.length > 1 && !(ev.target.closest && ev.target.closest('.leaflet-container'))) ev.preventDefault();
+  }, { passive: false });
 
   // ---------- start ----------
   applySettings();
@@ -913,4 +1150,8 @@
   }
   var last = sget('last');
   if (last && sget('quest.' + last)) openQuest(last); else renderStart();
+  // Keep the quest list fresh, quietly.
+  if (S.view === 'quest' && !S.list) fetchList(true);
+  else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
+  sdel('player');   // the player lookup is gone; drop what an older version saved
 })();

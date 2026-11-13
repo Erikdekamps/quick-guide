@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Quick Guide</title>
 <meta name="description" content="RuneScape Wiki quest quick guides as a tick list, made for the Alt1 browser.">
 <link rel="icon" href="icon.png">
@@ -15,8 +15,24 @@
 <body>
 <div id="app"></div>
 <noscript><p style="padding:16px">This app needs JavaScript.</p></noscript>
+<script>
+// If a file is missing or broken, say so instead of showing an empty page.
+window.addEventListener('error', function (e) {
+  var app = document.getElementById('app'), t = e.target;
+  if (!app || app.firstChild) return;
+  var why = '';
+  if (t && t.tagName === 'SCRIPT') why = 'This file did not load: ' + t.src;
+  else if (t === window) why = (e.message || 'Unknown error') + (e.filename ? ' (' + e.filename.split('/').pop() + ', line ' + e.lineno + ')' : '');
+  else return;
+  var p = document.createElement('p');
+  p.style.cssText = 'padding:16px;line-height:1.5';
+  p.textContent = 'The app could not start. ' + why + ' Upload all the files again, then reload.';
+  app.appendChild(p);
+}, true);
+</script>
 <script src="vendor/leaflet/leaflet.js"></script>
 <script src="parser.js"></script>
+<script src="quests.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
