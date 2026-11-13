@@ -23,10 +23,9 @@
   var PREFIX = 'qg1.';
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
-  var TABS = [
-    ['overview', 'Overview'], ['skills', 'Skills'], ['items', 'Items'],
-    ['enemies', 'Enemies'], ['steps', 'Steps'], ['rewards', 'Rewards']
-  ];
+  var TABS = [['overview', 'Overview'], ['steps', 'Steps']];
+  // The foldable parts of the Overview tab.
+  var OV = [['details', 'Details'], ['skills', 'Skills'], ['items', 'Items'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
@@ -200,7 +199,7 @@
   function validTab(t) { return pick(TABS, t, 'overview'); }
   function loadProg(key) {
     var p = sget('prog.' + key) || {};
-    return { steps: p.steps || {}, items: p.items || {}, tab: validTab(p.tab), open: p.open || {} };
+    return { steps: p.steps || {}, items: p.items || {}, tab: validTab(p.tab), open: p.open || {}, acc: p.acc || {} };
   }
   function saveProg() { if (S.key && S.prog) sset('prog.' + S.key, S.prog); }
   // Quests saved by the first version kept "bring" lines as one text.
@@ -301,7 +300,7 @@
     var main = byId('main');
     if (!main || !el) return;
     var sec = el.closest('.sec'), head = sec && sec !== el && sec.querySelector('.sh');
-    var off = head ? head.offsetHeight : 0;
+    var off = head ? head.offsetHeight - 1 : 0;   // the header sits 1px up, see .sh in style.css
     var top = el.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop - off;
     top = Math.max(0, Math.round(top));
     if (animate && smooth() === 'smooth' && main.scrollTo) main.scrollTo({ top: top, behavior: 'smooth' });
@@ -709,7 +708,7 @@
   function itemsHtml() {
     var req = S.q.requiredItems, rec = S.q.recommendedItems, h = '';
     function alts(it) { return (it.alternatives || []).map(function (a) { return '<span class="alt">' + a + '</span>'; }).join(''); }
-    if (!req.items.length && !rec.items.length) return '<p class="empty">This guide lists no items.</p>';
+    if (!req.items.length && !rec.items.length) return '';
     if (req.note) h += note(req.note);
     if (req.items.length) {
       h += '<h2 class="bh">Required <span class="c" data-count="req"></span></h2><ul class="steps">' +
@@ -740,7 +739,7 @@
     var more = Object.keys(others).length;
     return direct ? direct + ' direct' + (more ? ' \u00b7 ' + more + ' more' : '') : plural(more, 'quest', 'quests');
   }
-  function overviewHtml() {
+  function detailsHtml() {
     var q = S.q, o = q.overview, h = '', kv = [];
     if (q.notQuickGuide) h += note('This quest has no Quick guide on the wiki, so this is its full page.');
     if (o.startPoint) kv.push(['Start', o.startPoint]);
@@ -779,11 +778,11 @@
     if (o.otherReqs && o.otherReqs.length) {
       h += '<h2 class="bh">Also needed</h2>' + o.otherReqs.map(function (r) { return '<p class="para">' + r + '</p>'; }).join('');
     }
-    return h || '<p class="empty">No skill requirements.</p>';
+    return h;
   }
   function enemiesHtml() {
     var e = S.q.overview.enemies || [];
-    if (!e.length) return '<p class="empty">No enemies to fight.</p>';
+    if (!e.length) return '';
     return '<h2 class="bh">Enemies to defeat</h2><ul class="foes">' + e.map(foeHtml).join('') + '</ul>';
   }
   function rewardsHtml() {
@@ -807,7 +806,59 @@
       }).join(''));
     }
     if (more) h += '<div class="blk" style="margin-top:14px">' + more + '</div>';
-    return h || '<p class="empty">No rewards listed.</p>';
+    return h;
+  }
+  // The Overview tab: one foldable part for each kind of info, all folded shut at first.
+  function ovCount(id) {
+    var q = S.q, o = q.overview;
+    if (id === 'skills') return String((o.skillReqs || []).length + (o.otherReqs || []).length);
+    if (id === 'items') {
+      var all = q.requiredItems.items.concat(q.recommendedItems.items);
+      return all.filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + all.length;
+    }
+    if (id === 'enemies') return String((o.enemies || []).length);
+    if (id === 'rewards') return String(q.rewards.items.length);
+    return '';
+  }
+  function overviewHtml() {
+    var bodies = { details: detailsHtml(), skills: skillsHtml(), items: itemsHtml(), enemies: enemiesHtml(), rewards: rewardsHtml() };
+    return OV.map(function (p) {
+      var id = p[0], open = !!S.prog.open['ov:' + id];
+      if (!bodies[id]) return '';
+      return '<section class="sec" data-ov="' + id + '">' +
+        '<h2 class="sh"><button class="sech" type="button" data-ov-btn="' + id + '" aria-expanded="' + open + '">' +
+        I.chev + '<span class="n">' + p[1] + '</span><span class="c" data-ovc="' + id + '">' + ovCount(id) + '</span></button></h2>' +
+        '<div class="secb"' + (open ? '' : ' hidden') + '>' + bodies[id] + '</div></section>';
+    }).join('');
+  }
+  function toggleOv(id) {
+    var k = 'ov:' + id, el = document.querySelector('[data-ov="' + id + '"]');
+    if (!el) return;
+    S.prog.open[k] = !S.prog.open[k];
+    saveProg();
+    el.querySelector('.sech').setAttribute('aria-expanded', S.prog.open[k] ? 'true' : 'false');
+    el.querySelector('.secb').hidden = !S.prog.open[k];
+    resizeMaps();
+    alignTop(el, false);
+  }
+  // Boxes (pictures, maps, tables, music...) remember if you opened them.
+  function accKey(d) {
+    var host = d.closest('[data-step], [data-item]'), sec = d.closest('.sec');
+    var base = host ? (host.getAttribute('data-step') || host.getAttribute('data-item')) :
+      sec ? (sec.getAttribute('data-sec') || 'ov:' + sec.getAttribute('data-ov')) : S.prog.tab;
+    var sl = d.querySelector(':scope > summary .sl'), label = sl ? sl.textContent : '';
+    var same = arr((host || sec || byId('main')).querySelectorAll('details.acc')).filter(function (x) {
+      var l = x.querySelector(':scope > summary .sl');
+      return (l ? l.textContent : '') === label;
+    });
+    return base + '|' + label + '|' + same.indexOf(d);
+  }
+  function restoreAcc() {
+    var saved = S.prog.acc || {}, main = byId('main');
+    arr(main.querySelectorAll('details.acc')).forEach(function (d) {
+      var v = saved[accKey(d)];
+      if (v === 1) d.open = true; else if (v === 0) d.open = false;
+    });
   }
 
   // ---------- quest screen ----------
@@ -816,14 +867,7 @@
     return '<button class="tab" type="button" role="tab" data-tab="' + t[0] + '" aria-selected="' + on + '" title="' + t[1] + '">' +
       TAB_ICON[t[0]] + '<span class="tl-l">' + t[1] + '</span></button>';
   }
-  function bodyHtml(tab) {
-    if (tab === 'skills') return skillsHtml();
-    if (tab === 'items') return itemsHtml();
-    if (tab === 'enemies') return enemiesHtml();
-    if (tab === 'steps') return stepsHtml();
-    if (tab === 'rewards') return rewardsHtml();
-    return overviewHtml();
-  }
+  function bodyHtml(tab) { return tab === 'steps' ? stepsHtml() : overviewHtml(); }
   function renderQuest() {
     var q = S.q, tab = S.prog.tab;
     dropMaps();
@@ -840,8 +884,10 @@
       '<div class="toast' + (tab === 'steps' ? '' : ' low') + '" id="toast" role="status" aria-live="polite" hidden></div>';
     var main = byId('main');
     if (S.scroll[tab] != null) main.scrollTop = S.scroll[tab];
+    restoreAcc();
     main.addEventListener('scroll', function () { S.scroll[tab] = main.scrollTop; }, { passive: true });
     refresh();
+    if (S.scroll[tab] != null) main.scrollTop = S.scroll[tab];
   }
   // Updates ticks, counts and open parts without rebuilding the page.
   function refresh() {
@@ -894,12 +940,12 @@
       var cp = byId('complete');
       if (cp) cp.hidden = !!cur || !t.total;
     }
-    if (S.prog.tab === 'items') {
-      [['req', S.q.requiredItems.items], ['rec', S.q.recommendedItems.items]].forEach(function (p) {
-        var c = main.querySelector('[data-count="' + p[0] + '"]');
-        if (c) c.textContent = p[1].filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + p[1].length;
-      });
-    }
+    [['req', S.q.requiredItems.items], ['rec', S.q.recommendedItems.items]].forEach(function (p) {
+      var c = main.querySelector('[data-count="' + p[0] + '"]');
+      if (c) c.textContent = p[1].filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + p[1].length;
+    });
+    var ic = main.querySelector('[data-ovc="items"]');
+    if (ic) ic.textContent = ovCount('items');
     saveProg();
     remember(S.key, S.q.title, t.done, t.total);
   }
@@ -994,6 +1040,7 @@
       S.prog.steps = {};
       S.prog.items = {};
       S.prog.open = {};
+      S.prog.acc = {};
       S.scroll = {};
       S.resetArmed = 0;
       renderQuest();
@@ -1044,6 +1091,7 @@
     if (!sec) return;
     S.prog.open[id] = !isOpen(sec, current());
     refresh();
+    resizeMaps();
     // Keep the part you just opened or closed at the top, so you do not lose your place.
     alignTop(document.querySelector('[data-sec="' + id + '"]'), false);
   }
@@ -1080,11 +1128,11 @@
       refresh();
       // When everything in a "Bring" box is ticked, the box closes.
       var det = t.closest('details.bring');
-      if (det && t.checked && det.classList.contains('alldone')) det.open = false;
+      if (det && t.checked && det.classList.contains('alldone')) { det.open = false; if (S.prog.acc) delete S.prog.acc[accKey(det)]; saveProg(); }
     }
   });
   app.addEventListener('click', function (ev) {
-    var t = ev.target.closest('[data-quest], [data-group], [data-tab], [data-act], [data-sec-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-group], [data-tab], [data-act], [data-sec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
@@ -1097,6 +1145,7 @@
       }
       if (t.hasAttribute('data-tab')) { switchTab(t.getAttribute('data-tab')); return; }
       if (t.hasAttribute('data-sec-btn')) { toggleSection(t.getAttribute('data-sec-btn')); return; }
+      if (t.hasAttribute('data-ov-btn')) { toggleOv(t.getAttribute('data-ov-btn')); return; }
       var act = t.getAttribute('data-act');
       if (act === 'next') nextStep();
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
@@ -1110,6 +1159,15 @@
       else if (act === 'font-up') setFont(FONT_STEP);
       else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); }
       return;
+    }
+    // Remember boxes you open or close by hand.
+    var sum = ev.target.closest('summary');
+    if (sum && S.view === 'quest' && sum.parentNode.classList.contains('acc')) {
+      // The click is about to flip the box, so save the opposite of what it is now.
+      var box = sum.parentNode;
+      S.prog.acc = S.prog.acc || {};
+      S.prog.acc[accKey(box)] = box.open ? 0 : 1;
+      saveProg();
     }
     // Click anywhere on a step or item row to tick it. Links, pictures, tables and maps keep working.
     var row = ev.target.closest('.row');

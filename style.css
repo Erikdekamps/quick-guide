@@ -189,10 +189,6 @@ button.mi:hover, a.mi:hover { background: #2f251b; text-decoration: none; }
 .tab:hover { color: #ece3d2; }
 .tab[aria-selected="true"] { height: 32px; margin-top: 0; background: #2f251b; border-color: #7d6646; color: #f6e9cb; box-shadow: inset 0 2px 0 #d9ad4a; }
 .tab .i { display: none; width: 15px; height: 15px; }
-@media (max-width: 339px) {
-  .tab .i { display: block; }
-  .tab .tl-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-}
 
 /* ---------- scrolling body ---------- */
 .scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding-bottom: 18px; overflow-wrap: anywhere; }
@@ -202,7 +198,8 @@ button.mi:hover, a.mi:hover { background: #2f251b; text-decoration: none; }
 
 /* part headers */
 /* the part header stays at the top while you scroll through its steps */
-.sh { position: sticky; top: 0; z-index: 5; margin: 0; }
+/* 1px up, so no sliver of the list shows between the tabs and the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
 /* room under the last step, so any step can reach the top */
 .tail { height: calc(100vh - 170px); }
 .sech {

@@ -44,7 +44,10 @@ You can also open the app page in a browser and click **Add this app to Alt1** a
    - You can still paste a wiki link in the same box.
    - Sort by name, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
-3. The tabs: **Overview**, **Skills**, **Items**, **Enemies**, **Steps**, **Rewards**.
+3. Two tabs: **Overview** and **Steps**.
+   - Overview has five parts that fold open and shut: **Details**, **Skills**, **Items**, **Enemies**, **Rewards**.
+     They start folded shut. The app remembers which ones you opened.
+   - Boxes for pictures, maps, tables and music also remember if you opened them.
 4. On **Steps**:
    - Click anywhere on a step to tick it. It goes away, and the next step moves to the top, right under the part's name.
    - **Show done steps** in the cog menu shows ticked steps again, so you can untick one.
