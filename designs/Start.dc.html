@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Start – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.app{width:360px;height:720px;display:flex;flex-direction:column;overflow:hidden;background:#1b1510;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;border:1px solid #5a472f;-webkit-font-smoothing:antialiased}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
+.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:18px}
+.start{margin:16px 12px 0;padding:12px;background:#130f0b;border:1px solid #47392a;border-radius:3px}
+.fl{display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#d2be93}
+.row{display:flex;gap:6px}
+.inp{flex:1;min-width:0;height:36px;padding:0 10px;background:#0e0b08;border:1px solid #7d6646;border-radius:3px;color:#ece3d2;font:13px "Fira Sans",sans-serif;box-shadow:inset 0 1px 3px rgba(0,0,0,.9)}
+.inp::placeholder{color:#8f8270}
+.inp:focus{outline:none;border-color:#e2b552;box-shadow:0 0 0 2px rgba(242,196,90,.22),inset 0 1px 3px rgba(0,0,0,.9)}
+.btn{flex:none;height:36px;padding:0 16px;background:linear-gradient(#6b5337,#463624);border:1px solid #a88b5e;border-radius:3px;color:#fcf0d3;font:600 13px "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,230,180,.2);text-shadow:0 1px 0 rgba(0,0,0,.6)}
+.btn:hover{background:linear-gradient(#7c6141,#53402b);border-color:#c4a46c}
+.hint{margin:8px 0 0;font-size:12px;line-height:1.45;color:#b9ab90}
+.bh{display:flex;align-items:baseline;gap:8px;margin:20px 12px 8px;font:600 13px/1.2 "Fira Sans",sans-serif;color:#ff9f3a}
+.recent{list-style:none;margin:0 12px;padding:0;display:flex;flex-direction:column;gap:6px}
+.rec{display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:#211a13;border:1px solid #47392a;border-radius:3px;color:#ece3d2;text-decoration:none}
+.rec:hover{border-color:#7d6646;background:#271f17}
+.r1{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.r1 b{font-weight:600}
+.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pg{width:100%;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
+.pg::-webkit-progress-bar{background:#0e0b08}
+.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
+.pg::-moz-progress-bar{background:#d9ad4a}
+.foot{margin:24px 12px 0;font-size:11.5px;line-height:1.45;color:#9d907a}
+.foot a{color:#f3c969;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+</style>
+</helmet>
+<div class="app">
+<header class="hdr">
+<h1 class="qt">Quick Guide</h1>
+</header>
+<main class="scroll">
+<div class="start">
+<label class="fl" for="quest-link">Quest guide link</label>
+<div class="row">
+<input class="inp" id="quest-link" type="url" placeholder="https://runescape.wiki/w/…">
+<button class="btn" type="button">Load</button>
+</div>
+<p class="hint">Paste a quest link from the RuneScape Wiki. The quest page or its Quick guide both work. Your ticks are saved on this computer.</p>
+</div>
+<h2 class="bh">Recent</h2>
+<ul class="recent">
+<li><a class="rec" href="Main.dc.html"><span class="r1"><b>While Guthix Sleeps</b><span class="cnt">10 / 115 steps</span></span><progress class="pg" value="10" max="115" aria-label="While Guthix Sleeps progress"></progress></a></li>
+</ul>
+<p class="foot">Guide text comes from the <a href="https://runescape.wiki/">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

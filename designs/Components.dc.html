@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Components – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.sheet{width:1160px;min-height:1945px;padding:32px;background:#100c09;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.sheet>h1{margin:0;font:700 24px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8}
+.lead{max-width:780px;margin:6px 0 26px;font-size:13px;color:#b9ab90}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;align-items:start}
+.col{display:flex;flex-direction:column;gap:26px;min-width:0}
+.spec>h2{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 8px;font:600 13px/1.3 "Fira Sans",sans-serif;color:#ecd9a8}
+.spec>h2 code{font:500 11px/1.3 "Fira Mono",ui-monospace,monospace;color:#a8987a;text-align:right}
+.pane{background:#1b1510;border:1px solid #5a472f;color:#ece3d2}
+.pad{padding:12px}
+.vstack{display:flex;flex-direction:column;gap:10px}
+.hstack{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lbl{margin:0 0 5px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#a8987a}
+.sw{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px 6px}
+.sw div{display:flex;flex-direction:column;gap:3px;font-size:11px;line-height:1.25;color:#c4b699}
+.sw i{display:block;height:30px;border:1px solid #47392a;border-radius:2px}
+.types{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #33281c}
+.types div{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.types span{font-size:11px;color:#a8987a;white-space:nowrap}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
+.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
+.ib:hover,.ib.is-hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
+.ib.on{background:#16110c;border-color:#d9ad4a;color:#f2c45a;box-shadow:inset 0 1px 3px rgba(0,0,0,.8)}
+.ib.sm{width:28px;height:28px}
+.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
+.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
+.pg::-webkit-progress-bar{background:#0e0b08}
+.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
+.pg::-moz-progress-bar{background:#d9ad4a}
+.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
+.tl{display:flex;gap:2px;flex:1}
+.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
+.tab:hover{color:#ece3d2}
+.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
+.tabs .ib{margin-bottom:3px}
+.row{display:flex;gap:6px}
+.inp{flex:1;min-width:0;height:36px;padding:0 10px;background:#0e0b08;border:1px solid #7d6646;border-radius:3px;color:#ece3d2;font:13px "Fira Sans",sans-serif;box-shadow:inset 0 1px 3px rgba(0,0,0,.9)}
+.inp::placeholder{color:#8f8270}
+.inp:focus,.inp.is-focus{outline:none;border-color:#e2b552;box-shadow:0 0 0 2px rgba(242,196,90,.22),inset 0 1px 3px rgba(0,0,0,.9)}
+.inp.bad{border-color:#c4553f}
+.err{margin:6px 0 0;font-size:12px;color:#ff8a73}
+.btn{flex:none;height:36px;padding:0 16px;background:linear-gradient(#6b5337,#463624);border:1px solid #a88b5e;border-radius:3px;color:#fcf0d3;font:600 13px "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,230,180,.2);text-shadow:0 1px 0 rgba(0,0,0,.6)}
+.btn:hover,.btn.is-hover{background:linear-gradient(#7c6141,#53402b);border-color:#c4a46c}
+.btn.is-active{background:linear-gradient(#3b2d1f,#4b3a27);box-shadow:inset 0 2px 3px rgba(0,0,0,.6)}
+.btn:disabled{opacity:.45;cursor:default}
+.menu{width:220px;margin-left:auto;padding:4px 0;background:#1b1510;border:1px solid #7d6646;border-radius:3px;box-shadow:0 8px 20px rgba(0,0,0,.6)}
+.mi{display:flex;align-items:center;gap:10px;width:100%;height:34px;padding:0 12px;background:none;border:0;color:#ece3d2;font:13px "Fira Sans",sans-serif;text-align:left;text-decoration:none;cursor:pointer}
+.mi:hover,.mi.is-hover{background:#2f251b}
+.mi .i{color:#c4b699}
+.mi.danger,.mi.danger .i{color:#ff8a73}
+.menu hr{margin:4px 0;border:0;border-top:1px solid #3f3224}
+.state{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 16px 18px;text-align:center;font-size:13px;color:#c4b699}
+.state p{margin:0}
+.state .i{width:22px;height:22px;color:#f2c45a}
+.sk{width:100%;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.sk i{display:block;height:10px;background:#2b2219;border-radius:2px}
+.done-bn{display:flex;align-items:center;gap:12px;padding:14px 12px;background:linear-gradient(#3a2d1c,#241c15);border-bottom:1px solid #0a0705}
+.done-bn .i{width:26px;height:26px;color:#f2c45a}
+.done-bn b{display:block;font:700 15px/1.2 "Cinzel",Georgia,serif;color:#f2c45a}
+.done-bn span{font-size:12px;color:#c4b699}
+.sh{margin:0}
+.sech{display:flex;align-items:center;gap:8px;width:100%;min-height:38px;padding:8px 12px 8px 10px;background:linear-gradient(#31271c,#251d15);border:0;border-top:1px solid #4d3d2b;border-bottom:1px solid #0d0a07;color:#ff9f3a;font:600 14px/1.3 "Fira Sans",sans-serif;text-align:left;cursor:pointer}
+.sech:hover{background:linear-gradient(#3a2e21,#2b2219)}
+.sech .n{flex:1;min-width:0}
+.sech .c{font-weight:500;font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sech .i{color:#c4b699}
+.sech.done{color:#c9b083}
+.sech.done .c{color:#f2c45a}
+.sub{display:flex;align-items:center;gap:8px;margin:14px 12px 4px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#d2be93}
+.sub::after{content:"";flex:1;height:1px;background:#3f3224}
+.sub.minor{margin-top:10px;font-size:12.5px;font-style:italic;letter-spacing:.02em;text-transform:none}
+.sub.minor::after{display:none}
+.blk{margin:4px 12px}
+.acc{margin:6px 0;background:#130f0b;border:1px solid #47392a;border-radius:3px}
+.acc>summary{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 8px;list-style:none;cursor:pointer;font-size:12.5px;line-height:1.3;color:#ddd1b9;border-radius:3px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary:hover{background:#1e1712}
+.acc>summary .i{width:14px;height:14px;color:#a88b5e}
+.acc>summary .chev{transition:transform .15s}
+.acc[open]>summary .chev{transform:rotate(90deg)}
+.acc>summary .m{margin-left:auto;color:#a8987a;font-size:12px}
+.acc .body{padding:8px;border-top:1px solid #33281c}
+.bring dl{margin:0;font-size:12.5px;line-height:1.45;color:#ddd1b9}
+.bring dt{margin:0 0 3px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ff9f3a}
+.bring dd{margin:0 0 8px}
+.bring dd:last-child{margin-bottom:0}
+.steps{list-style:none;margin:0;padding:0 6px}
+.step{margin:1px 0;border-radius:3px}
+.step>label{display:flex;align-items:flex-start;gap:10px;padding:8px 6px;border-radius:3px;cursor:pointer}
+.step>label:hover,.step.is-hover>label{background:#251d16}
+.t{flex:1;min-width:0}
+.t a,.para a,.kv a{color:#f3c969;text-decoration:none}
+.t a:hover,.para a:hover,.kv a:hover{text-decoration:underline}
+.t em{font-style:italic;color:#fff2d4}
+.step.cur{background:#2a2118;box-shadow:inset 0 0 0 1px #6b563b}
+.step.cur>label:hover{background:transparent}
+.step.cur>label>.cb{border-color:#e2b552}
+.step.done>label{align-items:center;padding-top:6px;padding-bottom:6px}
+.step.done>label>.cb{margin-top:0}
+.step.done .t{color:#9d907a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.done .t a,.step.done .t em{color:#b0a07f}
+.ext{padding:0 8px 8px 34px}
+.subs{padding:0;margin-top:4px}
+.subs .step>label{gap:8px;padding:5px 6px}
+.subs .ext{padding-left:29px}
+.cb{-webkit-appearance:none;appearance:none;flex:none;display:grid;place-content:center;width:18px;height:18px;margin:1px 0 0;background:#0e0b08;border:1px solid #8a7050;border-radius:2px;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);cursor:pointer}
+.cb::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:2px solid #f2c45a;border-bottom:2px solid #f2c45a;transform:rotate(-45deg);opacity:0}
+.cb:checked::before,.done>label>.cb::before{opacity:1}
+.cb:focus-visible{outline:2px solid #f2c45a;outline-offset:2px}
+.subs .cb{width:15px;height:15px;margin-top:2px}
+.subs .cb::before{width:7px;height:4px;margin-top:-2px}
+.alt{display:block;margin-top:2px;font-size:12.5px;color:#b9ab90}
+.code{display:inline-block;padding:0 5px;background:#0e0b08;border:1px solid #5e4a32;border-radius:2px;font:500 12px/1.45 "Fira Mono",ui-monospace,monospace;letter-spacing:.06em;color:#f2c45a}
+.caution{font-weight:600;color:#ff8a73}
+.dlg{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:4px}
+.dlg li{display:flex;align-items:baseline;gap:8px;font-size:13px;line-height:1.4;color:#e4d9c4}
+kbd{flex:none;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;background:linear-gradient(#33291e,#1c160f);border:1px solid #8a7050;border-bottom-width:2px;border-radius:3px;font:700 12px/1 "Fira Sans",sans-serif;color:#f2c45a}
+.why{margin:10px 0 4px;font-size:12px;font-style:italic;color:#b9ab90}
+.vary{font-size:12px;color:#a8987a}
+.ph{display:grid;place-items:center;width:100%;aspect-ratio:3/2;padding:10px;background:repeating-linear-gradient(135deg,#1d1610 0 10px,#221a13 10px 20px);border:1px dashed #5e4a32;border-radius:2px;color:#b3a487;font-size:12px;text-align:center}
+.cap{margin:6px 0 0;font-size:12px;font-style:italic;color:#b9ab90}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{padding:5px 6px;text-align:left;font-weight:600;color:#ff9f3a;border-bottom:1px solid #5e4a32}
+.tbl td{padding:5px 6px;vertical-align:top;color:#e4d9c4;border-bottom:1px solid #2b2219}
+.tbl tbody tr:nth-child(even) td{background:#18120d}
+.note{display:flex;gap:8px;margin:6px 12px;padding:8px 10px;background:#211a12;border:1px solid #5e4a32;border-radius:3px;font-size:13px;line-height:1.4;color:#e4d9c4}
+.note .i{margin-top:1px;color:#e0bd6c}
+.note.warn{background:#2a1410;border-color:#8a3a2a;color:#ffe1d8}
+.note.warn .i{color:#ff8a73}
+.para{margin:6px 12px;font-size:13px;line-height:1.45;color:#c9bca0}
+.kv{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px 10px;margin:12px 12px 10px;font-size:13px;line-height:1.4}
+.kv dt{color:#b9ab90}
+.kv dd{margin:0}
+.skills{list-style:none;margin:0 12px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.chip{display:flex;align-items:baseline;gap:8px;padding:5px 8px;background:#130f0b;border:1px solid #3f3224;border-radius:3px;font-size:13px;color:#e4d9c4}
+.chip b{min-width:20px;font-weight:700;color:#f2c45a;font-variant-numeric:tabular-nums}
+.foes{list-style:none;margin:10px 12px 0;padding:0}
+.foes li{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #2b2219;font-size:13px;line-height:1.35}
+.foes .nm{flex:1;min-width:0}
+.foes .x{color:#b9ab90}
+.lv{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lv b{color:#f2c45a}
+.tree{list-style:none;margin:0;padding:0;font-size:13px;line-height:1.4;color:#e4d9c4}
+.tree li{padding:2px 0}
+.tree .d2{padding-left:16px;color:#d6cab2}
+.tree .more{color:#a8987a;font-size:12px}
+.ftr{flex:none;padding:8px;background:linear-gradient(#2e241a,#211a13);border-top:1px solid #6b563b;box-shadow:inset 0 1px 0 rgba(255,226,170,.08)}
+.next{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:40px;padding:0 14px;background:linear-gradient(#7a5f3d,#4d3a25);border:1px solid #c4a46c;border-radius:3px;color:#fff3d6;font:600 14px/1 "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,232,185,.25),0 1px 0 #0a0705;text-shadow:0 1px 0 rgba(0,0,0,.6)}
+.next:hover{background:linear-gradient(#8a6c45,#5a442c);border-color:#dcbc7e}
+.next:active,.next.is-active{background:linear-gradient(#45341f,#5a442c);box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
+.next:disabled{opacity:.5;cursor:default}
+.next .i{color:#f2c45a}
+</style>
+</helmet>
+<div class="sheet">
+<h1>Components</h1>
+<p class="lead">RS3 dark-brown look. Every part is shown at real size in the 360 px window. The grey code next to each name is the JSON key the part is built from.</p>
+<div class="cols">
+
+<div class="col">
+
+<section class="spec">
+<h2>Palette and type <code>tokens</code></h2>
+<div class="pane pad">
+<div class="sw">
+<div><i style="background:#1b1510"></i>Window<br>#1b1510</div>
+<div><i style="background:#2f251b"></i>Raised<br>#2f251b</div>
+<div><i style="background:#0e0b08"></i>Inset<br>#0e0b08</div>
+<div><i style="background:#7d6646"></i>Trim<br>#7d6646</div>
+<div><i style="background:#ece3d2"></i>Text<br>#ece3d2</div>
+<div><i style="background:#c4b699"></i>Muted<br>#c4b699</div>
+<div><i style="background:#f2c45a"></i>Gold<br>#f2c45a</div>
+<div><i style="background:#ff9f3a"></i>Orange<br>#ff9f3a</div>
+<div><i style="background:#f3c969"></i>Link<br>#f3c969</div>
+<div><i style="background:#ff8a73"></i>Warning<br>#ff8a73</div>
+</div>
+<div class="types">
+<div><p style="margin:0;font:700 15px/1.2 'Cinzel',Georgia,serif;letter-spacing:.03em;color:#ecd9a8">While Guthix Sleeps</p><span>Cinzel 15 · title</span></div>
+<div><p style="margin:0;font:600 14px/1.3 'Fira Sans',sans-serif;color:#ff9f3a">Finding Movario's base</p><span>Fira Sans 14 · part</span></div>
+<div><p style="margin:0;font:400 14px/1.4 'Fira Sans',sans-serif">Talk to the Hunting expert.</p><span>Fira Sans 14 · step</span></div>
+<div><p style="margin:0;font:400 13px/1.4 'Fira Sans',sans-serif;color:#e4d9c4">What are our options?</p><span>Fira Sans 13 · chat</span></div>
+<div><p style="margin:0;font:600 11px/1.2 'Fira Sans',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#d2be93">Feldip Hunter area</p><span>Fira Sans 11 caps · label</span></div>
+</div>
+</div>
+</section>
+
+<section class="spec">
+<h2>Link input <code>source</code></h2>
+<div class="pane pad vstack">
+<div>
+<p class="lbl">Empty</p>
+<div class="row"><input class="inp" type="url" aria-label="Quest guide link" placeholder="https://runescape.wiki/w/…"><button class="btn" type="button">Load</button></div>
+</div>
+<div>
+<p class="lbl">Focused</p>
+<div class="row"><input class="inp is-focus" type="url" aria-label="Quest guide link, focused" value="runescape.wiki/w/While_Guthix_Sleeps"><button class="btn" type="button">Load</button></div>
+</div>
+<div>
+<p class="lbl">Error</p>
+<div class="row"><input class="inp bad" type="url" aria-label="Quest guide link, error" aria-invalid="true" value="youtube.com/watch?v=…"><button class="btn" type="button">Load</button></div>
+<p class="err">That is not a RuneScape Wiki link.</p>
+</div>
+</div>
+</section>
+
+<section class="spec">
+<h2>Buttons <code>app</code></h2>
+<div class="pane pad vstack">
+<div class="hstack">
+<button class="btn" type="button">Load</button>
+<button class="btn is-hover" type="button">Hover</button>
+<button class="btn is-active" type="button">Pressed</button>
+<button class="btn" type="button" disabled="{{ true }}">Off</button>
+</div>
+<div class="hstack">
+<button class="ib" type="button" aria-label="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+<button class="ib is-hover" type="button" aria-label="Menu, hover"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+<button class="ib on" type="button" aria-label="Hide done steps" aria-pressed="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg></button>
+<span class="cap" style="margin:0">Icon · hover · toggled on</span>
+</div>
+</div>
+</section>
+
+<section class="spec">
+<h2>Header and progress <code>title</code></h2>
+<div class="pane">
+<div class="hdr">
+<p class="qt">While Guthix Sleeps</p>
+<button class="ib" type="button" aria-label="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+</div>
+<div class="prog"><progress class="pg" value="10" max="115" aria-label="Quest progress"></progress><span class="cnt">10 / 115 steps</span></div>
+</div>
+<p class="cap">Counts every main step. Sub-steps do not count.</p>
+</section>
+
+<section class="spec">
+<h2>Tabs and step tools <code>overview · items · sections</code></h2>
+<div class="pane">
+<div class="tabs">
+<div class="tl" role="tablist" aria-label="Guide parts">
+<button class="tab" type="button" role="tab" aria-selected="false">Overview</button>
+<button class="tab" type="button" role="tab" aria-selected="false">Items</button>
+<button class="tab" type="button" role="tab" aria-selected="true">Steps</button>
+</div>
+<button class="ib sm" type="button" aria-label="Jump to next step"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M12 2v3"></path><path d="M12 19v3"></path><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button class="ib sm on" type="button" aria-label="Hide done steps" aria-pressed="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg></button>
+</div>
+</div>
+<p class="cap">Jump to next step · hide done steps (on). Steps tab only.</p>
+</section>
+
+<section class="spec">
+<h2>Menu <code>app</code></h2>
+<div class="pane pad">
+<div class="menu" role="menu" aria-label="Quest menu">
+<button class="mi" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Change quest</button>
+<button class="mi is-hover" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Refresh from wiki</button>
+<a class="mi" role="menuitem" href="https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open on wiki</a>
+<hr>
+<button class="mi danger" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>Reset progress</button>
+</div>
+</div>
+</section>
+
+<section class="spec">
+<h2>App states <code>app</code></h2>
+<div class="vstack">
+<div class="pane">
+<div class="state">
+<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
+<p>Reading the wiki…</p>
+<div class="sk" aria-hidden="true"><i style="width:72%"></i><i style="width:94%"></i><i style="width:58%"></i></div>
+</div>
+</div>
+<div class="pane" style="padding:6px 0 12px">
+<div class="note warn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><span><b>Could not read that page.</b> Check that the link is a quest on runescape.wiki.</span></div>
+<div style="padding:4px 12px 0"><button class="btn" type="button">Try again</button></div>
+</div>
+<div class="pane">
+<div class="done-bn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><div><b>Quest complete!</b><span>All 115 steps done</span></div></div>
+</div>
+</div>
+<p class="cap">Loading · error · all steps ticked</p>
+</section>
+
+</div>
+
+<div class="col">
+
+<section class="spec">
+<h2>Part header <code>sections[].title</code></h2>
+<div class="pane">
+<h3 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="n">Finding Movario's base</span><span class="c">5 / 28</span></button></h3>
+<h3 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Catching Lucien's spy</span><span class="c">0 / 11</span></button></h3>
+<h3 class="sh"><button class="sech done" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Starting out</span><span class="c">✓ 5 / 5</span></button></h3>
+</div>
+<p class="cap">Open · closed · done (closes by itself)</p>
+</section>
+
+<section class="spec">
+<h2>Sub-headings <code>blocks[heading]</code></h2>
+<div class="pane" style="padding-bottom:10px">
+<p class="sub">Feldip Hunter area</p>
+<p class="sub minor">Intended method</p>
+</div>
+<p class="cap">Wiki h3 · wiki h4</p>
+</section>
+
+<section class="spec">
+<h2>Bring box <code>sections[].bring</code></h2>
+<div class="pane" style="padding:4px 0">
+<div class="blk">
+<details class="acc bring" open="{{ true }}">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Bring for this part</span><span class="m">Needed · Recommended</span></summary>
+<div class="body">
+<dl>
+<dt>Needed</dt>
+<dd>Lit sapphire lantern, Dagon'hai robes, gear for two combat styles (or Necromancy), food, prayer for Bloom or 2 druid pouch charges, 6+ free spaces</dd>
+<dt>Recommended</dt>
+<dd>Games necklace, emergency teleport, energy potions, super restores</dd>
+</dl>
+</div>
+</details>
+</div>
+</div>
+<p class="cap">Open until you tick the first step of the part</p>
+</section>
+
+<section class="spec">
+<h2>Step <code>blocks[step]</code></h2>
+<div class="pane" style="padding:6px 0">
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">In Taverley, talk to <a href="https://runescape.wiki/w/Ivy_Sophista">Ivy Sophista</a> in the house west of the summoning obelisk.</span></label></li>
+<li class="step is-hover"><label><input class="cb" type="checkbox"><span class="t">Go upstairs, talk to Thaerisk Cemphier and kill both assassins.</span></label></li>
+<li class="step cur"><label><input class="cb" type="checkbox"><span class="t">Talk to Thaerisk again.</span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends' Guild (fairy ring BLR).</span></label></li>
+</ul>
+</div>
+<p class="cap">To do · hover · next step · done (one line, extras hidden)</p>
+</section>
+
+<section class="spec">
+<h2>Text in a step <code>step.html</code></h2>
+<div class="pane pad">
+<p class="t" style="margin:0">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> (fairy ring <span class="code">BLR</span>). <em>Search</em> the table. <span class="caution">Caution:</span> dropped items are lost.</p>
+</div>
+<p class="cap">Wiki link · in-game action · fairy ring code · caution</p>
+</section>
+
+<section class="spec">
+<h2>Sub-steps <code>step.substeps[]</code></h2>
+<div class="pane" style="padding:6px 0">
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Cast <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a> to talk to:</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Turael</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Duradel</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>1</kbd><span>I need to talk to you about Lucien.</span></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Mazchna</span></label></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p class="cap">Ticking the main step ticks all its sub-steps</p>
+</section>
+
+<section class="spec">
+<h2>Overview parts <code>overview.*</code></h2>
+<div class="pane" style="padding-bottom:12px">
+<dl class="kv">
+<dt>Start</dt><dd>Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends' Guild.</dd>
+<dt>Length</dt><dd>Very, Very Long</dd>
+</dl>
+<ul class="skills">
+<li class="chip"><b>75</b>Magic</li>
+<li class="chip"><b>65</b>Herblore</li>
+</ul>
+<ul class="foes">
+<li><span class="nm"><span class="x">2 ×</span> Assassin</span><span class="lv">lvl <b>42</b></span></li>
+<li><span class="nm">Balance Elemental</span><span class="lv">lvl <b>117</b></span></li>
+</ul>
+<div class="blk">
+<details class="acc" open="{{ true }}">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Quest tree</span><span class="m">31 entries</span></summary>
+<div class="body">
+<ul class="tree">
+<li>Defender of Varrock</li>
+<li class="d2">Shield of Arrav</li>
+<li class="d2">The Knight's Sword</li>
+<li class="d2">Family Crest</li>
+<li class="more">… the full tree, indented like the wiki</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+<p class="cap">Facts · skill levels · enemies · quest tree</p>
+</section>
+
+</div>
+
+<div class="col">
+
+<section class="spec">
+<h2>Chat options <code>step.dialogue[]</code></h2>
+<div class="pane pad">
+<p class="lbl">Number keys</p>
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>1</kbd><span>What efforts are you making against Lucien?</span></li>
+<li><kbd>2</kbd><span>What are our options?</span></li>
+<li><kbd>3</kbd><span>What do you need me to do?</span></li>
+</ul>
+<p class="lbl" style="margin-top:14px">Special keys</p>
+<ul class="dlg" aria-label="Chat options with special keys">
+<li><kbd>✓</kbd><span>Accept quest</span></li>
+<li><kbd>?</kbd><span>Talk about Lucien and Movario. <span class="vary">Number varies.</span></span></li>
+<li><kbd>~</kbd><span>Any option. Try them until one works.</span></li>
+</ul>
+<p class="why">If you finished The Hand in the Sand:</p>
+<ul class="dlg" aria-label="Chat options for this case">
+<li><kbd>2</kbd><span>Talk to Betty about While Guthix Sleeps.</span></li>
+</ul>
+</div>
+<p class="cap">A list: key first, then the text. A line in italics starts another case.</p>
+</section>
+
+<section class="spec">
+<h2>Image <code>step.images[]</code></h2>
+<div class="pane pad">
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>The ice wall and the ledge</span></summary>
+<div class="body"><div class="ph">Wiki image</div></div>
+</details>
+<details class="acc" open="{{ true }}">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>The ice wall and the ledge</span></summary>
+<div class="body"><div class="ph">Wiki image, up to 350 px wide</div><p class="cap">The ice wall and the ledge.</p></div>
+</details>
+</div>
+<p class="cap">Closed by default · one per image · caption is the title</p>
+</section>
+
+<section class="spec">
+<h2>Table <code>blocks[table]</code></h2>
+<div class="pane pad">
+<details class="acc" open="{{ true }}">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M12 3v18"></path></svg><span>Statue ingredients</span><span class="m">13 rows</span></summary>
+<div class="body">
+<table class="tbl">
+<thead><tr><th>Keyword</th><th>Ingredients</th></tr></thead>
+<tbody>
+<tr><td>Agility</td><td>Clean toadflax + toad's legs</td></tr>
+<tr><td>Attack</td><td>Clean guam + eye of newt</td></tr>
+<tr><td>Balance</td><td>Clean harralander + red spiders' eggs + garlic + silver dust</td></tr>
+<tr><td>Combat</td><td>Clean harralander + goat horn dust</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+</div>
+<p class="cap">Closed by default · sample shows 4 of 13 rows</p>
+</section>
+
+<section class="spec">
+<h2>Notes <code>blocks[note · warning · text]</code></h2>
+<div class="pane" style="padding:6px 0">
+<div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Dismiss any followers before the next steps.</span></div>
+<div class="note warn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><span>Turn off area attacks before killing Elite Black Knights. Two kills at once drop the same piece twice.</span></div>
+<p class="para">Done right, opening the door gives “The magical interference to teleportation has lifted.”</p>
+</div>
+<p class="cap">Note (wiki italics) · warning (WARNING, CAUTION) · plain text</p>
+</section>
+
+<section class="spec">
+<h2>Item <code>requiredItems.items[]</code></h2>
+<div class="pane" style="padding:6px 0">
+<ul class="steps">
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a><span class="alt">or 5,000 coins</span></span></label></li>
+</ul>
+</div>
+<p class="cap">Same tick row as steps · nested wiki bullets become small lines</p>
+</section>
+
+<section class="spec">
+<h2>Next step button <code>app</code></h2>
+<div class="pane">
+<div class="ftr"><button class="next" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Done, next step</button></div>
+<div class="ftr"><button class="next is-active" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Done, next step</button></div>
+<div class="ftr"><button class="next" type="button" disabled="{{ true }}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>All steps done</button></div>
+</div>
+<p class="cap">Default · pressed · all done. Ticks the highlighted step and its sub-steps, then scrolls to the next one. Steps tab only.</p>
+</section>
+
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1160,"height":1945}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

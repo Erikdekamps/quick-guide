@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data shape – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.doc{width:680px;min-height:1890px;padding:28px;background:#100c09;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.doc>h1{margin:0;font:700 24px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8}
+.lead{margin:6px 0 18px;font-size:13px;line-height:1.5;color:#b9ab90}
+.json{margin:0;padding:14px 16px;background:#0b0806;border:1px solid #47392a;border-radius:3px;font:500 12px/1.5 "Fira Mono",ui-monospace,monospace;color:#ddd1b9}
+.json div{white-space:pre-wrap}
+.d1{padding-left:2ch}
+.d2{padding-left:4ch}
+.d3{padding-left:6ch}
+.d4{padding-left:8ch}
+.d5{padding-left:10ch}
+.d6{padding-left:12ch}
+.d7{padding-left:14ch}
+.d8{padding-left:16ch}
+.k{color:#ff9f3a}
+.v{color:#f2c45a}
+.doc h2{margin:24px 0 8px;font:600 13px/1.3 "Fira Sans",sans-serif;color:#ff9f3a}
+.legend{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 14px;margin:0;font-size:13px;line-height:1.45}
+.legend dt{font-weight:600;color:#ecd9a8}
+.legend dd{margin:0;color:#d6cab2}
+.legend code{font:500 12px/1.4 "Fira Mono",ui-monospace,monospace;color:#f2c45a}
+</style>
+</helmet>
+<div class="doc">
+<h1>Data shape</h1>
+<p class="lead">The app reads the wiki page once, turns it into this JSON, then builds every screen from it. The example is While Guthix Sleeps, cut short with “…”.</p>
+
+<div class="json" role="figure" aria-label="Quest JSON example">
+<div>{</div>
+<div class="d1"><span class="k">"source"</span>: "https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide",</div>
+<div class="d1"><span class="k">"title"</span>: "While Guthix Sleeps",</div>
+<div class="d1"><span class="k">"overview"</span>: {</div>
+<div class="d2"><span class="k">"startPoint"</span>: "Talk to Radimus Erkle in the Legends' Guild…",</div>
+<div class="d2"><span class="k">"members"</span>: <span class="v">true</span>,</div>
+<div class="d2"><span class="k">"length"</span>: "Very, Very Long",</div>
+<div class="d2"><span class="k">"questReqs"</span>: [{ <span class="k">"text"</span>: "Defender of Varrock", <span class="k">"depth"</span>: <span class="v">1</span> }],</div>
+<div class="d2"><span class="k">"skillReqs"</span>: [{ <span class="k">"skill"</span>: "Magic", <span class="k">"level"</span>: <span class="v">75</span> }],</div>
+<div class="d2"><span class="k">"otherReqs"</span>: ["Warriors' Guild entry"],</div>
+<div class="d2"><span class="k">"followsEvents"</span>: ["Nature Spirit", "Priest in Peril", "…"],</div>
+<div class="d2"><span class="k">"enemies"</span>: [{ <span class="k">"name"</span>: "Assassin", <span class="k">"count"</span>: <span class="v">2</span>, <span class="k">"level"</span>: <span class="v">42</span> }],</div>
+<div class="d2"><span class="k">"extra"</span>: [{ <span class="k">"label"</span>: "League region required", <span class="k">"text"</span>: "…" }]</div>
+<div class="d1">},</div>
+<div class="d1"><span class="k">"requiredItems"</span>: {</div>
+<div class="d2"><span class="k">"note"</span>: "Tool belt items are not listed…",</div>
+<div class="d2"><span class="k">"items"</span>: [</div>
+<div class="d3">{</div>
+<div class="d4"><span class="k">"id"</span>: "req-08",</div>
+<div class="d4"><span class="k">"html"</span>: "&lt;a href=\"…\"&gt;Ring of charos (a)&lt;/a&gt;",</div>
+<div class="d4"><span class="k">"alternatives"</span>: ["or 5,000 coins"]</div>
+<div class="d3">}</div>
+<div class="d2">]</div>
+<div class="d1">},</div>
+<div class="d1"><span class="k">"recommendedItems"</span>: { <span class="k">"note"</span>: <span class="v">null</span>, <span class="k">"items"</span>: ["…"] },</div>
+<div class="d1"><span class="k">"sections"</span>: [</div>
+<div class="d2">{</div>
+<div class="d3"><span class="k">"id"</span>: "finding-movarios-base",</div>
+<div class="d3"><span class="k">"title"</span>: "Finding Movario's base",</div>
+<div class="d3"><span class="k">"bring"</span>: {</div>
+<div class="d4"><span class="k">"needed"</span>: "Any logs, ring of charos (a) or 5,000 coins, …",</div>
+<div class="d4"><span class="k">"recommended"</span>: "Watchtower Teleport, Ardougne Teleport"</div>
+<div class="d3">},</div>
+<div class="d3"><span class="k">"blocks"</span>: [</div>
+<div class="d4">{ <span class="k">"type"</span>: "heading", <span class="k">"level"</span>: <span class="v">3</span>, <span class="k">"text"</span>: "Khazard" },</div>
+<div class="d4">{ <span class="k">"type"</span>: "image", <span class="k">"src"</span>: "https://runescape.wiki/images/…",</div>
+<div class="d5"><span class="k">"caption"</span>: "Location of the Khazard launderer" },</div>
+<div class="d4">{ <span class="k">"type"</span>: "note", <span class="k">"html"</span>: "Dismiss any followers…" },</div>
+<div class="d4">{</div>
+<div class="d5"><span class="k">"type"</span>: "step",</div>
+<div class="d5"><span class="k">"id"</span>: "finding-movarios-base/6",</div>
+<div class="d5"><span class="k">"html"</span>: "With the &lt;a&gt;ring of charos (a)&lt;/a&gt; equipped, talk to…",</div>
+<div class="d5"><span class="k">"dialogue"</span>: [</div>
+<div class="d6">{</div>
+<div class="d7"><span class="k">"when"</span>: <span class="v">null</span>,</div>
+<div class="d7"><span class="k">"options"</span>: [</div>
+<div class="d8">{ <span class="k">"key"</span>: "2", <span class="k">"text"</span>: "Do you know someone called Movario?" },</div>
+<div class="d8">{ <span class="k">"key"</span>: "2", <span class="k">"text"</span>: "(Charm) Tell me all you know…" }</div>
+<div class="d7">]</div>
+<div class="d6">}</div>
+<div class="d5">],</div>
+<div class="d5"><span class="k">"images"</span>: [],</div>
+<div class="d5"><span class="k">"tables"</span>: [],</div>
+<div class="d5"><span class="k">"substeps"</span>: [</div>
+<div class="d6">{ <span class="k">"id"</span>: "finding-movarios-base/6.1", <span class="k">"html"</span>: "…", <span class="k">"dialogue"</span>: [] }</div>
+<div class="d5">]</div>
+<div class="d4">},</div>
+<div class="d4">{</div>
+<div class="d5"><span class="k">"type"</span>: "table",</div>
+<div class="d5"><span class="k">"head"</span>: ["Symbol (letter)", "Rune"],</div>
+<div class="d5"><span class="k">"rows"</span>: [["O", "Mind rune"], ["H", "Earth rune"], ["…"]]</div>
+<div class="d4">}</div>
+<div class="d3">]</div>
+<div class="d2">}</div>
+<div class="d1">],</div>
+<div class="d1"><span class="k">"rewards"</span>: { <span class="k">"image"</span>: "…", <span class="k">"items"</span>: ["5 quest points", "5,000 coins", "…"] },</div>
+<div class="d1"><span class="k">"music"</span>: [{ <span class="k">"name"</span>: "Dangerous Logic", <span class="k">"where"</span>: "Movario's base" }],</div>
+<div class="d1"><span class="k">"requiredFor"</span>: {</div>
+<div class="d2"><span class="k">"direct"</span>: ["Nomad's Elegy", "Ritual of the Mahjarrat"],</div>
+<div class="d2"><span class="k">"indirect"</span>: ["Aftermath", "Alpha vs Omega", "…"]</div>
+<div class="d1">}</div>
+<div>}</div>
+</div>
+
+<h2>What the fields mean</h2>
+<dl class="legend">
+<dt>blocks[].type</dt><dd><code>step</code> · <code>heading</code> · <code>note</code> · <code>warning</code> · <code>text</code> · <code>image</code> · <code>table</code>, in the same order as the wiki.</dd>
+<dt>dialogue key</dt><dd><code>1</code>–<code>9</code> number key · <code>✓</code> accept quest · <code>~</code> any option · <code>?</code> number varies</dd>
+<dt>dialogue when</dt><dd><code>null</code> for the normal list. Text like “If you finished The Hand in the Sand” for another case.</dd>
+<dt>html</dt><dd>The wiki's own words. Only links, bold and italics are kept.</dd>
+<dt>id</dt><dd>Part id + step number, so your ticks stay put after a refresh.</dd>
+</dl>
+
+<h2>Saved ticks, on this computer</h2>
+<div class="json" role="figure" aria-label="Saved progress example">
+<div>{</div>
+<div class="d1"><span class="k">"While_Guthix_Sleeps"</span>: {</div>
+<div class="d2"><span class="k">"steps"</span>: ["starting-out/1", "starting-out/2", "…"],</div>
+<div class="d2"><span class="k">"items"</span>: ["req-01", "req-02", "req-03", "req-05"]</div>
+<div class="d1">}</div>
+<div>}</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":1890}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

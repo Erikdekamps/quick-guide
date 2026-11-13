@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Overview – While Guthix Sleeps</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.app{width:360px;height:720px;display:flex;flex-direction:column;overflow:hidden;background:#1b1510;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;border:1px solid #5a472f;-webkit-font-smoothing:antialiased}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
+.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
+.ib:hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
+.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
+.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
+.pg::-webkit-progress-bar{background:#0e0b08}
+.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
+.pg::-moz-progress-bar{background:#d9ad4a}
+.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
+.tl{display:flex;gap:2px;flex:1}
+.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
+.tab:hover{color:#ece3d2}
+.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:18px}
+.scroll::-webkit-scrollbar{width:10px}
+.scroll::-webkit-scrollbar-track{background:#100c09;border-left:1px solid #33281c}
+.scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#6e583c,#4a3a28);border:1px solid #100c09;border-radius:2px}
+a{color:#f3c969;text-decoration:none}
+a:hover{text-decoration:underline}
+.kv{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px 10px;margin:14px 12px 4px;font-size:13px;line-height:1.4}
+.kv dt{color:#b9ab90}
+.kv dd{margin:0}
+.bh{display:flex;align-items:baseline;gap:8px;margin:18px 12px 8px;font:600 13px/1.2 "Fira Sans",sans-serif;color:#ff9f3a}
+.skills{list-style:none;margin:0 12px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.chip{display:flex;align-items:baseline;gap:8px;padding:5px 8px;background:#130f0b;border:1px solid #3f3224;border-radius:3px;font-size:13px;color:#e4d9c4}
+.chip b{min-width:20px;font-weight:700;color:#f2c45a;font-variant-numeric:tabular-nums}
+.para{margin:8px 12px;font-size:13px;line-height:1.45;color:#c9bca0}
+.blk{margin:4px 12px}
+.acc{margin:6px 0;background:#130f0b;border:1px solid #47392a;border-radius:3px}
+.acc>summary{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 8px;list-style:none;cursor:pointer;font-size:12.5px;line-height:1.3;color:#ddd1b9;border-radius:3px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary:hover{background:#1e1712}
+.acc>summary .i{width:14px;height:14px;color:#a88b5e}
+.acc>summary .chev{transition:transform .15s}
+.acc[open]>summary .chev{transform:rotate(90deg)}
+.acc>summary .m{margin-left:auto;color:#a8987a;font-size:12px}
+.acc .body{padding:8px;border-top:1px solid #33281c}
+.foes{list-style:none;margin:0 12px;padding:0}
+.foes li{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #2b2219;font-size:13px;line-height:1.35}
+.foes li:last-child{border-bottom:0}
+.foes .nm{flex:1;min-width:0}
+.foes .x{color:#b9ab90}
+.lv{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lv b{color:#f2c45a}
+.plain{margin:0 12px;padding:0 0 0 18px;font-size:13px;line-height:1.45;color:#e4d9c4}
+.plain li{margin:3px 0}
+.plain li::marker{color:#a88b5e}
+.plain b{color:#f2c45a}
+.ph{display:grid;place-items:center;width:100%;aspect-ratio:3/2;padding:10px;background:repeating-linear-gradient(135deg,#1d1610 0 10px,#221a13 10px 20px);border:1px dashed #5e4a32;border-radius:2px;color:#b3a487;font-size:12px;text-align:center}
+.tree{list-style:none;margin:0;padding:0;font-size:13px;line-height:1.4;color:#e4d9c4}
+.tree li{padding:2px 0}
+.tree .d2{padding-left:16px;color:#d6cab2}
+.tree .more{color:#a8987a;font-size:12px}
+.acc .plain{margin:0}
+.acc .para{margin:8px 0 0}
+.xl{display:inline-flex;align-items:center;gap:6px;margin:16px 12px 0;font-size:13px}
+.xl .i{width:14px;height:14px}
+.foot{margin:12px 12px 0;font-size:11.5px;line-height:1.45;color:#9d907a}
+</style>
+</helmet>
+<div class="app">
+<header class="hdr">
+<h1 class="qt">While Guthix Sleeps</h1>
+<button class="ib" type="button" aria-label="Quest menu" title="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+</header>
+<div class="prog">
+<progress class="pg" value="10" max="115" aria-label="Quest progress"></progress>
+<span class="cnt">10 / 115 steps</span>
+</div>
+<nav class="tabs" aria-label="Guide parts">
+<div class="tl" role="tablist">
+<button class="tab" type="button" role="tab" aria-selected="true">Overview</button>
+<button class="tab" type="button" role="tab" aria-selected="false">Items</button>
+<button class="tab" type="button" role="tab" aria-selected="false">Steps</button>
+</div>
+</nav>
+<main class="scroll">
+
+<dl class="kv">
+<dt>Start</dt><dd>Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the <a href="https://runescape.wiki/w/Legends%27_Guild">Legends' Guild</a>, north-east Ardougne.</dd>
+<dt>Members</dt><dd>Yes</dd>
+<dt>Length</dt><dd>Very, Very Long</dd>
+</dl>
+
+<h2 class="bh">Skills</h2>
+<ul class="skills">
+<li class="chip"><b>25</b>Agility</li>
+<li class="chip"><b>40</b>Defence</li>
+<li class="chip"><b>65</b>Farming</li>
+<li class="chip"><b>65</b>Herblore</li>
+<li class="chip"><b>55</b>Hunter</li>
+<li class="chip"><b>75</b>Magic</li>
+<li class="chip"><b>23</b>Summoning</li>
+<li class="chip"><b>60</b>Thieving</li>
+</ul>
+<p class="para">Plus entry to the <a href="https://runescape.wiki/w/Warriors%27_Guild">Warriors' Guild</a>: Attack + Strength of 130, or 99 in one of them.</p>
+
+<h2 class="bh">Quests</h2>
+<div class="blk">
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Quest tree</span><span class="m">31 entries</span></summary>
+<div class="body"><ul class="tree"><li>Defender of Varrock</li><li class="d2">Shield of Arrav</li><li class="d2">The Knight's Sword</li><li class="d2">Family Crest</li><li class="more">… and 27 more, indented like the wiki</li></ul></div>
+</details>
+</div>
+<p class="para">Story only, not required: Nature Spirit, Priest in Peril, The Restless Ghost.</p>
+
+<h2 class="bh">Enemies</h2>
+<ul class="foes">
+<li><span class="nm"><span class="x">2 ×</span> Assassin</span><span class="lv">lvl <b>42</b></span></li>
+<li><span class="nm">Mercenary mage</span><span class="lv">lvl <b>70</b></span></li>
+<li><span class="nm"><span class="x">2 ×</span> Mercenary axeman</span><span class="lv">lvl <b>91</b></span></li>
+<li><span class="nm"><span class="x">3 ×</span> Elite Black Knight</span><span class="lv">lvl <b>100</b></span></li>
+<li><span class="nm">Balance Elemental</span><span class="lv">lvl <b>117</b></span></li>
+<li><span class="nm"><span class="x">2 ×</span> Tormented demon <span class="x">(your stats are boosted)</span></span><span class="lv">lvl <b>119</b></span></li>
+</ul>
+
+<h2 class="bh">Rewards</h2>
+<ul class="plain">
+<li><b>5</b> quest points</li>
+<li>5,000 coins</li>
+<li>A lump of dragon metal</li>
+<li>4 × 100,000 XP from Idria (skills 65+)</li>
+<li>Broav pet</li>
+<li>Elite black armour and Dagon'hai robes</li>
+<li>Black Knights' Catacombs access</li>
+<li>Loot in Movario's base</li>
+</ul>
+<div class="blk">
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>Quest complete scroll</span></summary>
+<div class="body"><div class="ph">Reward image from the wiki</div></div>
+</details>
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg><span>Music unlocked</span><span class="m">5 tracks</span></summary>
+<div class="body"><ul class="plain"><li>Dangerous Logic</li><li>Black of Knight</li><li>The Evil Within</li><li>The Sound of Guthix</li><li>Temple Desecrated</li></ul></div>
+</details>
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Needed for later quests</span><span class="m">2 direct · 39 more</span></summary>
+<div class="body"><ul class="plain"><li>Nomad's Elegy</li><li>Ritual of the Mahjarrat</li></ul><p class="para">… and 39 later quests that build on these.</p></div>
+</details>
+</div>
+
+<a class="xl" href="https://runescape.wiki/w/While_Guthix_Sleeps">Full quest guide on the wiki <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
+<p class="foot">Guide text: RuneScape Wiki, CC BY-NC-SA 3.0.</p>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
