@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Steps – While Guthix Sleeps</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.app{width:360px;height:720px;display:flex;flex-direction:column;overflow:hidden;background:#1b1510;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;border:1px solid #5a472f;-webkit-font-smoothing:antialiased}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
+.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
+.ib:hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
+.ib.on{background:#16110c;border-color:#d9ad4a;color:#f2c45a;box-shadow:inset 0 1px 3px rgba(0,0,0,.8)}
+.ib.sm{width:28px;height:28px}
+.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
+.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
+.pg::-webkit-progress-bar{background:#0e0b08}
+.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
+.pg::-moz-progress-bar{background:#d9ad4a}
+.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
+.tl{display:flex;gap:2px;flex:1}
+.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
+.tab:hover{color:#ece3d2}
+.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
+.tabs .ib{margin-bottom:3px}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:18px}
+.scroll::-webkit-scrollbar{width:10px}
+.scroll::-webkit-scrollbar-track{background:#100c09;border-left:1px solid #33281c}
+.scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#6e583c,#4a3a28);border:1px solid #100c09;border-radius:2px}
+.sh{margin:0}
+.sech{display:flex;align-items:center;gap:8px;width:100%;min-height:38px;padding:8px 12px 8px 10px;background:linear-gradient(#31271c,#251d15);border:0;border-top:1px solid #4d3d2b;border-bottom:1px solid #0d0a07;color:#ff9f3a;font:600 14px/1.3 "Fira Sans",sans-serif;text-align:left;cursor:pointer}
+.sech:hover{background:linear-gradient(#3a2e21,#2b2219)}
+.sech .n{flex:1;min-width:0}
+.sech .c{font-weight:500;font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sech .i{color:#c4b699}
+.sech.done{color:#c9b083}
+.sech.done .c{color:#f2c45a}
+.sub{display:flex;align-items:center;gap:8px;margin:14px 12px 4px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#d2be93}
+.sub::after{content:"";flex:1;height:1px;background:#3f3224}
+.blk{margin:4px 12px}
+.acc{margin:6px 0;background:#130f0b;border:1px solid #47392a;border-radius:3px}
+.acc>summary{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 8px;list-style:none;cursor:pointer;font-size:12.5px;line-height:1.3;color:#ddd1b9;border-radius:3px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary:hover{background:#1e1712}
+.acc>summary .i{width:14px;height:14px;color:#a88b5e}
+.acc>summary .chev{transition:transform .15s}
+.acc[open]>summary .chev{transform:rotate(90deg)}
+.acc>summary .m{margin-left:auto;color:#a8987a;font-size:12px}
+.acc .body{padding:8px;border-top:1px solid #33281c}
+.bring dl{margin:0;font-size:12.5px;line-height:1.45;color:#ddd1b9}
+.bring dt{margin:0 0 3px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ff9f3a}
+.bring dd{margin:0 0 8px}
+.bring dd:last-child{margin-bottom:0}
+.steps{list-style:none;margin:0;padding:0 6px}
+.step{margin:1px 0;border-radius:3px}
+.step>label{display:flex;align-items:flex-start;gap:10px;padding:8px 6px;border-radius:3px;cursor:pointer}
+.step>label:hover{background:#251d16}
+.t{flex:1;min-width:0}
+.t a,.para a,.bring a{color:#f3c969;text-decoration:none}
+.t a:hover,.para a:hover,.bring a:hover{text-decoration:underline}
+.t em{font-style:italic;color:#fff2d4}
+.step.cur{background:#2a2118;box-shadow:inset 0 0 0 1px #6b563b}
+.step.cur>label:hover{background:transparent}
+.step.cur>label>.cb{border-color:#e2b552}
+.step.done>label{align-items:center;padding-top:6px;padding-bottom:6px}
+.step.done>label>.cb{margin-top:0}
+.step.done .t{color:#9d907a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.done .t a,.step.done .t em{color:#b0a07f}
+.ext{padding:0 8px 8px 34px}
+.subs{padding:0;margin-top:4px}
+.subs .step>label{gap:8px;padding:5px 6px}
+.subs .ext{padding-left:29px}
+.cb{-webkit-appearance:none;appearance:none;flex:none;display:grid;place-content:center;width:18px;height:18px;margin:1px 0 0;background:#0e0b08;border:1px solid #8a7050;border-radius:2px;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);cursor:pointer}
+.cb::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:2px solid #f2c45a;border-bottom:2px solid #f2c45a;transform:rotate(-45deg);opacity:0}
+.cb:checked::before,.done>label>.cb::before{opacity:1}
+.cb:focus-visible{outline:2px solid #f2c45a;outline-offset:2px}
+.subs .cb{width:15px;height:15px;margin-top:2px}
+.subs .cb::before{width:7px;height:4px;margin-top:-2px}
+.caution{font-weight:600;color:#ff8a73}
+.dlg{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:4px}
+.dlg li{display:flex;align-items:baseline;gap:8px;font-size:13px;line-height:1.4;color:#e4d9c4}
+kbd{flex:none;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;background:linear-gradient(#33291e,#1c160f);border:1px solid #8a7050;border-bottom-width:2px;border-radius:3px;font:700 12px/1 "Fira Sans",sans-serif;color:#f2c45a}
+.ph{display:grid;place-items:center;width:100%;aspect-ratio:3/2;padding:10px;background:repeating-linear-gradient(135deg,#1d1610 0 10px,#221a13 10px 20px);border:1px dashed #5e4a32;border-radius:2px;color:#b3a487;font-size:12px;text-align:center}
+.cap{margin:6px 0 0;font-size:12px;font-style:italic;color:#b9ab90}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{padding:5px 6px;text-align:left;font-weight:600;color:#ff9f3a;border-bottom:1px solid #5e4a32}
+.tbl td{padding:5px 6px;vertical-align:top;color:#e4d9c4;border-bottom:1px solid #2b2219}
+.tbl tbody tr:nth-child(even) td{background:#18120d}
+.note{display:flex;gap:8px;margin:6px 12px;padding:8px 10px;background:#211a12;border:1px solid #5e4a32;border-radius:3px;font-size:13px;line-height:1.4;color:#e4d9c4}
+.note .i{margin-top:1px;color:#e0bd6c}
+.para{margin:6px 12px;font-size:13px;line-height:1.45;color:#c9bca0}
+.ftr{flex:none;padding:8px;background:linear-gradient(#2e241a,#211a13);border-top:1px solid #6b563b;box-shadow:inset 0 1px 0 rgba(255,226,170,.08)}
+.next{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:40px;padding:0 14px;background:linear-gradient(#7a5f3d,#4d3a25);border:1px solid #c4a46c;border-radius:3px;color:#fff3d6;font:600 14px/1 "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,232,185,.25),0 1px 0 #0a0705;text-shadow:0 1px 0 rgba(0,0,0,.6)}
+.next:hover{background:linear-gradient(#8a6c45,#5a442c);border-color:#dcbc7e}
+.next:active{background:linear-gradient(#45341f,#5a442c);box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
+.next .i{color:#f2c45a}
+</style>
+</helmet>
+<div class="app">
+<header class="hdr">
+<h1 class="qt">While Guthix Sleeps</h1>
+<button class="ib" type="button" aria-label="Quest menu" title="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+</header>
+<div class="prog">
+<progress class="pg" value="10" max="115" aria-label="Quest progress"></progress>
+<span class="cnt">10 / 115 steps</span>
+</div>
+<nav class="tabs" aria-label="Guide parts">
+<div class="tl" role="tablist">
+<button class="tab" type="button" role="tab" aria-selected="false">Overview</button>
+<button class="tab" type="button" role="tab" aria-selected="false">Items</button>
+<button class="tab" type="button" role="tab" aria-selected="true">Steps</button>
+</div>
+<button class="ib sm" type="button" aria-label="Jump to next step" title="Jump to next step"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M12 2v3"></path><path d="M12 19v3"></path><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button class="ib sm" type="button" aria-label="Hide done steps" aria-pressed="false" title="Hide done steps"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg></button>
+</nav>
+<main class="scroll">
+
+<section>
+<h2 class="sh"><button class="sech done" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Starting out</span><span class="c">✓ 5 / 5</span></button></h2>
+</section>
+
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="n">Finding Movario's base</span><span class="c">5 / 28</span></button></h2>
+<div class="blk">
+<details class="acc bring">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Bring for this part</span><span class="m">Needed · Recommended</span></summary>
+<div class="body">
+<dl>
+<dt>Needed</dt>
+<dd>Any logs, <a href="https://runescape.wiki/w/Ring_of_charos_(a)">ring of charos (a)</a> or 5,000 coins, 1 each of air, mind, water, earth and fire runes (spares help), mort myre fungus, 6+ free backpack spaces</dd>
+<dt>Recommended</dt>
+<dd>Watchtower Teleport, Ardougne Teleport (Ardougne cloak is best)</dd>
+</dl>
+</div>
+</details>
+</div>
+
+<h3 class="sub">Feldip Hunter area</h3>
+<ul class="steps">
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Talk to the <a href="https://runescape.wiki/w/Hunting_expert">Hunting expert</a> in the Feldip Hunter area about tracking a person.</span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t"><em>Trap</em> the square trap pit to the west, then <em>use</em> the mort myre fungus on it.</span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t"><em>Dismantle</em> the collapsed trap to get an <a href="https://runescape.wiki/w/Unconscious_broav">unconscious broav</a>.</span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Talk to the Hunting expert again about tracking a person.</span></label></li>
+</ul>
+
+<h3 class="sub">Khazard</h3>
+<div class="blk">
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>Location of the Khazard launderer</span></summary>
+<div class="body"><div class="ph">Map image from the wiki</div><p class="cap">Location of the Khazard launderer</p></div>
+</details>
+</div>
+<div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Dismiss any followers before the next steps.</span></div>
+<ul class="steps">
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Go to the laundry room west of the <a href="https://runescape.wiki/w/Fight_Arena_(location)">Fight Arena</a>, two houses north of the pub.</span></label></li>
+<li class="step cur"><label><input class="cb" type="checkbox"><span class="t">With the <a href="https://runescape.wiki/w/Ring_of_charos_(a)">ring of charos (a)</a> equipped, talk to the <a href="https://runescape.wiki/w/Khazard_launderer">Khazard launderer</a> to get <a href="https://runescape.wiki/w/Dirty_laundry">dirty laundry</a>.</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>2</kbd><span>Do you know someone called Movario?</span></li>
+<li><kbd>2</kbd><span>(Charm) Tell me all you know about Movario.</span></li>
+</ul>
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Brought coins instead? Take them out of your coin pouch and use them on the launderer.</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>2</kbd><span>No, I need information. Do you know someone called Movario?</span></li>
+<li><kbd>1</kbd><span>Offer five thousand coins for information on Movario.</span></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Go north-west to the <a href="https://runescape.wiki/w/Battlefield">Khazard Battleground</a>, north of Tree Gnome Village across the bridges.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Climb-over</em> the crumbled wall in the north-westernmost building.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Drop the broav in the room with the broken table, then use the dirty laundry on it.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the broken table to find a trapdoor, then go down.</span></label></li>
+</ul>
+
+<h3 class="sub">Old battered door</h3>
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Pick-up</em> the broav.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Go through the door, follow the path north and <em>climb-down</em> the stairs.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the old battered door and use the right rune on it. You hear a click when it is right.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the door again and disarm the trap. Boost Thieving if you need to.</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>1</kbd><span>Yes, I'm an awesome thief, I'll disable it easily!</span></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Go through the old battered door.</span></label></li>
+</ul>
+<p class="para">“Prohibited” is the key word. In-game only one of its letters is swapped for a symbol. Match that symbol to a rune.</p>
+<div class="blk">
+<details class="acc">
+<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M12 3v18"></path></svg><span>Symbol → rune</span><span class="m">5 rows</span></summary>
+<div class="body">
+<table class="tbl">
+<thead><tr><th>Symbol (letter)</th><th>Rune</th></tr></thead>
+<tbody>
+<tr><td>O</td><td>Mind rune</td></tr>
+<tr><td>H</td><td>Earth rune</td></tr>
+<tr><td>E</td><td>Air rune</td></tr>
+<tr><td>E (other symbol)</td><td>Fire rune</td></tr>
+<tr><td>D</td><td>Water rune</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+</div>
+
+<h3 class="sub">Inside Movario's base</h3>
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the painting on the east wall.</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>1</kbd><span>Yes, I'll flip the catch and see what happens.</span></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the bookcases until the chat says “CLICK!”.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Follow the faintly glowing wire to the next bookcase. Zoom in if the glow is hard to see.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> that bookcase.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Repeat until the electricity on the gate is gone.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Open</em> the gate, <em>search</em> the spiral staircase to disarm it, then <em>climb-up</em>.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the desk for <a href="https://runescape.wiki/w/Movario%27s_notes_(volume_1)">Movario's notes (volume 1)</a>.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Read the notes.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Pick-up</em> the waste-paper basket.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">With the notes in your backpack, <em>search</em> the basket.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the bookcase west of the basket.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Use the ruby key on the bookcase.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Climb-up</em> the stairs just north of you.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the bed.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Use the ruby key on the bed chest.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Search</em> the bed chest to disarm its traps. Retry until it works.</span></label>
+<div class="ext">
+<ul class="dlg" aria-label="Chat options">
+<li><kbd>1</kbd><span>Yes, I'll attempt it.</span></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Use the ruby key on the chest, then open and search it for the strange key loop, strange key teeth and Movario's notes (volume 2). Read them.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Climb down twice to the wire room, <em>cross-over</em> the broken wall and <em>search</em> the drawers.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Look-at</em> the thermometer and note the number. Compare it with your weight in the equipment screen. The difference is the weight you need to add or lose.</span></label>
+<div class="ext">
+<ul class="steps subs">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Pick up your broav first, or the numbers will be off.</span></label></li>
+</ul>
+</div>
+</li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><em>Take</em> weights from the pile on the floor to match that difference. Following this guide, that is two 2 kg weights. <span class="caution">Caution:</span> items dropped in this room are lost.</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Climb back up. Heavier than the number: use the weights on the statue just north, then open the door east. Lighter: keep the weights and open the door east of the statue.</span></label></li>
+</ul>
+<p class="para">Done right, opening the door gives “The magical interference to teleportation has lifted.” Still stuck? Take off weight-reducing gear like <a href="https://runescape.wiki/w/Boots_of_lightness">boots of lightness</a>.</p>
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Go east through the door and up the ladder to leave the hideout.</span></label></li>
+</ul>
+</section>
+
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Catching Lucien's spy</span><span class="c">0 / 11</span></button></h2>
+</section>
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Super truth serum and recruiting the Heroes</span><span class="c">0 / 9</span></button></h2>
+</section>
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Questioning the spy</span><span class="c">0 / 8</span></button></h2>
+</section>
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Into the Black Knights' Fortress</span><span class="c">0 / 25</span></button></h2>
+</section>
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Into the chasm</span><span class="c">0 / 19</span></button></h2>
+</section>
+<section>
+<h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">The Stone of Jas</span><span class="c">0 / 10</span></button></h2>
+</section>
+
+</main>
+<footer class="ftr">
+<button class="next" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Done, next step</button>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

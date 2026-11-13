@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Items – While Guthix Sleeps</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#0d0a07}
+*{box-sizing:border-box}
+.app{width:360px;height:720px;display:flex;flex-direction:column;overflow:hidden;background:#1b1510;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;border:1px solid #5a472f;-webkit-font-smoothing:antialiased}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
+.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
+.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
+.ib:hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
+.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
+.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
+.pg::-webkit-progress-bar{background:#0e0b08}
+.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
+.pg::-moz-progress-bar{background:#d9ad4a}
+.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
+.tl{display:flex;gap:2px;flex:1}
+.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
+.tab:hover{color:#ece3d2}
+.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:18px}
+.scroll::-webkit-scrollbar{width:10px}
+.scroll::-webkit-scrollbar-track{background:#100c09;border-left:1px solid #33281c}
+.scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#6e583c,#4a3a28);border:1px solid #100c09;border-radius:2px}
+.note{display:flex;gap:8px;margin:12px 12px 4px;padding:8px 10px;background:#211a12;border:1px solid #5e4a32;border-radius:3px;font-size:13px;line-height:1.4;color:#e4d9c4}
+.note .i{margin-top:1px;color:#e0bd6c}
+.bh{display:flex;align-items:baseline;gap:8px;margin:16px 12px 4px;font:600 13px/1.2 "Fira Sans",sans-serif;color:#ff9f3a}
+.bh .c{margin-left:auto;font-weight:500;font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums}
+.steps{list-style:none;margin:0;padding:0 6px}
+.step{margin:1px 0;border-radius:3px}
+.step>label{display:flex;align-items:flex-start;gap:10px;padding:7px 6px;border-radius:3px;cursor:pointer}
+.step>label:hover{background:#251d16}
+.t{flex:1;min-width:0}
+.t a{color:#f3c969;text-decoration:none}
+.t a:hover{text-decoration:underline}
+.alt{display:block;margin-top:2px;font-size:12.5px;color:#b9ab90}
+.step.done>label{align-items:center;padding-top:6px;padding-bottom:6px}
+.step.done>label>.cb{margin-top:0}
+.step.done .t{color:#9d907a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.done .t a{color:#b0a07f}
+.cb{-webkit-appearance:none;appearance:none;flex:none;display:grid;place-content:center;width:18px;height:18px;margin:1px 0 0;background:#0e0b08;border:1px solid #8a7050;border-radius:2px;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);cursor:pointer}
+.cb::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:2px solid #f2c45a;border-bottom:2px solid #f2c45a;transform:rotate(-45deg);opacity:0}
+.cb:checked::before,.done>label>.cb::before{opacity:1}
+.cb:focus-visible{outline:2px solid #f2c45a;outline-offset:2px}
+</style>
+</helmet>
+<div class="app">
+<header class="hdr">
+<h1 class="qt">While Guthix Sleeps</h1>
+<button class="ib" type="button" aria-label="Quest menu" title="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
+</header>
+<div class="prog">
+<progress class="pg" value="10" max="115" aria-label="Quest progress"></progress>
+<span class="cnt">10 / 115 steps</span>
+</div>
+<nav class="tabs" aria-label="Guide parts">
+<div class="tl" role="tablist">
+<button class="tab" type="button" role="tab" aria-selected="false">Overview</button>
+<button class="tab" type="button" role="tab" aria-selected="true">Items</button>
+<button class="tab" type="button" role="tab" aria-selected="false">Steps</button>
+</div>
+</nav>
+<main class="scroll">
+
+<div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Tool belt items are not listed, unless they don't work from the belt.</span></div>
+
+<h2 class="bh">Required <span class="c">4 / 13</span></h2>
+<ul class="steps">
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Runes: 3 air, and 1 each of earth, fire, water, mind, law and death</span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Any <a href="https://runescape.wiki/w/Logs_(type)">logs</a>, but not acadia or eternal magic</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Charcoal">Charcoal</a> and <a href="https://runescape.wiki/w/Papyrus">papyrus</a><span class="alt">Both are easy to get during the quest</span></span></label></li>
+<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t"><a href="https://runescape.wiki/w/Lantern_lens">Lantern lens</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a><span class="alt">You get one during the quest</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Unpowered_orb">Unpowered orb</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a><span class="alt">or 5,000 coins</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Gear to enter the <a href="https://runescape.wiki/w/Black_Knights%27_Fortress">Black Knights' Fortress</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for 4 casts of <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a><span class="alt">8 air, 4 astral, 4 cosmic</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for any charge orb spell<span class="alt">30 of one element, 3 cosmic</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Gear for two combat styles, or Necromancy gear</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Snapdragon_seed">Snapdragon seed</a><span class="alt">or 100 coins to buy one from Thaerisk</span></span></label></li>
+</ul>
+
+<h2 class="bh">Recommended <span class="c">0 / 13</span></h2>
+<ul class="steps">
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Nature_Spirit">Nature Spirit</a> done, for a druid or ouroboros pouch<span class="alt">or bring the statue ingredients</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Lodestones: Burthorpe, Canifis, Edgeville, Falador, Karamja, Oo'glog, Port Sarim, Seers' Village, Taverley, Varrock, Ardougne, Yanille</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Dramen or lunar staff, unless you finished A Fairy Tale III<span class="alt">and/or a portable fairy ring</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Cape_of_legends">Cape of legends</a>, to teleport to the Legends' Guild</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Falador teletabs or a ring of respawn</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Ardougne Teleport or Ardougne cloak</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Watchtower Teleport</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for 3 more NPC Contact casts<span class="alt">6 air, 3 astral, 3 cosmic</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Some super energy potions</span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Elite black armour or Black Knight captain's armour, to save time<span class="alt">Otherwise you kill guards for each piece during the quest</span></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_life">Ring of life</a></span></label></li>
+<li class="step"><label><input class="cb" type="checkbox"><span class="t">Guthix balance ingredients for the statue<span class="alt">Clean harralander, red spiders' eggs, garlic, silver dust</span></span></label></li>
+</ul>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
