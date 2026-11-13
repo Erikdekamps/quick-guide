@@ -13,3 +13,7 @@ Design mockups for Quick Guide, copied from the "Quest Guide Overlay" design can
 | `canvas.json` | Board layout on the canvas |
 
 These files are made for the design canvas. Opened on their own in a browser, they may not look right.
+
+## Screenshots
+
+PNG pictures of each board are in `screenshots/`, at 2× size.
