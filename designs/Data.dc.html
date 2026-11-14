@@ -101,7 +101,10 @@ button, input, select { font: inherit; color: inherit; }
 #app::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 3000;
   pointer-events: none;
   box-shadow:
@@ -438,7 +441,9 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .t i { font-style: italic; color: #fff4d8; }
 .t b { font-weight: 600; color: #fff4d8; }
 /* the next step: a selected row, like in the game's lists */
-.step.cur { background: var(--sel); box-shadow: inset 0 0 0 1px #6a5434, inset 0 1px 0 1px rgba(255, 222, 160, .05); }
+/* its border is drawn above the row, so a row under the mouse never paints over it */
+.step.cur { position: relative; background: var(--sel); }
+.step.cur::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 1px solid #6a5434; border-radius: 2px; pointer-events: none; }
 .step.cur > .row:hover { background: #30291f; }
 .step.cur > .row > .cb { border-color: var(--gold); }
 .step.done > .row > .rb > .t { color: var(--faint); }
@@ -452,7 +457,8 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
 .subs .subs .row { padding-left: calc(24px + 2.357rem); }
 .subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
-.subs .step.cur { background: none; box-shadow: none; }
+.subs .step.cur { background: none; }
+.subs .step.cur::after { display: none; }
 /* Ticked rows go away. "Show done steps" shows them again. */
 #main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item] { display: none; }
 /* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
@@ -745,6 +751,21 @@ kbd {
 .q:has(.pg) .q1 b { color: var(--yellow); }
 .q.done .q1 b { color: var(--green); }
 .q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* a quest the game says you started */
+.q.started .q1 b { color: var(--yellow); }
+/* player lookup */
+.player { margin: 8px 10px 0; }
+div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; background: var(--panel-2); border: 1px solid #3a3229; border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; font-size: 13px; }
+.player .pn { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--soft); }
+.player .pn b { color: var(--title); font-weight: 600; }
+.pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
+/* your own level next to a skill requirement */
+.you { font-size: .857rem; white-space: nowrap; color: var(--muted); }
+.chip.ok .you { color: var(--green); }
+.chip.low { border-color: #6e2a21; border-top-color: #8a3a2c; }
+.chip.low .you { color: var(--red); }
+.tree li.got { color: var(--faint); }
+.tree .tk { color: var(--green); }
 /* phones: 16px inputs, so the page does not zoom in when you type */
 @media (pointer: coarse) { .inp { font-size: 16px; } }
 
@@ -896,13 +917,30 @@ kbd {
 <div style="padding-left: 4ch"><span class="k">"open"</span>: { <span class="k">"finding-movarios-base"</span>: <span class="v">true</span>, <span class="k">"ov:skills"</span>: <span class="v">false</span> },</div>
 <div style="padding-left: 4ch"><span class="k">"acc"</span>: { <span class="k">"finding-movarios-base|Map: Location of the Khazard launderer|0"</span>: <span class="v">1</span> }</div>
 <div style="padding-left: 2ch">},</div>
-<div style="padding-left: 2ch"><span class="k">"qg1.settings"</span>: { <span class="k">"showDone"</span>: <span class="v">false</span>, <span class="k">"fontSize"</span>: <span class="v">14</span>, <span class="k">"sort"</span>: "name" }</div>
+<div style="padding-left: 2ch"><span class="k">"qg1.settings"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"showDone"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"hideDone"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"fontSize"</span>: <span class="v">14</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"sort"</span>: "opt"</div>
+<div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"qg1.order"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"at"</span>: <span class="v">1794650000000</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"order"</span>: ["Cook's Assistant", "Imp Catcher", …]</div>
+<div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"qg1.player"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"name"</span>: "Sir Example",</div>
+<div style="padding-left: 4ch"><span class="k">"at"</span>: "2026-11-14T12:00:00.000Z",</div>
+<div style="padding-left: 4ch"><span class="k">"quests"</span>: { <span class="k">"cooksassistant"</span>: <span class="v">2</span>, <span class="k">"demonslayer"</span>: <span class="v">1</span> },</div>
+<div style="padding-left: 4ch"><span class="k">"levels"</span>: { <span class="k">"magic"</span>: <span class="v">80</span>, <span class="k">"herblore"</span>: <span class="v">66</span> },</div>
+<div style="padding-left: 4ch"><span class="k">"done"</span>: <span class="v">7</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"started"</span>: <span class="v">1</span></div>
+<div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, text size and sort order.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide done quests, text size and sort order.</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started.</dd></dl>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":2907}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":3270}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};

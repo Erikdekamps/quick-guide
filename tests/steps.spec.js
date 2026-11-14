@@ -18,12 +18,13 @@ test.beforeEach(async ({ page }) => {
   await openTab(page, 'steps');
 });
 
-test('parts with counts; only the part with the next step is open', async ({ page }) => {
+test('parts with counts; every part starts open', async ({ page }) => {
   await expect(page.locator('.sech .n')).toHaveText(['Starting out', "Finding Movario's base", "Catching Lucien's spy"]);
   await expect(page.locator('.sech .c')).toHaveText(['0 / 3', '0 / 7', '0 / 2']);
   await expect(head(page, 'Starting out')).toHaveAttribute('aria-expanded', 'true');
-  await expect(head(page, "Finding Movario's base")).toHaveAttribute('aria-expanded', 'false');
-  await expect(part(page, "Finding Movario's base").locator('.secb')).toBeHidden();
+  await expect(head(page, "Finding Movario's base")).toHaveAttribute('aria-expanded', 'true');
+  await expect(head(page, "Catching Lucien's spy")).toHaveAttribute('aria-expanded', 'true');
+  await expect(part(page, "Catching Lucien's spy").locator('.secb')).toBeVisible();
   await expect(page.locator('li.step.cur')).toHaveCount(1);
   await expect(page.locator('li.step.cur > .row .t')).toContainText('In Taverley');
   await expect(page.locator('#next-btn')).toHaveText('Done, next step');
@@ -145,20 +146,20 @@ test.describe('parts', () => {
   test('open and close by hand, remembered', async ({ page }) => {
     const h = head(page, "Catching Lucien's spy");
     await h.click();
-    await expect(h).toHaveAttribute('aria-expanded', 'true');
-    await expect(step(page, 'Follow the spy')).toBeVisible();
-    await page.reload();
-    await expect(h).toHaveAttribute('aria-expanded', 'true');
-    await h.click();
     await expect(h).toHaveAttribute('aria-expanded', 'false');
     await expect(step(page, 'Follow the spy')).toBeHidden();
+    await page.reload();
+    await expect(h).toHaveAttribute('aria-expanded', 'false');
+    await h.click();
+    await expect(h).toHaveAttribute('aria-expanded', 'true');
+    await expect(step(page, 'Follow the spy')).toBeVisible();
+    await h.click();
     // the part you just opened is at the top, so you do not lose your place
     await h.click();
     await expect(h).toBeInViewport();
   });
 
   test('headings, notes, warnings and text', async ({ page }) => {
-    await head(page, "Finding Movario's base").click();
     const p = part(page, "Finding Movario's base");
     await expect(p.locator('h3.sub')).toHaveText(['Feldip Hunter area', 'Khazard']);
     await expect(p.locator('h4.sub.minor')).toHaveText('Intended method');
@@ -176,7 +177,6 @@ test.describe('chat options', () => {
     const first = step(page, 'In Taverley');
     await expect(first.locator('.dlg li')).toHaveText(['1What efforts are you making against Lucien?', '✓Accept quest']);
     expect(await first.locator('kbd').evaluateAll((k) => k.map((x) => x.title))).toEqual(['Press 1', 'Accept quest']);
-    await head(page, "Finding Movario's base").click();
     const launder = step(page, 'With the ring of charos');
     await expect(launder.locator('.dlg')).toHaveCount(2);
     await expect(launder.locator('.why')).toHaveText('If you brought coins instead:');
@@ -187,7 +187,6 @@ test.describe('chat options', () => {
 test.describe('sub-steps', () => {
   test.beforeEach(async ({ page }) => {
     await showDone(page);
-    await head(page, "Finding Movario's base").click();
   });
 
   test('ticking the main step ticks its sub-steps', async ({ page }) => {
@@ -255,11 +254,11 @@ test.describe('"Bring" box', () => {
     await expect(page.locator('details.bring')).toHaveAttribute('open', '');
   });
 
-  test('closed once you start the part', async ({ page }) => {
+  test('still open once you start the part', async ({ page }) => {
     await page.locator('#next-btn').click();
     await openTab(page, 'overview');
     await openTab(page, 'steps');
-    await expect(page.locator('details.bring')).not.toHaveAttribute('open', '');
+    await expect(page.locator('details.bring')).toHaveAttribute('open', '');
   });
 
   test('its ticks are not the Items tab ticks', async ({ page }) => {
@@ -271,19 +270,17 @@ test.describe('"Bring" box', () => {
 
 test.describe('boxes for pictures, maps and tables', () => {
   test.beforeEach(async ({ page }) => {
-    await head(page, "Finding Movario's base").click();
   });
 
-  test('all closed at first', async ({ page }) => {
+  test('all open at first', async ({ page }) => {
     const p = part(page, "Finding Movario's base");
     await expect(p.locator('details.acc:not(.bring) summary .sl')).toHaveText(['Map: Location of the Khazard launderer', 'Map', 'Symbol to rune', 'The old battered door']);
     await expect(box(step(page, 'Go to the laundry room'), 'Map').locator('.cap')).toHaveText('Open on the wiki');
-    for (const d of await p.locator('details.acc:not(.bring)').all()) expect(await d.getAttribute('open')).toBeNull();
+    for (const d of await p.locator('details.acc:not(.bring)').all()) expect(await d.getAttribute('open')).toBe('');
   });
 
-  test('a map starts when you open it, with markers and the wiki map tiles', async ({ page, tiles }) => {
+  test('a map starts by itself, with markers and the wiki map tiles', async ({ page, tiles }) => {
     const m = box(part(page, "Finding Movario's base"), 'Map: Location of the Khazard launderer');
-    await m.locator('summary').click();
     await expect(m.locator('.leaflet-container')).toBeVisible();
     await expect(m.locator('.leaflet-overlay-pane path')).toHaveCount(2);
     await expect(m.locator('.leaflet-control-zoom-in')).toBeVisible();
@@ -295,27 +292,26 @@ test.describe('boxes for pictures, maps and tables', () => {
   test('a table, with a short row stretched', async ({ page }) => {
     const t = box(part(page, "Finding Movario's base"), 'Symbol to rune');
     await expect(t.locator('summary .m')).toHaveText('3 rows');
-    await t.locator('summary').click();
     await expect(t.locator('th')).toHaveText(['Symbol', 'Rune']);
     await expect(t.locator('tbody tr')).toHaveText(['OMind rune', 'HEarth rune', 'Note']);
     await expect(t.locator('tbody tr').last().locator('td')).toHaveAttribute('colspan', '2');
   });
 
-  test('a picture inside a step; opening it does not tick the step', async ({ page }) => {
+  test('a picture inside a step; closing its box does not tick the step', async ({ page }) => {
     const s = step(page, 'Search the old battered door');
     const pic = box(s, 'The old battered door');
-    await pic.locator('summary').click();
     await expect(pic.locator('img')).toHaveAttribute('src', 'https://runescape.wiki/images/Old_battered_door.png?abc');
     await expect(pic.locator('.cap')).toHaveText('The old battered door');
-    await pic.locator('img').click({ modifiers: [] }).catch(() => {});
+    await pic.locator('summary').click();
+    await expect(pic).not.toHaveAttribute('open', '');
     await expect(s).not.toHaveClass(/\bdone\b/);
   });
 
-  test('boxes you open stay open after a reload', async ({ page }) => {
+  test('a box you close stays closed after a reload', async ({ page }) => {
     await box(part(page, "Finding Movario's base"), 'Symbol to rune').locator('summary').click();
-    await expect.poll(async () => Object.keys((await stored(page, 'prog.' + WGS)).acc)).toEqual(['finding-movario-s-base|Symbol to rune|0']);
+    await expect.poll(async () => (await stored(page, 'prog.' + WGS)).acc).toEqual({ 'finding-movario-s-base|Symbol to rune|0': 0 });
     await page.reload();
-    await expect(box(part(page, "Finding Movario's base"), 'Symbol to rune')).toHaveAttribute('open', '');
-    await expect(box(part(page, "Finding Movario's base"), 'Map: Location')).not.toHaveAttribute('open', '');
+    await expect(box(part(page, "Finding Movario's base"), 'Symbol to rune')).not.toHaveAttribute('open', '');
+    await expect(box(part(page, "Finding Movario's base"), 'Map: Location')).toHaveAttribute('open', '');
   });
 });

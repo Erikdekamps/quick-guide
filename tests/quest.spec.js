@@ -113,11 +113,11 @@ test.describe('menus', () => {
   test('the settings menu: in a quest, and on the start screen', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', 'Show done steps', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', 'Show done steps', 'Hide done quests', /Text size\s*14/, 'Update quest list']);
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All quests' }).click();
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText(['Show done steps', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mi')).toHaveText(['Show done steps', 'Hide done quests', /Text size\s*14/, 'Update quest list']);
     await expect(page.locator('#cog')).not.toContainText('Compact');
   });
 

@@ -27,9 +27,7 @@ test.describe('a file that does not load', () => {
     await page.route('**/leaflet.js?*', (r) => r.abort());
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openTab(page, 'steps');
-    await part(page, "Finding Movario's base").locator('.sech').click();
     const box = page.locator('details.acc', { hasText: 'Map: Location of the Khazard launderer' });
-    await box.locator('summary').click();
     await expect(box.locator('.map')).toHaveText('The map could not load. Use the wiki link below.');
   });
 });
