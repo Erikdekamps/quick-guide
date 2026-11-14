@@ -58,16 +58,16 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - Type in the box to search. Press **Open** (or Enter) to open the top match.
    - The line under the box says how the list is set up. You change all of that in the **cog** menu (see below).
    - Sort by name, **optimal order**, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
-   - **Show** picks **quests and miniquests**, **quests only**, or **miniquests only**.
+   - **Hide miniquests** takes the miniquests out of the list.
    - Optimal order is the wiki's [quest progression guide](https://runescape.wiki/w/Quests/Progression_guide).
      Each quest shows its place (#1, #2, ...). Quests the guide does not list come last.
-   - **Hide done quests** in the cog menu takes finished quests out of the list. A search still finds them.
+   - **Hide completed** in the cog menu takes finished quests out of the list. A search still finds them.
    - In the cog menu, type your **character name** and press **Look up**. Quests you finished in the game turn green,
      quests you started turn yellow, and inside a quest you see your own skill levels and which
      required quests you have done. Your RuneMetrics profile must be public.
      The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
    - Quests you cannot start yet (you miss a quest, a level or something else) are **grayed out** and say **Locked**.
-     **Hide locked quests** in the cog menu takes them out of the list.
+     **Hide locked** in the cog menu takes them out of the list.
    - The **Area tasks** tab lists the 13 areas from the wiki's [Area Tasks achievements](https://runescape.wiki/w/Area_Tasks_achievements).
      Click one to open it (read from the wiki once, then kept). See "Area tasks" below.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
@@ -90,7 +90,7 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
 5. The **cog** button holds the settings. They are the same on every screen:
    - **Jump to next step** (in a quest).
    - **Player**: look up your character, update it, or forget it.
-   - **Quest list**: **Sort by**, **Show**, **Hide done quests**, **Hide locked quests**.
+   - **Quest list**: **Sort by**, **Hide completed**, **Hide miniquests**, **Hide locked**.
    - **Display**: **Show done steps** and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
@@ -102,7 +102,9 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
 - **Needs**: the levels and quests the whole tier needs, the items to bring, and notes for Ironmen.
   With a player looked up, your levels are green or red, and done quests get a ✓. A quest name opens that quest.
 - **Tasks**: click a task to tick it. "Needs 5 Thieving (you: 3)" in red means you cannot do it yet.
-  **How to** has the wiki's tips. **Done, next task** ticks the next one.
+  The wiki's tip for how to do it is right under the task. **Done, next task** ticks the next one.
+- **Needs** and **Tasks** fold open and shut. When you finish a tier, its tasks fold shut;
+  open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done, so you tick them yourself.
 - An area you started goes to the top of the list, with its progress. A finished tier gets a ✓.

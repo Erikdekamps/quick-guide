@@ -796,9 +796,11 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
 .need.low { color: var(--red); }
 .step.done .need { display: none; }
-/* the heading of a part that does not fold */
-div.sech { cursor: default; }
-div.sech:hover { background: inherit; }
+/* a finished tier's tasks, once you open them: shown, so you can untick one */
+#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+/* the wiki's tip for a task, under it */
+.howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
+.howto br + br { display: none; }
 /* the quests a tier needs line up with the text */
 .tree.areq { margin: 0 16px 8px; }
 

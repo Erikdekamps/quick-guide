@@ -35,7 +35,6 @@
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
   var HOMES = [['quests', 'Quests'], ['areas', 'Area tasks']];
-  var KINDS = [['all', 'Quests + miniquests'], ['quest', 'Quests only'], ['mini', 'Miniquests only']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
 
@@ -152,8 +151,11 @@
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
     set: {
-      showDone: !!saved.showDone, hideDone: !!saved.hideDone, hideLocked: !!saved.hideLocked, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
-      sort: pick(SORTS, saved.sort, 'name'), kind: pick(KINDS, saved.kind, 'all'), home: pick(HOMES, saved.home, 'quests')
+      showDone: !!saved.showDone, hideDone: !!saved.hideDone, hideLocked: !!saved.hideLocked,
+      // "hideMini" took the place of the old "Quests only" filter (kind: 'quest').
+      hideMini: saved.hideMini != null ? !!saved.hideMini : saved.kind === 'quest',
+      fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
+      sort: pick(SORTS, saved.sort, 'name'), home: pick(HOMES, saved.home, 'quests')
     },
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
     listBusy: false,
@@ -520,9 +522,9 @@
       '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
       '<p class="mh">Quest list</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
-      selectHtml('kind', 'Show', KINDS, S.set.kind) +
-      toggleHtml('hidedone', I.check, 'Hide done quests', S.set.hideDone) +
-      toggleHtml('hidelocked', I.lock, 'Hide locked quests', S.set.hideLocked) +
+      toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
+      toggleHtml('hidemini', I.scroll, 'Hide miniquests', S.set.hideMini) +
+      toggleHtml('hidelocked', I.lock, 'Hide locked', S.set.hideLocked) +
       '<hr><p class="mh">Display</p>' +
       toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
@@ -706,12 +708,12 @@
       return '<p class="err pad" role="alert">' + esc(S.orderError) + '</p>' +
         '<p class="pad"><button class="btn" type="button" data-act="order-refresh">Try again</button></p>';
     }
-    var all = allQuests(), kind = S.set.kind;
-    var items = all.filter(function (q) { return kind === 'all' || (kind === 'mini') === !!q.mini; })
+    var all = allQuests();
+    var items = all.filter(function (q) { return !(S.set.hideMini && q.mini); })
       .map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
         return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
       });
-    // "Hide done quests" and "Hide locked quests": not while you search, so a search still finds everything.
+    // "Hide completed" and "Hide locked": not while you search, so a search still finds everything.
     var hidden = 0, hiddenLocked = 0;
     if (S.set.hideDone && !v) {
       hidden = items.filter(function (x) { return x.done; }).length;
@@ -727,7 +729,7 @@
     function gOf(x) { return x.started ? 'In progress' : groupOf(x.q, sort); }
     // How the list is set up (all of it is in the settings).
     var how = [SORTS.filter(function (x) { return x[0] === sort; })[0][1]];
-    if (kind !== 'all') how.push(KINDS.filter(function (x) { return x[0] === kind; })[0][1]);
+    if (S.set.hideMini) how.push('Quests only');
     if (S.player) how.push(esc(S.player.name));
     var h = '<p class="qmeta"><span id="qcount">' + (items.length === all.length ? plural(items.length, 'quest', 'quests') :
       items.length + ' of ' + plural(all.length, 'quest', 'quests')) +
@@ -735,8 +737,8 @@
       (hiddenLocked ? ' \u00b7 ' + hiddenLocked + ' locked hidden' : '') +
       (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</span>' +
       '<span class="how"> \u00b7 ' + how.join(' \u00b7 ') + '</span></p>';
-    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide done quests\u201d in the settings to see them.</p>';
-    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide done quests\u201d or \u201cHide locked quests\u201d in the settings to see them.</p>';
+    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide completed\u201d in the settings to see them.</p>';
+    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide completed\u201d or \u201cHide locked\u201d in the settings to see them.</p>';
     if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
     if (!items.length) return h + '<p class="empty">No quests here.</p>';
     var group = null, open = false;
@@ -1320,6 +1322,14 @@
     if (mi) mi.setAttribute('aria-checked', S.set.hideDone ? 'true' : 'false');
     drawList();
   }
+  // Flips a list switch in the settings, and redraws the list.
+  function toggleSetting(key, act) {
+    S.set[key] = !S.set[key];
+    saveSettings();
+    var mi = document.querySelector('.mi[data-act="' + act + '"]');
+    if (mi) mi.setAttribute('aria-checked', S.set[key] ? 'true' : 'false');
+    drawList();
+  }
   function toggleHideLocked() {
     S.set.hideLocked = !S.set.hideLocked;
     saveSettings();
@@ -1503,13 +1513,30 @@
   }
   function areaTaskHtml(x, cur) {
     var done = !!S.aprog.tasks[x.id];
-    var ext = needText(x) + (x.notes ? acc(I.info, 'How to', '', '<p class="para">' + x.notes + '</p>', false) : '');
+    var ext = needText(x) + (x.notes ? '<div class="howto">' + x.notes + '</div>' : '');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
       rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' — ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '') + '</li>';
   }
-  function areaSec(id, name, count, body) {
-    return '<section class="sec" data-asec="' + id + '"><h2 class="sh"><div class="sech"><span class="n">' + name + '</span><span class="c">' + count + '</span></div></h2>' +
-      '<div class="secb">' + body + '</div></section>';
+  // A part of an area tier that folds open and shut. The app remembers it per tier.
+  // A finished list of tasks starts shut; opening it shows the done tasks, so you can untick one.
+  function areaSec(id, name, count, body, done) {
+    var key = tierNow().id + ':' + id, v = (S.aprog.open || {})[key];
+    var open = v === true || v === false ? v : !done;
+    return '<section class="sec' + (done ? ' alldone' : '') + '" data-asec="' + id + '"><h2 class="sh"><button class="sech' + (done ? ' done' : '') + '" type="button" data-asec-btn="' + key + '" aria-expanded="' + open + '">' +
+      I.chev + '<span class="n">' + name + '</span><span class="c">' + count + '</span></button></h2>' +
+      '<div class="secb"' + (open ? '' : ' hidden') + '>' + body + '</div></section>';
+  }
+  function toggleAreaSec(key) {
+    var btn = document.querySelector('[data-asec-btn="' + key + '"]');
+    var open = !(btn && btn.getAttribute('aria-expanded') === 'true');
+    S.aprog.open = S.aprog.open || {};
+    S.aprog.open[key] = open;
+    saveAprog();
+    if (btn) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var body = btn.parentNode.nextElementSibling;
+      if (body) body.hidden = !open;
+    }
   }
   function renderArea(keepScroll) {
     var main = byId('main'), top = keepScroll && main ? main.scrollTop : 0;
@@ -1535,7 +1562,7 @@
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
-      areaSec('tasks', 'Tasks', done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>') +
+      areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>', !cur) +
       reward +
       '<p class="foot">Tasks: <a href="' + esc(a.source) + '" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded ' + esc(dateText(a.fetchedAt)) + '.</p>' +
       '</main>' +
@@ -1547,6 +1574,8 @@
   }
   function tickTask(id, on) {
     if (on) S.aprog.tasks[id] = 1; else delete S.aprog.tasks[id];
+    var t = tierNow();
+    if (on && S.aprog.open && t.tasks.every(function (x) { return S.aprog.tasks[x.id]; })) delete S.aprog.open[t.id + ':tasks'];
     saveAprog();
     renderArea(true);
   }
@@ -1620,7 +1649,6 @@
   app.addEventListener('change', function (ev) {
     var t = ev.target;
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
-    if (t.id === 'kind') { S.set.kind = pick(KINDS, t.value, 'all'); saveSettings(); drawList(); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) { tickTask(t.getAttribute('data-acb'), t.checked); return; }
     if (t.hasAttribute('data-icb')) {
@@ -1633,7 +1661,7 @@
     }
   });
   app.addEventListener('click', function (ev) {
-    var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
@@ -1649,6 +1677,7 @@
       }
       if (t.hasAttribute('data-tab')) { switchTab(t.getAttribute('data-tab')); return; }
       if (t.hasAttribute('data-sec-btn')) { toggleSection(t.getAttribute('data-sec-btn')); return; }
+      if (t.hasAttribute('data-asec-btn')) { toggleAreaSec(t.getAttribute('data-asec-btn')); return; }
       if (t.hasAttribute('data-ov-btn')) { toggleOv(t.getAttribute('data-ov-btn')); return; }
       var act = t.getAttribute('data-act');
       if (act === 'next') nextStep();
@@ -1658,6 +1687,7 @@
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
       else if (act === 'showdone') toggleShowDone();
       else if (act === 'hidedone') toggleHideDone();
+      else if (act === 'hidemini') toggleSetting('hideMini', 'hidemini');
       else if (act === 'hidelocked') toggleHideLocked();
       else if (act === 'order-refresh') { S.orderError = ''; drawList(); }
       else if (act === 'change') { S.error = ''; S.input = ''; renderStart(); }

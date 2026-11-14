@@ -225,17 +225,51 @@ test.describe('an area', () => {
     await expect(page.locator('h1.qt')).toHaveText('Biohazard');
   });
 
-  test('tasks: name, what to do, and a closed "How to" box', async ({ page, wiki }) => {
+  test('tasks: name, what to do, and how, as part of the task', async ({ page, wiki }) => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const t = task(page, '449');
     await expect(t.locator('.t')).toHaveText('Silky Smooth — Sell silk to the silk trader in Ardougne for 60gp each by haggling.');
-    const how = t.locator('details.acc');
-    await expect(how.locator('summary .sl')).toHaveText('How to');
-    await expect(how).not.toHaveAttribute('open', '');
-    await how.locator('summary').click();
-    await expect(how.locator('.body')).toContainText('offering a price of 120');
+    await expect(t.locator('details')).toHaveCount(0);
+    await expect(t.locator('.howto')).toBeVisible();
+    await expect(t.locator('.howto')).toContainText('offering a price of 120');
     await expect(sec(page, 'tasks').locator('.sech .c')).toHaveText('0 / 23');
+  });
+
+  test('Needs and Tasks fold shut and open again, and stay that way', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await openArea(page, 'Ardougne');
+    for (const id of ['needs', 'tasks']) {
+      const head = sec(page, id).locator('.sech');
+      await expect(head).toHaveAttribute('aria-expanded', 'true');
+      await head.click();
+      await expect(head).toHaveAttribute('aria-expanded', 'false');
+      await expect(sec(page, id).locator('.secb')).toBeHidden();
+    }
+    await page.reload();
+    await expect(sec(page, 'tasks').locator('.secb')).toBeHidden();
+    await sec(page, 'tasks').locator('.sech').click();
+    await expect(sec(page, 'tasks').locator('.secb')).toBeVisible();
+    // each tier has its own
+    await page.locator('.tab[data-tier="medium"]').click();
+    await expect(sec(page, 'needs').locator('.secb')).toBeVisible();
+  });
+
+  test('a finished tier folds its tasks shut; open them to see and untick them', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await openArea(page, 'Ardougne');
+    await page.locator('.tab[data-tier="elite"]').click();
+    for (let i = 0; i < 5; i++) await page.locator('#next-btn').click();
+    await expect(page.locator('#pg-cnt')).toHaveText('5 / 5 tasks');
+    const tasks = sec(page, 'tasks');
+    await expect(tasks.locator('.sech')).toHaveAttribute('aria-expanded', 'false');
+    await expect(tasks.locator('.sech')).toHaveClass(/\bdone\b/);
+    await expect(tasks.locator('.sech .c')).toHaveText('✓ 5 / 5');
+    await tasks.locator('.sech').click();
+    await expect(tasks.locator('li[data-task]')).toHaveCount(5);
+    for (const li of await tasks.locator('li[data-task]').all()) await expect(li).toBeVisible();
+    await tasks.locator('li[data-task] .cb').first().click();
+    await expect(page.locator('#pg-cnt')).toHaveText('4 / 5 tasks');
   });
 
   test('ticking tasks: saved, counted, hidden when done', async ({ page, wiki }) => {

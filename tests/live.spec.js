@@ -68,7 +68,7 @@ test('the optimal order is read from the wiki and matches the quest list', async
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
   // The guide is about quests, so leave the miniquests out.
   await page.locator('#cog-btn').click();
-  await page.locator('#kind').selectOption('quest');
+  await page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' }).click();
   await page.locator('#sort').selectOption('opt');
   await page.keyboard.press('Escape');
   await expect(page.locator('.ghb[data-group="Optimal order"]')).toBeVisible();

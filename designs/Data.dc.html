@@ -796,9 +796,11 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
 .need.low { color: var(--red); }
 .step.done .need { display: none; }
-/* the heading of a part that does not fold */
-div.sech { cursor: default; }
-div.sech:hover { background: inherit; }
+/* a finished tier's tasks, once you open them: shown, so you can untick one */
+#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+/* the wiki's tip for a task, under it */
+.howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
+.howto br + br { display: none; }
 /* the quests a tier needs line up with the text */
 .tree.areq { margin: 0 16px 8px; }
 
@@ -949,10 +951,11 @@ div.sech:hover { background: inherit; }
 <div style="padding-left: 2ch"><span class="k">"qg1.settings"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"showDone"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"hideDone"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"hideMini"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"hideLocked"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"fontSize"</span>: <span class="v">14</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"sort"</span>: "opt",</div>
-<div style="padding-left: 4ch"><span class="k">"kind"</span>: "all"</div>
+<div style="padding-left: 4ch"><span class="k">"home"</span>: "quests"</div>
 <div style="padding-left: 2ch">},</div>
 <div style="padding-left: 2ch"><span class="k">"qg1.minis"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"at"</span>: <span class="v">1794650000000</span>,</div>
@@ -983,10 +986,10 @@ div.sech:hover { background: inherit; }
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide done quests, hide locked quests, text size, sort order, and quests or miniquests.</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each opened area, for the area list.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, and the list you looked at (quests or area tasks).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each opened area, for the area list.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":3748}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":3766}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};
