@@ -298,7 +298,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   flex: 1;
   min-height: 0;
   margin-top: 6px;
-  overflow-y: auto;
+  overflow-y: scroll;   /* always there, so nothing jumps when the content grows */
   overflow-x: hidden;
   padding-bottom: 18px;
   overflow-wrap: anywhere;
@@ -536,7 +536,7 @@ kbd {
 .leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
 .leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
 .leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
-.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); text-decoration: none; }
 .leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
 .leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
 .leaflet-control-attribution a { color: var(--link); }
