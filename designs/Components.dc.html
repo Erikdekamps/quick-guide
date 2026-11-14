@@ -8,518 +8,820 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#0d0a07}
-*{box-sizing:border-box}
-.sheet{width:1160px;min-height:1945px;padding:32px;background:#100c09;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.sheet>h1{margin:0;font:700 24px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8}
-.lead{max-width:780px;margin:6px 0 26px;font-size:13px;color:#b9ab90}
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;align-items:start}
-.col{display:flex;flex-direction:column;gap:26px;min-width:0}
-.spec>h2{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 8px;font:600 13px/1.3 "Fira Sans",sans-serif;color:#ecd9a8}
-.spec>h2 code{font:500 11px/1.3 "Fira Mono",ui-monospace,monospace;color:#a8987a;text-align:right}
-.pane{background:#1b1510;border:1px solid #5a472f;color:#ece3d2}
-.pad{padding:12px}
-.vstack{display:flex;flex-direction:column;gap:10px}
-.hstack{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.lbl{margin:0 0 5px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#a8987a}
-.sw{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px 6px}
-.sw div{display:flex;flex-direction:column;gap:3px;font-size:11px;line-height:1.25;color:#c4b699}
-.sw i{display:block;height:30px;border:1px solid #47392a;border-radius:2px}
-.types{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #33281c}
-.types div{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.types span{font-size:11px;color:#a8987a;white-space:nowrap}
-.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
-.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
-.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
-.ib:hover,.ib.is-hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
-.ib.on{background:#16110c;border-color:#d9ad4a;color:#f2c45a;box-shadow:inset 0 1px 3px rgba(0,0,0,.8)}
-.ib.sm{width:28px;height:28px}
-.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
-.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
-.pg::-webkit-progress-bar{background:#0e0b08}
-.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
-.pg::-moz-progress-bar{background:#d9ad4a}
-.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
-.tl{display:flex;gap:2px;flex:1}
-.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
-.tab:hover{color:#ece3d2}
-.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
-.tabs .ib{margin-bottom:3px}
-.row{display:flex;gap:6px}
-.inp{flex:1;min-width:0;height:36px;padding:0 10px;background:#0e0b08;border:1px solid #7d6646;border-radius:3px;color:#ece3d2;font:13px "Fira Sans",sans-serif;box-shadow:inset 0 1px 3px rgba(0,0,0,.9)}
-.inp::placeholder{color:#8f8270}
-.inp:focus,.inp.is-focus{outline:none;border-color:#e2b552;box-shadow:0 0 0 2px rgba(242,196,90,.22),inset 0 1px 3px rgba(0,0,0,.9)}
-.inp.bad{border-color:#c4553f}
-.err{margin:6px 0 0;font-size:12px;color:#ff8a73}
-.btn{flex:none;height:36px;padding:0 16px;background:linear-gradient(#6b5337,#463624);border:1px solid #a88b5e;border-radius:3px;color:#fcf0d3;font:600 13px "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,230,180,.2);text-shadow:0 1px 0 rgba(0,0,0,.6)}
-.btn:hover,.btn.is-hover{background:linear-gradient(#7c6141,#53402b);border-color:#c4a46c}
-.btn.is-active{background:linear-gradient(#3b2d1f,#4b3a27);box-shadow:inset 0 2px 3px rgba(0,0,0,.6)}
-.btn:disabled{opacity:.45;cursor:default}
-.menu{width:220px;margin-left:auto;padding:4px 0;background:#1b1510;border:1px solid #7d6646;border-radius:3px;box-shadow:0 8px 20px rgba(0,0,0,.6)}
-.mi{display:flex;align-items:center;gap:10px;width:100%;height:34px;padding:0 12px;background:none;border:0;color:#ece3d2;font:13px "Fira Sans",sans-serif;text-align:left;text-decoration:none;cursor:pointer}
-.mi:hover,.mi.is-hover{background:#2f251b}
-.mi .i{color:#c4b699}
-.mi.danger,.mi.danger .i{color:#ff8a73}
-.menu hr{margin:4px 0;border:0;border-top:1px solid #3f3224}
-.state{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 16px 18px;text-align:center;font-size:13px;color:#c4b699}
-.state p{margin:0}
-.state .i{width:22px;height:22px;color:#f2c45a}
-.sk{width:100%;display:flex;flex-direction:column;gap:8px;margin-top:6px}
-.sk i{display:block;height:10px;background:#2b2219;border-radius:2px}
-.done-bn{display:flex;align-items:center;gap:12px;padding:14px 12px;background:linear-gradient(#3a2d1c,#241c15);border-bottom:1px solid #0a0705}
-.done-bn .i{width:26px;height:26px;color:#f2c45a}
-.done-bn b{display:block;font:700 15px/1.2 "Cinzel",Georgia,serif;color:#f2c45a}
-.done-bn span{font-size:12px;color:#c4b699}
-.sh{margin:0}
-.sech{display:flex;align-items:center;gap:8px;width:100%;min-height:38px;padding:8px 12px 8px 10px;background:linear-gradient(#31271c,#251d15);border:0;border-top:1px solid #4d3d2b;border-bottom:1px solid #0d0a07;color:#ff9f3a;font:600 14px/1.3 "Fira Sans",sans-serif;text-align:left;cursor:pointer}
-.sech:hover{background:linear-gradient(#3a2e21,#2b2219)}
-.sech .n{flex:1;min-width:0}
-.sech .c{font-weight:500;font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
-.sech .i{color:#c4b699}
-.sech.done{color:#c9b083}
-.sech.done .c{color:#f2c45a}
-.sub{display:flex;align-items:center;gap:8px;margin:14px 12px 4px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#d2be93}
-.sub::after{content:"";flex:1;height:1px;background:#3f3224}
-.sub.minor{margin-top:10px;font-size:12.5px;font-style:italic;letter-spacing:.02em;text-transform:none}
-.sub.minor::after{display:none}
-.blk{margin:4px 12px}
-.acc{margin:6px 0;background:#130f0b;border:1px solid #47392a;border-radius:3px}
-.acc>summary{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 8px;list-style:none;cursor:pointer;font-size:12.5px;line-height:1.3;color:#ddd1b9;border-radius:3px}
-.acc>summary::-webkit-details-marker{display:none}
-.acc>summary:hover{background:#1e1712}
-.acc>summary .i{width:14px;height:14px;color:#a88b5e}
-.acc>summary .chev{transition:transform .15s}
-.acc[open]>summary .chev{transform:rotate(90deg)}
-.acc>summary .m{margin-left:auto;color:#a8987a;font-size:12px}
-.acc .body{padding:8px;border-top:1px solid #33281c}
-.bring dl{margin:0;font-size:12.5px;line-height:1.45;color:#ddd1b9}
-.bring dt{margin:0 0 3px;font:600 11px/1.2 "Fira Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ff9f3a}
-.bring dd{margin:0 0 8px}
-.bring dd:last-child{margin-bottom:0}
-.steps{list-style:none;margin:0;padding:0 6px}
-.step{margin:1px 0;border-radius:3px}
-.step>label{display:flex;align-items:flex-start;gap:10px;padding:8px 6px;border-radius:3px;cursor:pointer}
-.step>label:hover,.step.is-hover>label{background:#251d16}
-.t{flex:1;min-width:0}
-.t a,.para a,.kv a{color:#f3c969;text-decoration:none}
-.t a:hover,.para a:hover,.kv a:hover{text-decoration:underline}
-.t em{font-style:italic;color:#fff2d4}
-.step.cur{background:#2a2118;box-shadow:inset 0 0 0 1px #6b563b}
-.step.cur>label:hover{background:transparent}
-.step.cur>label>.cb{border-color:#e2b552}
-.step.done>label{align-items:center;padding-top:6px;padding-bottom:6px}
-.step.done>label>.cb{margin-top:0}
-.step.done .t{color:#9d907a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.step.done .t a,.step.done .t em{color:#b0a07f}
-.ext{padding:0 8px 8px 34px}
-.subs{padding:0;margin-top:4px}
-.subs .step>label{gap:8px;padding:5px 6px}
-.subs .ext{padding-left:29px}
-.cb{-webkit-appearance:none;appearance:none;flex:none;display:grid;place-content:center;width:18px;height:18px;margin:1px 0 0;background:#0e0b08;border:1px solid #8a7050;border-radius:2px;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);cursor:pointer}
-.cb::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:2px solid #f2c45a;border-bottom:2px solid #f2c45a;transform:rotate(-45deg);opacity:0}
-.cb:checked::before,.done>label>.cb::before{opacity:1}
-.cb:focus-visible{outline:2px solid #f2c45a;outline-offset:2px}
-.subs .cb{width:15px;height:15px;margin-top:2px}
-.subs .cb::before{width:7px;height:4px;margin-top:-2px}
-.alt{display:block;margin-top:2px;font-size:12.5px;color:#b9ab90}
-.code{display:inline-block;padding:0 5px;background:#0e0b08;border:1px solid #5e4a32;border-radius:2px;font:500 12px/1.45 "Fira Mono",ui-monospace,monospace;letter-spacing:.06em;color:#f2c45a}
-.caution{font-weight:600;color:#ff8a73}
-.dlg{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:4px}
-.dlg li{display:flex;align-items:baseline;gap:8px;font-size:13px;line-height:1.4;color:#e4d9c4}
-kbd{flex:none;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;background:linear-gradient(#33291e,#1c160f);border:1px solid #8a7050;border-bottom-width:2px;border-radius:3px;font:700 12px/1 "Fira Sans",sans-serif;color:#f2c45a}
-.why{margin:10px 0 4px;font-size:12px;font-style:italic;color:#b9ab90}
-.vary{font-size:12px;color:#a8987a}
-.ph{display:grid;place-items:center;width:100%;aspect-ratio:3/2;padding:10px;background:repeating-linear-gradient(135deg,#1d1610 0 10px,#221a13 10px 20px);border:1px dashed #5e4a32;border-radius:2px;color:#b3a487;font-size:12px;text-align:center}
-.cap{margin:6px 0 0;font-size:12px;font-style:italic;color:#b9ab90}
-.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
-.tbl th{padding:5px 6px;text-align:left;font-weight:600;color:#ff9f3a;border-bottom:1px solid #5e4a32}
-.tbl td{padding:5px 6px;vertical-align:top;color:#e4d9c4;border-bottom:1px solid #2b2219}
-.tbl tbody tr:nth-child(even) td{background:#18120d}
-.note{display:flex;gap:8px;margin:6px 12px;padding:8px 10px;background:#211a12;border:1px solid #5e4a32;border-radius:3px;font-size:13px;line-height:1.4;color:#e4d9c4}
-.note .i{margin-top:1px;color:#e0bd6c}
-.note.warn{background:#2a1410;border-color:#8a3a2a;color:#ffe1d8}
-.note.warn .i{color:#ff8a73}
-.para{margin:6px 12px;font-size:13px;line-height:1.45;color:#c9bca0}
-.kv{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px 10px;margin:12px 12px 10px;font-size:13px;line-height:1.4}
-.kv dt{color:#b9ab90}
-.kv dd{margin:0}
-.skills{list-style:none;margin:0 12px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
-.chip{display:flex;align-items:baseline;gap:8px;padding:5px 8px;background:#130f0b;border:1px solid #3f3224;border-radius:3px;font-size:13px;color:#e4d9c4}
-.chip b{min-width:20px;font-weight:700;color:#f2c45a;font-variant-numeric:tabular-nums}
-.foes{list-style:none;margin:10px 12px 0;padding:0}
-.foes li{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #2b2219;font-size:13px;line-height:1.35}
-.foes .nm{flex:1;min-width:0}
-.foes .x{color:#b9ab90}
-.lv{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
-.lv b{color:#f2c45a}
-.tree{list-style:none;margin:0;padding:0;font-size:13px;line-height:1.4;color:#e4d9c4}
-.tree li{padding:2px 0}
-.tree .d2{padding-left:16px;color:#d6cab2}
-.tree .more{color:#a8987a;font-size:12px}
-.ftr{flex:none;padding:8px;background:linear-gradient(#2e241a,#211a13);border-top:1px solid #6b563b;box-shadow:inset 0 1px 0 rgba(255,226,170,.08)}
-.next{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:40px;padding:0 14px;background:linear-gradient(#7a5f3d,#4d3a25);border:1px solid #c4a46c;border-radius:3px;color:#fff3d6;font:600 14px/1 "Fira Sans",sans-serif;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,232,185,.25),0 1px 0 #0a0705;text-shadow:0 1px 0 rgba(0,0,0,.6)}
-.next:hover{background:linear-gradient(#8a6c45,#5a442c);border-color:#dcbc7e}
-.next:active,.next.is-active{background:linear-gradient(#45341f,#5a442c);box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
-.next:disabled{opacity:.5;cursor:default}
-.next .i{color:#f2c45a}
+/* Quick Guide - style.css
+   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
+   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
+   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+:root {
+  color-scheme: dark;
+  /* window */
+  --win: #1b1713;          /* window body, around the panels */
+  --deep: #13100d;         /* the scrolling panel */
+  --hover: #211c17;        /* a row under the mouse */
+  --sel: #2a241d;          /* the next step */
+  --rule: #2b251f;         /* thin lines between rows */
+  /* bronze rim and frames */
+  --rim-1: #67584a;
+  --rim-2: #8a7046;
+  --rim-3: #a08a59;
+  --rim-4: #6e5937;
+  --rim-5: #2f271d;
+  --bronze: #8a7046;
+  --bronze-dk: #4d3e29;
+  --bronze-lt: #b89a63;
+  /* title band */
+  --band-top: #1e1b18;
+  --band-bot: #302a24;
+  /* raised panels (bars, boxes, notes) */
+  --panel: #2c2722;
+  --panel-2: #24201b;
+  --panel-hi: #433b31;
+  --panel-lo: #100d0b;
+  /* insets (inputs, tick boxes, bars) */
+  --inset: #0e0b09;
+  /* text */
+  --text: #ece6da;
+  --soft: #d3c9b7;
+  --muted: #b8ac97;
+  --faint: #968b7b;
+  --title: #e8d4a2;
+  --gold: #f2c45e;
+  --orange: #ff981f;
+  --link: #f3c565;
+  --red: #ff5b49;
+  --green: #66d35c;
+  --yellow: #f5e15a;
+  /* gold button */
+  --gb-hi: #f8dc9c;
+  --gb-1: #f2c463;
+  --gb-2: #ecab2a;
+  --gb-3: #dd9b20;
+  --gb-lo: #a4730f;
+  --gb-edge: #6e4c09;
+  --gb-text: #2a1c05;
+  /* fine noise, so flat areas look like the game's textured panels */
+  --grain: none;
+}
+* { box-sizing: border-box; }
+html { font-size: 14px; height: 100%; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  background: #0b0907;
+  color: var(--text);
+  font-family: "Fira Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .55);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- the window ---------- */
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5px 5px 6px;
+  overflow: hidden;
+  background: var(--grain), var(--win);
+}
+/* the bronze rim, drawn over the edge of everything */
+#app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3000;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--rim-1),
+    inset 0 0 0 2px var(--rim-2),
+    inset 0 0 0 3px var(--rim-3),
+    inset 0 0 0 4px var(--rim-4),
+    inset 0 0 0 5px var(--rim-5);
+}
+
+.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* ---------- title band ---------- */
+.hdr {
+  position: relative;
+  z-index: 20;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin: -5px -5px 0;
+  padding: 9px 11px 5px;
+  background: var(--grain), linear-gradient(var(--band-top), var(--band-bot));
+  border-bottom: 1px solid #4a3c28;
+  box-shadow: 0 1px 0 #0c0a08;
+}
+/* both sides are the same width, so the name sits in the middle */
+.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
+.he { justify-content: flex-end; }
+.qt {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .05em;
+  color: var(--title);
+  text-align: center;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
+  overflow-wrap: break-word;
+  /* long names stop after two lines; the full name is in the tooltip */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* small square buttons, like the close button on a game window, in bronze */
+.ib {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid #5c4a2e;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
+  color: var(--title);
+  cursor: pointer;
+}
+.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
+.ib:active { background: linear-gradient(#1d1813, #2c241c); }
+.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:disabled { opacity: .4; cursor: default; }
+.ib.xs { width: 24px; height: 24px; }
+.ib.xs .i { width: 14px; height: 14px; }
+
+/* ---------- menus: like the game's right-click menu ---------- */
+.menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 6px;
+  z-index: 1000;
+  width: 250px;
+  max-width: calc(100% - 12px);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--grain), #17130f;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #2d251b, 0 10px 24px rgba(0, 0, 0, .7);
+  font-size: 13px;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decoration: none; }
+.mi > .i { color: var(--bronze-lt); }
+.mi .ml { flex: 1; }
+.mi.danger, .mi.danger > .i { color: var(--red); }
+.mrow { cursor: default; gap: 8px; }
+.fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
+.menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
+/* an on/off setting: a tick box, like the game's settings */
+.tg {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px #000;
+}
+.tg::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+[aria-checked="true"] > .tg::after { opacity: 1; }
+
+/* ---------- progress ---------- */
+.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+.pg {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--bronze-dk);
+  overflow: hidden;
+}
+.pg::-webkit-progress-bar { background: var(--inset); }
+.pg::-webkit-progress-value { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.pg::-moz-progress-bar { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- tabs: the open tab joins the panel below it ---------- */
+.tabs {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 0 6px;
+  margin: 2px 0 -1px;
+}
+.tab {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 28px;
+  margin-top: 3px;
+  padding: 0 6px;
+  background: linear-gradient(#302a23, #231e19);
+  border: 1px solid #4a3d2b;
+  border-bottom-color: var(--bronze);
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab[aria-selected="true"] {
+  height: 31px;
+  margin-top: 0;
+  background: var(--deep);
+  border-color: var(--bronze);
+  border-bottom-color: var(--deep);
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
+  color: var(--gold);
+  cursor: default;
+}
+.tab .i { display: none; width: 15px; height: 15px; }
+
+/* ---------- the scrolling panel ---------- */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 18px;
+  overflow-wrap: anywhere;
+  background: var(--deep);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
+}
+.tabs + .scroll { margin-top: 0; }
+/* the game's gold scrollbar */
+.scroll::-webkit-scrollbar { width: 12px; }
+.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+
+/* part headers: raised bars. They stay at the top while you scroll through their steps. */
+/* 1px up, so no sliver of the list shows above the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
+/* room under the last step, so any step can reach the top */
+.tail { height: calc(100vh - 180px); }
+.sech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  background: var(--grain), linear-gradient(#352f28, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  cursor: pointer;
+}
+.sech:hover { background: var(--grain), linear-gradient(#3f372e, #312b25); }
+.sech .n { flex: 1; min-width: 0; }
+.sech .c { font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sech .i { color: var(--bronze-lt); transition: transform .15s; }
+.sech[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sech.done { color: #d9b77a; }
+.sech.done .c { color: var(--green); }
+.secb { padding-bottom: 6px; }
+
+/* headings inside a part, like "Feldip Hunter area" */
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 10px 4px;
+  font: 700 .857rem/1.2 "Cinzel", Georgia, serif;
+  letter-spacing: .06em;
+  color: var(--title);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--bronze-dk), transparent); }
+.sub.minor { margin-top: 10px; font: italic 600 .893rem/1.2 "Fira Sans", sans-serif; letter-spacing: .02em; color: var(--soft); }
+.sub.minor::after { display: none; }
+
+/* ---------- boxes that open and close ---------- */
+.blk { margin: 4px 10px; }
+.acc {
+  margin: 6px 0;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+}
+.acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 8px;
+  list-style: none;
+  cursor: pointer;
+  font-size: .893rem;
+  line-height: 1.3;
+  color: var(--soft);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .sl { flex: 1 1 0; min-width: 0; }
+.acc > summary:hover { background: #2d2721; color: var(--text); }
+.acc > summary .i { width: 14px; height: 14px; color: var(--bronze-lt); }
+.acc > summary .chev { transition: transform .15s; }
+.acc[open] > summary .chev { transform: rotate(90deg); }
+.acc > summary .m { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: .857rem; }
+.acc .body { padding: 8px; background: #19150f; border-top: 1px solid #000; box-shadow: inset 0 1px 0 #2b251f; cursor: auto; }
+.acc .imgl { display: block; }
+.acc .imgl img { display: block; max-width: 100%; height: auto; margin: 0 auto; background: var(--inset); }
+.acc .imgl + .cap + .imgl, .acc .imgl + .imgl { margin-top: 8px; }
+.cap { margin: 6px 0 0; font-size: .857rem; font-style: italic; color: var(--muted); }
+
+/* bring box: two small tick lists */
+.bring .body { padding: 4px 0 6px; }
+.bl { display: flex; align-items: baseline; gap: 8px; margin: 6px 8px 2px; font-size: .786rem; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+.bl .c { margin-left: auto; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist .row { gap: 8px; padding: 4px 8px; font-size: .893rem; line-height: 1.4; }
+.blist .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.blist .cb::before { width: .357rem; height: .643rem; }
+
+/* ---------- steps and items ---------- */
+.steps { list-style: none; margin: 0; padding: 0 4px; }
+.blist { padding: 0; }
+.step { margin: 1px 0; border-radius: 2px; }
+/* A row is one tick target: click anywhere on it. */
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 6px; border-radius: 2px; cursor: pointer; }
+.row:hover { background: var(--hover); }
+/* Pointing at a picture, map or table box inside a row: the row does not light up (clicks there do not tick). */
+.row:has(.ext details:hover), .step.cur > .row:has(.ext details:hover) { background: transparent; }
+.rb { flex: 1; min-width: 0; }
+.t { display: block; overflow-wrap: anywhere; }
+.t i { font-style: italic; color: #fff4d8; }
+.t b { font-weight: 600; color: #fff4d8; }
+/* the next step: a selected row, like in the game's lists */
+.step.cur { background: var(--sel); box-shadow: inset 0 0 0 1px #6a5434, inset 0 1px 0 1px rgba(255, 222, 160, .05); }
+.step.cur > .row:hover { background: #30291f; }
+.step.cur > .row > .cb { border-color: var(--gold); }
+.step.done > .row > .rb > .t { color: var(--faint); }
+.step.done > .row > .rb > .t a, .step.done > .row > .rb > .t i, .step.done > .row > .rb > .t b { color: #b19f7c; }
+.step.done > .row .ext, .step.done > .subs { display: none; }
+.ext { padding-top: 4px; }
+.ext .acc { margin: 6px 0 2px; }
+.ext .note { margin: 6px 0; }
+/* sub-steps: rows run the full width (click left or right of them); the indent is inside the row */
+.subs { padding: 0 0 2px; }
+.subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
+.subs .subs .row { padding-left: calc(24px + 2.357rem); }
+.subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
+.subs .step.cur { background: none; box-shadow: none; }
+/* Ticked rows go away. "Show done steps" shows them again. */
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item] { display: none; }
+/* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
+#main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
+.alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
+
+/* tick boxes: a dark inset square with a gold tick */
+.cb {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.286rem;
+  height: 1.286rem;
+  margin: 1px 0 0;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  cursor: pointer;
+}
+.cb::before {
+  content: "";
+  width: .429rem;
+  height: .786rem;
+  margin-top: -2px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.cb:checked::before { opacity: 1; }
+.cb:hover { border-color: var(--bronze-lt); }
+.subs .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.subs .cb::before { width: .357rem; height: .643rem; }
+
+.code {
+  display: inline-block;
+  padding: 0 5px;
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  font-family: "Fira Mono", ui-monospace, Consolas, monospace;
+  font-size: .857rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  color: var(--gold);
+}
+.caution { font-weight: 600; color: var(--red); }
+
+/* chat options */
+.dlg { list-style: none; margin: 2px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.dlg li > span { min-width: 0; }
+.dlg li { display: flex; align-items: baseline; gap: 8px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+kbd {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.667em;
+  height: 1.667em;
+  padding: 0 .42em;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 0 rgba(255, 222, 160, .14);
+  font-family: "Fira Sans", sans-serif;
+  font-size: .857rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.why { margin: 10px 0 4px; font-size: .857rem; font-style: italic; color: var(--muted); }
+.vary { font-size: .857rem; color: var(--faint); }
+
+/* tables */
+.tblw { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .893rem; }
+.tbl th { padding: 5px 6px; text-align: left; font-weight: 600; color: var(--orange); border-bottom: 1px solid var(--bronze-dk); vertical-align: bottom; }
+.tbl td { padding: 5px 6px; vertical-align: top; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl tbody tr:nth-child(even) td { background: rgba(255, 230, 190, .035); }
+.tbl img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* maps */
+.map { position: relative; z-index: 0; isolation: isolate; height: 240px; background: var(--inset); border: 1px solid var(--bronze-dk); border-radius: 2px; }
+.leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
+.leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); }
+.leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
+.leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--link); }
+.leaflet-tooltip { background: #17130f; border: 1px solid var(--bronze); border-radius: 2px; color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+.leaflet-tooltip-top::before { border-top-color: var(--bronze); }
+
+/* notes and warnings: small raised panels */
+.note {
+  display: flex;
+  gap: 8px;
+  margin: 6px 10px;
+  padding: 8px 10px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+  font-size: .929rem;
+  line-height: 1.4;
+  color: var(--soft);
+}
+.note .i { margin-top: 1px; color: var(--gold); }
+.note.warn { background: #2b1411; border-color: #6e2a21; border-top-color: #8a3a2c; color: #ffe0d8; }
+.note.warn .i { color: var(--red); }
+.note.warn .caution { color: #ff9c8c; }
+.warnli { list-style: none; }
+.warnli .note { margin: 4px 0; }
+.para { margin: 6px 10px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.empty { margin: 28px 16px; color: var(--muted); text-align: center; font-size: .929rem; }
+.x { color: var(--muted); }
+
+/* quest complete */
+.complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--grain), linear-gradient(#3a3128, var(--panel));
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 0 var(--panel-hi);
+}
+.complete .i { width: 26px; height: 26px; color: var(--gold); }
+.complete b { display: block; font: 700 1.071rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--gold); }
+.complete span { font-size: .857rem; color: var(--soft); }
+
+/* footer: the big gold button */
+.ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
+
+/* gold buttons, like the game's main action buttons */
+.btn, .next {
+  background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
+  border: 1px solid #1a1206;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 236, 190, .18);
+  color: var(--gb-text);
+  font: 700 13px/1 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .06em;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, .45);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover, .next:hover { filter: brightness(1.08) saturate(1.05); }
+.btn:active, .next:active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(80, 50, 0, .55); }
+.btn:disabled, .next:disabled { filter: grayscale(.8) brightness(.55); cursor: default; }
+.btn { flex: none; height: 34px; padding: 0 16px; }
+.next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+.next .i { color: var(--gb-text); stroke-width: 2.5; }
+
+/* toast */
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 60px;
+  z-index: 1100;
+  padding: 8px 12px;
+  background: var(--grain), #1d1813;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, 0 6px 16px rgba(0, 0, 0, .7);
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.toast.low { bottom: 16px; }
+
+/* ---------- overview, items ---------- */
+.kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
+.bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skills { list-style: none; margin: 0 10px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: 4px; }
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  font-size: .929rem;
+  color: var(--soft);
+}
+.chip .sn { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chip b { min-width: 1.6em; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+.foes { list-style: none; margin: 0 10px; padding: 0; }
+.foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
+.foes li:last-child { border-bottom: 0; }
+.foes .nm { flex: 1; min-width: 0; }
+.lv { font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lv b { color: var(--gold); }
+.plain { margin: 0 10px; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.plain li { margin: 3px 0; }
+.plain li::marker { color: var(--bronze-lt); }
+.acc .plain { margin: 0; }
+.acc .para { margin: 8px 0 4px; }
+.tree { list-style: none; margin: 0; padding: 0; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+.tree li { padding: 2px 0; }
+.xl { display: inline-flex; align-items: center; gap: 6px; margin: 16px 10px 0; font-size: .929rem; }
+.xl .i { width: 14px; height: 14px; }
+.foot { margin: 12px 10px 0; font-size: .821rem; line-height: 1.45; color: var(--faint); }
+
+/* ---------- start screen: all quests ---------- */
+.find { margin: 10px 10px 0; }
+.pad { margin-left: 10px; margin-right: 10px; }
+.row-f { display: flex; gap: 6px; }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 10px 0; }
+.inp, .sel {
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  color: var(--text);
+}
+.inp { flex: 1; min-width: 0; height: 34px; padding: 0 10px; font-size: 13px; }
+.inp::placeholder { color: var(--faint); }
+.inp:focus, .sel:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(242, 196, 94, .2), inset 0 1px 3px #000; }
+.inp.bad { border-color: var(--red); }
+.sel {
+  margin-left: auto;
+  height: 28px;
+  max-width: 100%;
+  padding: 0 24px 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) right 14px center / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) right 10px center / 4px 6px no-repeat, var(--inset);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sel option { background: #17130f; color: var(--text); }
+.qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
+.gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
+.ghb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px 5px 8px;
+  background: var(--grain), linear-gradient(#332d26, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: .786rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.ghb:hover { background: var(--grain), linear-gradient(#3d362d, #302a24); }
+.ghb .i { width: 14px; height: 14px; color: var(--bronze-lt); transition: transform .15s; }
+.ghb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.ghb .n { flex: 1; min-width: 0; }
+.ghb .c { font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.ql { list-style: none; margin: 0; padding: 0; }
+.q { display: block; width: 100%; padding: 7px 10px; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 1rem; line-height: 1.3; text-align: left; cursor: pointer; }
+.q:hover { background: var(--hover); }
+.q1 { display: flex; align-items: baseline; gap: 8px; }
+.q1 b { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.qs { font-size: .857rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs.ok { color: var(--green); }
+.q2 { display: block; margin-top: 1px; font-size: .821rem; color: var(--faint); }
+/* quest names in the game's colours: yellow when started, green when done */
+.q:has(.pg) .q1 b { color: var(--yellow); }
+.q.done .q1 b { color: var(--green); }
+.q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* phones: 16px inputs, so the page does not zoom in when you type */
+@media (pointer: coarse) { .inp { font-size: 16px; } }
+
+.err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
+.state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
+.state .i { width: 22px; height: 22px; color: var(--gold); }
+
+/* the design sheet around the parts */
+.sheet { width: 1160px; padding: 32px; background: #0f0c0a; color: var(--text); font-size: 14px; }
+.sheet > h1 { margin: 0; font: 700 24px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); text-shadow: 0 1px 0 #000; }
+.lead { max-width: 840px; margin: 6px 0 26px; font-size: 13px; color: var(--muted); }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.col { display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+.spec > h2 { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 0 0 8px; font: 600 13px/1.3 "Fira Sans", sans-serif; color: var(--title); }
+.spec > h2 code { font: 500 11px/1.3 "Fira Mono", ui-monospace, monospace; color: var(--faint); text-align: right; }
+.pane { position: relative; overflow: hidden; background: var(--deep); border: 1px solid var(--bronze); border-radius: 2px; box-shadow: inset 0 0 0 1px #000; }
+.win { position: relative; display: flex; flex-direction: column; overflow: hidden; padding: 5px 5px 6px; background: var(--win); }
+.win::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px var(--rim-1), inset 0 0 0 2px var(--rim-2), inset 0 0 0 3px var(--rim-3), inset 0 0 0 4px var(--rim-4), inset 0 0 0 5px var(--rim-5); }
+.bx { padding: 12px; }
+.vst { display: flex; flex-direction: column; gap: 10px; }
+.hst { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.lbl { margin: 0 0 5px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.spec > .cap { margin-top: 8px; }
+.sw { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px 6px; }
+.sw div { display: flex; flex-direction: column; gap: 3px; font-size: 11px; line-height: 1.25; color: var(--muted); }
+.sw i { display: block; height: 30px; border: 1px solid #000; border-radius: 2px; box-shadow: 0 0 0 1px var(--bronze-dk); }
+.types { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.types div { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.types span { font-size: 11px; color: var(--faint); white-space: nowrap; }
+.ph { display: grid; place-items: center; width: 100%; aspect-ratio: 3 / 2; padding: 10px; background: repeating-linear-gradient(135deg, #1a1612 0 10px, #201b16 10px 20px); border: 1px dashed var(--bronze-dk); border-radius: 2px; color: var(--muted); font-size: 12px; text-align: center; }
+.sk { width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.sk i { display: block; height: 10px; background: #2b251f; border-radius: 2px; }
+.menu.static { position: static; width: 100%; max-width: none; max-height: none; }
+/* fixed states, so each one can be seen */
+.ib.is-hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
+.btn.is-hover, .next.is-hover { filter: brightness(1.08) saturate(1.05); }
+.btn.is-active, .next.is-active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(80, 50, 0, .55); }
+.inp.is-focus { border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(242, 196, 94, .2), inset 0 1px 3px #000; }
+.row.is-hover { background: var(--hover); }
+.mi.is-hover { background: #2e261e; color: #fff4d6; }
+
 </style>
 </helmet>
 <div class="sheet">
 <h1>Components</h1>
-<p class="lead">RS3 dark-brown look. Every part is shown at real size in the 360 px window. The grey code next to each name is the JSON key the part is built from.</p>
+<p class="lead">The brown RuneScape 3 window look: a bronze rim, a dark title band, dark panels with raised bars and boxes, gold buttons and a gold scrollbar. Every part is shown at its real size in the 360 px window. The grey code next to each name is the JSON key the part is built from.</p>
 <div class="cols">
-
 <div class="col">
-
-<section class="spec">
-<h2>Palette and type <code>tokens</code></h2>
-<div class="pane pad">
-<div class="sw">
-<div><i style="background:#1b1510"></i>Window<br>#1b1510</div>
-<div><i style="background:#2f251b"></i>Raised<br>#2f251b</div>
-<div><i style="background:#0e0b08"></i>Inset<br>#0e0b08</div>
-<div><i style="background:#7d6646"></i>Trim<br>#7d6646</div>
-<div><i style="background:#ece3d2"></i>Text<br>#ece3d2</div>
-<div><i style="background:#c4b699"></i>Muted<br>#c4b699</div>
-<div><i style="background:#f2c45a"></i>Gold<br>#f2c45a</div>
-<div><i style="background:#ff9f3a"></i>Orange<br>#ff9f3a</div>
-<div><i style="background:#f3c969"></i>Link<br>#f3c969</div>
-<div><i style="background:#ff8a73"></i>Warning<br>#ff8a73</div>
+<section class="spec"><h2>Palette and type <code>tokens</code></h2><div class="pane bx"><div class="sw"><div><i style="background: #1b1713"></i>Window<br>#1b1713</div><div><i style="background: #13100d"></i>Panel<br>#13100d</div><div><i style="background: #2c2722"></i>Raised<br>#2c2722</div><div><i style="background: #8a7046"></i>Bronze<br>#8a7046</div><div><i style="background: #a08a59"></i>Rim light<br>#a08a59</div><div><i style="background: #ece6da"></i>Text<br>#ece6da</div><div><i style="background: #b8ac97"></i>Muted<br>#b8ac97</div><div><i style="background: #f2c45e"></i>Gold<br>#f2c45e</div><div><i style="background: #ff981f"></i>Orange<br>#ff981f</div><div><i style="background: #ff5b49"></i>Red<br>#ff5b49</div><div><i style="background: #66d35c"></i>Green<br>#66d35c</div><div><i style="background: #f5e15a"></i>Yellow<br>#f5e15a</div><div><i style="background: #ecab2a"></i>Button<br>#ecab2a</div><div><i style="background: #e8d4a2"></i>Title<br>#e8d4a2</div><div><i style="background: #0e0b09"></i>Inset<br>#0e0b09</div></div><div class="types"><div><b style="font: 700 14px/1.2 Cinzel, Georgia, serif; letter-spacing: .05em; color: var(--title)">While Guthix Sleeps</b><span>Cinzel 14 · title</span></div><div><b style="font-weight: 600; color: var(--orange)">Finding Movario's base</b><span>Fira Sans 14 · part</span></div><div><span style="font-size: 14px; color: var(--text); white-space: normal">Talk to the Hunting expert.</span><span>Fira Sans 14 · step</span></div><div><b style="font: 700 12px/1.2 Cinzel, Georgia, serif; letter-spacing: .06em; color: var(--title)">Feldip Hunter area</b><span>Cinzel 12 · sub-heading</span></div><div><b style="font: 700 13px/1 Cinzel, Georgia, serif; letter-spacing: .06em; color: var(--gold)">Done, next step</b><span>Cinzel 13 · button</span></div></div></div></section>
+<section class="spec"><h2>Window <code>app</code></h2><div class="win" style="height: 250px"><header class="hdr"><div class="hs"><button class="ib" type="button" aria-label="All quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button></div><h1 class="qt">While Guthix Sleeps</h1><div class="hs he"><button class="ib" type="button" aria-label="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" aria-label="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" value="10" max="118" aria-label="Quest progress"></progress><span class="cnt">10 / 118 steps</span></div><nav class="tabs" role="tablist" aria-label="Guide parts"><button class="tab" type="button" role="tab" aria-selected="false"><span class="tl-l">Overview</span></button><button class="tab" type="button" role="tab" aria-selected="true"><span class="tl-l">Items</span></button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tl-l">Steps</span></button></nav><main class="scroll"><p class="para">The open tab joins the panel below it.</p></main></div><p class="cap">Bronze rim · title band with the name in the middle · progress · three tabs: Overview, Items, Steps</p></section>
+<section class="spec"><h2>Buttons <code>app</code></h2><div class="pane bx vst"><div class="hst"><button class="btn" type="button">Open</button><button class="btn is-hover" type="button">Hover</button><button class="btn is-active" type="button">Pressed</button><button class="btn" type="button" disabled="{{ true }}">Off</button></div><div class="hst"><button class="ib" type="button" aria-label="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib is-hover" type="button" aria-label="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" aria-expanded="true" aria-label="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button><span class="cap" style="margin: 0">Icon · hover · menu open</span></div></div><p class="cap">Gold for the main action, bronze squares for the title band</p></section>
+<section class="spec"><h2>Search box <code>start screen</code></h2><div class="pane bx vst"><div><p class="lbl">Empty</p><div class="row-f"><input class="inp" type="text" placeholder="Search quests or paste a wiki link"><button class="btn" type="button">Open</button></div></div><div><p class="lbl">Focused</p><div class="row-f"><input class="inp is-focus" type="text" placeholder="guthix"><button class="btn" type="button">Open</button></div></div><div><p class="lbl">Error</p><div class="row-f"><input class="inp bad" type="text" placeholder="oldschool.runescape.wiki/w/…"><button class="btn" type="button">Open</button></div><p class="err">That is the Old School wiki. This app reads the RuneScape 3 wiki.</p></div></div></section>
+<section class="spec"><h2>Menus <code>app</code></h2><div class="vst"><div class="menu static"><button class="mi" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M12 2v3"></path><path d="M12 19v3"></path><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle></svg>Jump to next step</button><hr><p class="mh">Display</p><button class="mi" type="button" role="menuitemcheckbox" aria-checked="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span class="ml">Show done steps</span><span class="tg" aria-hidden="true"></span></button><div class="mi mrow" role="group" aria-label="Text size"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3"></path><path d="M9 20h6"></path><path d="M12 4v16"></path></svg><span class="ml">Text size</span><button class="ib xs" type="button" aria-label="Smaller text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path></svg></button><span class="fsv">14</span><button class="ib xs" type="button" aria-label="Bigger text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button></div><hr><button class="mi is-hover" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Update quest list</button></div><div class="menu static"><button class="mi" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Refresh from wiki</button><a class="mi" href="https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open on wiki</a><hr><button class="mi danger" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg><span>Reset progress</span></button></div></div><p class="cap">Cog: settings, with tick boxes like the game. No compact layout any more. Dots: the quest menu.</p></section>
+<section class="spec"><h2>App states <code>app</code></h2><div class="vst"><div class="pane"><div class="state"><svg class="i spin" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg><p style="margin: 0">Reading “While Guthix Sleeps” from the wiki…</p><div class="sk"><i style="width: 70%"></i><i></i><i style="width: 55%"></i></div></div></div><div class="pane bx"><p class="err" style="margin: 0 0 8px">Could not get the quest list. Check your internet, then try again.</p><button class="btn" type="button">Try again</button></div><div class="pane"><div class="complete"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><div><b>Quest complete!</b><span>All 118 steps done.</span></div></div></div></div><p class="cap">Loading · error · all steps ticked</p></section>
 </div>
-<div class="types">
-<div><p style="margin:0;font:700 15px/1.2 'Cinzel',Georgia,serif;letter-spacing:.03em;color:#ecd9a8">While Guthix Sleeps</p><span>Cinzel 15 · title</span></div>
-<div><p style="margin:0;font:600 14px/1.3 'Fira Sans',sans-serif;color:#ff9f3a">Finding Movario's base</p><span>Fira Sans 14 · part</span></div>
-<div><p style="margin:0;font:400 14px/1.4 'Fira Sans',sans-serif">Talk to the Hunting expert.</p><span>Fira Sans 14 · step</span></div>
-<div><p style="margin:0;font:400 13px/1.4 'Fira Sans',sans-serif;color:#e4d9c4">What are our options?</p><span>Fira Sans 13 · chat</span></div>
-<div><p style="margin:0;font:600 11px/1.2 'Fira Sans',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#d2be93">Feldip Hunter area</p><span>Fira Sans 11 caps · label</span></div>
-</div>
-</div>
-</section>
-
-<section class="spec">
-<h2>Link input <code>source</code></h2>
-<div class="pane pad vstack">
-<div>
-<p class="lbl">Empty</p>
-<div class="row"><input class="inp" type="url" aria-label="Quest guide link" placeholder="https://runescape.wiki/w/…"><button class="btn" type="button">Load</button></div>
-</div>
-<div>
-<p class="lbl">Focused</p>
-<div class="row"><input class="inp is-focus" type="url" aria-label="Quest guide link, focused" value="runescape.wiki/w/While_Guthix_Sleeps"><button class="btn" type="button">Load</button></div>
-</div>
-<div>
-<p class="lbl">Error</p>
-<div class="row"><input class="inp bad" type="url" aria-label="Quest guide link, error" aria-invalid="true" value="youtube.com/watch?v=…"><button class="btn" type="button">Load</button></div>
-<p class="err">That is not a RuneScape Wiki link.</p>
-</div>
-</div>
-</section>
-
-<section class="spec">
-<h2>Buttons <code>app</code></h2>
-<div class="pane pad vstack">
-<div class="hstack">
-<button class="btn" type="button">Load</button>
-<button class="btn is-hover" type="button">Hover</button>
-<button class="btn is-active" type="button">Pressed</button>
-<button class="btn" type="button" disabled="{{ true }}">Off</button>
-</div>
-<div class="hstack">
-<button class="ib" type="button" aria-label="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
-<button class="ib is-hover" type="button" aria-label="Menu, hover"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
-<button class="ib on" type="button" aria-label="Hide done steps" aria-pressed="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg></button>
-<span class="cap" style="margin:0">Icon · hover · toggled on</span>
-</div>
-</div>
-</section>
-
-<section class="spec">
-<h2>Header and progress <code>title</code></h2>
-<div class="pane">
-<div class="hdr">
-<p class="qt">While Guthix Sleeps</p>
-<button class="ib" type="button" aria-label="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
-</div>
-<div class="prog"><progress class="pg" value="10" max="115" aria-label="Quest progress"></progress><span class="cnt">10 / 115 steps</span></div>
-</div>
-<p class="cap">Counts every main step. Sub-steps do not count.</p>
-</section>
-
-<section class="spec">
-<h2>Tabs and step tools <code>overview · items · sections</code></h2>
-<div class="pane">
-<div class="tabs">
-<div class="tl" role="tablist" aria-label="Guide parts">
-<button class="tab" type="button" role="tab" aria-selected="false">Overview</button>
-<button class="tab" type="button" role="tab" aria-selected="false">Items</button>
-<button class="tab" type="button" role="tab" aria-selected="true">Steps</button>
-</div>
-<button class="ib sm" type="button" aria-label="Jump to next step"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="M12 2v3"></path><path d="M12 19v3"></path><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle></svg></button>
-<button class="ib sm on" type="button" aria-label="Hide done steps" aria-pressed="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg></button>
-</div>
-</div>
-<p class="cap">Jump to next step · hide done steps (on). Steps tab only.</p>
-</section>
-
-<section class="spec">
-<h2>Menu <code>app</code></h2>
-<div class="pane pad">
-<div class="menu" role="menu" aria-label="Quest menu">
-<button class="mi" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Change quest</button>
-<button class="mi is-hover" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Refresh from wiki</button>
-<a class="mi" role="menuitem" href="https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open on wiki</a>
-<hr>
-<button class="mi danger" type="button" role="menuitem"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>Reset progress</button>
-</div>
-</div>
-</section>
-
-<section class="spec">
-<h2>App states <code>app</code></h2>
-<div class="vstack">
-<div class="pane">
-<div class="state">
-<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
-<p>Reading the wiki…</p>
-<div class="sk" aria-hidden="true"><i style="width:72%"></i><i style="width:94%"></i><i style="width:58%"></i></div>
-</div>
-</div>
-<div class="pane" style="padding:6px 0 12px">
-<div class="note warn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><span><b>Could not read that page.</b> Check that the link is a quest on runescape.wiki.</span></div>
-<div style="padding:4px 12px 0"><button class="btn" type="button">Try again</button></div>
-</div>
-<div class="pane">
-<div class="done-bn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><div><b>Quest complete!</b><span>All 115 steps done</span></div></div>
-</div>
-</div>
-<p class="cap">Loading · error · all steps ticked</p>
-</section>
-
-</div>
-
 <div class="col">
-
-<section class="spec">
-<h2>Part header <code>sections[].title</code></h2>
-<div class="pane">
-<h3 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="n">Finding Movario's base</span><span class="c">5 / 28</span></button></h3>
-<h3 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Catching Lucien's spy</span><span class="c">0 / 11</span></button></h3>
-<h3 class="sh"><button class="sech done" type="button" aria-expanded="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Starting out</span><span class="c">✓ 5 / 5</span></button></h3>
+<section class="spec"><h2>Part header <code>sections[].title</code></h2><div class="pane"><h2 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Finding Movario's base</span><span class="c">5 / 31</span></button></h2><h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Catching Lucien's spy</span><span class="c">0 / 11</span></button></h2><h2 class="sh"><button class="sech done" type="button" aria-expanded="false"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Starting out</span><span class="c">✓ 5 / 5</span></button></h2></div><p class="cap">Open · closed · done. A finished part folds shut, unless “Show done steps” is on: then it stays open.</p></section>
+<section class="spec"><h2>Sub-headings <code>blocks[heading]</code></h2><div class="pane" style="padding-bottom: 10px"><h3 class="sub">Feldip Hunter area</h3><h4 class="sub minor">Intended method</h4></div><p class="cap">Wiki h3 · wiki h4</p></section>
+<section class="spec"><h2>Bring box <code>blocks[bring]</code></h2><div class="pane bx" style="padding: 8px 10px"><details class="acc bring" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="sl">Bring for this part</span><span class="m">1 / 7</span></summary><div class="body"><p class="bl"><span>Needed</span><span class="c">1 / 5</span></p><ul class="steps blist"><li class="step done"><div class="row"><input class="cb" type="checkbox" checked="{{ true }}"><div class="rb"><span class="t">Any logs</span></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a> or 5,000 coins</span></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a></span></div></div></li></ul><p class="bl"><span>Recommended</span><span class="c">0 / 2</span></p><ul class="steps blist"><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Watchtower Teleport</span></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Ardougne Teleport (Ardougne cloak is best)</span></div></div></li></ul></div></details></div><p class="cap">Open until you tick the first step of the part. Closes when all is ticked, unless “Show done steps” is on.</p></section>
+<section class="spec"><h2>Step <code>blocks[step]</code></h2><div class="pane" style="padding: 4px 0"><ul class="steps"><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">In Taverley, talk to <a href="https://runescape.wiki/w/Ivy_Sophista">Ivy Sophista</a> in the house west of the summoning obelisk.</span></div></div></li><li class="step"><div class="row is-hover"><input class="cb" type="checkbox"><div class="rb"><span class="t">Go upstairs, talk to Thaerisk Cemphier and kill both assassins.</span></div></div></li><li class="step cur"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Talk to Thaerisk again.</span></div></div></li><li class="step done"><div class="row"><input class="cb" type="checkbox" checked="{{ true }}"><div class="rb"><span class="t">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends’ Guild.</span></div></div></li></ul></div><p class="cap">To do · hover · next step · done (seen with “Show done steps” on)</p></section>
+<section class="spec"><h2>Text in a step <code>step.html</code></h2><div class="pane" style="padding: 4px 0"><ul class="steps"><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> (fairy ring <span class="code">BLR</span>). <i>Search</i> the table. <span class="caution">Caution:</span> dropped items are lost.</span></div></div></li></ul></div><p class="cap">Wiki link · in-game action · fairy ring code · caution</p></section>
+<section class="spec"><h2>Sub-steps <code>step.substeps[]</code></h2><div class="pane" style="padding: 4px 0"><ul class="steps"><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Cast <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a> to talk to:</span></div></div><ul class="steps subs"><li class="step done"><div class="row"><input class="cb" type="checkbox" checked="{{ true }}"><div class="rb"><span class="t">Turael</span></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Duradel</span><div class="ext"><ul class="dlg" aria-label="Chat options"><li><kbd title="Press 1">1</kbd><span>I need to talk to you about Lucien.</span></li></ul></div></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t">Mazchna</span></div></div></li></ul></li></ul></div><p class="cap">Ticking the main step ticks all its sub-steps</p></section>
+<section class="spec"><h2>Overview parts <code>overview.*</code></h2><div class="pane" style="padding-bottom: 8px"><h2 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Details</span><span class="c"></span></button></h2><dl class="kv"><dt>Start</dt><dd>Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends’ Guild.</dd><dt>Length</dt><dd>Very, Very Long</dd></dl><h2 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Skills</span><span class="c">9</span></button></h2><ul class="skills" style="margin-top: 8px"><li class="chip"><b>75</b><span class="sn">Magic</span></li><li class="chip"><b>65</b><span class="sn">Herblore</span></li></ul><h2 class="sh"><button class="sech" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Enemies</span><span class="c">6</span></button></h2><ul class="foes"><li><span class="nm"><span class="x">2 ×</span> Assassin</span><span class="lv">lvl <b>42</b></span></li><li><span class="nm">Balance Elemental</span><span class="lv">lvl <b>117</b></span></li></ul><h2 class="sh"><button class="sech" type="button" aria-expanded="false"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Rewards</span><span class="c">8</span></button></h2></div><p class="cap">Details · Skills · Enemies · Rewards. All parts start open; the app remembers the ones you close.</p></section>
 </div>
-<p class="cap">Open · closed · done (closes by itself)</p>
-</section>
-
-<section class="spec">
-<h2>Sub-headings <code>blocks[heading]</code></h2>
-<div class="pane" style="padding-bottom:10px">
-<p class="sub">Feldip Hunter area</p>
-<p class="sub minor">Intended method</p>
-</div>
-<p class="cap">Wiki h3 · wiki h4</p>
-</section>
-
-<section class="spec">
-<h2>Bring box <code>sections[].bring</code></h2>
-<div class="pane" style="padding:4px 0">
-<div class="blk">
-<details class="acc bring" open="{{ true }}">
-<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Bring for this part</span><span class="m">Needed · Recommended</span></summary>
-<div class="body">
-<dl>
-<dt>Needed</dt>
-<dd>Lit sapphire lantern, Dagon'hai robes, gear for two combat styles (or Necromancy), food, prayer for Bloom or 2 druid pouch charges, 6+ free spaces</dd>
-<dt>Recommended</dt>
-<dd>Games necklace, emergency teleport, energy potions, super restores</dd>
-</dl>
-</div>
-</details>
-</div>
-</div>
-<p class="cap">Open until you tick the first step of the part</p>
-</section>
-
-<section class="spec">
-<h2>Step <code>blocks[step]</code></h2>
-<div class="pane" style="padding:6px 0">
-<ul class="steps">
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">In Taverley, talk to <a href="https://runescape.wiki/w/Ivy_Sophista">Ivy Sophista</a> in the house west of the summoning obelisk.</span></label></li>
-<li class="step is-hover"><label><input class="cb" type="checkbox"><span class="t">Go upstairs, talk to Thaerisk Cemphier and kill both assassins.</span></label></li>
-<li class="step cur"><label><input class="cb" type="checkbox"><span class="t">Talk to Thaerisk again.</span></label></li>
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends' Guild (fairy ring BLR).</span></label></li>
-</ul>
-</div>
-<p class="cap">To do · hover · next step · done (one line, extras hidden)</p>
-</section>
-
-<section class="spec">
-<h2>Text in a step <code>step.html</code></h2>
-<div class="pane pad">
-<p class="t" style="margin:0">Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> (fairy ring <span class="code">BLR</span>). <em>Search</em> the table. <span class="caution">Caution:</span> dropped items are lost.</p>
-</div>
-<p class="cap">Wiki link · in-game action · fairy ring code · caution</p>
-</section>
-
-<section class="spec">
-<h2>Sub-steps <code>step.substeps[]</code></h2>
-<div class="pane" style="padding:6px 0">
-<ul class="steps">
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Cast <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a> to talk to:</span></label>
-<div class="ext">
-<ul class="steps subs">
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Turael</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Duradel</span></label>
-<div class="ext">
-<ul class="dlg" aria-label="Chat options">
-<li><kbd>1</kbd><span>I need to talk to you about Lucien.</span></li>
-</ul>
-</div>
-</li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Mazchna</span></label></li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<p class="cap">Ticking the main step ticks all its sub-steps</p>
-</section>
-
-<section class="spec">
-<h2>Overview parts <code>overview.*</code></h2>
-<div class="pane" style="padding-bottom:12px">
-<dl class="kv">
-<dt>Start</dt><dd>Talk to <a href="https://runescape.wiki/w/Radimus_Erkle">Radimus Erkle</a> in the Legends' Guild.</dd>
-<dt>Length</dt><dd>Very, Very Long</dd>
-</dl>
-<ul class="skills">
-<li class="chip"><b>75</b>Magic</li>
-<li class="chip"><b>65</b>Herblore</li>
-</ul>
-<ul class="foes">
-<li><span class="nm"><span class="x">2 ×</span> Assassin</span><span class="lv">lvl <b>42</b></span></li>
-<li><span class="nm">Balance Elemental</span><span class="lv">lvl <b>117</b></span></li>
-</ul>
-<div class="blk">
-<details class="acc" open="{{ true }}">
-<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span>Quest tree</span><span class="m">31 entries</span></summary>
-<div class="body">
-<ul class="tree">
-<li>Defender of Varrock</li>
-<li class="d2">Shield of Arrav</li>
-<li class="d2">The Knight's Sword</li>
-<li class="d2">Family Crest</li>
-<li class="more">… the full tree, indented like the wiki</li>
-</ul>
-</div>
-</details>
-</div>
-</div>
-<p class="cap">Facts · skill levels · enemies · quest tree</p>
-</section>
-
-</div>
-
 <div class="col">
-
-<section class="spec">
-<h2>Chat options <code>step.dialogue[]</code></h2>
-<div class="pane pad">
-<p class="lbl">Number keys</p>
-<ul class="dlg" aria-label="Chat options">
-<li><kbd>1</kbd><span>What efforts are you making against Lucien?</span></li>
-<li><kbd>2</kbd><span>What are our options?</span></li>
-<li><kbd>3</kbd><span>What do you need me to do?</span></li>
-</ul>
-<p class="lbl" style="margin-top:14px">Special keys</p>
-<ul class="dlg" aria-label="Chat options with special keys">
-<li><kbd>✓</kbd><span>Accept quest</span></li>
-<li><kbd>?</kbd><span>Talk about Lucien and Movario. <span class="vary">Number varies.</span></span></li>
-<li><kbd>~</kbd><span>Any option. Try them until one works.</span></li>
-</ul>
-<p class="why">If you finished The Hand in the Sand:</p>
-<ul class="dlg" aria-label="Chat options for this case">
-<li><kbd>2</kbd><span>Talk to Betty about While Guthix Sleeps.</span></li>
-</ul>
+<section class="spec"><h2>Chat options <code>step.dialogue[]</code></h2><div class="pane bx"><p class="lbl">Number keys</p><ul class="dlg"><li><kbd title="Press 1">1</kbd><span>What efforts are you making against Lucien?</span></li><li><kbd title="Press 2">2</kbd><span>What are our options?</span></li><li><kbd title="Press 3">3</kbd><span>What do you need me to do?</span></li></ul><p class="lbl" style="margin-top: 12px">Special keys</p><ul class="dlg"><li><kbd title="Accept quest">✓</kbd><span>Accept quest</span></li><li><kbd title="The number varies">?</kbd><span>Talk about Lucien and Movario. <span class="vary">Number varies.</span></span></li><li><kbd title="Any option">~</kbd><span>Any option. Try them until one works.</span></li></ul><p class="why">If you finished The Hand in the Sand:</p><ul class="dlg"><li><kbd title="Press 2">2</kbd><span>Talk to Betty about While Guthix Sleeps.</span></li></ul></div><p class="cap">A list: key first, then the text. A line in italics starts another case.</p></section>
+<section class="spec"><h2>Picture or map <code>step.images[] · blocks[map]</code></h2><div class="pane bx" style="padding: 8px 10px"><details class="acc"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg><span class="sl">Map: Location of the Khazard launderer</span></summary><div class="body"></div></details><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span class="sl">The ice wall and the ledge</span></summary><div class="body"><div class="ph">Wiki picture, up to 350 px wide</div><p class="cap">The ice wall and the ledge.</p></div></details></div><p class="cap">Closed at first · one box per picture · maps are the wiki’s own map</p></section>
+<section class="spec"><h2>Table <code>blocks[table]</code></h2><div class="pane bx" style="padding: 8px 10px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M12 3v18"></path></svg><span class="sl">Statue ingredients</span><span class="m">13 rows</span></summary><div class="body"><div class="tblw"><table class="tbl"><thead><tr><th>Keyword</th><th>Ingredients</th></tr></thead><tbody><tr><td>Agility</td><td>Clean toadflax + toad’s legs</td></tr><tr><td>Attack</td><td>Clean guam + eye of newt</td></tr><tr><td>Balance</td><td>Clean harralander + red spiders’ eggs + garlic + silver dust</td></tr><tr><td>Combat</td><td>Clean harralander + goat horn dust</td></tr></tbody></table></div></div></details></div><p class="cap">Closed at first · sample shows 4 of 13 rows</p></section>
+<section class="spec"><h2>Notes <code>blocks[note · warning · text]</code></h2><div class="pane" style="padding: 6px 0"><div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Dismiss any followers before the next steps.</span></div><div class="note warn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><span><span class="caution">Warning:</span> turn off area attacks before killing Elite Black Knights.</span></div><p class="para">Done right, opening the door gives “The magical interference to teleportation has lifted.”</p></div><p class="cap">Note (wiki italics) · warning (WARNING, CAUTION) · plain text</p></section>
+<section class="spec"><h2>Items tab <code>requiredItems · recommendedItems</code></h2><div class="pane" style="padding-bottom: 8px"><h2 class="bh">Required <span class="c">4 / 13</span></h2><ul class="steps"><li class="step done"><div class="row"><input class="cb" type="checkbox" checked="{{ true }}"><div class="rb"><span class="t">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></div></div></li><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a></span><span class="alt">or 5,000 coins</span></div></div></li></ul><h2 class="bh">Recommended <span class="c">0 / 13</span></h2><ul class="steps"><li class="step"><div class="row"><input class="cb" type="checkbox"><div class="rb"><span class="t"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></div></div></li></ul></div><p class="cap">Its own tab, between Overview and Steps. Nested wiki bullets become small lines.</p></section>
+<section class="spec"><h2>Quest list <code>List of quests</code></h2><div class="pane"><h2 class="gh" style="margin: 0"><button class="ghb" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">In progress</span><span class="c">1</span></button></h2><ul class="ql"><li><button class="q" type="button"><span class="q1"><b>While Guthix Sleeps</b><span class="qs">10 / 118</span></span><span class="q2">Grandmaster · Very, Very Long · Members · 5 QP</span><progress class="pg" value="10" max="118" aria-hidden="true"></progress></button></li></ul><h2 class="gh"><button class="ghb" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">C</span><span class="c">1</span></button></h2><ul class="ql"><li><button class="q done" type="button"><span class="q1"><b>Cook’s Assistant</b><span class="qs ok">✓ 9 / 9</span></span><span class="q2">Novice · Short · Free · 1 QP</span></button></li></ul><h2 class="gh"><button class="ghb" type="button" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">D</span><span class="c">1</span></button></h2><ul class="ql"><li><button class="q" type="button"><span class="q1"><b>Dragon Slayer</b></span><span class="q2">Experienced · Long · Free · 2 QP</span></button></li></ul></div><p class="cap">Names in the game’s colours: yellow when started, green when done. Started quests come first.</p></section>
+<section class="spec"><h2>Next step button <code>app</code></h2><div class="vst"><div class="ftr" style="padding: 0"><button class="next" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next step</span></button></div><div class="ftr" style="padding: 0"><button class="next is-active" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next step</span></button></div><div class="ftr" style="padding: 0"><button class="next" type="button" disabled="{{ true }}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>All steps done</span></button></div></div><p class="cap">Default · pressed · all done. Ticks the highlighted step and its sub-steps, then scrolls to the next one. Steps tab only.</p></section>
 </div>
-<p class="cap">A list: key first, then the text. A line in italics starts another case.</p>
-</section>
-
-<section class="spec">
-<h2>Image <code>step.images[]</code></h2>
-<div class="pane pad">
-<details class="acc">
-<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>The ice wall and the ledge</span></summary>
-<div class="body"><div class="ph">Wiki image</div></div>
-</details>
-<details class="acc" open="{{ true }}">
-<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg><span>The ice wall and the ledge</span></summary>
-<div class="body"><div class="ph">Wiki image, up to 350 px wide</div><p class="cap">The ice wall and the ledge.</p></div>
-</details>
-</div>
-<p class="cap">Closed by default · one per image · caption is the title</p>
-</section>
-
-<section class="spec">
-<h2>Table <code>blocks[table]</code></h2>
-<div class="pane pad">
-<details class="acc" open="{{ true }}">
-<summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M12 3v18"></path></svg><span>Statue ingredients</span><span class="m">13 rows</span></summary>
-<div class="body">
-<table class="tbl">
-<thead><tr><th>Keyword</th><th>Ingredients</th></tr></thead>
-<tbody>
-<tr><td>Agility</td><td>Clean toadflax + toad's legs</td></tr>
-<tr><td>Attack</td><td>Clean guam + eye of newt</td></tr>
-<tr><td>Balance</td><td>Clean harralander + red spiders' eggs + garlic + silver dust</td></tr>
-<tr><td>Combat</td><td>Clean harralander + goat horn dust</td></tr>
-</tbody>
-</table>
-</div>
-</details>
-</div>
-<p class="cap">Closed by default · sample shows 4 of 13 rows</p>
-</section>
-
-<section class="spec">
-<h2>Notes <code>blocks[note · warning · text]</code></h2>
-<div class="pane" style="padding:6px 0">
-<div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Dismiss any followers before the next steps.</span></div>
-<div class="note warn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><span>Turn off area attacks before killing Elite Black Knights. Two kills at once drop the same piece twice.</span></div>
-<p class="para">Done right, opening the door gives “The magical interference to teleportation has lifted.”</p>
-</div>
-<p class="cap">Note (wiki italics) · warning (WARNING, CAUTION) · plain text</p>
-</section>
-
-<section class="spec">
-<h2>Item <code>requiredItems.items[]</code></h2>
-<div class="pane" style="padding:6px 0">
-<ul class="steps">
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a><span class="alt">or 5,000 coins</span></span></label></li>
-</ul>
-</div>
-<p class="cap">Same tick row as steps · nested wiki bullets become small lines</p>
-</section>
-
-<section class="spec">
-<h2>Next step button <code>app</code></h2>
-<div class="pane">
-<div class="ftr"><button class="next" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Done, next step</button></div>
-<div class="ftr"><button class="next is-active" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Done, next step</button></div>
-<div class="ftr"><button class="next" type="button" disabled="{{ true }}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>All steps done</button></div>
-</div>
-<p class="cap">Default · pressed · all done. Ticks the highlighted step and its sub-steps, then scrolls to the next one. Steps tab only.</p>
-</section>
-
-</div>
-
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1160,"height":1945}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1160,"height":2389}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};
