@@ -63,8 +63,8 @@ test.describe('details', () => {
     await expect(tree.locator('.tree li')).toHaveText(['Defender of Varrock', 'Shield of Arrav', "The Knight's Sword", 'The Hand in the Sand']);
     await expect(tree.locator('.tree li').nth(1)).toHaveCSS('padding-left', '16px');
     await expect(d.locator('.para', { hasText: 'Story only' })).toHaveText('Story only, not required: Nature Spirit, Priest in Peril, The Restless Ghost.');
-    await expect(d.locator('.kv.wide dt')).toHaveText(['Ironman concerns']);
-    await expect(d.locator('.kv.wide dd')).toHaveText('Bring a Spade spade & logs.');
+    await expect(d.locator('.kv.wide dt')).toHaveText(['League region required', 'League auto-complete', 'Ironman concerns']);
+    await expect(d.locator('.kv.wide dd').last()).toHaveText('Bring a Spade spade & logs.');
     await expect(d.locator('.para', { hasText: 'short version' })).toHaveText('This is the short version of the guide.');
     await expect(d.locator('a.xl')).toHaveAttribute('href', 'https://runescape.wiki/w/While_Guthix_Sleeps');
     await expect(d.locator('.foot')).toContainText('Guide text: RuneScape Wiki, CC BY-NC-SA 3.0. Loaded ');

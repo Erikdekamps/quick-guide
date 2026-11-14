@@ -9,7 +9,7 @@ so they match it.
 
 | File | What it shows |
 | --- | --- |
-| `Start.dc.html` | Start screen: a looked-up player, quests in optimal order, started ones first |
+| `Start.dc.html` | Start screen: a looked-up player, quests in optimal order, started ones first, the quests and miniquests filter |
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |

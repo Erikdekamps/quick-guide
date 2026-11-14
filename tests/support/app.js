@@ -40,8 +40,12 @@ class Wiki {
     this.page('Rune Mysteries', fixture('rune-mysteries.html'));
     return this;
   }
-  // Which pages the app asked for, in order.
-  asked() { return this.calls.map((c) => c.page); }
+  // Which pages the app asked for, in order. The miniquest list is left out (the app asks for it
+  // next to the quest list); askedAll() has every page.
+  asked() { return this.askedAll().filter((p) => p !== 'Miniquests'); }
+  askedAll() { return this.calls.map((c) => c.page); }
+  // The wiki's miniquest list (not in the standard set, so most tests see quests only).
+  minis() { return this.page('Miniquests', fixture('miniquests.html')); }
   async handle(route) {
     const url = new URL(route.request().url());
     if (url.pathname !== '/api.php') {
@@ -64,10 +68,14 @@ class Wiki {
     });
   }
   // Player data for one name, the way the wiki passes it on from Jagex.
-  // quests: { 'Quest name': 'COMPLETED' | 'STARTED' | 'NOT_STARTED' }, levels: { hiscoreId: level }
+  // quests: { 'Quest name': 'COMPLETED' | 'STARTED' | 'NOT_STARTED' | 'LOCKED' }, levels: { hiscoreId: level }
+  // LOCKED is NOT_STARTED with eligible: false (you do not have what the quest needs).
   setPlayer(name, quests, levels) {
     const q = {};
-    Object.keys(quests || {}).forEach((t, i) => { q[String(100 + i)] = { title: t, status: quests[t] }; });
+    Object.keys(quests || {}).forEach((t, i) => {
+      const s = quests[t];
+      q[String(100 + i)] = { title: t, status: s === 'LOCKED' ? 'NOT_STARTED' : s, eligible: s !== 'LOCKED' };
+    });
     this.player['playerQuests/' + encodeURIComponent(name)] = { json: { quests: q } };
     this.player['index_lite.json?player=' + encodeURIComponent(name)] = { json: { name, skills: Object.keys(levels || {}).map((id) => ({ id: +id, level: levels[id] })) } };
     return this;

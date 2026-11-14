@@ -154,13 +154,7 @@ test.describe('search', () => {
   test('says when nothing matches', async ({ page }) => {
     await openApp(page, expect);
     await page.locator('#quest-link').fill('zzz');
-    await expect(page.locator('#qarea .empty')).toHaveText('No quests match. Press Open to look for “zzz” on the wiki.');
-  });
-
-  test('a link in the box does not filter the list', async ({ page }) => {
-    await openApp(page, expect);
-    await page.locator('#quest-link').fill('https://runescape.wiki/w/Dragon_Slayer');
-    await expect(page.locator('#qcount')).toHaveText('11 quests');
+    await expect(page.locator('#qarea .empty')).toHaveText('No quests match “zzz”.');
   });
 
   test('Open picks the best match: exact name, then names that start with it, then the rest', async ({ page, wiki }) => {
@@ -178,14 +172,6 @@ test.describe('search', () => {
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   });
 
-  test('a name that is not in the list is looked up on the wiki', async ({ page, wiki }) => {
-    wiki.page('Shield of arrav/Quick guide', fixture('cooks-assistant.html'));
-    await openApp(page, expect);
-    await page.locator('#quest-link').fill('shield of arrav');
-    await page.locator('#quest-link').press('Enter');
-    await expect(page.locator('h1.qt')).toHaveText('Shield of arrav');
-    expect(wiki.asked()).toContain('Shield of arrav/Quick guide');
-  });
 });
 
 test.describe('opening a quest', () => {
@@ -213,20 +199,12 @@ test.describe('opening a quest', () => {
   });
 
   test('shows a message while the guide loads, and blocks the box', async ({ page, wiki }) => {
-    wiki.fail('Slow quest/Quick guide', 'slow');
+    wiki.fail('Imp Catcher/Quick guide', 'slow');
     await openApp(page, expect);
-    await page.locator('#quest-link').fill('slow quest');
-    await page.locator('#quest-link').press('Enter');
-    await expect(page.locator('.state')).toHaveText('Reading “Slow quest” from the wiki…');
+    await page.locator('.q[data-quest="Imp Catcher"]').click();
+    await expect(page.locator('.state')).toHaveText('Reading “Imp Catcher” from the wiki…');
     await expect(page.locator('#quest-link')).toBeDisabled();
     await expect(page.getByRole('button', { name: 'Open' })).toBeDisabled();
-  });
-
-  test('a wiki link works', async ({ page }) => {
-    await openApp(page, expect);
-    await page.locator('#quest-link').fill('https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide');
-    await page.locator('#quest-link').press('Enter');
-    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   });
 
   test('a quest without a quick guide uses its main page', async ({ page, wiki }) => {
@@ -236,23 +214,6 @@ test.describe('opening a quest', () => {
     expect(wiki.asked()).toEqual(['List of quests', 'Rune Mysteries/Quick guide', 'Rune Mysteries']);
     await expect(page.locator('#main .note').first()).toHaveText('This quest has no Quick guide on the wiki, so this is its full page.');
   });
-
-  const inputErrors = [
-    ['', 'Type a quest name or paste a link first.'],
-    ['https://oldschool.runescape.wiki/w/Cook%27s_Assistant', 'That is the Old School wiki. This app reads the RuneScape 3 wiki.'],
-    ['https://example.com/w/Cook%27s_Assistant', 'That is not a RuneScape Wiki link.'],
-    ['https://runescape.wiki/', 'That link does not point to a wiki page.'],
-    ['http://', 'That link does not look right.']
-  ];
-  for (const [input, message] of inputErrors) {
-    test('error for "' + input + '"', async ({ page }) => {
-      await openApp(page, expect);
-      await page.locator('#quest-link').fill(input);
-      await page.locator('#quest-link').press('Enter');
-      await expect(page.locator('#load-err')).toHaveText(message);
-      await expect(page.locator('#quest-link')).toHaveAttribute('aria-invalid', 'true');
-    });
-  }
 
   test('the error goes away when you type', async ({ page }) => {
     await openApp(page, expect);
@@ -264,29 +225,26 @@ test.describe('opening a quest', () => {
   });
 
   const loadErrors = [
-    ['missing', 'The wiki has no page with that name. Check the link.'],
+    ['missing', 'The wiki has no page for this quest yet.'],
     ['http', 'The wiki answered with error 500. Try again in a moment.'],
     ['network', 'Could not reach the wiki. Check your internet, then try again.'],
     ['format', 'The wiki sent something unexpected. Try again in a moment.']
   ];
   for (const [how, message] of loadErrors) {
     test('wiki error: ' + how, async ({ page, wiki }) => {
-      if (how === 'missing') wiki.missing('Lost quest/Quick guide').missing('Lost quest');
-      else wiki.fail('Lost quest/Quick guide', how);
+      if (how === 'missing') wiki.missing('Imp Catcher/Quick guide').missing('Imp Catcher');
+      else wiki.fail('Imp Catcher/Quick guide', how);
       await openApp(page, expect);
-      await page.locator('#quest-link').fill('lost quest');
-      await page.locator('#quest-link').press('Enter');
+      await page.locator('.q[data-quest="Imp Catcher"]').click();
       await expect(page.locator('#load-err')).toHaveText(message);
-      await expect(page.locator('#quest-link')).toHaveValue('lost quest');
     });
   }
 
   test('wiki error: too slow', async ({ page, wiki }) => {
-    wiki.fail('Lost quest/Quick guide', 'slow');
+    wiki.fail('Imp Catcher/Quick guide', 'slow');
     await page.clock.install();
     await openApp(page, expect);
-    await page.locator('#quest-link').fill('lost quest');
-    await page.locator('#quest-link').press('Enter');
+    await page.locator('.q[data-quest="Imp Catcher"]').click();
     await expect(page.locator('.state')).toBeVisible();
     await page.clock.runFor(26000);
     await expect(page.locator('#load-err')).toHaveText('The wiki took too long to answer. Try again.');

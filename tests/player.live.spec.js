@@ -35,3 +35,11 @@ test('looking up a player marks quests in the list', async ({ page }) => {
   expect(done).toBeGreaterThan(total * 0.5);
   await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveClass(/\bdone\b/);
 });
+
+test('the game says which quests are locked', async ({ page }) => {
+  await page.goto('/');
+  const p = await page.evaluate((n) => window.QuickGuide.loadPlayer(n), NAME);
+  expect(typeof p.locked).toBe('object');
+  // every locked quest is one that is not started
+  for (const k of Object.keys(p.locked)) expect(p.quests[k]).toBe(0);
+});

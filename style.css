@@ -699,6 +699,7 @@ kbd {
   font-size: 12px;
   cursor: pointer;
 }
+.sel + .sel { margin-left: 0; }
 .sel option { background: #17130f; color: var(--text); }
 .qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
 .gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
@@ -754,6 +755,18 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .chip.low .you { color: var(--red); }
 .tree li.got { color: var(--faint); }
 .tree .tk { color: var(--green); }
+/* a quest the game says you cannot start yet: grayed out */
+.q.locked { opacity: .55; }
+.q.locked .q1 b { color: var(--muted); }
+.qs.lk { display: inline-flex; align-items: center; gap: 3px; }
+.qs.lk .i { width: 11px; height: 11px; }
+/* a quest name that opens that quest here */
+.qlink { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(243, 197, 101, .35); text-underline-offset: 2px; }
+.qlink:hover { color: var(--gold); text-decoration-color: currentColor; }
+.qlink:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+.tree li.got .qlink { color: var(--faint); }
+/* a League region */
+.reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
 /* phones: 16px inputs, so the page does not zoom in when you type */
 @media (pointer: coarse) { .inp { font-size: 16px; } }
 
