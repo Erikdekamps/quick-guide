@@ -1084,7 +1084,7 @@
 
 
   // ---------- Area Tasks: the "<Area> achievements" pages ----------
-  var AREA_VERSION = 2;   // a new number makes saved areas read the wiki again
+  var AREA_VERSION = 3;   // a new number makes saved areas read the wiki again
   var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
     "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
     return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
@@ -1149,7 +1149,70 @@
       });
       ol.remove();
     });
+    if (!subs.length && clean(text(cc)).length > LONG_TIP) {
+      var long = longSteps(cc, page, taskId);
+      if (long.subs.length >= 2) return long;
+    }
     return { notes: tidy(inline(cc, page)), subs: subs };
+  }
+  // A tip of more than this many letters is turned into sub-tasks.
+  var LONG_TIP = 250;
+  var ABBR_RE = /(?:^|[\s(])(?:e\.g|i\.e|etc|vs|approx|st|mr|mrs|dr|no|cf)\.$/i;
+  // Splits safe inline HTML into sentences, only where no tag is open, so links stay whole.
+  function sentences(html) {
+    var out = [], cur = '', depth = 0, i = 0;
+    while (i < html.length) {
+      var ch = html.charAt(i);
+      if (ch === '<') {
+        var end = html.indexOf('>', i), tag = html.slice(i, end + 1);
+        if (/^<\//.test(tag)) depth--;
+        else if (!/^<br/i.test(tag) && !/\/>$/.test(tag)) depth++;
+        cur += tag;
+        i = end + 1;
+        continue;
+      }
+      cur += ch;
+      i++;
+      if (depth > 0 || !/[.!?]/.test(ch)) continue;
+      var rest = html.slice(i), m = /^(?:\s|<br>)+(?=(?:<[a-z][^>]*>)*["'(\u2018\u201cA-Z0-9])/.exec(rest);
+      if (!m || ABBR_RE.test(plainOf(cur))) continue;
+      out.push(cur);
+      cur = '';
+      i += m[0].length;
+    }
+    if (plainOf(cur)) out.push(cur);
+    return out.map(function (x) { return tidy(x); }).filter(function (x) { return plainOf(x); });
+  }
+  // A long tip, as sub-tasks: a paragraph or a list line each, and a long paragraph one sentence each.
+  // A line that ends with ":" keeps the list right after it as its notes. A box (like "Required items") stays as the tip.
+  function longSteps(cell, page, taskId) {
+    var subs = [], tip = '', loose = '';
+    function add(html, notes) {
+      (plainOf(html).length > 160 ? sentences(html) : [html]).forEach(function (x) {
+        subs.push({ id: taskId + ':' + (subs.length + 1), html: x, notes: [] });
+      });
+      if (notes && notes.length && subs.length) subs[subs.length - 1].notes = notes;
+    }
+    function flush() { if (plainOf(loose)) add(tidy(loose)); loose = ''; }
+    arr(cell.childNodes).forEach(function (n) {
+      if (n.nodeType === 3 || (n.nodeType === 1 && INLINE_RE.test(n.tagName))) { loose += inlineOne(n, page, {}); return; }
+      if (n.nodeType !== 1) return;
+      flush();
+      if (n.tagName === 'UL' || n.tagName === 'OL') {
+        var items = kids(n, 'LI').map(function (li) { return tidy(inline(li, page)); }).filter(plainOf);
+        var last = subs[subs.length - 1];
+        if (last && /:\s*$/.test(plainOf(last.html)) && !last.notes.length) last.notes = items;
+        else items.forEach(function (x) { add(x); });
+      } else if (n.tagName === 'DIV' || n.tagName === 'TABLE') {
+        var t = tidy(inline(n, page));
+        if (plainOf(t)) tip += (tip ? '<br>' : '') + t;
+      } else {
+        var h = tidy(inline(n, page));
+        if (plainOf(h)) add(h);
+      }
+    });
+    flush();
+    return { notes: tip, subs: subs };
   }
   function areaTier(part, page) {
     var name = text(part.head).replace(/\s*achievements$/i, '');

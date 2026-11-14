@@ -180,6 +180,8 @@
     player: savedPlayer,   // the character you looked up, or null
     aidxBusy: false,  // reading all areas so their tasks can be searched
     aidxFail: [],     // areas that could not be read
+    aidxWait: [],     // what to do when all areas are read
+    qdone: null,      // quests marked done by hand (in an imported file): { normName: 1 }
     area: null,       // the area that is open (Area Tasks), its name, and your ticks
     areaKey: '',
     aprog: null,
@@ -649,11 +651,16 @@
     playerChanged();
   }
 
+  function qdoneAll() {
+    if (!S.qdone) { var d = sget('qdone'); S.qdone = d && typeof d === 'object' && !Array.isArray(d) ? d : {}; }
+    return S.qdone;
+  }
+  function markedDone(title) { return !!qdoneAll()[QG.normName(title)]; }
   // Everything the list needs to know about one quest.
   function questInfo(q, byTitle) {
     var m = byTitle[D.norm(q.t)] || null, ps = playerStatus(q.t);
-    // Done when you ticked every step, or when the game says so.
-    var isDone = (!!m && m.total > 0 && m.done >= m.total) || ps === 2;
+    // Done when you ticked every step, when the game says so, or when you marked it done in an imported file.
+    var isDone = (!!m && m.total > 0 && m.done >= m.total) || ps === 2 || markedDone(q.t);
     var started = !isDone && ((!!m && m.done > 0) || ps === 1);
     return { q: q, m: m, done: isDone, started: started, locked: !isDone && !started && playerLocked(q.t) };
   }
@@ -1518,7 +1525,13 @@
     var running = 0, next = 0;
     function pump() {
       while (running < 3 && next < todo.length) start(todo[next++]);
-      if (!running && next >= todo.length) { S.aidxBusy = false; drawList(); }
+      if (!running && next >= todo.length) {
+        S.aidxBusy = false;
+        drawList();
+        var w = S.aidxWait;
+        S.aidxWait = [];
+        w.forEach(function (fn) { fn(); });
+      }
     }
     function start(name) {
       running++;
@@ -1526,6 +1539,13 @@
         function () { S.aidxFail.push(name); }).then(function () { running--; drawList(); pump(); });
     }
     pump();
+  }
+  // Runs fn once every area that can be read is read (at once when they all are).
+  function whenAreasRead(fn) {
+    var todo = missingAreas().filter(function (n) { return S.aidxFail.indexOf(n) < 0; });
+    if (!todo.length && !S.aidxBusy) { fn(); return; }
+    S.aidxWait.push(fn);
+    loadAllAreas();
   }
   // Ticks a task from the search results, without opening its area.
   function tickInArea(name, id, on) {
@@ -1758,7 +1778,7 @@
 
   // ---------- export and import ----------
   // Everything you ticked, your settings and your player, as text. Guides and lists are not in it: the app reads them from the wiki.
-  var FORMAT = 1;
+  var FORMAT = 2;
   var BOOL_SETTINGS = ['showDone', 'hideDone', 'hideLocked', 'hideMini'];
   function storageKeys(prefix) {
     var out = {};
@@ -1788,37 +1808,82 @@
     return L;
   }
   function ticked(map) { var o = {}; Object.keys(map || {}).forEach(function (k) { if (map[k]) o[k] = 1; }); return o; }
-  function buildExport() {
-    var quests = {}, m = metaAll(), areas = {};
-    storageKeys('prog.').forEach(function (key) {
-      var p = loadProg(key), me = m[key] || {}, L = questLabels(sget('quest.' + key));
-      var steps = {}, items = {};
-      Object.keys(ticked(p.steps)).forEach(function (id) { steps[id] = L[id] || ''; });
-      Object.keys(ticked(p.items)).forEach(function (id) { items[id] = L[id] || ''; });
-      if (!Object.keys(steps).length && !Object.keys(items).length) return;
-      quests[me.title || key.replace(/\/Quick guide$/, '')] = {
-        page: key, progress: { done: me.done || 0, total: me.total || 0 }, steps: steps, items: items,
-        view: { tab: p.tab, open: p.open, acc: p.acc }
-      };
-    });
-    var am = ametaAll(), ix = aidxAll();
-    QG.AREAS.forEach(function (a) {
-      var p = loadAprog(a.name), ids = Object.keys(ticked(p.tasks));
-      if (!ids.length) return;
-      var src = sget('area.' + a.name) || ix[a.name], L = {};
-      ((src && src.tiers) || []).forEach(function (t) {
-        t.tasks.forEach(function (x) {
-          L[x.id] = x.name;
-          (x.subs || []).forEach(function (u) { if (typeof u !== 'string') L[u.id] = textOf(u.html); });
-        });
+  // A line of the file: "<code> <what it says>", cut short so the file stays easy to read.
+  function lineKey(id, label) {
+    label = String(label || '').replace(/\s+/g, ' ').trim();
+    var room = 100 - String(id).length - 1;
+    if (label.length > room) label = label.slice(0, Math.max(0, room - 1)).replace(/\s+\S*$/, '') + '…';
+    return label ? id + ' ' + label : String(id);
+  }
+  // Every step and item of a saved guide, in order, with what it says.
+  function questLines(q) {
+    var steps = [], items = [];
+    function step(st) { steps.push([st.id, st.text || textOf(st.html)]); (st.substeps || []).forEach(function (c) { if (c.type === 'step') step(c); }); }
+    [q.requiredItems, q.recommendedItems].forEach(function (g) { ((g && g.items) || []).forEach(function (it) { if (it && it.id) items.push([it.id, it.text || textOf(it.html)]); }); });
+    (q.sections || []).forEach(function (sec) {
+      sec.blocks.forEach(function (b) {
+        if (b.type === 'step') step(b);
+        else if (b.type === 'bring') (b.needed || []).concat(b.recommended || []).forEach(function (it) { if (it && it.id) items.push([it.id, it.text || textOf(it.html)]); });
       });
-      var tiers = {};
-      ((am[a.name] && am[a.name].tiers) || []).forEach(function (t) { tiers[t.id] = { done: t.done, total: t.total }; });
-      var tasks = {};
-      ids.forEach(function (id) { tasks[id] = L[id] || ''; });
-      areas[a.name] = { tier: p.tier || (src && src.tiers[0] && src.tiers[0].id) || '', tiers: tiers, tasks: tasks };
     });
-    return { app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(), settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, areas: areas };
+    return { steps: steps, items: items };
+  }
+  // The file: every quest and every area task, each true (done) or false, so you can change them by hand and import it again.
+  function buildExport() {
+    var m = metaAll(), byTitle = {}, progs = {}, quests = {}, areas = {}, titles = [];
+    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
+    storageKeys('prog.').forEach(function (k) { progs[k] = 1; });
+    allQuests().forEach(function (q) { titles.push(q.t); });
+    Object.keys(m).forEach(function (k) { if (progs[k] && titles.every(function (t) { return D.norm(t) !== D.norm(m[k].title); })) titles.push(m[k].title); });
+    titles.sort(function (a, b) { return sortKey(a) < sortKey(b) ? -1 : sortKey(a) > sortKey(b) ? 1 : 0; });
+    titles.forEach(function (title) {
+      var key = byTitle[D.norm(title)] || title + '/Quick guide', me = m[key];
+      var done = (!!me && me.total > 0 && me.done >= me.total) || playerStatus(title) === 2 || markedDone(title);
+      var q = sget('quest.' + key), p = progs[key] ? loadProg(key) : null;
+      var ticks = p ? Object.keys(ticked(p.steps)).length + Object.keys(ticked(p.items)).length : 0;
+      if (!q && !ticks) { quests[title] = done; return; }
+      var e = {};
+      if (key !== title + '/Quick guide') e.page = key;
+      e.done = done;
+      if (me && me.total) e.progress = me.done + ' / ' + me.total;
+      var st = {}, it = {}, pr = p || { steps: {}, items: {} };
+      if (q) {
+        var L = questLines(q);
+        L.steps.forEach(function (x) { st[lineKey(x[0], x[1])] = !!pr.steps[x[0]]; });
+        L.items.forEach(function (x) { it[lineKey(x[0], x[1])] = !!pr.items[x[0]]; });
+      } else {
+        Object.keys(ticked(pr.steps)).forEach(function (id) { st[id] = true; });
+        Object.keys(ticked(pr.items)).forEach(function (id) { it[id] = true; });
+      }
+      e.steps = st;
+      e.items = it;
+      quests[title] = e;
+    });
+    var ix = aidxAll();
+    QG.AREAS.forEach(function (a) {
+      var x = ix[a.name];
+      if (!x) return;
+      var full = sget('area.' + a.name), subs = {}, p = loadAprog(a.name), out = {};
+      ((full && full.tiers) || []).forEach(function (t) { t.tasks.forEach(function (tk) { (tk.subs || []).forEach(function (u) { subs[u.id] = textOf(u.html); }); }); });
+      x.tiers.forEach(function (t) {
+        var tier = {};
+        t.tasks.forEach(function (tk) {
+          var k = tk.id + ' ' + tk.name;
+          if (!tk.subs || !tk.subs.length) { tier[k] = !!p.tasks[tk.id]; return; }
+          var steps = {};
+          tk.subs.forEach(function (u) { var uid = subId(u); steps[lineKey(uid, subs[uid])] = !!p.tasks[uid]; });
+          tier[k] = { done: !!p.tasks[tk.id], steps: steps };
+        });
+        out[t.name] = tier;
+      });
+      areas[a.name] = out;
+    });
+    return {
+      app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
+      help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
+        'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone.',
+      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, areas: areas
+    };
   }
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
   function cap1(x) { x = String(x); return x.charAt(0).toUpperCase() + x.slice(1); }
@@ -1848,7 +1913,8 @@
         levels: isMap(pl.levels) ? pl.levels : {}, locked: isMap(pl.locked) ? pl.locked : {}, done: +pl.done || 0, started: +pl.started || 0 };
       sset('player', S.player);
     }
-    if (isMap(j.quests)) {
+    if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; }
+    else if (isMap(j.quests)) {
       Object.keys(j.quests).forEach(function (title) {
         var e = j.quests[title];
         if (!isMap(e)) return;
@@ -1862,7 +1928,7 @@
         nq++;
       });
     }
-    if (isMap(j.areas)) {
+    if (+j.format < 2 && isMap(j.areas)) {
       var am = ametaAll();
       QG.AREAS.forEach(function (a) {
         var e = j.areas[a.name];
@@ -1885,27 +1951,121 @@
     }
     return { quests: nq, areas: na };
   }
-  function closeBackup() { var b = byId('bk'); if (b) b.parentNode.removeChild(b); }
+  function setMarked(title, on) {
+    var d = qdoneAll(), n = QG.normName(title);
+    // Only kept when nothing else says the quest is done.
+    var other = playerStatus(title) === 2 || (function () {
+      var m = metaAll(), k = Object.keys(m).filter(function (x) { return D.norm(m[x].title) === D.norm(title); })[0];
+      return !!k && m[k].total > 0 && m[k].done >= m[k].total;
+    })();
+    if (on && !other) d[n] = 1; else delete d[n];
+    sset('qdone', d);
+  }
+  // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
+  function importV2(j) {
+    var nq = 0, na = 0, m = metaAll(), byTitle = {};
+    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
+    function code(k) { return String(k).trim().split(/\s+/)[0]; }
+    if (isMap(j.quests)) {
+      Object.keys(j.quests).forEach(function (title) {
+        var v = j.quests[title];
+        if (typeof v === 'boolean') { setMarked(title, v); nq++; return; }
+        if (!isMap(v)) return;
+        if (typeof v.done === 'boolean') setMarked(title, v.done);
+        if (isMap(v.steps) || isMap(v.items)) {
+          var key = typeof v.page === 'string' && v.page ? v.page : byTitle[D.norm(title)] || title + '/Quick guide';
+          var old = loadProg(key), steps = {}, items = {};
+          Object.keys(isMap(v.steps) ? v.steps : {}).forEach(function (k) { if (v.steps[k] === true) steps[code(k)] = 1; });
+          Object.keys(isMap(v.items) ? v.items : {}).forEach(function (k) { if (v.items[k] === true) items[code(k)] = 1; });
+          sset('prog.' + key, { steps: steps, items: items, tab: old.tab, open: old.open, acc: old.acc });
+          var g = sget('quest.' + key), pm = /^(\d+)\s*\/\s*(\d+)$/.exec(String(v.progress || '').trim());
+          if (g) { var ids = topSteps(g); remember(key, title, ids.filter(function (id) { return steps[id]; }).length, ids.length); }
+          else remember(key, title, pm ? +pm[1] : Object.keys(steps).length, pm ? +pm[2] : 0);
+          if (typeof v.done === 'boolean') setMarked(title, v.done);
+        }
+        nq++;
+      });
+    }
+    if (isMap(j.areas)) {
+      QG.AREAS.forEach(function (a) {
+        var e = j.areas[a.name];
+        if (!isMap(e)) return;
+        var ix = aidxAll()[a.name], idx = ix ? taskIndex(ix) : {}, byName = {}, ticks = {};
+        if (ix) ix.tiers.forEach(function (t) { t.tasks.forEach(function (x) { byName[x.name.toLowerCase()] = x.id; }); });
+        function idOf(k) {
+          var c = code(k);
+          if (!ix || idx[c]) return c;
+          return byName[String(k).trim().toLowerCase()] || c;
+        }
+        Object.keys(e).forEach(function (tn) {
+          var tier = e[tn];
+          if (!isMap(tier)) return;
+          Object.keys(tier).forEach(function (k) {
+            var v = tier[k], id = idOf(k);
+            if (v === true) setTick(ticks, idx, id, true);
+            else if (isMap(v)) {
+              Object.keys(isMap(v.steps) ? v.steps : {}).forEach(function (sk) { if (v.steps[sk] === true) setTick(ticks, idx, code(sk), true); });
+              if (v.done === true) setTick(ticks, idx, id, true);
+            }
+          });
+        });
+        var p = loadAprog(a.name);
+        p.tasks = ticks;
+        sset('aprog.' + a.name, p);
+        if (ix) writeAmeta(a.name, ix, p);
+        na++;
+      });
+    }
+    return { quests: nq, areas: na };
+  }
+  function closeBackup() {
+    var b = byId('bk');
+    if (b) b.parentNode.removeChild(b);
+    if (S.bkUrl) { try { URL.revokeObjectURL(S.bkUrl); } catch (e) { /* gone */ } S.bkUrl = ''; }
+  }
   function openBackup(mode) {
     closeMenus();
     closeBackup();
-    var exp = mode === 'export', text = exp ? JSON.stringify(buildExport(), null, 2) : '';
+    var exp = mode === 'export';
     app.insertAdjacentHTML('beforeend',
       '<div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h">' +
       '<h2 class="dh" id="bk-h">' + (exp ? 'Export state' : 'Import state') + '</h2>' +
       '<p class="para">' + (exp ?
-        'Everything you ticked, your settings and your player, as text. Copy it or save it as a file. You can change it in any text editor, then import it again.' :
-        'Paste an export here, or choose a file. It replaces your ticks for the quests and areas in it.') + '</p>' +
+        'Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
+        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it.') + '</p>' +
+      (exp ? '<div class="state" id="bk-wait" role="status">' + I.loader + '<p>Reading the areas, so all their tasks are in the file…</p></div>' :
+        '<label class="btn file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
       '<textarea class="inp tx" id="bk-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="' + (exp ? 'Exported state' : 'State to import') + '"' +
-      (exp ? ' readonly' : ' placeholder="Paste an export here"') + '>' + esc(text) + '</textarea>' +
-      (exp ? '' : '<label class="btn alt file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
+      (exp ? ' readonly' : ' placeholder="Or paste an export here"') + '></textarea>' +
+      '<p class="note" id="bk-note" hidden></p>' +
       '<p class="err" id="bk-err" role="alert" hidden></p>' +
       '<div class="dbtn">' + (exp ?
-        '<button class="btn" type="button" data-act="bk-copy">Copy</button><a class="btn" id="bk-save" download="quick-guide.json" href="data:application/json;charset=utf-8,' + encodeURIComponent(text) + '">Save file</a>' :
+        '<a class="btn" id="bk-save" role="link" aria-disabled="true">Download file</a><button class="btn alt" type="button" data-act="bk-copy" disabled>Copy</button>' :
         '<button class="btn" type="button" data-act="bk-import">Import</button>') +
       '<button class="btn alt" type="button" data-act="bk-close">' + (exp ? 'Close' : 'Cancel') + '</button></div></div></div>');
-    var ta = byId('bk-text');
-    if (ta) ta.focus();
+    if (!exp) { var t0 = byId('bk-text'); if (t0) t0.focus(); return; }
+    S.aidxFail = [];
+    whenAreasRead(function () {
+      var ta = byId('bk-text');
+      if (!ta) return;   // closed while reading
+      var text = JSON.stringify(buildExport(), null, 2);
+      ta.value = text;
+      var w = byId('bk-wait');
+      if (w) w.parentNode.removeChild(w);
+      var failed = S.aidxFail.filter(function (n) { return missingAreas().indexOf(n) >= 0; }), note = byId('bk-note');
+      if (failed.length && note) {
+        note.textContent = 'Could not read ' + failed.join(' and ') + ', so ' + (failed.length === 1 ? 'its' : 'their') + ' tasks are not in the file.';
+        note.hidden = false;
+      }
+      var a = byId('bk-save'), c = document.querySelector('[data-act="bk-copy"]');
+      try {
+        S.bkUrl = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+        a.href = S.bkUrl;
+      } catch (e) { a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(text); }
+      a.download = 'quick-guide-' + new Date().toISOString().slice(0, 10) + '.json';
+      a.removeAttribute('aria-disabled');
+      if (c) c.disabled = false;
+    });
   }
   function copyBackup() {
     var ta = byId('bk-text');

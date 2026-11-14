@@ -126,10 +126,44 @@ test.describe('reading an area page', () => {
     expect(t.subs.length).toBeGreaterThanOrEqual(3);
     expect(t.subs[0].html).toContain('Go to the Castle Wars lobby');
     expect(t.notes).toContain('A draw will not count');
-    // the tasks with a bulleted list keep it as a note
+    // a task with a numbered list keeps its other text as the tip
+    expect(t.notes.replace(/<[^>]+>/g, '').length).toBeGreaterThan(250);
+  });
+
+  test('a task with a lot of text gets sub-tasks: one per sentence', async ({ page }) => {
+    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
+    const all = a.tiers.flatMap((x) => x.tasks);
+    const plain = (h) => h.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const purse = all.find((x) => x.name === "Honestly, It's Not a Purse");
+    expect(purse.subs.length).toBeGreaterThanOrEqual(3);
+    expect(purse.notes).toBe('');
+    expect(purse.subs.map((x) => x.id)).toEqual(purse.subs.map((x, i) => purse.id + ':' + (i + 1)));
+    // nothing is lost: the sub-tasks together are the whole text, each a full sentence
+    for (const u of purse.subs) expect(plain(u.html)).toMatch(/[.!?)]$/);
+    // every sub-task is valid HTML on its own: links are kept whole
+    for (const u of purse.subs) expect((u.html.match(/<a /g) || []).length).toBe((u.html.match(/<\/a>/g) || []).length);
+  });
+
+  test('a line that ends with ":" keeps its list under it, as notes', async ({ page }) => {
+    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
     const cat = a.tiers.flatMap((x) => x.tasks).find((x) => x.name === 'A Cat is For Life...');
-    expect(cat.subs).toEqual([]);
-    expect(cat.notes).toContain('Hellcats');
+    const plain = (h) => h.replace(/<[^>]+>/g, '');
+    const intro = cat.subs.find((u) => /Cats that can be used for this achievement are:$/.test(plain(u.html)));
+    expect(intro).toBeTruthy();
+    expect(intro.notes.map(plain)).toEqual(['Purple cats', 'Hellcats', 'Fully grown cats', 'Overgrown cats', 'Wily cats', 'Lazy cats']);
+    expect(cat.subs.some((u) => plain(u.html) === 'Hellcats')).toBe(false);
+  });
+
+  test('short text stays one tip', async ({ page }) => {
+    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
+    const t = a.tiers[0].tasks;
+    expect(t.find((x) => x.name === 'Silky Smooth').subs).toEqual([]);
+    expect(t.find((x) => x.name === 'Yoink!').subs).toEqual([]);
+    const l = await parse(page, 'lumbridge-achievements.html', 'Lumbridge');
+    const len = (x) => [x.notes].concat(x.subs.map((u) => u.html)).join(' ').replace(/<[^>]+>/g, '').length;
+    const short = l.tiers.flatMap((x) => x.tasks).filter((x) => len(x) < 200);
+    expect(short.length).toBeGreaterThan(40);
+    for (const x of short) expect(x.subs, x.name).toEqual([]);
   });
 
   test('a page that is not an area page', async ({ page }) => {
@@ -499,9 +533,10 @@ test.describe('an area', () => {
     await expect(tasks.locator('.sech')).toHaveClass(/\bdone\b/);
     await expect(tasks.locator('.sech .c')).toHaveText('✓ 5 / 5');
     await tasks.locator('.sech').click();
-    await expect(tasks.locator('li[data-task]')).toHaveCount(5);
-    for (const li of await tasks.locator('li[data-task]').all()) await expect(li).toBeVisible();
-    await tasks.locator('li[data-task] .cb').first().click();
+    const top = tasks.locator('.secb > ul > li[data-task]');
+    await expect(top).toHaveCount(5);
+    for (const li of await top.all()) await expect(li).toBeVisible();
+    await top.first().locator(':scope > .row > .cb').click();
     await expect(page.locator('#pg-cnt')).toHaveText('4 / 5 tasks');
   });
 
