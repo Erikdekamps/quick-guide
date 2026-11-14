@@ -66,6 +66,8 @@ test('wiki map tiles load', async ({ page }) => {
 test('the optimal order is read from the wiki and matches the quest list', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
+  // The guide is about quests, so leave the miniquests out.
+  await page.locator('#kind').selectOption('quest');
   await page.locator('#sort').selectOption('opt');
   await expect(page.locator('.ghb[data-group="Optimal order"]')).toBeVisible();
   const inGuide = parseInt(await page.locator('.ghb[data-group="Optimal order"] .c').textContent(), 10);
