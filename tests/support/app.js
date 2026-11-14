@@ -187,6 +187,17 @@ function areaPage(tiers) {
       '<div class="mw-heading mw-heading3"><h3 id="Rewards">Rewards</h3></div> <p>Claim it.</p> <ul><li>A reward</li></ul>';
   }).join('');
 }
+const AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania', "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'];
+// All 13 areas on the fake wiki: Ardougne and Lumbridge are real pages, Varrock is an excerpt, the rest have one small task each.
+function withAllAreas(wiki) {
+  wiki.page('Ardougne achievements', fixture('ardougne-achievements.html'));
+  wiki.page('Lumbridge achievements', fixture('lumbridge-achievements.html'));
+  wiki.page('Varrock achievements', fixture('varrock-excerpt.html'));
+  AREAS.filter((n) => !['Ardougne', 'Lumbridge', 'Varrock'].includes(n)).forEach((n, i) => {
+    wiki.page(n + ' achievements', areaPage([{ name: 'Easy', tasks: [{ id: 5000 + i, name: n + ' filler task', desc: 'A task in ' + n + '.' }] }]));
+  });
+  return wiki;
+}
 // Opens a quest from the list, as a person would.
 async function openQuest(page, expect, name) {
   if (!(await page.locator('#qcount').count())) await openApp(page, expect);
@@ -219,4 +230,4 @@ async function parsedQuest(page, file, title, live) {
 // Runs a function from the app's scripts in the page (parser.js and quests.js are global).
 function inPage(page, fn, arg) { return page.evaluate(fn, arg); }
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, step, item, part, parsedQuest, inPage };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, parsedQuest, inPage };

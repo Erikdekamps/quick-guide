@@ -163,6 +163,7 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
     return { withSteps, tasks };
   });
   expect(n.tasks).toBeGreaterThan(500);
-  expect(n.withSteps).toBeGreaterThan(5);    // about 20 today
-  expect(n.withSteps).toBeLessThan(n.tasks / 4);
+  // numbered lists (about 20) and long tips (more than 250 letters) become steps; most tasks stay one line
+  expect(n.withSteps).toBeGreaterThan(20);
+  expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });

@@ -1,15 +1,16 @@
-// Export and import: everything you ticked, as text you can keep, edit and put back.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, openCog, closeCog, areaPage } = require('./support/app');
+// Export and import: everything as a JSON file you can download, change by hand, and import again.
+const fs = require('fs');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, openCog, closeCog, withAllAreas, AREAS } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
-function withAreas(wiki) {
-  wiki.page('Ardougne achievements', fixture('ardougne-achievements.html'));
-  return wiki;
-}
-async function exportText(page) {
+async function openExport(page) {
   await openCog(page);
   await page.getByRole('button', { name: 'Export state' }).click();
+  await expect(page.locator('#bk-text')).not.toHaveValue('');
+}
+async function exportText(page) {
+  await openExport(page);
   const t = await page.locator('#bk-text').inputValue();
   await page.getByRole('button', { name: 'Close' }).click();
   return t;
@@ -18,6 +19,13 @@ async function importText(page, text) {
   await openCog(page);
   await page.getByRole('button', { name: 'Import state' }).click();
   await page.locator('#bk-text').fill(text);
+  await page.getByRole('button', { name: 'Import', exact: true }).click();
+}
+async function importFile(page, text) {
+  await openCog(page);
+  await page.getByRole('button', { name: 'Import state' }).click();
+  await page.locator('#bk-file').setInputFiles({ name: 'quick-guide.json', mimeType: 'application/json', buffer: Buffer.from(text) });
+  await expect(page.locator('#bk-text')).toHaveValue(text);
   await page.getByRole('button', { name: 'Import', exact: true }).click();
 }
 // Some ticks in a quest and in an area, a player and a changed setting.
@@ -42,20 +50,19 @@ async function someState(page, wiki) {
   await expect(page.locator('#pg-cnt')).toHaveText('2 / 23 tasks');
   await page.getByRole('button', { name: 'All areas' }).click();
 }
+const key = (map, start) => Object.keys(map).find((k) => k.startsWith(start));
 
 test.describe('the settings', () => {
   test('end with a Backup part: Export state and Import state', async ({ page }) => {
     await openApp(page, expect);
     await openCog(page);
     await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup']);
-    const last = page.locator('#cog > *').last();
-    await expect(page.locator('#cog .mi').last()).toHaveText('Import state');
     await expect(page.locator('#cog .mi').nth(-2)).toHaveText('Export state');
-    await expect(last).toHaveText('Import state');
+    await expect(page.locator('#cog > *').last()).toHaveText('Import state');
   });
 
   test('they are there inside a quest and inside an area too', async ({ page, wiki }) => {
-    withAreas(wiki);
+    withAllAreas(wiki);
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openCog(page);
     await expect(page.getByRole('button', { name: 'Export state' })).toBeVisible();
@@ -70,70 +77,106 @@ test.describe('the settings', () => {
 });
 
 test.describe('export', () => {
-  test('is text with a clear structure: settings, player, quests and areas', async ({ page, wiki }) => {
-    withAreas(wiki);
+  test('Download file gives a .json file with the same text', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await openExport(page);
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('link', { name: 'Download file' }).click()]);
+    expect(dl.suggestedFilename()).toMatch(/^quick-guide-\d{4}-\d{2}-\d{2}\.json$/);
+    const text = fs.readFileSync(await dl.path(), 'utf8');
+    expect(text).toBe(await page.locator('#bk-text').inputValue());
+    expect(JSON.parse(text).app).toBe('Quick Guide');
+  });
+
+  test('lists every quest and every area task, done or not, so you can change them', async ({ page, wiki }) => {
+    withAllAreas(wiki);
     await openApp(page, expect);
     await someState(page, wiki);
-    const text = await exportText(page);
-    const j = JSON.parse(text);
-    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'settings', 'player', 'quests', 'areas']);
-    expect(j).toMatchObject({ app: 'Quick Guide', format: 1 });
-    expect(Date.parse(j.exportedAt)).toBeGreaterThan(Date.now() - 60000);
+    const j = JSON.parse(await exportText(page));
+    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'areas']);
+    expect(j).toMatchObject({ app: 'Quick Guide', format: 2 });
+    expect(j.help).toContain('true');
     expect(j.settings).toEqual({ showDone: false, hideDone: true, hideLocked: false, hideMini: false, fontSize: 14, sort: 'name', home: 'areas' });
-    expect(j.player).toMatchObject({ name: 'Zezima', done: 1, levels: { magic: 80 } });
-    expect(Object.keys(j.quests)).toEqual(['While Guthix Sleeps']);
-    const q = j.quests['While Guthix Sleeps'];
-    expect(Object.keys(q)).toEqual(['page', 'progress', 'steps', 'items', 'view']);
-    expect(q.page).toBe(WGS);
-    expect(q.progress).toEqual({ done: 1, total: 12 });
-    expect(Object.keys(q.steps)).toHaveLength(1);
-    expect(Object.values(q.steps)[0]).toContain('In Taverley');            // an id and what it is, so you can read it
-    expect(Object.values(q.items)[0]).toContain('sapphire lantern');
-    expect(q.view).toMatchObject({ tab: 'steps' });
-    expect(Object.keys(j.areas)).toEqual(['Ardougne']);
-    expect(j.areas.Ardougne).toEqual({
-      tier: 'easy',
-      tiers: { easy: { done: 2, total: 23 }, medium: { done: 0, total: 16 }, hard: { done: 0, total: 17 }, elite: { done: 0, total: 5 } },
-      tasks: { 447: 'The Essence of Magic', 448: 'Yoink!' }
-    });
+    expect(j.player).toMatchObject({ name: 'Zezima', done: 1 });
+    // every quest in the list, by name: true when it is done
+    expect(Object.keys(j.quests)).toHaveLength(11);
+    expect(j.quests["Cook's Assistant"]).toBe(true);
+    expect(j.quests['Imp Catcher']).toBe(false);
+    // a quest whose guide is saved lists each step and item: its code, what it says, and whether it is done
+    const w = j.quests['While Guthix Sleeps'];
+    expect(Object.keys(w)).toEqual(['done', 'progress', 'steps', 'items']);
+    expect(w).toMatchObject({ done: false, progress: '1 / 12' });
+    expect(Object.values(w.steps).filter((v) => v === true)).toHaveLength(1);
+    expect(Object.keys(w.steps).length).toBeGreaterThan(12);
+    expect(w.steps[key(w.steps, 'starting-out')]).toBeDefined();
+    expect(Object.entries(w.steps).find(([k]) => k.includes('In Taverley'))[1]).toBe(true);
+    expect(Object.entries(w.items).find(([k]) => k.includes('sapphire lantern'))[1]).toBe(true);
+    // every area, every tier, every task
+    expect(Object.keys(j.areas)).toEqual(AREAS);
+    const e = j.areas.Ardougne;
+    expect(Object.keys(e)).toEqual(['Easy', 'Medium', 'Hard', 'Elite']);
+    expect(Object.keys(e.Easy)).toHaveLength(23);
+    expect(e.Easy['447 The Essence of Magic']).toBe(true);
+    expect(e.Easy['448 Yoink!']).toBe(true);
+    expect(e.Easy['449 Silky Smooth']).toBe(false);
+    // a task with steps: done, and each step
+    const red = j.areas.Varrock.Elite['993 Red, Red Pies of Summer'];
+    expect(Object.keys(red)).toEqual(['done', 'steps']);
+    expect(red.done).toBe(false);
+    expect(Object.keys(red.steps)).toHaveLength(4);
+    expect(Object.keys(red.steps)[0]).toMatch(/^993:1 Make pastry dough/);
+    // long step texts are cut short, so the file stays easy to read
+    for (const k of Object.keys(w.steps)) expect(k.length).toBeLessThanOrEqual(100);
+  });
+
+  test('reads the areas it has not read yet first, so all their tasks are in it', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await openExport(page);
+    expect(wiki.asked().filter((x) => / achievements$/.test(x)).sort()).toEqual(AREAS.map((n) => n + ' achievements').sort());
+    const j = JSON.parse(await page.locator('#bk-text').inputValue());
+    expect(Object.keys(j.areas)).toEqual(AREAS);
+    expect(j.areas.Desert.Easy).toEqual({ '5001 Desert filler task': false });
+  });
+
+  test('an area that cannot be read is left out, and it says so', async ({ page, wiki }) => {
+    withAllAreas(wiki).fail('Desert achievements', 'http');
+    await openApp(page, expect);
+    await openExport(page);
+    await expect(page.locator('#bk-note')).toHaveText('Could not read Desert, so its tasks are not in the file.');
+    const j = JSON.parse(await page.locator('#bk-text').inputValue());
+    expect(Object.keys(j.areas)).not.toContain('Desert');
+    expect(Object.keys(j.areas)).toHaveLength(12);
   });
 
   test('is easy to read and change: indented, one thing per line', async ({ page, wiki }) => {
-    withAreas(wiki);
+    withAllAreas(wiki);
     await openApp(page, expect);
-    await someState(page, wiki);
     const text = await exportText(page);
     expect(text).toContain('\n  "settings": {\n    "showDone": false,');
-    expect(text.split('\n').length).toBeGreaterThan(30);
+    expect(text).toContain('\n        "447 The Essence of Magic": false,\n');
     expect(text.endsWith('}')).toBe(true);
   });
 
-  test('with nothing yet: settings, no player, no quests, no areas', async ({ page }) => {
-    await openApp(page, expect);
-    const j = JSON.parse(await exportText(page));
-    expect(j).toMatchObject({ app: 'Quick Guide', format: 1, player: null, quests: {}, areas: {} });
-    expect(j.settings.fontSize).toBe(14);
-  });
-
-  test('Copy uses the clipboard', async ({ page }) => {
+  test('Copy uses the clipboard', async ({ page, wiki }) => {
+    withAllAreas(wiki);
     // the test site is plain http, where a browser hides the clipboard: put a fake one there
     await page.addInitScript(() => { Object.defineProperty(navigator, 'clipboard', { value: { writeText: (t) => { window.__clip = t; return Promise.resolve(); } } }); });
     await openApp(page, expect);
-    await openCog(page);
-    await page.getByRole('button', { name: 'Export state' }).click();
+    await openExport(page);
     await page.getByRole('button', { name: 'Copy' }).click();
     await expect(page.locator('#toast')).toHaveText('Copied.');
     expect(await page.evaluate(() => window.__clip)).toBe(await page.locator('#bk-text').inputValue());
   });
 
-  test('Copy still works without the clipboard (Alt1 or an old browser): the text is selected and copied', async ({ page }) => {
+  test('Copy still works without the clipboard (Alt1 or an old browser): the text is selected and copied', async ({ page, wiki }) => {
+    withAllAreas(wiki);
     await page.addInitScript(() => {
       Object.defineProperty(navigator, 'clipboard', { value: undefined });
       document.execCommand = (c) => { const e = document.activeElement; window.__copy = [c, e.value.slice(e.selectionStart, e.selectionEnd)]; return true; };
     });
     await openApp(page, expect);
-    await openCog(page);
-    await page.getByRole('button', { name: 'Export state' }).click();
+    await openExport(page);
     await page.getByRole('button', { name: 'Copy' }).click();
     await expect(page.locator('#toast')).toHaveText('Copied.');
     const [cmd, text] = await page.evaluate(() => window.__copy);
@@ -141,23 +184,11 @@ test.describe('export', () => {
     expect(text).toBe(await page.locator('#bk-text').inputValue());
   });
 
-  test('Save file is a download of the same text', async ({ page }) => {
-    await openApp(page, expect);
-    await openCog(page);
-    await page.getByRole('button', { name: 'Export state' }).click();
-    const a = page.locator('#bk-save');
-    await expect(a).toHaveAttribute('download', 'quick-guide.json');
-    const href = await a.getAttribute('href');
-    expect(href.startsWith('data:application/json')).toBe(true);
-    expect(decodeURIComponent(href.split(',').slice(1).join(','))).toBe(await page.locator('#bk-text').inputValue());
-  });
-
-  test('the box closes with Close, Escape or a click outside; the settings are not left open', async ({ page }) => {
+  test('the box closes with Close, Escape or a click outside; the settings are not left open', async ({ page, wiki }) => {
+    withAllAreas(wiki);
     await openApp(page, expect);
     for (const how of ['button', 'escape', 'outside']) {
-      await openCog(page);
-      await page.getByRole('button', { name: 'Export state' }).click();
-      await expect(page.locator('#bk')).toBeVisible();
+      await openExport(page);
       await expect(page.locator('#cog')).toBeHidden();
       if (how === 'button') await page.getByRole('button', { name: 'Close' }).click();
       else if (how === 'escape') await page.keyboard.press('Escape');
@@ -168,104 +199,118 @@ test.describe('export', () => {
 });
 
 test.describe('import', () => {
-  const sample = () => JSON.stringify({
-    app: 'Quick Guide', format: 1, exportedAt: '2026-11-14T12:00:00.000Z',
-    settings: { showDone: true, hideDone: true, hideLocked: true, hideMini: true, fontSize: 18, sort: 'opt', home: 'areas' },
-    player: { name: 'Zezima', at: '2026-11-14T10:00:00.000Z', done: 1, started: 0, quests: { cooksassistant: 2 }, locked: {}, levels: { magic: 80 } },
-    quests: { 'While Guthix Sleeps': { page: WGS, progress: { done: 3, total: 12 }, steps: { 'a:1': 'one', 'a:2': 'two', 'a:3': 'three' }, items: { 'req:1': 'lantern' }, view: { tab: 'items', open: { 'ov:skills': false }, acc: {} } } },
-    areas: { Ardougne: { tier: 'medium', tiers: { easy: { done: 2, total: 23 }, medium: { done: 1, total: 16 } }, tasks: { 447: 'The Essence of Magic', 448: 'Yoink!', 470: 'A Visit to Charlie' } } }
-  });
-
-  test('puts everything back on a fresh start', async ({ page }) => {
+  test('change the file by hand: true marks done, false undoes it', async ({ page, wiki }) => {
+    withAllAreas(wiki);
     await openApp(page, expect);
-    await importText(page, sample());
-    await expect(page.locator('#toast')).toHaveText('Imported 1 quest and 1 area.');
-    await expect(page.locator('#bk')).toHaveCount(0);
-    expect(await stored(page, 'settings')).toEqual({ showDone: true, hideDone: true, hideLocked: true, hideMini: true, fontSize: 18, sort: 'opt', home: 'areas' });
-    expect((await stored(page, 'player')).name).toBe('Zezima');
-    expect(await stored(page, 'prog.' + WGS)).toEqual({ steps: { 'a:1': 1, 'a:2': 1, 'a:3': 1 }, items: { 'req:1': 1 }, tab: 'items', open: { 'ov:skills': false }, acc: {} });
-    expect((await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 3, total: 12 });
-    expect(await stored(page, 'aprog.Ardougne')).toEqual({ tasks: { 447: 1, 448: 1, 470: 1 }, tier: 'medium' });
-    const m = (await stored(page, 'ameta')).Ardougne.tiers;
-    expect(m.map((t) => [t.id, t.done, t.total])).toEqual([['easy', 2, 23], ['medium', 1, 16]]);
-    await expect(page.locator('html')).toHaveCSS('font-size', '18px');
-  });
-
-  test('the lists show the imported progress without reading the wiki again', async ({ page, wiki }) => {
-    await openApp(page, expect);
-    await importText(page, sample());
-    await expect(page.locator('.tab[data-home="areas"]')).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('.q[data-area="Ardougne"][data-atier="medium"] .qs')).toHaveText('1 / 16');
+    await someState(page, wiki);
+    const j = JSON.parse(await exportText(page));
+    j.areas.Ardougne.Easy['449 Silky Smooth'] = true;     // done now
+    j.areas.Ardougne.Easy['448 Yoink!'] = false;          // not done after all
+    j.quests['Imp Catcher'] = true;                        // a whole quest
+    const w = j.quests['While Guthix Sleeps'];
+    const taverley = Object.keys(w.steps).find((k) => k.includes('In Taverley'));
+    w.steps[taverley] = false;
+    const other = Object.keys(w.steps).find((k) => w.steps[k] === false && k !== taverley && !k.includes(':', k.indexOf(' ')) && k.split(' ')[0].split(':').length === 2);
+    w.steps[other] = true;
+    await importFile(page, JSON.stringify(j, null, 2));
+    await expect(page.locator('#toast')).toHaveText('Imported 11 quests and 13 areas.');
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1, 449: 1 });
+    expect(await stored(page, 'qdone')).toEqual({ impcatcher: 1 });
+    expect((await stored(page, 'prog.' + WGS)).steps).toEqual({ [other.split(' ')[0]]: 1 });
+    // the lists show it
+    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"] .qs')).toHaveText('2 / 23');
     await page.locator('.tab[data-home="quests"]').click();
     await openCog(page);
-    await page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' }).click();   // off again
-    await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();    // off again
+    await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();   // off, to see done quests
     await closeCog(page);
-    await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .qs')).toHaveText('3 / 12');
-    // no guide and no area page was needed to show it
-    expect(wiki.asked().filter((x) => /Quick guide| achievements/.test(x))).toEqual([]);
+    await expect(page.locator('.q[data-quest="Imp Catcher"]')).toHaveClass(/\bdone\b/);
+    await expect(page.locator('.q[data-quest="Imp Catcher"] .qs')).toHaveText('✓ Done');
   });
 
-  test('a round trip gives the same text', async ({ page, wiki, context }) => {
-    withAreas(wiki);
+  test('a task with steps: tick steps one by one, or the whole task', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    const j = JSON.parse(await exportText(page));
+    const red = j.areas.Varrock.Elite['993 Red, Red Pies of Summer'];
+    const steps = Object.keys(red.steps);
+    red.steps[steps[0]] = true;
+    red.steps[steps[1]] = true;
+    j.areas.Varrock.Elite[Object.keys(j.areas.Varrock.Elite).find((k) => k.startsWith('994 '))] = true;
+    await importText(page, JSON.stringify(j));
+    expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, 994: 1 });
+    red.steps[steps[2]] = false;
+    red.done = true;
+    await importText(page, JSON.stringify(j));
+    expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1, 994: 1 });
+  });
+
+  test('a task can be named without its code', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await exportText(page);   // reads the areas
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, areas: { Ardougne: { Easy: { 'Yoink!': true, 'Silky Smooth': true } } } }));
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1, 449: 1 });
+  });
+
+  test('a fresh start: everything comes back', async ({ page, wiki, context }) => {
+    withAllAreas(wiki);
     await openApp(page, expect);
     await someState(page, wiki);
     const first = await exportText(page);
     const other = await context.newPage();
-    other.errors = [];
     await seed(other, {});
     await openApp(other, expect);
     await importText(other, first);
-    await expect(other.locator('#toast')).toHaveText('Imported 1 quest and 1 area.');
+    await expect(other.locator('#toast')).toHaveText('Imported 11 quests and 13 areas.');
     const second = await exportText(other);
-    // what a step or task is called comes from the guide, which this fresh start has not read yet: compare the rest
+    // what each step of a quest says comes from its guide, which this fresh start has not read yet: compare what is ticked
     const strip = (t) => {
       const j = JSON.parse(t);
       j.exportedAt = '';
-      for (const q of Object.values(j.quests)) { for (const k of ['steps', 'items']) Object.keys(q[k]).forEach((i) => { q[k][i] = ''; }); }
-      for (const a of Object.values(j.areas)) Object.keys(a.tasks).forEach((i) => { a.tasks[i] = ''; });
+      for (const [n, q] of Object.entries(j.quests)) {
+        if (typeof q !== 'object') continue;
+        j.quests[n] = { done: q.done, progress: q.progress, steps: Object.keys(q.steps).filter((k) => q.steps[k]).map((k) => k.split(' ')[0]), items: Object.keys(q.items).filter((k) => q.items[k]).map((k) => k.split(' ')[0]) };
+      }
       return j;
     };
     expect(strip(second)).toEqual(strip(first));
   });
 
-  test('replaces the ticks of the quests and areas in it, and leaves the others', async ({ page, wiki }) => {
-    withAreas(wiki);
+  test('areas that are not in the file keep their ticks', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, { 'aprog.Desert': { tasks: { 5001: 1 } } });
     await openApp(page, expect);
-    await someState(page, wiki);
-    const j = JSON.parse(await exportText(page));
-    // take one tick out by hand, and save it
-    delete j.areas.Ardougne.tasks['448'];
-    await seed(page, { 'prog.Other/Quick guide': { steps: { 'x:1': 1 } } });
-    await openApp(page, expect);
-    await importText(page, JSON.stringify(j));
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, areas: { Ardougne: { Easy: { '447 The Essence of Magic': true } } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 area.');
+    expect((await stored(page, 'aprog.Desert')).tasks).toEqual({ 5001: 1 });
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1 });
-    expect(await stored(page, 'prog.Other/Quick guide')).toEqual({ steps: { 'x:1': 1 } });
-  });
-
-  test('a file can be chosen instead of pasting', async ({ page }) => {
-    await openApp(page, expect);
-    await openCog(page);
-    await page.getByRole('button', { name: 'Import state' }).click();
-    await page.locator('#bk-file').setInputFiles({ name: 'quick-guide.json', mimeType: 'application/json', buffer: Buffer.from(sample()) });
-    await expect(page.locator('#bk-text')).toHaveValue(sample());
-    await page.getByRole('button', { name: 'Import', exact: true }).click();
-    await expect(page.locator('#toast')).toHaveText('Imported 1 quest and 1 area.');
   });
 
   test('only what the app knows is used: bad values are dropped', async ({ page }) => {
-    const j = JSON.parse(sample());
-    j.settings = { fontSize: 999, sort: 'nonsense', hideDone: 'yes', home: 'elsewhere', extra: 1 };
-    j.areas.Atlantis = { tasks: { 1: 'x' } };
-    j.quests.Broken = { page: 'Broken/Quick guide', steps: 'not a map' };
-    j.quests.NoPage = { steps: { 'a:1': 'one' } };
     await openApp(page, expect);
-    await importText(page, JSON.stringify(j));
-    await expect(page.locator('#toast')).toHaveText('Imported 3 quests and 1 area.');
+    await importText(page, JSON.stringify({
+      app: 'Quick Guide', format: 2,
+      settings: { fontSize: 999, sort: 'nonsense', hideDone: 'yes', home: 'elsewhere', extra: 1 },
+      quests: { 'Imp Catcher': 'yes', "Cook's Assistant": true },
+      areas: { Atlantis: { Easy: { '1 x': true } }, Ardougne: 'all of it' }
+    }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 quest.');
     expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: 40, sort: 'name', home: 'quests' });
+    expect(await stored(page, 'qdone')).toEqual({ cooksassistant: 1 });
     expect(await stored(page, 'aprog.Atlantis')).toBeNull();
-    expect(await stored(page, 'prog.Broken/Quick guide')).toEqual({ steps: {}, items: {}, tab: 'overview', open: {}, acc: {} });
-    expect((await stored(page, 'prog.NoPage/Quick guide')).steps).toEqual({ 'a:1': 1 });
+    expect(await stored(page, 'aprog.Ardougne')).toBeNull();
+  });
+
+  test('a file from the first version (format 1) still imports', async ({ page }) => {
+    await openApp(page, expect);
+    await importText(page, JSON.stringify({
+      app: 'Quick Guide', format: 1,
+      quests: { 'While Guthix Sleeps': { page: WGS, progress: { done: 3, total: 12 }, steps: { 'a:1': 'one', 'a:2': 'two', 'a:3': 'three' }, items: {}, view: { tab: 'items' } } },
+      areas: { Ardougne: { tier: 'medium', tiers: { easy: { done: 2, total: 23 } }, tasks: { 447: 'The Essence of Magic', 448: 'Yoink!' } } }
+    }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 quest and 1 area.');
+    expect((await stored(page, 'prog.' + WGS)).steps).toEqual({ 'a:1': 1, 'a:2': 1, 'a:3': 1 });
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1, 448: 1 });
   });
 
   const bad = [
@@ -273,7 +318,7 @@ test.describe('import', () => {
     ['{ nope', 'That is not valid JSON'],
     ['[1, 2]', 'That is not a Quick Guide export.'],
     ['{"a": 1}', 'That is not a Quick Guide export.'],
-    ['{"app": "Quick Guide", "format": 2}', 'This export is from a newer version of the app.']
+    ['{"app": "Quick Guide", "format": 3}', 'This export is from a newer version of the app.']
   ];
   for (const [text, message] of bad) {
     test('says what is wrong with "' + text.slice(0, 20) + '", and changes nothing', async ({ page }) => {
@@ -289,8 +334,8 @@ test.describe('import', () => {
 
   test('works inside a quest too: you go back to the list with the new state', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await importText(page, sample());
-    await expect(page.locator('#toast')).toHaveText('Imported 1 quest and 1 area.');
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, quests: { 'Imp Catcher': true } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 quest.');
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
     expect(page.errors).toEqual([]);
   });

@@ -99,39 +99,51 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
 
 ### Export and import
 
-**Export state** shows everything you ticked, your settings and your player as text. **Copy** it, or **Save file**.
-It is made to be read and changed in a text editor: quests and areas are listed by name, and each step or task is its id
-followed by what it says, so you can take a line out to untick it.
+**Export state** (at the bottom of the settings) gives a JSON file with **every quest and every area task**,
+each `true` (done) or `false` (not done). **Download file** saves it; **Copy** puts the text on the clipboard
+(use Copy inside Alt1 if the download does not work there).
+
+Change what you like in any text editor: set a quest, task or step to `true` to mark it done, or `false` to undo it.
+Then **Import state**, **Choose a file**, **Import**. The number at the start of a task (`447 …`) or a step (`993:1 …`)
+is how the app finds it; a task can also be written by its name alone.
 
 ```json
 {
   "app": "Quick Guide",
-  "format": 1,
-  "exportedAt": "2026-11-14T12:00:00.000Z",
+  "format": 2,
   "settings": { "hideDone": false, "fontSize": 14, "sort": "name", "home": "areas" },
   "player": { "name": "Zezima", "quests": { "cooksassistant": 2 }, "levels": { "magic": 80 } },
   "quests": {
+    "Cook's Assistant": true,
+    "Imp Catcher": false,
     "While Guthix Sleeps": {
-      "page": "While Guthix Sleeps/Quick guide",
-      "progress": { "done": 10, "total": 118 },
-      "steps": { "starting-out:19": "In Taverley, talk to Ivy Sophista…" },
-      "items": { "req:1x3k9a": "Ring of charos (a)" },
-      "view": { "tab": "steps", "open": {}, "acc": {} }
+      "done": false,
+      "progress": "10 / 118",
+      "steps": { "starting-out:19 In Taverley, talk to Ivy Sophista…": true },
+      "items": { "req:1x3k9a Ring of charos (a)": false }
     }
   },
   "areas": {
     "Ardougne": {
-      "tier": "easy",
-      "tiers": { "easy": { "done": 2, "total": 23 } },
-      "tasks": { "447": "The Essence of Magic", "448": "Yoink!" }
+      "Easy": {
+        "447 The Essence of Magic": true,
+        "448 Yoink!": false
+      }
+    },
+    "Varrock": {
+      "Elite": {
+        "993 Red, Red Pies of Summer": { "done": false, "steps": { "993:1 Make pastry dough…": true } }
+      }
     }
   }
 }
 ```
 
-**Import state** takes pasted text or a file. It replaces your ticks for the quests and areas in the file, and leaves the others.
-It tells you what is wrong with text it cannot read, and changes nothing then.
-The guides and lists are not in the file: the app reads them from the wiki when you need them.
+- A whole quest set to `true` shows as done in the list (the game's own data, when you looked up a player, still counts too).
+- Steps of a quest are only listed for quests you opened; the others are one line.
+- To put the tasks in the file, the app reads all 13 area pages first (once).
+- Import replaces the ticks of the quests and areas in the file and leaves the others. It says what is wrong with
+  a file it cannot read, and changes nothing then. Files from the first version (format 1) still import.
 
 ### Area tasks
 
@@ -153,6 +165,8 @@ The guides and lists are not in the file: the app reads them from the wiki when 
   or click the area and tier under it to open it. This is the quick way to put your progress in on a fresh start.
 - Some tasks have **steps** (a numbered list on the wiki, like Red, Red Pies of Summer). They work like the steps of a quest:
   ticking a task ticks its steps, and ticking all steps ticks the task.
+- A task with a lot of text (more than 250 letters) is split into steps too: one per paragraph, and one per sentence
+  for a long paragraph. A line that ends with ":" keeps its list under it.
 
 On a phone the page does not zoom when you pinch or double-tap.
 

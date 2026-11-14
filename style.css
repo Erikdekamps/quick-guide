@@ -821,3 +821,7 @@ ul.steps.ql { padding: 0; }
 .btn.alt { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze); color: var(--text); text-shadow: none; box-shadow: 0 0 0 1px #000; }
 .file { align-self: flex-start; cursor: pointer; }
 .file input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.dlg .state { padding: 10px 0; }
+.dlg .note { margin: 0; }
+.dbtn a.btn[aria-disabled="true"] { filter: grayscale(.8) brightness(.55); pointer-events: none; }
