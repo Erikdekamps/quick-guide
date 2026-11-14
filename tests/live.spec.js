@@ -136,3 +136,33 @@ test('the wiki still lists the same 13 areas', async ({ page }) => {
   const ours = await page.evaluate(() => window.QuickGuide.AREAS.map((a) => a.name));
   for (const n of ours) expect(names, n).toContain(n);
 });
+
+test('an area task with steps: Red, Red Pies of Summer has its 4 steps', async ({ page }) => {
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const t = await page.evaluate(async () => {
+    const a = await window.QuickGuide.loadArea('Varrock');
+    return a.tiers.flatMap((x) => x.tasks).find((x) => x.name === 'Red, Red Pies of Summer');
+  });
+  expect(t, 'the task is still on the Varrock page').toBeTruthy();
+  expect(t.subs).toHaveLength(4);
+  expect(t.subs[0].id).toBe(t.id + ':1');
+  expect(t.notes).toContain('Required items');
+});
+
+test('area tasks: the steps of a task are found on every area page', async ({ page }) => {
+  test.setTimeout(120000);
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const n = await page.evaluate(async () => {
+    let withSteps = 0, tasks = 0;
+    for (const a of window.QuickGuide.AREAS) {
+      const r = await window.QuickGuide.loadArea(a.name);
+      r.tiers.forEach((t) => t.tasks.forEach((x) => { tasks++; if (x.subs.length) withSteps++; }));
+    }
+    return { withSteps, tasks };
+  });
+  expect(n.tasks).toBeGreaterThan(500);
+  expect(n.withSteps).toBeGreaterThan(5);    // about 20 today
+  expect(n.withSteps).toBeLessThan(n.tasks / 4);
+});

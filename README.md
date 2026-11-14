@@ -68,8 +68,8 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
      The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
    - Quests you cannot start yet (you miss a quest, a level or something else) are **grayed out** and say **Locked**.
      **Hide locked** in the cog menu takes them out of the list.
-   - The **Area tasks** tab lists the 13 areas from the wiki's [Area Tasks achievements](https://runescape.wiki/w/Area_Tasks_achievements).
-     Click one to open it (read from the wiki once, then kept). See "Area tasks" below.
+   - The **Area tasks** tab has a row for every tier of the 13 areas from the wiki's [Area Tasks achievements](https://runescape.wiki/w/Area_Tasks_achievements):
+     **Ardougne Easy**, **Ardougne Hard**, and so on. Click one to open it (read from the wiki once, then kept). See "Area tasks" below.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
 3. Three tabs: **Overview**, **Items** and **Steps**.
    - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
@@ -93,22 +93,66 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - **Quest list**: **Sort by**, **Hide completed**, **Hide miniquests**, **Hide locked**.
    - **Display**: **Show done steps** and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
+   - **Backup**, at the bottom: **Export state** and **Import state** (see below).
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
+
+### Export and import
+
+**Export state** shows everything you ticked, your settings and your player as text. **Copy** it, or **Save file**.
+It is made to be read and changed in a text editor: quests and areas are listed by name, and each step or task is its id
+followed by what it says, so you can take a line out to untick it.
+
+```json
+{
+  "app": "Quick Guide",
+  "format": 1,
+  "exportedAt": "2026-11-14T12:00:00.000Z",
+  "settings": { "hideDone": false, "fontSize": 14, "sort": "name", "home": "areas" },
+  "player": { "name": "Zezima", "quests": { "cooksassistant": 2 }, "levels": { "magic": 80 } },
+  "quests": {
+    "While Guthix Sleeps": {
+      "page": "While Guthix Sleeps/Quick guide",
+      "progress": { "done": 10, "total": 118 },
+      "steps": { "starting-out:19": "In Taverley, talk to Ivy Sophista…" },
+      "items": { "req:1x3k9a": "Ring of charos (a)" },
+      "view": { "tab": "steps", "open": {}, "acc": {} }
+    }
+  },
+  "areas": {
+    "Ardougne": {
+      "tier": "easy",
+      "tiers": { "easy": { "done": 2, "total": 23 } },
+      "tasks": { "447": "The Essence of Magic", "448": "Yoink!" }
+    }
+  }
+}
+```
+
+**Import state** takes pasted text or a file. It replaces your ticks for the quests and areas in the file, and leaves the others.
+It tells you what is wrong with text it cannot read, and changes nothing then.
+The guides and lists are not in the file: the app reads them from the wiki when you need them.
 
 ### Area tasks
 
 - One tab per tier: **Easy**, **Medium**, **Hard**, **Elite** (Lumbridge: **Beginner** to **Hard**).
 - **Needs**: the levels and quests the whole tier needs, the items to bring, and notes for Ironmen.
-  With a player looked up, your levels are green or red, and done quests get a ✓. A quest name opens that quest.
+  Levels are one line each ("16 Construction ✓"; with a player, "16 Thieving (you: 3)" in red when you are too low).
+  Done quests get a ✓, and a quest name opens that quest.
 - **Tasks**: click a task to tick it. "Needs 5 Thieving (you: 3)" in red means you cannot do it yet.
   The wiki's tip for how to do it is right under the task. **Done, next task** ticks the next one.
 - **Needs** and **Tasks** fold open and shut. When you finish a tier, its tasks fold shut;
   open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done, so you tick them yourself.
-- An area you started goes to the top of the list, with its progress. A finished tier gets a ✓.
-  With a player, an area whose first tier you cannot do yet is grayed out and says **Locked**.
+- Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
+  **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
+  says **Locked**. **Hide completed** and **Hide locked** work here too.
+- **Search** finds tiers ("ardougne hard") and tasks (by name). The first time you search, the app reads all 13 areas
+  once, so every task can be found; after that it is instant. Tick a task right in the results,
+  or click the area and tier under it to open it. This is the quick way to put your progress in on a fresh start.
+- Some tasks have **steps** (a numbered list on the wiki, like Red, Red Pies of Summer). They work like the steps of a quest:
+  ticking a task ticks its steps, and ticking all steps ticks the task.
 
 On a phone the page does not zoom when you pinch or double-tap.
 

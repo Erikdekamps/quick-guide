@@ -111,13 +111,13 @@ test.describe('menus', () => {
   test('the settings menu: in a quest, and on the start screen', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display']);
-    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', /^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', 'Show done steps', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup']);
+    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', /^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state']);
     await expect(page.locator('#cog #player-name')).toBeVisible();
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All quests' }).click();
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText([/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', 'Show done steps', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mi')).toHaveText([/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state']);
     await expect(page.locator('#cog')).not.toContainText('Compact');
   });
 

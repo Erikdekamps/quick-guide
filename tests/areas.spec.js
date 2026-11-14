@@ -236,6 +236,37 @@ test.describe('the area list', () => {
   });
 });
 
+test('when storage is full, the area read longest ago is dropped, but not its ticks or its tasks in the index', async ({ page, wiki }) => {
+  withAreas(wiki);
+  const stub = { version: 2, name: 'x', tiers: [{ id: 'easy', name: 'Easy', skills: [], quests: [], other: [], items: [], ironman: '', tasks: [{ id: '1', name: 'A task', desc: '', skills: [], quests: [], other: [], notes: '', subs: [] }], reward: { intro: '', items: [], perks: [] } }] };
+  await seed(page, {
+    'area.Desert': stub, 'area.Falador': stub,
+    'aprog.Desert': { tasks: { 1: 1 } },
+    'aidx': { Desert: { v: 2, tiers: [{ id: 'easy', name: 'Easy', tasks: [{ id: '1', name: 'A task', subs: [] }] }] } },
+    'ameta': { Desert: { at: 1000, tiers: [{ id: 'easy', name: 'Easy', total: 1, done: 1 }] }, Falador: { at: 3000, tiers: [{ id: 'easy', name: 'Easy', total: 1, done: 0 }] } }
+  });
+  // This browser only has room for two areas.
+  await page.addInitScript(() => {
+    const set = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (k, v) {
+      const areas = Object.keys(this).filter((x) => x.startsWith('qg1.area.') && x !== k);
+      if (k.startsWith('qg1.area.') && areas.length >= 2) throw new DOMException('Full', 'QuotaExceededError');
+      return set.call(this, k, v);
+    };
+  });
+  await openApp(page, expect);
+  await page.locator('.tab[data-home="areas"]').click();
+  await area(page, 'Ardougne').first().click();
+  await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+  const keys = await page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('qg1.')).sort());
+  expect(keys).toContain('qg1.area.Ardougne');
+  expect(keys).toContain('qg1.area.Falador');
+  expect(keys).not.toContain('qg1.area.Desert');
+  expect(keys).toContain('qg1.aprog.Desert');
+  expect((await stored(page, 'aidx')).Desert.tiers[0].tasks[0].name).toBe('A task');
+  expect((await stored(page, 'ameta')).Desert.tiers[0].done).toBe(1);
+});
+
 test.describe('searching the area tasks', () => {
   async function search(page, text) {
     await page.locator('#quest-link').fill(text);
@@ -490,6 +521,15 @@ test.describe('an area', () => {
       // the tip with the items is under the task name, before the steps
       await expect(t.locator(':scope > .row .howto').first()).toContainText('Required items');
       await expect(page.locator('#pg-cnt')).toHaveText('0 / 2 tasks');
+    });
+
+    test('the tip keeps its line breaks: "Required items" is a line of its own', async ({ page, wiki }) => {
+      await open(page, wiki);
+      const tip = task(page, '993').locator(':scope > .row .howto').first();
+      const lines = await tip.evaluate((e) => [...e.querySelectorAll('br')].map((b) => getComputedStyle(b).display));
+      expect(lines.length).toBeGreaterThanOrEqual(6);
+      expect(lines.every((d) => d !== 'none')).toBe(true);
+      expect(await tip.evaluate((e) => e.innerHTML)).toContain('Required items<br>');
     });
 
     test('ticking all of them ticks the task; unticking one unticks it', async ({ page, wiki }) => {
