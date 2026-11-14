@@ -1,0 +1,13 @@
+{
+  "name": "quick-guide",
+  "private": true,
+  "description": "RuneScape Wiki quest quick guides as a tick list, made for the Alt1 browser.",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "test": "playwright test --project=app",
+    "test:live": "playwright test --project=live"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}
