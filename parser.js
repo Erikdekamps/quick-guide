@@ -1082,11 +1082,144 @@
     return fromRuneMetrics(clean(name));
   }
 
+
+  // ---------- Area Tasks: the "<Area> achievements" pages ----------
+  var AREA_VERSION = 1;   // a new number makes saved areas read the wiki again
+  var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
+    "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
+    return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
+  });
+  var TIER_RE = /^(Beginner|Easy|Medium|Hard|Elite)_achievements$/;
+
+  // The parts of a page between two headings of one level: [{ head, nodes }]
+  function partsBy(root, level, test) {
+    var out = [], cur = null;
+    arr(root.children).forEach(function (n) {
+      var h = /^H[1-6]$/.test(n.tagName) ? n : (n.classList.contains('mw-heading') ? n.querySelector('h1, h2, h3, h4, h5, h6') : null);
+      var lv = h ? +h.tagName.charAt(1) : 0;
+      if (h && lv <= level) {
+        cur = lv === level && test(h) ? { head: h, nodes: [] } : null;
+        if (cur) out.push(cur);
+        return;
+      }
+      if (cur) cur.nodes.push(n);
+    });
+    return out;
+  }
+  // One need from a list: a level ("16 Thieving"), a quest, or something else (as safe HTML).
+  function needOf(li, page, into) {
+    var t = text(li);
+    if (!t || /^none\.?$/i.test(t)) return;
+    var sk = li.querySelectorAll('.skillreq[data-skill]');
+    if (sk.length === 1 && clean(t.replace(text(sk[0]), '')) === '') {
+      into.skills.push({ skill: sk[0].getAttribute('data-skill'), level: +sk[0].getAttribute('data-level') || 0 });
+      return;
+    }
+    var q = li.querySelector('.achievement-req-quest[data-quest]');
+    if (q && clean(t.replace(text(q), '')) === '') { into.quests.push(q.getAttribute('data-quest')); return; }
+    var a = li.querySelectorAll('a');
+    if (!sk.length && a.length === 1 && text(a[0]) === t && !/^File:/.test(a[0].getAttribute('title') || '')) {
+      into.quests.push(clean(a[0].getAttribute('title') || t));
+      return;
+    }
+    var h = tidy(inline(li, page, { alt: true }));
+    if (plainOf(h)) into.other.push(h);
+  }
+  function needsOf(cell, page, into) {
+    arr(cell.querySelectorAll('li')).forEach(function (li) {
+      if (li.closest('.im-task-reqs') && !cell.classList.contains('im-task-reqs')) return;
+      if (li.parentNode.closest('li')) return;   // a line inside a line: part of its parent
+      needOf(li, page, into);
+    });
+  }
+  function areaTier(part, page) {
+    var name = text(part.head).replace(/\s*achievements$/i, '');
+    var t = { id: name.toLowerCase(), name: name, skills: [], quests: [], other: [], items: [], ironman: '', tasks: [],
+      reward: { intro: '', items: [], perks: [] } };
+    var wrap = scratch.createElement('div');
+    part.nodes.forEach(function (n) { wrap.appendChild(n.cloneNode(true)); });
+    partsBy(wrap, 3, function () { return true; }).forEach(function (sub) {
+      var h = text(sub.head).toLowerCase();
+      var box = scratch.createElement('div');
+      sub.nodes.forEach(function (n) { box.appendChild(n); });
+      arr(box.querySelectorAll('.musicplayer, audio')).forEach(function (n) { n.remove(); });
+      if (/^requirements/.test(h)) {
+        arr(box.querySelectorAll('table.achievementsdetails > tbody > tr, table.achievementsdetails > tr')).forEach(function (tr) {
+          var th = tr.querySelector('th'), td = tr.querySelector('td');
+          if (!th || !td) return;
+          var im = td.querySelector('.im-task-reqs');
+          if (im) {
+            var body = im.querySelectorAll('tr')[1] || im;
+            t.ironman = tidy(inline(body, page, { alt: false }));
+            im.remove();
+          }
+          if (/item/i.test(text(th))) {
+            arr(td.querySelectorAll('li')).forEach(function (li) {
+              if (li.parentNode.closest('li')) return;
+              var x = tidy(inline(li, page, { alt: true }));
+              if (plainOf(x)) t.items.push(x);
+            });
+          } else needsOf(td, page, t);
+        });
+      } else if (/^list of/.test(h)) {
+        var table = box.querySelector('table');
+        if (!table) return;
+        var rows = arr(table.querySelectorAll('tr')), cols = rows.length ? arr(rows[0].children).map(function (c) { return text(c).toLowerCase(); }) : [];
+        var ci = function (re) { for (var i = 0; i < cols.length; i++) if (re.test(cols[i])) return i; return -1; };
+        var cName = ci(/^name/), cDesc = ci(/^description/), cReq = ci(/^requirement/), cNotes = ci(/^notes?/), cMem = ci(/^members/);
+        rows.slice(1).forEach(function (tr) {
+          var c = tr.children;
+          if (cName < 0 || !c[cName]) return;
+          var a = c[cName].querySelector('a');
+          var task = { id: tr.getAttribute('data-rowid') || hash(t.id + text(c[cName])), name: text(a || c[cName]),
+            desc: cDesc >= 0 && c[cDesc] ? text(c[cDesc]) : '', members: cMem >= 0 && c[cMem] ? /member|p2p/i.test(c[cMem].innerHTML) : null,
+            skills: [], quests: [], other: [], notes: '' };
+          if (cReq >= 0 && c[cReq]) needsOf(c[cReq], page, task);
+          if (cNotes >= 0 && c[cNotes]) task.notes = tidy(inline(c[cNotes], page));
+          if (task.name) t.tasks.push(task);
+        });
+      } else if (/^rewards?/.test(h)) {
+        var intro = [];
+        arr(box.children).forEach(function (n) {
+          if (n.tagName === 'P') { var x = tidy(inline(n, page)); if (plainOf(x)) intro.push(x); }
+          else if (n.tagName === 'UL') arr(n.children).forEach(function (li) { var y = tidy(inline(li, page)); if (plainOf(y)) t.reward.items.push(y); });
+        });
+        t.reward.intro = intro.join('<br>');
+        arr(box.querySelectorAll('table tr')).forEach(function (tr) {
+          if (isHidden(tr) || tr.querySelector('th')) return;
+          arr(tr.children).slice(1).forEach(function (td) {
+            // The perks are shown as plain text: the reward table's links are not needed.
+            arr(td.querySelectorAll('li')).forEach(function (li) { var z = text(li); if (z) t.reward.perks.push(z); });
+          });
+        });
+      }
+    });
+    return t;
+  }
+  function parseArea(html, name) {
+    var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+    var root = doc.querySelector('.mw-parser-output') || doc.body;
+    while (root.children.length === 1 && root.firstElementChild.classList.contains('mw-parser-output')) root = root.firstElementChild;
+    var page = name + ' achievements';
+    var tiers = partsBy(root, 2, function (h) { return TIER_RE.test(h.id || '') || /^(Beginner|Easy|Medium|Hard|Elite) achievements$/i.test(text(h)); })
+      .map(function (p) { return areaTier(p, page); })
+      .filter(function (t) { return t.tasks.length; });
+    if (!tiers.length) { var e = new Error('This page has no area tasks.'); e.code = 'format'; throw e; }
+    return { version: AREA_VERSION, name: name, page: page, source: pageUrl(page), fetchedAt: new Date().toISOString(), tiers: tiers };
+  }
+  function loadArea(name) {
+    return fetchPage(name + ' achievements').then(function (p) { return parseArea(p.html, name); });
+  }
+
   root.QuickGuide = {
     VERSION: VERSION,
     loadQuestList: loadQuestList,
     parseQuestList: parseQuestList,
     loadPlayer: loadPlayer,
+    AREAS: AREAS,
+    AREA_VERSION: AREA_VERSION,
+    parseArea: parseArea,
+    loadArea: loadArea,
     normName: normName,
     MAP_VERSION: MAP_VERSION,
     WIKI: WIKI,

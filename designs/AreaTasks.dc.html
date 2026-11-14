@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ardougne tasks – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+/* Quick Guide - style.css
+   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
+   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
+   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+:root {
+  color-scheme: dark;
+  /* window */
+  --win: #1b1713;          /* window body, around the panels */
+  --deep: #13100d;         /* the scrolling panel */
+  --hover: #211c17;        /* a row under the mouse */
+  --sel: #2a241d;          /* the next step */
+  --rule: #2b251f;         /* thin lines between rows */
+  /* bronze rim and frames */
+  --rim-1: #67584a;
+  --rim-2: #8a7046;
+  --rim-3: #a08a59;
+  --rim-4: #6e5937;
+  --rim-5: #2f271d;
+  --bronze: #8a7046;
+  --bronze-dk: #4d3e29;
+  --bronze-lt: #b89a63;
+  /* title band */
+  --band-top: #1e1b18;
+  --band-bot: #302a24;
+  /* raised panels (bars, boxes, notes) */
+  --panel: #2c2722;
+  --panel-2: #24201b;
+  --panel-hi: #433b31;
+  --panel-lo: #100d0b;
+  /* insets (inputs, tick boxes, bars) */
+  --inset: #0e0b09;
+  /* text */
+  --text: #ece6da;
+  --soft: #d3c9b7;
+  --muted: #b8ac97;
+  --faint: #968b7b;
+  --title: #e8d4a2;
+  --gold: #f2c45e;
+  --orange: #ff981f;
+  --link: #f3c565;
+  --red: #ff5b49;
+  --green: #66d35c;
+  --yellow: #f5e15a;
+  /* gold button */
+  --gb-hi: #f8dc9c;
+  --gb-1: #f2c463;
+  --gb-2: #ecab2a;
+  --gb-3: #dd9b20;
+  --gb-lo: #a4730f;
+  --gb-edge: #6e4c09;
+  --gb-text: #2a1c05;
+  /* fine noise, so flat areas look like the game's textured panels */
+  --grain: none;
+}
+* { box-sizing: border-box; }
+html { font-size: 14px; height: 100%; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  background: #0b0907;
+  color: var(--text);
+  font-family: "Fira Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .55);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- the window ---------- */
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5px 5px 6px;
+  overflow: hidden;
+  background: var(--grain), var(--win);
+}
+/* the bronze rim, drawn over the edge of everything */
+#app::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--rim-1),
+    inset 0 0 0 2px var(--rim-2),
+    inset 0 0 0 3px var(--rim-3),
+    inset 0 0 0 4px var(--rim-4),
+    inset 0 0 0 5px var(--rim-5);
+}
+
+.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* ---------- title band ---------- */
+.hdr {
+  position: relative;
+  z-index: 20;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin: -5px -5px 0;
+  padding: 9px 11px 5px;
+  background: var(--grain), linear-gradient(var(--band-top), var(--band-bot));
+  border-bottom: 1px solid #4a3c28;
+  box-shadow: 0 1px 0 #0c0a08;
+}
+/* both sides are the same width, so the name sits in the middle */
+.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
+.he { justify-content: flex-end; }
+.qt {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .05em;
+  color: var(--title);
+  text-align: center;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
+  overflow-wrap: break-word;
+  /* long names stop after two lines; the full name is in the tooltip */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* small square buttons, like the close button on a game window, in bronze */
+.ib {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid #5c4a2e;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
+  color: var(--title);
+  cursor: pointer;
+}
+.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
+.ib:active { background: linear-gradient(#1d1813, #2c241c); }
+.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:disabled { opacity: .4; cursor: default; }
+.ib.xs { width: 24px; height: 24px; }
+.ib.xs .i { width: 14px; height: 14px; }
+
+/* ---------- menus: like the game's right-click menu ---------- */
+.menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 6px;
+  z-index: 1000;
+  width: 250px;
+  max-width: calc(100% - 12px);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--grain), #17130f;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #2d251b, 0 10px 24px rgba(0, 0, 0, .7);
+  font-size: 13px;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decoration: none; }
+.mi > .i { color: var(--bronze-lt); }
+.mi .ml { flex: 1; }
+.mi.danger, .mi.danger > .i { color: var(--red); }
+.mrow { cursor: default; gap: 8px; }
+.fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.menu.wide { width: 286px; }
+.menu .sel { width: 150px; margin-left: 0; }
+.menu .player { margin: 2px 8px 6px; }
+.menu .player .inp { height: 30px; }
+.qmeta .how { color: var(--muted); }
+.mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
+.menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
+/* an on/off setting: a tick box, like the game's settings */
+.tg {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px #000;
+}
+.tg::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+[aria-checked="true"] > .tg::after { opacity: 1; }
+
+/* ---------- progress ---------- */
+.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+.pg {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--bronze-dk);
+  overflow: hidden;
+}
+.pg::-webkit-progress-bar { background: var(--inset); }
+.pg::-webkit-progress-value { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.pg::-moz-progress-bar { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- tabs: the open tab joins the panel below it ---------- */
+.tabs {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 0 6px;
+  margin: 2px 0 -1px;
+}
+.tab {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 28px;
+  margin-top: 3px;
+  padding: 0 6px;
+  background: linear-gradient(#302a23, #231e19);
+  border: 1px solid #4a3d2b;
+  border-bottom-color: var(--bronze);
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab[aria-selected="true"] {
+  height: 31px;
+  margin-top: 0;
+  background: var(--deep);
+  border-color: var(--bronze);
+  border-bottom-color: var(--deep);
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
+  color: var(--gold);
+  cursor: default;
+}
+.tab .i { display: none; width: 15px; height: 15px; }
+
+/* ---------- the scrolling panel ---------- */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  overflow-y: scroll;   /* always there, so nothing jumps when the content grows */
+  overflow-x: hidden;
+  padding-bottom: 18px;
+  overflow-wrap: anywhere;
+  background: var(--deep);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
+}
+.tabs + .scroll { margin-top: 0; }
+/* the game's gold scrollbar */
+.scroll::-webkit-scrollbar { width: 12px; }
+.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+
+/* part headers: raised bars. They stay at the top while you scroll through their steps. */
+/* 1px up, so no sliver of the list shows above the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
+/* room under the last step, so any step can reach the top */
+.tail { height: calc(100vh - 180px); }
+.sech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  background: var(--grain), linear-gradient(#352f28, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  cursor: pointer;
+}
+.sech:hover { background: var(--grain), linear-gradient(#3f372e, #312b25); }
+.sech .n { flex: 1; min-width: 0; }
+.sech .c { font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sech .i { color: var(--bronze-lt); transition: transform .15s; }
+.sech[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sech.done { color: #d9b77a; }
+.sech.done .c { color: var(--green); }
+.secb { padding-bottom: 6px; }
+
+/* headings inside a part, like "Feldip Hunter area" */
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 10px 4px;
+  font: 700 .857rem/1.2 "Cinzel", Georgia, serif;
+  letter-spacing: .06em;
+  color: var(--title);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--bronze-dk), transparent); }
+.sub.minor { margin-top: 10px; font: italic 600 .893rem/1.2 "Fira Sans", sans-serif; letter-spacing: .02em; color: var(--soft); }
+.sub.minor::after { display: none; }
+
+/* ---------- boxes that open and close ---------- */
+.blk { margin: 4px 10px; }
+.acc {
+  margin: 6px 0;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+}
+.acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 8px;
+  list-style: none;
+  cursor: pointer;
+  font-size: .893rem;
+  line-height: 1.3;
+  color: var(--soft);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .sl { flex: 1 1 0; min-width: 0; }
+.acc > summary:hover { background: #2d2721; color: var(--text); }
+.acc > summary .i { width: 14px; height: 14px; color: var(--bronze-lt); }
+.acc > summary .chev { transition: transform .15s; }
+.acc[open] > summary .chev { transform: rotate(90deg); }
+.acc > summary .m { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: .857rem; }
+.acc .body { padding: 8px; background: #19150f; border-top: 1px solid #000; box-shadow: inset 0 1px 0 #2b251f; cursor: auto; }
+.acc .imgl { display: block; }
+.acc .imgl img { display: block; max-width: 100%; height: auto; margin: 0 auto; background: var(--inset); }
+.acc .imgl + .cap + .imgl, .acc .imgl + .imgl { margin-top: 8px; }
+.cap { margin: 6px 0 0; font-size: .857rem; font-style: italic; color: var(--muted); }
+
+/* bring box: two small tick lists */
+.bring .body { padding: 4px 0 6px; }
+.bl { display: flex; align-items: baseline; gap: 8px; margin: 6px 8px 2px; font-size: .786rem; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+.bl .c { margin-left: auto; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist .row { gap: 8px; padding: 4px 8px; font-size: .893rem; line-height: 1.4; }
+.blist .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.blist .cb::before { width: .357rem; height: .643rem; }
+
+/* ---------- steps and items ---------- */
+.steps { list-style: none; margin: 0; padding: 0 4px; }
+.blist { padding: 0; }
+.step { margin: 1px 0; border-radius: 2px; }
+/* A row is one tick target: click anywhere on it. */
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 6px; border-radius: 2px; cursor: pointer; }
+.row:hover { background: var(--hover); }
+/* Pointing at a picture, map or table box inside a row: the row does not light up (clicks there do not tick). */
+.row:has(.ext details:hover), .step.cur > .row:has(.ext details:hover) { background: transparent; }
+.rb { flex: 1; min-width: 0; }
+.t { display: block; overflow-wrap: anywhere; }
+.t i { font-style: italic; color: #fff4d8; }
+.t b { font-weight: 600; color: #fff4d8; }
+/* the next step: a selected row, like in the game's lists */
+/* its border is drawn above the row, so a row under the mouse never paints over it */
+.step.cur { position: relative; background: var(--sel); }
+.step.cur::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 1px solid #6a5434; border-radius: 2px; pointer-events: none; }
+.step.cur > .row:hover { background: #30291f; }
+.step.cur > .row > .cb { border-color: var(--gold); }
+.step.done > .row > .rb > .t { color: var(--faint); }
+.step.done > .row > .rb > .t a, .step.done > .row > .rb > .t i, .step.done > .row > .rb > .t b { color: #b19f7c; }
+.step.done > .row .ext, .step.done > .subs { display: none; }
+.ext { padding-top: 4px; }
+.ext .acc { margin: 6px 0 2px; }
+.ext .note { margin: 6px 0; }
+/* sub-steps: rows run the full width (click left or right of them); the indent is inside the row */
+.subs { padding: 0 0 2px; }
+.subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
+.subs .subs .row { padding-left: calc(24px + 2.357rem); }
+.subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
+.subs .step.cur { background: none; }
+.subs .step.cur::after { display: none; }
+/* Ticked rows go away. "Show done steps" shows them again. */
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
+/* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
+#main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
+.alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
+
+/* tick boxes: a dark inset square with a gold tick */
+.cb {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.286rem;
+  height: 1.286rem;
+  margin: 1px 0 0;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  cursor: pointer;
+}
+.cb::before {
+  content: "";
+  width: .429rem;
+  height: .786rem;
+  margin-top: -2px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.cb:checked::before { opacity: 1; }
+.cb:hover { border-color: var(--bronze-lt); }
+.subs .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.subs .cb::before { width: .357rem; height: .643rem; }
+
+.code {
+  display: inline-block;
+  padding: 0 5px;
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  font-family: "Fira Mono", ui-monospace, Consolas, monospace;
+  font-size: .857rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  color: var(--gold);
+}
+.caution { font-weight: 600; color: var(--red); }
+
+/* chat options */
+.dlg { list-style: none; margin: 2px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.dlg li > span { min-width: 0; }
+.dlg li { display: flex; align-items: baseline; gap: 8px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+kbd {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.667em;
+  height: 1.667em;
+  padding: 0 .42em;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 0 rgba(255, 222, 160, .14);
+  font-family: "Fira Sans", sans-serif;
+  font-size: .857rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.why { margin: 10px 0 4px; font-size: .857rem; font-style: italic; color: var(--muted); }
+.vary { font-size: .857rem; color: var(--faint); }
+
+/* tables */
+.tblw { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .893rem; }
+.tbl th { padding: 5px 6px; text-align: left; font-weight: 600; color: var(--orange); border-bottom: 1px solid var(--bronze-dk); vertical-align: bottom; }
+.tbl td { padding: 5px 6px; vertical-align: top; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl tbody tr:nth-child(even) td { background: rgba(255, 230, 190, .035); }
+.tbl img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* maps */
+.map { position: relative; z-index: 0; isolation: isolate; height: 240px; background: var(--inset); border: 1px solid var(--bronze-dk); border-radius: 2px; }
+.leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
+.leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); text-decoration: none; }
+.leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
+.leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--link); }
+.leaflet-tooltip { background: #17130f; border: 1px solid var(--bronze); border-radius: 2px; color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+.leaflet-tooltip-top::before { border-top-color: var(--bronze); }
+
+/* notes and warnings: small raised panels */
+.note {
+  display: flex;
+  gap: 8px;
+  margin: 6px 10px;
+  padding: 8px 10px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+  font-size: .929rem;
+  line-height: 1.4;
+  color: var(--soft);
+}
+.note .i { margin-top: 1px; color: var(--gold); }
+.note.warn { background: #2b1411; border-color: #6e2a21; border-top-color: #8a3a2c; color: #ffe0d8; }
+.note.warn .i { color: var(--red); }
+.note.warn .caution { color: #ff9c8c; }
+.warnli { list-style: none; }
+.warnli .note { margin: 4px 0; }
+.para { margin: 6px 10px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.empty { margin: 28px 16px; color: var(--muted); text-align: center; font-size: .929rem; }
+.x { color: var(--muted); }
+
+/* quest complete */
+.complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--grain), linear-gradient(#3a3128, var(--panel));
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 0 var(--panel-hi);
+}
+.complete .i { width: 26px; height: 26px; color: var(--gold); }
+.complete b { display: block; font: 700 1.071rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--gold); }
+.complete span { font-size: .857rem; color: var(--soft); }
+
+/* footer: the big gold button */
+.ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
+
+/* gold buttons, like the game's main action buttons */
+.btn, .next {
+  background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
+  border: 1px solid #1a1206;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 236, 190, .18);
+  color: var(--gb-text);
+  font: 700 13px/1 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .06em;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, .45);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover, .next:hover { filter: brightness(1.08) saturate(1.05); }
+.btn:active, .next:active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(80, 50, 0, .55); }
+.btn:disabled, .next:disabled { filter: grayscale(.8) brightness(.55); cursor: default; }
+.btn { flex: none; height: 34px; padding: 0 16px; }
+.next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+.next .i { color: var(--gb-text); stroke-width: 2.5; }
+
+/* toast */
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 60px;
+  z-index: 1100;
+  padding: 8px 12px;
+  background: var(--grain), #1d1813;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, 0 6px 16px rgba(0, 0, 0, .7);
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.toast.low { bottom: 16px; }
+
+/* ---------- overview, items ---------- */
+.kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
+.bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skills { list-style: none; margin: 0 10px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: 4px; }
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  font-size: .929rem;
+  color: var(--soft);
+}
+.chip .sn { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chip b { min-width: 1.6em; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+.foes { list-style: none; margin: 0 10px; padding: 0; }
+.foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
+.foes li:last-child { border-bottom: 0; }
+.foes .nm { flex: 1; min-width: 0; }
+.lv { font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lv b { color: var(--gold); }
+.plain { margin: 0 10px; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.plain li { margin: 3px 0; }
+.plain li::marker { color: var(--bronze-lt); }
+.acc .plain { margin: 0; }
+.acc .para { margin: 8px 0 4px; }
+.tree { list-style: none; margin: 0; padding: 0; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+.tree li { padding: 2px 0; }
+.xl { display: inline-flex; align-items: center; gap: 6px; margin: 16px 10px 0; font-size: .929rem; }
+.xl .i { width: 14px; height: 14px; }
+.foot { margin: 12px 10px 0; font-size: .821rem; line-height: 1.45; color: var(--faint); }
+
+/* ---------- start screen: all quests ---------- */
+.find { margin: 10px 10px 0; }
+.pad { margin-left: 10px; margin-right: 10px; }
+.row-f { display: flex; gap: 6px; }
+.inp, .sel {
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  color: var(--text);
+}
+.inp { flex: 1; min-width: 0; height: 34px; padding: 0 10px; font-size: 13px; }
+.inp::placeholder { color: var(--faint); }
+.inp:focus, .sel:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(242, 196, 94, .2), inset 0 1px 3px #000; }
+.inp.bad { border-color: var(--red); }
+.sel {
+  margin-left: auto;
+  height: 28px;
+  max-width: 100%;
+  padding: 0 24px 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) right 14px center / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) right 10px center / 4px 6px no-repeat, var(--inset);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sel option { background: #17130f; color: var(--text); }
+.qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
+.gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
+.ghb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px 5px 8px;
+  background: var(--grain), linear-gradient(#332d26, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: .786rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.ghb:hover { background: var(--grain), linear-gradient(#3d362d, #302a24); }
+.ghb .i { width: 14px; height: 14px; color: var(--bronze-lt); transition: transform .15s; }
+.ghb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.ghb .n { flex: 1; min-width: 0; }
+.ghb .c { font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.ql { list-style: none; margin: 0; padding: 0; }
+.q { display: block; width: 100%; padding: 7px 10px; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 1rem; line-height: 1.3; text-align: left; cursor: pointer; }
+.q:hover { background: var(--hover); }
+.q1 { display: flex; align-items: baseline; gap: 8px; }
+.q1 b { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.qs { font-size: .857rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs.ok { color: var(--green); }
+.q2 { display: block; margin-top: 1px; font-size: .821rem; color: var(--faint); }
+/* quest names in the game's colours: yellow when started, green when done */
+.q:has(.pg) .q1 b { color: var(--yellow); }
+.q.done .q1 b { color: var(--green); }
+.q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* a quest the game says you started */
+.q.started .q1 b { color: var(--yellow); }
+/* player lookup */
+.player { margin: 8px 10px 0; }
+div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; background: var(--panel-2); border: 1px solid #3a3229; border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; font-size: 13px; }
+.player .pn { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--soft); }
+.player .pn b { color: var(--title); font-weight: 600; }
+.pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
+/* your own level next to a skill requirement */
+.you { font-size: .857rem; white-space: nowrap; color: var(--muted); }
+.chip.ok .you { color: var(--green); }
+.chip.low { border-color: #6e2a21; border-top-color: #8a3a2c; }
+.chip.low .you { color: var(--red); }
+.tree li.got { color: var(--faint); }
+.tree .tk { color: var(--green); }
+/* a quest the game says you cannot start yet: grayed out */
+.q.locked { opacity: .55; }
+.q.locked .q1 b { color: var(--muted); }
+.qs.lk { display: inline-flex; align-items: center; gap: 3px; }
+.qs.lk .i { width: 11px; height: 11px; }
+/* a quest name that opens that quest here */
+.qlink { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(243, 197, 101, .35); text-underline-offset: 2px; }
+.qlink:hover { color: var(--gold); text-decoration-color: currentColor; }
+.qlink:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+.tree li.got .qlink { color: var(--faint); }
+/* a League region */
+.reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
+/* phones: 16px inputs, so the page does not zoom in when you type */
+@media (pointer: coarse) { .inp { font-size: 16px; } }
+
+.err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
+.state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
+.state .i { width: 22px; height: 22px; color: var(--gold); }
+
+/* ---------- Area Tasks ---------- */
+/* a finished tier in the area list */
+.q2 .ok { color: var(--green); }
+/* what a task needs: red when you do not have it yet */
+.need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
+.need.low { color: var(--red); }
+.step.done .need { display: none; }
+/* a finished tier's tasks, once you open them: shown, so you can untick one */
+#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+/* the wiki's tip for a task, under it */
+.howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
+.howto br + br { display: none; }
+/* the quests a tier needs line up with the text */
+.tree.areq { margin: 0 16px 8px; }
+
+</style>
+</helmet>
+<div style="width: 360px; height: 720px">
+<div id="app"><header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button></div><h1 class="qt" title="Ardougne">Ardougne</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="2" max="23" aria-label="Tier progress"></progress><span class="cnt" id="pg-cnt">2 / 23 tasks</span></div><nav class="tabs" role="tablist" aria-label="Tiers"><button class="tab" type="button" role="tab" data-tier="easy" aria-selected="true"><span class="tl-l">Easy</span></button><button class="tab" type="button" role="tab" data-tier="medium" aria-selected="false"><span class="tl-l">Medium</span></button><button class="tab" type="button" role="tab" data-tier="hard" aria-selected="false"><span class="tl-l">Hard</span></button><button class="tab" type="button" role="tab" data-tier="elite" aria-selected="false"><span class="tl-l">Elite</span></button></nav><main class="scroll" id="main" role="tabpanel"><section class="sec" data-asec="tasks"><h2 class="sh"><button class="sech" type="button" data-asec-btn="easy:tasks" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tasks</span><span class="c">2 / 23</span></button></h2><div class="secb"><ul class="steps"><li class="step task done" data-task="447"><div class="row"><input class="cb" type="checkbox" data-acb="447" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1"><b>The Essence of Magic</b> — Have Wizard Cromperty teleport you to the essence mine.</span><div class="ext"><div class="howto">Talk to <a href="https://runescape.wiki/w/Wizard_Cromperty" target="_blank" rel="noopener">Wizard Cromperty</a> and have him teleport the player to the <a href="https://runescape.wiki/w/Rune_Essence_mine" target="_blank" rel="noopener">Rune Essence mine</a>.</div></div></div></div></li><li class="step task done" data-task="448"><div class="row"><input class="cb" type="checkbox" data-acb="448" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2"><b>Yoink!</b> — Attempt to steal from any stall in Ardougne Market, or from any guard.</span><div class="ext"><span class="need">Needs 5 Thieving ✓</span><div class="howto">Attempt to steal from any <a href="https://runescape.wiki/w/Stall" target="_blank" rel="noopener">stall</a> in <a href="https://runescape.wiki/w/Ardougne_market" target="_blank" rel="noopener">Ardougne market</a>, or from any <a href="https://runescape.wiki/w/Guard" target="_blank" rel="noopener">guard</a>.</div></div></div></div></li><li class="step task cur" data-task="449"><div class="row"><input class="cb" type="checkbox" data-acb="449" aria-labelledby="qt3"><div class="rb"><span class="t" id="qt3"><b>Silky Smooth</b> — Sell silk to the silk trader in Ardougne for 60gp each by haggling.</span><div class="ext"><div class="howto">Sell <a href="https://runescape.wiki/w/Silk" target="_blank" rel="noopener">silk</a> to the <a href="https://runescape.wiki/w/Silk_merchant" target="_blank" rel="noopener">silk merchant</a> in <a href="https://runescape.wiki/w/Ardougne" target="_blank" rel="noopener">Ardougne</a> for 60 <a href="https://runescape.wiki/w/Coins" target="_blank" rel="noopener">coins</a> each.<br>It requires talking to the merchant and offering a price of 120 first, then responding to his counter offer with a price of 60.</div></div></div></div></li><li class="step task" data-task="450"><div class="row"><input class="cb" type="checkbox" data-acb="450" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4"><b>Preaching to the Infected</b> — Use the altar in West Ardougne's church.</span><div class="ext"><span class="need low">Needs Plague City</span><div class="howto">Use the <a href="https://runescape.wiki/w/Altar_(Saradomin)" target="_blank" rel="noopener">altar</a> in <a href="https://runescape.wiki/w/West_Ardougne" target="_blank" rel="noopener">West Ardougne</a>'s church.</div></div></div></div></li><li class="step task" data-task="451"><div class="row"><input class="cb" type="checkbox" data-acb="451" aria-labelledby="qt5"><div class="rb"><span class="t" id="qt5"><b>Playing the Waiting Game</b> — Enter the Castle Wars waiting room.</span><div class="ext"><div class="howto">Enter the <a href="https://runescape.wiki/w/Castle_Wars" target="_blank" rel="noopener">Castle Wars</a> waiting room. Just deposit all your non-combat items in the bank chest and enter any portal. You can exit the room using the portal in the centre.</div></div></div></div></li><li class="step task" data-task="452"><div class="row"><input class="cb" type="checkbox" data-acb="452" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><b>Gone Fishing</b> — Go out fishing on the Fishing Trawler.</span><div class="ext"><div class="howto">Go out fishing on the <a href="https://runescape.wiki/w/Fishing_Trawler" target="_blank" rel="noopener">Fishing Trawler</a>.<br>The player does not need to complete a trip on the Trawler; the <a href="https://runescape.wiki/w/Fishbowl_helmet" target="_blank" rel="noopener">fishbowl helmet</a> and <a href="https://runescape.wiki/w/Diving_apparatus" target="_blank" rel="noopener">diving apparatus</a> are not needed; pets (such as a cat) are <i>not</i> allowed, including in the backpack.</div></div></div></div></li><li class="step task" data-task="453"><div class="row"><input class="cb" type="checkbox" data-acb="453" aria-labelledby="qt7"><div class="rb"><span class="t" id="qt7"><b>Boot Camp</b> — Enter the Combat Training Camp north of West Ardougne.</span><div class="ext"><span class="need low">Needs Biohazard</span><div class="howto">Enter the <a href="https://runescape.wiki/w/Combat_Training_Camp" target="_blank" rel="noopener">Combat Training Camp</a> north of <a href="https://runescape.wiki/w/West_Ardougne" target="_blank" rel="noopener">West Ardougne</a>.</div></div></div></div></li><li class="step task" data-task="454"><div class="row"><input class="cb" type="checkbox" data-acb="454" aria-labelledby="qt8"><div class="rb"><span class="t" id="qt8"><b>A Cat is For Life...</b> — Talk to a civilian in West Ardougne about selling a cat.</span><div class="ext"><span class="need low">Needs Plague City, Gertrude's Cat</span><div class="howto">Talk to a <a href="https://runescape.wiki/w/Civilian" target="_blank" rel="noopener">civilian</a> in <a href="https://runescape.wiki/w/West_Ardougne" target="_blank" rel="noopener">West Ardougne</a> about selling a <a href="https://runescape.wiki/w/Cat" target="_blank" rel="noopener">cat</a> while having a non-kitten cat in the inventory. Civilians are located in the north-western area inside West Ardougne. The cat does not need to be sold to complete this achievement.<br>Using a cat on the civilian will result in the cat being sold, while also completing the achievement.<br>Cats that can be used for this achievement are:<br>• <a href="https://runescape.wiki/w/Purple_cat" target="_blank" rel="noopener">Purple cats</a><br>• <a href="https://runescape.wiki/w/Hellcat" target="_blank" rel="noopener">Hellcats</a><br>• Fully grown cats<br>• Overgrown cats<br>• <a href="https://runescape.wiki/w/Wily_cat" target="_blank" rel="noopener">Wily cats</a><br>• Lazy cats</div></div></div></div></li><li class="step task" data-task="455"><div class="row"><input class="cb" type="checkbox" data-acb="455" aria-labelledby="qt9"><div class="rb"><span class="t" id="qt9"><b>Creator and Destroyer</b> — Kill a unicow in the Tower of Life.</span><div class="ext"><span class="need low">Needs 10 Construction, Tower of Life</span><div class="howto">Kill a <a href="https://runescape.wiki/w/Unicow" target="_blank" rel="noopener">unicow</a> in the <a href="https://runescape.wiki/w/Tower_of_Life_(building)" target="_blank" rel="noopener">Tower of Life</a>.<br>To make a <a href="https://runescape.wiki/w/Unicow" target="_blank" rel="noopener">unicow</a>, a <a href="https://runescape.wiki/w/Cowhide" target="_blank" rel="noopener">cowhide</a> and a <a href="https://runescape.wiki/w/Unicorn_horn" target="_blank" rel="noopener">unicorn horn</a> need to be used on the north-western altar in the basement of the Tower of Life. Players need to have finished the <a href="https://runescape.wiki/w/Tower_of_Life" target="_blank" rel="noopener">Tower of Life</a> quest to get into the tower's basement.</div></div></div></div></li><li class="step task" data-task="456"><div class="row"><input class="cb" type="checkbox" data-acb="456" aria-labelledby="qt10"><div class="rb"><span class="t" id="qt10"><b>Red Revolution</b> — Get a civilian to throw a tomato at the army recruiter in West Ardougne.</span><div class="ext"><span class="need low">Needs Plague City</span><div class="howto">Get a <a href="https://runescape.wiki/w/Civilian" target="_blank" rel="noopener">civilian</a> to throw a tomato at the <a href="https://runescape.wiki/w/Recruiter" target="_blank" rel="noopener">recruiter</a> in the <a href="https://runescape.wiki/w/West_Ardougne" target="_blank" rel="noopener">West Ardougne</a> town square. The player must talk to the recruiter and go through the dialogue, which will eventually lead the civilians to throw tomatoes at him.</div></div></div></div></li><li class="step task" data-task="457"><div class="row"><input class="cb" type="checkbox" data-acb="457" aria-labelledby="qt11"><div class="rb"><span class="t" id="qt11"><b>Going on a Summer Holiday</b> — Sail from East Ardougne to Karamja.</span><div class="ext"><div class="howto">Sail from <a href="https://runescape.wiki/w/East_Ardougne" target="_blank" rel="noopener">East Ardougne</a> to <a href="https://runescape.wiki/w/Karamja" target="_blank" rel="noopener">Karamja</a> by talking to <a href="https://runescape.wiki/w/Captain_Barnaby" target="_blank" rel="noopener">Captain Barnaby</a> on the dock just east of <a href="https://runescape.wiki/w/The_Poison_Arrow" target="_blank" rel="noopener">The Poison Arrow</a> in south-eastern East Ardougne costing 30 coins (free if the <a href="https://runescape.wiki/w/Ring_of_charos" target="_blank" rel="noopener">ring of charos</a> is worn).</div></div></div></div></li><li class="step task" data-task="458"><div class="row"><input class="cb" type="checkbox" data-acb="458" aria-labelledby="qt12"><div class="rb"><span class="t" id="qt12"><b>Breaking and Entering</b> — Attempt to picklock a certain door east of the gem stall in Ardougne's marketplace.</span><div class="ext"><span class="need">Needs 16 Thieving ✓</span><div class="howto">Attempt to pick-lock the door east of the <a href="https://runescape.wiki/w/Gem_stall" target="_blank" rel="noopener">gem stall</a> in <a href="https://runescape.wiki/w/Ardougne_Market" target="_blank" rel="noopener">Ardougne Market</a> which is the southern house on the east side of the marketplace. Right click on the <a href="https://runescape.wiki/w/Door_(house,_chests,_Ardougne_Market)" target="_blank" rel="noopener">door</a> and select "Pick-lock". The attempt does not need to be successful for the achievement to be completed.</div></div></div></div></li><li class="step task" data-task="459"><div class="row"><input class="cb" type="checkbox" data-acb="459" aria-labelledby="qt13"><div class="rb"><span class="t" id="qt13"><b>P-P-P-Pick Up Some Prizes</b> — Spend some Penguin Points with Larry (or Chuck) at Ardougne Zoo.</span><div class="ext"><div class="howto">Spend some <a href="https://runescape.wiki/w/Penguin_Hide_and_Seek#Rewards" target="_blank" rel="noopener">penguin points</a> with <a href="https://runescape.wiki/w/Larry" target="_blank" rel="noopener">Larry</a> (or <a href="https://runescape.wiki/w/Chuck" target="_blank" rel="noopener">Chuck</a>) at <a href="https://runescape.wiki/w/Ardougne_Zoo" target="_blank" rel="noopener">Ardougne Zoo</a>.</div></div></div></div></li><li class="step task" data-task="460"><div class="row"><input class="cb" type="checkbox" data-acb="460" aria-labelledby="qt14"><div class="rb"><span class="t" id="qt14"><b>A Gift from Khazard</b> — Use the Summoning obelisk to the east of the Fight Arena.</span><div class="ext"><div class="howto">Use the <a href="https://runescape.wiki/w/Small_obelisk" target="_blank" rel="noopener">Summoning obelisk</a> to the east of the <a href="https://runescape.wiki/w/Fight_Arena_(location)" target="_blank" rel="noopener">Fight Arena</a>. This can even be done with full Summoning points.</div></div></div></div></li><li class="step task" data-task="461"><div class="row"><input class="cb" type="checkbox" data-acb="461" aria-labelledby="qt15"><div class="rb"><span class="t" id="qt15"><b>Party Pooper</b> — Pop a balloon in the monastery south of Ardougne.</span><div class="ext"><span class="need low">Needs Monk's Friend</span><div class="howto">Pop a balloon in the <a href="https://runescape.wiki/w/Ardougne_Monastery" target="_blank" rel="noopener">Ardougne Monastery</a> south of Ardougne. Talk to <a href="https://runescape.wiki/w/Brother_Omad" target="_blank" rel="noopener">Brother Omad</a> to make some balloons drop.<br>The quest does not have to be completed in order to complete this achievement; the balloon drop can be triggered by a different player.</div></div></div></div></li><li class="step task" data-task="462"><div class="row"><input class="cb" type="checkbox" data-acb="462" aria-labelledby="qt16"><div class="rb"><span class="t" id="qt16"><b>Vial Deeds</b> — Buy a water-filled vial from the general store run by Aemad and Kortan.</span><div class="ext"><div class="howto">Buy a <a href="https://runescape.wiki/w/Vial_of_water" target="_blank" rel="noopener">vial of water</a> costing 10 coins from <a href="https://runescape.wiki/w/Aemad%27s_Adventuring_Supplies" target="_blank" rel="noopener">Aemad's Adventuring Supplies</a> which is run by <a href="https://runescape.wiki/w/Aemad" target="_blank" rel="noopener">Aemad</a> and <a href="https://runescape.wiki/w/Kortan" target="_blank" rel="noopener">Kortan</a> and is located south of the church and north of the <a href="https://runescape.wiki/w/Ardougne_Zoo" target="_blank" rel="noopener">Ardougne Zoo</a>.</div></div></div></div></li><li class="step task" data-task="463"><div class="row"><input class="cb" type="checkbox" data-acb="463" aria-labelledby="qt17"><div class="rb"><span class="t" id="qt17"><b>Star Seeker</b> — Use the noticeboard near the Observatory to gather information about shooting stars.</span><div class="ext"><div class="howto">Use the <a href="https://runescape.wiki/w/Shooting_Star_noticeboard" target="_blank" rel="noopener">Shooting Star noticeboard</a> near the <a href="https://runescape.wiki/w/Observatory" target="_blank" rel="noopener">Observatory</a> to gather information about shooting stars. The noticeboard is not in the Observatory but in the small house where the <a href="https://runescape.wiki/w/Observatory_Quest" target="_blank" rel="noopener">Observatory Quest</a> is started, just north of the Observatory.<br>The players can also find the Shooting Star noticeboard next to <a href="https://runescape.wiki/w/Wizard_Rosalina" target="_blank" rel="noopener">Wizard Rosalina</a> on the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of the <a href="https://runescape.wiki/w/Wizards%27_Tower" target="_blank" rel="noopener">Wizards' Tower</a>, which allows <a href="https://runescape.wiki/w/Free-to-play" target="_blank" rel="noopener">free-to-play</a> players to do this task.</div></div></div></div></li><li class="step task" data-task="464"><div class="row"><input class="cb" type="checkbox" data-acb="464" aria-labelledby="qt18"><div class="rb"><span class="t" id="qt18"><b>Dukes of Khazard</b> — Kill something on the Khazard Battlefield.</span><div class="ext"><div class="howto">Kill something on the <a href="https://runescape.wiki/w/Khazard_Battlefield" target="_blank" rel="noopener">Khazard Battlefield</a>. The battlefield is north of the <a href="https://runescape.wiki/w/Tree_Gnome_Village_(location)" target="_blank" rel="noopener">Tree Gnome Village</a>. Killing a combatant on any side will work.</div></div></div></div></li><li class="step task" data-task="465"><div class="row"><input class="cb" type="checkbox" data-acb="465" aria-labelledby="qt19"><div class="rb"><span class="t" id="qt19"><b>Don't Eat the Pointy Bit</b> — Buy a skewered kebab from the Poison Arrow pub.</span><div class="ext"><div class="howto">Buy a <a href="https://runescape.wiki/w/Skewered_kebab" target="_blank" rel="noopener">skewered kebab</a> from <a href="https://runescape.wiki/w/The_Poison_Arrow" target="_blank" rel="noopener">The Poison Arrow</a> pub which costs 25 coins. The Poison Arrow pub is located in south-east <a href="https://runescape.wiki/w/East_Ardougne" target="_blank" rel="noopener">East Ardougne</a>, just south-east of the bank.</div></div></div></div></li><li class="step task" data-task="466"><div class="row"><input class="cb" type="checkbox" data-acb="466" aria-labelledby="qt20"><div class="rb"><span class="t" id="qt20"><b>Bargain Hunter</b> — View the Hunter equipment in Aleck's shop in Yanille.</span><div class="ext"><div class="howto">View the Hunter equipment in <a href="https://runescape.wiki/w/Aleck%27s_Hunter_Emporium" target="_blank" rel="noopener">Aleck's Hunter Emporium</a>. <a href="https://runescape.wiki/w/Aleck" target="_blank" rel="noopener">Aleck</a> and his shop are located in south-west <a href="https://runescape.wiki/w/Yanille" target="_blank" rel="noopener">Yanille</a>.</div></div></div></div></li><li class="step task" data-task="467"><div class="row"><input class="cb" type="checkbox" data-acb="467" aria-labelledby="qt21"><div class="rb"><span class="t" id="qt21"><b>Are You Being Served?</b> — Talk to the chief servant at the servants' guild to find out about servants for your house.</span><div class="ext"><div class="howto">Talk to the <a href="https://runescape.wiki/w/Chief_Servant" target="_blank" rel="noopener">Chief Servant</a> at the <a href="https://runescape.wiki/w/Servants%27_Guild" target="_blank" rel="noopener">Servants' Guild</a> to find out about <a href="https://runescape.wiki/w/Servant" target="_blank" rel="noopener">servants</a> for a <a href="https://runescape.wiki/w/Player-owned_house" target="_blank" rel="noopener">player-owned house</a>. The Servants' Guild is located in the north-eastern corner of <a href="https://runescape.wiki/w/East_Ardougne" target="_blank" rel="noopener">East Ardougne</a>, just south-east of the <a href="https://runescape.wiki/w/Ardougne_lodestone" target="_blank" rel="noopener">Ardougne lodestone</a>.</div></div></div></div></li><li class="step task" data-task="468"><div class="row"><input class="cb" type="checkbox" data-acb="468" aria-labelledby="qt22"><div class="rb"><span class="t" id="qt22"><b>No Time to Lose</b> — Use a ring of duelling to teleport to Castle Wars.</span><div class="ext"><span class="need">Needs 27 Crafting, 27 Magic ✓, The following are not required if an emerald ring or ring of duelling are obtained as a drop instead:, One of:• 33 Magic Magic or• 40 Smithing Smithing, The following is not required if a ring of duelling is obtained as a drop:</span><div class="howto">Use a <a href="https://runescape.wiki/w/Ring_of_duelling" target="_blank" rel="noopener">ring of duelling</a> to teleport to <a href="https://runescape.wiki/w/Castle_Wars" target="_blank" rel="noopener">Castle Wars</a> by choosing the Castle Wars option on the ring. This achievement can be completed by using a stored ring of duelling within a <a href="https://runescape.wiki/w/Passage_of_the_abyss" target="_blank" rel="noopener">passage of the abyss</a>.</div></div></div></div></li><li class="step task" data-task="469"><div class="row"><input class="cb" type="checkbox" data-acb="469" aria-labelledby="qt23"><div class="rb"><span class="t" id="qt23"><b>They're Long and Pointy</b> — Talk to Tindel Marchant about identifying swords on Kandarin's east coast.</span><div class="ext"><div class="howto">Talk to <a href="https://runescape.wiki/w/Tindel_Marchant" target="_blank" rel="noopener">Tindel Marchant</a> about identifying swords. He is located at the end of the southern most pier in eastern <a href="https://runescape.wiki/w/Port_Khazard" target="_blank" rel="noopener">Port Khazard</a>. Merely asking him about swords is enough to complete the achievement, so a <a href="https://runescape.wiki/w/Rusty_sword" target="_blank" rel="noopener">rusty sword</a> is not required.</div></div></div></div></li></ul></div></section><div class="blk" style="margin-top:14px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span class="sl">Rewards</span></summary><div class="body"><p class="para">Talk to <a href="https://runescape.wiki/w/Doctor_Orbon" target="_blank" rel="noopener">Doctor Orbon</a>, who is located in the <a href="https://runescape.wiki/w/East_Ardougne_church" target="_blank" rel="noopener">East Ardougne church</a>, to claim the rewards for the easy achievement set:<br>Furthermore, <a href="https://runescape.wiki/w/Explorer_Jack" target="_blank" rel="noopener">Explorer Jack</a> rewards 10–4,096 <a href="https://runescape.wiki/w/Coins" target="_blank" rel="noopener">coins</a> per completed achievement.</p><ul class="plain"><li>An <a href="https://runescape.wiki/w/Antique_lamp_(Easy_Ardougne_Tasks)" target="_blank" rel="noopener">antique lamp</a> granting 1,000 experience (in the skill of choice of level 25 or higher)</li><li><a href="https://runescape.wiki/w/Ardougne_cloak_1" target="_blank" rel="noopener">Ardougne cloak 1</a>, which grants the following bonuses:</li></ul><h2 class="bh">What it does</h2><ul class="plain"><li>Unlimited teleports to the Ardougne Monastery</li><li>Some drops from the Creature Creation activity in the Tower of Life will be noted</li><li>Increasing the success chance of stealing from stalls in Ardougne by 10%</li><li>Unlimited use of Kandarin monastery Teleport</li><li>Prayer points are boosted by 10% upon entry to Castle Wars</li><li>Trading a cat with civilian in West Ardougne gives 200 death runes (instead of 100)</li><li>25% chance to spawn an additional chompy bird while hunting chompy birds</li></ul></div></details></div><p class="foot">Tasks: <a href="https://runescape.wiki/w/Ardougne_achievements" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded Nov 14, 2026.</p></main><footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next task</span></button></footer></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
