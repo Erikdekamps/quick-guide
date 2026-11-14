@@ -14,6 +14,7 @@ You pick a quest from the list, and the app shows the guide as a checklist in th
 | `app.js` | The screens, ticks, buttons and maps |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
+| `serve.cmd`, `tools/serve.js` | Runs the app from your own computer |
 
 ## 1. Put it online
 
@@ -43,6 +44,24 @@ Two other ways:
 
 The app asks for no Alt1 permissions. It does not read your screen or draw on the game.
 Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
+
+### Try it without putting it online
+
+Alt1 can also load the app from your own computer:
+
+1. Download the repo to your computer.
+2. Double-click `serve.cmd`. It needs Node or Python. Leave its window open.
+3. With Alt1 running, paste this into your normal web browser's address bar:
+
+```
+alt1://addapp/http://localhost:8232/appconfig.json
+```
+
+The app only works while that window is open.
+
+### After a change
+
+Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.0` numbers in `index.html`, so Alt1 loads the new ones.
 
 ## 3. Use it
 
