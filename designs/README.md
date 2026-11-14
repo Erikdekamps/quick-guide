@@ -10,10 +10,12 @@ so they match it.
 | File | What it shows |
 | --- | --- |
 | `Start.dc.html` | Start screen: the search box, a line that says how the list is set up, quests in optimal order, started ones first |
-| `Areas.dc.html` | Area tasks tab: the 13 areas, started ones first, with progress per tier |
+| `Areas.dc.html` | Area tasks tab: a row per tier (Ardougne Easy…), started ones first, with a bar; done and locked tiers |
+| `AreaSearch.dc.html` | Searching the area tasks: tasks are ticked in the results, with the area and tier under each |
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
-| `AreaTasks.dc.html` | An area's tasks: tick boxes, red needs you do not have yet, "How to" tips |
-| `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display |
+| `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
+| `Backup.dc.html` | Export state: the text, Copy, Save file |
+| `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |

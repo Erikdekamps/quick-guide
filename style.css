@@ -788,6 +788,36 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 #main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
 /* the wiki's tip for a task, under it */
 .howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
-.howto br + br { display: none; }
 /* the quests a tier needs line up with the text */
 .tree.areq { margin: 0 16px 8px; }
+
+/* a level you do not have yet */
+.tree li.low { color: var(--red); }
+.tree li.low .you { color: var(--red); }
+.tree.askill li { padding: 1px 0; }
+
+/* the steps of an area task */
+.task > .subs { padding-bottom: 4px; }
+.subs .howto { margin-top: 2px; }
+/* "Show done steps" also shows the steps of a done task, so you can untick one */
+#main.show-done .task.done > .subs { display: block; }
+
+/* a task found by a search: always shown, even when done, with the area and tier it belongs to */
+#main:not(.show-done) li.done[data-task].srch { display: list-item; }
+.srch > .row .ext, .srch.done > .row .ext { display: block; }
+.srch .where { font-size: .857rem; }
+.srch.done > .row > .rb > .t b { color: #b19f7c; }
+ul.steps.ql { padding: 0; }
+
+/* ---------- export and import: a box over the app ---------- */
+.dlgbg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1050; display: flex; align-items: center; justify-content: center; padding: 14px; background: rgba(5, 3, 1, .72); }
+.dlg { display: flex; flex-direction: column; gap: 8px; width: 100%; max-height: 100%; padding: 12px; overflow-y: auto; background: var(--grain), #17130f; border: 1px solid var(--bronze); border-radius: 2px; box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #2d251b, 0 10px 24px rgba(0, 0, 0, .7); }
+.dh { margin: 0; font: 700 14px/1.2 "Cinzel", Georgia, serif; letter-spacing: .06em; color: var(--title); }
+.dlg .para { margin: 0; }
+.dlg .tx { flex: 1; min-height: 180px; height: 260px; padding: 8px; resize: vertical; font: 500 11px/1.45 "Fira Mono", ui-monospace, monospace; color: var(--soft); white-space: pre; overflow: auto; }
+.dlg .err { margin: 0; }
+.dbtn { display: flex; flex-wrap: wrap; gap: 6px; }
+.dbtn .btn, .file { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.btn.alt { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze); color: var(--text); text-shadow: none; box-shadow: 0 0 0 1px #000; }
+.file { align-self: flex-start; cursor: pointer; }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
