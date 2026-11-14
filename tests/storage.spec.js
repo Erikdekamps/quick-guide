@@ -50,10 +50,11 @@ test('a "Bring" line saved by the first version still shows', async ({ page }) =
   await expect(box.locator('li[data-item]')).toHaveAttribute('data-item', 'finding-movario-s-base:bring:v1-0needed');
 });
 
-test('data from the old player lookup is removed', async ({ page }) => {
-  await seed(page, { player: { name: 'Zezima' } });
+test('broken saved player data is ignored', async ({ page }) => {
+  await seed(page, { player: { name: 'Zezima' } });   // no quests
   await openApp(page, expect);
-  expect(await stored(page, 'player')).toBeNull();
+  await expect(page.locator('#player-name')).toBeVisible();
+  expect(page.errors).toEqual([]);
 });
 
 test('a last quest that is gone opens the start screen', async ({ page }) => {

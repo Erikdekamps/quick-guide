@@ -733,6 +733,21 @@ kbd {
 .q:has(.pg) .q1 b { color: var(--yellow); }
 .q.done .q1 b { color: var(--green); }
 .q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* a quest the game says you started */
+.q.started .q1 b { color: var(--yellow); }
+/* player lookup */
+.player { margin: 8px 10px 0; }
+div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; background: var(--panel-2); border: 1px solid #3a3229; border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; font-size: 13px; }
+.player .pn { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--soft); }
+.player .pn b { color: var(--title); font-weight: 600; }
+.pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
+/* your own level next to a skill requirement */
+.you { font-size: .857rem; white-space: nowrap; color: var(--muted); }
+.chip.ok .you { color: var(--green); }
+.chip.low { border-color: #6e2a21; border-top-color: #8a3a2c; }
+.chip.low .you { color: var(--red); }
+.tree li.got { color: var(--faint); }
+.tree .tk { color: var(--green); }
 /* phones: 16px inputs, so the page does not zoom in when you type */
 @media (pointer: coarse) { .inp { font-size: 16px; } }
 

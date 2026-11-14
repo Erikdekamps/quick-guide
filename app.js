@@ -8,6 +8,7 @@
  *   quest.<page>    the full parsed guide of one quest (JSON)
  *   prog.<page>     your ticks for that quest
  *   settings, last  display settings, and the quest that was open last
+ *   player          the character you looked up: { name, at, quests, levels, done, started }
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -23,6 +24,7 @@
   var PREFIX = 'qg1.';
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
+  var PLAYER_MAX_AGE = 24 * 3600 * 1000;
   var TABS = [['overview', 'Overview'], ['items', 'Items'], ['steps', 'Steps']];
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
@@ -116,6 +118,7 @@
     scroll: svg('<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>'),
     type: svg('<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>'),
     minus: svg('<path d="M5 12h14"/>'),
+    x: svg('<path d="M18 6 6 18"/><path d="m6 6 12 12"/>'),
     plus: svg('<path d="M5 12h14"/><path d="M12 5v14"/>'),
     skills: svg('<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>'),
     bag: svg('<path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 10h8"/><path d="M8 18h8"/><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>'),
@@ -130,6 +133,8 @@
   function pick(list, v, d) { return list.some(function (x) { return x[0] === v; }) ? v : d; }
   var saved = sget('settings') || {};
   var savedList = sget('list');
+  var savedPlayer = sget('player');
+  if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
     view: 'start',
     q: null,          // the quest JSON
@@ -143,6 +148,10 @@
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
     listBusy: false,
     listError: '',
+    player: savedPlayer,   // the character you looked up, or null
+    playerBusy: false,
+    playerMsg: '',
+    playerInput: '',
     closed: {},       // letter groups in the quest list that are folded shut
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
@@ -469,11 +478,80 @@
     return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
   }
   function isLink(v) { return /\//.test(v) || /^[\w-]+(\.[\w-]+)+$/.test(v) || /^https?:/i.test(v); }
+  // ---------- player lookup ----------
+  // 2 = the game says this quest is done, 1 = started, 0 = not started or no player.
+  function playerStatus(title) {
+    return S.player ? (S.player.quests[QG.normName(title)] || 0) : 0;
+  }
+  function playerLevel(skill) {
+    var v = S.player && S.player.levels ? S.player.levels[String(skill).toLowerCase()] : null;
+    return typeof v === 'number' ? v : null;
+  }
+  function playerError(e, name) {
+    var c = e && e.code;
+    if (c === 'nodata') return 'Found nothing for \u201c' + name + '\u201d. Check the spelling, and that your RuneMetrics profile is public.';
+    if (c === 'timeout') return 'The wiki took too long to answer. Try again.';
+    return 'Could not reach the wiki. Check your internet, then try again.';
+  }
+  function playerHtml() {
+    if (S.player) {
+      return '<div class="player" id="player"><span class="pn"><b>' + esc(S.player.name) + '</b> \u00b7 ' +
+        plural(S.player.done || 0, 'quest', 'quests') + ' done</span>' +
+        '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
+        (S.playerBusy ? I.loader : I.refresh) + '</button>' +
+        '<button class="ib xs" type="button" data-act="player-clear" aria-label="Forget this player" title="Forget this player">' + I.x + '</button></div>';
+    }
+    return '<form class="player" id="player-form" novalidate>' +
+      '<label class="vh" for="player-name">Your character name</label>' +
+      '<div class="row-f"><input class="inp" id="player-name" name="player" type="text" maxlength="12" autocomplete="off" autocapitalize="off" spellcheck="false"' +
+      ' placeholder="Your character name" value="' + esc(S.playerInput) + '"' + (S.playerBusy ? ' disabled' : '') + '>' +
+      '<button class="btn" type="submit"' + (S.playerBusy ? ' disabled' : '') + '>Look up</button></div>' +
+      (S.playerMsg ? '<p class="pmsg' + (S.playerBusy ? '' : ' err') + '" id="player-msg" role="status">' + esc(S.playerMsg) + '</p>' : '') +
+      '</form>';
+  }
+  function drawPlayer() {
+    var el = byId('parea');
+    if (el && S.view === 'start') el.innerHTML = playerHtml();
+  }
+  // Looks a player up. With quiet, a failure keeps the old data and says nothing.
+  function lookUpPlayer(name, quiet) {
+    name = String(name || '').replace(/\s+/g, ' ').trim();
+    var had = S.player;
+    if (!name) { S.playerMsg = 'Type your character name first.'; drawPlayer(); return; }
+    if (S.playerBusy) return;
+    S.playerBusy = true;
+    S.playerMsg = 'Looking up ' + name + '\u2026';
+    drawPlayer();
+    QG.loadPlayer(name).then(function (p) {
+      S.playerBusy = false;
+      S.playerMsg = '';
+      S.playerInput = '';
+      S.player = p;
+      sset('player', p);
+      drawPlayer();
+      drawList();
+    }, function (e) {
+      S.playerBusy = false;
+      S.playerMsg = had ? '' : playerError(e, name);
+      drawPlayer();
+      if (had && !quiet) toast('Could not update ' + name + '. ' + playerError(e, name), 5000);
+    });
+  }
+  function forgetPlayer() {
+    S.player = null;
+    S.playerMsg = '';
+    S.playerInput = '';
+    sdel('player');
+    drawPlayer();
+    drawList();
+  }
+
   // Everything the list needs to know about one quest.
   function questInfo(q, byTitle) {
-    var m = byTitle[D.norm(q.t)] || null;
-    var isDone = !!m && m.total > 0 && m.done >= m.total;
-    return { q: q, m: m, done: isDone, started: !!m && m.done > 0 && !isDone };
+    var m = byTitle[D.norm(q.t)] || null, ps = playerStatus(q.t);
+    // Done when you ticked every step, or when the game says so.
+    var isDone = (!!m && m.total > 0 && m.done >= m.total) || ps === 2;
+    return { q: q, m: m, done: isDone, started: !isDone && ((!!m && m.done > 0) || ps === 1) };
   }
   function groupOf(q, sort) {
     if (sort === 'dif') return q.dif || 'Other';
@@ -505,9 +583,11 @@
     if (q.m === true) bits.push('Members'); else if (q.m === false) bits.push('Free');
     if (q.qp) bits.push(q.qp + ' QP');
     if (x.m && x.m.total && x.m.done > 0) status = '<span class="qs' + (x.done ? ' ok' : '') + '">' + (x.done ? '\u2713 ' : '') + x.m.done + ' / ' + x.m.total + '</span>';
+    else if (x.done) status = '<span class="qs ok">\u2713 Done</span>';
+    else if (x.started) status = '<span class="qs">Started</span>';
     var bar = x.started && x.m && x.m.total && x.m.done > 0 ?
       '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
-    return '<li><button class="q' + (x.done ? ' done' : '') + '" type="button" data-quest="' + esc(q.t) + '">' +
+    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : '') + '" type="button" data-quest="' + esc(q.t) + '">' +
       '<span class="q1"><b>' + esc(q.t) + '</b>' + status + '</span>' +
       (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
   }
@@ -578,6 +658,7 @@
       '<select class="sel" id="sort" aria-label="Sort by">' + SORTS.map(function (s) {
         return '<option value="' + s[0] + '"' + (S.set.sort === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
       }).join('') + '</select></div>' +
+      '<div id="parea">' + playerHtml() + '</div>' +
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
       '<div id="qarea">' + (S.loading ? '' : listHtml()) + '</div>' +
       alt1Html() +
@@ -758,10 +839,13 @@
     if (o.startMap) h += '<div class="blk">' + mapAcc(o.startMap) + '</div>';
     if (o.description) h += '<p class="para">' + esc(o.description) + '</p>';
     if (o.questReqs && o.questReqs.length) {
+      var got = o.questReqs.filter(function (e) { return playerStatus(e.text) === 2; }).length;
       h += '<h2 class="bh">Quests</h2><div class="blk">' + acc('', 'Quest tree',
-        plural(o.questReqs.length, 'entry', 'entries'),
+        S.player ? got + ' / ' + o.questReqs.length + ' done' : plural(o.questReqs.length, 'entry', 'entries'),
         '<ul class="tree">' + o.questReqs.map(function (e) {
-          return '<li style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' + esc(e.text) + '</li>';
+          var have = playerStatus(e.text) === 2;
+          return '<li' + (have ? ' class="got"' : '') + ' style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' +
+            (have ? '<span class="tk">\u2713</span> ' : '') + esc(e.text) + '</li>';
         }).join('') + '</ul>') + '</div>';
     } else if (kv.length) {
       h += '<h2 class="bh">Quests</h2><p class="para">No quests needed first.</p>';
@@ -780,7 +864,9 @@
     var o = S.q.overview, h = '';
     if (o.skillReqs && o.skillReqs.length) {
       h += '<h2 class="bh">Skill levels</h2><ul class="skills">' + o.skillReqs.map(function (s) {
-        return '<li class="chip"><b>' + esc(s.level) + '</b><span class="sn">' + esc(s.skill) + (s.note ? ' <span class="x">' + esc(s.note) + '</span>' : '') + '</span></li>';
+        var mine = playerLevel(s.skill), cls = mine == null ? '' : mine >= s.level ? ' ok' : ' low';
+        return '<li class="chip' + cls + '"><b>' + esc(s.level) + '</b><span class="sn">' + esc(s.skill) + (s.note ? ' <span class="x">' + esc(s.note) + '</span>' : '') + '</span>' +
+          (mine == null ? '' : '<span class="you">you: ' + mine + '</span>') + '</li>';
       }).join('') + '</ul>';
     }
     if (o.otherReqs && o.otherReqs.length) {
@@ -819,7 +905,10 @@
   // The Overview tab: one foldable part for each kind of info, all open at first.
   function ovCount(id) {
     var q = S.q, o = q.overview;
-    if (id === 'skills') return String((o.skillReqs || []).length + (o.otherReqs || []).length);
+    if (id === 'skills') {
+      var low = (o.skillReqs || []).filter(function (s) { var v = playerLevel(s.skill); return v != null && v < s.level; }).length;
+      return low ? low + ' too low' : String((o.skillReqs || []).length + (o.otherReqs || []).length);
+    }
     if (id === 'enemies') return String((o.enemies || []).length);
     if (id === 'rewards') return String(q.rewards.items.length);
     return '';
@@ -1096,6 +1185,7 @@
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    if (ev.target.id === 'player-form') { S.playerInput = ev.target.elements.player.value; lookUpPlayer(S.playerInput); return; }
     if (ev.target.id !== 'load-form') return;
     var v = ev.target.elements.link.value.trim();
     S.input = v;
@@ -1105,6 +1195,7 @@
     if (hits.length) openTitle(hits[0].t); else startLoad(v);
   });
   app.addEventListener('input', function (ev) {
+    if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
     if (ev.target.id !== 'quest-link') return;
     S.input = ev.target.value;
     if (S.error) {
@@ -1154,6 +1245,8 @@
       else if (act === 'font-down') setFont(-FONT_STEP);
       else if (act === 'font-up') setFont(FONT_STEP);
       else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); }
+      else if (act === 'player-refresh') { if (S.player) lookUpPlayer(S.player.name); }
+      else if (act === 'player-clear') forgetPlayer();
       return;
     }
     // Remember boxes you open or close by hand.
@@ -1215,5 +1308,6 @@
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
-  sdel('player');   // the player lookup is gone; drop what an older version saved
+  // Keep the player fresh too: quietly, once a day.
+  if (S.player && Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE) lookUpPlayer(S.player.name, true);
 })();

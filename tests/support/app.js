@@ -21,7 +21,8 @@ class Wiki {
   constructor() {
     this.pages = {};
     this.calls = [];      // every api.php call: { page, prop, url }
-    this.player = {};     // fake WikiSync / RuneMetrics answers by URL part
+    this.player = {};     // fake player data answers, by a part of the URL
+    this.playerCalls = [];  // every player data request (URL)
   }
   // A page that exists. html is the page body; live is the map data (wgKartographerLiveData).
   page(title, html, live) { this.pages[title] = { html, live: live || {} }; return this; }
@@ -61,7 +62,17 @@ class Wiki {
       json: { parse: { title, pageid: 1, text: '<div class="mw-parser-output">' + p.html + '</div>', jsconfigvars: { wgKartographerLiveData: p.live } } }
     });
   }
+  // Player data for one name, the way the wiki passes it on from Jagex.
+  // quests: { 'Quest name': 'COMPLETED' | 'STARTED' | 'NOT_STARTED' }, levels: { hiscoreId: level }
+  setPlayer(name, quests, levels) {
+    const q = {};
+    Object.keys(quests || {}).forEach((t, i) => { q[String(100 + i)] = { title: t, status: quests[t] }; });
+    this.player['playerQuests/' + encodeURIComponent(name)] = { json: { quests: q } };
+    this.player['index_lite.json?player=' + encodeURIComponent(name)] = { json: { name, skills: Object.keys(levels || {}).map((id) => ({ id: +id, level: levels[id] })) } };
+    return this;
+  }
   async answerPlayer(route, url) {
+    this.playerCalls.push(url.href);
     for (const key of Object.keys(this.player)) {
       if (url.href.indexOf(key) >= 0) {
         const a = this.player[key];
