@@ -180,6 +180,25 @@ test.describe('reading an area page', () => {
     expect(r.subs).toBeGreaterThan(3);
   });
 
+  test('the page a phone gets (parts wrapped in sections) reads the same', async ({ page }) => {
+    // The wiki's mobile view puts what follows each part's heading in a <section>.
+    const mobile = (h) => {
+      const parts = h.split(/(?=<div class="mw-heading mw-heading2">)/);
+      return parts.map((p, i) => {
+        if (i === 0) return p;
+        const end = p.indexOf('</div>') + 6;
+        return p.slice(0, end).replace('mw-heading mw-heading2', 'mw-heading mw-heading2 section-heading') +
+          '<section class="mf-section-' + i + ' collapsible-block" id="mf-section-' + i + '">' + p.slice(end) + '</section>';
+      }).join('');
+    };
+    const html = fixture('ardougne-achievements.html');
+    expect(mobile(html).match(/<section/g).length).toBe(4);
+    const desk = await page.evaluate((h) => window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'), html);
+    const phone = await page.evaluate((h) => window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'), mobile(html));
+    delete desk.fetchedAt; delete phone.fetchedAt;
+    expect(phone).toEqual(desk);
+  });
+
   test('a page that is not an area page', async ({ page }) => {
     const r = await page.evaluate(() => { try { window.QuickGuide.parseArea('<div class="mw-parser-output"><p>Nothing.</p></div>', 'X'); return 'no error'; } catch (e) { return e.code; } });
     expect(r).toBe('format');

@@ -1285,6 +1285,11 @@
     var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
     var root = doc.querySelector('.mw-parser-output') || doc.body;
     while (root.children.length === 1 && root.firstElementChild.classList.contains('mw-parser-output')) root = root.firstElementChild;
+    // On a phone the wiki puts what follows each heading in a <section>: take them out, so the page is flat again.
+    arr(root.querySelectorAll('section')).forEach(function (sec) {
+      while (sec.firstChild) sec.parentNode.insertBefore(sec.firstChild, sec);
+      sec.parentNode.removeChild(sec);
+    });
     var page = name + ' achievements';
     var tiers = partsBy(root, 2, function (h) { return TIER_RE.test(h.id || '') || /^(Beginner|Easy|Medium|Hard|Elite) achievements$/i.test(text(h)); })
       .map(function (p) { return areaTier(p, page); })
