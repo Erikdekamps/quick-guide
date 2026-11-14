@@ -8,6 +8,9 @@ module.exports = defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
+  // A test that only passes on its second try still fails the run: a retry must not hide a problem.
+  // (The retry still runs, so its trace shows what went wrong.)
+  failOnFlakyTests: !!process.env.CI,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   timeout: 30000,
