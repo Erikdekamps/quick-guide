@@ -31,7 +31,10 @@ test('ticking an item counts it, hides it and saves it', async ({ page }) => {
 });
 
 test('a click anywhere on the row ticks it, but a link still works as a link', async ({ page }) => {
-  await item(page, 'Ardougne Teleport').locator('.rb').click({ position: { x: 250, y: 8 } });
+  // Click the row's own right edge: no text or link is there, whatever font the computer has.
+  const row = item(page, 'Ardougne Teleport').locator(':scope > .row');
+  const b = await row.boundingBox();
+  await row.click({ position: { x: b.width - 3, y: b.height / 2 } });
   await expect(page.locator('#main .bh').nth(1)).toHaveText('Recommended 1 / 2');
   const popup = page.waitForEvent('popup');
   await item(page, 'Games necklace').locator('a').click();

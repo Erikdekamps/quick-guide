@@ -42,7 +42,10 @@ test.describe('ticking', () => {
   });
 
   test('a click anywhere on the row works too', async ({ page }) => {
-    await step(page, 'Go upstairs').locator('.row').click({ position: { x: 300, y: 10 } });
+    // Click the row's own right edge: no text or link is there, whatever font the computer has.
+    const row = step(page, 'Go upstairs').locator(':scope > .row');
+    const b = await row.boundingBox();
+    await row.click({ position: { x: b.width - 3, y: b.height / 2 } });
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
     await expect(step(page, 'Go upstairs')).toBeHidden();
   });
