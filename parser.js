@@ -1008,8 +1008,7 @@
     });
   }
 
-  // ---------- player stats (the same places the wiki's own quest checker asks) ----------
-  var SYNC = 'https://sync.runescape.wiki/runescape/player/';
+  // ---------- player stats ----------
   var HISCORE_SKILLS = ['Overall', 'Attack', 'Defence', 'Strength', 'Constitution', 'Ranged', 'Prayer', 'Magic', 'Cooking',
     'Woodcutting', 'Fletching', 'Fishing', 'Firemaking', 'Crafting', 'Smithing', 'Mining', 'Herblore', 'Agility', 'Thieving',
     'Slayer', 'Farming', 'Runecrafting', 'Hunter', 'Construction', 'Summoning', 'Dungeoneering', 'Divination', 'Invention',
@@ -1022,18 +1021,6 @@
     var done = 0, started = 0;
     Object.keys(quests).forEach(function (k) { if (quests[k] === 2) done++; else if (quests[k] === 1) started++; });
     return { name: name, source: source, at: new Date().toISOString(), quests: quests, levels: levels, done: done, started: started };
-  }
-  function fromSync(name) {
-    return getJson(SYNC + encodeURIComponent(name) + '/STANDARD').then(function (r) {
-      var j = r.json;
-      if (!r.ok || !j || !j.quests || typeof j.quests !== 'object') {
-        var e = new Error('No WikiSync data.'); e.code = (j && j.code) || 'http'; throw e;
-      }
-      var quests = {}, levels = {};
-      Object.keys(j.quests).forEach(function (k) { var v = +j.quests[k]; quests[normName(k)] = v === 2 ? 2 : v === 1 ? 1 : 0; });
-      Object.keys(j.levels || {}).forEach(function (k) { var v = +j.levels[k]; if (isFinite(v)) levels[k.toLowerCase()] = v; });
-      return playerResult(name, 'WikiSync', quests, levels);
-    });
   }
   function fromRuneMetrics(name) {
     var enc = encodeURIComponent(name), fails = [];
@@ -1063,10 +1050,10 @@
       return playerResult(name, 'RuneMetrics', quests, levels);
     });
   }
-  // Tries WikiSync first, then the official RuneMetrics data through the wiki.
+  // Quests and levels of one player: Jagex's RuneMetrics data, passed on by the wiki.
+  // (The wiki lets any web page read it, so this works from GitHub Pages.)
   function loadPlayer(name) {
-    name = clean(name);
-    return fromSync(name).catch(function () { return fromRuneMetrics(name); });
+    return fromRuneMetrics(clean(name));
   }
 
   root.QuickGuide = {

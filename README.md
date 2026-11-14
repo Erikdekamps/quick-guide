@@ -57,6 +57,10 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - Type in the box to search. Press **Open** (or Enter) to open the top match.
    - You can still paste a wiki link in the same box.
    - Sort by name, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
+   - Type your **character name** and press **Look up**. Quests you finished in the game turn green,
+     quests you started turn yellow, and inside a quest you see your own skill levels and which
+     required quests you have done. Your RuneMetrics profile must be public.
+     The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
 3. Three tabs: **Overview**, **Items** and **Steps**.
    - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
@@ -91,6 +95,7 @@ Everything is in the browser's local storage, on that computer. All keys start w
 | `quest.<page>` | The full parsed guide of one quest, as JSON |
 | `prog.<page>` | Your ticks for that quest |
 | `settings`, `last` | Display settings, and the quest that was open last |
+| `player` | The character you looked up: name, quests done or started, skill levels |
 
 Local storage holds about 5 MB. If it gets full, the guides you opened longest ago are dropped
 (your ticks stay). They are read from the wiki again when you open them.
@@ -104,6 +109,10 @@ Local storage holds about 5 MB. If it gets full, the guides you opened longest a
   "bring" lists), `rewards`, `music`, `achievements` and `requiredFor`.
   If a quest has no Quick guide, it falls back to the quest's main page.
 - Map pictures load from `maps.runescape.wiki`.
+- The player lookup asks the wiki too. The wiki passes on Jagex's RuneMetrics data and lets any web page read it:
+  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` (quests) and
+  `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>` (levels).
+  No other service is used, so it works from GitHub Pages as it is.
 
 ## Tests
 
@@ -118,7 +127,7 @@ They open the app in a 360 × 720 window, like Alt1, and click through it like a
   that would break it. You can start it by hand: **Actions → Tests → Run workflow**.
 
 What they cover: the quest list (search, sorting, groups, opening quests, errors), the three tabs,
-ticking steps and items, sub-steps, chat options, "Bring" boxes, maps, pictures and tables,
+the player lookup, ticking steps and items, sub-steps, chat options, "Bring" boxes, maps, pictures and tables,
 "Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
 storage, Alt1, missing files, the window look, and the parser itself.
 

@@ -418,19 +418,21 @@ test.describe('talking to the wiki', () => {
     expect(await page.evaluate(() => window.QuickGuideData.loadList().catch((x) => x.code))).toBe('http');
   });
 
-  test('player lookup: WikiSync first, then RuneMetrics', async ({ page, wiki }) => {
-    wiki.player['sync.runescape.wiki/runescape/player/Zezima'] = { json: { quests: { 'Rune Mysteries': 2, "Cook's Assistant": 1, 'Dragon Slayer': 0 }, levels: { Magic: 99 } } };
-    const a = await page.evaluate(() => window.QuickGuide.loadPlayer(' Zezima '));
-    expect(a).toMatchObject({ name: 'Zezima', source: 'WikiSync', done: 1, started: 1, levels: { magic: 99 } });
-    expect(a.quests.runemysteries).toBe(2);
+  test('player lookup: quests and levels through the wiki', async ({ page, wiki }) => {
+    wiki.setPlayer('Bob', { 'Rune Mysteries': 'COMPLETED', 'Dragon Slayer': 'STARTED', 'Imp Catcher': 'NOT_STARTED' }, { 7: 80 });   // 7 is Magic
+    const b = await page.evaluate(() => window.QuickGuide.loadPlayer(' Bob '));
+    expect(b).toMatchObject({ name: 'Bob', source: 'RuneMetrics', done: 1, started: 1, levels: { magic: 80 } });
+    expect(b.quests).toEqual({ runemysteries: 2, dragonslayer: 1, impcatcher: 0 });
+    expect(Date.parse(b.at)).toBeGreaterThan(0);
+    // it only asks the wiki, nobody else
+    expect(wiki.playerCalls.every((u) => u.startsWith('https://runescape.wiki/cors/'))).toBe(true);
 
-    wiki.player['sync.runescape.wiki/runescape/player/Bob'] = { status: 400, json: { code: 'NO_PROFILE' } };
-    wiki.player['playerQuests/Bob'] = { json: { quests: [{ title: 'Rune Mysteries', status: 'COMPLETED' }, { title: 'Dragon Slayer', status: 'STARTED' }] } };
-    wiki.player['index_lite.json?player=Bob'] = { json: { skills: [{ id: 7, level: 80 }] } };   // 7 is Magic
-    const b = await page.evaluate(() => window.QuickGuide.loadPlayer('Bob'));
-    expect(b).toMatchObject({ source: 'RuneMetrics', done: 1, started: 1, levels: { magic: 80 } });
+    // quests but no levels still counts
+    wiki.setPlayer('Ann', { 'Rune Mysteries': 'COMPLETED' }, {});
+    wiki.player['index_lite.json?player=Ann'] = { status: 404, json: {} };
+    expect(await page.evaluate(() => window.QuickGuide.loadPlayer('Ann'))).toMatchObject({ done: 1, levels: {} });
 
-    wiki.player['sync.runescape.wiki/runescape/player/Nobody'] = 'network';
+    expect(await page.evaluate(() => window.QuickGuide.loadPlayer('Unknown').catch((e) => e.code))).toBe('nodata');
     wiki.player['playerQuests/Nobody'] = 'network';
     wiki.player['index_lite.json?player=Nobody'] = 'network';
     expect(await page.evaluate(() => window.QuickGuide.loadPlayer('Nobody').catch((e) => e.code))).toBe('network');
