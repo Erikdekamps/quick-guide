@@ -56,7 +56,10 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
 1. The first screen lists **every quest** from the wiki's [List of quests](https://runescape.wiki/w/List_of_quests).
    - Type in the box to search. Press **Open** (or Enter) to open the top match.
    - You can still paste a wiki link in the same box.
-   - Sort by name, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
+   - Sort by name, **optimal order**, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
+   - Optimal order is the wiki's [quest progression guide](https://runescape.wiki/w/Quests/Progression_guide).
+     Each quest shows its place (#1, #2, ...). Quests the guide does not list come last.
+   - **Hide done quests** in the cog menu takes finished quests out of the list. A search still finds them.
    - Type your **character name** and press **Look up**. Quests you finished in the game turn green,
      quests you started turn yellow, and inside a quest you see your own skill levels and which
      required quests you have done. Your RuneMetrics profile must be public.
@@ -66,7 +69,8 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
      They start open. The app remembers which ones you closed.
    - Items has the **Required** and **Recommended** items, each with a tick box.
-   - Boxes for pictures, maps, tables and music also remember if you opened them.
+   - Everything that folds starts open: parts, and the boxes for pictures, maps, tables and music.
+     The app remembers the ones you close.
 4. On **Steps**:
    - Click anywhere on a step to tick it. It goes away, and the next step moves to the top, right under the part's name.
    - A part folds shut when you finish it.
@@ -77,7 +81,7 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - "Bring for this part" boxes close by themselves when every item in them is ticked.
    - Maps are the wiki's own map. Drag to move, + and − to zoom.
 5. The **cog** button holds the settings:
-   - **Jump to next step**, **Show done steps**, and **Text size** (12 to 40).
+   - **Jump to next step**, **Show done steps**, **Hide done quests**, and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
@@ -95,6 +99,7 @@ Everything is in the browser's local storage, on that computer. All keys start w
 | `quest.<page>` | The full parsed guide of one quest, as JSON |
 | `prog.<page>` | Your ticks for that quest |
 | `settings`, `last` | Display settings, and the quest that was open last |
+| `order` | The wiki's optimal quest order |
 | `player` | The character you looked up: name, quests done or started, skill levels |
 
 Local storage holds about 5 MB. If it gets full, the guides you opened longest ago are dropped
@@ -103,6 +108,7 @@ Local storage holds about 5 MB. If it gets full, the guides you opened longest a
 ## How it reads the wiki
 
 - `quests.js` reads the quest list: `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`
+- `quests.js` also reads the optimal order: the same address with `page=Quests/Progression_guide`
 - `parser.js` reads one guide: `https://runescape.wiki/api.php?action=parse&page=<Quest>/Quick_guide&prop=text|jsconfigvars&origin=*`
   It turns the page into JSON with these parts: `overview`, `requiredItems`, `recommendedItems`,
   `sections` (each with `blocks`: steps, sub-steps, chat options, pictures, maps, tables, notes, warnings,

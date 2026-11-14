@@ -33,6 +33,7 @@ class Wiki {
   // The standard set: the quest list and the guides in tests/fixtures.
   standard() {
     this.page('List of quests', fixture('list-of-quests.html'));
+    this.page('Quests/Progression guide', fixture('progression-guide.html'));
     this.page('While Guthix Sleeps/Quick guide', fixture('while-guthix-sleeps.html'), JSON.parse(fixture('while-guthix-sleeps.live.json')));
     this.page("Cook's Assistant/Quick guide", fixture('cooks-assistant.html'));
     this.missing('Rune Mysteries/Quick guide');

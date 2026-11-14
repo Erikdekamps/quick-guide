@@ -54,12 +54,12 @@ test.describe('details', () => {
     await expect(d.locator('dd a', { hasText: 'Radimus Erkle' })).toHaveAttribute('href', 'https://runescape.wiki/w/Radimus_Erkle');
     const map = box(d, 'Map: Start point');
     await expect(map).toHaveCount(1);
-    await expect(map).not.toHaveAttribute('open', '');
+    await expect(map).toHaveAttribute('open', '');
+    await expect(map.locator('.leaflet-container')).toBeVisible();
     await expect(d.locator('.para', { hasText: 'Find out what Lucien' })).toBeVisible();
     await expect(d.locator('.bh')).toHaveText(['Quests', 'Other']);
     const tree = box(d, 'Quest tree');
     await expect(tree.locator('summary .m')).toHaveText('4 entries');
-    await tree.locator('summary').click();
     await expect(tree.locator('.tree li')).toHaveText(['Defender of Varrock', 'Shield of Arrav', "The Knight's Sword", 'The Hand in the Sand']);
     await expect(tree.locator('.tree li').nth(1)).toHaveCSS('padding-left', '16px');
     await expect(d.locator('.para', { hasText: 'Story only' })).toHaveText('Story only, not required: Nature Spirit, Priest in Peril, The Restless Ghost.');
@@ -111,26 +111,26 @@ test.describe('rewards', () => {
     await expect(r.locator('.para')).toHaveText('The rewards are given when you finish.');
     await expect(r.locator('details.acc summary .sl')).toHaveText(['Quest complete scroll', 'Music unlocked', 'Achievements', 'Needed for later quests']);
     await expect(r.locator('details.acc summary .m')).toHaveText(['2 tracks', '1', '2 direct · 1 more']);
-    for (const d of await r.locator('details.acc').all()) expect(await d.getAttribute('open')).toBeNull();
+    for (const d of await r.locator('details.acc').all()) expect(await d.getAttribute('open')).toBe('');
     const music = box(r, 'Music unlocked');
-    await music.locator('summary').click();
     await expect(music.locator('li')).toHaveText(["Dangerous Logic (Movario's base)", 'The Sound of Guthix']);
     const later = box(r, 'Needed for later quests');
-    await later.locator('summary').click();
     await expect(later.locator('.why')).toHaveText(['Directly:', 'Indirectly:']);
     await expect(later.locator('li')).toHaveText(["Nomad's Elegy", 'Ritual of the Mahjarrat', 'Fate of the Gods']);
     const pic = box(r, 'Quest complete scroll');
-    await pic.locator('summary').click();
     await expect(pic.locator('img')).toHaveAttribute('src', 'https://runescape.wiki/images/While_Guthix_Sleeps_reward.png');
     await expect(pic.locator('a.imgl')).toHaveAttribute('href', 'https://runescape.wiki/w/File:While_Guthix_Sleeps_reward.png');
   });
 
-  test('boxes you open stay open after a reload', async ({ page }) => {
+  test('boxes start open; one you close stays closed after a reload', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await box(body(page, 'rewards'), 'Music unlocked').locator('summary').click();
-    await expect.poll(async () => Object.values((await stored(page, 'prog.' + WGS)).acc)).toEqual([1]);
+    await expect.poll(async () => Object.values((await stored(page, 'prog.' + WGS)).acc)).toEqual([0]);
     await page.reload();
-    await expect(box(body(page, 'rewards'), 'Music unlocked')).toHaveAttribute('open', '');
-    await expect(box(body(page, 'rewards'), 'Achievements')).not.toHaveAttribute('open', '');
+    await expect(box(body(page, 'rewards'), 'Music unlocked')).not.toHaveAttribute('open', '');
+    await expect(box(body(page, 'rewards'), 'Achievements')).toHaveAttribute('open', '');
+    // and open it again
+    await box(body(page, 'rewards'), 'Music unlocked').locator('summary').click();
+    await expect.poll(async () => Object.values((await stored(page, 'prog.' + WGS)).acc)).toEqual([1]);
   });
 });

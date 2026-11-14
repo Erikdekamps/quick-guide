@@ -62,3 +62,14 @@ test('wiki map tiles load', async ({ page }) => {
   await expect(map.locator('.leaflet-container')).toBeVisible();
   await expect.poll(() => ok.length, { timeout: 30000 }).toBeGreaterThan(0);
 });
+
+test('the optimal order is read from the wiki and matches the quest list', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
+  await page.locator('#sort').selectOption('opt');
+  await expect(page.locator('.ghb[data-group="Optimal order"]')).toBeVisible();
+  const inGuide = parseInt(await page.locator('.ghb[data-group="Optimal order"] .c').textContent(), 10);
+  const total = parseInt(await page.locator('#qcount').textContent(), 10);
+  expect(inGuide).toBeGreaterThan(total * 0.8);
+  await expect(page.locator('.q .q2').first()).toContainText('#1');
+});

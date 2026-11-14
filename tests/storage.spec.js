@@ -16,7 +16,7 @@ test('what is saved while you use a quest', async ({ page }) => {
     steps: { [Object.keys(p.steps)[0]]: 1 },
     items: { [Object.keys(p.items)[0]]: 1 },
     tab: 'steps',
-    open: { 'ov:enemies': false, 'catching-lucien-s-spy': true },
+    open: { 'ov:enemies': false, 'catching-lucien-s-spy': false },
     acc: {}
   });
   expect((await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 1, total: 12 });
@@ -25,7 +25,7 @@ test('what is saved while you use a quest', async ({ page }) => {
   expect(await stored(page, 'settings')).toBeNull();
   await page.locator('#cog-btn').click();
   await page.getByRole('button', { name: 'Bigger text' }).click();
-  expect(await stored(page, 'settings')).toEqual({ showDone: false, fontSize: 16, sort: 'name' });
+  expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, fontSize: 16, sort: 'name' });
   expect(await storedKeys(page)).toEqual(['last', 'list', 'meta', 'prog.' + WGS, 'quest.' + WGS, 'settings']);
 });
 

@@ -8,6 +8,7 @@
  *   quest.<page>    the full parsed guide of one quest (JSON)
  *   prog.<page>     your ticks for that quest
  *   settings, last  display settings, and the quest that was open last
+ *   order           the wiki's optimal quest order: { at, order: [quest names] }
  *   player          the character you looked up: { name, at, quests, levels, done, started }
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
@@ -28,7 +29,7 @@
   var TABS = [['overview', 'Overview'], ['items', 'Items'], ['steps', 'Steps']];
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
-  var SORTS = [['name', 'A to Z'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
+  var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
 
@@ -133,6 +134,7 @@
   function pick(list, v, d) { return list.some(function (x) { return x[0] === v; }) ? v : d; }
   var saved = sget('settings') || {};
   var savedList = sget('list');
+  var savedOrder = sget('order');
   var savedPlayer = sget('player');
   if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
@@ -142,12 +144,16 @@
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
     set: {
-      showDone: !!saved.showDone, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
+      showDone: !!saved.showDone, hideDone: !!saved.hideDone, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
       sort: pick(SORTS, saved.sort, 'name')
     },
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
     listBusy: false,
     listError: '',
+    order: savedOrder && Array.isArray(savedOrder.order) ? savedOrder : null,   // the wiki's optimal order
+    orderBusy: false,
+    orderError: '',
+    ranks: null,      // quest name -> its place in the optimal order
     player: savedPlayer,   // the character you looked up, or null
     playerBusy: false,
     playerMsg: '',
@@ -260,7 +266,7 @@
   function isOpen(sec, cur) {
     var v = S.prog.open[sec.id];
     if (v === true || v === false) return v;
-    return !!cur && S.idx.secOf[cur] === sec.id;
+    return true;   // parts start open; a part you finish folds shut
   }
   function mark(s, val) {
     if (val) S.prog.steps[s.id] = 1; else delete S.prog.steps[s.id];
@@ -431,6 +437,7 @@
     D.loadList().then(function (l) {
       S.listBusy = false;
       S.list = l;
+      S.ranks = null;
       sset('list', l);
       drawList();
       if (say) toast('Quest list updated.');
@@ -441,6 +448,36 @@
       if (say) toast('Could not update the quest list. ' + loadError(e), 5000);
     });
   }
+
+  // The wiki's optimal quest order. With silent, a failure keeps what we have and says nothing.
+  function fetchOrder(silent) {
+    if (S.orderBusy) return;
+    S.orderBusy = true;
+    S.orderError = '';
+    D.loadOrder().then(function (o) {
+      S.orderBusy = false;
+      S.order = o;
+      S.ranks = null;
+      sset('order', o);
+      drawList();
+    }, function (e) {
+      S.orderBusy = false;
+      if (!silent || !S.order) S.orderError = 'Could not get the optimal order. ' + loadError(e);
+      drawList();
+    });
+  }
+  // Each quest's place in the optimal order, counting only quests that are in the list: 1, 2, 3...
+  function orderRanks() {
+    if (S.ranks) return S.ranks;
+    var pos = {}, r = {};
+    ((S.order && S.order.order) || []).forEach(function (t, i) { var k = D.norm(t); if (pos[k] == null) pos[k] = i; });
+    ((S.list && S.list.quests) || []).filter(function (q) { return pos[D.norm(q.t)] != null; })
+      .sort(function (a, b) { return pos[D.norm(a.t)] - pos[D.norm(b.t)]; })
+      .forEach(function (q, i) { r[D.norm(q.t)] = i + 1; });
+    S.ranks = r;
+    return r;
+  }
+  function orderRank(q) { return orderRanks()[D.norm(q.t)] || 0; }
 
   // ---------- menus: the cog (settings) and the dots (quest actions) ----------
   function toggleHtml(act, icon, label, on) {
@@ -453,6 +490,7 @@
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
       '<p class="mh">Display</p>' +
       toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
+      toggleHtml('hidedone', I.check, 'Hide done quests', S.set.hideDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
@@ -558,6 +596,7 @@
     if (sort === 'len') return q.len || 'Other';
     if (sort === 'ser') return q.ser && !/^(none|n\/a|-)$/i.test(q.ser) ? q.ser : 'No series';
     if (sort === 'rel') { var y = /\b(\d{4})\b/.exec(q.rel || ''); return y ? y[1] : 'Unknown'; }
+    if (sort === 'opt') return orderRank(q) ? 'Optimal order' : 'Not in the guide';
     var c = q.t.replace(/^[^A-Za-z0-9]+/, '').charAt(0).toUpperCase();
     return /[A-Z]/.test(c) ? c : '#';
   }
@@ -573,11 +612,13 @@
         var ga = groupOf(a.q, sort), gb = groupOf(b.q, sort);
         d = (ga === 'No series') - (gb === 'No series') || ga.localeCompare(gb);
       } else if (sort === 'rel') d = (Date.parse(b.q.rel) || 0) - (Date.parse(a.q.rel) || 0);
+      else if (sort === 'opt') d = (orderRank(a.q) || 1e9) - (orderRank(b.q) || 1e9);
       return d || byName(a, b);
     });
   }
   function questRow(x) {
     var q = x.q, bits = [], status = '';
+    if (S.set.sort === 'opt' && orderRank(q)) bits.push('#' + orderRank(q));
     if (q.dif) bits.push(esc(q.dif));
     if (q.len) bits.push(esc(q.len));
     if (q.m === true) bits.push('Members'); else if (q.m === false) bits.push('Free');
@@ -608,16 +649,30 @@
     Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = m[k]; });
     var v = isLink(S.input.trim()) ? '' : S.input.toLowerCase().trim();
     var sort = S.set.sort;
+    if (sort === 'opt' && !S.order) {
+      if (!S.orderBusy && !S.orderError) fetchOrder(false);
+      if (S.orderBusy) return '<div class="state" role="status">' + I.loader + '<p>Getting the optimal order\u2026</p></div>';
+      return '<p class="err pad" role="alert">' + esc(S.orderError) + '</p>' +
+        '<p class="pad"><button class="btn" type="button" data-act="order-refresh">Try again</button></p>';
+    }
     var items = S.list.quests.map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
       return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
     });
+    // "Hide done quests": not while you search, so a search still finds everything.
+    var hidden = 0;
+    if (S.set.hideDone && !v) {
+      hidden = items.filter(function (x) { return x.done; }).length;
+      items = items.filter(function (x) { return !x.done; });
+    }
     items = sortQuests(items, sort);
     // Quests in progress go first, in their own group.
     items = items.filter(function (x) { return x.started; }).concat(items.filter(function (x) { return !x.started; }));
     function gOf(x) { return x.started ? 'In progress' : groupOf(x.q, sort); }
     var h = '<p class="qmeta" id="qcount">' + (items.length === S.list.quests.length ? plural(items.length, 'quest', 'quests') :
       items.length + ' of ' + plural(S.list.quests.length, 'quest', 'quests')) +
+      (hidden ? ' \u00b7 ' + hidden + ' done hidden' : '') +
       (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</p>';
+    if (!items.length && hidden) return h + '<p class="empty">All quests are done. Turn off \u201cHide done quests\u201d in the settings to see them.</p>';
     if (!items.length) return h + '<p class="empty">No quests match. Press Open to look for \u201c' + esc(S.input.trim()) + '\u201d on the wiki.</p>';
     var group = null, open = false;
     items.forEach(function (x) {
@@ -672,7 +727,8 @@
   function note(html) { return '<div class="note">' + I.info + '<span>' + html + '</span></div>'; }
   function warn(html) { return '<div class="note warn">' + I.alert + '<span>' + html + '</span></div>'; }
   function acc(icon, label, meta, body, open, attrs) {
-    return '<details class="acc"' + (open ? ' open' : '') + (attrs || '') + '><summary>' + I.chev + (icon || '') +
+    // Boxes start open, unless a caller says otherwise. The app remembers the ones you close.
+    return '<details class="acc"' + (open === false ? '' : ' open') + (attrs || '') + '><summary>' + I.chev + (icon || '') +
       '<span class="sl">' + esc(label) + '</span>' + (meta ? '<span class="m">' + esc(meta) + '</span>' : '') +
       '</summary><div class="body">' + body + '</div></details>';
   }
@@ -747,7 +803,8 @@
     for (var k = i + 1; k < sec.blocks.length; k++) { if (sec.blocks[k].type === 'step') { next = sec.blocks[k]; break; } }
     var all = (b.needed || []).concat(b.recommended || []);
     var allTicked = all.length > 0 && all.every(function (it) { return S.prog.items[it.id]; });
-    var open = (!next || !done(next.id)) && !allTicked;
+    // Open, until everything in it is ticked.
+    var open = !allTicked || S.set.showDone;
     function list(kind, items) {
       if (!items || !items.length) return '';
       return '<p class="bl"><span>' + kind + '</span><span class="c"></span></p><ul class="steps blist">' +
@@ -935,6 +992,7 @@
     el.querySelector('.sech').setAttribute('aria-expanded', open ? 'true' : 'false');
     el.querySelector('.secb').hidden = !open;
     resizeMaps();
+    startMaps();
     alignTop(el, false);
   }
   // Boxes (pictures, maps, tables, music...) remember if you opened them.
@@ -1042,6 +1100,7 @@
     });
     saveProg();
     remember(S.key, S.q.title, t.done, t.total);
+    startMaps();
   }
 
   // ---------- maps (Leaflet with the wiki's map tiles) ----------
@@ -1052,6 +1111,14 @@
     S.maps = [];
   }
   function resizeMaps() { S.live.forEach(function (map) { map.invalidateSize(); }); }
+  // Starts every map that is in an open box and on screen (not inside a folded part).
+  function startMaps() {
+    var main = byId('main');
+    if (!main || S.view !== 'quest') return;
+    arr(main.querySelectorAll('details[open] > .body > .map')).forEach(function (el) {
+      if (!el.getAttribute('data-ready') && el.offsetParent !== null) initMap(el);
+    });
+  }
   function initMap(el) {
     el.setAttribute('data-ready', '1');
     var m = S.maps[+el.getAttribute('data-map')];
@@ -1096,7 +1163,8 @@
     // Scroll the list with the mouse wheel; click the map first to zoom it with the wheel.
     map.on('click', function () { map.scrollWheelZoom.enable(); });
     map.on('mouseout', function () { map.scrollWheelZoom.disable(); });
-    setTimeout(function () { map.invalidateSize(); }, 60);
+    // The map may be gone by then (you switched tabs), so check first.
+    setTimeout(function () { if (S.live.indexOf(map) >= 0) map.invalidateSize(); }, 60);
   }
 
   // ---------- small UI bits ----------
@@ -1163,6 +1231,13 @@
     var main = byId('main'), mi = document.querySelector('.mi[data-act="showdone"]');
     if (main && S.view === 'quest') main.classList.toggle('show-done', S.set.showDone);
     if (mi) mi.setAttribute('aria-checked', on);
+  }
+  function toggleHideDone() {
+    S.set.hideDone = !S.set.hideDone;
+    saveSettings();
+    var mi = document.querySelector('.mi[data-act="hidedone"]');
+    if (mi) mi.setAttribute('aria-checked', S.set.hideDone ? 'true' : 'false');
+    drawList();
   }
   function switchTab(tab) {
     tab = validTab(tab);
@@ -1238,13 +1313,15 @@
       if (act === 'next') nextStep();
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
       else if (act === 'showdone') toggleShowDone();
+      else if (act === 'hidedone') toggleHideDone();
+      else if (act === 'order-refresh') { S.orderError = ''; drawList(); }
       else if (act === 'change') { S.error = ''; S.input = ''; renderStart(); }
       else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
       else if (act === 'wiki') closeMenus();
       else if (act === 'reset') resetClick(t);
       else if (act === 'font-down') setFont(-FONT_STEP);
       else if (act === 'font-up') setFont(FONT_STEP);
-      else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); }
+      else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); if (S.order || S.set.sort === 'opt') fetchOrder(true); }
       else if (act === 'player-refresh') { if (S.player) lookUpPlayer(S.player.name); }
       else if (act === 'player-clear') forgetPlayer();
       return;
@@ -1274,9 +1351,7 @@
   // Maps start when their box is first opened ("toggle" does not bubble, so listen while capturing).
   app.addEventListener('toggle', function (ev) {
     var d = ev.target;
-    if (!d || d.tagName !== 'DETAILS' || !d.open) return;
-    var el = d.querySelector(':scope > .body > .map');
-    if (el && !el.getAttribute('data-ready')) initMap(el);
+    if (d && d.tagName === 'DETAILS' && d.open) startMaps();
   }, true);
   document.addEventListener('click', function (ev) {
     if (!ev.target.closest('.menu, [data-menu]')) closeMenus();
@@ -1308,6 +1383,7 @@
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
+  if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
   // Keep the player fresh too: quietly, once a day.
   if (S.player && Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE) lookUpPlayer(S.player.name, true);
 })();

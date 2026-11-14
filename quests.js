@@ -7,6 +7,7 @@
 
   var API = 'https://runescape.wiki/api.php';
   var LIST_PAGE = 'List of quests';
+  var ORDER_PAGE = 'Quests/Progression guide';
 
   function err(code, message) { var e = new Error(message || code); e.code = code; return e; }
   function clean(s) { return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
@@ -82,10 +83,12 @@
       throw (e && e.name === 'AbortError') ? err('timeout') : e;
     });
   }
+  function pageApi(page) {
+    return API + '?action=parse&format=json&formatversion=2&prop=text&redirects=1&disableeditsection=1' +
+      '&disablelimitreport=1&origin=*&page=' + encodeURIComponent(page);
+  }
   function loadList() {
-    var url = API + '?action=parse&format=json&formatversion=2&prop=text&redirects=1&disableeditsection=1' +
-      '&disablelimitreport=1&origin=*&page=' + encodeURIComponent(LIST_PAGE);
-    return getJson(url).then(function (d) {
+    return getJson(pageApi(LIST_PAGE)).then(function (d) {
       if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the quest list.');
       var text = d.parse.text;
       if (text && typeof text === 'object') text = text['*'];
@@ -95,5 +98,38 @@
     });
   }
 
-  window.QuickGuideData = { LIST_PAGE: LIST_PAGE, norm: norm, parseList: parseList, loadList: loadList };
+  // ---------- the optimal order ----------
+  // The wiki's progression guide is one big table. Each quest row carries the quest's page name;
+  // the rows in between ("Train Magic to 10") are skipped.
+  function parseOrder(html) {
+    var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+    var table = doc.querySelector('table.oqg-table'), best = 0;
+    if (!table) {
+      Array.prototype.forEach.call(doc.querySelectorAll('table'), function (t) {
+        var n = t.querySelectorAll('tr[data-rowid]').length;
+        if (n > best) { best = n; table = t; }
+      });
+    }
+    var out = [], seen = {};
+    if (!table) return out;
+    Array.prototype.forEach.call(table.querySelectorAll('tr[data-rowid]'), function (tr) {
+      var t = clean(tr.getAttribute('data-rowid'));
+      if (!t || seen[t]) return;
+      seen[t] = 1;
+      out.push(t);
+    });
+    return out;
+  }
+  function loadOrder() {
+    return getJson(pageApi(ORDER_PAGE)).then(function (d) {
+      if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the quest order.');
+      var text = d.parse.text;
+      if (text && typeof text === 'object') text = text['*'];
+      var order = parseOrder(String(text || ''));
+      if (order.length < 5) throw err('format', 'Could not read the order on the wiki.');
+      return { at: Date.now(), order: order };
+    });
+  }
+
+  window.QuickGuideData = { LIST_PAGE: LIST_PAGE, ORDER_PAGE: ORDER_PAGE, norm: norm, parseList: parseList, loadList: loadList, parseOrder: parseOrder, loadOrder: loadOrder };
 })();
