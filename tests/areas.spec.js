@@ -166,6 +166,20 @@ test.describe('reading an area page', () => {
     for (const x of short) expect(x.subs, x.name).toEqual([]);
   });
 
+  test('a long tip with a stray "<" in it does not freeze the app', async ({ page }) => {
+    const long = 'Use the <a href="/w/X" title="X">lever</a>. '.repeat(3) + 'Then type 1 < 2 here. ' + 'Go north to the big door now. '.repeat(10);
+    const html = '<h2 id="Easy_achievements">Easy achievements</h2><h3 id="List_of_achievements">List of achievements</h3>' +
+      '<table><tr><th>#</th><th>Name</th><th>Description</th><th>Members</th><th>Requirements</th><th>Notes</th></tr>' +
+      '<tr data-rowid="1"><td>1</td><td><a href="/w/A">A task</a></td><td>Do it.</td><td></td><td><ul><li>None</li></ul></td><td><p>' + long + '</p></td></tr></table>';
+    const r = await page.evaluate((h) => {
+      const t = Date.now();
+      const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'X');
+      return { ms: Date.now() - t, subs: a.tiers[0].tasks[0].subs.length };
+    }, html);
+    expect(r.ms).toBeLessThan(2000);
+    expect(r.subs).toBeGreaterThan(3);
+  });
+
   test('a page that is not an area page', async ({ page }) => {
     const r = await page.evaluate(() => { try { window.QuickGuide.parseArea('<div class="mw-parser-output"><p>Nothing.</p></div>', 'X'); return 'no error'; } catch (e) { return e.code; } });
     expect(r).toBe('format');
@@ -428,6 +442,49 @@ test.describe('an area', () => {
     await page.getByRole('button', { name: 'All areas' }).click();
     await area(page, 'Ardougne').first().click();
     expect(wiki.asked().filter((x) => x === 'Ardougne achievements')).toHaveLength(1);
+  });
+
+  test('an area saved by an older version opens at once, and is read again quietly', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await page.goto('/__blank');
+    await page.addScriptTag({ url: '/parser.js' });
+    const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
+    wiki.fail('Ardougne achievements', 'slow');
+    await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
+    await openApp(page, expect);
+    await area(page, 'Ardougne', 'easy').click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');          // no waiting for the wiki
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 23 tasks');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('when the quiet read works, the area is updated', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await page.goto('/__blank');
+    await page.addScriptTag({ url: '/parser.js' });
+    const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
+    await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
+    await openApp(page, expect);
+    await area(page, 'Ardougne', 'easy').click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    await expect.poll(async () => (await stored(page, 'area.Ardougne')).version).toBe(await page.evaluate(() => window.QuickGuide.AREA_VERSION));
+    await expect(page.locator('#toast')).toBeHidden();   // quiet
+  });
+
+  test('when the quiet read fails, the saved area stays, and nothing breaks', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await page.goto('/__blank');
+    await page.addScriptTag({ url: '/parser.js' });
+    const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
+    wiki.fail('Ardougne achievements', 'http');
+    await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
+    await openApp(page, expect);
+    await area(page, 'Ardougne', 'easy').click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    await page.locator('#next-btn').click();
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 23 tasks');
+    expect((await stored(page, 'area.Ardougne')).version).toBe(1);
+    expect(page.errors).toEqual([]);
   });
 
   test('says when the wiki fails', async ({ page, wiki }) => {

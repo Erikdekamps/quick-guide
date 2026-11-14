@@ -1568,7 +1568,12 @@
   function openArea(name, tier) {
     S.error = '';
     var a = sget('area.' + name);
-    if (a && a.tiers && a.version === QG.AREA_VERSION) { showArea(name, a, tier); return; }
+    // A saved area opens at once. One saved by an older version is read again quietly; if that fails, the saved one stays.
+    if (a && Array.isArray(a.tiers) && a.tiers.length) {
+      showArea(name, a, tier);
+      if (a.version !== QG.AREA_VERSION) refreshArea(true);
+      return;
+    }
     S.loading = name;
     renderStart();
     QG.loadArea(name).then(function (na) {
@@ -1762,18 +1767,20 @@
     S.resetArmed = Date.now();
     btn.querySelector('span').textContent = 'Click again to reset';
   }
-  function refreshArea() {
+  function refreshArea(silent) {
     var name = S.areaKey;
-    toast('Reading the wiki…', 0);
+    if (!silent) toast('Reading the wiki\u2026', 0);
     QG.loadArea(name).then(function (na) {
       sset('area.' + name, na);
+      indexArea(name, na);
       if (S.view !== 'area' || S.areaKey !== name) return;
       S.area = na;
       saveAmeta();
       renderArea(true);
-      toast('Updated from the wiki.');
-    }, function (e) { toast('Could not update. ' + loadError(e)); });
+      if (!silent) toast('Updated from the wiki.');
+    }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
+
 
 
   // ---------- export and import ----------
