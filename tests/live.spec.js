@@ -101,3 +101,38 @@ test('League rows show region names', async ({ page }) => {
     expect(row.html).toMatch(/^(<span class="reg">[A-Z][a-z]+<\/span> ?)+$/);
   }
 });
+
+test('every area page reads into its tiers, with tasks', async ({ page }) => {
+  test.setTimeout(120000);
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const out = await page.evaluate(async () => {
+    const res = [];
+    for (const a of window.QuickGuide.AREAS) {
+      try {
+        const r = await window.QuickGuide.loadArea(a.name);
+        res.push({ name: a.name, want: a.tiers, got: r.tiers.map((t) => t.name), tasks: r.tiers.map((t) => t.tasks.length),
+          needs: r.tiers.some((t) => t.skills.length + t.quests.length > 0), perks: r.tiers.some((t) => t.reward.perks.length > 0) });
+      } catch (e) { res.push({ name: a.name, error: String(e && e.message) }); }
+    }
+    return res;
+  });
+  for (const r of out) {
+    expect(r.error, r.name).toBeUndefined();
+    expect(r.got, r.name).toEqual(r.want);
+    for (const n of r.tasks) expect(n, r.name).toBeGreaterThan(0);
+    expect(r.needs, r.name).toBe(true);
+  }
+});
+
+test('the wiki still lists the same 13 areas', async ({ page }) => {
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const names = await page.evaluate(async () => {
+    const r = await fetch('https://runescape.wiki/api.php?action=parse&format=json&formatversion=2&prop=links&origin=*&page=Area_Tasks_achievements');
+    const d = await r.json();
+    return d.parse.links.map((l) => l.title).filter((t) => / achievements$/.test(t)).map((t) => t.replace(/ achievements$/, ''));
+  });
+  const ours = await page.evaluate(() => window.QuickGuide.AREAS.map((a) => a.name));
+  for (const n of ours) expect(names, n).toContain(n);
+});

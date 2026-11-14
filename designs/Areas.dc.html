@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Area tasks – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+/* Quick Guide - style.css
+   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
+   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
+   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+:root {
+  color-scheme: dark;
+  /* window */
+  --win: #1b1713;          /* window body, around the panels */
+  --deep: #13100d;         /* the scrolling panel */
+  --hover: #211c17;        /* a row under the mouse */
+  --sel: #2a241d;          /* the next step */
+  --rule: #2b251f;         /* thin lines between rows */
+  /* bronze rim and frames */
+  --rim-1: #67584a;
+  --rim-2: #8a7046;
+  --rim-3: #a08a59;
+  --rim-4: #6e5937;
+  --rim-5: #2f271d;
+  --bronze: #8a7046;
+  --bronze-dk: #4d3e29;
+  --bronze-lt: #b89a63;
+  /* title band */
+  --band-top: #1e1b18;
+  --band-bot: #302a24;
+  /* raised panels (bars, boxes, notes) */
+  --panel: #2c2722;
+  --panel-2: #24201b;
+  --panel-hi: #433b31;
+  --panel-lo: #100d0b;
+  /* insets (inputs, tick boxes, bars) */
+  --inset: #0e0b09;
+  /* text */
+  --text: #ece6da;
+  --soft: #d3c9b7;
+  --muted: #b8ac97;
+  --faint: #968b7b;
+  --title: #e8d4a2;
+  --gold: #f2c45e;
+  --orange: #ff981f;
+  --link: #f3c565;
+  --red: #ff5b49;
+  --green: #66d35c;
+  --yellow: #f5e15a;
+  /* gold button */
+  --gb-hi: #f8dc9c;
+  --gb-1: #f2c463;
+  --gb-2: #ecab2a;
+  --gb-3: #dd9b20;
+  --gb-lo: #a4730f;
+  --gb-edge: #6e4c09;
+  --gb-text: #2a1c05;
+  /* fine noise, so flat areas look like the game's textured panels */
+  --grain: none;
+}
+* { box-sizing: border-box; }
+html { font-size: 14px; height: 100%; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  background: #0b0907;
+  color: var(--text);
+  font-family: "Fira Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .55);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- the window ---------- */
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5px 5px 6px;
+  overflow: hidden;
+  background: var(--grain), var(--win);
+}
+/* the bronze rim, drawn over the edge of everything */
+#app::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--rim-1),
+    inset 0 0 0 2px var(--rim-2),
+    inset 0 0 0 3px var(--rim-3),
+    inset 0 0 0 4px var(--rim-4),
+    inset 0 0 0 5px var(--rim-5);
+}
+
+.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* ---------- title band ---------- */
+.hdr {
+  position: relative;
+  z-index: 20;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin: -5px -5px 0;
+  padding: 9px 11px 5px;
+  background: var(--grain), linear-gradient(var(--band-top), var(--band-bot));
+  border-bottom: 1px solid #4a3c28;
+  box-shadow: 0 1px 0 #0c0a08;
+}
+/* both sides are the same width, so the name sits in the middle */
+.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
+.he { justify-content: flex-end; }
+.qt {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .05em;
+  color: var(--title);
+  text-align: center;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
+  overflow-wrap: break-word;
+  /* long names stop after two lines; the full name is in the tooltip */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* small square buttons, like the close button on a game window, in bronze */
+.ib {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid #5c4a2e;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
+  color: var(--title);
+  cursor: pointer;
+}
+.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
+.ib:active { background: linear-gradient(#1d1813, #2c241c); }
+.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:disabled { opacity: .4; cursor: default; }
+.ib.xs { width: 24px; height: 24px; }
+.ib.xs .i { width: 14px; height: 14px; }
+
+/* ---------- menus: like the game's right-click menu ---------- */
+.menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 6px;
+  z-index: 1000;
+  width: 250px;
+  max-width: calc(100% - 12px);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--grain), #17130f;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #2d251b, 0 10px 24px rgba(0, 0, 0, .7);
+  font-size: 13px;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decoration: none; }
+.mi > .i { color: var(--bronze-lt); }
+.mi .ml { flex: 1; }
+.mi.danger, .mi.danger > .i { color: var(--red); }
+.mrow { cursor: default; gap: 8px; }
+.fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.menu.wide { width: 286px; }
+.menu .sel { width: 150px; margin-left: 0; }
+.menu .player { margin: 2px 8px 6px; }
+.menu .player .inp { height: 30px; }
+.qmeta .how { color: var(--muted); }
+.mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
+.menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
+/* an on/off setting: a tick box, like the game's settings */
+.tg {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px #000;
+}
+.tg::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+[aria-checked="true"] > .tg::after { opacity: 1; }
+
+/* ---------- progress ---------- */
+.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+.pg {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--bronze-dk);
+  overflow: hidden;
+}
+.pg::-webkit-progress-bar { background: var(--inset); }
+.pg::-webkit-progress-value { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.pg::-moz-progress-bar { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- tabs: the open tab joins the panel below it ---------- */
+.tabs {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 0 6px;
+  margin: 2px 0 -1px;
+}
+.tab {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 28px;
+  margin-top: 3px;
+  padding: 0 6px;
+  background: linear-gradient(#302a23, #231e19);
+  border: 1px solid #4a3d2b;
+  border-bottom-color: var(--bronze);
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab[aria-selected="true"] {
+  height: 31px;
+  margin-top: 0;
+  background: var(--deep);
+  border-color: var(--bronze);
+  border-bottom-color: var(--deep);
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
+  color: var(--gold);
+  cursor: default;
+}
+.tab .i { display: none; width: 15px; height: 15px; }
+
+/* ---------- the scrolling panel ---------- */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  overflow-y: scroll;   /* always there, so nothing jumps when the content grows */
+  overflow-x: hidden;
+  padding-bottom: 18px;
+  overflow-wrap: anywhere;
+  background: var(--deep);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
+}
+.tabs + .scroll { margin-top: 0; }
+/* the game's gold scrollbar */
+.scroll::-webkit-scrollbar { width: 12px; }
+.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+
+/* part headers: raised bars. They stay at the top while you scroll through their steps. */
+/* 1px up, so no sliver of the list shows above the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
+/* room under the last step, so any step can reach the top */
+.tail { height: calc(100vh - 180px); }
+.sech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  background: var(--grain), linear-gradient(#352f28, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  cursor: pointer;
+}
+.sech:hover { background: var(--grain), linear-gradient(#3f372e, #312b25); }
+.sech .n { flex: 1; min-width: 0; }
+.sech .c { font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sech .i { color: var(--bronze-lt); transition: transform .15s; }
+.sech[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sech.done { color: #d9b77a; }
+.sech.done .c { color: var(--green); }
+.secb { padding-bottom: 6px; }
+
+/* headings inside a part, like "Feldip Hunter area" */
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 10px 4px;
+  font: 700 .857rem/1.2 "Cinzel", Georgia, serif;
+  letter-spacing: .06em;
+  color: var(--title);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--bronze-dk), transparent); }
+.sub.minor { margin-top: 10px; font: italic 600 .893rem/1.2 "Fira Sans", sans-serif; letter-spacing: .02em; color: var(--soft); }
+.sub.minor::after { display: none; }
+
+/* ---------- boxes that open and close ---------- */
+.blk { margin: 4px 10px; }
+.acc {
+  margin: 6px 0;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+}
+.acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 8px;
+  list-style: none;
+  cursor: pointer;
+  font-size: .893rem;
+  line-height: 1.3;
+  color: var(--soft);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .sl { flex: 1 1 0; min-width: 0; }
+.acc > summary:hover { background: #2d2721; color: var(--text); }
+.acc > summary .i { width: 14px; height: 14px; color: var(--bronze-lt); }
+.acc > summary .chev { transition: transform .15s; }
+.acc[open] > summary .chev { transform: rotate(90deg); }
+.acc > summary .m { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: .857rem; }
+.acc .body { padding: 8px; background: #19150f; border-top: 1px solid #000; box-shadow: inset 0 1px 0 #2b251f; cursor: auto; }
+.acc .imgl { display: block; }
+.acc .imgl img { display: block; max-width: 100%; height: auto; margin: 0 auto; background: var(--inset); }
+.acc .imgl + .cap + .imgl, .acc .imgl + .imgl { margin-top: 8px; }
+.cap { margin: 6px 0 0; font-size: .857rem; font-style: italic; color: var(--muted); }
+
+/* bring box: two small tick lists */
+.bring .body { padding: 4px 0 6px; }
+.bl { display: flex; align-items: baseline; gap: 8px; margin: 6px 8px 2px; font-size: .786rem; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+.bl .c { margin-left: auto; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist .row { gap: 8px; padding: 4px 8px; font-size: .893rem; line-height: 1.4; }
+.blist .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.blist .cb::before { width: .357rem; height: .643rem; }
+
+/* ---------- steps and items ---------- */
+.steps { list-style: none; margin: 0; padding: 0 4px; }
+.blist { padding: 0; }
+.step { margin: 1px 0; border-radius: 2px; }
+/* A row is one tick target: click anywhere on it. */
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 6px; border-radius: 2px; cursor: pointer; }
+.row:hover { background: var(--hover); }
+/* Pointing at a picture, map or table box inside a row: the row does not light up (clicks there do not tick). */
+.row:has(.ext details:hover), .step.cur > .row:has(.ext details:hover) { background: transparent; }
+.rb { flex: 1; min-width: 0; }
+.t { display: block; overflow-wrap: anywhere; }
+.t i { font-style: italic; color: #fff4d8; }
+.t b { font-weight: 600; color: #fff4d8; }
+/* the next step: a selected row, like in the game's lists */
+/* its border is drawn above the row, so a row under the mouse never paints over it */
+.step.cur { position: relative; background: var(--sel); }
+.step.cur::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 1px solid #6a5434; border-radius: 2px; pointer-events: none; }
+.step.cur > .row:hover { background: #30291f; }
+.step.cur > .row > .cb { border-color: var(--gold); }
+.step.done > .row > .rb > .t { color: var(--faint); }
+.step.done > .row > .rb > .t a, .step.done > .row > .rb > .t i, .step.done > .row > .rb > .t b { color: #b19f7c; }
+.step.done > .row .ext, .step.done > .subs { display: none; }
+.ext { padding-top: 4px; }
+.ext .acc { margin: 6px 0 2px; }
+.ext .note { margin: 6px 0; }
+/* sub-steps: rows run the full width (click left or right of them); the indent is inside the row */
+.subs { padding: 0 0 2px; }
+.subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
+.subs .subs .row { padding-left: calc(24px + 2.357rem); }
+.subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
+.subs .step.cur { background: none; }
+.subs .step.cur::after { display: none; }
+/* Ticked rows go away. "Show done steps" shows them again. */
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
+/* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
+#main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
+.alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
+
+/* tick boxes: a dark inset square with a gold tick */
+.cb {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.286rem;
+  height: 1.286rem;
+  margin: 1px 0 0;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  cursor: pointer;
+}
+.cb::before {
+  content: "";
+  width: .429rem;
+  height: .786rem;
+  margin-top: -2px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.cb:checked::before { opacity: 1; }
+.cb:hover { border-color: var(--bronze-lt); }
+.subs .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.subs .cb::before { width: .357rem; height: .643rem; }
+
+.code {
+  display: inline-block;
+  padding: 0 5px;
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  font-family: "Fira Mono", ui-monospace, Consolas, monospace;
+  font-size: .857rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  color: var(--gold);
+}
+.caution { font-weight: 600; color: var(--red); }
+
+/* chat options */
+.dlg { list-style: none; margin: 2px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.dlg li > span { min-width: 0; }
+.dlg li { display: flex; align-items: baseline; gap: 8px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+kbd {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.667em;
+  height: 1.667em;
+  padding: 0 .42em;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 0 rgba(255, 222, 160, .14);
+  font-family: "Fira Sans", sans-serif;
+  font-size: .857rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.why { margin: 10px 0 4px; font-size: .857rem; font-style: italic; color: var(--muted); }
+.vary { font-size: .857rem; color: var(--faint); }
+
+/* tables */
+.tblw { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .893rem; }
+.tbl th { padding: 5px 6px; text-align: left; font-weight: 600; color: var(--orange); border-bottom: 1px solid var(--bronze-dk); vertical-align: bottom; }
+.tbl td { padding: 5px 6px; vertical-align: top; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl tbody tr:nth-child(even) td { background: rgba(255, 230, 190, .035); }
+.tbl img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* maps */
+.map { position: relative; z-index: 0; isolation: isolate; height: 240px; background: var(--inset); border: 1px solid var(--bronze-dk); border-radius: 2px; }
+.leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
+.leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); text-decoration: none; }
+.leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
+.leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--link); }
+.leaflet-tooltip { background: #17130f; border: 1px solid var(--bronze); border-radius: 2px; color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+.leaflet-tooltip-top::before { border-top-color: var(--bronze); }
+
+/* notes and warnings: small raised panels */
+.note {
+  display: flex;
+  gap: 8px;
+  margin: 6px 10px;
+  padding: 8px 10px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+  font-size: .929rem;
+  line-height: 1.4;
+  color: var(--soft);
+}
+.note .i { margin-top: 1px; color: var(--gold); }
+.note.warn { background: #2b1411; border-color: #6e2a21; border-top-color: #8a3a2c; color: #ffe0d8; }
+.note.warn .i { color: var(--red); }
+.note.warn .caution { color: #ff9c8c; }
+.warnli { list-style: none; }
+.warnli .note { margin: 4px 0; }
+.para { margin: 6px 10px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.empty { margin: 28px 16px; color: var(--muted); text-align: center; font-size: .929rem; }
+.x { color: var(--muted); }
+
+/* quest complete */
+.complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--grain), linear-gradient(#3a3128, var(--panel));
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 0 var(--panel-hi);
+}
+.complete .i { width: 26px; height: 26px; color: var(--gold); }
+.complete b { display: block; font: 700 1.071rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--gold); }
+.complete span { font-size: .857rem; color: var(--soft); }
+
+/* footer: the big gold button */
+.ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
+
+/* gold buttons, like the game's main action buttons */
+.btn, .next {
+  background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
+  border: 1px solid #1a1206;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 236, 190, .18);
+  color: var(--gb-text);
+  font: 700 13px/1 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .06em;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, .45);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover, .next:hover { filter: brightness(1.08) saturate(1.05); }
+.btn:active, .next:active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(80, 50, 0, .55); }
+.btn:disabled, .next:disabled { filter: grayscale(.8) brightness(.55); cursor: default; }
+.btn { flex: none; height: 34px; padding: 0 16px; }
+.next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+.next .i { color: var(--gb-text); stroke-width: 2.5; }
+
+/* toast */
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 60px;
+  z-index: 1100;
+  padding: 8px 12px;
+  background: var(--grain), #1d1813;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, 0 6px 16px rgba(0, 0, 0, .7);
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.toast.low { bottom: 16px; }
+
+/* ---------- overview, items ---------- */
+.kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
+.bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skills { list-style: none; margin: 0 10px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: 4px; }
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  font-size: .929rem;
+  color: var(--soft);
+}
+.chip .sn { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chip b { min-width: 1.6em; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+.foes { list-style: none; margin: 0 10px; padding: 0; }
+.foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
+.foes li:last-child { border-bottom: 0; }
+.foes .nm { flex: 1; min-width: 0; }
+.lv { font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lv b { color: var(--gold); }
+.plain { margin: 0 10px; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.plain li { margin: 3px 0; }
+.plain li::marker { color: var(--bronze-lt); }
+.acc .plain { margin: 0; }
+.acc .para { margin: 8px 0 4px; }
+.tree { list-style: none; margin: 0; padding: 0; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+.tree li { padding: 2px 0; }
+.xl { display: inline-flex; align-items: center; gap: 6px; margin: 16px 10px 0; font-size: .929rem; }
+.xl .i { width: 14px; height: 14px; }
+.foot { margin: 12px 10px 0; font-size: .821rem; line-height: 1.45; color: var(--faint); }
+
+/* ---------- start screen: all quests ---------- */
+.find { margin: 10px 10px 0; }
+.pad { margin-left: 10px; margin-right: 10px; }
+.row-f { display: flex; gap: 6px; }
+.inp, .sel {
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  color: var(--text);
+}
+.inp { flex: 1; min-width: 0; height: 34px; padding: 0 10px; font-size: 13px; }
+.inp::placeholder { color: var(--faint); }
+.inp:focus, .sel:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(242, 196, 94, .2), inset 0 1px 3px #000; }
+.inp.bad { border-color: var(--red); }
+.sel {
+  margin-left: auto;
+  height: 28px;
+  max-width: 100%;
+  padding: 0 24px 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) right 14px center / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) right 10px center / 4px 6px no-repeat, var(--inset);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sel option { background: #17130f; color: var(--text); }
+.qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
+.gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
+.ghb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px 5px 8px;
+  background: var(--grain), linear-gradient(#332d26, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: .786rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.ghb:hover { background: var(--grain), linear-gradient(#3d362d, #302a24); }
+.ghb .i { width: 14px; height: 14px; color: var(--bronze-lt); transition: transform .15s; }
+.ghb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.ghb .n { flex: 1; min-width: 0; }
+.ghb .c { font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.ql { list-style: none; margin: 0; padding: 0; }
+.q { display: block; width: 100%; padding: 7px 10px; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 1rem; line-height: 1.3; text-align: left; cursor: pointer; }
+.q:hover { background: var(--hover); }
+.q1 { display: flex; align-items: baseline; gap: 8px; }
+.q1 b { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.qs { font-size: .857rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs.ok { color: var(--green); }
+.q2 { display: block; margin-top: 1px; font-size: .821rem; color: var(--faint); }
+/* quest names in the game's colours: yellow when started, green when done */
+.q:has(.pg) .q1 b { color: var(--yellow); }
+.q.done .q1 b { color: var(--green); }
+.q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* a quest the game says you started */
+.q.started .q1 b { color: var(--yellow); }
+/* player lookup */
+.player { margin: 8px 10px 0; }
+div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; background: var(--panel-2); border: 1px solid #3a3229; border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; font-size: 13px; }
+.player .pn { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--soft); }
+.player .pn b { color: var(--title); font-weight: 600; }
+.pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
+/* your own level next to a skill requirement */
+.you { font-size: .857rem; white-space: nowrap; color: var(--muted); }
+.chip.ok .you { color: var(--green); }
+.chip.low { border-color: #6e2a21; border-top-color: #8a3a2c; }
+.chip.low .you { color: var(--red); }
+.tree li.got { color: var(--faint); }
+.tree .tk { color: var(--green); }
+/* a quest the game says you cannot start yet: grayed out */
+.q.locked { opacity: .55; }
+.q.locked .q1 b { color: var(--muted); }
+.qs.lk { display: inline-flex; align-items: center; gap: 3px; }
+.qs.lk .i { width: 11px; height: 11px; }
+/* a quest name that opens that quest here */
+.qlink { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(243, 197, 101, .35); text-underline-offset: 2px; }
+.qlink:hover { color: var(--gold); text-decoration-color: currentColor; }
+.qlink:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+.tree li.got .qlink { color: var(--faint); }
+/* a League region */
+.reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
+/* phones: 16px inputs, so the page does not zoom in when you type */
+@media (pointer: coarse) { .inp { font-size: 16px; } }
+
+.err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
+.state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
+.state .i { width: 22px; height: 22px; color: var(--gold); }
+
+/* ---------- Area Tasks ---------- */
+/* a finished tier in the area list */
+.q2 .ok { color: var(--green); }
+/* what a task needs: red when you do not have it yet */
+.need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
+.need.low { color: var(--red); }
+.step.done .need { display: none; }
+/* the heading of a part that does not fold */
+div.sech { cursor: default; }
+div.sech:hover { background: inherit; }
+/* the quests a tier needs line up with the text */
+.tree.areq { margin: 0 16px 8px; }
+
+</style>
+</helmet>
+<div style="width: 360px; height: 720px">
+<div id="app"><header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="true"><span class="tl-l">Area tasks</span></button></nav><main class="scroll" id="main"><form class="find" id="load-form"><label class="vh" for="quest-link">Search areas</label><div class="row-f"><input class="inp" id="quest-link" name="link" type="text" placeholder="Search areas"><button class="btn" type="submit">Open</button></div></form><div id="qarea"><p class="qmeta"><span id="qcount">13 areas</span><span class="how"> · Sir Example</span></p><h2 class="gh"><button class="ghb" type="button" data-group="In progress" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">In progress</span><span class="c">1</span></button></h2><ul class="ql"><li><button class="q started" type="button" data-area="Ardougne"><span class="q1"><b>Ardougne</b><span class="qs">2 / 23</span></span><span class="q2">Easy 2 / 23 · Medium · Hard · Elite</span><progress class="pg" value="2" max="23" aria-hidden="true"></progress></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="All areas" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">All areas</span><span class="c">12</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Daemonheim"><span class="q1"><b>Daemonheim</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Desert"><span class="q1"><b>Desert</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Falador"><span class="q1"><b>Falador</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Fremennik"><span class="q1"><b>Fremennik</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Karamja"><span class="q1"><b>Karamja</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Lumbridge"><span class="q1"><b>Lumbridge</b></span><span class="q2">Beginner · Easy · Medium · Hard</span></button></li><li><button class="q" type="button" data-area="Morytania"><span class="q1"><b>Morytania</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Seers' Village"><span class="q1"><b>Seers' Village</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Tirannwn"><span class="q1"><b>Tirannwn</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Underworld"><span class="q1"><b>Underworld</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Varrock"><span class="q1"><b>Varrock</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li><li><button class="q" type="button" data-area="Wilderness"><span class="q1"><b>Wilderness</b></span><span class="q2">Easy · Medium · Hard · Elite</span></button></li></ul></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

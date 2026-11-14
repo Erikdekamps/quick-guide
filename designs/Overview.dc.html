@@ -465,7 +465,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .subs .step.cur { background: none; }
 .subs .step.cur::after { display: none; }
 /* Ticked rows go away. "Show done steps" shows them again. */
-#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item] { display: none; }
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
 /* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
@@ -788,6 +788,19 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
 .state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
 .state .i { width: 22px; height: 22px; color: var(--gold); }
+
+/* ---------- Area Tasks ---------- */
+/* a finished tier in the area list */
+.q2 .ok { color: var(--green); }
+/* what a task needs: red when you do not have it yet */
+.need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
+.need.low { color: var(--red); }
+.step.done .need { display: none; }
+/* the heading of a part that does not fold */
+div.sech { cursor: default; }
+div.sech:hover { background: inherit; }
+/* the quests a tier needs line up with the text */
+.tree.areq { margin: 0 16px 8px; }
 
 </style>
 </helmet>

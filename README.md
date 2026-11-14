@@ -68,6 +68,8 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
      The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
    - Quests you cannot start yet (you miss a quest, a level or something else) are **grayed out** and say **Locked**.
      **Hide locked quests** in the cog menu takes them out of the list.
+   - The **Area tasks** tab lists the 13 areas from the wiki's [Area Tasks achievements](https://runescape.wiki/w/Area_Tasks_achievements).
+     Click one to open it (read from the wiki once, then kept). See "Area tasks" below.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
 3. Three tabs: **Overview**, **Items** and **Steps**.
    - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
@@ -93,6 +95,18 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
+
+### Area tasks
+
+- One tab per tier: **Easy**, **Medium**, **Hard**, **Elite** (Lumbridge: **Beginner** to **Hard**).
+- **Needs**: the levels and quests the whole tier needs, the items to bring, and notes for Ironmen.
+  With a player looked up, your levels are green or red, and done quests get a ✓. A quest name opens that quest.
+- **Tasks**: click a task to tick it. "Needs 5 Thieving (you: 3)" in red means you cannot do it yet.
+  **How to** has the wiki's tips. **Done, next task** ticks the next one.
+- **Rewards**: what you get for the tier, and what it does.
+- The game does not share which tasks you have done, so you tick them yourself.
+- An area you started goes to the top of the list, with its progress. A finished tier gets a ✓.
+  With a player, an area whose first tier you cannot do yet is grayed out and says **Locked**.
 
 On a phone the page does not zoom when you pinch or double-tap.
 

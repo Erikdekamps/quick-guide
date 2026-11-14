@@ -11,6 +11,9 @@
  *   settings, last  display settings, and the quest that was open last
  *   order           the wiki's optimal quest order: { at, order: [quest names] }
  *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
+ *   area.<name>     the parsed "<name> achievements" page (Area Tasks)
+ *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
+ *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -31,6 +34,7 @@
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
+  var HOMES = [['quests', 'Quests'], ['areas', 'Area tasks']];
   var KINDS = [['all', 'Quests + miniquests'], ['quest', 'Quests only'], ['mini', 'Miniquests only']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
@@ -149,7 +153,7 @@
     idx: null,        // quick lookups for steps
     set: {
       showDone: !!saved.showDone, hideDone: !!saved.hideDone, hideLocked: !!saved.hideLocked, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
-      sort: pick(SORTS, saved.sort, 'name'), kind: pick(KINDS, saved.kind, 'all')
+      sort: pick(SORTS, saved.sort, 'name'), kind: pick(KINDS, saved.kind, 'all'), home: pick(HOMES, saved.home, 'quests')
     },
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
     listBusy: false,
@@ -161,6 +165,9 @@
     orderError: '',
     ranks: null,      // quest name -> its place in the optimal order
     player: savedPlayer,   // the character you looked up, or null
+    area: null,       // the area that is open (Area Tasks), its name, and your ticks
+    areaKey: '',
+    aprog: null,
     playerBusy: false,
     playerMsg: '',
     playerInput: '',
@@ -586,9 +593,9 @@
   function playerChanged() {
     drawPlayer();
     drawList();
-    if (S.view !== 'quest') return;
+    if (S.view === 'start') return;
     var cog = byId('cog'), open = cog && !cog.hidden, main = byId('main'), top = main ? main.scrollTop : 0;
-    renderQuest();
+    if (S.view === 'area') renderArea(true); else renderQuest();
     if (open) toggleMenu('cog');
     main = byId('main');
     if (main) main.scrollTop = top;
@@ -751,25 +758,28 @@
   // Redraws only the list, so the search box keeps its text and focus.
   function drawList() {
     var el = byId('qarea');
-    if (el && S.view === 'start') el.innerHTML = S.loading ? '' : listHtml();
+    if (el && S.view === 'start') el.innerHTML = S.loading ? '' : homeHtml();
   }
   function renderStart() {
     S.view = 'start';
     dropMaps();
     app.innerHTML =
       '<header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
+      '<nav class="tabs home" role="tablist" aria-label="Lists">' + HOMES.map(function (h) {
+        return '<button class="tab" type="button" role="tab" data-home="' + h[0] + '" aria-selected="' + (S.set.home === h[0]) + '"><span class="tl-l">' + h[1] + '</span></button>';
+      }).join('') + '</nav>' +
       '<main class="scroll" id="main">' +
       '<form class="find" id="load-form" novalidate>' +
-      '<label class="vh" for="quest-link">Search quests</label>' +
+      '<label class="vh" for="quest-link">' + (S.set.home === 'areas' ? 'Search areas' : 'Search quests') + '</label>' +
       '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text"' +
-      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search quests" value="' + esc(S.input) + '"' +
+      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + (S.set.home === 'areas' ? 'Search areas' : 'Search quests') + '" value="' + esc(S.input) + '"' +
       (S.error ? ' aria-invalid="true" aria-describedby="load-err"' : '') + (S.loading ? ' disabled' : '') + '>' +
       '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
       (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
       '</form>' +
 
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
-      '<div id="qarea">' + (S.loading ? '' : listHtml()) + '</div>' +
+      '<div id="qarea">' + (S.loading ? '' : homeHtml()) + '</div>' +
       alt1Html() +
       '<p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>' +
       '</main>' +
@@ -1300,7 +1310,7 @@
     saveSettings();
     var on = S.set.showDone ? 'true' : 'false';
     var main = byId('main'), mi = document.querySelector('.mi[data-act="showdone"]');
-    if (main && S.view === 'quest') main.classList.toggle('show-done', S.set.showDone);
+    if (main && S.view !== 'start') main.classList.toggle('show-done', S.set.showDone);
     if (mi) mi.setAttribute('aria-checked', on);
   }
   function toggleHideDone() {
@@ -1335,6 +1345,248 @@
     alignTop(document.querySelector('[data-sec="' + id + '"]'), false);
   }
 
+  // ---------- Area Tasks ----------
+  function homeHtml() { return S.set.home === 'areas' ? areaListHtml() : listHtml(); }
+  function ametaAll() { var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
+  function loadAprog(name) {
+    var p = sget('aprog.' + name);
+    if (!p || typeof p !== 'object') p = {};
+    if (!p.tasks || typeof p.tasks !== 'object') p.tasks = {};
+    return p;
+  }
+  function saveAprog() { sset('aprog.' + S.areaKey, S.aprog); saveAmeta(); }
+  // What the area list needs to know: done and total per tier, and what the first tier needs.
+  function saveAmeta() {
+    var a = S.area, m = ametaAll(), t0 = a.tiers[0];
+    m[S.areaKey] = {
+      tiers: a.tiers.map(function (t) {
+        return { id: t.id, name: t.name, total: t.tasks.length, done: t.tasks.filter(function (x) { return S.aprog.tasks[x.id]; }).length };
+      }),
+      needs: { skills: t0.skills, quests: t0.quests }, at: Date.now()
+    };
+    sset('ameta', m);
+  }
+  // Needs you do not meet yet (only known with a player): [skills too low, quests not done]
+  function unmet(n) {
+    if (!S.player) return { skills: [], quests: [] };
+    return {
+      skills: (n.skills || []).filter(function (x) { var v = playerLevel(x.skill); return v != null && v < x.level; }),
+      quests: (n.quests || []).filter(function (q) { return playerStatus(q) !== 2; })
+    };
+  }
+  function areaInfo(a, m) {
+    var tiers = m ? m.tiers : a.tiers.map(function (n) { return { name: n, done: 0, total: 0 }; });
+    var full = function (t) { return t.total > 0 && t.done >= t.total; };
+    var any = tiers.some(function (t) { return t.done > 0; }), all = tiers.every(full);
+    var u = m && m.needs ? unmet(m.needs) : { skills: [], quests: [] };
+    return { a: a, m: m, tiers: tiers, done: all, started: any && !all, locked: !any && (u.skills.length + u.quests.length) > 0,
+      cur: tiers.filter(function (t) { return !full(t); })[0] || null, full: full };
+  }
+  function areaRow(x) {
+    var status = '', bar = '', last = x.tiers.filter(x.full).pop();
+    if (x.cur && x.cur.done > 0) {
+      status = '<span class="qs">' + x.cur.done + ' / ' + x.cur.total + '</span>';
+      bar = '<progress class="pg" value="' + x.cur.done + '" max="' + x.cur.total + '" aria-hidden="true"></progress>';
+    } else if (last) status = '<span class="qs ok">✓ ' + esc(last.name) + '</span>';
+    else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
+    var tiers = x.tiers.map(function (t) {
+      if (x.full(t)) return '<span class="ok">' + esc(t.name) + ' ✓</span>';
+      return esc(t.name) + (t.done > 0 ? ' ' + t.done + ' / ' + t.total : '');
+    }).join(' · ');
+    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-area="' + esc(x.a.name) + '"' +
+      (x.locked ? ' title="You do not have what the first tier needs yet"' : '') + '>' +
+      '<span class="q1"><b>' + esc(x.a.name) + '</b>' + status + '</span><span class="q2">' + tiers + '</span>' + bar + '</button></li>';
+  }
+  function matchAreas(v) {
+    var n = String(v || '').toLowerCase().trim();
+    return QG.AREAS.filter(function (a) { return !n || a.name.toLowerCase().indexOf(n) >= 0; });
+  }
+  function areaListHtml() {
+    var m = ametaAll(), v = S.input.trim();
+    var items = matchAreas(v).map(function (a) { return areaInfo(a, m[a.name]); });
+    var h = '<p class="qmeta"><span id="qcount">' + (items.length === QG.AREAS.length ? plural(items.length, 'area', 'areas') :
+      items.length + ' of ' + plural(QG.AREAS.length, 'area', 'areas')) + '</span>' +
+      (S.player ? '<span class="how"> · ' + esc(S.player.name) + '</span>' : '') + '</p>';
+    if (!items.length) return h + '<p class="empty">No areas match “' + esc(v) + '”.</p>';
+    var groups = [['In progress', items.filter(function (x) { return x.started; })], ['All areas', items.filter(function (x) { return !x.started; })]];
+    groups.forEach(function (g) {
+      if (!g[1].length) return;
+      var shut = !!S.closed['areas:' + g[0]];
+      h += '<h2 class="gh"><button class="ghb" type="button" data-group="' + esc(g[0]) + '" aria-expanded="' + (shut ? 'false' : 'true') + '">' +
+        I.chev + '<span class="n">' + g[0] + '</span><span class="c">' + g[1].length + '</span></button></h2><ul class="ql"' + (shut ? ' hidden' : '') + '>' +
+        g[1].map(areaRow).join('') + '</ul>';
+    });
+    return h;
+  }
+  function setHome(h) {
+    S.set.home = pick(HOMES, h, 'quests');
+    saveSettings();
+    S.input = '';
+    S.error = '';
+    renderStart();
+  }
+  // Opens an area: from storage if it is saved, else from the wiki.
+  function openArea(name) {
+    S.error = '';
+    var a = sget('area.' + name);
+    if (a && a.tiers && a.version === QG.AREA_VERSION) { showArea(name, a); return; }
+    S.loading = name;
+    renderStart();
+    QG.loadArea(name).then(function (na) {
+      S.loading = false;
+      S.input = '';
+      sset('area.' + name, na);
+      showArea(name, na);
+    }, function (e) {
+      S.loading = false;
+      S.error = loadError(e);
+      renderStart();
+    });
+  }
+  function showArea(name, a) {
+    S.view = 'area';
+    S.area = a;
+    S.areaKey = name;
+    S.aprog = loadAprog(name);
+    S.resetArmed = 0;
+    sset('last', 'area:' + name);
+    saveAmeta();
+    renderArea(false);
+  }
+  function tierNow() {
+    var t = S.area.tiers.filter(function (x) { return x.id === S.aprog.tier; })[0];
+    return t || S.area.tiers[0];
+  }
+  function areaDotsHtml() {
+    return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu">' + I.dots + '</button>' +
+      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<button class="mi" type="button" role="menuitem" data-act="arefresh">' + I.refresh + 'Refresh from wiki</button>' +
+      '<a class="mi" role="menuitem" href="' + esc(S.area.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
+      '<hr><button class="mi danger" type="button" role="menuitem" data-act="areset">' + I.reset + '<span>Reset progress</span></button>' +
+      '</div>';
+  }
+  function needText(n) {
+    var bits = [], low = false;
+    (n.skills || []).forEach(function (x) {
+      var v = playerLevel(x.skill);
+      if (v != null && v < x.level) low = true;
+      bits.push(x.level + ' ' + esc(x.skill) + (v == null ? '' : v < x.level ? ' (you: ' + v + ')' : ' ✓'));
+    });
+    (n.quests || []).forEach(function (q) {
+      var got = playerStatus(q) === 2;
+      if (S.player && !got) low = true;
+      bits.push(esc(q) + (got ? ' ✓' : ''));
+    });
+    (n.other || []).forEach(function (o) { bits.push(esc(textOf(o))); });
+    return bits.length ? '<span class="need' + (low ? ' low' : '') + '">Needs ' + bits.join(', ') + '</span>' : '';
+  }
+  function areaNeedsHtml(t) {
+    var h = '';
+    if (t.skills.length) {
+      h += '<h2 class="bh">Skill levels</h2><ul class="skills">' + t.skills.map(function (s) {
+        var mine = playerLevel(s.skill), cls = mine == null ? '' : mine >= s.level ? ' ok' : ' low';
+        return '<li class="chip' + cls + '"><b>' + s.level + '</b><span class="sn">' + esc(s.skill) + '</span>' + (mine == null ? '' : '<span class="you">you: ' + mine + '</span>') + '</li>';
+      }).join('') + '</ul>';
+    }
+    if (t.quests.length) {
+      h += '<h2 class="bh">Quests</h2><ul class="tree areq">' + t.quests.map(function (q) {
+        var have = playerStatus(q) === 2;
+        return '<li' + (have ? ' class="got"' : '') + '>' + (have ? '<span class="tk">✓</span> ' : '') + questBtn(q) + '</li>';
+      }).join('') + '</ul>';
+    }
+    if (t.other.length) h += '<h2 class="bh">Also needed</h2>' + t.other.map(function (o) { return '<p class="para">' + o + '</p>'; }).join('');
+    var boxes = '';
+    if (t.items.length) boxes += acc(I.bag, 'Items to bring', String(t.items.length), '<ul class="plain">' + t.items.map(liHtml).join('') + '</ul>');
+    if (t.ironman) boxes += acc('', 'Ironmen', '', '<p class="para">' + t.ironman + '</p>', false);
+    if (boxes) h += '<div class="blk">' + boxes + '</div>';
+    return h;
+  }
+  function areaTaskHtml(x, cur) {
+    var done = !!S.aprog.tasks[x.id];
+    var ext = needText(x) + (x.notes ? acc(I.info, 'How to', '', '<p class="para">' + x.notes + '</p>', false) : '');
+    return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
+      rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' — ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '') + '</li>';
+  }
+  function areaSec(id, name, count, body) {
+    return '<section class="sec" data-asec="' + id + '"><h2 class="sh"><div class="sech"><span class="n">' + name + '</span><span class="c">' + count + '</span></div></h2>' +
+      '<div class="secb">' + body + '</div></section>';
+  }
+  function renderArea(keepScroll) {
+    var main = byId('main'), top = keepScroll && main ? main.scrollTop : 0;
+    var a = S.area, t = tierNow();
+    var done = t.tasks.filter(function (x) { return S.aprog.tasks[x.id]; }).length;
+    var cur = t.tasks.filter(function (x) { return !S.aprog.tasks[x.id]; })[0];
+    var u = unmet(t), low = u.skills.length;
+    var r = t.reward, reward = '';
+    if (r && (r.items.length || r.perks.length || r.intro)) {
+      reward = '<div class="blk" style="margin-top:14px">' + acc(I.trophy, 'Rewards', '', (r.intro ? '<p class="para">' + r.intro + '</p>' : '') +
+        (r.items.length ? '<ul class="plain">' + r.items.map(liHtml).join('') + '</ul>' : '') +
+        (r.perks.length ? '<h2 class="bh">What it does</h2><ul class="plain">' + r.perks.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' : '')) + '</div>';
+    }
+    dropMaps();
+    app.innerHTML =
+      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas">' + I.back + '</button></div>' +
+      '<h1 class="qt" title="' + esc(a.name) + '">' + esc(a.name) + '</h1><div class="hs he">' + cogHtml() + areaDotsHtml() + '</div></header>' +
+      '<div class="prog"><progress class="pg" id="pg" value="' + done + '" max="' + Math.max(t.tasks.length, 1) + '" aria-label="Tier progress"></progress>' +
+      '<span class="cnt" id="pg-cnt">' + done + ' / ' + plural(t.tasks.length, 'task', 'tasks') + '</span></div>' +
+      '<nav class="tabs" role="tablist" aria-label="Tiers">' + a.tiers.map(function (x) {
+        return '<button class="tab" type="button" role="tab" data-tier="' + esc(x.id) + '" aria-selected="' + (x === t) + '"><span class="tl-l">' + esc(x.name) + '</span></button>';
+      }).join('') + '</nav>' +
+      '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
+      (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
+        areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
+      areaSec('tasks', 'Tasks', done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>') +
+      reward +
+      '<p class="foot">Tasks: <a href="' + esc(a.source) + '" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded ' + esc(dateText(a.fetchedAt)) + '.</p>' +
+      '</main>' +
+      '<footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"' + (cur ? '' : ' disabled') + '>' + I.check +
+      '<span>' + (cur ? 'Done, next task' : 'All tasks done') + '</span></button></footer>' +
+      '<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>';
+    main = byId('main');
+    if (main) main.scrollTop = top;
+  }
+  function tickTask(id, on) {
+    if (on) S.aprog.tasks[id] = 1; else delete S.aprog.tasks[id];
+    saveAprog();
+    renderArea(true);
+  }
+  function nextTask() {
+    var t = tierNow(), cur = t.tasks.filter(function (x) { return !S.aprog.tasks[x.id]; })[0];
+    if (!cur) return;
+    tickTask(cur.id, true);
+    var li = document.querySelector('li[data-task].cur');
+    if (li) alignTop(li, true);
+  }
+  function switchTier(id) {
+    S.aprog.tier = id;
+    saveAprog();
+    renderArea(false);
+  }
+  function areaReset(btn) {
+    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
+      S.aprog.tasks = {};
+      S.resetArmed = 0;
+      saveAprog();
+      renderArea(false);
+      toast('Progress reset.');
+      return;
+    }
+    S.resetArmed = Date.now();
+    btn.querySelector('span').textContent = 'Click again to reset';
+  }
+  function refreshArea() {
+    var name = S.areaKey;
+    toast('Reading the wiki…', 0);
+    QG.loadArea(name).then(function (na) {
+      sset('area.' + name, na);
+      if (S.view !== 'area' || S.areaKey !== name) return;
+      S.area = na;
+      saveAmeta();
+      renderArea(true);
+      toast('Updated from the wiki.');
+    }, function (e) { toast('Could not update. ' + loadError(e)); });
+  }
+
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
     ev.preventDefault();
@@ -1342,6 +1594,12 @@
     if (ev.target.id !== 'load-form') return;
     var v = ev.target.elements.link.value.trim();
     S.input = v;
+    if (S.set.home === 'areas') {
+      var ah = v ? matchAreas(v) : [];
+      if (ah.length) openArea(ah[0].name);
+      else { S.error = v ? 'No area matches \u201c' + v + '\u201d.' : 'Type an area name first.'; renderStart(); }
+      return;
+    }
     if (!v) { S.error = 'Type a quest name first.'; renderStart(); return; }
     var hits = matchQuests(v);
     if (hits.length) openTitle(hits[0].t);
@@ -1364,6 +1622,7 @@
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
     if (t.id === 'kind') { S.set.kind = pick(KINDS, t.value, 'all'); saveSettings(); drawList(); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
+    if (t.hasAttribute('data-acb')) { tickTask(t.getAttribute('data-acb'), t.checked); return; }
     if (t.hasAttribute('data-icb')) {
       var id = t.getAttribute('data-icb');
       if (t.checked) S.prog.items[id] = 1; else delete S.prog.items[id];
@@ -1374,12 +1633,15 @@
     }
   });
   app.addEventListener('click', function (ev) {
-    var t = ev.target.closest('[data-quest], [data-group], [data-tab], [data-act], [data-sec-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
+      if (t.hasAttribute('data-area')) { openArea(t.getAttribute('data-area')); return; }
+      if (t.hasAttribute('data-home')) { setHome(t.getAttribute('data-home')); return; }
+      if (t.hasAttribute('data-tier')) { switchTier(t.getAttribute('data-tier')); return; }
       if (t.hasAttribute('data-group')) {
-        var gk = S.set.sort + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
+        var gk = (S.set.home === 'areas' ? 'areas' : S.set.sort) + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
         S.closed[gk] = !S.closed[gk];
         t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
         if (ul) ul.hidden = !!S.closed[gk];
@@ -1390,6 +1652,9 @@
       if (t.hasAttribute('data-ov-btn')) { toggleOv(t.getAttribute('data-ov-btn')); return; }
       var act = t.getAttribute('data-act');
       if (act === 'next') nextStep();
+      else if (act === 'anext') nextTask();
+      else if (act === 'areset') areaReset(t);
+      else if (act === 'arefresh') { closeMenus(); refreshArea(); }
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
       else if (act === 'showdone') toggleShowDone();
       else if (act === 'hidedone') toggleHideDone();
@@ -1462,7 +1727,10 @@
     try { window.alt1.identifyAppUrl('./appconfig.json'); } catch (e) { /* not important */ }
   }
   var last = sget('last');
-  if (last && sget('quest.' + last)) openQuest(last); else renderStart();
+  var lastArea = /^area:/.test(last || '') ? last.slice(5) : '';
+  if (lastArea && sget('area.' + lastArea)) openArea(lastArea);
+  else if (last && !lastArea && sget('quest.' + last)) openQuest(last);
+  else renderStart();
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
