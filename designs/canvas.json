@@ -1,21 +1,81 @@
 {
   "v": 3,
-  "createdOnFiles": {"v": 1, "at": "2026-11-13T14:27:46Z"},
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-13T14:27:46Z"
+  },
   "title": "Quest Guide Overlay",
-  "launch": {"view": "canvas"},
+  "launch": {
+    "view": "canvas"
+  },
   "pages": [],
   "boards": {
-    "Start.dc.html": {"x": 0, "y": 0, "w": 360, "h": 720, "title": "Start"},
-    "Main.dc.html": {"x": 440, "y": 0, "w": 360, "h": 720, "title": "Steps"},
-    "Overview.dc.html": {"x": 880, "y": 0, "w": 360, "h": 720, "title": "Overview"},
-    "Items.dc.html": {"x": 1320, "y": 0, "w": 360, "h": 720, "title": "Items"},
-    "Components.dc.html": {"x": 0, "y": 1200, "w": 1160, "h": 1945, "title": "Components"},
-    "Data.dc.html": {"x": 1240, "y": 1200, "w": 680, "h": 1890, "title": "Data shape (JSON)"}
+    "Start.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 360,
+      "h": 720,
+      "title": "Start"
+    },
+    "Main.dc.html": {
+      "x": 1320,
+      "y": 0,
+      "w": 360,
+      "h": 720,
+      "title": "Steps"
+    },
+    "Overview.dc.html": {
+      "x": 440,
+      "y": 0,
+      "w": 360,
+      "h": 720,
+      "title": "Overview"
+    },
+    "Items.dc.html": {
+      "x": 880,
+      "y": 0,
+      "w": 360,
+      "h": 720,
+      "title": "Items"
+    },
+    "Components.dc.html": {
+      "x": 0,
+      "y": 1200,
+      "w": 1160,
+      "h": 2389,
+      "title": "Components"
+    },
+    "Data.dc.html": {
+      "x": 1240,
+      "y": 1200,
+      "w": 680,
+      "h": 2907,
+      "title": "Data shape (JSON)"
+    }
   },
-  "order": ["Main.dc.html", "Start.dc.html", "Overview.dc.html", "Items.dc.html", "Components.dc.html", "Data.dc.html"],
+  "order": [
+    "Main.dc.html",
+    "Start.dc.html",
+    "Overview.dc.html",
+    "Items.dc.html",
+    "Components.dc.html",
+    "Data.dc.html"
+  ],
   "notes": {
-    "screens": {"x": 0, "y": -300, "text": "Screens · Alt1 window 360 × 720", "kind": "title1", "maxW": 1680},
-    "parts": {"x": 0, "y": 900, "text": "Components & data", "kind": "title1", "maxW": 1920}
+    "screens": {
+      "x": 0,
+      "y": -300,
+      "text": "Screens · Alt1 window 360 × 720",
+      "kind": "title1",
+      "maxW": 1680
+    },
+    "parts": {
+      "x": 0,
+      "y": 900,
+      "text": "Components & data",
+      "kind": "title1",
+      "maxW": 1920
+    }
   },
   "designSystems": []
 }

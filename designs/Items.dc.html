@@ -8,108 +8,754 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#0d0a07}
-*{box-sizing:border-box}
-.app{width:360px;height:720px;display:flex;flex-direction:column;overflow:hidden;background:#1b1510;color:#ece3d2;font:14px/1.45 "Fira Sans",system-ui,sans-serif;border:1px solid #5a472f;-webkit-font-smoothing:antialiased}
-.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.hdr{display:flex;align-items:center;gap:8px;min-height:46px;padding:6px 8px 6px 12px;background:linear-gradient(#3e3123,#2a2018);border-bottom:1px solid #0a0705;box-shadow:inset 0 1px 0 rgba(255,226,170,.14)}
-.qt{flex:1;min-width:0;margin:0;font:700 15px/1.2 "Cinzel",Georgia,serif;letter-spacing:.03em;color:#ecd9a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 #000}
-.ib{display:inline-grid;place-items:center;flex:none;width:32px;height:32px;padding:0;background:linear-gradient(#4b3b29,#33281c);border:1px solid #7d6646;border-radius:3px;color:#ecd9a8;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,226,170,.15)}
-.ib:hover{background:linear-gradient(#5b4831,#3e3123);border-color:#a88b5e}
-.prog{display:flex;align-items:center;gap:10px;padding:7px 12px 8px;background:#241c15;border-bottom:1px solid #4d3d2b}
-.pg{flex:1;min-width:0;height:8px;-webkit-appearance:none;appearance:none;border:1px solid #4d3d2b;border-radius:4px;background:#0e0b08;overflow:hidden}
-.pg::-webkit-progress-bar{background:#0e0b08}
-.pg::-webkit-progress-value{background:linear-gradient(#f7d47c,#c9973a)}
-.pg::-moz-progress-bar{background:#d9ad4a}
-.cnt{font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums;white-space:nowrap}
-.tabs{display:flex;align-items:flex-end;gap:4px;padding:6px 8px 0;background:#14100b;border-bottom:1px solid #6b563b}
-.tl{display:flex;gap:2px;flex:1}
-.tab{height:30px;padding:0 13px;background:#211a13;border:1px solid #47392a;border-bottom:0;border-radius:3px 3px 0 0;color:#b9ab90;font:500 13px/1 "Fira Sans",sans-serif;cursor:pointer}
-.tab:hover{color:#ece3d2}
-.tab[aria-selected="true"]{height:32px;background:#2f251b;border-color:#7d6646;color:#f6e9cb;box-shadow:inset 0 2px 0 #d9ad4a}
-.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding-bottom:18px}
-.scroll::-webkit-scrollbar{width:10px}
-.scroll::-webkit-scrollbar-track{background:#100c09;border-left:1px solid #33281c}
-.scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#6e583c,#4a3a28);border:1px solid #100c09;border-radius:2px}
-.note{display:flex;gap:8px;margin:12px 12px 4px;padding:8px 10px;background:#211a12;border:1px solid #5e4a32;border-radius:3px;font-size:13px;line-height:1.4;color:#e4d9c4}
-.note .i{margin-top:1px;color:#e0bd6c}
-.bh{display:flex;align-items:baseline;gap:8px;margin:16px 12px 4px;font:600 13px/1.2 "Fira Sans",sans-serif;color:#ff9f3a}
-.bh .c{margin-left:auto;font-weight:500;font-size:12px;color:#c4b699;font-variant-numeric:tabular-nums}
-.steps{list-style:none;margin:0;padding:0 6px}
-.step{margin:1px 0;border-radius:3px}
-.step>label{display:flex;align-items:flex-start;gap:10px;padding:7px 6px;border-radius:3px;cursor:pointer}
-.step>label:hover{background:#251d16}
-.t{flex:1;min-width:0}
-.t a{color:#f3c969;text-decoration:none}
-.t a:hover{text-decoration:underline}
-.alt{display:block;margin-top:2px;font-size:12.5px;color:#b9ab90}
-.step.done>label{align-items:center;padding-top:6px;padding-bottom:6px}
-.step.done>label>.cb{margin-top:0}
-.step.done .t{color:#9d907a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.step.done .t a{color:#b0a07f}
-.cb{-webkit-appearance:none;appearance:none;flex:none;display:grid;place-content:center;width:18px;height:18px;margin:1px 0 0;background:#0e0b08;border:1px solid #8a7050;border-radius:2px;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);cursor:pointer}
-.cb::before{content:"";width:9px;height:5px;margin-top:-3px;border-left:2px solid #f2c45a;border-bottom:2px solid #f2c45a;transform:rotate(-45deg);opacity:0}
-.cb:checked::before,.done>label>.cb::before{opacity:1}
-.cb:focus-visible{outline:2px solid #f2c45a;outline-offset:2px}
+/* Quick Guide - style.css
+   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
+   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
+   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+:root {
+  color-scheme: dark;
+  /* window */
+  --win: #1b1713;          /* window body, around the panels */
+  --deep: #13100d;         /* the scrolling panel */
+  --hover: #211c17;        /* a row under the mouse */
+  --sel: #2a241d;          /* the next step */
+  --rule: #2b251f;         /* thin lines between rows */
+  /* bronze rim and frames */
+  --rim-1: #67584a;
+  --rim-2: #8a7046;
+  --rim-3: #a08a59;
+  --rim-4: #6e5937;
+  --rim-5: #2f271d;
+  --bronze: #8a7046;
+  --bronze-dk: #4d3e29;
+  --bronze-lt: #b89a63;
+  /* title band */
+  --band-top: #1e1b18;
+  --band-bot: #302a24;
+  /* raised panels (bars, boxes, notes) */
+  --panel: #2c2722;
+  --panel-2: #24201b;
+  --panel-hi: #433b31;
+  --panel-lo: #100d0b;
+  /* insets (inputs, tick boxes, bars) */
+  --inset: #0e0b09;
+  /* text */
+  --text: #ece6da;
+  --soft: #d3c9b7;
+  --muted: #b8ac97;
+  --faint: #968b7b;
+  --title: #e8d4a2;
+  --gold: #f2c45e;
+  --orange: #ff981f;
+  --link: #f3c565;
+  --red: #ff5b49;
+  --green: #66d35c;
+  --yellow: #f5e15a;
+  /* gold button */
+  --gb-hi: #f8dc9c;
+  --gb-1: #f2c463;
+  --gb-2: #ecab2a;
+  --gb-3: #dd9b20;
+  --gb-lo: #a4730f;
+  --gb-edge: #6e4c09;
+  --gb-text: #2a1c05;
+  /* fine noise, so flat areas look like the game's textured panels */
+  --grain: none;
+}
+* { box-sizing: border-box; }
+html { font-size: 14px; height: 100%; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  background: #0b0907;
+  color: var(--text);
+  font-family: "Fira Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .55);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- the window ---------- */
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5px 5px 6px;
+  overflow: hidden;
+  background: var(--grain), var(--win);
+}
+/* the bronze rim, drawn over the edge of everything */
+#app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3000;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--rim-1),
+    inset 0 0 0 2px var(--rim-2),
+    inset 0 0 0 3px var(--rim-3),
+    inset 0 0 0 4px var(--rim-4),
+    inset 0 0 0 5px var(--rim-5);
+}
+
+.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* ---------- title band ---------- */
+.hdr {
+  position: relative;
+  z-index: 20;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin: -5px -5px 0;
+  padding: 9px 11px 5px;
+  background: var(--grain), linear-gradient(var(--band-top), var(--band-bot));
+  border-bottom: 1px solid #4a3c28;
+  box-shadow: 0 1px 0 #0c0a08;
+}
+/* both sides are the same width, so the name sits in the middle */
+.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
+.he { justify-content: flex-end; }
+.qt {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .05em;
+  color: var(--title);
+  text-align: center;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
+  overflow-wrap: break-word;
+  /* long names stop after two lines; the full name is in the tooltip */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* small square buttons, like the close button on a game window, in bronze */
+.ib {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid #5c4a2e;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
+  color: var(--title);
+  cursor: pointer;
+}
+.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
+.ib:active { background: linear-gradient(#1d1813, #2c241c); }
+.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:disabled { opacity: .4; cursor: default; }
+.ib.xs { width: 24px; height: 24px; }
+.ib.xs .i { width: 14px; height: 14px; }
+
+/* ---------- menus: like the game's right-click menu ---------- */
+.menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 6px;
+  z-index: 1000;
+  width: 250px;
+  max-width: calc(100% - 12px);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--grain), #17130f;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #2d251b, 0 10px 24px rgba(0, 0, 0, .7);
+  font-size: 13px;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decoration: none; }
+.mi > .i { color: var(--bronze-lt); }
+.mi .ml { flex: 1; }
+.mi.danger, .mi.danger > .i { color: var(--red); }
+.mrow { cursor: default; gap: 8px; }
+.fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
+.menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
+/* an on/off setting: a tick box, like the game's settings */
+.tg {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px #000;
+}
+.tg::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+[aria-checked="true"] > .tg::after { opacity: 1; }
+
+/* ---------- progress ---------- */
+.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+.pg {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--bronze-dk);
+  overflow: hidden;
+}
+.pg::-webkit-progress-bar { background: var(--inset); }
+.pg::-webkit-progress-value { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.pg::-moz-progress-bar { background: linear-gradient(#ffe89c, #f6c76c 35%, #c79856 65%, #80603a); }
+.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- tabs: the open tab joins the panel below it ---------- */
+.tabs {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 0 6px;
+  margin: 2px 0 -1px;
+}
+.tab {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 28px;
+  margin-top: 3px;
+  padding: 0 6px;
+  background: linear-gradient(#302a23, #231e19);
+  border: 1px solid #4a3d2b;
+  border-bottom-color: var(--bronze);
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab[aria-selected="true"] {
+  height: 31px;
+  margin-top: 0;
+  background: var(--deep);
+  border-color: var(--bronze);
+  border-bottom-color: var(--deep);
+  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
+  color: var(--gold);
+  cursor: default;
+}
+.tab .i { display: none; width: 15px; height: 15px; }
+
+/* ---------- the scrolling panel ---------- */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 18px;
+  overflow-wrap: anywhere;
+  background: var(--deep);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
+}
+.tabs + .scroll { margin-top: 0; }
+/* the game's gold scrollbar */
+.scroll::-webkit-scrollbar { width: 12px; }
+.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+
+/* part headers: raised bars. They stay at the top while you scroll through their steps. */
+/* 1px up, so no sliver of the list shows above the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
+/* room under the last step, so any step can reach the top */
+.tail { height: calc(100vh - 180px); }
+.sech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  background: var(--grain), linear-gradient(#352f28, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  cursor: pointer;
+}
+.sech:hover { background: var(--grain), linear-gradient(#3f372e, #312b25); }
+.sech .n { flex: 1; min-width: 0; }
+.sech .c { font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sech .i { color: var(--bronze-lt); transition: transform .15s; }
+.sech[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sech.done { color: #d9b77a; }
+.sech.done .c { color: var(--green); }
+.secb { padding-bottom: 6px; }
+
+/* headings inside a part, like "Feldip Hunter area" */
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 10px 4px;
+  font: 700 .857rem/1.2 "Cinzel", Georgia, serif;
+  letter-spacing: .06em;
+  color: var(--title);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--bronze-dk), transparent); }
+.sub.minor { margin-top: 10px; font: italic 600 .893rem/1.2 "Fira Sans", sans-serif; letter-spacing: .02em; color: var(--soft); }
+.sub.minor::after { display: none; }
+
+/* ---------- boxes that open and close ---------- */
+.blk { margin: 4px 10px; }
+.acc {
+  margin: 6px 0;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+}
+.acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 8px;
+  list-style: none;
+  cursor: pointer;
+  font-size: .893rem;
+  line-height: 1.3;
+  color: var(--soft);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .sl { flex: 1 1 0; min-width: 0; }
+.acc > summary:hover { background: #2d2721; color: var(--text); }
+.acc > summary .i { width: 14px; height: 14px; color: var(--bronze-lt); }
+.acc > summary .chev { transition: transform .15s; }
+.acc[open] > summary .chev { transform: rotate(90deg); }
+.acc > summary .m { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: .857rem; }
+.acc .body { padding: 8px; background: #19150f; border-top: 1px solid #000; box-shadow: inset 0 1px 0 #2b251f; cursor: auto; }
+.acc .imgl { display: block; }
+.acc .imgl img { display: block; max-width: 100%; height: auto; margin: 0 auto; background: var(--inset); }
+.acc .imgl + .cap + .imgl, .acc .imgl + .imgl { margin-top: 8px; }
+.cap { margin: 6px 0 0; font-size: .857rem; font-style: italic; color: var(--muted); }
+
+/* bring box: two small tick lists */
+.bring .body { padding: 4px 0 6px; }
+.bl { display: flex; align-items: baseline; gap: 8px; margin: 6px 8px 2px; font-size: .786rem; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+.bl .c { margin-left: auto; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist .row { gap: 8px; padding: 4px 8px; font-size: .893rem; line-height: 1.4; }
+.blist .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.blist .cb::before { width: .357rem; height: .643rem; }
+
+/* ---------- steps and items ---------- */
+.steps { list-style: none; margin: 0; padding: 0 4px; }
+.blist { padding: 0; }
+.step { margin: 1px 0; border-radius: 2px; }
+/* A row is one tick target: click anywhere on it. */
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 6px; border-radius: 2px; cursor: pointer; }
+.row:hover { background: var(--hover); }
+/* Pointing at a picture, map or table box inside a row: the row does not light up (clicks there do not tick). */
+.row:has(.ext details:hover), .step.cur > .row:has(.ext details:hover) { background: transparent; }
+.rb { flex: 1; min-width: 0; }
+.t { display: block; overflow-wrap: anywhere; }
+.t i { font-style: italic; color: #fff4d8; }
+.t b { font-weight: 600; color: #fff4d8; }
+/* the next step: a selected row, like in the game's lists */
+.step.cur { background: var(--sel); box-shadow: inset 0 0 0 1px #6a5434, inset 0 1px 0 1px rgba(255, 222, 160, .05); }
+.step.cur > .row:hover { background: #30291f; }
+.step.cur > .row > .cb { border-color: var(--gold); }
+.step.done > .row > .rb > .t { color: var(--faint); }
+.step.done > .row > .rb > .t a, .step.done > .row > .rb > .t i, .step.done > .row > .rb > .t b { color: #b19f7c; }
+.step.done > .row .ext, .step.done > .subs { display: none; }
+.ext { padding-top: 4px; }
+.ext .acc { margin: 6px 0 2px; }
+.ext .note { margin: 6px 0; }
+/* sub-steps: rows run the full width (click left or right of them); the indent is inside the row */
+.subs { padding: 0 0 2px; }
+.subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
+.subs .subs .row { padding-left: calc(24px + 2.357rem); }
+.subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
+.subs .step.cur { background: none; box-shadow: none; }
+/* Ticked rows go away. "Show done steps" shows them again. */
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item] { display: none; }
+/* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
+#main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
+.alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
+
+/* tick boxes: a dark inset square with a gold tick */
+.cb {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.286rem;
+  height: 1.286rem;
+  margin: 1px 0 0;
+  background: var(--inset);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  cursor: pointer;
+}
+.cb::before {
+  content: "";
+  width: .429rem;
+  height: .786rem;
+  margin-top: -2px;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.cb:checked::before { opacity: 1; }
+.cb:hover { border-color: var(--bronze-lt); }
+.subs .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.subs .cb::before { width: .357rem; height: .643rem; }
+
+.code {
+  display: inline-block;
+  padding: 0 5px;
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  font-family: "Fira Mono", ui-monospace, Consolas, monospace;
+  font-size: .857rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  color: var(--gold);
+}
+.caution { font-weight: 600; color: var(--red); }
+
+/* chat options */
+.dlg { list-style: none; margin: 2px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.dlg li > span { min-width: 0; }
+.dlg li { display: flex; align-items: baseline; gap: 8px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+kbd {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.667em;
+  height: 1.667em;
+  padding: 0 .42em;
+  background: linear-gradient(#3a3027, #221c16);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 0 rgba(255, 222, 160, .14);
+  font-family: "Fira Sans", sans-serif;
+  font-size: .857rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.why { margin: 10px 0 4px; font-size: .857rem; font-style: italic; color: var(--muted); }
+.vary { font-size: .857rem; color: var(--faint); }
+
+/* tables */
+.tblw { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .893rem; }
+.tbl th { padding: 5px 6px; text-align: left; font-weight: 600; color: var(--orange); border-bottom: 1px solid var(--bronze-dk); vertical-align: bottom; }
+.tbl td { padding: 5px 6px; vertical-align: top; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl tbody tr:nth-child(even) td { background: rgba(255, 230, 190, .035); }
+.tbl img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* maps */
+.map { position: relative; z-index: 0; isolation: isolate; height: 240px; background: var(--inset); border: 1px solid var(--bronze-dk); border-radius: 2px; }
+.leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
+.leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); }
+.leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
+.leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--link); }
+.leaflet-tooltip { background: #17130f; border: 1px solid var(--bronze); border-radius: 2px; color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+.leaflet-tooltip-top::before { border-top-color: var(--bronze); }
+
+/* notes and warnings: small raised panels */
+.note {
+  display: flex;
+  gap: 8px;
+  margin: 6px 10px;
+  padding: 8px 10px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+  font-size: .929rem;
+  line-height: 1.4;
+  color: var(--soft);
+}
+.note .i { margin-top: 1px; color: var(--gold); }
+.note.warn { background: #2b1411; border-color: #6e2a21; border-top-color: #8a3a2c; color: #ffe0d8; }
+.note.warn .i { color: var(--red); }
+.note.warn .caution { color: #ff9c8c; }
+.warnli { list-style: none; }
+.warnli .note { margin: 4px 0; }
+.para { margin: 6px 10px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.empty { margin: 28px 16px; color: var(--muted); text-align: center; font-size: .929rem; }
+.x { color: var(--muted); }
+
+/* quest complete */
+.complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--grain), linear-gradient(#3a3128, var(--panel));
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 0 var(--panel-hi);
+}
+.complete .i { width: 26px; height: 26px; color: var(--gold); }
+.complete b { display: block; font: 700 1.071rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--gold); }
+.complete span { font-size: .857rem; color: var(--soft); }
+
+/* footer: the big gold button */
+.ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
+
+/* gold buttons, like the game's main action buttons */
+.btn, .next {
+  background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
+  border: 1px solid #1a1206;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 236, 190, .18);
+  color: var(--gb-text);
+  font: 700 13px/1 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .06em;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, .45);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover, .next:hover { filter: brightness(1.08) saturate(1.05); }
+.btn:active, .next:active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(80, 50, 0, .55); }
+.btn:disabled, .next:disabled { filter: grayscale(.8) brightness(.55); cursor: default; }
+.btn { flex: none; height: 34px; padding: 0 16px; }
+.next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+.next .i { color: var(--gb-text); stroke-width: 2.5; }
+
+/* toast */
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 60px;
+  z-index: 1100;
+  padding: 8px 12px;
+  background: var(--grain), #1d1813;
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, 0 6px 16px rgba(0, 0, 0, .7);
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.toast.low { bottom: 16px; }
+
+/* ---------- overview, items ---------- */
+.kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
+.bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.skills { list-style: none; margin: 0 10px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: 4px; }
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  background: var(--panel-2);
+  border: 1px solid #3a3229;
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  font-size: .929rem;
+  color: var(--soft);
+}
+.chip .sn { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chip b { min-width: 1.6em; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+.foes { list-style: none; margin: 0 10px; padding: 0; }
+.foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
+.foes li:last-child { border-bottom: 0; }
+.foes .nm { flex: 1; min-width: 0; }
+.lv { font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lv b { color: var(--gold); }
+.plain { margin: 0 10px; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.plain li { margin: 3px 0; }
+.plain li::marker { color: var(--bronze-lt); }
+.acc .plain { margin: 0; }
+.acc .para { margin: 8px 0 4px; }
+.tree { list-style: none; margin: 0; padding: 0; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+.tree li { padding: 2px 0; }
+.xl { display: inline-flex; align-items: center; gap: 6px; margin: 16px 10px 0; font-size: .929rem; }
+.xl .i { width: 14px; height: 14px; }
+.foot { margin: 12px 10px 0; font-size: .821rem; line-height: 1.45; color: var(--faint); }
+
+/* ---------- start screen: all quests ---------- */
+.find { margin: 10px 10px 0; }
+.pad { margin-left: 10px; margin-right: 10px; }
+.row-f { display: flex; gap: 6px; }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 10px 0; }
+.inp, .sel {
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  color: var(--text);
+}
+.inp { flex: 1; min-width: 0; height: 34px; padding: 0 10px; font-size: 13px; }
+.inp::placeholder { color: var(--faint); }
+.inp:focus, .sel:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(242, 196, 94, .2), inset 0 1px 3px #000; }
+.inp.bad { border-color: var(--red); }
+.sel {
+  margin-left: auto;
+  height: 28px;
+  max-width: 100%;
+  padding: 0 24px 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) right 14px center / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) right 10px center / 4px 6px no-repeat, var(--inset);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sel option { background: #17130f; color: var(--text); }
+.qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
+.gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
+.ghb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px 5px 8px;
+  background: var(--grain), linear-gradient(#332d26, var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: .786rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.ghb:hover { background: var(--grain), linear-gradient(#3d362d, #302a24); }
+.ghb .i { width: 14px; height: 14px; color: var(--bronze-lt); transition: transform .15s; }
+.ghb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.ghb .n { flex: 1; min-width: 0; }
+.ghb .c { font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.ql { list-style: none; margin: 0; padding: 0; }
+.q { display: block; width: 100%; padding: 7px 10px; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 1rem; line-height: 1.3; text-align: left; cursor: pointer; }
+.q:hover { background: var(--hover); }
+.q1 { display: flex; align-items: baseline; gap: 8px; }
+.q1 b { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.qs { font-size: .857rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs.ok { color: var(--green); }
+.q2 { display: block; margin-top: 1px; font-size: .821rem; color: var(--faint); }
+/* quest names in the game's colours: yellow when started, green when done */
+.q:has(.pg) .q1 b { color: var(--yellow); }
+.q.done .q1 b { color: var(--green); }
+.q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: #3a3025; }
+/* phones: 16px inputs, so the page does not zoom in when you type */
+@media (pointer: coarse) { .inp { font-size: 16px; } }
+
+.err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
+.state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
+.state .i { width: 22px; height: 22px; color: var(--gold); }
+
 </style>
 </helmet>
-<div class="app">
-<header class="hdr">
-<h1 class="qt">While Guthix Sleeps</h1>
-<button class="ib" type="button" aria-label="Quest menu" title="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button>
-</header>
-<div class="prog">
-<progress class="pg" value="10" max="115" aria-label="Quest progress"></progress>
-<span class="cnt">10 / 115 steps</span>
-</div>
-<nav class="tabs" aria-label="Guide parts">
-<div class="tl" role="tablist">
-<button class="tab" type="button" role="tab" aria-selected="false">Overview</button>
-<button class="tab" type="button" role="tab" aria-selected="true">Items</button>
-<button class="tab" type="button" role="tab" aria-selected="false">Steps</button>
-</div>
-</nav>
-<main class="scroll">
-
-<div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Tool belt items are not listed, unless they don't work from the belt.</span></div>
-
-<h2 class="bh">Required <span class="c">4 / 13</span></h2>
-<ul class="steps">
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></label></li>
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Runes: 3 air, and 1 each of earth, fire, water, mind, law and death</span></label></li>
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t">Any <a href="https://runescape.wiki/w/Logs_(type)">logs</a>, but not acadia or eternal magic</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Charcoal">Charcoal</a> and <a href="https://runescape.wiki/w/Papyrus">papyrus</a><span class="alt">Both are easy to get during the quest</span></span></label></li>
-<li class="step done"><label><input class="cb" type="checkbox" checked="{{ true }}"><span class="t"><a href="https://runescape.wiki/w/Lantern_lens">Lantern lens</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a><span class="alt">You get one during the quest</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Unpowered_orb">Unpowered orb</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a><span class="alt">or 5,000 coins</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Gear to enter the <a href="https://runescape.wiki/w/Black_Knights%27_Fortress">Black Knights' Fortress</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for 4 casts of <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a><span class="alt">8 air, 4 astral, 4 cosmic</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for any charge orb spell<span class="alt">30 of one element, 3 cosmic</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Gear for two combat styles, or Necromancy gear</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Snapdragon_seed">Snapdragon seed</a><span class="alt">or 100 coins to buy one from Thaerisk</span></span></label></li>
-</ul>
-
-<h2 class="bh">Recommended <span class="c">0 / 13</span></h2>
-<ul class="steps">
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Nature_Spirit">Nature Spirit</a> done, for a druid or ouroboros pouch<span class="alt">or bring the statue ingredients</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Lodestones: Burthorpe, Canifis, Edgeville, Falador, Karamja, Oo'glog, Port Sarim, Seers' Village, Taverley, Varrock, Ardougne, Yanille</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Dramen or lunar staff, unless you finished A Fairy Tale III<span class="alt">and/or a portable fairy ring</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Cape_of_legends">Cape of legends</a>, to teleport to the Legends' Guild</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Falador teletabs or a ring of respawn</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Ardougne Teleport or Ardougne cloak</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Watchtower Teleport</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Runes for 3 more NPC Contact casts<span class="alt">6 air, 3 astral, 3 cosmic</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Some super energy potions</span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Elite black armour or Black Knight captain's armour, to save time<span class="alt">Otherwise you kill guards for each piece during the quest</span></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t"><a href="https://runescape.wiki/w/Ring_of_life">Ring of life</a></span></label></li>
-<li class="step"><label><input class="cb" type="checkbox"><span class="t">Guthix balance ingredients for the statue<span class="alt">Clean harralander, red spiders' eggs, garlic, silver dust</span></span></label></li>
-</ul>
-
-</main>
+<div style="width: 360px; height: 720px">
+<div id="app"><header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button></div><h1 class="qt" title="While Guthix Sleeps">While Guthix Sleeps</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="10" max="118" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt">10 / 118 steps</span></div><nav class="tabs" role="tablist" aria-label="Guide parts"><button class="tab" type="button" role="tab" data-tab="overview" aria-selected="false" title="Overview"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span class="tl-l">Overview</span></button><button class="tab" type="button" role="tab" data-tab="items" aria-selected="true" title="Items"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path><path d="M8 10h8"></path><path d="M8 18h8"></path><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg><span class="tl-l">Items</span></button><button class="tab" type="button" role="tab" data-tab="steps" aria-selected="false" title="Steps"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="tl-l">Steps</span></button></nav><main class="scroll show-done" id="main" role="tabpanel"><div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Tool belt items are not listed, unless they don't work from the belt.</span></div><h2 class="bh">Required <span class="c" data-count="req">4 / 13</span></h2><ul class="steps"><li class="step done" data-item="req:1"><div class="row"><input class="cb" type="checkbox" data-icb="req:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></div></div></li><li class="step done" data-item="req:2"><div class="row"><input class="cb" type="checkbox" data-icb="req:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Runes: 3 air, and 1 each of earth, fire, water, mind, law and death</span></div></div></li><li class="step done" data-item="req:3"><div class="row"><input class="cb" type="checkbox" data-icb="req:3" aria-labelledby="qt3" checked="{{ true }}"><div class="rb"><span class="t" id="qt3">Any <a href="https://runescape.wiki/w/Logs_(type)">logs</a>, but not acadia or eternal magic</span></div></div></li><li class="step" data-item="req:4"><div class="row"><input class="cb" type="checkbox" data-icb="req:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4"><a href="https://runescape.wiki/w/Charcoal">Charcoal</a> and <a href="https://runescape.wiki/w/Papyrus">papyrus</a></span><span class="alt">Both are easy to get during the quest</span></div></div></li><li class="step done" data-item="req:5"><div class="row"><input class="cb" type="checkbox" data-icb="req:5" aria-labelledby="qt5" checked="{{ true }}"><div class="rb"><span class="t" id="qt5"><a href="https://runescape.wiki/w/Lantern_lens">Lantern lens</a></span></div></div></li><li class="step" data-item="req:6"><div class="row"><input class="cb" type="checkbox" data-icb="req:6" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a></span><span class="alt">You get one during the quest</span></div></div></li><li class="step" data-item="req:7"><div class="row"><input class="cb" type="checkbox" data-icb="req:7" aria-labelledby="qt7"><div class="rb"><span class="t" id="qt7"><a href="https://runescape.wiki/w/Unpowered_orb">Unpowered orb</a></span></div></div></li><li class="step" data-item="req:8"><div class="row"><input class="cb" type="checkbox" data-icb="req:8" aria-labelledby="qt8"><div class="rb"><span class="t" id="qt8"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a></span><span class="alt">or 5,000 coins</span></div></div></li><li class="step" data-item="req:9"><div class="row"><input class="cb" type="checkbox" data-icb="req:9" aria-labelledby="qt9"><div class="rb"><span class="t" id="qt9">Gear to enter the <a href="https://runescape.wiki/w/Black_Knights'_Fortress">Black Knights' Fortress</a></span></div></div></li><li class="step" data-item="req:10"><div class="row"><input class="cb" type="checkbox" data-icb="req:10" aria-labelledby="qt10"><div class="rb"><span class="t" id="qt10">Runes for 4 casts of <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a></span><span class="alt">8 air, 4 astral, 4 cosmic</span></div></div></li><li class="step" data-item="req:11"><div class="row"><input class="cb" type="checkbox" data-icb="req:11" aria-labelledby="qt11"><div class="rb"><span class="t" id="qt11">Runes for any charge orb spell</span><span class="alt">30 of one element, 3 cosmic</span></div></div></li><li class="step" data-item="req:12"><div class="row"><input class="cb" type="checkbox" data-icb="req:12" aria-labelledby="qt12"><div class="rb"><span class="t" id="qt12">Gear for two combat styles, or Necromancy gear</span></div></div></li><li class="step" data-item="req:13"><div class="row"><input class="cb" type="checkbox" data-icb="req:13" aria-labelledby="qt13"><div class="rb"><span class="t" id="qt13"><a href="https://runescape.wiki/w/Snapdragon_seed">Snapdragon seed</a></span><span class="alt">or 100 coins to buy one from Thaerisk</span></div></div></li></ul><h2 class="bh">Recommended <span class="c" data-count="rec">0 / 13</span></h2><ul class="steps"><li class="step" data-item="rec:1"><div class="row"><input class="cb" type="checkbox" data-icb="rec:1" aria-labelledby="qt14"><div class="rb"><span class="t" id="qt14"><a href="https://runescape.wiki/w/Nature_Spirit">Nature Spirit</a> done, for a druid or ouroboros pouch</span><span class="alt">or bring the statue ingredients</span></div></div></li><li class="step" data-item="rec:2"><div class="row"><input class="cb" type="checkbox" data-icb="rec:2" aria-labelledby="qt15"><div class="rb"><span class="t" id="qt15">Lodestones: Burthorpe, Canifis, Edgeville, Falador, Karamja, Oo'glog, Port Sarim, Seers' Village, Taverley, Varrock, Ardougne, Yanille</span></div></div></li><li class="step" data-item="rec:3"><div class="row"><input class="cb" type="checkbox" data-icb="rec:3" aria-labelledby="qt16"><div class="rb"><span class="t" id="qt16">Dramen or lunar staff, unless you finished A Fairy Tale III</span><span class="alt">and/or a portable fairy ring</span></div></div></li><li class="step" data-item="rec:4"><div class="row"><input class="cb" type="checkbox" data-icb="rec:4" aria-labelledby="qt17"><div class="rb"><span class="t" id="qt17"><a href="https://runescape.wiki/w/Cape_of_legends">Cape of legends</a>, to teleport to the Legends' Guild</span></div></div></li><li class="step" data-item="rec:5"><div class="row"><input class="cb" type="checkbox" data-icb="rec:5" aria-labelledby="qt18"><div class="rb"><span class="t" id="qt18">Falador teletabs or a ring of respawn</span></div></div></li><li class="step" data-item="rec:6"><div class="row"><input class="cb" type="checkbox" data-icb="rec:6" aria-labelledby="qt19"><div class="rb"><span class="t" id="qt19"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></div></div></li><li class="step" data-item="rec:7"><div class="row"><input class="cb" type="checkbox" data-icb="rec:7" aria-labelledby="qt20"><div class="rb"><span class="t" id="qt20">Ardougne Teleport or Ardougne cloak</span></div></div></li><li class="step" data-item="rec:8"><div class="row"><input class="cb" type="checkbox" data-icb="rec:8" aria-labelledby="qt21"><div class="rb"><span class="t" id="qt21">Watchtower Teleport</span></div></div></li><li class="step" data-item="rec:9"><div class="row"><input class="cb" type="checkbox" data-icb="rec:9" aria-labelledby="qt22"><div class="rb"><span class="t" id="qt22">Runes for 3 more NPC Contact casts</span><span class="alt">6 air, 3 astral, 3 cosmic</span></div></div></li><li class="step" data-item="rec:10"><div class="row"><input class="cb" type="checkbox" data-icb="rec:10" aria-labelledby="qt23"><div class="rb"><span class="t" id="qt23">Some super energy potions</span></div></div></li><li class="step" data-item="rec:11"><div class="row"><input class="cb" type="checkbox" data-icb="rec:11" aria-labelledby="qt24"><div class="rb"><span class="t" id="qt24">Elite black armour or Black Knight captain's armour, to save time</span><span class="alt">Otherwise you kill guards for each piece during the quest</span></div></div></li><li class="step" data-item="rec:12"><div class="row"><input class="cb" type="checkbox" data-icb="rec:12" aria-labelledby="qt25"><div class="rb"><span class="t" id="qt25"><a href="https://runescape.wiki/w/Ring_of_life">Ring of life</a></span></div></div></li><li class="step" data-item="rec:13"><div class="row"><input class="cb" type="checkbox" data-icb="rec:13" aria-labelledby="qt26"><div class="rb"><span class="t" id="qt26">Guthix balance ingredients for the statue</span><span class="alt">Clean harralander, red spiders' eggs, garlic, silver dust</span></div></div></li></ul></main></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

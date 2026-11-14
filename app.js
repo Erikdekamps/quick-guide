@@ -23,9 +23,9 @@
   var PREFIX = 'qg1.';
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
-  var TABS = [['overview', 'Overview'], ['steps', 'Steps']];
-  // The foldable parts of the Overview tab.
-  var OV = [['details', 'Details'], ['skills', 'Skills'], ['items', 'Items'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
+  var TABS = [['overview', 'Overview'], ['items', 'Items'], ['steps', 'Steps']];
+  // The foldable parts of the Overview tab. They start open.
+  var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
@@ -114,7 +114,6 @@
     music: svg('<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>'),
     map: svg('<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>'),
     scroll: svg('<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>'),
-    rows: svg('<rect width="18" height="7" x="3" y="3" rx="1"/><rect width="18" height="7" x="3" y="14" rx="1"/>'),
     type: svg('<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>'),
     minus: svg('<path d="M5 12h14"/>'),
     plus: svg('<path d="M5 12h14"/><path d="M12 5v14"/>'),
@@ -138,7 +137,7 @@
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
     set: {
-      showDone: !!saved.showDone, compact: !!saved.compact, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
+      showDone: !!saved.showDone, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
       sort: pick(SORTS, saved.sort, 'name')
     },
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
@@ -156,7 +155,6 @@
   };
   function applySettings() {
     document.documentElement.style.fontSize = S.set.fontSize + 'px';
-    app.classList.toggle('compact', S.set.compact);
   }
   function saveSettings() { sset('settings', S.set); }
 
@@ -272,14 +270,20 @@
       p = pe.parent;
     }
   }
-  // Returns the new next step. Closes a part when it is finished, opens the next one.
+  // Returns the new next step. Opens the part of the next step.
+  // A finished part closes, unless "Show done steps" is on: then it stays as it was.
   function changeStep(id, val) {
     var before = current();
+    var sb = before && S.idx.secOf[before], wasOpen = sb ? isOpen(S.idx.secs[sb], before) : false;
     setStep(id, val);
     var after = current();
-    var sb = before && S.idx.secOf[before], sa = after && S.idx.secOf[after];
+    var sa = after && S.idx.secOf[after];
     if (sb !== sa) {
-      if (sb) { var st = secStat(S.idx.secs[sb]); if (st.done === st.total) S.prog.open[sb] = false; }
+      if (sb) {
+        var st = secStat(S.idx.secs[sb]);
+        if (S.set.showDone) S.prog.open[sb] = wasOpen;
+        else if (st.done === st.total) S.prog.open[sb] = false;
+      }
       if (sa) S.prog.open[sa] = true;
     }
     refresh();
@@ -439,7 +443,6 @@
       '<div class="menu" id="cog" hidden>' +
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
       '<p class="mh">Display</p>' +
-      toggleHtml('compact', I.rows, 'Compact layout', S.set.compact) +
       toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
@@ -561,7 +564,7 @@
     S.view = 'start';
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><h1 class="qt">Quick Guide</h1>' + cogHtml() + '</header>' +
+      '<header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
       '<main class="scroll" id="main">' +
       '<form class="find" id="load-form" novalidate>' +
       '<label class="vh" for="quest-link">Search quests or paste a wiki link</label>' +
@@ -711,7 +714,7 @@
   function itemsHtml() {
     var req = S.q.requiredItems, rec = S.q.recommendedItems, h = '';
     function alts(it) { return (it.alternatives || []).map(function (a) { return '<span class="alt">' + a + '</span>'; }).join(''); }
-    if (!req.items.length && !rec.items.length) return '';
+    if (!req.items.length && !rec.items.length) return '<p class="empty">This guide lists no items.</p>';
     if (req.note) h += note(req.note);
     if (req.items.length) {
       h += '<h2 class="bh">Required <span class="c" data-count="req"></span></h2><ul class="steps">' +
@@ -811,22 +814,18 @@
     if (more) h += '<div class="blk" style="margin-top:14px">' + more + '</div>';
     return h;
   }
-  // The Overview tab: one foldable part for each kind of info, all folded shut at first.
+  // The Overview tab: one foldable part for each kind of info, all open at first.
   function ovCount(id) {
     var q = S.q, o = q.overview;
     if (id === 'skills') return String((o.skillReqs || []).length + (o.otherReqs || []).length);
-    if (id === 'items') {
-      var all = q.requiredItems.items.concat(q.recommendedItems.items);
-      return all.filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + all.length;
-    }
     if (id === 'enemies') return String((o.enemies || []).length);
     if (id === 'rewards') return String(q.rewards.items.length);
     return '';
   }
   function overviewHtml() {
-    var bodies = { details: detailsHtml(), skills: skillsHtml(), items: itemsHtml(), enemies: enemiesHtml(), rewards: rewardsHtml() };
+    var bodies = { details: detailsHtml(), skills: skillsHtml(), enemies: enemiesHtml(), rewards: rewardsHtml() };
     return OV.map(function (p) {
-      var id = p[0], open = !!S.prog.open['ov:' + id];
+      var id = p[0], open = ovOpen(id);
       if (!bodies[id]) return '';
       return '<section class="sec" data-ov="' + id + '">' +
         '<h2 class="sh"><button class="sech" type="button" data-ov-btn="' + id + '" aria-expanded="' + open + '">' +
@@ -834,13 +833,16 @@
         '<div class="secb"' + (open ? '' : ' hidden') + '>' + bodies[id] + '</div></section>';
     }).join('');
   }
+  // Open unless you closed it.
+  function ovOpen(id) { return S.prog.open['ov:' + id] !== false; }
   function toggleOv(id) {
-    var k = 'ov:' + id, el = document.querySelector('[data-ov="' + id + '"]');
+    var el = document.querySelector('[data-ov="' + id + '"]');
     if (!el) return;
-    S.prog.open[k] = !S.prog.open[k];
+    var open = !ovOpen(id);
+    S.prog.open['ov:' + id] = open;
     saveProg();
-    el.querySelector('.sech').setAttribute('aria-expanded', S.prog.open[k] ? 'true' : 'false');
-    el.querySelector('.secb').hidden = !S.prog.open[k];
+    el.querySelector('.sech').setAttribute('aria-expanded', open ? 'true' : 'false');
+    el.querySelector('.secb').hidden = !open;
     resizeMaps();
     alignTop(el, false);
   }
@@ -870,13 +872,13 @@
     return '<button class="tab" type="button" role="tab" data-tab="' + t[0] + '" aria-selected="' + on + '" title="' + t[1] + '">' +
       TAB_ICON[t[0]] + '<span class="tl-l">' + t[1] + '</span></button>';
   }
-  function bodyHtml(tab) { return tab === 'steps' ? stepsHtml() : overviewHtml(); }
+  function bodyHtml(tab) { return tab === 'steps' ? stepsHtml() : tab === 'items' ? itemsHtml() : overviewHtml(); }
   function renderQuest() {
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button>' +
-      '<h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1>' + cogHtml() + dotsHtml() + '</header>' +
+      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button></div>' +
+      '<h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1><div class="hs he">' + cogHtml() + dotsHtml() + '</div></header>' +
       '<div class="prog"><progress class="pg" id="pg" value="0" max="1" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt"></span></div>' +
       '<nav class="tabs" role="tablist" aria-label="Guide parts">' + TABS.map(tabHtml).join('') + '</nav>' +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
@@ -947,8 +949,6 @@
       var c = main.querySelector('[data-count="' + p[0] + '"]');
       if (c) c.textContent = p[1].filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + p[1].length;
     });
-    var ic = main.querySelector('[data-ovc="items"]');
-    if (ic) ic.textContent = ovCount('items');
     saveProg();
     remember(S.key, S.q.title, t.done, t.total);
   }
@@ -1065,14 +1065,6 @@
     if (down) down.disabled = S.set.fontSize <= FONT_MIN;
     if (up) up.disabled = S.set.fontSize >= FONT_MAX;
   }
-  function toggleCompact() {
-    S.set.compact = !S.set.compact;
-    saveSettings();
-    applySettings();
-    resizeMaps();
-    var b = document.querySelector('.mi[data-act="compact"]');
-    if (b) b.setAttribute('aria-checked', S.set.compact ? 'true' : 'false');
-  }
   function toggleShowDone() {
     S.set.showDone = !S.set.showDone;
     saveSettings();
@@ -1129,9 +1121,9 @@
       var id = t.getAttribute('data-icb');
       if (t.checked) S.prog.items[id] = 1; else delete S.prog.items[id];
       refresh();
-      // When everything in a "Bring" box is ticked, the box closes.
+      // When everything in a "Bring" box is ticked, the box closes (not with "Show done steps" on).
       var det = t.closest('details.bring');
-      if (det && t.checked && det.classList.contains('alldone')) { det.open = false; if (S.prog.acc) delete S.prog.acc[accKey(det)]; saveProg(); }
+      if (det && t.checked && !S.set.showDone && det.classList.contains('alldone')) { det.open = false; if (S.prog.acc) delete S.prog.acc[accKey(det)]; saveProg(); }
     }
   });
   app.addEventListener('click', function (ev) {
@@ -1157,7 +1149,6 @@
       else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
       else if (act === 'wiki') closeMenus();
       else if (act === 'reset') resetClick(t);
-      else if (act === 'compact') toggleCompact();
       else if (act === 'font-down') setFont(-FONT_STEP);
       else if (act === 'font-up') setFont(FONT_STEP);
       else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); }
