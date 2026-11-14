@@ -1164,7 +1164,9 @@
     while (i < html.length) {
       var ch = html.charAt(i);
       if (ch === '<') {
-        var end = html.indexOf('>', i), tag = html.slice(i, end + 1);
+        var end = html.indexOf('>', i);
+        if (end < 0) { cur += html.slice(i); break; }   // not a tag after all: keep the rest as it is
+        var tag = html.slice(i, end + 1);
         if (/^<\//.test(tag)) depth--;
         else if (!/^<br/i.test(tag) && !/\/>$/.test(tag)) depth++;
         cur += tag;

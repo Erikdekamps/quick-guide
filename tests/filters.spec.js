@@ -208,7 +208,7 @@ test.describe('the settings menu holds the player, sorting and filters', () => {
   test('the same settings are there inside a quest', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openCog(page);
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup']);
+    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
     await expect(page.getByLabel('Sort by')).toBeVisible();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' })).toBeVisible();
     // a sort picked in a quest is used by the list

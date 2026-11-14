@@ -93,7 +93,10 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - **Quest list**: **Sort by**, **Hide completed**, **Hide miniquests**, **Hide locked**.
    - **Display**: **Show done steps** and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
-   - **Backup**, at the bottom: **Export state** and **Import state** (see below).
+   - **Backup**: **Export state** and **Import state** (see below).
+   - **Danger zone**, at the very bottom: **Delete everything** deletes all your ticks, saved guides and areas,
+     settings and your player, and starts the app fresh. It takes two clicks (the second within 4 seconds).
+     Export first if you want to keep anything.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
 

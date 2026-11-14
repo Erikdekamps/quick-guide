@@ -551,6 +551,8 @@
       '<hr><p class="mh">Backup</p>' +
       '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
       '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
+      '<hr><p class="mh danger">Danger zone</p>' +
+      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
       '</div>';
   }
   function dotsHtml() {
@@ -1282,6 +1284,37 @@
     clearTimeout(S.toastTimer);
     if (ms !== 0) S.toastTimer = setTimeout(function () { el.hidden = true; }, ms || 2600);
   }
+  // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds.
+  function disarmWipe() {
+    S.wipeArmed = 0;
+    var w = document.querySelector('[data-act="wipe"] span');
+    if (w) w.textContent = 'Delete everything';
+  }
+  function wipeClick(btn) {
+    if (!(S.wipeArmed && Date.now() - S.wipeArmed < 4000)) {
+      S.wipeArmed = Date.now();
+      btn.querySelector('span').textContent = 'Click again to delete everything';
+      return;
+    }
+    S.wipeArmed = 0;
+    closeMenus();
+    closeBackup();
+    try {
+      var ls = window.localStorage, keys = [];
+      for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
+      keys.forEach(function (k) { ls.removeItem(k); });
+    } catch (e) { /* blocked: only memory to clear */ }
+    memory = {};
+    S.set = { showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: FONT_DEFAULT, sort: 'name', home: 'quests' };
+    S.player = null; S.playerMsg = ''; S.playerInput = '';
+    S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
+    S.listError = ''; S.orderError = ''; S.aidxFail = [];
+    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
+    S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
+    applySettings();
+    renderStart();
+    toast('Everything is deleted.');
+  }
   function disarmReset() {
     S.resetArmed = 0;
     var s = document.querySelector('[data-act="reset"] span');
@@ -1291,7 +1324,7 @@
     ['cog', 'menu'].forEach(function (id) {
       if (id === except) return;
       var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
-      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); }
+      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); else disarmWipe(); }
     });
   }
   function toggleMenu(id) {
@@ -1568,7 +1601,12 @@
   function openArea(name, tier) {
     S.error = '';
     var a = sget('area.' + name);
-    if (a && a.tiers && a.version === QG.AREA_VERSION) { showArea(name, a, tier); return; }
+    // A saved area opens at once. One saved by an older version is read again quietly; if that fails, the saved one stays.
+    if (a && Array.isArray(a.tiers) && a.tiers.length) {
+      showArea(name, a, tier);
+      if (a.version !== QG.AREA_VERSION) refreshArea(true);
+      return;
+    }
     S.loading = name;
     renderStart();
     QG.loadArea(name).then(function (na) {
@@ -1762,18 +1800,20 @@
     S.resetArmed = Date.now();
     btn.querySelector('span').textContent = 'Click again to reset';
   }
-  function refreshArea() {
+  function refreshArea(silent) {
     var name = S.areaKey;
-    toast('Reading the wiki…', 0);
+    if (!silent) toast('Reading the wiki\u2026', 0);
     QG.loadArea(name).then(function (na) {
       sset('area.' + name, na);
+      indexArea(name, na);
       if (S.view !== 'area' || S.areaKey !== name) return;
       S.area = na;
       saveAmeta();
       renderArea(true);
-      toast('Updated from the wiki.');
-    }, function (e) { toast('Could not update. ' + loadError(e)); });
+      if (!silent) toast('Updated from the wiki.');
+    }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
+
 
 
   // ---------- export and import ----------
@@ -2177,6 +2217,7 @@
       var act = t.getAttribute('data-act');
       if (act === 'next') nextStep();
       else if (act === 'anext') nextTask();
+      else if (act === 'wipe') wipeClick(t);
       else if (act === 'export') openBackup('export');
       else if (act === 'import') openBackup('import');
       else if (act === 'bk-close') closeBackup();

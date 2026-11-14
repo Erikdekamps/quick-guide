@@ -16,6 +16,7 @@ so they match it.
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
 | `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |
+| `SettingsEnd.dc.html` | The bottom of the settings: Backup, and the Danger zone with Delete everything (after the first click) |
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |

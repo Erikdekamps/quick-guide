@@ -56,9 +56,9 @@ test.describe('the settings', () => {
   test('end with a Backup part: Export state and Import state', async ({ page }) => {
     await openApp(page, expect);
     await openCog(page);
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup']);
-    await expect(page.locator('#cog .mi').nth(-2)).toHaveText('Export state');
-    await expect(page.locator('#cog > *').last()).toHaveText('Import state');
+    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#cog .mi').nth(-3)).toHaveText('Export state');
+    await expect(page.locator('#cog .mi').nth(-2)).toHaveText('Import state');
   });
 
   test('they are there inside a quest and inside an area too', async ({ page, wiki }) => {
@@ -338,5 +338,86 @@ test.describe('import', () => {
     await expect(page.locator('#toast')).toHaveText('Imported 1 quest.');
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
     expect(page.errors).toEqual([]);
+  });
+});
+
+test.describe('danger zone', () => {
+  const all = async (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('qg1.')).map((k) => k.slice(4)).sort());
+  async function lots(page) {
+    await seed(page, {
+      settings: { fontSize: 18, home: 'areas', hideDone: true }, player: { name: 'Zezima', quests: { cooksassistant: 2 }, levels: {}, done: 1, started: 0 },
+      [ 'prog.' + WGS ]: { steps: { 'a:1': 1 } }, meta: { [WGS]: { title: 'While Guthix Sleeps', done: 1, total: 12, at: 1 } },
+      'aprog.Ardougne': { tasks: { 447: 1 } }, qdone: { impcatcher: 1 }, last: 'nothing'
+    });
+  }
+
+  test('is the last part of the settings: Delete everything, in red', async ({ page }) => {
+    await openApp(page, expect);
+    await openCog(page);
+    await expect(page.locator('#cog .mh').last()).toHaveText('Danger zone');
+    const del = page.locator('#cog .mi').last();
+    await expect(del).toHaveText('Delete everything');
+    await expect(del).toHaveClass(/\bdanger\b/);
+    await expect(del).toHaveCSS('color', 'rgb(255, 91, 73)');
+  });
+
+  test('the first click only asks again; closing the settings cancels it', async ({ page }) => {
+    await lots(page);
+    await openApp(page, expect);
+    const before = await all(page);
+    await openCog(page);
+    await page.getByRole('button', { name: 'Delete everything' }).click();
+    await expect(page.locator('[data-act="wipe"]')).toHaveText('Click again to delete everything');
+    expect(await all(page)).toEqual(before);
+    await closeCog(page);
+    await openCog(page);
+    await expect(page.locator('[data-act="wipe"]')).toHaveText('Delete everything');
+    expect(await all(page)).toEqual(before);
+  });
+
+  test('the second click deletes everything: ticks, guides, areas, settings and the player', async ({ page }) => {
+    await lots(page);
+    await openApp(page, expect);
+    await expect(page.locator('html')).toHaveCSS('font-size', '18px');
+    await openCog(page);
+    await page.locator('[data-act="wipe"]').click();
+    await page.locator('[data-act="wipe"]').click();
+    await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
+    // the app starts again: the quest list is read again from the wiki, and nothing else is saved
+    await expect(page.locator('#qcount')).toHaveText('11 quests');
+    expect(await all(page)).toEqual(['list']);
+    await expect(page.locator('html')).toHaveCSS('font-size', '14px');
+    await expect(page.locator('.tab[data-home="quests"]')).toHaveAttribute('aria-selected', 'true');
+    await openCog(page);
+    await expect(page.locator('#player-name')).toBeVisible();
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');
+    await closeCog(page);
+    await expect(page.locator('.q[data-quest="Imp Catcher"]')).not.toHaveClass(/\bdone\b/);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('works inside a quest too: you are back at the start', async ({ page }) => {
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openCog(page);
+    await page.locator('[data-act="wipe"]').click();
+    await page.locator('[data-act="wipe"]').click();
+    await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
+    expect(await all(page)).toEqual(['list']);
+    // a reload does not open the old quest
+    await page.reload();
+    await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
+  });
+
+  test('the second click must come soon: after 4 seconds it asks again', async ({ page }) => {
+    await page.clock.install();
+    await lots(page);
+    await openApp(page, expect);
+    const before = await all(page);
+    await openCog(page);
+    await page.locator('[data-act="wipe"]').click();
+    await page.clock.runFor(5000);
+    await page.locator('[data-act="wipe"]').click();
+    await expect(page.locator('[data-act="wipe"]')).toHaveText('Click again to delete everything');
+    expect(await all(page)).toEqual(before);
   });
 });
