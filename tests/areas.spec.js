@@ -1,15 +1,24 @@
 // Area Tasks: the wiki's "<Area> achievements" pages, read into tiers of tasks you tick off.
-const { test, expect, fixture, seed, stored, openApp, openCog, closeCog, lookUp } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openCog, closeCog, lookUp, toggle, areaPage } = require('./support/app');
 
 const W = 'https://runescape.wiki/w/';
 const AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania', "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'];
-const area = (page, name) => page.locator('.q[data-area="' + name + '"]');
+const area = (page, name, tier) => page.locator('.q[data-area="' + name + '"]' + (tier ? '[data-atier="' + tier + '"]' : ''));
+const tierRows = (page, name) => page.locator('.ghb[data-group="' + name + '"]').locator('xpath=../following-sibling::ul[1]').locator('.q1 b');
 const task = (page, id) => page.locator('li[data-task="' + id + '"]');
 const sec = (page, id) => page.locator('section[data-asec="' + id + '"]');
 
 function withAreas(wiki) {
   wiki.page('Ardougne achievements', fixture('ardougne-achievements.html'));
   wiki.page('Lumbridge achievements', fixture('lumbridge-achievements.html'));
+  return wiki;
+}
+// All 13 areas: Ardougne and Lumbridge are real pages, Varrock is an excerpt, the rest have one small task each.
+function withAllAreas(wiki) {
+  withAreas(wiki).page('Varrock achievements', fixture('varrock-excerpt.html'));
+  AREAS.filter((n) => !['Ardougne', 'Lumbridge', 'Varrock'].includes(n)).forEach((n, i) => {
+    wiki.page(n + ' achievements', areaPage([{ name: 'Easy', tasks: [{ id: 5000 + i, name: n + ' filler task', desc: 'A task in ' + n + '.' }] }]));
+  });
   return wiki;
 }
 async function areasTab(page) {
@@ -19,7 +28,7 @@ async function areasTab(page) {
 }
 async function openArea(page, name) {
   await areasTab(page);
-  await area(page, name).click();
+  await area(page, name).first().click();
   await expect(page.locator('h1.qt')).toHaveText(name);
 }
 
@@ -78,6 +87,51 @@ test.describe('reading an area page', () => {
     expect(a.tiers[1].reward.perks).not.toContain('Unlimited teleports to the Ardougne Monastery');
   });
 
+  test('a numbered list in a task becomes its sub-steps', async ({ page }) => {
+    const v = await parse(page, 'varrock-excerpt.html', 'Varrock');
+    expect(v.tiers.map((t) => t.name)).toEqual(['Easy', 'Elite']);
+    const red = v.tiers[1].tasks.find((t) => t.name === 'Red, Red Pies of Summer');
+    expect(red.id).toBe('993');
+    expect(red.subs.map((x) => x.id)).toEqual(['993:1', '993:2', '993:3', '993:4']);
+    expect(red.subs.map((x) => x.html.replace(/<[^>]+>/g, ''))).toEqual([
+      'Make pastry dough by mixing a pot of flour with water by using the pot of flour on the pump and drain.',
+      'Use the pastry dough on a pie dish.',
+      'Add a strawberry, watermelon, and cooking apple to the shell (in that order).',
+      'Bake the raw summer pie.'
+    ]);
+    // a line under a step is a note for that step, not another step
+    expect(red.subs[0].notes).toEqual([]);
+    expect(red.subs[2].notes).toEqual(['The cooking apple can be found in the Guild, the rest needs to be brought from outside.']);
+    expect(red.subs[3].notes).toHaveLength(2);
+    // the tip keeps the intro and the items to bring, but not the steps again
+    expect(red.notes).toContain('by following the steps below');
+    expect(red.notes).toContain('Required items');
+    expect(red.notes).toContain('Pot of flour');
+    expect(red.notes).not.toContain('pastry dough');
+  });
+
+  test('only a list of two or more steps counts; a bulleted list stays a note', async ({ page }) => {
+    const t = (await parse(page, 'varrock-excerpt.html', 'Varrock'));
+    const dog = t.tiers[0].tasks[0];
+    expect(dog.subs).toEqual([]);
+    expect(dog.notes).toContain('Any bones will do.');
+    const one = t.tiers[1].tasks.find((x) => x.name === 'Pie in the Sky');
+    expect(one.subs).toEqual([]);
+    expect(one.notes).toContain('Only one step here.');
+  });
+
+  test('a real task with steps: You\'re the Dirty Rascal', async ({ page }) => {
+    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
+    const t = a.tiers.flatMap((x) => x.tasks).find((x) => x.name === "You're the Dirty Rascal");
+    expect(t.subs.length).toBeGreaterThanOrEqual(3);
+    expect(t.subs[0].html).toContain('Go to the Castle Wars lobby');
+    expect(t.notes).toContain('A draw will not count');
+    // the tasks with a bulleted list keep it as a note
+    const cat = a.tiers.flatMap((x) => x.tasks).find((x) => x.name === 'A Cat is For Life...');
+    expect(cat.subs).toEqual([]);
+    expect(cat.notes).toContain('Hellcats');
+  });
+
   test('a page that is not an area page', async ({ page }) => {
     const r = await page.evaluate(() => { try { window.QuickGuide.parseArea('<div class="mw-parser-output"><p>Nothing.</p></div>', 'X'); return 'no error'; } catch (e) { return e.code; } });
     expect(r).toBe('format');
@@ -85,45 +139,55 @@ test.describe('reading an area page', () => {
 });
 
 test.describe('the area list', () => {
-  test('a tab next to Quests shows the 13 areas, and is remembered', async ({ page, wiki }) => {
+  test('a row for each tier of the 13 areas, grouped by area, and the tab is remembered', async ({ page, wiki }) => {
     await openApp(page, expect);
     await expect(page.locator('.tab[data-home]')).toHaveText(['Quests', 'Area tasks']);
     await expect(page.locator('.tab[data-home="quests"]')).toHaveAttribute('aria-selected', 'true');
     await page.locator('.tab[data-home="areas"]').click();
     await expect(page.locator('.tab[data-home="areas"]')).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('.q .q1 b')).toHaveText(AREAS);
-    await expect(area(page, 'Lumbridge').locator('.q2')).toHaveText('Beginner · Easy · Medium · Hard');
-    await expect(area(page, 'Ardougne').locator('.q2')).toHaveText('Easy · Medium · Hard · Elite');
-    await expect(page.locator('#quest-link')).toHaveAttribute('placeholder', 'Search areas');
+    await expect(page.locator('#qcount')).toHaveText('13 areas');
+    await expect(page.locator('.ghb .n')).toHaveText(AREAS);
+    await expect(tierRows(page, 'Ardougne')).toHaveText(['Ardougne Easy', 'Ardougne Medium', 'Ardougne Hard', 'Ardougne Elite']);
+    await expect(tierRows(page, 'Lumbridge')).toHaveText(['Lumbridge Beginner', 'Lumbridge Easy', 'Lumbridge Medium', 'Lumbridge Hard']);
+    await expect(page.locator('#quest-link')).toHaveAttribute('placeholder', 'Search areas and tasks');
     expect(wiki.asked()).toEqual(['List of quests']);   // no area pages yet
     expect((await stored(page, 'settings')).home).toBe('areas');
     await page.reload();
     await expect(page.locator('#qcount')).toHaveText('13 areas');
   });
 
-  test('search finds an area; Enter opens it', async ({ page, wiki }) => {
+  test('a row opens that area at that tier', async ({ page, wiki }) => {
     withAreas(wiki);
     await areasTab(page);
-    await page.locator('#quest-link').fill('ardo');
-    await expect(page.locator('.q .q1 b')).toHaveText(['Ardougne']);
-    await expect(page.locator('#qcount')).toHaveText('1 of 13 areas');
-    await page.locator('#quest-link').press('Enter');
+    await area(page, 'Ardougne', 'hard').click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    await expect(page.locator('.tab[data-tier="hard"]')).toHaveAttribute('aria-selected', 'true');
   });
 
-  test('an area you started goes first, with its progress', async ({ page, wiki }) => {
+  test('a tier you started goes first, with its own progress bar', async ({ page, wiki }) => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
-    await task(page, '447').locator('.cb').click();
-    await task(page, '448').locator('.cb').click();
+    // Easy is untouched; Medium is where the ticks are
+    await page.locator('.tab[data-tier="medium"]').click();
+    await page.locator('#next-btn').click();
+    await page.locator('#next-btn').click();
     await page.getByRole('button', { name: 'All areas' }).click();
     await expect(page.locator('.ghb .n').first()).toHaveText('In progress');
-    await expect(area(page, 'Ardougne').locator('.qs')).toHaveText('2 / 23');
-    await expect(area(page, 'Ardougne').locator('.q2')).toHaveText('Easy 2 / 23 · Medium · Hard · Elite');
-    await expect(area(page, 'Ardougne').locator('progress')).toHaveCount(1);
+    const row = area(page, 'Ardougne', 'medium');
+    await expect(row.locator('.q1 b')).toHaveText('Ardougne Medium');
+    await expect(row.locator('.qs')).toHaveText('2 / 16');
+    await expect(row.locator('progress')).toHaveJSProperty('value', 2);
+    await expect(row.locator('progress')).toHaveJSProperty('max', 16);
+    await expect(row).toHaveCSS('color', 'rgb(236, 230, 218)');
+    await expect(row.locator('.q1 b')).toHaveCSS('color', 'rgb(245, 225, 90)');
+    // it shows once: not again in its area
+    await expect(tierRows(page, 'Ardougne')).toHaveText(['Ardougne Easy', 'Ardougne Hard', 'Ardougne Elite']);
+    // tiers that were never touched have no bar and no count of their own
+    await expect(area(page, 'Ardougne', 'easy').locator('progress')).toHaveCount(0);
+    await expect(area(page, 'Ardougne', 'easy').locator('.q2')).toHaveText('23 tasks');
   });
 
-  test('a finished tier is marked', async ({ page, wiki }) => {
+  test('a finished tier is green, and "Hide completed" hides it', async ({ page, wiki }) => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const ids = await page.locator('li[data-task]').evaluateAll((l) => l.map((x) => x.getAttribute('data-task')));
@@ -133,24 +197,158 @@ test.describe('the area list', () => {
     await expect(page.locator('#pg-cnt')).toHaveText('23 / 23 tasks');
     await expect(page.locator('#next-btn')).toHaveText('All tasks done');
     await page.getByRole('button', { name: 'All areas' }).click();
-    await expect(area(page, 'Ardougne').locator('.qs')).toHaveText('✓ Easy');
-    await expect(area(page, 'Ardougne').locator('.q2')).toHaveText('Easy ✓ · Medium · Hard · Elite');
+    const row = area(page, 'Ardougne', 'easy');
+    await expect(row).toHaveClass(/\bdone\b/);
+    await expect(row.locator('.qs')).toHaveText('✓ Done');
+    await toggle(page, 'Hide completed');
+    await expect(area(page, 'Ardougne', 'easy')).toHaveCount(0);
+    await expect(area(page, 'Ardougne', 'medium')).toHaveCount(1);
+    await toggle(page, 'Hide completed');
+    await expect(area(page, 'Ardougne', 'easy')).toHaveCount(1);
+  });
+
+  test('a tier you cannot do yet is grayed out and says Locked; "Hide locked" hides it', async ({ page, wiki }) => {
+    withAreas(wiki).setPlayer('Zezima', {}, { 18: 3 });   // Thieving 3; Ardougne Easy needs 16
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('Zezima');
+    await closeCog(page);
+    await page.locator('.tab[data-home="areas"]').click();
+    await area(page, 'Ardougne', 'easy').click();
+    await page.getByRole('button', { name: 'All areas' }).click();
+    const row = area(page, 'Ardougne', 'easy');
+    await expect(row).toHaveClass(/\blocked\b/);
+    await expect(row.locator('.qs')).toHaveText('Locked');
+    // tiers of an area you never opened: nothing is known yet
+    await expect(area(page, 'Desert', 'easy')).not.toHaveClass(/\blocked\b/);
+    await toggle(page, 'Hide locked');
+    await expect(area(page, 'Ardougne', 'easy')).toHaveCount(0);
+    await expect(area(page, 'Desert', 'easy')).toHaveCount(1);
+  });
+
+  test('opening an area keeps what each tier needs, for the list', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await openArea(page, 'Ardougne');
+    const m = (await stored(page, 'ameta')).Ardougne;
+    expect(m.tiers.map((t) => [t.id, t.total, t.done])).toEqual([['easy', 23, 0], ['medium', 16, 0], ['hard', 17, 0], ['elite', 5, 0]]);
+    expect(m.tiers[0].needs.skills).toEqual([{ skill: 'Thieving', level: 16 }, { skill: 'Construction', level: 10 }]);
+    expect(m.tiers[0].needs.quests).toContain('Biohazard');
   });
 });
 
-test('an area whose first tier you cannot do yet is grayed out', async ({ page, wiki }) => {
-  withAreas(wiki).setPlayer('Zezima', {}, { 18: 3 });   // Thieving 3; Ardougne Easy needs 16
-  await openApp(page, expect);
-  await lookUp(page, 'Zezima');
-  await expect(page.locator('#player')).toContainText('Zezima');
-  await closeCog(page);
-  await page.locator('.tab[data-home="areas"]').click();
-  await area(page, 'Ardougne').click();
-  await page.getByRole('button', { name: 'All areas' }).click();
-  await expect(area(page, 'Ardougne')).toHaveClass(/\blocked\b/);
-  await expect(area(page, 'Ardougne').locator('.qs')).toHaveText('Locked');
-  // areas you never opened: nothing is known yet
-  await expect(area(page, 'Desert')).not.toHaveClass(/\blocked\b/);
+test.describe('searching the area tasks', () => {
+  async function search(page, text) {
+    await page.locator('#quest-link').fill(text);
+  }
+  const taskRows = (page) => page.locator('#qarea li[data-task]');
+
+  test('typing reads the other areas once, so every task can be found', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'yoink');
+    await expect(taskRows(page)).toHaveCount(1);
+    await expect(page.locator('#qarea .state')).toHaveCount(0);   // all areas are read
+    expect(wiki.asked().filter((x) => / achievements$/.test(x)).sort()).toEqual(AREAS.map((n) => n + ' achievements').sort());
+    expect((await stored(page, 'aidx')).Ardougne.tiers[0].tasks[1]).toEqual({ id: '448', name: 'Yoink!', subs: [] });
+    // searching again, or opening an area, does not read the wiki again
+    await search(page, 'silky');
+    await expect(taskRows(page)).toHaveCount(1);
+    await search(page, '');
+    await area(page, 'Ardougne', 'easy').click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    expect(wiki.asked().filter((x) => x === 'Ardougne achievements')).toHaveLength(1);
+  });
+
+  test('a task is found by its name, with its area and tier, and ticked right there', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'yoink');
+    const row = taskRows(page).first();
+    await expect(row.locator('.t')).toContainText('Yoink!');
+    await expect(row.locator('.where')).toHaveText('Ardougne Easy');
+    await expect(page.locator('#qcount')).toHaveText('0 of 13 areas');
+    await row.locator('.t').click();
+    await expect(row.locator('.cb')).toBeChecked();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
+    // a done task stays in the results, ticked
+    await search(page, 'yoin');
+    await expect(taskRows(page).first().locator('.cb')).toBeChecked();
+    // and the list shows the progress
+    await search(page, '');
+    await expect(area(page, 'Ardougne', 'easy').locator('.qs')).toHaveText('1 / 23');
+    expect((await stored(page, 'ameta')).Ardougne.tiers[0]).toMatchObject({ done: 1, total: 23 });
+    // untick
+    await search(page, 'yoink');
+    await taskRows(page).first().locator('.t').click();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({});
+  });
+
+  test('only names are searched, not the descriptions', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'castle wars');   // in descriptions, not in a name
+    await expect(page.locator('#qarea .empty')).toHaveText('Nothing matches “castle wars”.');
+    await search(page, 'waiting game');
+    await expect(taskRows(page).first().locator('.t')).toContainText('Playing the Waiting Game');
+  });
+
+  test('an area and tier name finds the tier rows', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'ardougne hard');
+    await expect(page.locator('#qarea .q .q1 b')).toHaveText(['Ardougne Hard']);
+    await expect(page.locator('#qcount')).toHaveText('1 of 13 areas');
+    await search(page, 'ardougne');
+    await expect(page.locator('#qarea .q .q1 b')).toHaveText(['Ardougne Easy', 'Ardougne Medium', 'Ardougne Hard', 'Ardougne Elite']);
+  });
+
+  test('a task with steps: ticking it in the results ticks all its steps', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'red, red');
+    await expect(taskRows(page)).toHaveCount(1);
+    await expect(taskRows(page).first().locator('.where')).toHaveText('Varrock Elite');
+    await taskRows(page).first().locator('.t').click();
+    expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1 });
+  });
+
+  test('the area and tier in a result open that area at that tier', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'red, red');
+    await taskRows(page).first().locator('.where').click();
+    await expect(page.locator('h1.qt')).toHaveText('Varrock');
+    await expect(page.locator('.tab[data-tier="elite"]')).toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('Enter opens the first match', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'ardougne medium');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    await expect(page.locator('.tab[data-tier="medium"]')).toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('says when some areas could not be read, and tries again', async ({ page, wiki }) => {
+    withAllAreas(wiki).fail('Desert achievements', 'http');
+    await areasTab(page);
+    await search(page, 'yoink');
+    await expect(page.locator('#qarea .err')).toContainText('Could not read 1 area (Desert)');
+    await expect(taskRows(page)).toHaveCount(1);   // the others still work
+    wiki.page('Desert achievements', areaPage([{ name: 'Easy', tasks: [{ id: 6000, name: 'Sand castle', desc: 'Build one.' }] }]));
+    await page.locator('[data-act="areas-retry"]').click();
+    await search(page, 'sand castle');
+    await expect(taskRows(page)).toHaveCount(1);
+  });
+
+  test('shows how far the reading is', async ({ page, wiki }) => {
+    withAllAreas(wiki).fail('Desert achievements', 'slow');
+    await areasTab(page);
+    await search(page, 'yoink');
+    await expect(page.locator('#qarea .state')).toContainText('Reading the areas so their tasks can be searched');
+    await expect(taskRows(page)).toHaveCount(1);   // what is read already can be searched
+  });
 });
 
 test.describe('an area', () => {
@@ -163,14 +361,14 @@ test.describe('an area', () => {
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await page.getByRole('button', { name: 'All areas' }).click();
-    await area(page, 'Ardougne').click();
+    await area(page, 'Ardougne').first().click();
     expect(wiki.asked().filter((x) => x === 'Ardougne achievements')).toHaveLength(1);
   });
 
   test('says when the wiki fails', async ({ page, wiki }) => {
     wiki.fail('Desert achievements', 'http');
     await areasTab(page);
-    await area(page, 'Desert').click();
+    await area(page, 'Desert').first().click();
     await expect(page.locator('#load-err')).toHaveText('The wiki answered with error 500. Try again in a moment.');
   });
 
@@ -192,8 +390,11 @@ test.describe('an area', () => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const n = sec(page, 'needs');
-    await expect(n.locator('.chip')).toHaveText(['16Thieving', '10Construction']);
-    await expect(n.locator('.tree li')).toHaveText(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
+    // levels are one line each, like the quests: "16 Thieving", not two columns of boxes
+    await expect(n.locator('.chip')).toHaveCount(0);
+    await expect(n.locator('ul.askill li')).toHaveText(['16 Thieving', '10 Construction']);
+    await expect(n.locator('ul.askill li').first()).toHaveCSS('width', await n.locator('ul.askill').evaluate((e) => getComputedStyle(e).width));
+    await expect(n.locator('.tree:not(.askill) li')).toHaveText(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
     await expect(n.locator('details.acc summary .sl')).toHaveText(['Items to bring', 'Ironmen']);
     await expect(n.locator('details.acc', { hasText: 'Ironmen' })).not.toHaveAttribute('open', '');
     await expect(n.locator('details.acc', { hasText: 'Items to bring' }).locator('li').first()).toHaveText('Around 350 coins');
@@ -206,12 +407,13 @@ test.describe('an area', () => {
     await expect(page.locator('#player')).toContainText('Zezima');
     await closeCog(page);
     await page.locator('.tab[data-home="areas"]').click();
-    await area(page, 'Ardougne').click();
+    await area(page, 'Ardougne').first().click();
     const n = sec(page, 'needs');
-    await expect(n.locator('.chip').nth(0)).toHaveClass(/\blow\b/);
-    await expect(n.locator('.chip').nth(1)).toHaveClass(/\bok\b/);
+    await expect(n.locator('ul.askill li')).toHaveText(['16 Thieving (you: 3)', '10 Construction ✓']);
+    await expect(n.locator('ul.askill li').nth(0)).toHaveClass(/\blow\b/);
+    await expect(n.locator('ul.askill li').nth(1)).toHaveClass(/\bgot\b/);
     await expect(n.locator('.sech .c')).toHaveText('1 too low');
-    await expect(n.locator('.tree li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
+    await expect(n.locator('.tree:not(.askill) li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
     // a task that needs more than you have says so
     await expect(task(page, '448').locator('.need')).toHaveText('Needs 5 Thieving (you: 3)');
     await expect(task(page, '448').locator('.need')).toHaveClass(/\blow\b/);
@@ -270,6 +472,62 @@ test.describe('an area', () => {
     for (const li of await tasks.locator('li[data-task]').all()) await expect(li).toBeVisible();
     await tasks.locator('li[data-task] .cb').first().click();
     await expect(page.locator('#pg-cnt')).toHaveText('4 / 5 tasks');
+  });
+
+  test.describe('sub-steps', () => {
+    const open = async (page, wiki) => {
+      wiki.page('Varrock achievements', fixture('varrock-excerpt.html'));
+      await openArea(page, 'Varrock');
+      await page.locator('.tab[data-tier="elite"]').click();
+    };
+
+    test('shown under the task, like the sub-steps of a quest', async ({ page, wiki }) => {
+      await open(page, wiki);
+      const t = task(page, '993');
+      await expect(t.locator(':scope > ul.subs > li[data-task]')).toHaveCount(4);
+      await expect(task(page, '993:2').locator('.t')).toHaveText('Use the pastry dough on a pie dish.');
+      await expect(task(page, '993:3').locator('.howto')).toHaveText('The cooking apple can be found in the Guild, the rest needs to be brought from outside.');
+      // the tip with the items is under the task name, before the steps
+      await expect(t.locator(':scope > .row .howto').first()).toContainText('Required items');
+      await expect(page.locator('#pg-cnt')).toHaveText('0 / 2 tasks');
+    });
+
+    test('ticking all of them ticks the task; unticking one unticks it', async ({ page, wiki }) => {
+      await open(page, wiki);
+      await openCog(page);
+      await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+      await closeCog(page);
+      for (const i of [1, 2, 3]) await task(page, '993:' + i).locator('.cb').click();
+      await expect(task(page, '993')).not.toHaveClass(/\bdone\b/);
+      await expect(page.locator('#pg-cnt')).toHaveText('0 / 2 tasks');
+      await task(page, '993:4').locator('.cb').click();
+      await expect(task(page, '993')).toHaveClass(/\bdone\b/);
+      await expect(page.locator('#pg-cnt')).toHaveText('1 / 2 tasks');
+      expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1 });
+      await task(page, '993:2').locator('.cb').click();
+      await expect(task(page, '993')).not.toHaveClass(/\bdone\b/);
+      await expect(page.locator('#pg-cnt')).toHaveText('0 / 2 tasks');
+      expect((await stored(page, 'aprog.Varrock')).tasks['993']).toBeUndefined();
+    });
+
+    test('ticking the task ticks all its steps', async ({ page, wiki }) => {
+      await open(page, wiki);
+      await openCog(page);
+      await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+      await closeCog(page);
+      await task(page, '993').locator(':scope > .row > .cb').click();
+      for (const i of [1, 2, 3, 4]) await expect(task(page, '993:' + i).locator('.cb')).toBeChecked();
+      await task(page, '993').locator(':scope > .row > .cb').click();
+      for (const i of [1, 2, 3, 4]) await expect(task(page, '993:' + i).locator('.cb')).not.toBeChecked();
+    });
+
+    test('"Done, next task" ticks the whole task, and the area list counts only tasks', async ({ page, wiki }) => {
+      await open(page, wiki);
+      await page.locator('#next-btn').click();
+      expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1 });
+      await expect(page.locator('#pg-cnt')).toHaveText('1 / 2 tasks');
+      expect((await stored(page, 'ameta')).Varrock.tiers.find((t) => t.id === 'elite')).toMatchObject({ done: 1, total: 2 });
+    });
   });
 
   test('ticking tasks: saved, counted, hidden when done', async ({ page, wiki }) => {

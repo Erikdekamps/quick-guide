@@ -174,6 +174,19 @@ async function lookUp(page, name) {
   await page.locator('#player-name').fill(name);
   await page.getByRole('button', { name: 'Look up' }).click();
 }
+// A small "<Area> achievements" page, for tests that need many areas. tiers: [{ name, tasks: [{ id, name, desc }] }]
+function areaPage(tiers) {
+  return tiers.map((t) => {
+    const rows = t.tasks.map((x, i) => '<tr data-rowid="' + x.id + '"><td>' + (i + 1) + '</td><td data-sort-value="' + x.name.toUpperCase() + '"><a href="/w/' + x.name.replace(/ /g, '_') +
+      '" title="' + x.name + '">' + x.name + '</a></td><td>' + (x.desc || 'Do it.') + '</td><td></td><td><ul><li>None</li></ul></td><td><p>Do it.</p></td><td>5</td></tr>').join('');
+    return '<div class="mw-heading mw-heading2"><h2 id="' + t.name + '_achievements">' + t.name + ' achievements</h2></div> ' +
+      '<div class="mw-heading mw-heading3"><h3 id="Requirements">Requirements</h3></div> ' +
+      '<table class="achievementsdetails"><tbody><tr><th class="achievementsdetails-header">Requirements</th><td><ul><li>None</li></ul></td></tr></tbody></table> ' +
+      '<div class="mw-heading mw-heading3"><h3 id="List_of_achievements">List of achievements</h3></div> ' +
+      '<table class="wikitable"><tbody><tr><th>#</th><th>Name</th><th>Description</th><th>Members</th><th>Requirements</th><th>Notes</th><th>RuneScore</th></tr>' + rows + '</tbody></table> ' +
+      '<div class="mw-heading mw-heading3"><h3 id="Rewards">Rewards</h3></div> <p>Claim it.</p> <ul><li>A reward</li></ul>';
+  }).join('');
+}
 // Opens a quest from the list, as a person would.
 async function openQuest(page, expect, name) {
   if (!(await page.locator('#qcount').count())) await openApp(page, expect);
@@ -206,4 +219,4 @@ async function parsedQuest(page, file, title, live) {
 // Runs a function from the app's scripts in the page (parser.js and quests.js are global).
 function inPage(page, fn, arg) { return page.evaluate(fn, arg); }
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, step, item, part, parsedQuest, inPage };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, step, item, part, parsedQuest, inPage };

@@ -1084,7 +1084,7 @@
 
 
   // ---------- Area Tasks: the "<Area> achievements" pages ----------
-  var AREA_VERSION = 1;   // a new number makes saved areas read the wiki again
+  var AREA_VERSION = 2;   // a new number makes saved areas read the wiki again
   var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
     "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
     return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
@@ -1132,6 +1132,25 @@
       needOf(li, page, into);
     });
   }
+  // The Notes cell of a task: a numbered list of two or more lines is the steps of the task. A line under a step
+  // (a bulleted list inside it) is a note for that step. Everything else stays as the task's tip.
+  function stepsOf(cell, page, taskId) {
+    var cc = cell.cloneNode(true), subs = [];
+    var lists = arr(cc.querySelectorAll('ol')).filter(function (o) { return !o.parentNode.closest('li') && kids(o, 'LI').length >= 2; });
+    lists.forEach(function (ol) {
+      kids(ol, 'LI').forEach(function (li) {
+        var notes = [];
+        var inner = arr(li.querySelectorAll('ul, ol')).filter(function (l) { return l.parentNode.closest('li') === li; });
+        inner.forEach(function (l) {
+          kids(l, 'LI').forEach(function (n) { var h = tidy(inline(n, page)); if (plainOf(h)) notes.push(h); });
+        });
+        arr(li.querySelectorAll('ul, ol')).forEach(function (l) { l.remove(); });
+        subs.push({ id: taskId + ':' + (subs.length + 1), html: tidy(inline(li, page)), notes: notes });
+      });
+      ol.remove();
+    });
+    return { notes: tidy(inline(cc, page)), subs: subs };
+  }
   function areaTier(part, page) {
     var name = text(part.head).replace(/\s*achievements$/i, '');
     var t = { id: name.toLowerCase(), name: name, skills: [], quests: [], other: [], items: [], ironman: '', tasks: [],
@@ -1175,7 +1194,8 @@
             desc: cDesc >= 0 && c[cDesc] ? text(c[cDesc]) : '', members: cMem >= 0 && c[cMem] ? /member|p2p/i.test(c[cMem].innerHTML) : null,
             skills: [], quests: [], other: [], notes: '' };
           if (cReq >= 0 && c[cReq]) needsOf(c[cReq], page, task);
-          if (cNotes >= 0 && c[cNotes]) task.notes = tidy(inline(c[cNotes], page));
+          task.subs = [];
+          if (cNotes >= 0 && c[cNotes]) { var sp = stepsOf(c[cNotes], page, task.id); task.notes = sp.notes; task.subs = sp.subs; }
           if (task.name) t.tasks.push(task);
         });
       } else if (/^rewards?/.test(h)) {
