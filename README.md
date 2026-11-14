@@ -17,13 +17,13 @@ You pick a quest from the list, and the app shows the guide as a checklist in th
 
 ## 1. Put it online
 
-Alt1 adds apps from a web address. GitHub Pages is free:
+Alt1 adds apps from a web address, so the files must be on the web. GitHub Pages is free:
 
-1. Make a new **public** repo on github.com, for example `quick-guide`.
-2. Upload all the files in this folder, **including the `vendor` folder**, then commit.
-3. In the repo, go to **Settings → Pages**. Under "Build and deployment", pick **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
-4. Wait a minute. The app is now at `https://YOUR-NAME.github.io/quick-guide/`.
+1. On github.com, open the repo and go to **Settings → Pages**.
+2. Under "Build and deployment", pick **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
+3. Wait a minute. The app is now at `https://erikdekamps.github.io/quick-guide/`.
 
+The repo must be **public** for free GitHub Pages.
 Any other web host works too, as long as it serves the files over `https`.
 
 ## 2. Add it to Alt1
@@ -31,11 +31,18 @@ Any other web host works too, as long as it serves the files over `https`.
 With Alt1 running, paste this into your normal web browser's address bar and press Enter:
 
 ```
-alt1://addapp/https://YOUR-NAME.github.io/quick-guide/appconfig.json
+alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json
 ```
 
 Alt1 asks if you want to add the app. Say yes.
-You can also open the app page in a browser and click **Add this app to Alt1** at the bottom.
+
+Two other ways:
+
+- Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
+- Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
+
+The app asks for no Alt1 permissions. It does not read your screen or draw on the game.
+Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
 
 ## 3. Use it
 

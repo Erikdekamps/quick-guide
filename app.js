@@ -1196,6 +1196,14 @@
     if (!ev.target.closest('.menu, [data-menu]')) closeMenus();
   });
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenus(); });
+  // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
+  document.addEventListener('click', function (ev) {
+    if (!window.alt1 || typeof window.alt1.openBrowser !== 'function') return;
+    var a = ev.target.closest && ev.target.closest('a[href]');
+    if (!a || !/^https?:/i.test(a.href)) return;
+    ev.preventDefault();
+    try { window.alt1.openBrowser(a.href); } catch (e) { /* stay on the guide */ }
+  });
   // Phones: no pinch zoom and no double-tap zoom. The page stays as it is. (Maps still zoom by themselves.)
   ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (n) {
     document.addEventListener(n, function (ev) { ev.preventDefault(); }, { passive: false });
