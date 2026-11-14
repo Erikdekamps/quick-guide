@@ -40,8 +40,12 @@ class Wiki {
     this.page('Rune Mysteries', fixture('rune-mysteries.html'));
     return this;
   }
-  // Which pages the app asked for, in order.
-  asked() { return this.calls.map((c) => c.page); }
+  // Which pages the app asked for, in order. The miniquest list is left out (the app asks for it
+  // next to the quest list); askedAll() has every page.
+  asked() { return this.askedAll().filter((p) => p !== 'Miniquests'); }
+  askedAll() { return this.calls.map((c) => c.page); }
+  // The wiki's miniquest list (not in the standard set, so most tests see quests only).
+  minis() { return this.page('Miniquests', fixture('miniquests.html')); }
   async handle(route) {
     const url = new URL(route.request().url());
     if (url.pathname !== '/api.php') {
@@ -64,10 +68,14 @@ class Wiki {
     });
   }
   // Player data for one name, the way the wiki passes it on from Jagex.
-  // quests: { 'Quest name': 'COMPLETED' | 'STARTED' | 'NOT_STARTED' }, levels: { hiscoreId: level }
+  // quests: { 'Quest name': 'COMPLETED' | 'STARTED' | 'NOT_STARTED' | 'LOCKED' }, levels: { hiscoreId: level }
+  // LOCKED is NOT_STARTED with eligible: false (you do not have what the quest needs).
   setPlayer(name, quests, levels) {
     const q = {};
-    Object.keys(quests || {}).forEach((t, i) => { q[String(100 + i)] = { title: t, status: quests[t] }; });
+    Object.keys(quests || {}).forEach((t, i) => {
+      const s = quests[t];
+      q[String(100 + i)] = { title: t, status: s === 'LOCKED' ? 'NOT_STARTED' : s, eligible: s !== 'LOCKED' };
+    });
     this.player['playerQuests/' + encodeURIComponent(name)] = { json: { quests: q } };
     this.player['index_lite.json?player=' + encodeURIComponent(name)] = { json: { name, skills: Object.keys(levels || {}).map((id) => ({ id: +id, level: levels[id] })) } };
     return this;
@@ -141,9 +149,35 @@ async function openApp(page, expect) {
   await page.goto('/');
   await expect(page.locator('#qcount')).toBeVisible();
 }
+// The settings menu (the cog). It holds the player lookup, sorting, filters and display settings.
+async function openCog(page) {
+  if (await page.locator('#cog').isHidden()) await page.locator('#cog-btn').click();
+}
+async function closeCog(page) {
+  if (await page.locator('#cog').isVisible()) await page.keyboard.press('Escape');
+}
+// Picks a value in a menu of the settings (#sort or #kind), then closes the settings.
+async function choose(page, id, value) {
+  await openCog(page);
+  await page.locator(id).selectOption(value);
+  await closeCog(page);
+}
+// Flips a switch in the settings, like "Hide done quests", then closes the settings.
+async function toggle(page, name) {
+  await openCog(page);
+  await page.getByRole('menuitemcheckbox', { name }).click();
+  await closeCog(page);
+}
+// Looks up a character in the settings. The settings stay open, so you can see the answer.
+async function lookUp(page, name) {
+  await openCog(page);
+  await page.locator('#player-name').fill(name);
+  await page.getByRole('button', { name: 'Look up' }).click();
+}
 // Opens a quest from the list, as a person would.
 async function openQuest(page, expect, name) {
   if (!(await page.locator('#qcount').count())) await openApp(page, expect);
+  await closeCog(page);
   await page.locator('button.q[data-quest="' + name + '"]').click();
   await expect(page.locator('h1.qt')).toHaveText(name);
 }
@@ -172,4 +206,4 @@ async function parsedQuest(page, file, title, live) {
 // Runs a function from the app's scripts in the page (parser.js and quests.js are global).
 function inPage(page, fn, arg) { return page.evaluate(fn, arg); }
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, step, item, part, parsedQuest, inPage };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, step, item, part, parsedQuest, inPage };

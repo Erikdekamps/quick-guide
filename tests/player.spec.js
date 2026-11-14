@@ -1,6 +1,6 @@
 // Player lookup: type your character name, and the app marks the quests you have done
 // and shows which skill levels you still miss. The data comes through the RuneScape Wiki.
-const { test, expect, seed, stored, openApp, openQuest, part } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, part, lookUp, openCog, closeCog } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
@@ -12,14 +12,11 @@ function zezima(wiki) {
     "Cook's Assistant": 'COMPLETED', 'Defender of Varrock': 'COMPLETED', 'Dragon Slayer': 'STARTED', 'Imp Catcher': 'NOT_STARTED'
   }, { 7: 80, 16: 60 });
 }
-async function lookUp(page, name) {
-  await page.locator('#player-name').fill(name);
-  await page.getByRole('button', { name: 'Look up' }).click();
-}
 
 test.describe('looking up a player', () => {
-  test('the start screen asks for your character name', async ({ page }) => {
+  test('the settings ask for your character name', async ({ page }) => {
     await openApp(page, expect);
+    await openCog(page);
     await expect(page.locator('#player-name')).toHaveAttribute('placeholder', 'Your character name');
     await expect(page.getByRole('button', { name: 'Look up' })).toBeVisible();
   });
@@ -52,6 +49,7 @@ test.describe('looking up a player', () => {
   test('Enter works, and spaces around the name are dropped', async ({ page, wiki }) => {
     zezima(wiki);
     await openApp(page, expect);
+    await openCog(page);
     await page.locator('#player-name').fill('  Zezima ');
     await page.locator('#player-name').press('Enter');
     await expect(page.locator('#player')).toContainText('2 quests done');
@@ -100,7 +98,7 @@ test.describe('looking up a player', () => {
     await lookUp(page, 'Zezima');
     await expect(page.locator('#player')).toContainText('2 quests done');
     wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED', 'Defender of Varrock': 'COMPLETED', 'Dragon Slayer': 'COMPLETED' }, { 7: 81 });
-    await page.getByRole('button', { name: 'Update' }).click();
+    await page.getByRole('button', { name: 'Update player' }).click();
     await expect(page.locator('#player')).toContainText('3 quests done');
     await expect(row(page, 'Dragon Slayer').locator('.qs.ok')).toHaveText('✓ Done');
   });
@@ -118,6 +116,7 @@ test.describe('looking up a player', () => {
 
   test('an empty name asks for one', async ({ page, wiki }) => {
     await openApp(page, expect);
+    await openCog(page);
     await page.getByRole('button', { name: 'Look up' }).click();
     await expect(page.locator('#player-msg')).toHaveText('Type your character name first.');
     expect(wiki.playerCalls).toEqual([]);
@@ -145,7 +144,7 @@ test.describe('looking up a player', () => {
     await expect(page.locator('#player')).toContainText('2 quests done');
     wiki.player['playerQuests/Zezima'] = 'network';
     wiki.player['index_lite.json?player=Zezima'] = 'network';
-    await page.getByRole('button', { name: 'Update' }).click();
+    await page.getByRole('button', { name: 'Update player' }).click();
     await expect(page.locator('#toast')).toHaveText('Could not update Zezima. Could not reach the wiki. Check your internet, then try again.');
     await expect(page.locator('#player')).toContainText('2 quests done');
   });
@@ -203,6 +202,7 @@ test.describe('inside a quest', () => {
 
   test('without a player, nothing extra shows', async ({ page }) => {
     await page.getByRole('button', { name: 'All quests' }).click();
+    await openCog(page);
     await page.getByRole('button', { name: 'Forget this player' }).click();
     await openQuest(page, expect, 'While Guthix Sleeps');
     await expect(ov(page, 'skills').locator('.you')).toHaveCount(0);

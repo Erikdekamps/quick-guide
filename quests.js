@@ -1,6 +1,6 @@
 /*!
  * Quick Guide - quests.js
- * The list of all quests, from the wiki's "List of quests" page.
+ * The list of all quests, from the wiki's "List of quests" page, and the miniquests from "Miniquests".
  */
 (function () {
   'use strict';
@@ -8,6 +8,7 @@
   var API = 'https://runescape.wiki/api.php';
   var LIST_PAGE = 'List of quests';
   var ORDER_PAGE = 'Quests/Progression guide';
+  var MINI_PAGE = 'Miniquests';
 
   function err(code, message) { var e = new Error(message || code); e.code = code; return e; }
   function clean(s) { return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
@@ -43,16 +44,18 @@
     if (/member|p2p|^\s*yes/.test(s)) return true;
     return null;
   }
-  function parseList(html) {
+  // mini: the Miniquests page. Only its main table counts (it has a Difficulty column; the
+  // "one-off content" table below it does not), and each entry is marked as a miniquest.
+  function parseList(html, mini) {
     var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
     var out = [], seen = {};
     Array.prototype.forEach.call(doc.querySelectorAll('table'), function (table) {
       var rows = table.querySelectorAll('tr');
-      if (rows.length < 5) return;
+      if (rows.length < (mini ? 2 : 5)) return;
       var cols = Array.prototype.map.call(rows[0].children, colOf);
-      if (cols.indexOf('name') < 0) return;
+      if (cols.indexOf('name') < 0 || (mini && cols.indexOf('dif') < 0)) return;
       for (var r = 1; r < rows.length; r++) {
-        var cells = rows[r].children, q = { t: '' };
+        var cells = rows[r].children, q = mini ? { t: '', mini: true } : { t: '' };
         if (cells.length < 2) continue;
         for (var c = 0; c < cells.length && c < cols.length; c++) {
           var k = cols[c], td = cells[c];
@@ -98,6 +101,18 @@
     });
   }
 
+  function parseMinis(html) { return parseList(html, true); }
+  function loadMinis() {
+    return getJson(pageApi(MINI_PAGE)).then(function (d) {
+      if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the miniquest list.');
+      var text = d.parse.text;
+      if (text && typeof text === 'object') text = text['*'];
+      var quests = parseMinis(String(text || ''));
+      if (!quests.length) throw err('format', 'Could not read the miniquest list on the wiki.');
+      return { at: Date.now(), quests: quests };
+    });
+  }
+
   // ---------- the optimal order ----------
   // The wiki's progression guide is one big table. Each quest row carries the quest's page name;
   // the rows in between ("Train Magic to 10") are skipped.
@@ -131,5 +146,8 @@
     });
   }
 
-  window.QuickGuideData = { LIST_PAGE: LIST_PAGE, ORDER_PAGE: ORDER_PAGE, norm: norm, parseList: parseList, loadList: loadList, parseOrder: parseOrder, loadOrder: loadOrder };
+  window.QuickGuideData = {
+    LIST_PAGE: LIST_PAGE, ORDER_PAGE: ORDER_PAGE, MINI_PAGE: MINI_PAGE, norm: norm,
+    parseList: parseList, loadList: loadList, parseMinis: parseMinis, loadMinis: loadMinis, parseOrder: parseOrder, loadOrder: loadOrder
+  };
 })();

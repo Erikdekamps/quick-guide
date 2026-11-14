@@ -8,7 +8,7 @@
 
   var WIKI = 'https://runescape.wiki';
   var API = WIKI + '/api.php';
-  var VERSION = 3;   // a new number makes saved guides read the wiki again
+  var VERSION = 4;   // a new number makes saved guides read the wiki again
   // The wiki's map render as of Nov 2026. Pages carry the current one; this is only the fallback.
   var MAP_VERSION = '2026-10-12-a';
   // Context for the page being parsed (its title and its map marker data).
@@ -698,10 +698,33 @@
         o.enemies = listItems(td.querySelector('ul, ol') || td, page).map(function (x) { return enemyOf(x.text); });
       } else if (/description/.test(L)) o.description = text(td);
       else {
-        var h = tidy(inline(td, page, { alt: true, noLinks: true })).replace(/\s*&amp;\s*/g, ' &amp; ');
+        var h = leagueOf(td);
+        if (h == null) h = tidy(inline(td, page, { alt: true, noLinks: true })).replace(/\s*&amp;\s*/g, ' &amp; ');
         if (plainOf(h)) o.extra.push({ label: label, html: h });
       }
     });
+  }
+
+  // A League row: each region badge (a picture, a name and a tick) becomes one tag with its name.
+  // Returns null when the cell has no badges.
+  // The innermost badges only: the wrapper around several badges, and the picture inside a region, are skipped.
+  function leagueBadges(root) {
+    return Array.prototype.filter.call(root.querySelectorAll('.league-region, .league-badge[data-league-region]'), function (n) {
+      return !n.querySelector('.league-badge[data-league-region]') && !n.parentNode.closest('.league-region');
+    });
+  }
+  function leagueOf(td) {
+    if (!leagueBadges(td).length) return null;
+    var c = td.cloneNode(true);
+    leagueBadges(c).forEach(function (n) {
+      var img = n.querySelector('img[alt]'), nm = n.querySelector('.league-name');
+      var name = clean((nm ? nm.textContent : img ? img.getAttribute('alt') : n.textContent).replace(/\u2713/g, ''));
+      n.parentNode.replaceChild(c.ownerDocument.createTextNode('\u0001' + name + '\u0002'), n);
+    });
+    return esc(clean(c.textContent))
+      .replace(/\u0001([^\u0002]*)\u0002/g, '<span class="reg">$1</span>')
+      .replace(/<\/span>\s*(&amp;|,)?\s*<span class="reg">/g, '</span> <span class="reg">')
+      .replace(/\s+([.,;:!?])/g, '$1');
   }
 
   // ---------- walking the page ----------
@@ -1013,14 +1036,15 @@
     'Woodcutting', 'Fletching', 'Fishing', 'Firemaking', 'Crafting', 'Smithing', 'Mining', 'Herblore', 'Agility', 'Thieving',
     'Slayer', 'Farming', 'Runecrafting', 'Hunter', 'Construction', 'Summoning', 'Dungeoneering', 'Divination', 'Invention',
     'Archaeology', 'Necromancy'];
-  // "Rune Mysteries" and "rune mysteries!" are the same quest.
+  // "Rune Mysteries" and "rune mysteries!" are the same quest. So are "Bar Crawl" and "Bar Crawl (miniquest)".
   function normName(s) {
-    return clean(s).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
+    return clean(s).toLowerCase().replace(/\((quest|miniquest|saga)\)/g, ' ').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
   }
-  function playerResult(name, source, quests, levels) {
+  // locked: quests you have not started and do not have the needs for ({ normName: 1 }).
+  function playerResult(name, source, quests, levels, locked) {
     var done = 0, started = 0;
     Object.keys(quests).forEach(function (k) { if (quests[k] === 2) done++; else if (quests[k] === 1) started++; });
-    return { name: name, source: source, at: new Date().toISOString(), quests: quests, levels: levels, done: done, started: started };
+    return { name: name, source: source, at: new Date().toISOString(), quests: quests, levels: levels, locked: locked || {}, done: done, started: started };
   }
   function fromRuneMetrics(name) {
     var enc = encodeURIComponent(name), fails = [];
@@ -1029,12 +1053,14 @@
       soft(getJson(WIKI + '/cors/m=adventurers-log/api/v1/playerQuests/' + enc)),
       soft(getJson(WIKI + '/cors/m=hiscore/index_lite.json?player=' + enc))
     ]).then(function (res) {
-      var quests = {}, levels = {}, got = false;
+      var quests = {}, levels = {}, locked = {}, got = false;
       var ql = res[0] && res[0].quests;
       (Array.isArray(ql) ? ql : ql && typeof ql === 'object' ? Object.keys(ql).map(function (k) { return ql[k]; }) : []).forEach(function (it) {
         if (!it || !it.title) return;
         got = true;
-        quests[normName(it.title)] = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
+        var k = normName(it.title), st = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
+        quests[k] = st;
+        if (st === 0 && it.eligible === false) locked[k] = 1;
       });
       (res[1] && Array.isArray(res[1].skills) ? res[1].skills : []).forEach(function (it) {
         var nm = it && HISCORE_SKILLS[it.id];
@@ -1047,7 +1073,7 @@
         e.code = fails.length === 2 ? (fails[0] && fails[0].code === 'timeout' ? 'timeout' : 'network') : 'nodata';
         throw e;
       }
-      return playerResult(name, 'RuneMetrics', quests, levels);
+      return playerResult(name, 'RuneMetrics', quests, levels, locked);
     });
   }
   // Quests and levels of one player: Jagex's RuneMetrics data, passed on by the wiki.

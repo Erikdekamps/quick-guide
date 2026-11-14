@@ -31,10 +31,8 @@ test.describe('title band, progress and tabs', () => {
   });
 
   test('one step: "1 / 1 step"', async ({ page, wiki }) => {
-    wiki.page('Tiny quest/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>');
-    await openApp(page, expect);
-    await page.locator('#quest-link').fill('tiny quest');
-    await page.locator('#quest-link').press('Enter');
+    wiki.page('Imp Catcher/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>');
+    await openQuest(page, expect, 'Imp Catcher');
     await openTab(page, 'steps');
     await page.locator('#next-btn').click();
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 1 step');
@@ -113,11 +111,13 @@ test.describe('menus', () => {
   test('the settings menu: in a quest, and on the start screen', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', 'Show done steps', 'Hide done quests', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Quest list', 'Display']);
+    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', /^Sort by/, /^Show/, 'Hide done quests', 'Hide locked quests', 'Show done steps', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog #player-name')).toBeVisible();
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All quests' }).click();
     await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText(['Show done steps', 'Hide done quests', /Text size\s*14/, 'Update quest list']);
+    await expect(page.locator('#cog .mi')).toHaveText([/^Sort by/, /^Show/, 'Hide done quests', 'Hide locked quests', 'Show done steps', /Text size\s*14/, 'Update quest list']);
     await expect(page.locator('#cog')).not.toContainText('Compact');
   });
 
@@ -293,7 +293,7 @@ test.describe('saved guides from older versions', () => {
     await seed(page, { ['quest.' + WGS]: q, last: WGS, list: { at: Date.now(), quests: [] } });
     await page.goto('/');
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
-    await expect.poll(async () => (await stored(page, 'quest.' + WGS)).version).toBe(3);
+    await expect.poll(async () => (await stored(page, 'quest.' + WGS)).version).toBe(4);
     expect(wiki.asked()).toEqual([WGS]);
     await expect(toast(page)).toBeHidden();
   });

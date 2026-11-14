@@ -26,6 +26,7 @@ test('the wiki passes on quests and levels to any web page', async ({ page }) =>
 test('looking up a player marks quests in the list', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
+  await page.locator('#cog-btn').click();
   await page.locator('#player-name').fill(NAME);
   await page.getByRole('button', { name: 'Look up' }).click();
   await expect(page.locator('#player')).toContainText(/\d+ quests done/);
@@ -34,4 +35,12 @@ test('looking up a player marks quests in the list', async ({ page }) => {
   const done = await page.locator('.q.done').count();
   expect(done).toBeGreaterThan(total * 0.5);
   await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveClass(/\bdone\b/);
+});
+
+test('the game says which quests are locked', async ({ page }) => {
+  await page.goto('/');
+  const p = await page.evaluate((n) => window.QuickGuide.loadPlayer(n), NAME);
+  expect(typeof p.locked).toBe('object');
+  // every locked quest is one that is not started
+  for (const k of Object.keys(p.locked)) expect(p.quests[k]).toBe(0);
 });

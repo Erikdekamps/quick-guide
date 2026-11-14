@@ -4,12 +4,13 @@
  *
  * What is kept in localStorage (all keys start with "qg1."):
  *   list            every quest from the wiki's "List of quests" page: { at, quests: [...] }
+ *   minis           every miniquest from the wiki's "Miniquests" page: { at, quests: [...] }
  *   meta            one small entry per opened quest: { "<page>": { title, done, total, at } }
  *   quest.<page>    the full parsed guide of one quest (JSON)
  *   prog.<page>     your ticks for that quest
  *   settings, last  display settings, and the quest that was open last
  *   order           the wiki's optimal quest order: { at, order: [quest names] }
- *   player          the character you looked up: { name, at, quests, levels, done, started }
+ *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -30,6 +31,7 @@
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
+  var KINDS = [['all', 'Quests + miniquests'], ['quest', 'Quests only'], ['mini', 'Miniquests only']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
 
@@ -119,6 +121,7 @@
     scroll: svg('<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>'),
     type: svg('<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>'),
     minus: svg('<path d="M5 12h14"/>'),
+    lock: svg('<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'),
     x: svg('<path d="M18 6 6 18"/><path d="m6 6 12 12"/>'),
     plus: svg('<path d="M5 12h14"/><path d="M12 5v14"/>'),
     skills: svg('<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>'),
@@ -135,6 +138,7 @@
   var saved = sget('settings') || {};
   var savedList = sget('list');
   var savedOrder = sget('order');
+  var savedMinis = sget('minis');
   var savedPlayer = sget('player');
   if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
@@ -144,12 +148,14 @@
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
     set: {
-      showDone: !!saved.showDone, hideDone: !!saved.hideDone, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
-      sort: pick(SORTS, saved.sort, 'name')
+      showDone: !!saved.showDone, hideDone: !!saved.hideDone, hideLocked: !!saved.hideLocked, fontSize: clampFont(saved.fontSize || FONT_DEFAULT),
+      sort: pick(SORTS, saved.sort, 'name'), kind: pick(KINDS, saved.kind, 'all')
     },
     list: savedList && Array.isArray(savedList.quests) ? savedList : null,
     listBusy: false,
     listError: '',
+    minis: savedMinis && Array.isArray(savedMinis.quests) ? savedMinis : null,   // the miniquests
+    minisBusy: false,
     order: savedOrder && Array.isArray(savedOrder.order) ? savedOrder : null,   // the wiki's optimal order
     orderBusy: false,
     orderError: '',
@@ -346,16 +352,9 @@
   }
 
   // ---------- loading ----------
-  function inputError(code) {
-    if (code === 'empty') return 'Type a quest name or paste a link first.';
-    if (code === 'osrs') return 'That is the Old School wiki. This app reads the RuneScape 3 wiki.';
-    if (code === 'not-wiki') return 'That is not a RuneScape Wiki link.';
-    if (code === 'no-page') return 'That link does not point to a wiki page.';
-    return 'That link does not look right.';
-  }
   function loadError(e) {
     var c = e && e.code;
-    if (c === 'missingtitle') return 'The wiki has no page with that name. Check the link.';
+    if (c === 'missingtitle') return 'The wiki has no page for this quest yet.';
     if (c === 'invalidtitle') return 'That is not a valid wiki page name.';
     if (c === 'timeout') return 'The wiki took too long to answer. Try again.';
     if (c === 'http' || c === 'format') return (e.message || 'The wiki had a problem.') + ' Try again in a moment.';
@@ -376,12 +375,6 @@
       S.error = loadError(e);
       renderStart();
     });
-  }
-  function startLoad(value) {
-    var t = QG.titleFromInput(value);
-    S.input = value;
-    if (t.error) { S.error = inputError(t.error); renderStart(); return; }
-    loadGuide(t);
   }
   // Opens a quest from the list: from storage if it is saved, else from the wiki.
   function openTitle(title) {
@@ -434,7 +427,9 @@
     S.listError = '';
     if (!silent) drawList();
     if (say) toast('Updating the quest list\u2026', 0);
-    D.loadList().then(function (l) {
+    var asked = D.loadList();
+    fetchMinis();
+    asked.then(function (l) {
       S.listBusy = false;
       S.list = l;
       S.ranks = null;
@@ -448,6 +443,26 @@
       if (say) toast('Could not update the quest list. ' + loadError(e), 5000);
     });
   }
+
+  // The miniquests. A failure says nothing: the quests still show, and the app asks again next time.
+  function fetchMinis() {
+    if (S.minisBusy) return;
+    S.minisBusy = true;
+    D.loadMinis().then(function (l) {
+      S.minisBusy = false;
+      S.minis = l;
+      sset('minis', l);
+      drawList();
+    }, function () { S.minisBusy = false; });
+  }
+  // Quests and miniquests together. A miniquest that is also in the quest list shows once.
+  function allQuests() {
+    var out = ((S.list && S.list.quests) || []).slice(), seen = {};
+    out.forEach(function (q) { seen[D.norm(q.t)] = 1; });
+    ((S.minis && S.minis.quests) || []).forEach(function (q) { if (!seen[D.norm(q.t)]) { seen[D.norm(q.t)] = 1; out.push(q); } });
+    return out;
+  }
+  function shortName(t) { return String(t).replace(/\s*\(miniquest\)\s*$/i, ''); }
 
   // The wiki's optimal quest order. With silent, a failure keeps what we have and says nothing.
   function fetchOrder(silent) {
@@ -484,13 +499,25 @@
     return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
       icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
   }
+  function selectHtml(id, label, list, value) {
+    return '<div class="mi mrow"><label class="ml" for="' + id + '">' + label + '</label><select class="sel" id="' + id + '">' + list.map(function (s) {
+      return '<option value="' + s[0] + '"' + (value === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
+    }).join('') + '</select></div>';
+  }
+  // The settings: the same everywhere in the app. Your player, how the quest list is sorted and
+  // filtered, and how things look.
   function cogHtml() {
     return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
-      '<div class="menu" id="cog" hidden>' +
+      '<div class="menu wide" id="cog" hidden>' +
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
-      '<p class="mh">Display</p>' +
-      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
+      '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
+      '<p class="mh">Quest list</p>' +
+      selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
+      selectHtml('kind', 'Show', KINDS, S.set.kind) +
       toggleHtml('hidedone', I.check, 'Hide done quests', S.set.hideDone) +
+      toggleHtml('hidelocked', I.lock, 'Hide locked quests', S.set.hideLocked) +
+      '<hr><p class="mh">Display</p>' +
+      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
@@ -515,11 +542,14 @@
     try { cfg = new URL('appconfig.json', location.href).href; } catch (e) { return ''; }
     return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
   }
-  function isLink(v) { return /\//.test(v) || /^[\w-]+(\.[\w-]+)+$/.test(v) || /^https?:/i.test(v); }
   // ---------- player lookup ----------
   // 2 = the game says this quest is done, 1 = started, 0 = not started or no player.
   function playerStatus(title) {
     return S.player ? (S.player.quests[QG.normName(title)] || 0) : 0;
+  }
+  // A quest the game says you cannot start yet: you miss a quest, a level or something else it needs.
+  function playerLocked(title) {
+    return !!(S.player && S.player.locked && S.player.locked[QG.normName(title)]);
   }
   function playerLevel(skill) {
     var v = S.player && S.player.levels ? S.player.levels[String(skill).toLowerCase()] : null;
@@ -535,7 +565,7 @@
     if (S.player) {
       return '<div class="player" id="player"><span class="pn"><b>' + esc(S.player.name) + '</b> \u00b7 ' +
         plural(S.player.done || 0, 'quest', 'quests') + ' done</span>' +
-        '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
+        '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update player" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
         (S.playerBusy ? I.loader : I.refresh) + '</button>' +
         '<button class="ib xs" type="button" data-act="player-clear" aria-label="Forget this player" title="Forget this player">' + I.x + '</button></div>';
     }
@@ -549,7 +579,19 @@
   }
   function drawPlayer() {
     var el = byId('parea');
-    if (el && S.view === 'start') el.innerHTML = playerHtml();
+    if (el) el.innerHTML = playerHtml();
+  }
+  // A new or forgotten player changes the list, or the quest you are in (your levels, the quest tree).
+  // The settings stay open, and the page keeps its place.
+  function playerChanged() {
+    drawPlayer();
+    drawList();
+    if (S.view !== 'quest') return;
+    var cog = byId('cog'), open = cog && !cog.hidden, main = byId('main'), top = main ? main.scrollTop : 0;
+    renderQuest();
+    if (open) toggleMenu('cog');
+    main = byId('main');
+    if (main) main.scrollTop = top;
   }
   // Looks a player up. With quiet, a failure keeps the old data and says nothing.
   function lookUpPlayer(name, quiet) {
@@ -566,8 +608,7 @@
       S.playerInput = '';
       S.player = p;
       sset('player', p);
-      drawPlayer();
-      drawList();
+      playerChanged();
     }, function (e) {
       S.playerBusy = false;
       S.playerMsg = had ? '' : playerError(e, name);
@@ -580,8 +621,7 @@
     S.playerMsg = '';
     S.playerInput = '';
     sdel('player');
-    drawPlayer();
-    drawList();
+    playerChanged();
   }
 
   // Everything the list needs to know about one quest.
@@ -589,7 +629,8 @@
     var m = byTitle[D.norm(q.t)] || null, ps = playerStatus(q.t);
     // Done when you ticked every step, or when the game says so.
     var isDone = (!!m && m.total > 0 && m.done >= m.total) || ps === 2;
-    return { q: q, m: m, done: isDone, started: !isDone && ((!!m && m.done > 0) || ps === 1) };
+    var started = !isDone && ((!!m && m.done > 0) || ps === 1);
+    return { q: q, m: m, done: isDone, started: started, locked: !isDone && !started && playerLocked(q.t) };
   }
   function groupOf(q, sort) {
     if (sort === 'dif') return q.dif || 'Other';
@@ -618,6 +659,7 @@
   }
   function questRow(x) {
     var q = x.q, bits = [], status = '';
+    if (q.mini) bits.push('Miniquest');
     if (S.set.sort === 'opt' && orderRank(q)) bits.push('#' + orderRank(q));
     if (q.dif) bits.push(esc(q.dif));
     if (q.len) bits.push(esc(q.len));
@@ -626,16 +668,18 @@
     if (x.m && x.m.total && x.m.done > 0) status = '<span class="qs' + (x.done ? ' ok' : '') + '">' + (x.done ? '\u2713 ' : '') + x.m.done + ' / ' + x.m.total + '</span>';
     else if (x.done) status = '<span class="qs ok">\u2713 Done</span>';
     else if (x.started) status = '<span class="qs">Started</span>';
+    else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
     var bar = x.started && x.m && x.m.total && x.m.done > 0 ?
       '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
-    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : '') + '" type="button" data-quest="' + esc(q.t) + '">' +
-      '<span class="q1"><b>' + esc(q.t) + '</b>' + status + '</span>' +
+    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
+      (x.locked ? ' title="You do not have what this quest needs yet"' : '') + '>' +
+      '<span class="q1"><b>' + esc(shortName(q.t)) + '</b>' + status + '</span>' +
       (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
   }
   function matchQuests(v) {
     var n = String(v || '').toLowerCase().trim();
     if (!S.list || !n) return [];
-    var hits = S.list.quests.filter(function (q) { return q.t.toLowerCase().indexOf(n) >= 0; });
+    var hits = allQuests().filter(function (q) { return q.t.toLowerCase().indexOf(n) >= 0; });
     function score(q) { var t = q.t.toLowerCase(); return t === n ? 0 : sortKey(q.t).indexOf(n) === 0 ? 1 : 2; }
     return hits.sort(function (a, b) { return score(a) - score(b); });
   }
@@ -647,7 +691,7 @@
     }
     var m = metaAll(), byTitle = {};
     Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = m[k]; });
-    var v = isLink(S.input.trim()) ? '' : S.input.toLowerCase().trim();
+    var v = S.input.toLowerCase().trim();
     var sort = S.set.sort;
     if (sort === 'opt' && !S.order) {
       if (!S.orderBusy && !S.orderError) fetchOrder(false);
@@ -655,25 +699,39 @@
       return '<p class="err pad" role="alert">' + esc(S.orderError) + '</p>' +
         '<p class="pad"><button class="btn" type="button" data-act="order-refresh">Try again</button></p>';
     }
-    var items = S.list.quests.map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
-      return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
-    });
-    // "Hide done quests": not while you search, so a search still finds everything.
-    var hidden = 0;
+    var all = allQuests(), kind = S.set.kind;
+    var items = all.filter(function (q) { return kind === 'all' || (kind === 'mini') === !!q.mini; })
+      .map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
+        return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
+      });
+    // "Hide done quests" and "Hide locked quests": not while you search, so a search still finds everything.
+    var hidden = 0, hiddenLocked = 0;
     if (S.set.hideDone && !v) {
       hidden = items.filter(function (x) { return x.done; }).length;
       items = items.filter(function (x) { return !x.done; });
+    }
+    if (S.set.hideLocked && !v) {
+      hiddenLocked = items.filter(function (x) { return x.locked; }).length;
+      items = items.filter(function (x) { return !x.locked; });
     }
     items = sortQuests(items, sort);
     // Quests in progress go first, in their own group.
     items = items.filter(function (x) { return x.started; }).concat(items.filter(function (x) { return !x.started; }));
     function gOf(x) { return x.started ? 'In progress' : groupOf(x.q, sort); }
-    var h = '<p class="qmeta" id="qcount">' + (items.length === S.list.quests.length ? plural(items.length, 'quest', 'quests') :
-      items.length + ' of ' + plural(S.list.quests.length, 'quest', 'quests')) +
+    // How the list is set up (all of it is in the settings).
+    var how = [SORTS.filter(function (x) { return x[0] === sort; })[0][1]];
+    if (kind !== 'all') how.push(KINDS.filter(function (x) { return x[0] === kind; })[0][1]);
+    if (S.player) how.push(esc(S.player.name));
+    var h = '<p class="qmeta"><span id="qcount">' + (items.length === all.length ? plural(items.length, 'quest', 'quests') :
+      items.length + ' of ' + plural(all.length, 'quest', 'quests')) +
       (hidden ? ' \u00b7 ' + hidden + ' done hidden' : '') +
-      (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</p>';
-    if (!items.length && hidden) return h + '<p class="empty">All quests are done. Turn off \u201cHide done quests\u201d in the settings to see them.</p>';
-    if (!items.length) return h + '<p class="empty">No quests match. Press Open to look for \u201c' + esc(S.input.trim()) + '\u201d on the wiki.</p>';
+      (hiddenLocked ? ' \u00b7 ' + hiddenLocked + ' locked hidden' : '') +
+      (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</span>' +
+      '<span class="how"> \u00b7 ' + how.join(' \u00b7 ') + '</span></p>';
+    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide done quests\u201d in the settings to see them.</p>';
+    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide done quests\u201d or \u201cHide locked quests\u201d in the settings to see them.</p>';
+    if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
+    if (!items.length) return h + '<p class="empty">No quests here.</p>';
     var group = null, open = false;
     items.forEach(function (x) {
       var g = gOf(x);
@@ -702,18 +760,14 @@
       '<header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
       '<main class="scroll" id="main">' +
       '<form class="find" id="load-form" novalidate>' +
-      '<label class="vh" for="quest-link">Search quests or paste a wiki link</label>' +
+      '<label class="vh" for="quest-link">Search quests</label>' +
       '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text"' +
-      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search quests or paste a wiki link" value="' + esc(S.input) + '"' +
+      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search quests" value="' + esc(S.input) + '"' +
       (S.error ? ' aria-invalid="true" aria-describedby="load-err"' : '') + (S.loading ? ' disabled' : '') + '>' +
       '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
       (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
       '</form>' +
-      '<div class="filters">' +
-      '<select class="sel" id="sort" aria-label="Sort by">' + SORTS.map(function (s) {
-        return '<option value="' + s[0] + '"' + (S.set.sort === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
-      }).join('') + '</select></div>' +
-      '<div id="parea">' + playerHtml() + '</div>' +
+
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
       '<div id="qarea">' + (S.loading ? '' : listHtml()) + '</div>' +
       alt1Html() +
@@ -868,6 +922,23 @@
     return h;
   }
   function liHtml(h) { return '<li>' + h + '</li>'; }
+  // A quest name you can click to open that quest here, in the app.
+  function questBtn(title, label) {
+    return '<button class="qlink" type="button" data-quest="' + esc(title) + '" title="Open this quest">' + esc(label || title) + '</button>';
+  }
+  // Wiki links to quests become buttons that open the quest in the app.
+  function questLinks(html) {
+    var d = scratch.createElement('div');
+    d.innerHTML = String(html || '');
+    arr(d.querySelectorAll('a')).forEach(function (a) {
+      var name = a.textContent.replace(/\s+/g, ' ').trim();
+      if (!name) return;
+      var w = scratch.createElement('span');
+      w.innerHTML = questBtn(name);
+      a.parentNode.replaceChild(w.firstChild, a);
+    });
+    return d.innerHTML;
+  }
   function rewardLi(it) {
     return '<li>' + it.html + (it.subs || []).map(function (s) { return '<span class="alt">' + s + '</span>'; }).join('') + '</li>';
   }
@@ -902,7 +973,7 @@
         '<ul class="tree">' + o.questReqs.map(function (e) {
           var have = playerStatus(e.text) === 2;
           return '<li' + (have ? ' class="got"' : '') + ' style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' +
-            (have ? '<span class="tk">\u2713</span> ' : '') + esc(e.text) + '</li>';
+            (have ? '<span class="tk">\u2713</span> ' : '') + questBtn(e.text) + '</li>';
         }).join('') + '</ul>') + '</div>';
     } else if (kv.length) {
       h += '<h2 class="bh">Quests</h2><p class="para">No quests needed first.</p>';
@@ -953,7 +1024,7 @@
     if (q.achievements.length) more += acc('', 'Achievements', String(q.achievements.length), '<ul class="plain">' + q.achievements.map(liHtml).join('') + '</ul>');
     if (q.requiredFor.length) {
       more += acc('', 'Needed for later quests', forSummary(q.requiredFor), q.requiredFor.map(function (g) {
-        return '<p class="why">' + esc(g.label) + ':</p><ul class="plain">' + g.items.map(liHtml).join('') + '</ul>';
+        return '<p class="why">' + esc(g.label) + ':</p><ul class="plain">' + g.items.map(function (x) { return liHtml(questLinks(x)); }).join('') + '</ul>';
       }).join(''));
     }
     if (more) h += '<div class="blk" style="margin-top:14px">' + more + '</div>';
@@ -1239,6 +1310,13 @@
     if (mi) mi.setAttribute('aria-checked', S.set.hideDone ? 'true' : 'false');
     drawList();
   }
+  function toggleHideLocked() {
+    S.set.hideLocked = !S.set.hideLocked;
+    saveSettings();
+    var mi = document.querySelector('.mi[data-act="hidelocked"]');
+    if (mi) mi.setAttribute('aria-checked', S.set.hideLocked ? 'true' : 'false');
+    drawList();
+  }
   function switchTab(tab) {
     tab = validTab(tab);
     if (tab === S.prog.tab) return;
@@ -1264,10 +1342,10 @@
     if (ev.target.id !== 'load-form') return;
     var v = ev.target.elements.link.value.trim();
     S.input = v;
-    if (!v) { S.error = inputError('empty'); renderStart(); return; }
-    if (isLink(v)) { startLoad(v); return; }
+    if (!v) { S.error = 'Type a quest name first.'; renderStart(); return; }
     var hits = matchQuests(v);
-    if (hits.length) openTitle(hits[0].t); else startLoad(v);
+    if (hits.length) openTitle(hits[0].t);
+    else { S.error = 'No quest matches \u201c' + v + '\u201d.'; renderStart(); }
   });
   app.addEventListener('input', function (ev) {
     if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
@@ -1284,6 +1362,7 @@
   app.addEventListener('change', function (ev) {
     var t = ev.target;
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
+    if (t.id === 'kind') { S.set.kind = pick(KINDS, t.value, 'all'); saveSettings(); drawList(); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-icb')) {
       var id = t.getAttribute('data-icb');
@@ -1314,6 +1393,7 @@
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
       else if (act === 'showdone') toggleShowDone();
       else if (act === 'hidedone') toggleHideDone();
+      else if (act === 'hidelocked') toggleHideLocked();
       else if (act === 'order-refresh') { S.orderError = ''; drawList(); }
       else if (act === 'change') { S.error = ''; S.input = ''; renderStart(); }
       else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
@@ -1354,7 +1434,10 @@
     if (d && d.tagName === 'DETAILS' && d.open) startMaps();
   }, true);
   document.addEventListener('click', function (ev) {
-    if (!ev.target.closest('.menu, [data-menu]')) closeMenus();
+    // Look at where the click was, not where the target is now: a button in a menu may be redrawn by the click.
+    var path = ev.composedPath ? ev.composedPath() : [ev.target];
+    var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
+    if (!inside) closeMenus();
   });
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenus(); });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
@@ -1384,6 +1467,7 @@
   if (S.view === 'quest' && !S.list) fetchList(true);
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
   if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
+  if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
   // Keep the player fresh too: quietly, once a day.
   if (S.player && Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE) lookUpPlayer(S.player.name, true);
 })();

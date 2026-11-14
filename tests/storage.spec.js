@@ -1,5 +1,5 @@
 // What the app saves on your computer, and how it copes with old, broken, blocked or full storage.
-const { test, expect, seed, stored, storedKeys, openApp, openQuest, openTab, step, item, part, parsedQuest } = require('./support/app');
+const { test, expect, seed, stored, storedKeys, openApp, openQuest, openTab, step, item, part, parsedQuest, openCog } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
@@ -21,11 +21,11 @@ test('what is saved while you use a quest', async ({ page }) => {
   });
   expect((await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 1, total: 12 });
   expect(await stored(page, 'last')).toBe(WGS);
-  // settings are saved once you change one, and only these three
+  // settings are saved once you change one, and only these
   expect(await stored(page, 'settings')).toBeNull();
   await page.locator('#cog-btn').click();
   await page.getByRole('button', { name: 'Bigger text' }).click();
-  expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, fontSize: 16, sort: 'name' });
+  expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, fontSize: 16, sort: 'name', kind: 'all' });
   expect(await storedKeys(page)).toEqual(['last', 'list', 'meta', 'prog.' + WGS, 'quest.' + WGS, 'settings']);
 });
 
@@ -53,6 +53,7 @@ test('a "Bring" line saved by the first version still shows', async ({ page }) =
 test('broken saved player data is ignored', async ({ page }) => {
   await seed(page, { player: { name: 'Zezima' } });   // no quests
   await openApp(page, expect);
+  await openCog(page);
   await expect(page.locator('#player-name')).toBeVisible();
   expect(page.errors).toEqual([]);
 });

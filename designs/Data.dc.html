@@ -214,6 +214,11 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .mi.danger, .mi.danger > .i { color: var(--red); }
 .mrow { cursor: default; gap: 8px; }
 .fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.menu.wide { width: 286px; }
+.menu .sel { width: 150px; margin-left: 0; }
+.menu .player { margin: 2px 8px 6px; }
+.menu .player .inp { height: 30px; }
+.qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
 /* an on/off setting: a tick box, like the game's settings */
@@ -310,7 +315,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   flex: 1;
   min-height: 0;
   margin-top: 6px;
-  overflow-y: auto;
+  overflow-y: scroll;   /* always there, so nothing jumps when the content grows */
   overflow-x: hidden;
   padding-bottom: 18px;
   overflow-wrap: anywhere;
@@ -548,7 +553,7 @@ kbd {
 .leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
 .leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
 .leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(#3a3027, #221c16); color: var(--title); border-bottom-color: #4a3d2b; }
-.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); }
+.leaflet-bar a:hover { background: linear-gradient(#4a3d2f, #2c241c); text-decoration: none; }
 .leaflet-bar a.leaflet-disabled { background: #1b1713; color: #6b5d4a; }
 .leaflet-control-attribution { background: rgba(14, 11, 9, .85) !important; color: var(--muted); }
 .leaflet-control-attribution a { color: var(--link); }
@@ -688,7 +693,6 @@ kbd {
 .find { margin: 10px 10px 0; }
 .pad { margin-left: 10px; margin-right: 10px; }
 .row-f { display: flex; gap: 6px; }
-.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 10px 0; }
 .inp, .sel {
   background: var(--inset);
   border: 1px solid var(--bronze-dk);
@@ -766,6 +770,18 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .chip.low .you { color: var(--red); }
 .tree li.got { color: var(--faint); }
 .tree .tk { color: var(--green); }
+/* a quest the game says you cannot start yet: grayed out */
+.q.locked { opacity: .55; }
+.q.locked .q1 b { color: var(--muted); }
+.qs.lk { display: inline-flex; align-items: center; gap: 3px; }
+.qs.lk .i { width: 11px; height: 11px; }
+/* a quest name that opens that quest here */
+.qlink { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(243, 197, 101, .35); text-underline-offset: 2px; }
+.qlink:hover { color: var(--gold); text-decoration-color: currentColor; }
+.qlink:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+.tree li.got .qlink { color: var(--faint); }
+/* a League region */
+.reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
 /* phones: 16px inputs, so the page does not zoom in when you type */
 @media (pointer: coarse) { .inp { font-size: 16px; } }
 
@@ -920,8 +936,24 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 <div style="padding-left: 2ch"><span class="k">"qg1.settings"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"showDone"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"hideDone"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"hideLocked"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"fontSize"</span>: <span class="v">14</span>,</div>
-<div style="padding-left: 4ch"><span class="k">"sort"</span>: "opt"</div>
+<div style="padding-left: 4ch"><span class="k">"sort"</span>: "opt",</div>
+<div style="padding-left: 4ch"><span class="k">"kind"</span>: "all"</div>
+<div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"qg1.minis"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"at"</span>: <span class="v">1794650000000</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"quests"</span>: [</div>
+<div style="padding-left: 6ch">{</div>
+<div style="padding-left: 8ch"><span class="k">"t"</span>: "Bar Crawl (miniquest)",</div>
+<div style="padding-left: 8ch"><span class="k">"mini"</span>: <span class="v">true</span>,</div>
+<div style="padding-left: 8ch"><span class="k">"m"</span>: <span class="v">true</span>,</div>
+<div style="padding-left: 8ch"><span class="k">"len"</span>: "Short to Medium",</div>
+<div style="padding-left: 8ch"><span class="k">"dif"</span>: "Intermediate",</div>
+<div style="padding-left: 8ch"><span class="k">"qp"</span>: <span class="v">0</span></div>
+<div style="padding-left: 6ch">},</div>
+<div style="padding-left: 6ch">…</div>
+<div style="padding-left: 4ch">]</div>
 <div style="padding-left: 2ch">},</div>
 <div style="padding-left: 2ch"><span class="k">"qg1.order"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"at"</span>: <span class="v">1794650000000</span>,</div>
@@ -932,15 +964,16 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 <div style="padding-left: 4ch"><span class="k">"at"</span>: "2026-11-14T12:00:00.000Z",</div>
 <div style="padding-left: 4ch"><span class="k">"quests"</span>: { <span class="k">"cooksassistant"</span>: <span class="v">2</span>, <span class="k">"demonslayer"</span>: <span class="v">1</span> },</div>
 <div style="padding-left: 4ch"><span class="k">"levels"</span>: { <span class="k">"magic"</span>: <span class="v">80</span>, <span class="k">"herblore"</span>: <span class="v">66</span> },</div>
+<div style="padding-left: 4ch"><span class="k">"locked"</span>: { <span class="k">"deserttreasure"</span>: <span class="v">1</span> },</div>
 <div style="padding-left: 4ch"><span class="k">"done"</span>: <span class="v">7</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"started"</span>: <span class="v">1</span></div>
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide done quests, text size and sort order.</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide done quests, hide locked quests, text size, sort order, and quests or miniquests.</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":3270}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":3643}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};

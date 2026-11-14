@@ -66,10 +66,38 @@ test('wiki map tiles load', async ({ page }) => {
 test('the optimal order is read from the wiki and matches the quest list', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
+  // The guide is about quests, so leave the miniquests out.
+  await page.locator('#cog-btn').click();
+  await page.locator('#kind').selectOption('quest');
   await page.locator('#sort').selectOption('opt');
+  await page.keyboard.press('Escape');
   await expect(page.locator('.ghb[data-group="Optimal order"]')).toBeVisible();
   const inGuide = parseInt(await page.locator('.ghb[data-group="Optimal order"] .c').textContent(), 10);
   const total = parseInt(await page.locator('#qcount').textContent(), 10);
   expect(inGuide).toBeGreaterThan(total * 0.8);
   await expect(page.locator('.q .q2').first()).toContainText('#1');
+});
+
+test('miniquests are read from the wiki, from the main table only', async ({ page }) => {
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/quests.js' });
+  const l = await page.evaluate(() => window.QuickGuideData.loadMinis());
+  expect(l.quests.length).toBeGreaterThan(40);
+  expect(l.quests.length).toBeLessThan(80);
+  const bar = l.quests.find((q) => q.t === 'Bar Crawl (miniquest)');
+  expect(bar).toMatchObject({ mini: true, m: true });
+  expect(bar.dif).toBeTruthy();
+  // the "one-off content" table is left out
+  expect(l.quests.find((q) => q.t === 'Ali the Trader')).toBeUndefined();
+});
+
+test('League rows show region names', async ({ page }) => {
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const q = await page.evaluate(() => window.QuickGuide.load({ title: 'While Guthix Sleeps/Quick guide', base: 'While Guthix Sleeps' }));
+  const row = q.overview.extra.find((x) => /league region/i.test(x.label));
+  // If the wiki drops the League rows, there is nothing to check.
+  if (row) {
+    expect(row.html).toMatch(/^(<span class="reg">[A-Z][a-z]+<\/span> ?)+$/);
+  }
 });

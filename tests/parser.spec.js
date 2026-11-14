@@ -64,7 +64,7 @@ test.describe('a full quick guide', () => {
 
   test('page facts', () => {
     expect(q).toMatchObject({
-      version: 3, page: 'While Guthix Sleeps/Quick guide', title: 'While Guthix Sleeps',
+      version: 4, page: 'While Guthix Sleeps/Quick guide', title: 'While Guthix Sleeps',
       source: W + 'While_Guthix_Sleeps/Quick_guide', notQuickGuide: false, mapVersion: '2026-11-01-b'
     });
     expect(Date.parse(q.fetchedAt)).toBeGreaterThan(0);
@@ -93,7 +93,12 @@ test.describe('a full quick guide', () => {
       { text: '2 Tormented demons (level 119; your stats are boosted)', name: 'Tormented demons', count: 2, level: '119', note: 'your stats are boosted' }
     ]);
     // Rows the app has no place for: pictures become their names, and links are dropped.
-    expect(o.extra).toEqual([{ label: 'Ironman concerns', html: 'Bring a Spade spade &amp; logs.' }]);
+    // League regions are read once each, from the badge, and shown as tags.
+    expect(o.extra).toEqual([
+      { label: 'League region required', html: '<span class="reg">Kandarin</span> <span class="reg">Asgarnia</span> <span class="reg">Misthalin</span>' },
+      { label: 'League auto-complete', html: 'Unlocking <span class="reg">Misthalin</span> will auto-complete the quest.' },
+      { label: 'Ironman concerns', html: 'Bring a Spade spade &amp; logs.' }
+    ]);
     expect(o.notes).toEqual(['This is the short version of the guide.']);
   });
 
