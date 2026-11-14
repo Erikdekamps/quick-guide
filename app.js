@@ -31,7 +31,7 @@
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
-  var KINDS = [['all', 'Quests and miniquests'], ['quest', 'Quests only'], ['mini', 'Miniquests only']];
+  var KINDS = [['all', 'Quests + miniquests'], ['quest', 'Quests only'], ['mini', 'Miniquests only']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
   var LEN_ORDER = ['very short', 'short', 'short to medium', 'medium', 'medium to long', 'long', 'long to very long', 'very long', 'very, very long'];
 
@@ -499,14 +499,25 @@
     return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
       icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
   }
+  function selectHtml(id, label, list, value) {
+    return '<div class="mi mrow"><label class="ml" for="' + id + '">' + label + '</label><select class="sel" id="' + id + '">' + list.map(function (s) {
+      return '<option value="' + s[0] + '"' + (value === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
+    }).join('') + '</select></div>';
+  }
+  // The settings: the same everywhere in the app. Your player, how the quest list is sorted and
+  // filtered, and how things look.
   function cogHtml() {
     return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
-      '<div class="menu" id="cog" hidden>' +
+      '<div class="menu wide" id="cog" hidden>' +
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
-      '<p class="mh">Display</p>' +
-      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
+      '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
+      '<p class="mh">Quest list</p>' +
+      selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
+      selectHtml('kind', 'Show', KINDS, S.set.kind) +
       toggleHtml('hidedone', I.check, 'Hide done quests', S.set.hideDone) +
       toggleHtml('hidelocked', I.lock, 'Hide locked quests', S.set.hideLocked) +
+      '<hr><p class="mh">Display</p>' +
+      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
@@ -554,7 +565,7 @@
     if (S.player) {
       return '<div class="player" id="player"><span class="pn"><b>' + esc(S.player.name) + '</b> \u00b7 ' +
         plural(S.player.done || 0, 'quest', 'quests') + ' done</span>' +
-        '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
+        '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update player" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
         (S.playerBusy ? I.loader : I.refresh) + '</button>' +
         '<button class="ib xs" type="button" data-act="player-clear" aria-label="Forget this player" title="Forget this player">' + I.x + '</button></div>';
     }
@@ -568,7 +579,19 @@
   }
   function drawPlayer() {
     var el = byId('parea');
-    if (el && S.view === 'start') el.innerHTML = playerHtml();
+    if (el) el.innerHTML = playerHtml();
+  }
+  // A new or forgotten player changes the list, or the quest you are in (your levels, the quest tree).
+  // The settings stay open, and the page keeps its place.
+  function playerChanged() {
+    drawPlayer();
+    drawList();
+    if (S.view !== 'quest') return;
+    var cog = byId('cog'), open = cog && !cog.hidden, main = byId('main'), top = main ? main.scrollTop : 0;
+    renderQuest();
+    if (open) toggleMenu('cog');
+    main = byId('main');
+    if (main) main.scrollTop = top;
   }
   // Looks a player up. With quiet, a failure keeps the old data and says nothing.
   function lookUpPlayer(name, quiet) {
@@ -585,8 +608,7 @@
       S.playerInput = '';
       S.player = p;
       sset('player', p);
-      drawPlayer();
-      drawList();
+      playerChanged();
     }, function (e) {
       S.playerBusy = false;
       S.playerMsg = had ? '' : playerError(e, name);
@@ -599,8 +621,7 @@
     S.playerMsg = '';
     S.playerInput = '';
     sdel('player');
-    drawPlayer();
-    drawList();
+    playerChanged();
   }
 
   // Everything the list needs to know about one quest.
@@ -697,11 +718,16 @@
     // Quests in progress go first, in their own group.
     items = items.filter(function (x) { return x.started; }).concat(items.filter(function (x) { return !x.started; }));
     function gOf(x) { return x.started ? 'In progress' : groupOf(x.q, sort); }
-    var h = '<p class="qmeta" id="qcount">' + (items.length === all.length ? plural(items.length, 'quest', 'quests') :
+    // How the list is set up (all of it is in the settings).
+    var how = [SORTS.filter(function (x) { return x[0] === sort; })[0][1]];
+    if (kind !== 'all') how.push(KINDS.filter(function (x) { return x[0] === kind; })[0][1]);
+    if (S.player) how.push(esc(S.player.name));
+    var h = '<p class="qmeta"><span id="qcount">' + (items.length === all.length ? plural(items.length, 'quest', 'quests') :
       items.length + ' of ' + plural(all.length, 'quest', 'quests')) +
       (hidden ? ' \u00b7 ' + hidden + ' done hidden' : '') +
       (hiddenLocked ? ' \u00b7 ' + hiddenLocked + ' locked hidden' : '') +
-      (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</p>';
+      (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</span>' +
+      '<span class="how"> \u00b7 ' + how.join(' \u00b7 ') + '</span></p>';
     if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide done quests\u201d in the settings to see them.</p>';
     if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide done quests\u201d or \u201cHide locked quests\u201d in the settings to see them.</p>';
     if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
@@ -741,14 +767,7 @@
       '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
       (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
       '</form>' +
-      '<div class="filters">' +
-      '<select class="sel" id="sort" aria-label="Sort by">' + SORTS.map(function (s) {
-        return '<option value="' + s[0] + '"' + (S.set.sort === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
-      }).join('') + '</select>' +
-      '<select class="sel" id="kind" aria-label="Show">' + KINDS.map(function (s) {
-        return '<option value="' + s[0] + '"' + (S.set.kind === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
-      }).join('') + '</select></div>' +
-      '<div id="parea">' + playerHtml() + '</div>' +
+
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
       '<div id="qarea">' + (S.loading ? '' : listHtml()) + '</div>' +
       alt1Html() +
@@ -1415,7 +1434,10 @@
     if (d && d.tagName === 'DETAILS' && d.open) startMaps();
   }, true);
   document.addEventListener('click', function (ev) {
-    if (!ev.target.closest('.menu, [data-menu]')) closeMenus();
+    // Look at where the click was, not where the target is now: a button in a menu may be redrawn by the click.
+    var path = ev.composedPath ? ev.composedPath() : [ev.target];
+    var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
+    if (!inside) closeMenus();
   });
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenus(); });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.

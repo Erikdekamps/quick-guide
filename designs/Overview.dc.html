@@ -214,6 +214,11 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .mi.danger, .mi.danger > .i { color: var(--red); }
 .mrow { cursor: default; gap: 8px; }
 .fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.menu.wide { width: 286px; }
+.menu .sel { width: 150px; margin-left: 0; }
+.menu .player { margin: 2px 8px 6px; }
+.menu .player .inp { height: 30px; }
+.qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
 /* an on/off setting: a tick box, like the game's settings */
@@ -688,7 +693,6 @@ kbd {
 .find { margin: 10px 10px 0; }
 .pad { margin-left: 10px; margin-right: 10px; }
 .row-f { display: flex; gap: 6px; }
-.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 8px 10px 0; }
 .inp, .sel {
   background: var(--inset);
   border: 1px solid var(--bronze-dk);
@@ -711,7 +715,6 @@ kbd {
   font-size: 12px;
   cursor: pointer;
 }
-.sel + .sel { margin-left: 0; }
 .sel option { background: #17130f; color: var(--text); }
 .qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
 .gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }

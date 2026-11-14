@@ -1,5 +1,5 @@
 // The start screen: the list of all quests, search, sorting, groups, and opening a quest.
-const { test, expect, fixture, seed, stored, openApp, parsedQuest } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, parsedQuest, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const list = (page) => page.locator('#qarea');
@@ -80,21 +80,21 @@ test.describe('sorting and groups', () => {
   for (const [value, want] of sorts) {
     test('sort by ' + value, async ({ page }) => {
       await openApp(page, expect);
-      await page.locator('#sort').selectOption(value);
+      await choose(page, '#sort', value);
       await expect(groups(page)).toHaveText(want);
     });
   }
 
   test('inside a group, quests are A to Z', async ({ page }) => {
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('dif');
+    await choose(page, '#sort', 'dif');
     await expect(page.locator('.ghb[data-group="Novice"]').locator('xpath=../following-sibling::ul[1]').locator('.q1 b'))
       .toHaveText(["Cook's Assistant", 'Demon Slayer', 'Druidic Ritual', 'Imp Catcher', 'Rune Mysteries']);
   });
 
   test('the sort order is remembered', async ({ page }) => {
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('len');
+    await choose(page, '#sort', 'len');
     expect((await stored(page, 'settings')).sort).toBe('len');
     await page.reload();
     await expect(page.locator('#sort')).toHaveValue('len');
@@ -124,7 +124,7 @@ test.describe('sorting and groups', () => {
     // started: yellow, like the game's quest list
     await expect(row.locator('.q1 b')).toHaveCSS('color', 'rgb(245, 225, 90)');
     // the same order with another sort
-    await page.locator('#sort').selectOption('rel');
+    await choose(page, '#sort', 'rel');
     await expect(groups(page).first()).toHaveText('In progress');
   });
 

@@ -1,5 +1,5 @@
 // Miniquests, locked quests, search, quests you can open from a guide, and League rows.
-const { test, expect, fixture, stored, openApp, openQuest } = require('./support/app');
+const { test, expect, fixture, stored, openApp, openQuest, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
@@ -8,15 +8,11 @@ const details = (page) => page.locator('section[data-ov="details"] .secb');
 const rewards = (page) => page.locator('section[data-ov="rewards"] .secb');
 const MINIS = ['A Guild of Our Own', 'Bar Crawl', "Benedict's World Tour", 'Curse of the Empty Lord'];
 
-async function cog(page, name) {
-  await page.locator('#cog-btn').click();
-  await page.getByRole('menuitemcheckbox', { name }).click();
-  await page.keyboard.press('Escape');
-}
-async function lookUp(page, name) {
-  await page.locator('#player-name').fill(name);
-  await page.getByRole('button', { name: 'Look up' }).click();
+const cog = toggle;
+async function lookUpDone(page, name) {
+  await lookUp(page, name);
   await expect(page.locator('#player')).toContainText(name);
+  await closeCog(page);
 }
 
 test.describe('miniquests', () => {
@@ -46,11 +42,11 @@ test.describe('miniquests', () => {
   test('the filter shows all, quests only, or miniquests only, and is remembered', async ({ page, wiki }) => {
     wiki.minis();
     await openApp(page, expect);
-    await expect(page.locator('#kind option')).toHaveText(['Quests and miniquests', 'Quests only', 'Miniquests only']);
-    await page.locator('#kind').selectOption('mini');
+    await expect(page.locator('#kind option')).toHaveText(['Quests + miniquests', 'Quests only', 'Miniquests only']);
+    await choose(page, '#kind', 'mini');
     await expect(names(page)).toHaveText(MINIS);
     await expect(page.locator('#qcount')).toHaveText('4 of 15 quests');
-    await page.locator('#kind').selectOption('quest');
+    await choose(page, '#kind', 'quest');
     await expect(page.locator('#qcount')).toHaveText('11 of 15 quests');
     await expect(page.locator('.q[data-quest$="(miniquest)"]')).toHaveCount(0);
     expect((await stored(page, 'settings')).kind).toBe('quest');
@@ -75,7 +71,7 @@ test.describe('miniquests', () => {
   test('a done miniquest from the game is marked done', async ({ page, wiki }) => {
     wiki.minis().setPlayer('Zezima', { 'Curse of the Empty Lord (miniquest)': 'COMPLETED', 'Bar Crawl': 'STARTED' });
     await openApp(page, expect);
-    await lookUp(page, 'Zezima');
+    await lookUpDone(page, 'Zezima');
     await expect(row(page, 'Curse of the Empty Lord (miniquest)').locator('.qs')).toHaveText('✓ Done');
     await expect(row(page, 'Bar Crawl (miniquest)').locator('.qs')).toHaveText('Started');
   });
@@ -89,7 +85,7 @@ test.describe('locked quests', () => {
   test('quests you do not have the needs for are grayed out and say Locked', async ({ page, wiki }) => {
     player(wiki);
     await openApp(page, expect);
-    await lookUp(page, 'Zezima');
+    await lookUpDone(page, 'Zezima');
     await expect(row(page, 'Desert Treasure')).toHaveClass(/\blocked\b/);
     await expect(row(page, 'Desert Treasure').locator('.qs')).toHaveText('Locked');
     await expect(row(page, 'Desert Treasure')).toHaveCSS('opacity', '0.55');
@@ -104,7 +100,7 @@ test.describe('locked quests', () => {
   test('"Hide locked quests" leaves them out, and says how many', async ({ page, wiki }) => {
     player(wiki);
     await openApp(page, expect);
-    await lookUp(page, 'Zezima');
+    await lookUpDone(page, 'Zezima');
     await cog(page, 'Hide locked quests');
     await expect(row(page, 'Desert Treasure')).toHaveCount(0);
     await expect(page.locator('#qcount')).toHaveText('9 of 11 quests · 2 locked hidden');
@@ -120,7 +116,7 @@ test.describe('locked quests', () => {
   test('a quest you started is never locked', async ({ page, wiki }) => {
     wiki.player['playerQuests/Zezima'] = { json: { quests: { 1: { title: 'Dragon Slayer', status: 'STARTED', eligible: false } } } };
     await openApp(page, expect);
-    await lookUp(page, 'Zezima');
+    await lookUpDone(page, 'Zezima');
     await expect(row(page, 'Dragon Slayer')).not.toHaveClass(/\blocked\b/);
   });
 
@@ -191,4 +187,56 @@ test('League rows show the region names, once, without the badge text', async ({
   await expect(kv.locator('dd').nth(0)).toHaveText('Kandarin Asgarnia Misthalin');
   await expect(kv.locator('dd').nth(1)).toHaveText('Unlocking Misthalin will auto-complete the quest.');
   await expect(kv.locator('dd').nth(1).locator('.reg')).toHaveText(['Misthalin']);
+});
+
+test.describe('the settings menu holds the player, sorting and filters', () => {
+  test('the start screen has only the search box and the list', async ({ page }) => {
+    await openApp(page, expect);
+    await expect(page.locator('#main #sort, #main #kind, #main #player-name, #main .filters')).toHaveCount(0);
+    await expect(page.locator('#cog #sort')).toHaveCount(1);
+    await expect(page.locator('#cog #kind')).toHaveCount(1);
+    await expect(page.locator('#cog #player-name')).toHaveCount(1);
+  });
+
+  test('the same settings are there inside a quest', async ({ page }) => {
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openCog(page);
+    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Quest list', 'Display']);
+    await expect(page.getByLabel('Sort by')).toBeVisible();
+    await expect(page.getByLabel('Show', { exact: true })).toBeVisible();
+    // a sort picked in a quest is used by the list
+    await page.locator('#sort').selectOption('dif');
+    await closeCog(page);
+    await page.getByRole('button', { name: 'All quests' }).click();
+    await expect(page.locator('.ghb .n').first()).toHaveText('Novice');
+  });
+
+  test('a line under the search box says how the list is set up', async ({ page, wiki }) => {
+    wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' });
+    await openApp(page, expect);
+    await expect(page.locator('.qmeta')).toHaveText('11 quests · A to Z');
+    await choose(page, '#sort', 'opt');
+    await choose(page, '#kind', 'quest');
+    await lookUpDone(page, 'Zezima');
+    await expect(page.locator('#qcount')).toHaveText('11 quests');
+    await expect(page.locator('.qmeta')).toHaveText('11 quests · Optimal order · Quests only · Zezima');
+  });
+
+  test('the menu stays open while you look up a player, and shows the answer', async ({ page, wiki }) => {
+    wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' });
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#cog #player')).toContainText('Zezima · 1 quest done');
+    await expect(page.locator('#cog')).toBeVisible();
+  });
+
+  test('looking up a player inside a quest updates the quest', async ({ page, wiki }) => {
+    wiki.setPlayer('Zezima', { 'Defender of Varrock': 'COMPLETED' }, { 7: 80 });
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#cog #player')).toContainText('Zezima');
+    await expect(page.locator('#cog')).toBeVisible();
+    await expect(page.locator('section[data-ov="skills"] .chip').first()).toHaveClass(/\bok\b/);
+    await expect(page.locator('section[data-ov="details"] .tree li').first()).toHaveClass(/\bgot\b/);
+  });
 });

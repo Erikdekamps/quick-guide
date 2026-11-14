@@ -1,6 +1,6 @@
 // The quest list in the wiki's optimal order (Quests/Progression guide), hiding done quests,
 // and the border of the next step.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const GUIDE = 'Quests/Progression guide';
@@ -9,11 +9,7 @@ const groups = (page) => page.locator('.ghb .n');
 const ORDER = ["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps'];
 const REST = ['101 Test Quest', "'Phite Club", 'Recipe for Disaster: Freeing King Awowogei'];
 
-async function cog(page, name) {
-  await page.locator('#cog-btn').click();
-  await page.getByRole('menuitemcheckbox', { name }).click();
-  await page.keyboard.press('Escape');
-}
+const cog = toggle;
 
 test.describe('optimal order', () => {
   test('quests.js reads the order from the wiki page', async ({ page }) => {
@@ -27,7 +23,7 @@ test.describe('optimal order', () => {
     await openApp(page, expect);
     await expect(page.locator('#sort option')).toHaveText(['A to Z', 'Optimal order', 'Difficulty', 'Length', 'Series', 'Newest']);
     expect(wiki.asked()).toEqual(['List of quests']);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(names(page)).toHaveText(ORDER.concat(REST));
     await expect(groups(page)).toHaveText(['Optimal order', 'Not in the guide']);
     await expect(page.locator('.ghb[data-group="Optimal order"] .c')).toHaveText('8');
@@ -39,7 +35,7 @@ test.describe('optimal order', () => {
 
   test('each quest shows its place in the order', async ({ page }) => {
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"] .q2")).toHaveText('#1 · Novice · Short · Free · 1 QP');
     await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .q2')).toContainText('#8 · Grandmaster');
     await expect(page.locator('.q[data-quest="101 Test Quest"] .q2')).toHaveText('Special · Very Short · Free');
@@ -47,7 +43,7 @@ test.describe('optimal order', () => {
 
   test('it is remembered, and not read again after a reload', async ({ page, wiki }) => {
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(names(page).first()).toHaveText("Cook's Assistant");
     await page.reload();
     await expect(page.locator('#sort')).toHaveValue('opt');
@@ -58,14 +54,14 @@ test.describe('optimal order', () => {
   test('shows a message while it loads', async ({ page, wiki }) => {
     wiki.fail(GUIDE, 'slow');
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(page.locator('#qarea .state')).toHaveText('Getting the optimal order…');
   });
 
   test('shows an error and can try again', async ({ page, wiki }) => {
     wiki.fail(GUIDE, 'network');
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(page.locator('#qarea .err')).toHaveText('Could not get the optimal order. Could not reach the wiki. Check your internet, then try again.');
     wiki.page(GUIDE, fixture('progression-guide.html'));
     await page.getByRole('button', { name: 'Try again' }).click();
@@ -75,14 +71,14 @@ test.describe('optimal order', () => {
   test('a wiki page without the order table is an error', async ({ page, wiki }) => {
     wiki.page(GUIDE, '<p>Nothing here.</p>');
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(page.locator('#qarea .err')).toHaveText('Could not get the optimal order. Could not read the order on the wiki. Try again in a moment.');
   });
 
   test('quests in progress still come first; search still works', async ({ page }) => {
     await seed(page, { meta: { [WGS]: { title: 'While Guthix Sleeps', done: 4, total: 12, at: 1 } } });
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(groups(page)).toHaveText(['In progress', 'Optimal order', 'Not in the guide']);
     await expect(names(page).first()).toHaveText('While Guthix Sleeps');
     await page.locator('#quest-link').fill('slay');
@@ -91,7 +87,7 @@ test.describe('optimal order', () => {
 
   test('"Update quest list" updates the order too', async ({ page, wiki }) => {
     await openApp(page, expect);
-    await page.locator('#sort').selectOption('opt');
+    await choose(page, '#sort', 'opt');
     await expect(names(page).first()).toHaveText("Cook's Assistant");
     wiki.page(GUIDE, fixture('progression-guide.html').replace('data-rowid="Cook\'s Assistant"', 'data-rowid="Nothing"').replace('</tbody>', '<tr data-rowid="Cook\'s Assistant"><td>Cook\'s Assistant</td></tr></tbody>'));
     await page.locator('#cog-btn').click();
@@ -148,8 +144,7 @@ test.describe('hide done quests', () => {
     wiki.setPlayer('Zezima', { 'Imp Catcher': 'COMPLETED', 'Dragon Slayer': 'STARTED' }, {});
     await seed(page, { settings: { hideDone: true } });
     await openApp(page, expect);
-    await page.locator('#player-name').fill('Zezima');
-    await page.getByRole('button', { name: 'Look up' }).click();
+    await lookUp(page, 'Zezima');
     await expect(page.locator('#player')).toContainText('1 quest done');
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).toHaveCount(0);
     await expect(page.locator('.q[data-quest="Dragon Slayer"]')).toBeVisible();

@@ -1,7 +1,7 @@
 // Starting the app: missing files, the cache numbers in index.html, and a clean run.
 const fs = require('fs');
 const path = require('path');
-const { test, expect, ROOT, openApp, openQuest, openTab, part } = require('./support/app');
+const { test, expect, ROOT, openApp, openQuest, openTab, part, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
 
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
@@ -52,7 +52,7 @@ test('a normal session has no errors', async ({ page }) => {
   const problems = [];
   page.on('console', (m) => { if (m.type() === 'error') problems.push(m.text()); });
   await openApp(page, expect);
-  await page.locator('#sort').selectOption('dif');
+  await choose(page, '#sort', 'dif');
   await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
   for (const t of ['items', 'steps', 'overview']) await openTab(page, t);
   await page.getByRole('button', { name: 'All quests' }).click();

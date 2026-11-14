@@ -56,12 +56,13 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
 1. The first screen lists **every quest** from the wiki's [List of quests](https://runescape.wiki/w/List_of_quests),
    and every miniquest from [Miniquests](https://runescape.wiki/w/Miniquests).
    - Type in the box to search. Press **Open** (or Enter) to open the top match.
-   - The second menu shows **quests and miniquests**, **quests only**, or **miniquests only**.
+   - The line under the box says how the list is set up. You change all of that in the **cog** menu (see below).
    - Sort by name, **optimal order**, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
+   - **Show** picks **quests and miniquests**, **quests only**, or **miniquests only**.
    - Optimal order is the wiki's [quest progression guide](https://runescape.wiki/w/Quests/Progression_guide).
      Each quest shows its place (#1, #2, ...). Quests the guide does not list come last.
    - **Hide done quests** in the cog menu takes finished quests out of the list. A search still finds them.
-   - Type your **character name** and press **Look up**. Quests you finished in the game turn green,
+   - In the cog menu, type your **character name** and press **Look up**. Quests you finished in the game turn green,
      quests you started turn yellow, and inside a quest you see your own skill levels and which
      required quests you have done. Your RuneMetrics profile must be public.
      The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
@@ -84,8 +85,11 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - Opening or closing a part keeps that part at the top.
    - "Bring for this part" boxes close by themselves when every item in them is ticked.
    - Maps are the wiki's own map. Drag to move, + and − to zoom.
-5. The **cog** button holds the settings:
-   - **Jump to next step**, **Show done steps**, **Hide done quests**, **Hide locked quests**, and **Text size** (12 to 40).
+5. The **cog** button holds the settings. They are the same on every screen:
+   - **Jump to next step** (in a quest).
+   - **Player**: look up your character, update it, or forget it.
+   - **Quest list**: **Sort by**, **Show**, **Hide done quests**, **Hide locked quests**.
+   - **Display**: **Show done steps** and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
