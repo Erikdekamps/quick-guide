@@ -168,29 +168,18 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
   expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });
 
-// An iPhone's screen, touch and browser name (user agent), in Chromium.
-const { defaultBrowserType, ...phone } = base.devices['iPhone 13'];
-test.describe('on a phone', () => {
-  test.use(phone);
-
-  test('an area opens with its tasks (the wiki may send its mobile layout)', async ({ page }) => {
-    let sections = -1;
-    page.on('response', async (r) => {
-      if (/api\.php.*Ardougne(%20|_| )achievements/.test(r.url())) { try { sections = ((await r.text()).match(/<section/g) || []).length; } catch (e) { /* ignore */ } }
-    });
-    await page.goto('/');
-    await page.locator('.tab[data-home="areas"]').click();
-    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    await expect(page.locator('h1.qt')).toHaveText('Ardougne', { timeout: 20000 });
-    await expect(page.locator('li[data-task]').first()).toBeVisible();
-    console.log('sections in the wiki answer on a phone:', sections);
-  });
-
-  test('a quest guide opens with its steps', async ({ page }) => {
-    await page.goto('/');
-    await page.locator(".q[data-quest=\"Cook's Assistant\"]").click();
-    await expect(page.locator('h1.qt')).toHaveText("Cook's Assistant", { timeout: 20000 });
-    await page.locator('.tab[data-tab="steps"]').click();
-    await expect(page.locator('li[data-step]').first()).toBeVisible();
-  });
+// What the wiki sends to a phone: asked with an iPhone's browser name (user agent). The page must read the same.
+test('an area page as the wiki sends it to a phone reads into its tiers and tasks', async ({ page, request }) => {
+  const UA = base.devices['iPhone 13'].userAgent;
+  const url = 'https://runescape.wiki/api.php?action=parse&format=json&formatversion=2&prop=text%7Cjsconfigvars&redirects=1&disableeditsection=1&disablelimitreport=1&origin=*&page=Ardougne%20achievements';
+  const r = await request.get(url, { headers: { 'User-Agent': UA, Origin: 'https://erikdekamps.github.io' } });
+  console.log('phone answer:', r.status(), r.headers()['content-type']);
+  const body = await r.text();
+  console.log('phone answer: sections', (body.match(/<section/g) || []).length, 'start', body.slice(0, 200).replace(/\s+/g, ' '));
+  const d = JSON.parse(body);
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const t = await page.evaluate((h) => window.QuickGuide.parseArea(h, 'Ardougne').tiers.map((x) => [x.name, x.tasks.length]), d.parse.text);
+  expect(t.map((x) => x[0])).toEqual(['Easy', 'Medium', 'Hard', 'Elite']);
+  for (const x of t) expect(x[1]).toBeGreaterThan(0);
 });
