@@ -14,6 +14,9 @@ You pick a quest from the list, and the app shows the guide as a checklist in th
 | `app.js` | The screens, ticks, buttons and maps |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
+| `tests/`, `playwright.config.js`, `package.json` | The tests (see "Tests" below) |
+| `.github/workflows/tests.yml` | Runs the tests on GitHub |
+| `designs/` | Design mockups and screenshots |
 
 ## 1. Put it online
 
@@ -101,6 +104,33 @@ Local storage holds about 5 MB. If it gets full, the guides you opened longest a
   "bring" lists), `rewards`, `music`, `achievements` and `requiredFor`.
   If a quest has no Quick guide, it falls back to the quest's main page.
 - Map pictures load from `maps.runescape.wiki`.
+
+## Tests
+
+The tests use [Playwright](https://playwright.dev/) with Chromium, the same browser engine as Alt1.
+They open the app in a 360 × 720 window, like Alt1, and click through it like a person would.
+
+- **On GitHub:** they run for every pull request and every push to `main` (the **Actions** tab).
+  A red ✗ on a pull request means something broke.
+- **The wiki:** the normal tests use a fake copy of the wiki (`tests/fixtures/`), so they need no internet
+  and never fail because the wiki is slow.
+- **Live check:** once a week, GitHub also checks the app against the real wiki, to catch wiki changes
+  that would break it. You can start it by hand: **Actions → Tests → Run workflow**.
+
+What they cover: the quest list (search, sorting, groups, opening quests, errors), the three tabs,
+ticking steps and items, sub-steps, chat options, "Bring" boxes, maps, pictures and tables,
+"Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
+storage, Alt1, missing files, the window look, and the parser itself.
+
+To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
+
+```
+npm ci
+npx playwright install chromium
+npm test
+```
+
+`npm run test:live` runs the live check. It needs the internet.
 
 ## Credits
 

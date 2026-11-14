@@ -8,7 +8,7 @@
 
   var WIKI = 'https://runescape.wiki';
   var API = WIKI + '/api.php';
-  var VERSION = 2;
+  var VERSION = 3;   // a new number makes saved guides read the wiki again
   // The wiki's map render as of Nov 2026. Pages carry the current one; this is only the fallback.
   var MAP_VERSION = '2026-10-12-a';
   // Context for the page being parsed (its title and its map marker data).
@@ -771,7 +771,7 @@
   }
 
   function forLabel(t) {
-    if (/directly/i.test(t)) return 'Directly';
+    if (/\bdirectly\b/i.test(t)) return 'Directly';   // not "Indirectly"
     if (/comprehension/i.test(t)) return 'Indirectly, for the story';
     if (/indirect/i.test(t)) return 'Indirectly';
     return clean(t).replace(/:$/, '');
@@ -1016,7 +1016,7 @@
     'Archaeology', 'Necromancy'];
   // "Rune Mysteries" and "rune mysteries!" are the same quest.
   function normName(s) {
-    return clean(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
+    return clean(s).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
   }
   function playerResult(name, source, quests, levels) {
     var done = 0, started = 0;

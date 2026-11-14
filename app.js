@@ -604,9 +604,11 @@
   function mapAcc(m) {
     var key = S.maps.push(m) - 1;
     var link = '<a href="' + esc(m.href || (S.q && S.q.source) || QG.WIKI) + '" target="_blank" rel="noopener">Open on the wiki</a>';
-    return acc(I.map, m.caption ? 'Map: ' + m.caption : 'Map', '',
+    // A "Show on map" link has the caption "Map": no need to say "Map: Map".
+    var named = m.caption && !/^map$/i.test(m.caption);
+    return acc(I.map, named ? 'Map: ' + m.caption : 'Map', '',
       '<div class="map" data-map="' + key + '" role="region" aria-label="Map"></div>' +
-      '<p class="cap">' + (m.caption ? esc(m.caption) + ' \u00b7 ' : '') + link + '</p>');
+      '<p class="cap">' + (named ? esc(m.caption) + ' \u00b7 ' : '') + link + '</p>');
   }
   function imageAcc(im, fallback) {
     if (im.type === 'map') return mapAcc(im);
