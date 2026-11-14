@@ -168,8 +168,10 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
   expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });
 
+// An iPhone's screen, touch and browser name (user agent), in Chromium.
+const { defaultBrowserType, ...phone } = base.devices['iPhone 13'];
 test.describe('on a phone', () => {
-  test.use({ ...base.devices['iPhone 13'], browserName: 'chromium' });
+  test.use(phone);
 
   test('an area opens with its tasks (the wiki may send its mobile layout)', async ({ page }) => {
     let sections = -1;
