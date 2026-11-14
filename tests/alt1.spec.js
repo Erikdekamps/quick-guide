@@ -59,11 +59,14 @@ test.describe('appconfig.json', () => {
     expect(png.subarray(1, 4).toString()).toBe('PNG');
   });
 
-  test('sizes make sense, and it asks for no permissions', () => {
+  test('sizes make sense, and permissions are a real Alt1 name, never empty', () => {
     expect(cfg.minWidth).toBeLessThanOrEqual(cfg.defaultWidth);
     expect(cfg.defaultWidth).toBeLessThanOrEqual(cfg.maxWidth);
     expect(cfg.minHeight).toBeLessThanOrEqual(cfg.defaultHeight);
     expect(cfg.defaultHeight).toBeLessThanOrEqual(cfg.maxHeight);
-    expect(cfg.permissions).toBe('');
+    // Alt1 apps in the wild never leave this empty; an empty value may stop Alt1 from adding the app.
+    expect(cfg.permissions).not.toBe('');
+    for (const p of cfg.permissions.split(',')) expect(['pixel', 'overlay', 'gamestate']).toContain(p);
+    expect(cfg.permissions).not.toContain('pixel');   // the app never reads the screen
   });
 });

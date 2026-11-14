@@ -44,7 +44,7 @@ Two other ways:
 - Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
 - Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
 
-The app asks for no Alt1 permissions. It does not read your screen or draw on the game.
+The app asks Alt1 for the **overlay** permission only, because Alt1 wants at least one. It does not read your screen, and it draws nothing on the game.
 Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
 
 ### After a change
