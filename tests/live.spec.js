@@ -167,3 +167,19 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
   expect(n.withSteps).toBeGreaterThan(20);
   expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });
+
+// What the wiki sends to a phone: asked with an iPhone's browser name (user agent). The page must read the same.
+test('an area page as the wiki sends it to a phone reads into its tiers and tasks', async ({ page, request }) => {
+  const UA = base.devices['iPhone 13'].userAgent;
+  const url = 'https://runescape.wiki/api.php?action=parse&format=json&formatversion=2&prop=text%7Cjsconfigvars&redirects=1&disableeditsection=1&disablelimitreport=1&origin=*&page=Ardougne%20achievements';
+  const r = await request.get(url, { headers: { 'User-Agent': UA, Origin: 'https://erikdekamps.github.io' } });
+  console.log('phone answer:', r.status(), r.headers()['content-type']);
+  const body = await r.text();
+  console.log('phone answer: sections', (body.match(/<section/g) || []).length, 'start', body.slice(0, 200).replace(/\s+/g, ' '));
+  const d = JSON.parse(body);
+  await page.goto('/__blank');
+  await page.addScriptTag({ url: '/parser.js' });
+  const t = await page.evaluate((h) => window.QuickGuide.parseArea(h, 'Ardougne').tiers.map((x) => [x.name, x.tasks.length]), d.parse.text);
+  expect(t.map((x) => x[0])).toEqual(['Easy', 'Medium', 'Hard', 'Elite']);
+  for (const x of t) expect(x[1]).toBeGreaterThan(0);
+});

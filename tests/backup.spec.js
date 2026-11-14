@@ -402,7 +402,9 @@ test.describe('danger zone', () => {
     await page.locator('[data-act="wipe"]').click();
     await page.locator('[data-act="wipe"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
-    expect(await all(page)).toEqual(['list']);
+    // the quest list is read again from the wiki: wait for it, then nothing else is saved
+    await expect(page.locator('#qcount')).toHaveText('11 quests');
+    await expect.poll(() => all(page)).toEqual(['list']);
     // a reload does not open the old quest
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');

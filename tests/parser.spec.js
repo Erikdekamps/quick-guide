@@ -16,6 +16,23 @@ function parse(page, html, title, live) {
 const steps = (q, i) => q.sections[i || 0].blocks.filter((b) => b.type === 'step');
 const W = 'https://runescape.wiki/w/';
 
+test('a quest guide in the form a phone gets (parts wrapped in sections) reads the same', async ({ page }) => {
+  const html = fixture('while-guthix-sleeps.html');
+  // The wiki's mobile view puts what follows each top heading (an <h2>, or a heading box holding one) in a <section>.
+  const heads = [...html.matchAll(/<div class="mw-heading mw-heading2">[\s\S]*?<\/div>|<h2[ >][\s\S]*?<\/h2>/g)];
+  let mobile = html.slice(0, heads[0].index);
+  heads.forEach((m, i) => {
+    const end = m.index + m[0].length, next = i + 1 < heads.length ? heads[i + 1].index : html.length;
+    mobile += m[0] + '<section class="mf-section-' + (i + 1) + ' collapsible-block">' + html.slice(end, next) + '</section>';
+  });
+  expect(heads.length).toBeGreaterThan(3);
+  const run = (h) => page.evaluate(([h, l]) => window.QuickGuide.parse('<div class="mw-parser-output">' + h + '</div>',
+    { title: 'While Guthix Sleeps/Quick guide', base: 'While Guthix Sleeps', live: l }), [h, JSON.parse(fixture('while-guthix-sleeps.live.json'))]);
+  const desk = await run(html), phone = await run(mobile);
+  delete desk.fetchedAt; delete phone.fetchedAt;
+  expect(phone).toEqual(desk);
+});
+
 test.describe('reading what you type', () => {
   const cases = [
     ['', { error: 'empty' }],
