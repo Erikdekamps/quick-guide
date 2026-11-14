@@ -167,3 +167,28 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
   expect(n.withSteps).toBeGreaterThan(20);
   expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });
+
+test.describe('on a phone', () => {
+  test.use({ ...base.devices['iPhone 13'], browserName: 'chromium' });
+
+  test('an area opens with its tasks (the wiki may send its mobile layout)', async ({ page }) => {
+    let sections = -1;
+    page.on('response', async (r) => {
+      if (/api\.php.*Ardougne(%20|_| )achievements/.test(r.url())) { try { sections = ((await r.text()).match(/<section/g) || []).length; } catch (e) { /* ignore */ } }
+    });
+    await page.goto('/');
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne', { timeout: 20000 });
+    await expect(page.locator('li[data-task]').first()).toBeVisible();
+    console.log('sections in the wiki answer on a phone:', sections);
+  });
+
+  test('a quest guide opens with its steps', async ({ page }) => {
+    await page.goto('/');
+    await page.locator(".q[data-quest=\"Cook's Assistant\"]").click();
+    await expect(page.locator('h1.qt')).toHaveText("Cook's Assistant", { timeout: 20000 });
+    await page.locator('.tab[data-tab="steps"]').click();
+    await expect(page.locator('li[data-step]').first()).toBeVisible();
+  });
+});

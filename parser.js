@@ -894,6 +894,13 @@
   }
 
   // ---------- main entry ----------
+  // On a phone the wiki puts what follows each heading in a <section>: take them out, so the page is flat again.
+  function unwrapSections(root) {
+    arr(root.querySelectorAll('section')).forEach(function (sec) {
+      while (sec.firstChild) sec.parentNode.insertBefore(sec.firstChild, sec);
+      sec.parentNode.removeChild(sec);
+    });
+  }
   function parse(html, info) {
     info = info || {};
     var page = info.title || '';
@@ -901,6 +908,7 @@
     var mv = /maps\.runescape\.wiki\/rs\/versions\/([^\/"')\s&]+)\//.exec(html);
     var doc = new DOMParser().parseFromString('<!doctype html><html><body><div id="qg-root">' + html + '</div></body></html>', 'text/html');
     var rootEl = doc.querySelector('#qg-root .mw-parser-output') || doc.getElementById('qg-root');
+    unwrapSections(rootEl);
     arr(rootEl.querySelectorAll('.mw-editsection, .toc, #toc, .navbox, table.messagebox, .rs-external-header-links, ' +
       'sup.reference, .reference, .mw-references-wrap, .references, .printfooter, .catlinks, .mw-empty-elt, style, script'))
       .forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
@@ -1285,11 +1293,7 @@
     var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
     var root = doc.querySelector('.mw-parser-output') || doc.body;
     while (root.children.length === 1 && root.firstElementChild.classList.contains('mw-parser-output')) root = root.firstElementChild;
-    // On a phone the wiki puts what follows each heading in a <section>: take them out, so the page is flat again.
-    arr(root.querySelectorAll('section')).forEach(function (sec) {
-      while (sec.firstChild) sec.parentNode.insertBefore(sec.firstChild, sec);
-      sec.parentNode.removeChild(sec);
-    });
+    unwrapSections(root);
     var page = name + ' achievements';
     var tiers = partsBy(root, 2, function (h) { return TIER_RE.test(h.id || '') || /^(Beginner|Easy|Medium|Hard|Elite) achievements$/i.test(text(h)); })
       .map(function (p) { return areaTier(p, page); })
