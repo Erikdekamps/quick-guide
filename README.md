@@ -55,19 +55,22 @@ Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.
    - You can still paste a wiki link in the same box.
    - Sort by name, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
 2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
-3. Two tabs: **Overview** and **Steps**.
-   - Overview has five parts that fold open and shut: **Details**, **Skills**, **Items**, **Enemies**, **Rewards**.
-     They start folded shut. The app remembers which ones you opened.
+3. Three tabs: **Overview**, **Items** and **Steps**.
+   - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
+     They start open. The app remembers which ones you closed.
+   - Items has the **Required** and **Recommended** items, each with a tick box.
    - Boxes for pictures, maps, tables and music also remember if you opened them.
 4. On **Steps**:
    - Click anywhere on a step to tick it. It goes away, and the next step moves to the top, right under the part's name.
+   - A part folds shut when you finish it.
    - **Show done steps** in the cog menu shows ticked steps again, so you can untick one.
+     With it on, finished parts and "Bring" boxes stay open.
    - **Done, next step** ticks the next step. **Jump to next step** is in the cog menu.
    - Opening or closing a part keeps that part at the top.
    - "Bring for this part" boxes close by themselves when every item in them is ticked.
    - Maps are the wiki's own map. Drag to move, + and − to zoom.
 5. The **cog** button holds the settings:
-   - **Jump to next step**, **Compact layout**, **Show done steps**, and **Text size** (12 to 40).
+   - **Jump to next step**, **Show done steps**, and **Text size** (12 to 40).
    - **Update quest list** reads the list from the wiki again, and tells you when it is done.
 6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
 7. The **←** button goes back to the quest list.
