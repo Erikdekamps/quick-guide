@@ -1757,6 +1757,7 @@
         return '<button class="tab" type="button" role="tab" data-tier="' + esc(x.id) + '" aria-selected="' + (x === t) + '"><span class="tl-l">' + esc(x.name) + '</span></button>';
       }).join('') + '</nav>' +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
+      '<div class="rdbar"><button class="btn alt sm" type="button" data-act="read">' + I.eye + '<span>Read from game</span></button></div>' +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
       areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>', !cur) +
@@ -2058,6 +2059,89 @@
     }
     return { quests: nq, areas: na };
   }
+  // ---------- read from game ----------
+  // Alt1 (or a screenshot) shows the in-game list. The reader finds each task's badge, top to bottom,
+  // and sees if it has a green tick. The player says which task is at the top; the app counts on from there.
+  function closeRead() {
+    var d = byId('rd');
+    if (d) d.parentNode.removeChild(d);
+  }
+  function openRead(msg) {
+    closeMenus();
+    closeRead();
+    var t = tierNow(), top = (S.rdTop || {})[S.areaKey + ':' + t.id] || 0;
+    var inAlt1 = !!window.alt1;
+    app.insertAdjacentHTML('beforeend',
+      '<div class="dlgbg" id="rd"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="rd-h">' +
+      '<h2 class="dh" id="rd-h">Read from game</h2>' +
+      '<ol class="rdhow"><li>In the game, open <b>Hero \u2192 Achievements \u2192 Area Tasks</b>, then <b>' + esc(t.name + ' ' + S.area.name) + '</b>.</li>' +
+      '<li>Keep <b>Show Completed</b> ticked and <b>List Mode</b> unticked.</li>' +
+      '<li>Scroll so this task is at the top of the list:</li></ol>' +
+      '<select class="inp" id="rd-top" aria-label="Top task in the game">' + t.tasks.map(function (x, i) {
+        return '<option value="' + i + '"' + (i === top ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(x.name) + '</option>';
+      }).join('') + '</select>' +
+      '<p class="note" id="rd-msg" role="status"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
+      '<div class="dbtn">' + (inAlt1 ? '<button class="btn" type="button" data-act="rd-screen">Read screen</button>' : '') +
+      '<label class="btn file' + (inAlt1 ? ' alt' : '') + '">Use a screenshot<input type="file" id="rd-file" accept="image/*"></label>' +
+      '<button class="btn alt" type="button" data-act="rd-close">Close</button></div>' +
+      '<p class="rdtip">' + (inAlt1 ? '' : 'Open this app in Alt1 to read the game screen straight away. ') + 'It only ticks tasks. It never unticks one.</p>' +
+      '</div></div>');
+  }
+  function readMsg(text) {
+    var m = byId('rd-msg');
+    if (m) { m.textContent = text; m.hidden = false; }
+  }
+  function applyRead(r) {
+    var sel = byId('rd-top');
+    if (!sel) return;
+    if (!r || !r.found) { readMsg('Could not find the task list. Open it in the game, so the tasks show, and try again.'); return; }
+    var t = tierNow(), start = +sel.value || 0, idx = taskIndex(S.area), n = 0, done = 0, ticked = 0, next = start;
+    r.rows.forEach(function (row, i) {
+      var x = t.tasks[start + i];
+      if (!x || row.partial) return;   // past the end, or cut off: not trusted
+      n++;
+      next = start + i + 1;
+      if (!row.done) return;
+      done++;
+      if (!S.aprog.tasks[x.id]) { setTick(S.aprog.tasks, idx, x.id, true); ticked++; }
+    });
+    if (t.tasks.every(function (x) { return S.aprog.tasks[x.id]; }) && S.aprog.open) delete S.aprog.open[t.id + ':tasks'];
+    saveAprog();
+    var more = next < t.tasks.length;
+    S.rdTop = S.rdTop || {};
+    S.rdTop[S.areaKey + ':' + t.id] = more ? next : 0;
+    var msg = 'Found ' + plural(n, 'task', 'tasks') + ': ' + done + ' done. Ticked ' + ticked + '. ' +
+      (more ? 'Now scroll down so task ' + (next + 1) + ' is at the top, and read again.' : 'That was the last task of this tier.');
+    renderArea(true);
+    openRead(msg);
+  }
+  function readScreen() {
+    var a = window.alt1, R = window.QuickGuideReader;
+    if (!a || !R) return;
+    if (!a.permissionPixel) { readMsg('Alt1 has no permission to see the screen. In Alt1, remove this app, add it again, and allow it to view the screen.'); return; }
+    if (!a.rsLinked) { readMsg('Alt1 cannot find the game. Open RuneScape and try again.'); return; }
+    var c = null;
+    try { c = R.capture(); } catch (e) { c = null; }
+    if (!c) { readMsg('Could not take a picture of the game. Try again.'); return; }
+    applyRead(R.read(c.px, c.w, c.h));
+  }
+  function readFile(f) {
+    var R = window.QuickGuideReader;
+    if (!f || !R) return;
+    readMsg('Reading\u2026');
+    var url = URL.createObjectURL(f), im = new Image();
+    im.onload = function () {
+      var cv = document.createElement('canvas');
+      cv.width = im.naturalWidth; cv.height = im.naturalHeight;
+      var x = cv.getContext('2d');
+      x.drawImage(im, 0, 0);
+      URL.revokeObjectURL(url);
+      applyRead(R.read(x.getImageData(0, 0, cv.width, cv.height).data, cv.width, cv.height));
+    };
+    im.onerror = function () { URL.revokeObjectURL(url); readMsg('That file is not a picture.'); };
+    im.src = url;
+  }
+
   function closeBackup() {
     var b = byId('bk');
     if (b) b.parentNode.removeChild(b);
@@ -2169,6 +2253,7 @@
   });
   app.addEventListener('change', function (ev) {
     var t = ev.target;
+    if (t.id === 'rd-file') { readFile(t.files && t.files[0]); return; }
     if (t.id === 'bk-file') {
       var f = t.files && t.files[0];
       if (f) {
@@ -2196,6 +2281,7 @@
   });
   app.addEventListener('click', function (ev) {
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
+    if (ev.target.id === 'rd') { closeRead(); return; }
     var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
@@ -2221,6 +2307,9 @@
       else if (act === 'export') openBackup('export');
       else if (act === 'import') openBackup('import');
       else if (act === 'bk-close') closeBackup();
+      else if (act === 'read') openRead();
+      else if (act === 'rd-close') closeRead();
+      else if (act === 'rd-screen') readScreen();
       else if (act === 'bk-copy') copyBackup();
       else if (act === 'bk-import') runImport();
       else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }
@@ -2276,7 +2365,7 @@
     var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
     if (!inside) closeMenus();
   });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { closeMenus(); closeBackup(); } });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); } });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {
     if (!window.alt1 || typeof window.alt1.openBrowser !== 'function') return;

@@ -11,6 +11,7 @@ You pick a quest from the list, and the app shows the guide as a checklist in th
 | `style.css` | The look |
 | `parser.js` | Reads one quest guide and turns it into JSON |
 | `quests.js` | Reads the list of all quests |
+| `reader.js` | Reads the in-game task list from the screen (Read from game) |
 | `app.js` | The screens, ticks, buttons and maps |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
@@ -44,7 +45,8 @@ Two other ways:
 - Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
 - Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
 
-The app asks Alt1 for the **overlay** permission only, because Alt1 wants at least one. It does not read your screen, and it draws nothing on the game.
+The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Read from game**: it looks at the game only when you press **Read screen**. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
+If you added the app before, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
 Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
 
 ### After a change
@@ -159,7 +161,12 @@ is how the app finds it; a task can also be written by its name alone.
 - **Needs** and **Tasks** fold open and shut. When you finish a tier, its tasks fold shut;
   open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
-- The game does not share which tasks you have done, so you tick them yourself.
+- The game does not share which tasks you have done. Tick them yourself, or let the app read them:
+- **Read from game** (top of a tier): open the same tier in the game (**Hero → Achievements → Area Tasks**),
+  with **Show Completed** ticked and **List Mode** unticked. Pick the task at the top of the game's list, then press
+  **Read screen** (in Alt1) or **Use a screenshot**. Each task with a green tick on its badge gets ticked in the app.
+  Then scroll down in the game and read again: the app tells you which task to put at the top next.
+  It only ticks; it never unticks. It is built from phone screenshots for now; desktop may need a tweak.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
