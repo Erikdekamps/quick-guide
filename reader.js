@@ -200,9 +200,10 @@
     var last = best.length - 1;
     var cx0 = median(best.map(function (b) { return b.x0; })), cx1 = median(best.map(function (b) { return b.x1; }));
     var rows = best.map(function (b, i) {
-      // Only the top or bottom row can be scrolled half out of view.
+      // Only the top or bottom row can be scrolled half out of view. (A red badge is a little smaller than one
+      // with a tick, so only a badge less than half the usual size counts as cut off.)
       var edge = i === 0 || i === last;
-      var partial = b.y0 <= 0 || b.y1 >= h - 1 || (edge && (b.h < mh * 0.7 || b.w < mw * 0.7));
+      var partial = b.y0 <= 0 || b.y1 >= h - 1 || (edge && (b.h < mh * 0.5 || b.w < mw * 0.5));
       // Done or not is counted in a badge-sized box on the row, at the column's place: not in the blob,
       // which may have taken in something next to the badge.
       var c = count(px, w, h, cx0, Math.max(0, b.y1 - mh + 1), cx1, b.y1), all = c.red + c.green + c.lock || 1;
@@ -308,12 +309,13 @@
     for (var y = 0; y < mh; y++) for (var x = 0; x < mw; x++) m[y * mw + x] = lum(px, w, x0 + x, y0 + y) > 110 ? 1 : 0;
     return { w: mw, h: mh, m: m };
   }
-  // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel is allowed.
+  // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel sideways and 2 up or down
+  // is allowed (the edge of a badge can move a little from one look to the next).
   function textDiffer(a, b) {
     if (!a || !b) return 1;
     var w = Math.min(a.w, b.w), h = Math.min(a.h, b.h), best = 1;
     // No shift first: when that is already a clear match, the other 8 are not needed.
-    var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1]];
+    var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1], [0, -2], [0, 2], [-1, -2], [1, -2], [-1, 2], [1, 2]];
     for (var s = 0; s < shifts.length; s++) {
       var dx = shifts[s][0], dy = shifts[s][1];
       {

@@ -2067,7 +2067,7 @@
   // which row that is. It starts out knowing the picked row is Easy Ardougne, so the rows under it are Medium
   // Ardougne and so on, and it remembers what each row's name looks like. Then each task row on the right is set
   // to what the game shows: done is ticked, not done (or locked) is unticked.
-  var SCAN_MS = 500, SAME = 0.15;
+  var SCAN_MS = 500, SAME = 0.15, ROW_SAME = 0.45;
   // Every tier of every area, in the order the game lists them: Easy Ardougne, Medium Ardougne, ...
   function scanTiers() {
     var ix = aidxAll(), out = [];
@@ -2243,24 +2243,31 @@
     var p = r.pitch || 1, y0 = rows[0].y, base = 0;
     rows.forEach(function (x, j) { x.slot = r.pitch ? Math.round((x.y - y0) / p) : j; });
     if (sc.prev) {
-      var votes = {}, best = null;
-      rows.forEach(function (x) {
-        sc.prev.forEach(function (q) { if (R.textDiffer(x.fp, q.fp) < SAME) { var b = q.idx - x.slot; votes[b] = (votes[b] || 0) + 1; } });
-      });
-      Object.keys(votes).forEach(function (b) {
-        b = +b;
-        // Rows that should be the same row at this place but do not look it speak against it.
-        var against = rows.filter(function (x) {
-          var q = sc.prev.filter(function (z) { return z.idx === b + x.slot; })[0];
-          return q && R.textDiffer(x.fp, q.fp) >= SAME;
-        }).length;
-        if (votes[b] > against * 2 && (votes[b] >= 2 || !against) && (!best || votes[b] > best.v)) best = { b: b, v: votes[b] };
-      });
-      if (!best) { scanMsg('Lost my place: scroll back a little.'); return; }
-      base = best.b;
+      // The rows are where they were (nothing scrolled): the same place, no need to compare text.
+      var still = rows.every(function (x) { return sc.prev.some(function (q) { return Math.abs(q.y - x.y) <= 2; }); }) &&
+        sc.prev.length === rows.length;
+      if (still) base = sc.prev[0].idx - rows[0].slot;
+      else {
+        // Each row votes for the row of the last look it looks most like, if that one is clearly closest.
+        // A row like none of them (scrolled in, or under a tooltip) does not vote.
+        var votes = {}, n = 0;
+        rows.forEach(function (x) {
+          var b1 = null, d1 = 1, d2 = 1;
+          sc.prev.forEach(function (q) {
+            var d = R.textDiffer(x.fp, q.fp);
+            if (d < d1) { d2 = d1; d1 = d; b1 = q; } else if (d < d2) d2 = d;
+          });
+          if (b1 && d1 < ROW_SAME && d1 < d2 * 0.75) { var b = b1.idx - x.slot; votes[b] = (votes[b] || 0) + 1; n++; }
+        });
+        var best = null;
+        Object.keys(votes).forEach(function (b) { if (best == null || votes[b] > votes[best]) best = b; });
+        // Most of the rows that voted agree.
+        if (best == null || votes[best] * 2 <= n) { scanMsg('Lost my place: scroll back a little.'); return; }
+        base = +best;
+      }
     }
     var t = scanTier(), on = [], off = [], lo = Infinity, hi = -1;
-    sc.prev = rows.map(function (x) { return { fp: x.fp, idx: base + x.slot }; });
+    sc.prev = rows.map(function (x) { return { fp: x.fp, idx: base + x.slot, y: x.y }; });
     rows.forEach(function (x) {
       var i = base + x.slot;
       if (i < 0 || i >= t.tasks.length) return;
