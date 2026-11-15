@@ -21,7 +21,7 @@
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
- *   scannames       what each tier's name looks like in the game, for Scan achievements
+ *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -2201,7 +2201,7 @@
       var tiers = scanTiers();
       if (!tiers.length) { readMsg('Could not read the task lists from the wiki. Try again in a moment.'); return; }
       stopScan();
-      S.scan = { tiers: tiers, k: -1, names: loadNames(tiers), prev: null, region: null, swap: null, set: 0, misses: 0, blank: 0, timer: 0, msg: '' };
+      S.scan = { tiers: tiers, k: -1, names: loadNames(tiers), base: namesFrom(tiers, window.QuickGuideTierNames || {}), prev: null, region: null, swap: null, set: 0, misses: 0, blank: 0, timer: 0, msg: '' };
       S.scan.msg = 'Looking for the list…';
       closeRead();
       showScanBar();
@@ -2247,7 +2247,7 @@
     if (!sc || k < 0 || k >= sc.tiers.length) return;
     // The arrows win until another row is picked in the game.
     sc.k = k; sc.names = {}; sc.prev = null; sc.pin = { k: k, sig: sc.last ? sc.last.sig : null, y: sc.last ? sc.last.top : null }; sc.sum = null;
-    try { sdel('scannames'); } catch (e) { /* not saved */ }
+    try { sdel('tiernames'); } catch (e) { /* not saved */ }
     showScanBar();
   }
   // Alt1 versions differ in which way round they hand over red and blue. Until the list is found once,
@@ -2260,7 +2260,7 @@
     // Not known yet: read it the other way round too, and keep the way that finds the tier list's gold box, or else
     // the one with the most red in the badges.
     var copy = R.swapRB(new Uint8ClampedArray(c.px)), r2 = R.read(copy, c.w, c.h);
-    function worth(x) { return x.found ? (x.panel ? 1e9 : 0) + x.red : -1; }
+    function worth(x) { return x.found ? (x.panel ? 1e9 : 0) + (x.sure ? 1e6 : 0) + x.red : -1; }
     if (worth(r2) > worth(r)) { c.px = copy; sc.swap = true; return r2; }
     if (r.found) sc.swap = false;
     return r;
@@ -2301,13 +2301,18 @@
       // Rows are placed on the whole screen, not in the part, so places can be compared from one look to the next.
       r.rows.forEach(function (q) { q.ay = c.y + q.y; });
       // The tier list on the left, found by the reader next to the list.
-      var known = scanPicked(sc, r.panel || null);
-      if (known === null) { /* another tier, not sure yet: set nothing this look */ }
+      var known = r.rows.length ? scanPicked(sc, r.panel || null) : null;
+      // A task opened up to show its steps pushes the rows under it out of place: only the ones above it are read.
+      var OPENED = 'A task is opened up in the game: close it (click its arrow) to scan the tasks under it.';
+      if (!r.rows.length) scanMsg(OPENED);
+      else if (known === null) { /* another tier, not sure yet: set nothing this look */ }
       else if (known) {
         var ry = r.rows.map(function (q) { return q.y; });
         var sb = R.scrollbar(c.px, c.w, c.h, r.x1 + bw * 10, r.x0 + right - bw, Math.min.apply(null, ry) - pitch, Math.max.apply(null, ry) + pitch);
         scanRows(sc, r, sb);
+        if (r.opened && S.scan === sc && /^Tasks /.test(sc.msg)) scanMsg(sc.msg + ' ' + OPENED);
       }
+      else if (!r.panel) scanMsg('Which tier is this? Scroll the list on the left until the tier you clicked (the gold box) shows.');
       else scanMsg('Which tier is this? Scroll the list on the left up until Area Tasks shows (only needed once).');
     }
     if (S.scan === sc) sc.timer = setTimeout(scanTick, SCAN_MS);
@@ -2340,18 +2345,43 @@
     return { w: w, h: h, m: m };
   }
   function tierKey(t) { return t.area + '|' + t.id; }
-  function loadNames(tiers) {
-    var saved = sget('scannames') || {}, out = {};
-    tiers.forEach(function (t, k) { if (typeof saved[tierKey(t)] === 'string') { var m = unpackMask(saved[tierKey(t)]); if (m) out[k] = m; } });
+  // The names the app learnt by itself (saved), and the ones it comes with (tiernames.js: every tier's name at the
+  // game's normal interface size). Both are tried: a row is the tier whose name it looks like.
+  function namesFrom(tiers, packed) {
+    var out = {};
+    tiers.forEach(function (t, k) { if (typeof packed[tierKey(t)] === 'string') { var m = unpackMask(packed[tierKey(t)]); if (m) out[k] = m; } });
     return out;
   }
+  function loadNames(tiers) {
+    // (Names saved by older versions could be wrong: they are dropped.)
+    try { sdel('scannames'); } catch (e) { /* not saved */ }
+    return namesFrom(tiers, sget('tiernames') || {});
+  }
+  function nameDiffer(sc, sig, k) {
+    var R = window.QuickGuideReader, a = sc.names[k] ? R.textDiffer(sig, sc.names[k]) : 1, b = sc.base[k] ? R.textDiffer(sig, sc.base[k]) : 1;
+    return a < b ? a : b;
+  }
+  // The tier whose name a row looks like, if one is clearly the closest; else null.
+  function nameOf(sc, sig) {
+    if (!sig) return null;
+    var d1 = 1, d2 = 1, at = null;
+    for (var k = 0; k < sc.tiers.length; k++) {
+      if (!sc.names[k] && !sc.base[k]) continue;
+      var d = nameDiffer(sc, sig, k);
+      if (d < d1) { d2 = d1; d1 = d; at = k; } else if (d < d2) d2 = d;
+    }
+    return d1 < NAME_SAME && d1 < d2 * 0.7 ? at : null;
+  }
   function learnName(sc, k, sig, again) {
+    var R = window.QuickGuideReader;
     if (!sig || k < 0 || k >= sc.tiers.length) return;
-    if (sc.names[k] && !(again && window.QuickGuideReader.textDiffer(sig, sc.names[k]) >= NAME_SAME)) return;
+    // A name the app came with is not learnt again (that one is right, whatever the arrows said).
+    for (var b in sc.base) if (R.textDiffer(sig, sc.base[b]) < NAME_SAME) return;
+    if (sc.names[k] && !(again && R.textDiffer(sig, sc.names[k]) >= NAME_SAME)) return;
     sc.names[k] = sig;
-    var saved = sget('scannames') || {};
+    var saved = sget('tiernames') || {};
     saved[tierKey(sc.tiers[k])] = packMask(sig);
-    sset('scannames', saved);
+    sset('tiernames', saved);
   }
   // Which tier is picked in the game (the row with the gold box in the list on the left). True when it knows,
   // false when it does not, null when it saw another tier only once (it moves on after two looks in a row agree).
@@ -2381,15 +2411,8 @@
     // Tier names of one area look a lot alike ("Hard Ardougne", "Elite Ardougne"), so a name only counts as the
     // same when it is nearly pixel for pixel the same (NAME_SAME).
     var certain = at != null, bh2 = p.box.y1 - p.box.y0 + 1;
-    if (at == null && picked.sig) {
-      // The name it knows that the picked row looks like, if that one is clearly closest.
-      var d1 = 1, d2 = 1;
-      Object.keys(sc.names).forEach(function (k) {
-        var d = R.textDiffer(picked.sig, sc.names[k]);
-        if (d < d1) { d2 = d1; d1 = d; at = +k; } else if (d < d2) d2 = d;
-      });
-      if (!(d1 < NAME_SAME && d1 < d2 * 0.7)) at = null;
-    }
+    // The name it knows that the picked row looks like, if that one is clearly closest.
+    if (at == null) at = nameOf(sc, picked.sig);
     // The same row as last time is still picked (the same name, in the same place): the same tier.
     if (at == null && sc.k >= 0 && picked.sig && sc.pickSig && sc.pickTop != null && Math.abs(picked.top - sc.pickTop) <= bh2 / 2 &&
         R.textDiffer(picked.sig, sc.pickSig) < NAME_SAME) at = sc.k;
@@ -2399,12 +2422,8 @@
       var votes = {}, nv = 0;
       p.rows.forEach(function (row) {
         if (!row.sig || row === picked) return;
-        var b1 = null, e1 = 1, e2 = 1;
-        Object.keys(sc.names).forEach(function (k) {
-          var d = R.textDiffer(row.sig, sc.names[k]);
-          if (d < e1) { e2 = e1; e1 = d; b1 = +k; } else if (d < e2) e2 = d;
-        });
-        if (b1 != null && e1 < NAME_SAME && e1 < e2 * 0.7) { var v = b1 - row.at; votes[v] = (votes[v] || 0) + 1; nv++; }
+        var b1 = nameOf(sc, row.sig);
+        if (b1 != null) { var v = b1 - row.at; votes[v] = (votes[v] || 0) + 1; nv++; }
       });
       Object.keys(votes).forEach(function (v) { if (votes[v] >= 2 && votes[v] * 2 > nv && (at == null || votes[v] > votes[at])) at = +v; });
       if (at != null && (at < 0 || at >= n)) at = null;
