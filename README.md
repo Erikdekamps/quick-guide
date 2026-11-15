@@ -74,18 +74,24 @@ done is ticked, not done (or locked) is unticked.
 
 How it knows where it is:
 
-- **The tier:** the one with the gold box in the list on the left. The app counts it from the **Area Tasks**
-  title above Easy Ardougne (or the next title, below the last tier). It remembers what each tier's name looks like,
-  so after one scan with the title in view it knows them without it. If it cannot tell, it asks you to scroll the
-  list on the left up until **Area Tasks** shows.
+- **The rows:** every task is a box with a small gold icon and a title. A task is done when its title is gold
+  (and its icon a star). That is the same in every area, whatever the area's badge looks like.
+- **The tier:** the one with the gold box in the list on the left. The app comes with what each of the 52 tier
+  names looks like (`tiernames.js`), so it knows the tier you clicked right away. Names of one area look much
+  alike ("Hard Ardougne", "Elite Ardougne"), so a name only counts when it is nearly pixel for pixel the same.
+  At another interface size the names do not fit: then it counts from the **Area Tasks** title above
+  Easy Ardougne (or the next title, below the last tier), and remembers the names it sees. If it cannot tell,
+  it asks you to scroll the list on the left: until the gold box shows, or up until **Area Tasks** shows.
 - **The tasks:** a new tier starts at the top of its list (the scrollbar says when it is). When you scroll,
   each row is matched to the row it looks most like in the last look. A tier or a task only changes when two looks
   in a row agree, so a tooltip or a moving background does not confuse it.
+- A task you opened up in the game (its arrow, to see its steps) pushes the tasks under it out of place.
+  The app reads the tasks down to it, and asks you to close it.
 - If the bar shows the wrong tier, use **◀ ▶**. They hold until you click another tier in the game.
   **Stop** ends the scan.
-- It finds the list by the tier list next to it, so the rest of the screen (like a chat full of green lines)
-  does not fool it. The scrollbar is the first one right of the list, a narrow handle in a dark track, so the
-  window's gold edge or sand and rocks behind the window are not taken for it. It works at any interface size and on big screens. If it cannot see the list, the bar says so.
+- The scrollbar is the first one right of the list, a narrow handle in a dark track, so the window's gold edge
+  or sand and rocks behind the window are not taken for it. The rest of the screen (like a chat full of green
+  lines) does not fool it either. If it cannot see the list, the bar says so.
 
 ## Settings (the cog)
 
@@ -150,7 +156,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `settings`, `last` | Your settings, and the quest or area that was open last |
 | `player` | The character you looked up: quests done or started, skill levels |
-| `scannames` | What each tier's name looks like in the game (for Scan achievements) |
+| `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
 and read from the wiki again when you open them.
@@ -177,13 +183,14 @@ No other service is used.
 | `parser.js` | Reads a quest guide or an area page from the wiki |
 | `quests.js` | Reads the quest lists and the optimal order |
 | `reader.js` | Reads the game's task list from the screen (for Scan achievements) |
+| `tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.27.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.28.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
@@ -194,9 +201,9 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - They use a fake copy of the wiki (`tests/fixtures/`), so they need no internet.
 - Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
 - **Scan achievements** is tested on screenshots of the game (`tests/fixtures/game/`) with a fake Alt1: done, not done
-  and locked tasks; bigger screens and interface sizes; blurry, dark and JPEG pictures; busy screens where no list
-  may be found; scrolling (slow, fast, too far); tooltips; a see-through window; both ways Alt1 hands over pictures;
-  and how fast one look is.
+  and locked tasks; badges of another colour; a task opened up; every tier name the app comes with; bigger screens
+  and interface sizes; blurry, dark and JPEG pictures; busy screens where no list may be found; scrolling (slow,
+  fast, too far); tooltips; both ways Alt1 hands over pictures; and how fast one look is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 

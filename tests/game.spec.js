@@ -23,8 +23,8 @@ const HARD_DAEMONHEIM = ['not', 'not', 'not', 'locked', 'locked', 'done', 'done'
 // Reads a picture with the reader, in the page. scale resizes it first; cut keeps only the top part;
 // filter is a canvas filter, or 'jpeg' to save it as a JPEG first.
 function readShot(page, src, o) {
-  o = Object.assign({ scale: 1, cut: 1, filter: '' }, o);
-  return page.evaluate(([s, k, c, f]) => new Promise((done, fail) => {
+  o = Object.assign({ scale: 1, cut: 1, filter: '', blue: null, open: null, raw: false }, o);
+  return page.evaluate(([s, k, c, f, b, open, o]) => new Promise((done, fail) => {
     const im = new Image();
     im.onload = async () => {
       const w = Math.round(im.width * k), h = Math.round(im.height * k * c);
@@ -33,12 +33,22 @@ function readShot(page, src, o) {
       if (f && f !== 'jpeg') x.filter = f;
       x.drawImage(im, 0, 0, w, Math.round(im.height * k));
       if (f === 'jpeg') { const j = new Image(); j.src = cv.toDataURL('image/jpeg', 0.6); await j.decode(); x.drawImage(j, 0, 0); }
-      const r = window.QuickGuideReader.read(x.getImageData(0, 0, w, h).data, w, h);
+      const d = x.getImageData(0, 0, w, h);
+      // Badges of another area: red and blue swapped in the badge column (blue shields, as in Falador).
+      if (b) for (let yy = 0; yy < h; yy++) for (let xx = b[0]; xx <= b[1]; xx++) { const j = (yy * w + xx) * 4, t = d.data[j]; d.data[j] = d.data[j + 2]; d.data[j + 2] = t; }
+      // A task opened up: everything from this height down moves down, and the box above it grows.
+      if (open) {
+        const from = open[0], by = open[1], copy = new Uint8ClampedArray(d.data);
+        for (let yy = h - 1; yy >= from + by; yy--) d.data.set(copy.subarray((yy - by) * w * 4, (yy - by + 1) * w * 4), yy * w * 4);
+        for (let yy = from; yy < from + by; yy++) d.data.set(copy.subarray((from - 3) * w * 4, (from - 2) * w * 4), yy * w * 4);
+      }
+      const r = window.QuickGuideReader.read(d.data, w, h);
+      if (o.raw) return done({ found: r.found, sure: !!r.sure, opened: !!r.opened, rows: r.rows.map((row) => (row.done ? 'done' : 'not')) });
       done(r.found ? r.rows.map((row) => (row.locked ? 'locked' : row.done ? 'done' : 'not') + (row.partial ? ' cut' : '')) : null);
     };
     im.onerror = fail;
     im.src = s;
-  }), [src, o.scale, o.cut, o.filter]);
+  }), [src, o.scale, o.cut, o.filter, o.blue, o.open, { raw: o.raw }]);
 }
 
 test.describe('the screen reader', () => {
@@ -65,6 +75,54 @@ test.describe('the screen reader', () => {
 
   test('a bigger interface (Alt1 at a higher interface scale) reads the same', async ({ page }) => {
     for (const k of [1.25, 1.5, 2]) expect(await readShot(page, SHOT.daemonheim, { scale: k }), String(k)).toEqual(HARD_DAEMONHEIM);
+  });
+
+  // Every area has its own badge (Falador's is a blue shield, Karamja's a palm): the old way only knew red ones.
+  test('badges of another colour: the rows are found by their boxes, and done is the gold title', async ({ page }) => {
+    const r = await readShot(page, SHOT.daemonheim, { blue: [282, 309], raw: true });
+    expect(r).toEqual({ found: true, sure: true, opened: false, rows: ['not', 'not', 'not', 'not', 'not', 'done', 'done'] });
+    // The same list as the game draws it is read the same way.
+    expect((await readShot(page, SHOT.daemonheim, { raw: true })).sure).toBe(true);
+    expect((await readShot(page, SHOT.desert, { blue: [642, 669], raw: true })).rows).toEqual(['not', 'not', 'done', 'done', 'done', 'done']);
+  });
+
+  test('a task opened up to show its steps: only the rows above it are read', async ({ page }) => {
+    // The fifth row (from 405 to 464) is opened up by 40 pixels: the rows down to it are read.
+    const r = await readShot(page, SHOT.daemonheim, { open: [464, 40], raw: true });
+    expect(r).toEqual({ found: true, sure: true, opened: true, rows: ['not', 'not', 'not', 'not', 'not'] });
+    // The second row opened up: the rows under it are more, but they are out of place. None is read.
+    expect(await readShot(page, SHOT.daemonheim, { open: [278, 40], raw: true })).toEqual({ found: true, sure: true, opened: true, rows: [] });
+  });
+
+  test('the tier names the app comes with: all 52, each unlike the others, and they fit the game', async ({ page }) => {
+    await page.addScriptTag({ url: '/tiernames.js' });
+    const res = await page.evaluate((src) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = src; }).then((im) => {
+      const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/', R = window.QuickGuideReader;
+      const unpack = (str) => {
+        const p = str.split(','), w = +p[0], h = +p[1], m = new Uint8Array(w * h);
+        for (let i = 0; i < p[2].length; i++) { const v = B64.indexOf(p[2][i]); for (let b = 5; b >= 0; b--) { const j = i * 6 + (5 - b); if (j < m.length) m[j] = (v >> b) & 1; } }
+        return { w, h, m };
+      };
+      const keys = Object.keys(window.QuickGuideTierNames), base = keys.map((k) => unpack(window.QuickGuideTierNames[k]));
+      let closest = 1;
+      for (let a = 0; a < base.length; a++) for (let b = a + 1; b < base.length; b++) closest = Math.min(closest, R.textDiffer(base[a], base[b]));
+      // The rows of the tier list in a picture of the game: each is the name it should be, and no other.
+      const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
+      const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
+      const r = R.read(x.getImageData(0, 0, im.width, im.height).data, im.width, im.height);
+      const seen = r.panel.rows.filter((row) => row.at >= 0).map((row) => {
+        let d1 = 1, d2 = 1, at = -1;
+        base.forEach((b, k) => { const d = R.textDiffer(row.sig, b); if (d < d1) { d2 = d1; d1 = d; at = k; } else if (d < d2) d2 = d; });
+        return d1 < 0.2 && d1 < d2 * 0.7 ? keys[at] : '?';
+      });
+      return { keys, closest, seen };
+    }), SHOT.screen);
+    expect(res.keys.length).toBe(52);
+    expect(res.keys.slice(0, 5)).toEqual(['Ardougne|easy', 'Ardougne|medium', 'Ardougne|hard', 'Ardougne|elite', 'Daemonheim|easy']);
+    expect(res.keys).toContain('Lumbridge|beginner');
+    expect(res.keys).toContain("Seers' Village|elite");
+    expect(res.closest).toBeGreaterThan(0.24);
+    expect(res.seen.slice(0, 9)).toEqual(['Ardougne|easy', 'Ardougne|medium', 'Ardougne|hard', 'Ardougne|elite', 'Daemonheim|easy', 'Daemonheim|medium', 'Daemonheim|hard', 'Daemonheim|elite', 'Desert|easy']);
   });
 
   test('the "Set tasks" page (no tier picked): nothing that could be ticked', async ({ page }) => {
@@ -313,11 +371,13 @@ test.describe('Scan achievements in Alt1', () => {
   // as when another tier is clicked in the game. scale: a bigger screen (smooth: blurred a little, as when resized).
   // list: the task list scrolled down that many pixels (one row is 62). chat: that many lines of chat under the game.
   async function show(page, src, o) {
-    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line, edge]) => new Promise((done) => {
+    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line, edge, notitle, nobox, open]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height + (chat ? 300 : 0);
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
+        // The "Area Tasks" title's green icon painted away: as if the list on the left has no title in view.
+        if (notitle) { x.fillStyle = 'rgb(47,45,43)'; x.fillRect(508, 200, 36, 37); }
         if (pick) {
           x.fillStyle = 'rgb(40,36,33)';
           x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); x.fillRect(514, 244, 1, 30); x.fillRect(658, 244, 1, 30);
@@ -325,6 +385,8 @@ test.describe('Scan achievements in Alt1', () => {
           x.fillStyle = 'rgb(255,203,5)';
           x.fillRect(514, y, 145, 1); x.fillRect(514, y + 29, 145, 1); x.fillRect(514, y, 1, 30); x.fillRect(658, y, 1, 30);
         }
+        // The gold box painted away: as if the tier you clicked is scrolled out of view in the list on the left.
+        if (nobox) { x.fillStyle = 'rgb(40,36,33)'; x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); x.fillRect(514, 244, 1, 30); x.fillRect(658, 244, 1, 30); }
         if (other) for (let k = 0; k < 6; k++) x.drawImage(im, 686, 176 + k * 62, 484, 62, 686, 176 + (5 - k) * 62, 484, 62);
         if (cover) {
           // A tooltip over three rows, with text in it.
@@ -355,6 +417,13 @@ test.describe('Scan achievements in Alt1', () => {
           x.fillStyle = 'rgb(11,9,7)'; x.fillRect(1171, 189, 7, 383);
           x.drawImage(was, 1171, 189, 7, 113, 1171, 189 + Math.round(list * 0.262), 7, 113);
         }
+        if (open) {
+          // A task opened up to show its steps: the list from that height down moves down, and the row above grows.
+          const X0 = 686, X1 = 1167, was = document.createElement('canvas');
+          was.width = cv.width; was.height = cv.height; was.getContext('2d').drawImage(cv, 0, 0);
+          x.drawImage(was, X0, open[0], X1 - X0, 572 - open[0] - open[1], X0, open[0] + open[1], X1 - X0, 572 - open[0] - open[1]);
+          x.drawImage(was, X0, open[0] - 3, X1 - X0, 1, X0, open[0], X1 - X0, open[1]);
+        }
         // A bigger screen: the same picture, scale times as big.
         const W = Math.round(cv.width * scale), H = Math.round(cv.height * scale), big = document.createElement('canvas');
         big.width = W; big.height = H;
@@ -365,7 +434,7 @@ test.describe('Scan achievements in Alt1', () => {
         done();
       };
       im.src = s;
-    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT, !!(o && o.edge)]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT, !!(o && o.edge), !!(o && o.notitle), !!(o && o.nobox), (o && o.open) || null]);
   }
   // Daemonheim and Desert with 4 tiers each, as in the game (the other areas have one tier on the fake wiki).
   function fourTiers(wiki) {
@@ -536,23 +605,96 @@ test.describe('Scan achievements in Alt1', () => {
     expect(await ticked(page, 'Ardougne', 2, 8)).toEqual(Array(8).fill(false));
   });
 
+  test('no title in view: the next tier of the same area (the names look alike) is still seen as another tier', async ({ page, wiki }) => {
+    fourTiers(wiki);
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // "Easy Ardougne", "Hard Ardougne" and "Elite Ardougne" share most of their letters.
+    for (const [pick, name] of [[2, 'Hard Ardougne'], [3, 'Elite Ardougne'], [1, 'Medium Ardougne'], [5, 'Medium Daemonheim'], [0, 'Easy Ardougne']]) {
+      await show(page, SHOT.screen, { pick, notitle: true, other: pick % 2 === 1 });
+      await expect(tier(page), name).toHaveText(name);
+      await expect(page.locator('#scan-msg'), name).toHaveText(/^Tasks 1–\d of \d+/);
+    }
+    expect(page.errors).toEqual([]);
+  });
+
+  test('the tier you clicked is out of view in the list on the left: it says so, and goes on when it shows', async ({ page }) => {
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen, { nobox: true });
+    await startScan(page);
+    await expect(page.locator('#scan-msg')).toHaveText('Which tier is this? Scroll the list on the left until the tier you clicked (the gold box) shows.');
+    expect(await ticked(page, 'Ardougne', 0, 8)).toEqual(Array(8).fill(false));
+    await show(page, SHOT.screen);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // Out of view again, later: the tier stays as it was.
+    await show(page, SHOT.screen, { nobox: true });
+    await frames(page, 3);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
+  });
+
+  test('a task opened up in the game: the tasks down to it are set, and the bar says to close it', async ({ page }) => {
+    await inAlt1(page);
+    await openApp(page, expect);
+    // The third task (from 301 to 360) is opened up by 40 pixels.
+    await show(page, SHOT.screen, { open: [361, 40] });
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–3 of 23. A task is opened up in the game: close it (click its arrow) to scan the tasks under it.');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual([true, true, true, false, false, false, false, false]);
+    // The first task opened up: nothing under it can be placed.
+    await show(page, SHOT.screen, { open: [237, 40] });
+    await expect(page.locator('#scan-msg')).toHaveText('A task is opened up in the game: close it (click its arrow) to scan the tasks under it.');
+    // Closed again: the rest is read.
+    await show(page, SHOT.screen);
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    expect(page.errors).toEqual([]);
+  });
+
   test('a task the game shows as not done (or locked) is unticked', async ({ page }) => {
-    await inAlt1(page, { w: 801, h: 583 });
+    await inAlt1(page, { w: 1602, h: 1166 });
     await openApp(page, expect);
     await page.locator('.tab[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     const boxes = page.locator('section[data-asec="tasks"] .secb > ul.steps > li[data-task] > .row > input[data-acb]');
     for (let i = 0; i < 4; i++) await boxes.nth(i).check();
     await boxes.nth(9).check();
-    await show(page, SHOT.daemonheim);
+    // Twice the normal interface size: the tier names the app comes with do not fit. This picture has no title in
+    // view in the list on the left either, so the app cannot tell which tier it is.
+    await show(page, SHOT.daemonheim, { scale: 2 });
     await startScan(page);
-    // This picture has no title in view in the list on the left, so the app cannot tell which tier it is.
     await expect(page.locator('#scan-msg')).toHaveText('Which tier is this? Scroll the list on the left up until Area Tasks shows (only needed once).');
     expect(await ticked(page, 'Ardougne', 0, 10)).toEqual([true, true, true, true, false, false, false, false, false, true]);
     await page.locator('[data-act="scan-next"]').click();
     await expect(tier(page)).toHaveText('Easy Ardougne');
     // Rows 1 to 7 are set to what the game shows; task 10 is not on the screen, so it stays.
     await expect.poll(() => ticked(page, 'Ardougne', 0, 10)).toEqual([...DAEM.slice(0, 7), false, false, true]);
+  });
+
+  test('no title in view, first scan ever: the app knows the tier by its name, and sets its tasks', async ({ page, wiki }) => {
+    fourTiers(wiki);
+    await inAlt1(page, { w: 801, h: 583 });
+    await openApp(page, expect);
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Daemonheim"][data-atier="hard"]').click();
+    const boxes = page.locator('section[data-asec="tasks"] .secb > ul.steps > li[data-task] > .row > input[data-acb]');
+    for (let i = 0; i < 4; i++) await boxes.nth(i).check();
+    await boxes.nth(9).check();
+    // Hard Daemonheim has the gold box; the "Area Tasks" title is not in view.
+    await show(page, SHOT.daemonheim);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Hard Daemonheim');
+    await expect.poll(() => ticked(page, 'Daemonheim', 2, 10)).toEqual([...DAEM.slice(0, 7), false, false, true]);
+    // Nothing was learnt or saved: the names it came with were enough.
+    expect(await stored(page, 'tiernames')).toBeNull();
+    expect(page.errors).toEqual([]);
   });
 
   test('scrolling, slowly or fast, down and back up, stays on the same tier and keeps each row on its task', async ({ page }) => {

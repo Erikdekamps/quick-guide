@@ -1,15 +1,16 @@
 /*
  * Reads the in-game Achievements list from a picture of the screen, taken by Alt1.
  *
- * Every task row has a badge on the left: a red shield (not done), the shield
- * with a bright green tick (done), or a grey shield with a blue-green lock (locked).
+ * Every task row is a box of one flat colour with a thin dark line under it. In it: a badge (each area has its
+ * own), a small gold icon (a pin, or a star when the task is done) and the title (gold when the task is done).
  * So we:
- *   1. find blobs of red, green and lock pixels,
- *   2. keep the blobs that line up in one column at one even step (the badge column),
- *   3. call a row done when its badge holds enough green.
+ *   1. find the boxes by their edges: boxes of one size, one under the other, each with the gold icon,
+ *   2. call a row done when its title is gold, locked when its badge has the blue-green lock.
+ * That works in every area. On a blurry picture (the game drawn at another size) the edges are soft; then the old
+ * way is tried too: blobs of red, green and lock pixels that line up in a column (only areas with red badges).
  *
- * The result is the rows from top to bottom. It does not read text: the
- * player picks which task is at the top, and the app counts on from there.
+ * The result is the rows from top to bottom. It does not read text: the app works out which task is at the top
+ * from the list's scrollbar, and counts on from there.
  *
  * Works in the browser (window.QuickGuideReader) and in Node (module.exports).
  */
@@ -173,6 +174,158 @@
   }
 
 
+  // ---------- the task rows, found by their boxes ----------
+  // Every task is a box of one flat colour, with a thin dark line between it and the next: the same in every area,
+  // whatever its badge looks like (a red shield in Ardougne, a blue one in Falador, a palm in Karamja…). In the box:
+  // the badge on the left, then a small gold icon (a pin, or a star when the task is done), then the title, which
+  // is gold when the task is done. A locked task has a blue-green lock over its badge.
+  // The gold of the pin, the star and a done task's title.
+  function isMark(r, g, b) { return r >= 150 && g >= 110 && r - b >= 50 && r >= g; }
+  function countIf(px, w, h, x0, y0, x1, y1, is) {
+    var n = 0;
+    for (var y = Math.max(0, y0); y <= Math.min(h - 1, y1); y++) {
+      for (var x = Math.max(0, x0); x <= Math.min(w - 1, x1); x++) { var j = (y * w + x) * 4; if (is(px[j], px[j + 1], px[j + 2])) n++; }
+    }
+    return n;
+  }
+  // The rows as the old way gives them ({ found, rows, x0, x1, pitch, red }), or null when no such list is in view
+  // (a blurry picture: then the badges' colours are tried).
+  var lumBuf = null, sumBuf = null;
+  // The top and bottom edges of every box in the picture, and how light each pixel is. (On its own, with nothing
+  // but these loops in it: the browser keeps such a function fast, where a long one with more in it gets slow
+  // every few looks.)
+  function boxEdges(px, w, h) {
+    // (The same two buffers are used for every look of one size: making new big ones each time is slow.)
+    if (!lumBuf || lumBuf.length !== w * h) { lumBuf = new Uint8Array(w * h); sumBuf = new Uint16Array(w * h); }
+    var L = lumBuf, S = sumBuf, n = w * h, i = 0, j = 0;
+    S[n - 1] = S[n - 2] = S[n - 3] = 0;
+    for (i = 0, j = 0; i < n; i++, j += 4) L[i] = ((px[j] + px[j + 1] + px[j + 2]) * 21846) >> 16;
+    // Four pixels side by side, added up: a picture with some noise in it (a see-through window) still has clean edges.
+    for (i = 0; i + 3 < n; i++) S[i] = L[i] + L[i + 1] + L[i + 2] + L[i + 3];
+    // The top and bottom edges of boxes: long level lines where a dark line turns lighter (a top) or the other way
+    // round (a bottom). (Four pixels wide, a run starts 2 pixels before the box and ends 1 before its end.)
+    var WMIN = 160, tops = [], bots = [], last = w - 3;
+    for (var y = 1; y < h; y++) {
+      var o = y * w, ts = -1, tl = -1, bs = -1, bl = -1;
+      for (var x = 0; x < last; x++) {
+        var a = S[o - w + x], b = S[o + x];
+        if (b - a >= 32 && a < 240) { if (ts < 0) ts = x; tl = x; } else if (ts >= 0 && x - tl > 2) { if (tl - ts + 1 >= WMIN) tops.push({ y: y, xa: ts + 2, xb: tl + 1 }); ts = -1; }
+        if (a - b >= 32 && b < 240) { if (bs < 0) bs = x; bl = x; } else if (bs >= 0 && x - bl > 2) { if (bl - bs + 1 >= WMIN) bots.push({ y: y, xa: bs + 2, xb: bl + 1 }); bs = -1; }
+      }
+      if (ts >= 0 && tl - ts + 1 >= WMIN) tops.push({ y: y, xa: ts + 2, xb: tl + 1 });
+      if (bs >= 0 && bl - bs + 1 >= WMIN) bots.push({ y: y, xa: bs + 2, xb: bl + 1 });
+    }
+    return { L: L, tops: tops, bots: bots };
+  }
+  function boxList(px, w, h) {
+    if (w < 8 || h < 8) return null;
+    var edges = boxEdges(px, w, h), L = edges.L, tops = edges.tops, bots = edges.bots;
+    function sameX(p, q) { return Math.abs(p.xa - q.xa) <= 3 && Math.abs(p.xb - q.xb) <= 3; }
+    // A box: a top with the first bottom under it that is as wide. (A box cut off by the edge of the picture ends there.)
+    var boxes = tops.map(function (t) {
+      var end = null;
+      bots.forEach(function (q) { if (q.y > t.y + 4 && sameX(q, t) && (!end || q.y < end.y)) end = q; });
+      return { top: t.y, bot: end ? end.y - 1 : h - 1, xa: t.xa, xb: t.xb, H: (end ? end.y : h) - t.y };
+    });
+    // The lists: boxes of one size, one under the other. The one with the most rows that has the gold icons wins.
+    var best = null, seenKey = {};
+    boxes.forEach(function (seed) {
+      if (seed.H < 30 || seed.H > h / 4) return;
+      var tol = Math.max(1, Math.round(seed.H * 0.03));
+      var grp = boxes.filter(function (q) { return sameX(q, seed) && Math.abs(q.H - seed.H) <= tol; }).sort(function (p, q) { return p.top - q.top; });
+      if (grp.length < 3 || (best && grp.length <= best.rows.length)) return;
+      var key = grp.map(function (q) { return q.top; }).join(',') + '@' + grp[0].xa;
+      if (seenKey[key]) return;
+      seenKey[key] = 1;
+      var H = median(grp.map(function (q) { return q.H; })), sc = H / 60, d = [];
+      for (var k = 1; k < grp.length; k++) d.push(grp[k].top - grp[k - 1].top);
+      var p = step(d, H);
+      // The dark line between two rows is thin.
+      if (!p || p - H < 1 || p - H > Math.max(8, H * 0.15)) return;
+      // The gold pin or star, right of the badge at the top of the row: in (nearly) every row.
+      var xa = median(grp.map(function (q) { return q.xa; })), need = Math.max(4, Math.round(6 * sc * sc));
+      var marked = grp.filter(function (q) {
+        q.mark = countIf(px, w, h, Math.round(xa + 0.5 * H), q.top, Math.round(xa + 0.8 * H), Math.round(q.top + 0.17 * H), isMark);
+        return q.mark >= need;
+      });
+      if (marked.length < 3 || marked.length < grp.length * 0.7) return;
+      // Rows on one even grid (a row opened up to show its steps is taller, and pushes the ones under it off it):
+      // the most rows that fit one grid, the upper ones when it is a tie.
+      var on = [];
+      marked.forEach(function (from) {
+        var fit = marked.filter(function (q) { var n = Math.round((q.top - from.top) / p); return Math.abs(q.top - from.top - n * p) <= 2; });
+        if (fit.length > on.length) on = fit;
+      });
+      if (on.length < 2) return;
+      marked = on;
+      best = { rows: marked, H: H, sc: sc, p: p, xa: xa, sample: on[0] };
+    });
+    if (!best) return null;
+    var H = best.H, sc = best.sc, xa = best.xa, rows = best.rows.slice(), gap = best.p - H;
+    // Rows the edges missed, on the same grid: one whose edge was broken up (a poor picture), and the row under the
+    // last whole one, cut off by the bottom of the list. Such a row counts when it has its gold icon, a top edge,
+    // and enough of it shows for its title and most of its badge.
+    var xb = median(rows.map(function (q) { return q.xb; })), needMark = Math.max(4, Math.round(6 * sc * sc));
+    // How light a line of the list is, across the rows' width (text only makes it lighter). The thin line between
+    // two rows is dark; so is what is under the list.
+    var lx0 = Math.round(xa) + 2, lx1 = Math.round(xb) - 2;
+    function level(y) { if (y < 0 || y >= h) return 0; var n = 0, t = 0, o = y * w; for (var x = lx0; x <= lx1; x += 3) { t += L[o + x]; n++; } return n ? t / n : 0; }
+    var lit = level(rows[0].bot + 1) + 5;
+    function missed(at) {
+      // The edge itself, within 2 pixels of where the grid says (a resized picture is off by a pixel here and there).
+      var top = -1, jump = 5;
+      for (var dy = -2; dy <= 2; dy++) { var e = level(at + dy) - level(at + dy - 1); if (at + dy >= 1 && at + dy < h - 2 && e > jump) { jump = e; top = at + dy; } }
+      if (top < 0) return null;
+      for (var k = 0; k < rows.length; k++) if (Math.abs(rows[k].top - top) <= 3) return null;
+      // A row starts under a dark line, with a line of its own flat colour (no text yet). What is under the list
+      // (the window's edge, the game behind it) does not.
+      if (level(top - 1) > lit && level(top - 2) > lit) return null;
+      var flat = 0, all = 0, bg = level(top + 1), fo = (top + 1) * w;
+      for (var fx = lx0; fx <= lx1; fx += 3) { all++; if (Math.abs(L[fo + fx] - bg) <= 9) flat++; }
+      if (flat < all * 0.9) return null;
+      if (countIf(px, w, h, Math.round(xa + 0.5 * H), top, Math.round(xa + 0.8 * H), Math.round(top + 0.17 * H), isMark) < needMark) return null;
+      var end = top + 1;
+      while (end < h - 1 && end < top + H - 1 && level(end + 1) > lit) end++;
+      return end - top + 1 >= H * 0.35 ? { top: top, bot: end, xa: xa, xb: xb, H: end - top + 1 } : null;
+    }
+    // The step as a fraction: on a resized picture it is not a whole number of pixels.
+    var top0 = rows[0].top, nLast = Math.round((rows[rows.length - 1].top - top0) / best.p), found = [];
+    var pf = nLast ? (rows[rows.length - 1].top - top0) / nLast : best.p;
+    for (var n = 1; n < nLast; n++) { var mid = missed(top0 + Math.round(n * pf)); if (mid) found.push(mid); }
+    for (n = nLast + 1; n < nLast + 40; n++) { var under = missed(top0 + Math.round(n * pf)); if (!under) break; found.push(under); }
+    for (n = -1; n > -40; n--) { var over = missed(top0 + Math.round(n * pf)); if (!over) break; found.push(over); }
+    rows = rows.concat(found).sort(function (p, q) { return p.top - q.top; });
+    // A sharp picture: no row is missing between the first and the last, and most rows were found by their own edges.
+    var holes = Math.round((rows[rows.length - 1].top - rows[0].top) / pf) + 1 - rows.length;
+    var crisp = holes <= 0 && best.rows.length >= 3 && best.rows.length * 2 >= rows.length;
+    // A task opened up to show its steps is a taller box, and pushes the rows under it off the grid the app counts
+    // on. Only the rows down to it are kept; with one right above the rows found, none can be trusted.
+    var opened = false;
+    for (var oi = 0; oi < rows.length && !opened; oi++) {
+      var ro = rows[oi];
+      // Where the dark line under the row should be, the row just goes on.
+      if (ro.H >= H - 2 && ro.top + H + 1 < h && level(ro.top + H) > lit && level(ro.top + H + 1) > lit) { opened = true; rows = rows.slice(0, oi + 1); }
+    }
+    boxes.forEach(function (q) {
+      if (!rows.length || !sameX(q, best.sample) || q.H < H * 1.15 || q.H > H * 8) return;
+      if (q.bot < rows[0].top && q.bot >= rows[0].top - gap - 3) { opened = true; rows = []; }
+    });
+    // The badge's place in the row (as the old way measures it: the middle of the badge).
+    var bx0 = Math.round(xa + 8 * sc), bx1 = Math.round(xa + 23 * sc), mh = Math.round(14 * sc), red = 0;
+    var out = rows.map(function (q) {
+      var title = countIf(px, w, h, Math.round(xa + 0.8 * H), q.top, Math.round(xa + 3.8 * H), Math.round(q.top + 0.2 * H), isMark);
+      var by0 = q.top + Math.round(2 * sc), by1 = Math.min(q.bot, q.top + Math.round(29 * sc)), ax0 = Math.round(xa + 2 * sc), ax1 = Math.round(xa + 29 * sc);
+      var lock = countIf(px, w, h, ax0, by0, ax1, by1, isLock);
+      red += countIf(px, w, h, ax0, by0, ax1, by1, isRed);
+      var done = title >= 20 * sc * sc;
+      return { y: q.top + Math.round(22 * sc), h: mh, done: done, locked: !done && lock >= 30 * sc * sc, partial: false };
+    });
+    out.forEach(function (r) {
+      r.fp = textPrint(px, w, h, bx1 + Math.round((bx1 - bx0) * 0.4), r.y - mh - 6, bx1 + (bx1 - bx0 + 1) * 14, r.y + 6, mh + 2);
+    });
+    return { found: true, rows: out, x0: bx0, x1: bx1, pitch: best.p, red: red, sure: true, crisp: crisp, opened: opened };
+  }
+
   /*
    * read(pixels, width, height) -> { found, rows: [{ y, done, locked, partial, fp }], x0, x1, pitch, red, panel }
    * partial: the badge is cut off (scrolled half out of view), so its state is not trusted.
@@ -185,6 +338,23 @@
    * apart is taken (a task row is three and a half badges tall or more, a line of text two and a half at most).
    */
   function read(px, w, h) {
+    // The rows' boxes first: that works in every area. A list found that way is the real one (it has the game's
+    // gold pins and stars), tier list in view or not.
+    var byBox = boxList(px, w, h);
+    if (byBox && !byBox.rows.length) return byBox;   // only an opened-up task in view
+    if (byBox) {
+      var t0 = byBox.rows[0].y, t1 = byBox.rows[byBox.rows.length - 1].y, bp = byBox.pitch;
+      byBox.panel = panel(px, w, h, byBox.x0, { y0: t0 - bp * 8, y1: t1 + bp * 4, reach: bp * 5 });
+      if (byBox.crisp) return byBox;
+    }
+    // A blurry picture (the game drawn bigger or smaller than it is): the boxes' edges are soft and some rows may
+    // have been missed. The badges' colours are tried too, and the way that finds the most rows wins.
+    var byBadge = badgeList(px, w, h);
+    if (!byBox) return byBadge;
+    return byBadge.found && byBadge.rows.length > byBox.rows.length ? byBadge : byBox;
+  }
+  // The old way: the badges' colours (red shields, green ticks, blue-green locks). Only areas with red badges.
+  function badgeList(px, w, h) {
     var all = join(blobs(px, w, h), h / 5).filter(function (b) {
       var aspect = b.w / b.h, fill = (b.red + b.green + b.lock) / (b.w * b.h);
       // A badge is a shield with an outline, a letter and laurels: only part of its box is red or green.
@@ -454,8 +624,12 @@
   }
   // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel sideways and up to 3 up or down
   // is allowed (the edge of a badge can move a little from one look to the next).
+  function lit(a) { if (a.n == null) { var n = 0; for (var i = 0; i < a.m.length; i++) n += a.m[i]; a.n = n; } return a.n; }
   function textDiffer(a, b) {
     if (!a || !b) return 1;
+    // One with less than half as much text as the other is nothing like it: no need to look closer.
+    var na = lit(a), nb = lit(b), few = na < nb ? na : nb, many = na < nb ? nb : na;
+    if (many > 40 && few < many * 0.5) return 1 - few / many;
     var w = Math.min(a.w, b.w), h = Math.min(a.h, b.h), best = 1;
     // No shift first: when that is already a clear match, the other 8 are not needed.
     var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1], [0, -2], [0, 2], [-1, -2], [1, -2], [-1, 2], [1, 2], [0, -3], [0, 3]];
