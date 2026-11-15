@@ -162,20 +162,19 @@ is how the app finds it; a task can also be written by its name alone.
   open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done. Tick them yourself, or let the app read them:
-- **Read from game** (top of a tier): open the same tier in the game (**Hero → Achievements → Area Tasks**),
-  with **Show Completed** ticked and **List Mode** unticked. Pick the task at the top of the game's list
-  (task 1 when the list is at the top), then press **Start scanning** (in Alt1) or **Use a screenshot**.
-  Each task with a green tick on its badge gets ticked in the app.
-  - **Scanning** (Alt1): a green bar says **Scanning for achievements…** and Alt1 looks at the game twice a second.
-    Scroll the list in the game and it keeps up. Pick another tier in the app and it waits: open the same tier in the
+- **Read from game** (top of a tier, only in Alt1, which runs on a computer): open the same tier in the game
+  (**Hero → Achievements → Area Tasks**), with **Show Completed** ticked and **List Mode** unticked.
+  Pick the task at the top of the game's list (task 1 when the list is at the top), then press **Start scanning**.
+  - A green bar says **Scanning for achievements…** and Alt1 looks at the game twice a second.
+    Each task with a green tick on its badge gets ticked in the app.
+  - Scroll the list in the game and it keeps up. Pick another tier in the app and it waits: open the same tier in the
     game and it goes on when the list changes, from the tier's first task. Opened it in the game first? Press **Go**.
-    **Stop** ends it; so does leaving the area.
-    The app cannot read the tier's name in the game yet, so the tier in the app and in the game must match.
-    Scroll at a normal pace: it follows the rows by how far they moved since the last look (twice a second),
+  - **Stop** ends it; so does leaving the area.
+  - The app cannot read the tier's name in the game, so the tier in the app and in the game must match.
+  - Scroll at a normal pace: it follows the rows by how far they moved since the last look,
     so a jump of more than half a row at once can put a row on the wrong task. Moving the game window does the same.
-  - **Screenshot**: after reading, the app tells you which task to put at the top for the next screenshot.
-  It only ticks; it never unticks. A **locked** task (a grey badge with a lock, on desktop) counts as not done.
-  The **Set tasks** page you see before picking a tier ticks nothing.
+  - It only ticks; it never unticks. A **locked** task (a grey badge with a lock) counts as not done.
+    The **Set tasks** page you see before picking a tier ticks nothing.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
@@ -238,10 +237,10 @@ the player lookup, ticking steps and items, sub-steps, chat options, "Bring" box
 "Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
 storage, Alt1, missing files, the window look, and the parser itself.
 
-**Read from game** has its own tests (`tests/game.spec.js`), run on real screenshots from the game (`tests/fixtures/game/`,
-phone and desktop): not done, done and locked tasks; the pictures shrunk or made bigger, darker, greyer, blurry and as a JPEG; 40 made-up busy screens full of red
-and green shapes, where it must never find a list that is not there; scrolling down and back up; switching tier;
-closing the list; a picture that fails to come through; and how fast it is.
+**Read from game** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
+with a fake Alt1: not done, done and locked tasks; the picture made bigger, darker, greyer, blurry and as a JPEG;
+40 made-up busy screens full of red and green shapes, where it must never find a list that is not there;
+scrolling down and back up; switching tier; closing the list; a picture that fails to come through; and how fast it is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 

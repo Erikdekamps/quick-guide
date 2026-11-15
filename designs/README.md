@@ -14,7 +14,7 @@ so they match it.
 | `AreaSearch.dc.html` | Searching the area tasks: tasks are ticked in the results, with the area and tier under each |
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
-| `ReadGame.dc.html` | Read from game: the steps, the task at the top, the result after reading a screenshot |
+| `ReadGame.dc.html` | Read from game (in Alt1): the steps, the task at the top, Start scanning |
 | `Scanning.dc.html` | Scanning in Alt1: the green bar that says it is scanning, with Stop |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
 | `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |

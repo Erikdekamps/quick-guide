@@ -1,21 +1,22 @@
 /*
- * Reads the in-game Achievements list from a picture of the screen.
+ * Reads the in-game Achievements list from a picture of the screen, taken by Alt1.
  *
- * Every task row has a red shield badge on the left. A done task has a
- * bright green tick painted over the shield. So we:
- *   1. find blobs of red (shield) and green (tick) pixels,
- *   2. keep the blobs that line up in one column (the badge column),
+ * Every task row has a badge on the left: a red shield (not done), the shield
+ * with a bright green tick (done), or a grey shield with a blue-green lock (locked).
+ * So we:
+ *   1. find blobs of red, green and lock pixels,
+ *   2. keep the blobs that line up in one column at one even step (the badge column),
  *   3. call a row done when its badge holds enough green.
  *
  * The result is the rows from top to bottom. It does not read text: the
- * app knows which task is at the top because it tells the player.
+ * player picks which task is at the top, and the app counts on from there.
  *
  * Works in the browser (window.QuickGuideReader) and in Node (module.exports).
  */
 (function (root) {
   'use strict';
 
-  // The blue-green lock on a task you cannot do yet (desktop). Bright, so the dark blue rows of the phone list do not count.
+  // The blue-green lock on a task you cannot do yet: green and blue about equal, so light blue text does not count.
   function isLock(r, g, b) { return g >= 90 && b >= 90 && g - r >= 25 && b - r >= 25 && Math.abs(g - b) <= 15 && r <= 160; }
   function isRed(r, g, b) { return r >= 45 && r > 1.8 * g && r > 1.5 * b; }
   // Clearly greener than red and blue, so a darker or greyer screen still counts.
@@ -65,7 +66,7 @@
     list = list.filter(function (b) { return n(b) >= 3; })
       .sort(function (a, b) { return n(b) - n(a); });
     var used = new Uint8Array(list.length), out = [];
-    // Only red or green starts a badge. A lock (and the light blue numbers next to a badge) can join one, or,
+    // Only red or green starts a badge. A lock (or light blue next to a badge) can join one, or,
     // left alone, be a locked badge.
     for (var pass = 0; pass < 2; pass++) {
       for (var i = 0; i < list.length; i++) {
@@ -126,7 +127,7 @@
   function tidy(list) {
     // Rows are measured at their bottom edge: the top of a shield can be faint, the bottom is steady.
     list = list.slice().sort(function (a, b) { return a.y1 - b.y1; });
-    // Two pieces of one badge that did not join (a pale picture): in the same column, overlapping rows are one row.
+    // Two pieces of one badge that did not join (a pale screen): in the same column, overlapping rows are one row.
     var rows = [];
     list.forEach(function (b) {
       var a = rows[rows.length - 1];
