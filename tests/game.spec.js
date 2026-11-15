@@ -8,7 +8,9 @@ const SHOT = {
   // The Area Tasks page before you pick a tier: the "Set tasks", with all kinds of badges.
   sets: '/tests/fixtures/game/desktop-set-tasks.png',
   // The whole game screen in Alt1, with this app open on the left (scanning) and Easy Ardougne (all done) on the right.
-  screen: '/tests/fixtures/game/desktop-alt1-ardougne-easy.png'
+  screen: '/tests/fixtures/game/desktop-alt1-ardougne-easy.png',
+  // The same, on Easy Desert, scrolled down a bit: 2 not done at the top (the first one half under the edge above).
+  desert: '/tests/fixtures/game/desktop-alt1-easy-desert.png'
 };
 const HARD_DAEMONHEIM = ['not', 'not', 'not', 'locked', 'locked', 'done', 'done'];
 
@@ -45,6 +47,10 @@ test.describe('the screen reader', () => {
 
   test('the whole game screen, with this app open next to the list: the list is read, not the app', async ({ page }) => {
     expect(await readShot(page, SHOT.screen)).toEqual(Array(7).fill('done'));
+  });
+
+  test('a red badge is a little smaller than one with a tick, but is not taken for a cut-off row', async ({ page }) => {
+    expect(await readShot(page, SHOT.desert)).toEqual(['not', 'not', 'done', 'done', 'done', 'done']);
   });
 
   test('a bigger interface (Alt1 at a higher interface scale) reads the same', async ({ page }) => {
@@ -180,7 +186,7 @@ test.describe('Scan achievements in Alt1', () => {
   // that has the gold box (0 is Easy Ardougne), and other: another list on the right (rows 1 to 6 upside down),
   // as when another tier is clicked in the game.
   async function show(page, src, o) {
-    await page.evaluate(([s, pick, other]) => new Promise((done) => {
+    await page.evaluate(([s, pick, other, cover]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
@@ -193,11 +199,17 @@ test.describe('Scan achievements in Alt1', () => {
           x.fillRect(514, y, 145, 1); x.fillRect(514, y + 29, 145, 1); x.fillRect(514, y, 1, 30); x.fillRect(658, y, 1, 30);
         }
         if (other) for (let k = 0; k < 6; k++) x.drawImage(im, 686, 176 + k * 62, 484, 62, 686, 176 + (5 - k) * 62, 484, 62);
+        if (cover) {
+          // A tooltip over three rows, with text in it.
+          x.fillStyle = 'rgb(24,22,20)'; x.fillRect(700, 250, 330, 170);
+          x.fillStyle = '#ddd'; x.font = '13px sans-serif';
+          for (let k = 0; k < 8; k++) x.fillText('Some words about this task, line ' + (k + 1), 712, 272 + k * 19);
+        }
         window.__shot = { w: im.width, h: im.height, d: x.getImageData(0, 0, im.width, im.height).data };
         done();
       };
       im.src = s;
-    }), [src, (o && o.pick) || 0, !!(o && o.other)]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover)]);
   }
   const grabs = (page) => page.evaluate(() => window.__grabs);
   async function frames(page, n) {
@@ -317,6 +329,41 @@ test.describe('Scan achievements in Alt1', () => {
     await frames(page, 3);
     await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
     await expect(tier(page)).toHaveText('Easy Ardougne');
+  });
+
+  test('a lot of flicker on every look, and no scrolling at all: it never loses its place', async ({ page }) => {
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await page.evaluate(() => { window.__noise = 40; window.__lost = 0; });
+    await startScan(page);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await page.evaluate(() => {
+      new MutationObserver(() => { const m = document.getElementById('scan-msg'); if (m && /Lost/.test(m.textContent)) window.__lost++; })
+        .observe(document.getElementById('app'), { subtree: true, childList: true, characterData: true });
+    });
+    await frames(page, 10);
+    expect(await page.evaluate(() => window.__lost)).toBe(0);
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+  });
+
+  test('a tooltip over some rows while scrolling: it keeps its place', async ({ page }) => {
+    await inAlt1(page, { h: 640 });
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await show(page, SHOT.screen, { cover: true });
+    for (const y of [20, 40, 62]) {
+      await page.evaluate((v) => { window.__scroll = v; }, y);
+      await frames(page, 2);
+    }
+    await show(page, SHOT.screen);
+    await frames(page, 2);
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
+    expect(await ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    expect(await ticked(page, 'Ardougne', 1, 8)).toEqual(Array(8).fill(false));
   });
 
   test('the arrows set the tier, if the app got it wrong', async ({ page }) => {

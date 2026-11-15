@@ -173,7 +173,9 @@ is how the app finds it; a task can also be written by its name alone.
     looks like, so you can also skip ahead or go back. If the bar shows the wrong tier, use **◀ ▶**. **Stop** ends it.
   - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked.
     The **Set tasks** page you see before picking a tier changes nothing.
-  - It reads only the bright text, so the game moving behind the window does not confuse it.
+  - It reads only the bright text, so the game moving behind the window does not confuse it. When the rows have not
+    moved, it keeps its place without comparing; when they have, each row is matched to the row it looks most like,
+    and a row under a tooltip simply does not count.
   - If it cannot see the list, the bar says so, and how big a picture Alt1 hands over (or that it hands over none).
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
@@ -240,8 +242,8 @@ storage, Alt1, missing files, the window look, and the parser itself.
 **Scan achievements** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
 with a fake Alt1: not done, done and locked tasks; the picture made bigger, darker, greyer, blurry and as a JPEG;
 40 made-up busy screens full of red and green shapes, where it must never find a list that is not there;
-reading the picked tier from the gold box, skipping ahead and back; unticking what is not done; a picture that changes a
-little every look; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
+reading the picked tier from the gold box, skipping ahead and back; unticking what is not done; a picture that flickers on every look,
+with and without scrolling; a tooltip over some rows; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
 pictures (and a big screen in strips); a picture that fails to come through; and how fast it is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
