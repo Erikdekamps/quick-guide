@@ -84,7 +84,8 @@ How it knows where it is:
 - If the bar shows the wrong tier, use **◀ ▶**. They hold until you click another tier in the game.
   **Stop** ends the scan.
 - It finds the list by the tier list next to it, so the rest of the screen (like a chat full of green lines)
-  does not fool it. It works at any interface size and on big screens. If it cannot see the list, the bar says so.
+  does not fool it. The scrollbar is the first one right of the list, a narrow handle in a dark track, so the
+  window's gold edge or sand and rocks behind the window are not taken for it. It works at any interface size and on big screens. If it cannot see the list, the bar says so.
 
 ## Settings (the cog)
 
@@ -182,7 +183,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.26.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.27.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

@@ -489,16 +489,35 @@
   function scrollbar(px, w, h, x0, x1, y0, y1) {
     x0 = Math.max(0, x0); x1 = Math.min(w - 1, x1); y0 = Math.max(0, y0 || 0); y1 = Math.min(h - 1, y1 == null ? h - 1 : y1);
     var best = null, span = y1 - y0 + 1;
-    for (var x = x0; x <= x1; x++) {
+    function thumbAt(x, y) { if (x < 0 || x >= w || y < 0 || y >= h) return false; var j = (y * w + x) * 4; return isThumb(px[j], px[j + 1], px[j + 2]); }
+    // How wide the handle is at one height, if it is one: a few pixels of its colour with the dark track on both
+    // sides. (The window's gold edge is a thin line, and rocks or sand behind the window are wide: both return 0.)
+    function widthAt(x, y) {
+      var a = x, b = x;
+      while (a > 0 && x - a < 40 && thumbAt(a - 1, y)) a--;
+      while (b < w - 1 && b - x < 40 && thumbAt(b + 1, y)) b++;
+      var n = b - a + 1, off = Math.max(3, Math.round(n * 0.6));
+      if (n < 3 || n > 30 || a - off < 0 || b + off >= w) return 0;
+      return lum(px, w, a - off, y) < 60 && lum(px, w, b + off, y) < 60 ? n : 0;
+    }
+    for (var x = x0; x <= x1 && !(best && x > best.x + 30); x++) {
       // A run of handle pixels, with gaps of up to 2 pixels bridged (a noisy picture breaks it up).
       var start = -1, last = -1;
       for (var y = y0; y <= y1 + 3; y++) {
-        var j = (y * w + x) * 4, on = y <= y1 && isThumb(px[j], px[j + 1], px[j + 2]);
+        var on = y <= y1 && thumbAt(x, y);
         if (on) { if (start < 0) start = y; last = y; continue; }
         if (start >= 0 && y - last > 2) {
-          var run = last - start + 1;
-          // Not one that runs the whole height: that is the window's border, not the handle.
-          if (run >= 20 && run < span - 6 && (!best || run > best.len) && darkBy(px, w, h, x, start, last)) best = { x: x, top: start, len: run };
+          // Its real ends: it may go on above or below the part that was looked at.
+          var top = start, bot = last, gap = 0;
+          while (top > 0 && gap <= 2) { if (thumbAt(x, top - 1 - gap)) { top -= 1 + gap; gap = 0; } else gap++; }
+          gap = 0;
+          while (bot < h - 1 && gap <= 2) { if (thumbAt(x, bot + 1 + gap)) { bot += 1 + gap; gap = 0; } else gap++; }
+          var run = bot - top + 1, mid = (top + bot) >> 1, q = (bot - top) >> 2;
+          // Not one as long as the whole list or longer: that is the window's border, not the handle.
+          // The first one from the left wins (the scrollbar is right next to the list; what is further right is
+          // the window's edge and the game behind it); of the handle's own columns, the longest.
+          if (run >= 20 && run < span - 6 && (!best || run > best.len) && darkBy(px, w, h, x, top, bot) &&
+              widthAt(x, mid) && widthAt(x, mid - q) && widthAt(x, mid + q)) best = { x: x, top: top, len: run };
           start = -1;
         }
       }
