@@ -88,8 +88,12 @@ test.describe('details', () => {
 test('skills: levels, notes and other needs', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
   const s = body(page, 'skills');
-  await expect(s.locator('.chip')).toHaveText(['75Magic', '65Herblore (boostable)', '55Hunter']);
-  await expect(s.locator('.chip b').first()).toHaveText('75');
+  const sk = s.locator('ul.skl-list li');
+  await expect(sk.locator('.lv')).toHaveText(['75', '65', '55']);
+  await expect(sk.locator('.sn')).toHaveText(['Magic', 'Herblore', 'Hunter']);
+  await expect(sk.nth(1).locator('.bst')).toHaveText('(boostable)');
+  await expect(sk.nth(0).locator('.bst')).toHaveCount(0);
+  await expect(sk.locator('img.sic').first()).toHaveAttribute('src', 'https://runescape.wiki/images/Magic-icon.png');
   await expect(s.locator('.bh')).toHaveText(['Skill levels', 'Also needed']);
   await expect(s.locator('.para')).toHaveText("Entry to the Warriors' Guild");
 });

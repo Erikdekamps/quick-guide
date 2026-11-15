@@ -858,6 +858,22 @@ ul.steps.ql { padding: 0; }
 @keyframes scanpulse { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { .scanbar .dot { animation: none; } }
 
+/* skill levels, like the wiki: "100 [icon] Mining ✓", one line that flows like text (the level green when you
+   have it, red when you do not) */
+.skl-list { list-style: none; margin: 0 16px 8px; padding: 0; }
+.skl-list li { padding: 1px 0; line-height: 1.45; }
+.skl { color: var(--text); }
+.skl > * { vertical-align: middle; }
+.skl .lv { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); }
+.skl.ok .lv { color: var(--green); }
+.skl.low .lv { color: var(--red); }
+.skl .sic { width: 16px; height: 16px; object-fit: contain; }
+.skl .tk { color: var(--green); }
+.skl .no { color: var(--red); }
+.skl .you { color: var(--red); font-size: .9em; }
+.skl .bst, .skl .x { color: var(--faint); font-size: .9em; }
+.need .skl .sic { width: 14px; height: 14px; }
+
 .doc { width: 680px; padding: 28px; background: #0f0c0a; color: var(--text); font-size: 14px; }
 .doc > h1 { margin: 0; font: 700 24px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); text-shadow: 0 1px 0 #000; }
 .lead { margin: 6px 0 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }

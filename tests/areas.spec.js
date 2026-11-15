@@ -87,6 +87,17 @@ test.describe('reading an area page', () => {
     expect(a.tiers[1].reward.perks).not.toContain('Unlimited teleports to the Ardougne Monastery');
   });
 
+  test('a level marked "(b)" on the wiki is boostable', async ({ page }) => {
+    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
+    const hard = a.tiers.find((t) => t.id === 'hard');
+    expect(hard.skills).toContainEqual({ skill: 'Magic', level: 71, boost: true });
+    const t472 = a.tiers.find((t) => t.id === 'medium').tasks.find((x) => x.id === '472');
+    expect(t472.skills).toEqual(expect.arrayContaining([{ skill: 'Fletching', level: 59, boost: true }, { skill: 'Smithing', level: 30, boost: true }]));
+    expect(t472.skills).toContainEqual({ skill: 'Agility', level: 39 });
+    // not left as an "other" line
+    expect(hard.other.join(' ')).not.toMatch(/\(b\)/);
+  });
+
   test('a numbered list in a task becomes its sub-steps', async ({ page }) => {
     const v = await parse(page, 'varrock-excerpt.html', 'Varrock');
     expect(v.tiers.map((t) => t.name)).toEqual(['Easy', 'Elite']);
@@ -533,14 +544,27 @@ test.describe('an area', () => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const n = sec(page, 'needs');
-    // levels are one line each, like the quests: "16 Thieving", not two columns of boxes
-    await expect(n.locator('.chip')).toHaveCount(0);
-    await expect(n.locator('ul.askill li')).toHaveText(['16 Thieving', '10 Construction']);
-    await expect(n.locator('ul.askill li').first()).toHaveCSS('width', await n.locator('ul.askill').evaluate((e) => getComputedStyle(e).width));
-    await expect(n.locator('.tree:not(.askill) li')).toHaveText(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
+    // levels are one line each, like the wiki: "16 [icon] Thieving"
+    const sk = n.locator('ul.skl-list li');
+    await expect(sk.locator('.lv')).toHaveText(['16', '10']);
+    await expect(sk.locator('.sn')).toHaveText(['Thieving', 'Construction']);
+    await expect(sk.locator('img.sic').first()).toHaveAttribute('src', 'https://runescape.wiki/images/Thieving-icon.png');
+    // no player: no colour, no tick
+    await expect(sk.first()).not.toHaveClass(/\b(ok|low)\b/);
+    await expect(sk.locator('.tk, .no')).toHaveCount(0);
+    await expect(n.locator('.tree li')).toHaveText(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
     await expect(n.locator('details.acc summary .sl')).toHaveText(['Items to bring', 'Ironmen']);
     await expect(n.locator('details.acc', { hasText: 'Ironmen' })).not.toHaveAttribute('open', '');
     await expect(n.locator('details.acc', { hasText: 'Items to bring' }).locator('li').first()).toHaveText('Around 350 coins');
+  });
+
+  test('a boostable level says so', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await openArea(page, 'Ardougne');
+    await page.locator('.tab[data-tier="hard"]').click();
+    const magic = sec(page, 'needs').locator('ul.skl-list li', { hasText: 'Magic' });
+    await expect(magic.locator('.lv')).toHaveText('71');
+    await expect(magic.locator('.bst')).toHaveText('(boostable)');
   });
 
   test('Needs with a player: your levels and quests', async ({ page, wiki }) => {
@@ -552,13 +576,19 @@ test.describe('an area', () => {
     await page.locator('.tab[data-home="areas"]').click();
     await area(page, 'Ardougne').first().click();
     const n = sec(page, 'needs');
-    await expect(n.locator('ul.askill li')).toHaveText(['16 Thieving (you: 3)', '10 Construction ✓']);
-    await expect(n.locator('ul.askill li').nth(0)).toHaveClass(/\blow\b/);
-    await expect(n.locator('ul.askill li').nth(1)).toHaveClass(/\bgot\b/);
+    const sk = n.locator('ul.skl-list li');
+    // too low: the level in red, a cross and your level; enough: the level in green and a tick
+    await expect(sk.nth(0)).toHaveClass(/\blow\b/);
+    await expect(sk.nth(0).locator('.lv')).toHaveCSS('color', 'rgb(255, 91, 73)');
+    await expect(sk.nth(0).locator('.no')).toHaveText('\u2717');
+    await expect(sk.nth(0).locator('.you')).toHaveText('(you: 3)');
+    await expect(sk.nth(1)).toHaveClass(/\bok\b/);
+    await expect(sk.nth(1).locator('.lv')).toHaveCSS('color', 'rgb(102, 211, 92)');
+    await expect(sk.nth(1).locator('.tk')).toHaveText('\u2713');
     await expect(n.locator('.sech .c')).toHaveText('1 too low');
-    await expect(n.locator('.tree:not(.askill) li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
+    await expect(n.locator('.tree li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
     // a task that needs more than you have says so
-    await expect(task(page, '448').locator('.need')).toHaveText('Needs 5 Thieving (you: 3)');
+    await expect(task(page, '448').locator('.need')).toHaveText('Needs 5 Thieving \u2717 (you: 3)');
     await expect(task(page, '448').locator('.need')).toHaveClass(/\blow\b/);
     await expect(task(page, '450').locator('.need')).toHaveText('Needs Plague City ✓');
   });

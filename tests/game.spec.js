@@ -309,6 +309,25 @@ test.describe('Scan achievements in Alt1', () => {
     await expect.poll(() => ticked(page, 'Desert', 3, 7)).toEqual([false, false, false, false, false, true, false]);
   });
 
+  test('the tier names are remembered: a later scan, after a reload, knows them without the title in view', async ({ page, wiki }) => {
+    for (const n of ['Daemonheim', 'Desert']) {
+      wiki.page(n + ' achievements', areaPage(['Easy', 'Medium', 'Hard', 'Elite'].map((t, i) => ({ name: t, tasks: Array.from({ length: 12 }, (_, k) => ({ id: 7000 + (n === 'Desert' ? 100 : 0) + i * 20 + k, name: n + ' ' + t + ' task ' + (k + 1), desc: 'A task.' })) }))));
+    }
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await page.locator('[data-act="scan-stop"]').click();
+    await page.reload();
+    await expect(page.locator('#qcount')).toBeVisible();
+    await show(page, SHOT.elite);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Elite Desert', { timeout: 10000 });
+    await expect.poll(() => ticked(page, 'Desert', 3, 7)).toEqual([false, false, false, false, false, true, false]);
+  });
+
   test('clicking the next tier in the game: the app reads which one has the gold box', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
@@ -338,7 +357,7 @@ test.describe('Scan achievements in Alt1', () => {
     await show(page, SHOT.daemonheim);
     await startScan(page);
     // This picture has no title in view in the list on the left, so the app cannot tell which tier it is.
-    await expect(page.locator('#scan-msg')).toHaveText('Which one is this? Scroll the list on the left up to Area Tasks.');
+    await expect(page.locator('#scan-msg')).toHaveText('Which tier is this? Scroll the list on the left up until Area Tasks shows (only needed once).');
     expect(await ticked(page, 'Ardougne', 0, 10)).toEqual([true, true, true, true, false, false, false, false, false, true]);
     await page.locator('[data-act="scan-next"]').click();
     await expect(tier(page)).toHaveText('Easy Ardougne');
