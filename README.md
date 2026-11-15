@@ -197,12 +197,14 @@ No other service is used.
 | `reader.js` | Reads the game's task list from the screen (for Scan achievements) |
 | `tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
-| `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
+| `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
+| `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
+| `tools/icon.js` | Makes `icon.png` from `icon.svg` |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.30.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.31.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
@@ -227,6 +229,7 @@ npm test
 
 - `npm run test:live` checks against the real wiki (needs the internet).
 - `npm run coverage` runs the tests and shows how much of each file they run.
+- `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
 
 ## Credits
 

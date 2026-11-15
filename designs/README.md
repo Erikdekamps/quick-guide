@@ -29,7 +29,7 @@ so they match it.
 | `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
-| `Components.dc.html` | All parts, colors and type, the two themes side by side, and skill and quest requirements like the wiki |
+| `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, and skill and quest requirements like the wiki |
 | `Data.dc.html` | The quest JSON shape, and what is saved |
 | `canvas.json` | Board layout on the canvas |
 

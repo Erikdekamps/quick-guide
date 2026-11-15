@@ -447,7 +447,7 @@
   function headerHtml(title, back, more) {
     return '<header class="hdr">' +
       (back ? '<button class="ib" type="button" data-act="change" aria-label="' + back + '" title="' + back + '">' + I.back + '</button>' :
-        '<img class="emb" src="icon.png" alt="" width="26" height="26">') +
+        '<img class="emb" src="icon.svg" alt="" width="26" height="26">') +
       '<h1 class="qt"' + (back ? ' title="' + esc(title) + '"' : '') + '>' + esc(title) + '</h1>' +
       '<div class="hs he">' + cogHtml() + (more || '') + '</div></header>';
   }

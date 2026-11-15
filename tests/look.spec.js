@@ -40,7 +40,7 @@ test('like the game: the start screen has the app emblem on the left of its name
   await openApp(page, expect);
   const emb = page.locator('.hdr img.emb');
   await expect(emb).toBeVisible();
-  await expect(emb).toHaveAttribute('src', 'icon.png');
+  await expect(emb).toHaveAttribute('src', 'icon.svg');
   const e = await emb.boundingBox(), t = await page.locator('h1.qt').boundingBox();
   expect(t.x).toBeGreaterThan(e.x + e.width);
   await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
