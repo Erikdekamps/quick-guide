@@ -381,8 +381,9 @@ test.describe('Scan achievements in Alt1', () => {
     await show(page, SHOT.screen);
     await page.evaluate(() => { window.__noise = 10; window.__wobble = 3; window.__lost = 0; });
     await startScan(page);
-
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // A wobble can hide a row for a look, and each task needs two looks in a row that agree: on a slow machine
+    // that can take a few seconds.
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 15000 }).toEqual(ALL7);
     await page.evaluate(() => {
       new MutationObserver(() => { const m = document.getElementById('scan-msg'); if (m && /Lost/.test(m.textContent)) window.__lost++; })
         .observe(document.getElementById('app'), { subtree: true, childList: true, characterData: true });
