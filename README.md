@@ -57,7 +57,8 @@ under its area, in the game's order.
   **Tasks** and **Rewards**.
 - Click a task to tick it. A task that needs more than you have says so with a red ✗, like "Needs 5 [icon] Thieving ✗".
   The wiki's tip for a task is right under it. **Done, next task** ticks the next one.
-- A task with a numbered list on the wiki (or a lot of text) has steps. Ticking the task ticks its steps;
+- A task with a numbered list on the wiki has steps. Other text, however long, is the task's tip (no tick boxes:
+  tips are things to know, not things to do). Ticking the task ticks its steps;
   ticking all steps ticks the task.
 - **Search** finds tiers ("ardougne hard") and tasks by name. Tick a task right in the results,
   or press **Enter** to open its tier. The first search reads all 13 areas once.
@@ -111,6 +112,9 @@ The **⋯** button in a quest or area refreshes it from the wiki, opens it on th
 ## Export and import
 
 **Export state** gives a JSON file with **every quest and every area task**, each `true` (done) or `false` (not done).
+It also lists the quests the game knows that the wiki's quest list does not have (parts of a bigger quest, like
+Recipe for Disaster), so its done quests add up to what the game says. `tiers` is each tier's count ("7 / 12"),
+to read at a glance; an import does not use it. Steps say all they say, nothing is cut off.
 **Download file** saves it; **Copy** puts the text on the clipboard (use Copy inside Alt1 if the download does not work).
 
 Change it in any text editor, then **Import state**, **Choose a file**, **Import**. The number at the start of a task
@@ -131,6 +135,7 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
       "items": { "req:1x3k9a Ring of charos (a)": false }
     }
   },
+  "tiers": { "Ardougne": { "Easy": "1 / 23" } },
   "areas": {
     "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
   }
@@ -155,7 +160,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `settings`, `last` | Your settings, and the quest or area that was open last |
-| `player` | The character you looked up: quests done or started, skill levels |
+| `player` | The character you looked up: quests done or started (and their names), skill levels |
 | `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
@@ -190,7 +195,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.28.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.29.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

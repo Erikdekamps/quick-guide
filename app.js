@@ -1871,11 +1871,9 @@
     return Object.keys(out).sort();
   }
   function ticked(map) { var o = {}; Object.keys(map || {}).forEach(function (k) { if (map[k]) o[k] = 1; }); return o; }
-  // A line of the file: "<code> <what it says>", cut short so the file stays easy to read.
+  // A line of the file: "<code> <what it says>", all of it, so you can tell what you tick.
   function lineKey(id, label) {
     label = String(label || '').replace(/\s+/g, ' ').trim();
-    var room = 100 - String(id).length - 1;
-    if (label.length > room) label = label.slice(0, Math.max(0, room - 1)).replace(/\s+\S*$/, '') + '…';
     return label ? id + ' ' + label : String(id);
   }
   // Every step and item of a saved guide, in order, with what it says.
@@ -1897,6 +1895,11 @@
     Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
     storageKeys('prog.').forEach(function (k) { progs[k] = 1; });
     allQuests().forEach(function (q) { titles.push(q.t); });
+    // Quests the game knows that the wiki's list does not have (parts of a bigger quest, like Recipe for Disaster):
+    // they count in the game's number of done quests, so they are in the file too.
+    var known = {}, pt = (S.player && S.player.titles) || {};
+    titles.forEach(function (t) { known[QG.normName(t)] = 1; });
+    Object.keys(pt).forEach(function (k) { if (!known[k] && S.player.quests[k] != null) { titles.push(pt[k]); known[k] = 1; } });
     Object.keys(m).forEach(function (k) { if (progs[k] && titles.every(function (t) { return D.norm(t) !== D.norm(m[k].title); })) titles.push(m[k].title); });
     titles.sort(function (a, b) { return sortKey(a) < sortKey(b) ? -1 : sortKey(a) > sortKey(b) ? 1 : 0; });
     titles.forEach(function (title) {
@@ -1922,10 +1925,12 @@
       e.items = it;
       quests[title] = e;
     });
-    var ix = aidxAll();
+    var ix = aidxAll(), counts = {};
     QG.AREAS.forEach(function (a) {
       var x = ix[a.name];
       if (!x) return;
+      var pc = loadAprog(a.name), c = counts[a.name] = {};
+      x.tiers.forEach(function (t) { c[t.name] = t.tasks.filter(function (tk) { return pc.tasks[tk.id]; }).length + ' / ' + t.tasks.length; });
       var full = sget('area.' + a.name), subs = {}, p = loadAprog(a.name), out = {};
       ((full && full.tiers) || []).forEach(function (t) { t.tasks.forEach(function (tk) { (tk.subs || []).forEach(function (u) { subs[u.id] = textOf(u.html); }); }); });
       x.tiers.forEach(function (t) {
@@ -1944,8 +1949,9 @@
     return {
       app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
       help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
-        'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone.',
-      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, areas: areas
+        'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
+        '"tiers" is each tier\'s count, to read at a glance: an import does not use it.',
+      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas
     };
   }
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
@@ -1972,7 +1978,9 @@
     if (isMap(pl) && typeof pl.name === 'string' && pl.name && isMap(pl.quests)) {
       var qs = {};
       Object.keys(pl.quests).forEach(function (k) { var v = +pl.quests[k]; if (v === 0 || v === 1 || v === 2) qs[k] = v; });
-      S.player = { name: pl.name, source: pl.source || 'RuneMetrics', at: pl.at || new Date().toISOString(), quests: qs,
+      var tl = {};
+      if (isMap(pl.titles)) Object.keys(pl.titles).forEach(function (k) { if (qs[k] != null && typeof pl.titles[k] === 'string') tl[k] = pl.titles[k]; });
+      S.player = { name: pl.name, source: pl.source || 'RuneMetrics', at: pl.at || new Date().toISOString(), quests: qs, titles: tl,
         levels: isMap(pl.levels) ? pl.levels : {}, locked: isMap(pl.locked) ? pl.locked : {}, done: +pl.done || 0, started: +pl.started || 0 };
       sset('player', S.player);
     }
@@ -2708,6 +2716,7 @@
   if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
   if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
   // Keep the player fresh too: quietly, once a day.
-  if (S.player && Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE) lookUpPlayer(S.player.name, true);
+  // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
+  if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);
 
 })();

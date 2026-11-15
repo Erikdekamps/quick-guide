@@ -1049,10 +1049,11 @@
     return clean(s).toLowerCase().replace(/\((quest|miniquest|saga)\)/g, ' ').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '');
   }
   // locked: quests you have not started and do not have the needs for ({ normName: 1 }).
-  function playerResult(name, source, quests, levels, locked) {
+  // titles: each quest's name as the game writes it ({ normName: title }), for quests the wiki's list does not have.
+  function playerResult(name, source, quests, levels, locked, titles) {
     var done = 0, started = 0;
     Object.keys(quests).forEach(function (k) { if (quests[k] === 2) done++; else if (quests[k] === 1) started++; });
-    return { name: name, source: source, at: new Date().toISOString(), quests: quests, levels: levels, locked: locked || {}, done: done, started: started };
+    return { name: name, source: source, at: new Date().toISOString(), quests: quests, titles: titles || {}, levels: levels, locked: locked || {}, done: done, started: started };
   }
   function fromRuneMetrics(name) {
     var enc = encodeURIComponent(name), fails = [];
@@ -1061,13 +1062,14 @@
       soft(getJson(WIKI + '/cors/m=adventurers-log/api/v1/playerQuests/' + enc)),
       soft(getJson(WIKI + '/cors/m=hiscore/index_lite.json?player=' + enc))
     ]).then(function (res) {
-      var quests = {}, levels = {}, locked = {}, got = false;
+      var quests = {}, levels = {}, locked = {}, titles = {}, got = false;
       var ql = res[0] && res[0].quests;
       (Array.isArray(ql) ? ql : ql && typeof ql === 'object' ? Object.keys(ql).map(function (k) { return ql[k]; }) : []).forEach(function (it) {
         if (!it || !it.title) return;
         got = true;
         var k = normName(it.title), st = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
         quests[k] = st;
+        titles[k] = clean(it.title);
         if (st === 0 && it.eligible === false) locked[k] = 1;
       });
       (res[1] && Array.isArray(res[1].skills) ? res[1].skills : []).forEach(function (it) {
@@ -1081,7 +1083,7 @@
         e.code = fails.length === 2 ? (fails[0] && fails[0].code === 'timeout' ? 'timeout' : 'network') : 'nodata';
         throw e;
       }
-      return playerResult(name, 'RuneMetrics', quests, levels, locked);
+      return playerResult(name, 'RuneMetrics', quests, levels, locked, titles);
     });
   }
   // Quests and levels of one player: Jagex's RuneMetrics data, passed on by the wiki.
@@ -1092,7 +1094,7 @@
 
 
   // ---------- Area Tasks: the "<Area> achievements" pages ----------
-  var AREA_VERSION = 4;   // a new number makes saved areas read the wiki again
+  var AREA_VERSION = 5;   // a new number makes saved areas read the wiki again
   var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
     "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
     return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
@@ -1145,7 +1147,8 @@
     });
   }
   // The Notes cell of a task: a numbered list of two or more lines is the steps of the task. A line under a step
-  // (a bulleted list inside it) is a note for that step. Everything else stays as the task's tip.
+  // (a bulleted list inside it) is a note for that step. Everything else stays as the task's tip, however long:
+  // tips are things to know, not things to do, so they get no tick boxes.
   function stepsOf(cell, page, taskId) {
     var cc = cell.cloneNode(true), subs = [];
     var lists = arr(cc.querySelectorAll('ol')).filter(function (o) { return !o.parentNode.closest('li') && kids(o, 'LI').length >= 2; });
@@ -1161,72 +1164,7 @@
       });
       ol.remove();
     });
-    if (!subs.length && clean(text(cc)).length > LONG_TIP) {
-      var long = longSteps(cc, page, taskId);
-      if (long.subs.length >= 2) return long;
-    }
     return { notes: tidy(inline(cc, page)), subs: subs };
-  }
-  // A tip of more than this many letters is turned into sub-tasks.
-  var LONG_TIP = 250;
-  var ABBR_RE = /(?:^|[\s(])(?:e\.g|i\.e|etc|vs|approx|st|mr|mrs|dr|no|cf)\.$/i;
-  // Splits safe inline HTML into sentences, only where no tag is open, so links stay whole.
-  function sentences(html) {
-    var out = [], cur = '', depth = 0, i = 0;
-    while (i < html.length) {
-      var ch = html.charAt(i);
-      if (ch === '<') {
-        var end = html.indexOf('>', i);
-        if (end < 0) { cur += html.slice(i); break; }   // not a tag after all: keep the rest as it is
-        var tag = html.slice(i, end + 1);
-        if (/^<\//.test(tag)) depth--;
-        else if (!/^<br/i.test(tag) && !/\/>$/.test(tag)) depth++;
-        cur += tag;
-        i = end + 1;
-        continue;
-      }
-      cur += ch;
-      i++;
-      if (depth > 0 || !/[.!?]/.test(ch)) continue;
-      var rest = html.slice(i), m = /^(?:\s|<br>)+(?=(?:<[a-z][^>]*>)*["'(\u2018\u201cA-Z0-9])/.exec(rest);
-      if (!m || ABBR_RE.test(plainOf(cur))) continue;
-      out.push(cur);
-      cur = '';
-      i += m[0].length;
-    }
-    if (plainOf(cur)) out.push(cur);
-    return out.map(function (x) { return tidy(x); }).filter(function (x) { return plainOf(x); });
-  }
-  // A long tip, as sub-tasks: a paragraph or a list line each, and a long paragraph one sentence each.
-  // A line that ends with ":" keeps the list right after it as its notes. A box (like "Required items") stays as the tip.
-  function longSteps(cell, page, taskId) {
-    var subs = [], tip = '', loose = '';
-    function add(html, notes) {
-      (plainOf(html).length > 160 ? sentences(html) : [html]).forEach(function (x) {
-        subs.push({ id: taskId + ':' + (subs.length + 1), html: x, notes: [] });
-      });
-      if (notes && notes.length && subs.length) subs[subs.length - 1].notes = notes;
-    }
-    function flush() { if (plainOf(loose)) add(tidy(loose)); loose = ''; }
-    arr(cell.childNodes).forEach(function (n) {
-      if (n.nodeType === 3 || (n.nodeType === 1 && INLINE_RE.test(n.tagName))) { loose += inlineOne(n, page, {}); return; }
-      if (n.nodeType !== 1) return;
-      flush();
-      if (n.tagName === 'UL' || n.tagName === 'OL') {
-        var items = kids(n, 'LI').map(function (li) { return tidy(inline(li, page)); }).filter(plainOf);
-        var last = subs[subs.length - 1];
-        if (last && /:\s*$/.test(plainOf(last.html)) && !last.notes.length) last.notes = items;
-        else items.forEach(function (x) { add(x); });
-      } else if (n.tagName === 'DIV' || n.tagName === 'TABLE') {
-        var t = tidy(inline(n, page));
-        if (plainOf(t)) tip += (tip ? '<br>' : '') + t;
-      } else {
-        var h = tidy(inline(n, page));
-        if (plainOf(h)) add(h);
-      }
-    });
-    flush();
-    return { notes: tip, subs: subs };
   }
   function areaTier(part, page) {
     var name = text(part.head).replace(/\s*achievements$/i, '');

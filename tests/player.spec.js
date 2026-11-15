@@ -91,6 +91,14 @@ test.describe('looking up a player', () => {
     expect(wiki.playerCalls.length).toBe(2);
   });
 
+  test('data from an older version, without the quests\' names, is fetched again quietly at start', async ({ page, wiki }) => {
+    zezima(wiki);
+    await seed(page, { player: { name: 'Zezima', at: new Date().toISOString(), quests: { cooksassistant: 2 }, levels: {}, done: 1, started: 0 } });
+    await openApp(page, expect);
+    await expect(page.locator('#player')).toContainText('2 quests done');
+    expect((await stored(page, 'player')).titles).toMatchObject({ cooksassistant: "Cook's Assistant", dragonslayer: 'Dragon Slayer' });
+  });
+
   test('Update fetches the player again', async ({ page, wiki }) => {
     zezima(wiki);
     await openApp(page, expect);

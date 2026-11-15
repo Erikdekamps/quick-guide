@@ -141,28 +141,22 @@ test.describe('reading an area page', () => {
     expect(t.notes.replace(/<[^>]+>/g, '').length).toBeGreaterThan(250);
   });
 
-  test('a task with a lot of text gets sub-tasks: one per sentence', async ({ page }) => {
+  // Only a numbered list on the wiki is steps. A lot of text is tips, not things to do: no tick boxes for those.
+  test('a task with a lot of text keeps it as its tip, with no tick boxes', async ({ page }) => {
     const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
     const all = a.tiers.flatMap((x) => x.tasks);
     const plain = (h) => h.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const purse = all.find((x) => x.name === "Honestly, It's Not a Purse");
-    expect(purse.subs.length).toBeGreaterThanOrEqual(3);
-    expect(purse.notes).toBe('');
-    expect(purse.subs.map((x) => x.id)).toEqual(purse.subs.map((x, i) => purse.id + ':' + (i + 1)));
-    // nothing is lost: the sub-tasks together are the whole text, each a full sentence
-    for (const u of purse.subs) expect(plain(u.html)).toMatch(/[.!?)]$/);
-    // every sub-task is valid HTML on its own: links are kept whole
-    for (const u of purse.subs) expect((u.html.match(/<a /g) || []).length).toBe((u.html.match(/<\/a>/g) || []).length);
-  });
-
-  test('a line that ends with ":" keeps its list under it, as notes', async ({ page }) => {
-    const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
-    const cat = a.tiers.flatMap((x) => x.tasks).find((x) => x.name === 'A Cat is For Life...');
-    const plain = (h) => h.replace(/<[^>]+>/g, '');
-    const intro = cat.subs.find((u) => /Cats that can be used for this achievement are:$/.test(plain(u.html)));
-    expect(intro).toBeTruthy();
-    expect(intro.notes.map(plain)).toEqual(['Purple cats', 'Hellcats', 'Fully grown cats', 'Overgrown cats', 'Wily cats', 'Lazy cats']);
-    expect(cat.subs.some((u) => plain(u.html) === 'Hellcats')).toBe(false);
+    expect(purse.subs).toEqual([]);
+    expect(plain(purse.notes).length).toBeGreaterThan(250);
+    // nothing is lost: the list under a line that ends with ":" stays in the tip
+    const cat = all.find((x) => x.name === 'A Cat is For Life...');
+    expect(cat.subs).toEqual([]);
+    expect(plain(cat.notes)).toContain('Cats that can be used for this achievement are:');
+    expect(plain(cat.notes)).toContain('Hellcats');
+    expect(plain(cat.notes)).toContain('The cat does not need to be sold');
+    // only tasks with a numbered list on the wiki have steps
+    expect(all.filter((x) => x.subs.length).map((x) => x.name)).toEqual(["You're the Dirty Rascal"]);
   });
 
   test('short text stays one tip', async ({ page }) => {
@@ -177,7 +171,7 @@ test.describe('reading an area page', () => {
     for (const x of short) expect(x.subs, x.name).toEqual([]);
   });
 
-  test('a long tip with a stray "<" in it does not freeze the app', async ({ page }) => {
+  test('a long tip with a stray "<" in it reads quickly, as one tip', async ({ page }) => {
     const long = 'Use the <a href="/w/X" title="X">lever</a>. '.repeat(3) + 'Then type 1 < 2 here. ' + 'Go north to the big door now. '.repeat(10);
     const html = '<h2 id="Easy_achievements">Easy achievements</h2><h3 id="List_of_achievements">List of achievements</h3>' +
       '<table><tr><th>#</th><th>Name</th><th>Description</th><th>Members</th><th>Requirements</th><th>Notes</th></tr>' +
@@ -188,7 +182,7 @@ test.describe('reading an area page', () => {
       return { ms: Date.now() - t, subs: a.tiers[0].tasks[0].subs.length };
     }, html);
     expect(r.ms).toBeLessThan(2000);
-    expect(r.subs).toBeGreaterThan(3);
+    expect(r.subs).toBe(0);
   });
 
   test('the page a phone gets (parts wrapped in sections) reads the same', async ({ page }) => {
