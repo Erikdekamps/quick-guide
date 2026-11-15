@@ -107,6 +107,30 @@
     }
     return c;
   }
+  // The mean brightness of 24 x 4 blocks of a box: a fingerprint of the text in it.
+  function print(px, w, h, x0, y0, x1, y1) {
+    x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(w - 1, x1); y1 = Math.min(h - 1, y1);
+    var C = 24, R = 4, out = [];
+    if (x1 - x0 < C || y1 - y0 < R) return null;
+    for (var r = 0; r < R; r++) {
+      var ya = y0 + Math.floor((y1 - y0 + 1) * r / R), yb = y0 + Math.floor((y1 - y0 + 1) * (r + 1) / R);
+      for (var c = 0; c < C; c++) {
+        var xa = x0 + Math.floor((x1 - x0 + 1) * c / C), xb = x0 + Math.floor((x1 - x0 + 1) * (c + 1) / C), sum = 0, n = 0;
+        for (var y = ya; y < yb; y++) {
+          for (var x = xa; x < xb; x++) { var j = (y * w + x) * 4; sum += px[j] + px[j + 1] + px[j + 2]; n++; }
+        }
+        out.push(n ? sum / n / 3 : 0);
+      }
+    }
+    return out;
+  }
+  // How different two fingerprints are: the mean difference in brightness (0 is the same).
+  function differ(a, b) {
+    if (!a || !b || a.length !== b.length) return 255;
+    var d = 0;
+    for (var i = 0; i < a.length; i++) d += Math.abs(a[i] - b[i]);
+    return d / a.length;
+  }
   function colour(b) { return b.red >= 10 || b.green >= 14; }
   function score(g) { var c = g.filter(colour).length; return c ? c * 1000 + g.length : 0; }
 
@@ -208,6 +232,9 @@
       var c = count(px, w, h, cx0, Math.max(0, b.y1 - mh + 1), cx1, b.y1), all = c.red + c.green + c.lock || 1;
       return {
         y: b.y1, h: b.h,
+        // The row's title and description next to the badge, as a rough picture: the same row looks the same
+        // after a scroll, and another list (another tier) looks different.
+        fp: partial ? null : print(px, w, h, cx1 + Math.round((cx1 - cx0) * 0.4), b.y1 - mh + 1, cx1 + (cx1 - cx0 + 1) * 14, b.y1),
         done: c.green / all >= 0.08,
         locked: c.lock > c.green && c.lock >= all * 0.3,
         partial: partial
@@ -221,13 +248,15 @@
   }
 
   // Alt1 hands pixels over as base64 BGRA. Turn that into RGBA.
-  function fromBgraBase64(str, w, h) {
-    var bin = atob(str), out = new Uint8ClampedArray(w * h * 4);
-    for (var i = 0; i < w * h * 4; i += 4) {
-      out[i] = bin.charCodeAt(i + 2);
-      out[i + 1] = bin.charCodeAt(i + 1);
-      out[i + 2] = bin.charCodeAt(i);
-      out[i + 3] = 255;
+  // Into out (from byte at) when given, else into a new array.
+  function fromBgraBase64(str, w, h, out, at) {
+    var bin = atob(str), n = w * h * 4;
+    out = out || new Uint8ClampedArray(n); at = at || 0;
+    for (var i = 0; i < n; i += 4) {
+      out[at + i] = bin.charCodeAt(i + 2);
+      out[at + i + 1] = bin.charCodeAt(i + 1);
+      out[at + i + 2] = bin.charCodeAt(i);
+      out[at + i + 3] = 255;
     }
     return out;
   }
@@ -243,22 +272,32 @@
       x = Math.max(0, Math.min(W - 1, rect.x | 0)); y = Math.max(0, Math.min(H - 1, rect.y | 0));
       w = Math.max(1, Math.min(W - x, rect.w | 0)); h = Math.max(1, Math.min(H - y, rect.h | 0));
     }
+    // Newer Alt1: alt1.capture hands over the pixels as bytes (RGBA, the way the alt1 library reads them).
     if (typeof a.capture === 'function') {
       try {
         var buf = a.capture(x, y, w, h);
-        if (buf && buf.length === w * h * 4) {
-          var px = new Uint8ClampedArray(buf); // BGRA too
-          for (var i = 0; i < px.length; i += 4) { var t = px[i]; px[i] = px[i + 2]; px[i + 2] = t; px[i + 3] = 255; }
-          return { px: px, w: w, h: h, x: x, y: y };
-        }
+        if (buf && (buf.length || buf.byteLength) === w * h * 4) return { px: buf instanceof Uint8ClampedArray ? buf : new Uint8ClampedArray(buf.buffer || buf), w: w, h: h, x: x, y: y };
       } catch (e) { /* fall back to getRegion */ }
     }
-    var s = a.getRegion(x, y, w, h);
-    if (!s) return null;
-    return { px: fromBgraBase64(s, w, h), w: w, h: h, x: x, y: y };
+    // Older Alt1: getRegion hands over base64 BGRA, at most about 4 MB at a time, so a big screen comes in strips.
+    var out = new Uint8ClampedArray(w * h * 4), band = Math.max(1, Math.floor(MAX_TRANSFER / (w * 4)));
+    for (var top = 0; top < h; top += band) {
+      var bh = Math.min(band, h - top), str = a.getRegion(x, y + top, w, bh);
+      if (!str) return null;
+      fromBgraBase64(str, w, bh, out, top * w * 4);
+    }
+    return { px: out, w: w, h: h, x: x, y: y };
+  }
+  var MAX_TRANSFER = 4000000;
+
+  // Swaps red and blue, in place. Some Alt1 versions hand over the colours the other way round;
+  // the app tries both and keeps the one that finds the list.
+  function swapRB(px) {
+    for (var i = 0; i < px.length; i += 4) { var t = px[i]; px[i] = px[i + 2]; px[i + 2] = t; }
+    return px;
   }
 
-  var api = { read: read, capture: capture, fromBgraBase64: fromBgraBase64 };
+  var api = { read: read, capture: capture, fromBgraBase64: fromBgraBase64, swapRB: swapRB, differ: differ };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.QuickGuideReader = api;
 })(typeof window !== 'undefined' ? window : this);
