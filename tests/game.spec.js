@@ -313,7 +313,7 @@ test.describe('Scan achievements in Alt1', () => {
   // as when another tier is clicked in the game. scale: a bigger screen (smooth: blurred a little, as when resized).
   // list: the task list scrolled down that many pixels (one row is 62). chat: that many lines of chat under the game.
   async function show(page, src, o) {
-    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line]) => new Promise((done) => {
+    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line, edge]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height + (chat ? 300 : 0);
@@ -331,6 +331,13 @@ test.describe('Scan achievements in Alt1', () => {
           x.fillStyle = 'rgb(24,22,20)'; x.fillRect(700, 250, 330, 170);
           x.fillStyle = '#ddd'; x.font = '13px sans-serif';
           for (let k = 0; k < 8; k++) x.fillText('Some words about this task, line ' + (k + 1), 712, 272 + k * 19);
+        }
+        if (edge) {
+          // Right of the scrollbar: the window's gold edge (it starts well above the list and ends inside it, with
+          // dark ground under it), and sand-coloured rocks. Both have the colour of the scrollbar's handle.
+          x.fillStyle = 'rgb(12,10,8)'; x.fillRect(1182, 0, cv.width - 1182, cv.height);
+          x.fillStyle = 'rgb(185,160,119)'; x.fillRect(1188, 40, 2, 560);
+          x.fillStyle = 'rgb(196,168,124)'; x.fillRect(1200, 230, 60, 300);
         }
         if (chat) {
           // A chat under the game: the same green line, chat times.
@@ -358,7 +365,7 @@ test.describe('Scan achievements in Alt1', () => {
         done();
       };
       im.src = s;
-    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT, !!(o && o.edge)]);
   }
   // Daemonheim and Desert with 4 tiers each, as in the game (the other areas have one tier on the fake wiki).
   function fourTiers(wiki) {
@@ -427,6 +434,21 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
     await page.locator('.tab[data-home="areas"]').click();
     await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('7 / 23');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('the window\'s gold edge and sand-coloured rocks next to the list are not taken for the scrollbar', async ({ page }) => {
+    await inAlt1(page);
+    await openApp(page, expect);
+    for (const scale of [1, 2, 1]) {
+      await show(page, SHOT.screen, { edge: true, scale });
+      if (!(await bar(page).count())) await startScan(page);
+      await expect(tier(page)).toHaveText('Easy Ardougne');
+      await expect(page.locator('#scan-msg'), 'scale ' + scale).toHaveText('Tasks 1–7 of 23.');
+    }
+    // Scrolled down a row: the handle is still found, and says so.
+    await show(page, SHOT.screen, { edge: true, list: 62 });
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 2–7 of 23.');
     expect(page.errors).toEqual([]);
   });
 
