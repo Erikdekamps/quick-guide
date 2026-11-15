@@ -14,8 +14,8 @@ so they match it.
 | `AreaSearch.dc.html` | Searching the area tasks: tasks are ticked in the results, with the area and tier under each |
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
-| `ReadGame.dc.html` | Scan achievements (in Alt1, from the settings): start at Easy Ardougne and go through them all |
-| `Scanning.dc.html` | Scanning: the green bar with the tier it is on (1 of 52), ◀ ▶ and Stop |
+| `ReadGame.dc.html` | Scan achievements (in Alt1, from the settings): start at Easy Ardougne and go from top to bottom |
+| `Scanning.dc.html` | Scanning: the green bar with the tier it is on (1/52), the tasks in view, ◀ ▶ and Stop |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
 | `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |
 | `SettingsEnd.dc.html` | The bottom of the settings: Backup, and the Danger zone with Delete everything (after the first click) |

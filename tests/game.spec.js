@@ -140,53 +140,64 @@ test.describe('Scan achievements in Alt1', () => {
     const ix = await stored(page, 'aidx'), p = (await stored(page, 'aprog.' + area)) || { tasks: {} };
     return ix[area].tiers[tier].tasks.slice(0, n).map((x) => !!p.tasks[x.id]);
   }
-  // Hard Daemonheim as the first list: tasks 6 and 7 are done.
-  const A = [false, false, false, false, false, true, true, false];
-  // The other list (rows 1 to 6 upside down): tasks 1 and 7 are done.
-  const B = [true, false, false, false, false, false, true, false];
+  const ALL7 = [true, true, true, true, true, true, true, false];
+  // Hard Daemonheim's list: tasks 6 and 7 done, 1 to 5 not (3 red, 2 locked).
+  const DAEM = [false, false, false, false, false, true, true, false];
 
   // A fake Alt1, there from the start like the real one. It shows one "frame" of the game at a time: a screenshot,
-  // moved up by __scroll pixels (like scrolling the list). getRegion hands back base64 BGRA, as Alt1 does.
-  // __closed shows a black screen, __broken makes it throw. limit: like Alt1, too much at once gives nothing.
+  // moved up by __scroll pixels. getRegion hands back base64 BGRA, as Alt1 does. __closed shows a black screen,
+  // __broken makes it throw. limit: like Alt1, too much at once gives nothing.
   async function inAlt1(page, o) {
-    o = Object.assign({ w: 801, h: 583, pixel: true, limit: 0 }, o);
+    o = Object.assign({ w: 1244, h: 747, pixel: true, limit: 0 }, o);
     await page.addInitScript(([fw, fh, pixel, limit]) => {
-      window.__scroll = 0; window.__grabs = 0; window.__closed = false; window.__broken = false; window.__shot = null;
+      window.__scroll = 0; window.__grabs = 0; window.__closed = false; window.__broken = false; window.__shot = null; window.__noise = 0;
       window.alt1 = {
         permissionPixel: pixel, rsLinked: true, rsWidth: fw, rsHeight: fh,
         getRegion: (rx, ry, rw, rh) => {
           window.__grabs++;
           if (window.__broken) throw new Error('capture failed');
           if (limit && rw * rh * 4 > limit) return '';
-          const s = window.__shot, top = window.__scroll;
-          let out = '';
+          const s = window.__shot, top = window.__scroll, noise = window.__noise, u = new Uint8Array(rw * rh * 4);
+          let o = 0;
           for (let yy = ry; yy < ry + rh; yy++) {
-            for (let xx = rx; xx < rx + rw; xx++) {
+            for (let xx = rx; xx < rx + rw; xx++, o += 4) {
               const sy = yy + top;
-              if (!s || window.__closed || sy < 0 || sy >= s.h || xx >= s.w) { out += '\0\0\0\xff'; continue; }
-              const i = (sy * s.w + xx) * 4;
-              out += String.fromCharCode(s.d[i + 2], s.d[i + 1], s.d[i], 255);
+              u[o + 3] = 255;
+              if (!s || window.__closed || sy < 0 || sy >= s.h || xx >= s.w) continue;
+              const i = (sy * s.w + xx) * 4, n = noise ? Math.round((Math.random() * 2 - 1) * noise) : 0;
+              u[o] = s.d[i + 2] + n; u[o + 1] = s.d[i + 1] + n; u[o + 2] = s.d[i] + n;
+              if (n) { for (let k = 0; k < 3; k++) u[o + k] = Math.max(0, Math.min(255, [s.d[i + 2], s.d[i + 1], s.d[i]][k] + n)); }
             }
           }
+          let out = '';
+          for (let i = 0; i < u.length; i += 32768) out += String.fromCharCode.apply(null, u.subarray(i, i + 32768));
           return btoa(out);
         }
       };
     }, [o.w, o.h, o.pixel, o.limit]);
   }
-  // Puts a screenshot on the fake game screen. other: the same window with another list in it
-  // (the first 6 rows upside down), as when the next tier is clicked in the game.
-  async function show(page, src, other) {
-    await page.evaluate(([s, flip]) => new Promise((done) => {
+  // Puts a screenshot on the fake game screen. On the whole-screen one, pick: the row of the tier list on the left
+  // that has the gold box (0 is Easy Ardougne), and other: another list on the right (rows 1 to 6 upside down),
+  // as when another tier is clicked in the game.
+  async function show(page, src, o) {
+    await page.evaluate(([s, pick, other]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
-        if (flip) for (let k = 0; k < 6; k++) x.drawImage(im, 276, 152 + k * 62, 500, 62, 276, 152 + (5 - k) * 62, 500, 62);
+        if (pick) {
+          x.fillStyle = 'rgb(40,36,33)';
+          x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); x.fillRect(514, 244, 1, 30); x.fillRect(658, 244, 1, 30);
+          const y = 244 + 36 * pick;
+          x.fillStyle = 'rgb(255,203,5)';
+          x.fillRect(514, y, 145, 1); x.fillRect(514, y + 29, 145, 1); x.fillRect(514, y, 1, 30); x.fillRect(658, y, 1, 30);
+        }
+        if (other) for (let k = 0; k < 6; k++) x.drawImage(im, 686, 176 + k * 62, 484, 62, 686, 176 + (5 - k) * 62, 484, 62);
         window.__shot = { w: im.width, h: im.height, d: x.getImageData(0, 0, im.width, im.height).data };
         done();
       };
       im.src = s;
-    }), [src, !!other]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other)]);
   }
   const grabs = (page) => page.evaluate(() => window.__grabs);
   async function frames(page, n) {
@@ -200,6 +211,7 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(page.locator('#scan')).toBeVisible();
   }
   const bar = (page) => page.locator('#scan');
+  const tier = (page) => page.locator('#scan-tier');
 
   test('outside Alt1 there is no Scan achievements', async ({ page }) => {
     await openApp(page, expect);
@@ -208,7 +220,7 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(page.locator('[data-act="scan-open"]')).toHaveCount(0);
   });
 
-  test('in Alt1 it is in the settings, and the box says to start at Easy Ardougne and go through them all', async ({ page }) => {
+  test('in Alt1 it is in the settings; the box says to start at Easy Ardougne and go from top to bottom', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
     await openCog(page);
@@ -216,99 +228,125 @@ test.describe('Scan achievements in Alt1', () => {
     const dlg = page.locator('#rd');
     await expect(dlg).toContainText('Hero');
     await expect(dlg).toContainText('Easy Ardougne');
-    await expect(dlg).toContainText('Medium Ardougne');
-    await expect(dlg).toContainText('to the last one');
+    await expect(dlg).toContainText('from top to bottom');
+    await expect(dlg).toContainText('not done is unticked');
     await page.locator('[data-act="rd-close"]').click();
     await expect(dlg).toHaveCount(0);
-    // No button per tier any more.
+    // No button per tier.
     await page.locator('.tab[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await expect(page.locator('[data-act="read"]')).toHaveCount(0);
   });
 
-  test('Start: the bar says it is on Easy Ardougne, and its done tasks are ticked', async ({ page }) => {
+  test('Start: the bar names the tier, short, and its done tasks are ticked', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
-    await expect(page.locator('#scan-tier')).toHaveText('Easy Ardougne');
-    await expect(bar(page)).toContainText(/\(1 of \d+\)/);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(A);
-    await expect(bar(page)).toContainText('Tasks 1–7 of 23 in view. Ticked 2.');
-    // The list of areas shows it.
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect(bar(page).locator('.sk')).toHaveText(/^1\/\d+$/);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
     await page.locator('.tab[data-home="areas"]').click();
-    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('2 / 23');
+    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('7 / 23');
     expect(page.errors).toEqual([]);
   });
 
-  test('clicking the next tier in the game: the app goes on to Medium Ardougne by itself', async ({ page }) => {
+  test('clicking the next tier in the game: the app reads which one has the gold box', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await show(page, SHOT.screen, { pick: 1, other: true });
+    await expect(tier(page)).toHaveText('Medium Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 1, 8)).toEqual(ALL7);
+    // Skipping ahead works too: the fifth row is Easy Daemonheim. And back to the first.
+    await show(page, SHOT.screen, { pick: 4 });
+    await expect(tier(page)).toHaveText('Easy Daemonheim');
+    await show(page, SHOT.screen, { pick: 0, other: true });
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    // Nothing was ticked in a tier it was not shown.
+    expect(await ticked(page, 'Ardougne', 2, 8)).toEqual(Array(8).fill(false));
+  });
+
+  test('a task the game shows as not done (or locked) is unticked', async ({ page }) => {
+    await inAlt1(page, { w: 801, h: 583 });
+    await openApp(page, expect);
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    const boxes = page.locator('section[data-asec="tasks"] .secb > ul.steps > li[data-task] > .row > input[data-acb]');
+    for (let i = 0; i < 4; i++) await boxes.nth(i).check();
+    await boxes.nth(9).check();
     await show(page, SHOT.daemonheim);
     await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(A);
-    await show(page, SHOT.daemonheim, true);
-    await expect(page.locator('#scan-tier')).toHaveText('Medium Ardougne');
-    await expect(bar(page)).toContainText(/\(2 of \d+\)/);
-    await expect.poll(() => ticked(page, 'Ardougne', 1, 8)).toEqual(B);
-    expect(await ticked(page, 'Ardougne', 0, 8)).toEqual(A);
+    // Rows 1 to 7 are set to what the game shows; task 10 is not on the screen, so it stays.
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 10)).toEqual([...DAEM.slice(0, 7), false, false, true]);
   });
 
   test('scrolling, slowly or fast, down and back up, stays on the same tier and keeps each row on its task', async ({ page }) => {
-    await inAlt1(page, { h: 470 });
+    await inAlt1(page, { h: 640 });
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
-    await frames(page, 2);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
     for (const y of [10, 20, 30, 124, 0, 62, 100, 40, 0]) {
       await page.evaluate((v) => { window.__scroll = v; }, y);
       await frames(page, 2);
-      await expect(page.locator('#scan-tier')).toHaveText('Easy Ardougne');
+      await expect(tier(page)).toHaveText('Easy Ardougne');
     }
-    expect(await ticked(page, 'Ardougne', 0, 8)).toEqual(A);
+    expect(await ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
     expect(await ticked(page, 'Ardougne', 1, 8)).toEqual(Array(8).fill(false));
   });
 
-  test('closing the list and opening it again on the same tier stays on that tier', async ({ page }) => {
+  // What made the first version race through every tier: the window is a little see-through, so every look at
+  // the game is a little different. It must stay on the tier, and not tick other tiers.
+  test('a picture that is a little different every look (a see-through window) stays on the same tier', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
+    await page.evaluate(() => { window.__noise = 12; });
     await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(A);
-    await page.evaluate(() => { window.__closed = true; });
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await frames(page, 8);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    expect(await ticked(page, 'Ardougne', 1, 8)).toEqual(Array(8).fill(false));
+    // And still knows the rows when the picture moves (here the whole window moves, so all 7 stay in view).
+    await page.evaluate(() => { window.__scroll = 62; });
     await frames(page, 3);
-    await expect(bar(page)).toContainText('Open Easy Ardougne in the game');
-    await page.evaluate(() => { window.__closed = false; });
-    await frames(page, 3);
-    await expect(page.locator('#scan-tier')).toHaveText('Easy Ardougne');
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
+    await expect(tier(page)).toHaveText('Easy Ardougne');
   });
 
-  test('the arrows move to the tier before or after, if the app got it wrong', async ({ page }) => {
+  test('the arrows set the tier, if the app got it wrong', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
     await expect(page.locator('[data-act="scan-back"]')).toBeDisabled();
     await page.locator('[data-act="scan-next"]').click();
     await page.locator('[data-act="scan-next"]').click();
-    await expect(page.locator('#scan-tier')).toHaveText('Hard Ardougne');
-    await expect.poll(() => ticked(page, 'Ardougne', 2, 8)).toEqual(A);
+    await expect(tier(page)).toHaveText('Hard Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 2, 8)).toEqual(ALL7);
+    // It stays: the picked row in the game is now Hard Ardougne.
+    await frames(page, 3);
+    await expect(tier(page)).toHaveText('Hard Ardougne');
     await page.locator('[data-act="scan-back"]').click();
-    await expect(page.locator('#scan-tier')).toHaveText('Medium Ardougne');
+    await expect(tier(page)).toHaveText('Medium Ardougne');
   });
 
-  test('after the last tier, it says it is all done', async ({ page }) => {
+  test('closing the list and opening it again stays on the same tier', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
-    const total = +(await bar(page).locator('.sk').textContent()).match(/of (\d+)/)[1];
-    for (let k = 1; k < total; k++) await page.locator('[data-act="scan-next"]').click();
-    await expect(page.locator('[data-act="scan-next"]')).toBeDisabled();
-    await frames(page, 2);
-    await show(page, SHOT.daemonheim, true);
-    await expect(bar(page)).toContainText('All done');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await page.evaluate(() => { window.__closed = true; });
+    await expect(page.locator('#scan-msg')).toHaveText('No list seen in the 1244×747 picture.', { timeout: 10000 });
+    await page.evaluate(() => { window.__closed = false; });
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
+    await expect(tier(page)).toHaveText('Easy Ardougne');
   });
 
   test('the bar stays while you look around the app; an open tier shows the ticks at once', async ({ page }) => {
@@ -317,18 +355,17 @@ test.describe('Scan achievements in Alt1', () => {
     await page.locator('.tab[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
     const done = () => page.locator('section[data-asec="tasks"] .secb > ul.steps > li[data-task]').evaluateAll((li) => li.slice(0, 8).map((x) => x.classList.contains('done')));
-    await expect.poll(done).toEqual(A);
-    await expect(bar(page)).toBeVisible();
+    await expect.poll(done).toEqual(ALL7);
     await page.locator('[data-act="change"]').click();
     await expect(page.locator('#qcount')).toBeVisible();
     await expect(bar(page)).toBeVisible();
   });
 
   test('the "Set tasks" page ticks nothing', async ({ page }) => {
-    await inAlt1(page, { h: 606 });
+    await inAlt1(page, { w: 805, h: 606 });
     await openApp(page, expect);
     await show(page, SHOT.sets);
     await startScan(page);
@@ -341,7 +378,7 @@ test.describe('Scan achievements in Alt1', () => {
     test('newer Alt1: pictures come from alt1.capture as ' + order + ' bytes', async ({ page }) => {
       await inAlt1(page);
       await openApp(page, expect);
-      await show(page, SHOT.daemonheim);
+      await show(page, SHOT.screen);
       await page.evaluate((rgba) => {
         const a = window.alt1, old = a.getRegion;
         a.getRegion = () => { throw new Error('should use capture'); };
@@ -354,62 +391,68 @@ test.describe('Scan achievements in Alt1', () => {
         };
       }, order === 'RGBA');
       await startScan(page);
-      await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(A);
+      await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
     });
   }
 
   test('older Alt1 on a big screen: the picture comes in strips (Alt1 gives at most about 4 MB at once)', async ({ page }) => {
-    await inAlt1(page, { w: 1920, h: 1080, limit: 4000000 });
+    await inAlt1(page, { w: 2560, h: 1360, limit: 4000000 });
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 15000 }).toEqual(A);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 20000 }).toEqual(ALL7);
+  });
+
+  // How long one look takes, on a big screen, with a picture that changes every time (so none is skipped).
+  // Alt1's own copying is not counted: the fake one here is much slower than the real one.
+  test('one look takes well under the time between looks, on a 2560 x 1360 screen', async ({ page }) => {
+    await inAlt1(page, { w: 2560, h: 1360 });
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await page.evaluate(() => {
+      window.__noise = 6; window.__fake = 0; window.__ticks = [];
+      const a = window.alt1, get = a.getRegion, R = window.QuickGuideReader, cap = R.capture;
+      a.getRegion = function () { const t = performance.now(); const r = get.apply(this, arguments); window.__fake += performance.now() - t; return r; };
+      R.capture = function () { const f0 = window.__fake, t = performance.now(); const c = cap.apply(this, arguments); window.__last = { t: t, f: f0 }; return c; };
+      const st = window.setTimeout;
+      window.setTimeout = function (fn, ms) {
+        if (ms === 500 && window.__last) { const l = window.__last; window.__ticks.push(performance.now() - l.t - (window.__fake - l.f)); window.__last = null; }
+        return st.apply(this, arguments);
+      };
+    });
+    await startScan(page);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 20000 }).toEqual(ALL7);
+    await expect.poll(() => page.evaluate(() => window.__ticks.length), { timeout: 20000 }).toBeGreaterThanOrEqual(8);
+    const ms = await page.evaluate(() => window.__ticks.slice(2));
+    const avg = ms.reduce((a, b) => a + b, 0) / ms.length;
+    console.log('one look, ms:', ms.map((x) => Math.round(x)).join(' '), 'average', Math.round(avg));
+    expect(avg).toBeLessThan(100);
   });
 
   test('when Alt1 gives no picture, the bar says so', async ({ page }) => {
     await inAlt1(page, { limit: 1 });
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
-    await expect(bar(page)).toContainText('Alt1 gives no picture of the game', { timeout: 10000 });
-  });
-
-  test('when it sees no list for a while, the bar says how big the picture was', async ({ page }) => {
-    await inAlt1(page);
-    await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
-    await page.evaluate(() => { window.__closed = true; });
-    await startScan(page);
-    await expect(bar(page)).toContainText('801×583 picture; no list yet', { timeout: 10000 });
+    await expect(page.locator('#scan-msg')).toHaveText('Alt1 gives no picture of the game.', { timeout: 10000 });
   });
 
   test('a picture that fails to come through does not stop the scanning', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await page.evaluate(() => { window.__broken = true; });
     await startScan(page);
     await frames(page, 3);
     await page.evaluate(() => { window.__broken = false; });
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(A);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
     expect(page.errors).toEqual([]);
-  });
-
-  test('it only ticks; a task you ticked stays ticked', async ({ page }) => {
-    await inAlt1(page);
-    await openApp(page, expect);
-    await page.locator('.tab[data-home="areas"]').click();
-    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    await page.locator('section[data-asec="tasks"] .secb > ul.steps > li[data-task]').first().locator('.row > input[data-acb]').first().check();
-    await show(page, SHOT.daemonheim);
-    await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual([true, ...A.slice(1)]);
   });
 
   test('Stop ends it; so does Delete everything', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
-    await show(page, SHOT.daemonheim);
+    await show(page, SHOT.screen);
     await startScan(page);
     await page.locator('[data-act="scan-stop"]').click();
     await expect(bar(page)).toHaveCount(0);

@@ -162,20 +162,19 @@ is how the app finds it; a task can also be written by its name alone.
   open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done. Tick them yourself, or let the app read them:
-- **Scan achievements** (in the settings, only in Alt1, which runs on a computer): the app reads the game and ticks
-  every area task that is done.
+- **Scan achievements** (in the settings, only in Alt1, which runs on a computer): the app reads the game and sets
+  every area task to what the game shows.
   1. In the game, open **Hero → Achievements → Area Tasks** and click **Easy Ardougne**.
-     Keep **Show Completed** ticked and **List Mode** unticked.
-  2. Press **Start**. A green bar at the top says which tier the app is on, how far down the list you are, and how
-     many tasks it ticked.
-  3. Scroll each list to the bottom, then click the next one in the game (**Medium Ardougne**, **Hard Ardougne**,
-     and so on, to the last one). The app notices the new list and goes on to the next tier by itself.
-  - The app does not read the tier's name. It knows each row by a fingerprint of its text: the same rows moved
-    up or down is a scroll (fast is fine), all new rows is the next tier. If the bar shows the wrong tier,
-    use **◀ ▶**. **Stop** ends it.
-  - It only ticks; it never unticks. A **locked** task (a grey badge with a lock) counts as not done.
-    The **Set tasks** page you see before picking a tier ticks nothing.
-  - If it cannot see the list for a while, the bar says how big a picture Alt1 hands over, or that it hands over none.
+     Keep **Show Completed** on and **List Mode** off.
+  2. Press **Start**. A green bar at the top says which tier the app is on and which tasks are in view.
+  3. Go from top to bottom: scroll each list down, then click the next one in the game.
+  - The app sees which tier is picked in the game: the one with the gold box in the list on the left. It starts out
+    knowing that is Easy Ardougne, so the rows under it are Medium Ardougne and so on; it remembers what each name
+    looks like, so you can also skip ahead or go back. If the bar shows the wrong tier, use **◀ ▶**. **Stop** ends it.
+  - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked.
+    The **Set tasks** page you see before picking a tier changes nothing.
+  - It reads only the bright text, so the game moving behind the window does not confuse it.
+  - If it cannot see the list, the bar says so, and how big a picture Alt1 hands over (or that it hands over none).
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
@@ -241,7 +240,8 @@ storage, Alt1, missing files, the window look, and the parser itself.
 **Scan achievements** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
 with a fake Alt1: not done, done and locked tasks; the picture made bigger, darker, greyer, blurry and as a JPEG;
 40 made-up busy screens full of red and green shapes, where it must never find a list that is not there;
-going on to the next tier by itself; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
+reading the picked tier from the gold box, skipping ahead and back; unticking what is not done; a picture that changes a
+little every look; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
 pictures (and a big screen in strips); a picture that fails to come through; and how fast it is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
