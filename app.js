@@ -2195,13 +2195,16 @@
       // From now on, only look at the part with the tier list on the left and the task list: much less to copy
       // and read each time. It reaches a few rows above and below the list, for the list on the left.
       // The part stays put while the list is well inside it: a part that moved with every look would move
-      // everything in it too.
+      // everything in it too. It is the full height of the game: a look that missed some rows must not cut
+      // them off for good.
       var bw = r.x1 - r.x0 + 1, pitch = r.pitch || bw * 4, ax = c.x + r.x0;
-      var ys = r.rows.map(function (q) { return c.y + q.y; }), top = Math.min.apply(null, ys), bot = Math.max.apply(null, ys);
-      var g = sc.region, inside = g && ax - bw * 27 >= g.x && ax + bw * 34 <= g.x + g.w && top - pitch * 2 >= g.y && bot + pitch * 2 <= g.y + g.h;
+      // At least 420 pixels to the left (the list of tiers) and 600 to the right (the scrollbar), whatever size the
+      // badges came out this look.
+      var left = Math.max(bw * 28, 420), right = Math.max(bw * 35, 600);
+      var g = sc.region, inside = g && ax - left + 10 >= g.x && ax + right - 10 <= g.x + g.w;
       if (!inside) {
-        var x0 = Math.max(0, ax - bw * 28), y0 = Math.max(0, top - pitch * 3), y1 = Math.min(window.alt1.rsHeight, bot + pitch * 3);
-        sc.region = { x: x0, y: y0, w: Math.min(window.alt1.rsWidth, ax + bw * 35) - x0, h: y1 - y0 };
+        var x0 = Math.max(0, ax - left);
+        sc.region = { x: x0, y: 0, w: Math.min(window.alt1.rsWidth, ax + right) - x0, h: window.alt1.rsHeight };
       }
       // Rows are placed on the whole screen, not in the part, so places can be compared from one look to the next.
       r.rows.forEach(function (q) { q.ay = c.y + q.y; });
@@ -2209,7 +2212,8 @@
       if (known === null) { /* another tier, not sure yet: set nothing this look */ }
       else if (known) {
         var ry = r.rows.map(function (q) { return q.y; });
-        scanRows(sc, r, R.scrollbar(c.px, c.w, c.h, r.x1 + bw * 10, r.x0 + bw * 34, Math.min.apply(null, ry) - pitch, Math.max.apply(null, ry) + pitch));
+        var sb = R.scrollbar(c.px, c.w, c.h, r.x1 + bw * 10, r.x0 + right - bw, Math.min.apply(null, ry) - pitch, Math.max.apply(null, ry) + pitch);
+        scanRows(sc, r, sb);
       }
       else scanMsg('Which one is this? Scroll the list on the left up to Area Tasks.');
     }
@@ -2253,6 +2257,22 @@
       });
       if (!(d1 < ROW_SAME && d1 < d2 * 0.7)) at = null;
     }
+    if (at == null) {
+      // The picked row's name is new, but rows around it have names it knows (the list on the left scrolled on):
+      // each of those says where the picked one is; most of them must agree.
+      var votes = {}, nv = 0;
+      p.rows.forEach(function (row) {
+        if (!row.sig || row === picked) return;
+        var b1 = null, e1 = 1, e2 = 1;
+        Object.keys(sc.names).forEach(function (k) {
+          var d = R.textDiffer(row.sig, sc.names[k]);
+          if (d < e1) { e2 = e1; e1 = d; b1 = +k; } else if (d < e2) e2 = d;
+        });
+        if (b1 != null && e1 < ROW_SAME && e1 < e2 * 0.7) { var v = b1 - row.at; votes[v] = (votes[v] || 0) + 1; nv++; }
+      });
+      Object.keys(votes).forEach(function (v) { if (votes[v] >= 2 && votes[v] * 2 > nv && (at == null || votes[v] > votes[at])) at = +v; });
+      if (at != null && (at < 0 || at >= n)) at = null;
+    }
     if (at == null) { sc.cand = null; return false; }
     if (at !== sc.k) {
       if (sc.cand !== at) { sc.cand = at; return null; }
@@ -2278,7 +2298,11 @@
     if (!sc.prev && sb && !sb.atTop) { scanMsg('Scroll this list to the top.'); return; }
     var p = r.pitch || 1, y0 = rows[0].y, base = 0;
     rows.forEach(function (x, j) { x.slot = r.pitch ? Math.round((x.y - y0) / p) : j; });
-    if (sc.prev) {
+    // The list is at the top (the scrollbar's handle is at the top of its track): the first task's row is the one
+    // within a step below the top of the handle. That says which task each row is, on its own, every look.
+    // (Rounded with a quarter step of room, so a row a pixel or two above the handle's top is still the first.)
+    if (sb && sb.found && sb.atTop && r.pitch) base = -Math.round((y0 - sb.top - p / 4) / p);
+    else if (sc.prev) {
       // The rows are where they were (nothing scrolled): most rows have one at the same height last time
       // (give or take 4 pixels), with text that is still roughly like it (so an exact one-row scroll does not count).
       var same = {}, near = 0;

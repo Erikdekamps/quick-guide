@@ -175,7 +175,8 @@ is how the app finds it; a task can also be written by its name alone.
     **◀ ▶**: they hold until you pick another tier in the game. **Stop** ends it.
   - When it first sees a tier, it only starts if the list is at the top (the scrollbar says so); else it asks you to
     scroll the list to the top. A tier or a task only changes when two looks in a row agree.
-  - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked.
+  - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked. A locked task whose
+    grey badge is too faint still counts, by its lock. Some badges have green of their own (Desert): only a tick counts.
     The **Set tasks** page you see before picking a tier changes nothing.
   - It reads only the bright text, so the game moving behind the window does not confuse it. When the rows have not
     moved, it keeps its place without comparing; when they have, each row is matched to the row it looks most like,

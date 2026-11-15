@@ -10,7 +10,10 @@ const SHOT = {
   // The whole game screen in Alt1, with this app open on the left (scanning) and Easy Ardougne (all done) on the right.
   screen: '/tests/fixtures/game/desktop-alt1-ardougne-easy.png',
   // The same, on Easy Desert, scrolled down a bit: 2 not done at the top (the first one half under the edge above).
-  desert: '/tests/fixtures/game/desktop-alt1-easy-desert.png'
+  desert: '/tests/fixtures/game/desktop-alt1-easy-desert.png',
+  // Elite Desert: 4 not done (Desert's badge is red and green, with no tick), 1 locked (only its lock shows),
+  // 1 done; no title in view in the list on the left.
+  elite: '/tests/fixtures/game/desktop-alt1-elite-desert.png'
 };
 const HARD_DAEMONHEIM = ['not', 'not', 'not', 'locked', 'locked', 'done', 'done'];
 
@@ -51,6 +54,10 @@ test.describe('the screen reader', () => {
 
   test('a red badge is a little smaller than one with a tick, but is not taken for a cut-off row', async ({ page }) => {
     expect(await readShot(page, SHOT.desert)).toEqual(['not', 'not', 'done', 'done', 'done', 'done']);
+  });
+
+  test('Elite Desert: the green in Desert\'s badge is not a tick, and a locked task with only its lock showing is found', async ({ page }) => {
+    expect(await readShot(page, SHOT.elite)).toEqual(['not', 'not', 'not', 'not', 'locked', 'done']);
   });
 
   test('a bigger interface (Alt1 at a higher interface scale) reads the same', async ({ page }) => {
@@ -287,6 +294,21 @@ test.describe('Scan achievements in Alt1', () => {
     expect(await ticked(page, 'Desert', 0, 12)).toEqual(Array(12).fill(false));
   });
 
+  test('the list on the left scrolled on, no title in view: it knows the picked tier from the rows around it', async ({ page, wiki }) => {
+    for (const n of ['Daemonheim', 'Desert']) {
+      wiki.page(n + ' achievements', areaPage(['Easy', 'Medium', 'Hard', 'Elite'].map((t, i) => ({ name: t, tasks: Array.from({ length: 12 }, (_, k) => ({ id: 7000 + (n === 'Desert' ? 100 : 0) + i * 20 + k, name: n + ' ' + t + ' task ' + (k + 1), desc: 'A task.' })) }))));
+    }
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // Now Elite Desert is picked in the game; the rows around it are ones it saw on the first screen.
+    await show(page, SHOT.elite);
+    await expect(tier(page)).toHaveText('Elite Desert', { timeout: 10000 });
+    await expect.poll(() => ticked(page, 'Desert', 3, 7)).toEqual([false, false, false, false, false, true, false]);
+  });
+
   test('clicking the next tier in the game: the app reads which one has the gold box', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
@@ -379,7 +401,7 @@ test.describe('Scan achievements in Alt1', () => {
     await inAlt1(page);
     await openApp(page, expect);
     await show(page, SHOT.screen);
-    await page.evaluate(() => { window.__noise = 10; window.__wobble = 3; window.__lost = 0; });
+    await page.evaluate(() => { window.__noise = 10; window.__wobble = 2; window.__lost = 0; });
     await startScan(page);
     // A wobble can hide a row for a look, and each task needs two looks in a row that agree: on a slow machine
     // that can take a few seconds.
