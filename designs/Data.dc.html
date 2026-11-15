@@ -66,7 +66,7 @@
   --grain: none;
 }
 * { box-sizing: border-box; }
-html { font-size: 14px; height: 100%; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { font-size: 14px; height: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   height: 100%;
   margin: 0;
@@ -657,21 +657,6 @@ kbd {
 .kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
 .bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
 .bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-.skills { list-style: none; margin: 0 10px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: 4px; }
-.chip {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 5px 8px;
-  background: var(--panel-2);
-  border: 1px solid #3a3229;
-  border-top-color: var(--panel-hi);
-  border-radius: 2px;
-  font-size: .929rem;
-  color: var(--soft);
-}
-.chip .sn { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.chip b { min-width: 1.6em; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
 .foes { list-style: none; margin: 0 10px; padding: 0; }
 .foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
 .foes li:last-child { border-bottom: 0; }
@@ -765,11 +750,9 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
 /* your own level next to a skill requirement */
 .you { font-size: .857rem; white-space: nowrap; color: var(--muted); }
-.chip.ok .you { color: var(--green); }
-.chip.low { border-color: #6e2a21; border-top-color: #8a3a2c; }
-.chip.low .you { color: var(--red); }
 .tree li.got { color: var(--faint); }
-.tree .tk { color: var(--green); }
+.tree .tk, .need .tk { color: var(--green); }
+.tree .no, .need .no { color: var(--red); }
 /* a quest the game says you cannot start yet: grayed out */
 .q.locked { opacity: .55; }
 .q.locked .q1 b { color: var(--muted); }
@@ -782,8 +765,6 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .tree li.got .qlink { color: var(--faint); }
 /* a League region */
 .reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
-/* phones: 16px inputs, so the page does not zoom in when you type */
-@media (pointer: coarse) { .inp { font-size: 16px; } }
 
 .err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
 .state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
@@ -802,11 +783,6 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
 /* the quests a tier needs line up with the text */
 .tree.areq { margin: 0 16px 8px; }
-
-/* a level you do not have yet */
-.tree li.low { color: var(--red); }
-.tree li.low .you { color: var(--red); }
-.tree.askill li { padding: 1px 0; }
 
 /* the steps of an area task */
 .task > .subs { padding-bottom: 4px; }
@@ -848,7 +824,6 @@ ul.steps.ql { padding: 0; }
 .rdhow li { display: list-item; }
 .rdhow li + li { margin-top: 2px; }
 .rdtip { margin: 0; font-size: 12px; line-height: 1.4; color: var(--faint); }
-#rd-top { flex: none; }
 .scanbar { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 4px; padding: 6px 8px; background: #1d2a17; border: 1px solid #3f6b2c; border-radius: 2px; font-size: 12px; line-height: 1.35; color: var(--text); }
 .scanbar .smsg { flex: 1; min-width: 0; }
 .scanbar .btn, .scanbar .ib { flex: none; }
@@ -1056,7 +1031,7 @@ ul.steps.ql { padding: 0; }
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, and the list you looked at (quests or area tasks).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, and the list you looked at (quests or area tasks).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>scannames</dt><dd>What each tier’s name looks like in the game, so Scan achievements knows the tier without the “Area Tasks” title in view.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 <h2>Export file</h2>
 <p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it.</p>
 <div class="json" role="figure" aria-label="Export example">
@@ -1111,7 +1086,7 @@ ul.steps.ql { padding: 0; }
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":4814}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":4890}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};
