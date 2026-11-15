@@ -294,7 +294,7 @@
     sset('qdone', d);
   }
 
-  // ---------- player lookup (RuneMetrics, passed on by the wiki) ----------
+  // ---------- player lookup (Jagex's player data, passed on by the wiki) ----------
   // 2 = the game says this quest is done, 1 = started, 0 = not started or no player.
   function playerStatus(title) {
     return S.player ? (S.player.quests[QG.normName(title)] || 0) : 0;
@@ -309,14 +309,15 @@
   }
   function playerError(e, name) {
     var c = e && e.code;
-    if (c === 'nodata') return 'Found nothing for \u201c' + name + '\u201d. Check the spelling, and that your RuneMetrics profile is public.';
+    if (c === 'nodata') return 'Found no player called \u201c' + name + '\u201d. Check the spelling.';
     if (c === 'timeout') return 'The wiki took too long to answer. Try again.';
     return 'Could not reach the wiki. Check your internet, then try again.';
   }
   function playerHtml() {
     if (S.player) {
       return '<div class="player" id="player"><span class="pn"><b>' + esc(S.player.name) + '</b> \u00b7 ' +
-        plural(S.player.done || 0, 'quest', 'quests') + ' done</span>' +
+        plural(S.player.done || 0, 'quest', 'quests') + ' done' +
+        (typeof S.player.qp === 'number' ? ' \u00b7 <span title="Quest points' + (S.player.qpMax ? ', of ' + S.player.qpMax : '') + '">' + S.player.qp + ' QP</span>' : '') + '</span>' +
         '<button class="ib xs" type="button" data-act="player-refresh" aria-label="Update player" title="Update from the game"' + (S.playerBusy ? ' disabled' : '') + '>' +
         (S.playerBusy ? I.loader : I.refresh) + '</button>' +
         '<button class="ib xs" type="button" data-act="player-clear" aria-label="Forget this player" title="Forget this player">' + I.x + '</button></div>';

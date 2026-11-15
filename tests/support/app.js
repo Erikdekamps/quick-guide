@@ -80,6 +80,22 @@ class Wiki {
     this.player['index_lite.json?player=' + encodeURIComponent(name)] = { json: { name, skills: Object.keys(levels || {}).map((id) => ({ id: +id, level: levels[id] })) } };
     return this;
   }
+  // The same player through Jagex's newer Player Data API: quests and skills in one answer, with quest points.
+  // levels: { internalSkillName: level } ("hitpoints", "runecraft", ...). o.via: 'wiki' (the wiki passes it on),
+  // 'direct' (only Jagex's own address answers) or 'both'.
+  setPlayerData(name, quests, levels, o) {
+    o = Object.assign({ via: 'wiki', qp: 235, qpMax: 476, canon: name }, o);
+    const q = {}, skills = {};
+    Object.keys(quests || {}).forEach((t, i) => {
+      const s = quests[t];
+      q[String(200 + i)] = { title: t, status: s === 'LOCKED' ? 'NOT_STARTED' : s, eligible: s !== 'LOCKED', difficulty: 0, members: false, qp: 1 };
+    });
+    Object.keys(levels || {}).forEach((k) => { skills[k] = { level: levels[k], fine_xp: 1 }; });
+    const json = { name: o.canon, qp: o.qp, qp_max: o.qpMax, quests: q, skills }, key = 'playerData/' + encodeURIComponent(name);
+    if (o.via !== 'direct') this.player['runescape.wiki/cors/m=adventurers-log/api/v1/' + key] = { json };
+    if (o.via !== 'wiki') this.player['secure.runescape.com/m=adventurers-log/api/v1/' + key] = { json };
+    return this;
+  }
   async answerPlayer(route, url) {
     this.playerCalls.push(url.href);
     for (const key of Object.keys(this.player)) {
@@ -104,6 +120,7 @@ const test = base.test.extend({
     await context.route(/^https:\/\/maps\.runescape\.wiki\//, (route) => { tiles.push(route.request().url()); return route.fulfill({ body: PNG, contentType: 'image/png' }); });
     await context.route(/^https:\/\/runescape\.wiki\//, (route) => wiki.handle(route));
     await context.route(/^https:\/\/sync\.runescape\.wiki\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
+    await context.route(/^https:\/\/secure\.runescape\.com\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
     await use(context);
   },

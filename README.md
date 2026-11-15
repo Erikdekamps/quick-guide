@@ -41,7 +41,8 @@ Wiki links open in your normal browser, so the app stays on the guide.
 
 ### Your character
 
-In the settings, type your **character name** and press **Look up** (your RuneMetrics profile must be public).
+In the settings, type your **character name** and press **Look up**. The app shows your quests done and,
+when the game gives them, your quest points.
 
 - Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
 - Skill levels look like the wiki: "• 100 [icon] Mining ✓". A green ✓ follows a level you have, a red ✗ one you
@@ -162,7 +163,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
-| `player` | The character you looked up: quests done or started (and their names), skill levels |
+| `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
 | `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
@@ -175,7 +176,11 @@ and read from the wiki again when you open them.
 - `parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
   and the area pages (`<Area>_achievements`), and turns them into JSON.
 - Map pictures load from `maps.runescape.wiki`.
-- The character lookup goes through the wiki too, which passes on Jagex's RuneMetrics data:
+- The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
+  (quests, skill levels and quest points in one answer), through the wiki first, then at Jagex itself:
+  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerData/<name>?includeQuests=true&includeSkills=true`, then
+  `https://secure.runescape.com/m=adventurers-log/api/v1/playerData/<name>?…`.
+  If neither answers, the older lookup is used, both passed on by the wiki:
   `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` and
   `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>`.
 
@@ -204,7 +209,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.31.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.32.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

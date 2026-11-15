@@ -39,10 +39,14 @@ test.describe('looking up a player', () => {
     await expect(row(page, 'Imp Catcher').locator('.qs')).toHaveCount(0);
     const p = await stored(page, 'player');
     expect(p).toMatchObject({ name: 'Zezima', done: 2, started: 1, levels: { magic: 80, herblore: 60 } });
+    // Player Data is tried first (through the wiki, then at Jagex); this wiki has neither, so the older lookup is used
     expect(wiki.playerCalls).toEqual([
+      'https://runescape.wiki/cors/m=adventurers-log/api/v1/playerData/Zezima?includeQuests=true&includeSkills=true',
+      'https://secure.runescape.com/m=adventurers-log/api/v1/playerData/Zezima?includeQuests=true&includeSkills=true',
       'https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/Zezima',
       'https://runescape.wiki/cors/m=hiscore/index_lite.json?player=Zezima'
     ]);
+    expect(p.source).toBe('RuneMetrics');
   });
 
   test('Enter works, and spaces around the name are dropped', async ({ page, wiki }) => {
@@ -88,7 +92,7 @@ test.describe('looking up a player', () => {
     await seed(page, { player: { name: 'Zezima', at: new Date(Date.now() - 25 * 3600 * 1000).toISOString(), quests: {}, levels: {}, done: 0, started: 0 } });
     await openApp(page, expect);
     await expect(page.locator('#player')).toContainText('2 quests done');
-    expect(wiki.playerCalls.length).toBe(2);
+    expect(wiki.playerCalls.length).toBe(4);
   });
 
   test('data from an older version, without the quests\' names, is fetched again quietly at start', async ({ page, wiki }) => {
@@ -132,7 +136,7 @@ test.describe('looking up a player', () => {
   test('a name with no data says what to check', async ({ page }) => {
     await openApp(page, expect);
     await lookUp(page, 'Nobody Here');
-    await expect(page.locator('#player-msg')).toHaveText('Found nothing for “Nobody Here”. Check the spelling, and that your RuneMetrics profile is public.');
+    await expect(page.locator('#player-msg')).toHaveText('Found no player called “Nobody Here”. Check the spelling.');
     await expect(page.locator('#player-name')).toHaveValue('Nobody Here');
   });
 
@@ -154,6 +158,79 @@ test.describe('looking up a player', () => {
     await page.getByRole('button', { name: 'Update player' }).click();
     await expect(page.locator('#toast')).toHaveText('Could not update Zezima. Could not reach the wiki. Check your internet, then try again.');
     await expect(page.locator('#player')).toContainText('2 quests done');
+  });
+});
+
+// Jagex's Player Data API: quests and skill levels in one answer, fresher than the hiscores, with quest points.
+test.describe('the Player Data lookup', () => {
+  const QUESTS = { "Cook's Assistant": 'COMPLETED', 'Defender of Varrock': 'COMPLETED', 'Dragon Slayer': 'STARTED', 'Imp Catcher': 'LOCKED' };
+
+  test('through the wiki: one request for quests, levels and quest points', async ({ page, wiki }) => {
+    wiki.setPlayerData('zezima', QUESTS, { magic: 81, herblore: 60, hitpoints: 99, runecraft: 50 }, { canon: 'Zezima' });
+    await openApp(page, expect);
+    await lookUp(page, 'zezima');
+    // the name as the game writes it, and the quest points
+    await expect(page.locator('#player .pn')).toHaveText('Zezima · 2 quests done · 235 QP');
+    await expect(row(page, "Cook's Assistant")).toHaveClass(/\bdone\b/);
+    await expect(row(page, 'Dragon Slayer').locator('.qs')).toHaveText('Started');
+    const p = await stored(page, 'player');
+    expect(p).toMatchObject({ name: 'Zezima', source: 'Player Data', done: 2, started: 1, qp: 235, qpMax: 476 });
+    // the game's own skill names are turned into the ones the wiki uses
+    expect(p.levels).toEqual({ magic: 81, herblore: 60, constitution: 99, runecrafting: 50 });
+    expect(p.locked).toEqual({ impcatcher: 1 });
+    expect(p.titles.cooksassistant).toBe("Cook's Assistant");
+    expect(wiki.playerCalls).toEqual(['https://runescape.wiki/cors/m=adventurers-log/api/v1/playerData/zezima?includeQuests=true&includeSkills=true']);
+  });
+
+  test('the wiki does not pass it on: Jagex is asked itself', async ({ page, wiki }) => {
+    wiki.setPlayerData('Zezima', QUESTS, { magic: 81 }, { via: 'direct' });
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('2 quests done');
+    expect((await stored(page, 'player')).source).toBe('Player Data');
+    expect(wiki.playerCalls.map((u) => new URL(u).host)).toEqual(['runescape.wiki', 'secure.runescape.com']);
+  });
+
+  test('neither answers: the older lookup still works', async ({ page, wiki }) => {
+    zezima(wiki);
+    wiki.player['playerData/Zezima'] = 'network';
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player .pn')).toHaveText('Zezima · 2 quests done');   // no quest points known
+    expect(await stored(page, 'player')).toMatchObject({ source: 'RuneMetrics', levels: { magic: 80, herblore: 60 } });
+  });
+
+  test('the game says there is no such player: it says so, and asks nothing more', async ({ page, wiki }) => {
+    wiki.player['playerData/Nobody'] = { status: 404, json: { error: 'PLAYER_NOT_FOUND' } };
+    wiki.setPlayer('Nobody', { 'Imp Catcher': 'COMPLETED' }, {});   // the older lookup would find something
+    await openApp(page, expect);
+    await lookUp(page, 'Nobody');
+    await expect(page.locator('#player-msg')).toHaveText('Found no player called “Nobody”. Check the spelling.');
+    expect(wiki.playerCalls).toHaveLength(1);
+  });
+
+  test('an answer without quests is not used', async ({ page, wiki }) => {
+    zezima(wiki);
+    wiki.player['playerData/Zezima'] = { json: { name: 'Zezima', error: 'INTERNAL_ERROR' } };
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('2 quests done');
+    expect((await stored(page, 'player')).source).toBe('RuneMetrics');
+  });
+
+  test('the quest points go out in an export and come back', async ({ page, wiki }) => {
+    wiki.setPlayerData('Zezima', QUESTS, { magic: 81 });
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('235 QP');
+    const p = await stored(page, 'player');
+    await page.evaluate(() => localStorage.removeItem('qg1.player'));
+    await page.reload();
+    await openCog(page);
+    await page.getByRole('button', { name: 'Import state' }).click();
+    await page.locator('#bk-text').fill(JSON.stringify({ app: 'Quick Guide', format: 2, player: p }));
+    await page.getByRole('button', { name: 'Import', exact: true }).click();
+    expect(await stored(page, 'player')).toMatchObject({ name: 'Zezima', qp: 235, qpMax: 476, source: 'Player Data' });
   });
 });
 

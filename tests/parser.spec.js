@@ -465,8 +465,8 @@ test.describe('talking to the wiki', () => {
     expect(b).toMatchObject({ name: 'Bob', source: 'RuneMetrics', done: 1, started: 1, levels: { magic: 80 } });
     expect(b.quests).toEqual({ runemysteries: 2, dragonslayer: 1, impcatcher: 0 });
     expect(Date.parse(b.at)).toBeGreaterThan(0);
-    // it only asks the wiki, nobody else
-    expect(wiki.playerCalls.every((u) => u.startsWith('https://runescape.wiki/cors/'))).toBe(true);
+    // it only asks the wiki and Jagex (the game's own data), nobody else
+    expect(wiki.playerCalls.every((u) => /^https:\/\/(runescape\.wiki\/cors|secure\.runescape\.com)\/m=(adventurers-log|hiscore)\//.test(u))).toBe(true);
 
     // quests but no levels still counts
     wiki.setPlayer('Ann', { 'Rune Mysteries': 'COMPLETED' }, {});

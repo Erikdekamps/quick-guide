@@ -144,6 +144,8 @@
       if (isMap(pl.titles)) Object.keys(pl.titles).forEach(function (k) { if (qs[k] != null && typeof pl.titles[k] === 'string') tl[k] = pl.titles[k]; });
       S.player = { name: pl.name, source: pl.source || 'RuneMetrics', at: pl.at || new Date().toISOString(), quests: qs, titles: tl,
         levels: isMap(pl.levels) ? pl.levels : {}, locked: isMap(pl.locked) ? pl.locked : {}, done: +pl.done || 0, started: +pl.started || 0 };
+      if (isFinite(+pl.qp) && pl.qp != null) S.player.qp = +pl.qp;
+      if (isFinite(+pl.qpMax) && pl.qpMax != null) S.player.qpMax = +pl.qpMax;
       sset('player', S.player);
     }
     if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; }
