@@ -313,11 +313,13 @@ test.describe('Scan achievements in Alt1', () => {
   // as when another tier is clicked in the game. scale: a bigger screen (smooth: blurred a little, as when resized).
   // list: the task list scrolled down that many pixels (one row is 62). chat: that many lines of chat under the game.
   async function show(page, src, o) {
-    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line, edge]) => new Promise((done) => {
+    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line, edge, notitle]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height + (chat ? 300 : 0);
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
+        // The "Area Tasks" title's green icon painted away: as if the list on the left has no title in view.
+        if (notitle) { x.fillStyle = 'rgb(47,45,43)'; x.fillRect(508, 200, 36, 37); }
         if (pick) {
           x.fillStyle = 'rgb(40,36,33)';
           x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); x.fillRect(514, 244, 1, 30); x.fillRect(658, 244, 1, 30);
@@ -365,7 +367,7 @@ test.describe('Scan achievements in Alt1', () => {
         done();
       };
       im.src = s;
-    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT, !!(o && o.edge)]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT, !!(o && o.edge), !!(o && o.notitle)]);
   }
   // Daemonheim and Desert with 4 tiers each, as in the game (the other areas have one tier on the fake wiki).
   function fourTiers(wiki) {
@@ -534,6 +536,23 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(tier(page)).toHaveText('Easy Ardougne');
     // Nothing was ticked in a tier it was not shown.
     expect(await ticked(page, 'Ardougne', 2, 8)).toEqual(Array(8).fill(false));
+  });
+
+  test('no title in view: the next tier of the same area (the names look alike) is still seen as another tier', async ({ page, wiki }) => {
+    fourTiers(wiki);
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // "Easy Ardougne", "Hard Ardougne" and "Elite Ardougne" share most of their letters.
+    for (const [pick, name] of [[2, 'Hard Ardougne'], [3, 'Elite Ardougne'], [1, 'Medium Ardougne'], [5, 'Medium Daemonheim'], [0, 'Easy Ardougne']]) {
+      await show(page, SHOT.screen, { pick, notitle: true, other: pick % 2 === 1 });
+      await expect(tier(page), name).toHaveText(name);
+      await expect(page.locator('#scan-msg'), name).toHaveText(/^Tasks 1–\d of \d+/);
+    }
+    expect(page.errors).toEqual([]);
   });
 
   test('a task the game shows as not done (or locked) is unticked', async ({ page }) => {

@@ -2155,7 +2155,7 @@
   // row's name looks like, for when no title is in view. Then each task row on the right is set to what the game
   // shows: done is ticked, not done (or locked) is unticked.
   // Tests may look faster (window.__scanMs); the game itself is looked at twice a second.
-  var SCAN_MS = (typeof window.__scanMs === 'number' && window.__scanMs > 0) ? window.__scanMs : 500, SAME = 0.15, ROW_SAME = 0.45;
+  var SCAN_MS = (typeof window.__scanMs === 'number' && window.__scanMs > 0) ? window.__scanMs : 500, SAME = 0.15, ROW_SAME = 0.45, NAME_SAME = 0.2;
   // Every tier of every area, in the order the game lists them: Easy Ardougne, Medium Ardougne, ...
   function scanTiers() {
     var ix = aidxAll(), out = [];
@@ -2345,8 +2345,9 @@
     tiers.forEach(function (t, k) { if (typeof saved[tierKey(t)] === 'string') { var m = unpackMask(saved[tierKey(t)]); if (m) out[k] = m; } });
     return out;
   }
-  function learnName(sc, k, sig) {
-    if (!sig || k < 0 || k >= sc.tiers.length || sc.names[k]) return;
+  function learnName(sc, k, sig, again) {
+    if (!sig || k < 0 || k >= sc.tiers.length) return;
+    if (sc.names[k] && !(again && window.QuickGuideReader.textDiffer(sig, sc.names[k]) >= NAME_SAME)) return;
     sc.names[k] = sig;
     var saved = sget('scannames') || {};
     saved[tierKey(sc.tiers[k])] = packMask(sig);
@@ -2365,8 +2366,8 @@
       // The same row: in the same place, with the same name ("Easy Ardougne" and "Easy Daemonheim" look alike).
       if (!sc.pin.sig) { sc.pin.sig = picked.sig; sc.pin.y = picked.top; }
       var bh = p.box.y1 - p.box.y0 + 1;
-      if (picked.sig && Math.abs(picked.top - sc.pin.y) <= bh / 2 && R.textDiffer(picked.sig, sc.pin.sig) < ROW_SAME) {
-        sc.pickSig = picked.sig;
+      if (picked.sig && Math.abs(picked.top - sc.pin.y) <= bh / 2 && R.textDiffer(picked.sig, sc.pin.sig) < NAME_SAME) {
+        sc.pickSig = picked.sig; sc.pickTop = picked.top;
         p.rows.forEach(function (row) { learnName(sc, sc.pin.k + row.at, row.sig); });
         return true;
       }
@@ -2377,17 +2378,21 @@
     if (p.head != null) at = -p.head;
     else if (p.tail != null) at = n - 1 - p.tail;
     if (at != null && (at < 0 || at >= n)) at = null;
-    // The same row as last time is still picked: the same tier.
-    if (at == null && sc.k >= 0 && picked.sig && sc.pickSig && R.textDiffer(picked.sig, sc.pickSig) < ROW_SAME) at = sc.k;
+    // Tier names of one area look a lot alike ("Hard Ardougne", "Elite Ardougne"), so a name only counts as the
+    // same when it is nearly pixel for pixel the same (NAME_SAME).
+    var certain = at != null, bh2 = p.box.y1 - p.box.y0 + 1;
     if (at == null && picked.sig) {
-      // Another row is picked: the name it knows that it looks most like, if that one is clearly closest.
+      // The name it knows that the picked row looks like, if that one is clearly closest.
       var d1 = 1, d2 = 1;
       Object.keys(sc.names).forEach(function (k) {
         var d = R.textDiffer(picked.sig, sc.names[k]);
         if (d < d1) { d2 = d1; d1 = d; at = +k; } else if (d < d2) d2 = d;
       });
-      if (!(d1 < ROW_SAME && d1 < d2 * 0.7)) at = null;
+      if (!(d1 < NAME_SAME && d1 < d2 * 0.7)) at = null;
     }
+    // The same row as last time is still picked (the same name, in the same place): the same tier.
+    if (at == null && sc.k >= 0 && picked.sig && sc.pickSig && sc.pickTop != null && Math.abs(picked.top - sc.pickTop) <= bh2 / 2 &&
+        R.textDiffer(picked.sig, sc.pickSig) < NAME_SAME) at = sc.k;
     if (at == null) {
       // The picked row's name is new, but rows around it have names it knows (the list on the left scrolled on):
       // each of those says where the picked one is; most of them must agree.
@@ -2399,7 +2404,7 @@
           var d = R.textDiffer(row.sig, sc.names[k]);
           if (d < e1) { e2 = e1; e1 = d; b1 = +k; } else if (d < e2) e2 = d;
         });
-        if (b1 != null && e1 < ROW_SAME && e1 < e2 * 0.7) { var v = b1 - row.at; votes[v] = (votes[v] || 0) + 1; nv++; }
+        if (b1 != null && e1 < NAME_SAME && e1 < e2 * 0.7) { var v = b1 - row.at; votes[v] = (votes[v] || 0) + 1; nv++; }
       });
       Object.keys(votes).forEach(function (v) { if (votes[v] >= 2 && votes[v] * 2 > nv && (at == null || votes[v] > votes[at])) at = +v; });
       if (at != null && (at < 0 || at >= n)) at = null;
@@ -2411,9 +2416,10 @@
       if (sc.cand !== at) { sc.cand = at; return null; }
     }
     sc.cand = null;
-    sc.pickSig = picked.sig;
-    // Learn the names of the rows in view (they are in the game's order around the picked one).
-    p.rows.forEach(function (row) { learnName(sc, at + row.at, row.sig); });
+    sc.pickSig = picked.sig; sc.pickTop = picked.top;
+    // Learn the names of the rows in view (they are in the game's order around the picked one). With a title in
+    // view the place is certain: a name remembered wrongly (or at another interface size) is learnt again.
+    p.rows.forEach(function (row) { learnName(sc, at + row.at, row.sig, certain); });
     if (at !== sc.k) {
       // Another tier: its list starts at the top.
       sc.k = at; sc.prev = null;

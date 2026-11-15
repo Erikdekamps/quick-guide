@@ -76,7 +76,8 @@ How it knows where it is:
 
 - **The tier:** the one with the gold box in the list on the left. The app counts it from the **Area Tasks**
   title above Easy Ardougne (or the next title, below the last tier). It remembers what each tier's name looks like,
-  so after one scan with the title in view it knows them without it. If it cannot tell, it asks you to scroll the
+  so after one scan with the title in view it knows them without it. Names of one area look much alike
+  ("Hard Ardougne", "Elite Ardougne"), so a name only counts when it is nearly pixel for pixel the same. If it cannot tell, it asks you to scroll the
   list on the left up until **Area Tasks** shows.
 - **The tasks:** a new tier starts at the top of its list (the scrollbar says when it is). When you scroll,
   each row is matched to the row it looks most like in the last look. A tier or a task only changes when two looks
@@ -183,7 +184,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.27.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.28.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
