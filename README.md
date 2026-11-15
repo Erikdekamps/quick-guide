@@ -174,7 +174,8 @@ is how the app finds it; a task can also be written by its name alone.
     Scroll at a normal pace: it follows the rows by how far they moved since the last look (twice a second),
     so a jump of more than half a row at once can put a row on the wrong task. Moving the game window does the same.
   - **Screenshot**: after reading, the app tells you which task to put at the top for the next screenshot.
-  It only ticks; it never unticks. It is built from phone screenshots for now; desktop may need a tweak.
+  It only ticks; it never unticks. A **locked** task (a grey badge with a lock, on desktop) counts as not done.
+  The **Set tasks** page you see before picking a tier ticks nothing.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
@@ -237,8 +238,8 @@ the player lookup, ticking steps and items, sub-steps, chat options, "Bring" box
 "Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
 storage, Alt1, missing files, the window look, and the parser itself.
 
-**Read from game** has its own tests (`tests/game.spec.js`), run on real screenshots from the game (`tests/fixtures/game/`):
-the same pictures shrunk to desktop size, darker, greyer, blurry and as a JPEG; 40 made-up busy screens full of red
+**Read from game** has its own tests (`tests/game.spec.js`), run on real screenshots from the game (`tests/fixtures/game/`,
+phone and desktop): not done, done and locked tasks; the pictures shrunk or made bigger, darker, greyer, blurry and as a JPEG; 40 made-up busy screens full of red
 and green shapes, where it must never find a list that is not there; scrolling down and back up; switching tier;
 closing the list; a picture that fails to come through; and how fast it is.
 

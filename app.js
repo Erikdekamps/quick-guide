@@ -2096,12 +2096,13 @@
     var sel = byId('rd-top');
     if (!sel) return;
     if (!r || !r.found) { readMsg('Could not find the task list. Open it in the game, so the tasks show, and try again.'); return; }
-    var t = tierNow(), start = +sel.value || 0, idx = taskIndex(S.area), n = 0, done = 0, ticked = 0, next = start;
+    var t = tierNow(), start = +sel.value || 0, idx = taskIndex(S.area), n = 0, done = 0, locked = 0, ticked = 0, next = start;
     r.rows.forEach(function (row, i) {
       var x = t.tasks[start + i];
       if (!x || row.partial) return;   // past the end, or cut off: not trusted
       n++;
       next = start + i + 1;
+      if (row.locked) locked++;
       if (!row.done) return;
       done++;
       if (!S.aprog.tasks[x.id]) { setTick(S.aprog.tasks, idx, x.id, true); ticked++; }
@@ -2111,7 +2112,7 @@
     var more = next < t.tasks.length;
     S.rdTop = S.rdTop || {};
     S.rdTop[S.areaKey + ':' + t.id] = more ? next : 0;
-    var msg = 'Found ' + plural(n, 'task', 'tasks') + ': ' + done + ' done. Ticked ' + ticked + '. ' +
+    var msg = 'Found ' + plural(n, 'task', 'tasks') + ': ' + done + ' done' + (locked ? ', ' + locked + ' locked' : '') + '. Ticked ' + ticked + '. ' +
       (more ? 'Now scroll down so task ' + (next + 1) + ' is at the top, and read again.' : 'That was the last task of this tier.');
     renderArea(true);
     openRead(msg);

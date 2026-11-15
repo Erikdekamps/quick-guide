@@ -2,8 +2,14 @@
 // The screenshots are from the phone game. Desktop is smaller, so the reader is also checked on shrunk copies.
 const { test, expect, fixture, openApp } = require('./support/app');
 
-const SHOT = { ardougne: '/tests/fixtures/game/phone-ardougne-easy.png', senntisten: '/tests/fixtures/game/phone-senntisten.png' };
-const FILE = { ardougne: 'tests/fixtures/game/phone-ardougne-easy.png', senntisten: 'tests/fixtures/game/phone-senntisten.png' };
+const SHOT = {
+  ardougne: '/tests/fixtures/game/phone-ardougne-easy.png', senntisten: '/tests/fixtures/game/phone-senntisten.png',
+  // Desktop: 3 not done (red), 2 locked (grey with a lock), 2 done (green tick).
+  daemonheim: '/tests/fixtures/game/desktop-daemonheim-hard.png',
+  // Desktop, the Area Tasks page before you pick a tier: the "Set tasks" with all kinds of badges.
+  sets: '/tests/fixtures/game/desktop-set-tasks.png'
+};
+const FILE = { ardougne: 'tests/fixtures/game/phone-ardougne-easy.png', senntisten: 'tests/fixtures/game/phone-senntisten.png', daemonheim: 'tests/fixtures/game/desktop-daemonheim-hard.png', sets: 'tests/fixtures/game/desktop-set-tasks.png' };
 
 // Reads a picture with the reader, in the page. scale shrinks it first; cut keeps only the top part.
 function readShot(page, src, scale, cut) {
@@ -14,7 +20,7 @@ function readShot(page, src, scale, cut) {
       const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
       const x = cv.getContext('2d'); x.drawImage(im, 0, 0, w, Math.round(im.height * k));
       const r = window.QuickGuideReader.read(x.getImageData(0, 0, w, h).data, w, h);
-      done(r.found ? r.rows.map((row) => (row.done ? 'done' : 'not') + (row.partial ? ' cut' : '')) : null);
+      done(r.found ? r.rows.map((row) => (row.locked ? 'locked' : row.done ? 'done' : 'not') + (row.partial ? ' cut' : '')) : null);
     };
     im.onerror = fail;
     im.src = s;
@@ -35,6 +41,19 @@ test.describe('the screen reader', () => {
     expect(await readShot(page, SHOT.senntisten)).toEqual(['not', 'done', 'done', 'done', 'done', 'done', 'done']);
   });
 
+  test('desktop: not done, locked and done tasks', async ({ page }) => {
+    expect(await readShot(page, SHOT.daemonheim)).toEqual(['not', 'not', 'not', 'locked', 'locked', 'done', 'done']);
+  });
+
+  test('desktop, bigger interface (scaled up): reads the same', async ({ page }) => {
+    for (const k of [1.25, 1.5, 2]) expect(await readShot(page, SHOT.daemonheim, k)).toEqual(['not', 'not', 'not', 'locked', 'locked', 'done', 'done']);
+  });
+
+  test('desktop "Set tasks" page (no tier picked): nothing that could be ticked', async ({ page }) => {
+    const rows = await readShot(page, SHOT.sets);
+    expect(rows === null || !rows.includes('done')).toBe(true);
+  });
+
   test('a smaller screen, like the desktop game, reads the same', async ({ page }) => {
     for (const k of [0.6, 0.45, 0.3]) {
       expect(await readShot(page, SHOT.ardougne, k)).toEqual(Array(7).fill('done'));
@@ -53,10 +72,10 @@ test.describe('the screen reader', () => {
   // The same screenshots made harder: as if the game were darker, greyer, blurry, or saved as a JPEG.
   test('a darker, greyer, blurry or JPEG picture reads the same', async ({ page }) => {
     for (const f of ['brightness(0.6)', 'brightness(1.4)', 'contrast(0.6)', 'saturate(0.5)', 'blur(1px)', 'jpeg']) {
-      const rows = (src) => page.evaluate(([s, filter]) => new Promise((done) => {
+      const rows = (src, scale) => page.evaluate(([s, filter, k]) => new Promise((done) => {
         const im = new Image();
         im.onload = async () => {
-          const w = Math.round(im.width * 0.5), h = Math.round(im.height * 0.5);
+          const w = Math.round(im.width * k), h = Math.round(im.height * k);
           const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
           const x = cv.getContext('2d');
           if (filter !== 'jpeg') x.filter = filter;
@@ -66,19 +85,26 @@ test.describe('the screen reader', () => {
             x.drawImage(j, 0, 0);
           }
           const r = window.QuickGuideReader.read(x.getImageData(0, 0, w, h).data, w, h);
-          done(r.found ? r.rows.map((row) => (row.done ? 'done' : 'not')) : null);
+          done(r.found ? r.rows.map((row) => (row.locked ? 'locked' : row.done ? 'done' : 'not')) : null);
         };
         im.src = s;
-      }), [src, f]);
+      }), [src, f, scale || 0.5]);
       expect(await rows(SHOT.ardougne), f).toEqual(Array(7).fill('done'));
       expect(await rows(SHOT.senntisten), f).toEqual(['not', 'done', 'done', 'done', 'done', 'done', 'done']);
+      // Desktop at its own size. A lock can fade out in a poor picture; then that row is simply not there.
+      // What matters: the 2 done ones are found, and nothing else is read as done.
+      const d = await rows(SHOT.daemonheim, 1);
+      expect(d, f).not.toBeNull();
+      expect(d.length, f).toBeLessThanOrEqual(7);
+      expect(d.slice(-2), f).toEqual(['done', 'done']);
+      expect(d.filter((x) => x === 'done').length, f).toBe(2);
     }
   });
 
   // Random red and green shapes, like a busy game screen. With no list, nothing may be found;
   // with the list window on top, it must still read right.
   test('a busy screen full of red and green things: no list is made up, and a real one is still read', async ({ page }) => {
-    const res = await page.evaluate(([a, b]) => Promise.all([a, b].map((s) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = s; })))
+    const res = await page.evaluate((list) => Promise.all(list.map((s) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = s; })))
       .then((shots) => {
         let seed = 7;
         const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
@@ -87,7 +113,7 @@ test.describe('the screen reader', () => {
           const cv = document.createElement('canvas'); cv.width = 1280; cv.height = 720;
           const x = cv.getContext('2d');
           x.fillStyle = 'rgb(' + [0, 0, 0].map(() => Math.floor(rnd() * 80)).join() + ')'; x.fillRect(0, 0, 1280, 720);
-          const cols = ['#c81e1e', '#28c828', '#961414', '#5adc5a', '#785a3c', '#1e1e1e', '#dcc83c', '#3ca03c', '#aa2828'];
+          const cols = ['#c81e1e', '#28c828', '#961414', '#5adc5a', '#785a3c', '#1e1e1e', '#dcc83c', '#3ca03c', '#aa2828', '#649696', '#82aaaa'];
           for (let i = 0; i < 300; i++) {
             x.fillStyle = cols[Math.floor(rnd() * cols.length)];
             const r = 2 + rnd() * 28;
@@ -96,18 +122,19 @@ test.describe('the screen reader', () => {
             x.fill();
           }
           if (window.QuickGuideReader.read(x.getImageData(0, 0, 1280, 720).data, 1280, 720).found) out.empty++;
-          if (n < 10) {
-            const im = shots[n % 2], k = 0.3 + rnd() * 0.2, w = Math.round(im.width * k), h = Math.round(im.height * k);
+          if (n < 15) {
+            // Phone screenshots shrunk to desktop size, and the desktop one at its own size or a bit bigger.
+            const im = shots[n % 3], k = n % 3 === 2 ? 1 + rnd() * 0.3 : 0.3 + rnd() * 0.2, w = Math.round(im.width * k), h = Math.round(im.height * k);
             x.drawImage(im, Math.floor(rnd() * (1280 - w)), Math.floor(rnd() * (720 - h)), w, h);
             const r = window.QuickGuideReader.read(x.getImageData(0, 0, 1280, 720).data, 1280, 720);
-            const got = r.found ? r.rows.map((row) => (row.done ? 'Y' : 'n')).join('') : 'none';
-            const want = n % 2 ? 'nYYYYYY' : 'YYYYYYY';
+            const got = r.found ? r.rows.map((row) => (row.locked ? 'L' : row.done ? 'Y' : 'n')).join('') : 'none';
+            const want = ['YYYYYYY', 'nYYYYYY', 'nnnLLYY'][n % 3];
             if (got !== want && got !== 'none') out.wrong.push(n + ':' + got);
             if (got === 'none') out.missed = (out.missed || 0) + 1;
           }
         }
         return out;
-      }), [SHOT.ardougne, SHOT.senntisten]);
+      }), [SHOT.ardougne, SHOT.senntisten, SHOT.daemonheim]);
     expect(res.empty).toBe(0);          // never a list where there is none
     expect(res.wrong).toEqual([]);      // never a wrong reading
     expect(res.missed || 0).toBeLessThanOrEqual(2);   // missing one now and then is fine: scanning tries again
@@ -182,6 +209,23 @@ test.describe('the Read from game button', () => {
     expect((await doneList(page, 7))[0]).toBe(true);
   });
 
+  test('a desktop screenshot: done tasks ticked, locked ones counted, the rest left alone', async ({ page }) => {
+    await openArdougne(page);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('#rd-file').setInputFiles(FILE.daemonheim);
+    await expect(page.locator('#rd-msg')).toHaveText(/Found 7 tasks: 2 done, 2 locked\. Ticked 2\./);
+    expect(await doneList(page, 8)).toEqual([false, false, false, false, false, true, true, false]);
+  });
+
+  test('the desktop "Set tasks" page ticks nothing', async ({ page }) => {
+    await openArdougne(page);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('#rd-file').setInputFiles(FILE.sets);
+    await expect(page.locator('#rd-msg')).toBeVisible();
+    await expect(page.locator('#rd-msg')).not.toHaveText(/Reading/);
+    expect(await doneList(page, 23)).toEqual(Array(23).fill(false));
+  });
+
   test('a picture without the list says so and ticks nothing', async ({ page }) => {
     await openArdougne(page);
     await page.locator('[data-act="read"]').click();
@@ -200,11 +244,11 @@ test.describe('the Read from game button', () => {
   // A fake Alt1. It shows one "frame" of the game at a time: a slice of a screenshot, shrunk to half size.
   // Moving the slice down is like scrolling down the list in the game. getRegion hands back base64 BGRA, as Alt1 does.
   // window.__shot picks the screenshot (when there are several), __closed shows a black screen, __broken makes it throw.
-  async function fakeAlt1(page, src, h) {
-    await page.evaluate(([list, fh]) => Promise.all(list.map((s) => new Promise((done) => {
+  async function fakeAlt1(page, src, h, scale) {
+    await page.evaluate(([list, fh, k]) => Promise.all(list.map((s) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
-        const w = Math.round(im.width / 2), full = Math.round(im.height / 2);
+        const w = Math.round(im.width * k), full = Math.round(im.height * k);
         const cv = document.createElement('canvas'); cv.width = w; cv.height = full;
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0, w, full);
         done({ w, full, all: x.getImageData(0, 0, w, full).data });
@@ -229,7 +273,7 @@ test.describe('the Read from game button', () => {
           return btoa(out);
         }
       };
-    }), [[].concat(src), h]);
+    }), [[].concat(src), h, scale || 0.5]);
   }
   const grabs = (page) => page.evaluate(() => window.__grabs);
   async function frames(page, n) {
@@ -309,6 +353,21 @@ test.describe('the Read from game button', () => {
     await frames(page, 3);
     await page.evaluate(() => { window.__closed = false; });
     await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+  });
+
+  test('desktop: scanning at the real size, scrolling through locked rows', async ({ page }) => {
+    await openArdougne(page);
+    // The list part of the desktop picture is 400 pixels tall here; scroll it 10 pixels at a time.
+    await fakeAlt1(page, SHOT.daemonheim, 470, 1);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await frames(page, 2);
+    for (let y = 10; y <= 100; y += 10) {
+      await page.evaluate((v) => { window.__scroll = v; }, y);
+      await frames(page, 2);
+    }
+    await expect.poll(() => doneList(page, 8)).toEqual([false, false, false, false, false, true, true, false]);
+    expect(page.errors).toEqual([]);
   });
 
   test('scrolling down and back up keeps each row on its own task', async ({ page }) => {
