@@ -527,8 +527,8 @@
     // (The handle's soft edge is skipped: 3 pixels.)
     // On a bigger screen everything is bigger: the handle is wider (5 pixels at the normal size), and so are its
     // soft edge and the room around it.
-    var tw = 0, my = best.top + (best.len >> 1);
-    for (var xx = Math.max(0, best.x - 12); xx < Math.min(w, best.x + 40); xx++) { var k = (my * w + xx) * 4; if (isThumb(px[k], px[k + 1], px[k + 2])) tw++; }
+    // (Only the handle's own pixels count: the window's edge or rocks further right have its colour too.)
+    var tw = widthAt(best.x, best.top + (best.len >> 1));
     var soft = Math.max(3, Math.round(3 * tw / 5)), edge = Math.max(2, Math.round(2 * tw / 5));
     var up = best.top - soft, down = best.top + best.len + edge;
     while (up > 0 && lum(px, w, best.x, up) < 45) up--;
