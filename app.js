@@ -915,27 +915,31 @@
     });
     return d.innerHTML;
   }
-  // A skill level, like the wiki: "100 [icon] Mining ✓". The level is green when you have it and red when you do
-  // not (with your level); "(boostable)" when the wiki says you may boost it. tag: 'li' in a list, 'span' in a line.
+  // Skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level, the skill's icon and its name
+  // (a link to the wiki) stay as they are; with a player looked up, a green tick follows when you have it and a red
+  // cross when you do not (its tooltip says your level). "(boostable)" when the wiki marks the level [B].
+  // tag: 'li' in a list, 'span' in a line.
   function skillIcon(name) {
     return '<img class="sic" src="https://runescape.wiki/images/' + encodeURIComponent(String(name).replace(/ /g, '_')) +
-      '-icon.png" alt="" width="16" height="16" loading="lazy" onerror="this.remove()">';
+      '-icon.png" alt="" width="20" height="20" loading="lazy" onerror="this.remove()">';
+  }
+  // A green tick (ok) or a red cross, with what it means in its tooltip.
+  function markHtml(ok, what) {
+    return '<span class="mk ' + (ok ? 'ok' : 'no') + '" role="img" aria-label="' + esc(what) + '" title="' + esc(what) + '">' + (ok ? I.check : I.x) + '</span>';
   }
   function skillHtml(s, tag) {
     var mine = playerLevel(s.skill), st = mine == null ? '' : mine >= s.level ? 'ok' : 'low';
     var boost = s.boost || /boost|\[\s*b\s*\]|\(\s*b\s*\)/i.test(s.note || '');
     var note = s.note && !/^\W*(boostable|\[\s*b\s*\]|\(\s*b\s*\))\W*$/i.test(s.note) ? s.note : '';
-    return '<' + tag + ' class="skl' + (st ? ' ' + st : '') + '"><b class="lv">' + esc(s.level) + '</b> ' + skillIcon(s.skill) +
-      ' <span class="sn">' + esc(s.skill) + '</span>' +
-      (st === 'ok' ? ' <span class="tk" aria-label="you have it">\u2713</span>' : '') +
-      (st === 'low' ? ' <span class="no" aria-label="too low">\u2717</span> <span class="you">(you: ' + mine + ')</span>' : '') +
-      (boost ? ' <span class="bst">(boostable)</span>' : '') +
+    return '<' + tag + ' class="skl' + (st ? ' ' + st : '') + '"><span class="lv">' + esc(s.level) + '</span> ' + skillIcon(s.skill) +
+      ' <a class="sn" href="' + esc(QG.pageUrl(s.skill)) + '" target="_blank" rel="noopener">' + esc(s.skill) + '</a>' +
+      (st ? ' ' + markHtml(st === 'ok', st === 'ok' ? 'You have ' + mine : 'Too low: you have ' + mine) : '') +
+      (boost ? ' <sup class="bst" title="You may use a boost for this level">(boostable)</sup>' : '') +
       (note ? ' <span class="x">' + esc(note) + '</span>' : '') + '</' + tag + '>';
   }
-  // After a quest's name: a green tick when you have done it, a red cross when you have not (only with a player).
+  // After a quest's name: a green tick when you have done it (like the wiki, nothing when you have not).
   function questMark(q) {
-    if (!S.player) return '';
-    return playerStatus(q) === 2 ? ' <span class="tk" aria-label="done">\u2713</span>' : ' <span class="no" aria-label="not done">\u2717</span>';
+    return S.player && playerStatus(q) === 2 ? ' ' + markHtml(true, 'Done') : '';
   }
 
   // ---------- steps tab ----------
@@ -1067,7 +1071,7 @@
         S.player ? got + ' / ' + o.questReqs.length + ' done' : plural(o.questReqs.length, 'entry', 'entries'),
         '<ul class="tree">' + o.questReqs.map(function (e) {
           var have = playerStatus(e.text) === 2;
-          return '<li' + (have ? ' class="got"' : '') + ' style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' +
+          return '<li' + (have ? ' class="got"' : '') + ' style="margin-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' +
             questBtn(e.text) + questMark(e.text) + '</li>';
         }).join('') + '</ul>') + '</div>';
     } else if (kv.length) {

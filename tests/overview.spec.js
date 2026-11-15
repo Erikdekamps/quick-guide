@@ -61,7 +61,10 @@ test.describe('details', () => {
     const tree = box(d, 'Quest tree');
     await expect(tree.locator('summary .m')).toHaveText('4 entries');
     await expect(tree.locator('.tree li')).toHaveText(['Defender of Varrock', 'Shield of Arrav', "The Knight's Sword", 'The Hand in the Sand']);
-    await expect(tree.locator('.tree li').nth(1)).toHaveCSS('padding-left', '16px');
+    // like the wiki: bullets, and a quest needed for another one step further in
+    await expect(tree.locator('.tree')).toHaveCSS('list-style-type', 'disc');
+    await expect(tree.locator('.tree li').nth(0)).toHaveCSS('margin-left', '0px');
+    await expect(tree.locator('.tree li').nth(1)).toHaveCSS('margin-left', '16px');
     await expect(d.locator('.para', { hasText: 'Story only' })).toHaveText('Story only, not required: Nature Spirit, Priest in Peril, The Restless Ghost.');
     await expect(d.locator('.kv.wide dt')).toHaveText(['League region required', 'League auto-complete', 'Ironman concerns']);
     await expect(d.locator('.kv.wide dd').last()).toHaveText('Bring a Spade spade & logs.');
@@ -91,7 +94,7 @@ test('skills: levels, notes and other needs', async ({ page }) => {
   const sk = s.locator('ul.skl-list li');
   await expect(sk.locator('.lv')).toHaveText(['75', '65', '55']);
   await expect(sk.locator('.sn')).toHaveText(['Magic', 'Herblore', 'Hunter']);
-  await expect(sk.nth(1).locator('.bst')).toHaveText('(boostable)');
+  await expect(sk.nth(1).locator('sup.bst')).toHaveText('(boostable)');
   await expect(sk.nth(0).locator('.bst')).toHaveCount(0);
   await expect(sk.locator('img.sic').first()).toHaveAttribute('src', 'https://runescape.wiki/images/Magic-icon.png');
   await expect(s.locator('.bh')).toHaveText(['Skill levels', 'Also needed']);

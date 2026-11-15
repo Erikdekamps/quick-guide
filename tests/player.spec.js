@@ -181,12 +181,12 @@ test.describe('inside a quest', () => {
 
   test('skills show your level: enough, too low, or unknown', async ({ page }) => {
     const chips = ov(page, 'skills').locator('ul.skl-list li');
-    await expect(chips.nth(0)).toHaveClass(/\bok\b/);          // Magic 75, you have 80: green, with a tick
-    await expect(chips.nth(0).locator('.tk')).toHaveCount(1);
-    await expect(chips.nth(1)).toHaveClass(/\blow\b/);         // Herblore 65, you have 60: red, with your level
-    await expect(chips.nth(1).locator('.you')).toHaveText('(you: 60)');
-    await expect(chips.nth(2)).not.toHaveClass(/\b(ok|low)\b/); // Hunter: no data
-    await expect(chips.nth(2).locator('.you')).toHaveCount(0);
+    await expect(chips.nth(0)).toHaveClass(/\bok\b/);          // Magic 75, you have 80: a green tick
+    await expect(chips.nth(0).locator('.mk.ok')).toHaveCount(1);
+    await expect(chips.nth(1)).toHaveClass(/\blow\b/);         // Herblore 65, you have 60: a red cross, your level in its tooltip
+    await expect(chips.nth(1).locator('.mk.no')).toHaveAttribute('title', 'Too low: you have 60');
+    await expect(chips.nth(2)).not.toHaveClass(/\b(ok|low)\b/); // Hunter: no data, no mark
+    await expect(chips.nth(2).locator('.mk')).toHaveCount(0);
     await expect(page.locator('[data-ovc="skills"]')).toHaveText('1 too low');
   });
 
@@ -195,11 +195,13 @@ test.describe('inside a quest', () => {
     await expect(tree.locator('summary .m')).toHaveText('1 / 4 done');
     await tree.locator('summary').click();
     await expect(tree.locator('.tree li').nth(0)).toHaveClass(/\bgot\b/);
-    await expect(tree.locator('.tree li').nth(0)).toHaveText('Defender of Varrock ✓');
+    await expect(tree.locator('.tree li').nth(0)).toHaveText('Defender of Varrock');
+    await expect(tree.locator('.tree li').nth(0).locator('.mk.ok')).toHaveCSS('color', 'rgb(102, 211, 92)');
+    // one you have not done: no mark, like the wiki
     await expect(tree.locator('.tree li').nth(1)).not.toHaveClass(/\bgot\b/);
-    // one you have not done gets a red cross
-    await expect(tree.locator('.tree li').nth(1).locator('.no')).toHaveText('✗');
-    await expect(tree.locator('.tree li').nth(1).locator('.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
+    await expect(tree.locator('.tree li').nth(1).locator('.mk')).toHaveCount(0);
+    // bullets, and a quest needed for another sits one step further in
+    await expect(tree.locator('.tree')).toHaveCSS('list-style-type', 'disc');
   });
 
   test('without a player, nothing extra shows', async ({ page }) => {

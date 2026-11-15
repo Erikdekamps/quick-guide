@@ -43,9 +43,9 @@ Wiki links open in your normal browser, so the app stays on the guide.
 In the settings, type your **character name** and press **Look up** (your RuneMetrics profile must be public).
 
 - Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
-- Skill levels show like the wiki: "16 [icon] Thieving". The level is green with a ✓ when you have it,
-  red with a ✗ and your own level when you do not. "(boostable)" follows a level you may boost.
-- Quests you need get a green ✓ when done and a red ✗ when not, in a quest's tree and in Area tasks.
+- Skill levels look like the wiki: "• 100 [icon] Mining ✓". A green ✓ follows a level you have, a red ✗ one you
+  do not (point at it to see your level). A small "(boostable)" follows a level you may boost.
+- Quests you need get a green ✓ when you have done them, in a quest's tree and in Area tasks.
 - It updates by itself once a day. The round arrow updates it now; the ✕ forgets the character.
 
 ## Area tasks
@@ -55,7 +55,7 @@ under its area, in the game's order.
 
 - Click a tier to open it. Each tier has **Needs** (levels, quests, items to bring, notes for Ironmen),
   **Tasks** and **Rewards**.
-- Click a task to tick it. A task that needs more than you have says so in red, like "Needs 5 Thieving ✗ (you: 3)".
+- Click a task to tick it. A task that needs more than you have says so with a red ✗, like "Needs 5 [icon] Thieving ✗".
   The wiki's tip for a task is right under it. **Done, next task** ticks the next one.
 - A task with a numbered list on the wiki (or a lot of text) has steps. Ticking the task ticks its steps;
   ticking all steps ticks the task.
