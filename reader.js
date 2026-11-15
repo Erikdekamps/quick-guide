@@ -305,7 +305,10 @@
     if (!box) return null;
     var bh = box.y1 - box.y0 + 1, bw = box.x1 - box.x0 + 1;
     // The rows: runs down a line just inside the box's left edge, lighter than the gaps between them.
-    var cx = box.x0 + 1, gapLum = Infinity, rowLum = lum3(px, w, cx, Math.round((box.y0 + box.y1) / 2));
+    // On a bigger screen the box's edge is more than 1 pixel thick: look just inside it, not on it.
+    var my = Math.round((box.y0 + box.y1) / 2), edge = 0;
+    while (edge < 8 && box.x0 + edge < w && isGold(px[(my * w + box.x0 + edge) * 4], px[(my * w + box.x0 + edge) * 4 + 1], px[(my * w + box.x0 + edge) * 4 + 2])) edge++;
+    var cx = box.x0 + (edge > 1 ? edge + 1 : 1), gapLum = Infinity, rowLum = lum3(px, w, cx, my);
     // The gap is the darkest thing right under the box.
     for (var gy = box.y1 + 1; gy < Math.min(h, box.y1 + bh); gy++) gapLum = Math.min(gapLum, lum3(px, w, cx, gy));
     var cut = (gapLum + Math.min(rowLum, lum3(px, w, cx, Math.min(h - 1, box.y1 + bh)))) / 2;
@@ -316,7 +319,7 @@
       if (light && top < 0) top = yy;
       if (!light && top >= 0) {
         var hh = yy - top;
-        if (Math.abs(hh - bh) <= 4) rows.push({ top: top, bottom: yy - 1 });
+        if (Math.abs(hh - bh) <= Math.max(4, bh * 0.12)) rows.push({ top: top, bottom: yy - 1 });
         // A title is about one and a half rows tall (two rows run together are more than two).
         else if (hh >= bh * 1.3 && hh <= bh * 1.8) tall.push({ top: top, bottom: yy - 1 });
         top = -1;
@@ -339,15 +342,15 @@
     // The titles around the tiers. "Area Tasks" (a taller box with a green icon) sits right above Easy Ardougne;
     // the next title (no green icon) sits right below the last tier. head: the place of the row under "Area Tasks",
     // tail: the place of the row above the next title (each only when seen, and on the right side of the gold box).
-    var gap = p - bh + 5, head = null, tail = null;
+    var gap = p - bh + Math.max(5, Math.round(bh / 6)), head = null, tail = null, need = Math.max(15, Math.round(15 * (bh / 30) * (bh / 30)));
     tall.forEach(function (t) {
       var green = 0;
       for (var y = t.top; y <= t.bottom; y++) {
         for (var x = box.x0; x < Math.min(w, box.x0 + bh * 2); x++) { var j = (y * w + x) * 4; if (isGreen(px[j], px[j + 1], px[j + 2])) green++; }
       }
       rows.forEach(function (r) {
-        if (green >= 15 && r.top > t.bottom && r.top - t.bottom <= gap && r.at <= 0) head = r.at;
-        if (green < 15 && t.top > r.bottom && t.top - r.bottom <= gap && r.at >= 0) tail = r.at;
+        if (green >= need && r.top > t.bottom && r.top - t.bottom <= gap && r.at <= 0) head = r.at;
+        if (green < need && t.top > r.bottom && t.top - r.bottom <= gap && r.at >= 0) tail = r.at;
       });
     });
     return { box: box, rows: rows, sel: sel, head: head, tail: tail };
@@ -426,11 +429,16 @@
     if (!best) return { atTop: true, found: false };
     // The track: dark above and below the handle, up to the arrows.
     // (The handle's soft edge is skipped: 3 pixels.)
-    var up = best.top - 3, down = best.top + best.len + 2;
+    // On a bigger screen everything is bigger: the handle is wider (5 pixels at the normal size), and so are its
+    // soft edge and the room around it.
+    var tw = 0, my = best.top + (best.len >> 1);
+    for (var xx = Math.max(0, best.x - 12); xx < Math.min(w, best.x + 40); xx++) { var k = (my * w + xx) * 4; if (isThumb(px[k], px[k + 1], px[k + 2])) tw++; }
+    var soft = Math.max(3, Math.round(3 * tw / 5)), edge = Math.max(2, Math.round(2 * tw / 5));
+    var up = best.top - soft, down = best.top + best.len + edge;
     while (up > 0 && lum(px, w, best.x, up) < 45) up--;
     while (down < h - 1 && lum(px, w, best.x, down) < 45) down++;
-    var above = Math.max(0, best.top - up - 3), below = Math.max(0, down - (best.top + best.len) - 2);
-    return { found: true, x: best.x, top: best.top, len: best.len, above: above, below: below, atTop: above <= 3, atBottom: below <= 3, frac: above + below ? above / (above + below) : 0 };
+    var above = Math.max(0, best.top - up - soft), below = Math.max(0, down - (best.top + best.len) - edge);
+    return { found: true, x: best.x, top: best.top, len: best.len, above: above, below: below, atTop: above <= soft, atBottom: below <= soft, frac: above + below ? above / (above + below) : 0 };
   }
 
   // Grab the game screen (or part of it: { x, y, w, h }) through Alt1. Returns null outside Alt1.

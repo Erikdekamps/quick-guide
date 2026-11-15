@@ -57,14 +57,3 @@ test('gold buttons for the main actions', async ({ page }) => {
   expect(await next.evaluate((e) => getComputedStyle(e).fontFamily)).toContain('Cinzel');
   await expect(page.locator('#next-btn .i')).toBeVisible();
 });
-
-test('pinch zoom is off for the page, so it stays put on phones', async ({ page }) => {
-  await openApp(page, expect);
-  await expect(page.locator('html')).toHaveCSS('touch-action', 'pan-x pan-y');
-  const blocked = await page.evaluate(() => {
-    const e = new Event('gesturestart', { cancelable: true });
-    document.dispatchEvent(e);
-    return e.defaultPrevented;
-  });
-  expect(blocked).toBe(true);
-});

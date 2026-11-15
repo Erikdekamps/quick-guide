@@ -301,6 +301,22 @@ test.describe('import', () => {
     expect(await stored(page, 'aprog.Ardougne')).toBeNull();
   });
 
+  test('ticks of a quest whose guide is not saved (any more) still go out and come back', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, {});
+    await page.evaluate(() => localStorage.setItem('qg1.prog.Imp Catcher/Quick guide', JSON.stringify({ steps: { 'part:1': 1, 'part:2': 0 }, items: { 'req:1x': 1 } })));
+    await openApp(page, expect);
+    const j = JSON.parse(await exportText(page));
+    // Without the guide, the app does not know what the steps say: only their codes, and only the ticked ones.
+    expect(j.quests['Imp Catcher']).toEqual({ done: false, steps: { 'part:1': true }, items: { 'req:1x': true } });
+    // Import it with the count of steps from the file.
+    j.quests['Imp Catcher'] = { progress: '3 / 10', steps: { 'part:1': true, 'part:2': true, 'part:3': true } };
+    await importText(page, JSON.stringify(j));
+    expect((await stored(page, 'prog.Imp Catcher/Quick guide')).steps).toEqual({ 'part:1': 1, 'part:2': 1, 'part:3': 1 });
+    expect((await stored(page, 'meta'))['Imp Catcher/Quick guide']).toMatchObject({ title: 'Imp Catcher', done: 3, total: 10 });
+    await expect(page.locator('.q[data-quest="Imp Catcher"] .qs')).toHaveText('3 / 10');
+  });
+
   test('a file from the first version (format 1) still imports', async ({ page }) => {
     await openApp(page, expect);
     await importText(page, JSON.stringify({

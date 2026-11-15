@@ -1,9 +1,8 @@
 // Player lookup: type your character name, and the app marks the quests you have done
 // and shows which skill levels you still miss. The data comes through the RuneScape Wiki.
-const { test, expect, seed, stored, openApp, openQuest, part, lookUp, openCog, closeCog } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, part, lookUp, openCog, closeCog, row } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
-const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const ov = (page, id) => page.locator('section[data-ov="' + id + '"] .secb');
 
 // Zezima: finished two quests, started one. Magic 80 (id 7), Herblore 60 (id 16).
@@ -196,8 +195,11 @@ test.describe('inside a quest', () => {
     await expect(tree.locator('summary .m')).toHaveText('1 / 4 done');
     await tree.locator('summary').click();
     await expect(tree.locator('.tree li').nth(0)).toHaveClass(/\bgot\b/);
-    await expect(tree.locator('.tree li').nth(0)).toHaveText('✓ Defender of Varrock');
+    await expect(tree.locator('.tree li').nth(0)).toHaveText('Defender of Varrock ✓');
     await expect(tree.locator('.tree li').nth(1)).not.toHaveClass(/\bgot\b/);
+    // one you have not done gets a red cross
+    await expect(tree.locator('.tree li').nth(1).locator('.no')).toHaveText('✗');
+    await expect(tree.locator('.tree li').nth(1).locator('.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
   });
 
   test('without a player, nothing extra shows', async ({ page }) => {

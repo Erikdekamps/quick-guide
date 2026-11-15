@@ -107,10 +107,19 @@ const test = base.test.extend({
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
     await use(context);
   },
-  page: async ({ page }, use) => {
+  page: async ({ page }, use, info) => {
     page.errors = [];
     page.on('pageerror', (e) => page.errors.push(e.message));
+    // QG_COVERAGE=dir: save which code of the app each test ran (see tests/support/coverage.js).
+    const cov = process.env.QG_COVERAGE;
+    if (cov) await page.coverage.startJSCoverage({ resetOnNavigation: false });
     await use(page);
+    if (cov) {
+      const out = (await page.coverage.stopJSCoverage()).filter((e) => /^http:\/\/quick-guide\.test\/[a-z]+\.js/.test(e.url))
+        .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
+      fs.mkdirSync(cov, { recursive: true });
+      fs.writeFileSync(path.join(cov, info.testId + '.json'), JSON.stringify(out));
+    }
   }
 });
 
@@ -227,7 +236,9 @@ async function parsedQuest(page, file, title, live) {
   return page.evaluate(([h, t, l]) => window.QuickGuide.parse('<div class="mw-parser-output">' + h + '</div>',
     { title: t, base: t.replace(/\/Quick guide$/, ''), live: l || {} }), [fixture(file), title, live]);
 }
-// Runs a function from the app's scripts in the page (parser.js and quests.js are global).
-function inPage(page, fn, arg) { return page.evaluate(fn, arg); }
+// On the start screen: a quest's row, every quest name in the list, and the group headers.
+const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
+const names = (page) => page.locator('.q .q1 b');
+const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, FIXTURES, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, parsedQuest, inPage };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest };

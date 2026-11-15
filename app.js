@@ -1,19 +1,27 @@
 /*!
  * Quick Guide - app.js
- * A tick list for RuneScape Wiki quest quick guides, made for the Alt1 browser.
+ * A tick list for RuneScape Wiki quest quick guides and Area Tasks, made for the Alt1 browser.
+ *
+ * The parts of this file, in order: storage, helpers, state, saved quests and progress, step logic,
+ * loading a quest guide, the quest list and the optimal order, player lookup, menus, the start screen,
+ * shared pieces, the steps tab, the items and overview tabs, the quest screen, maps, settings,
+ * Area Tasks (saved areas, the list and search, one area), export and import, scan achievements (Alt1),
+ * events, and start. parser.js reads the wiki pages, quests.js the quest lists, reader.js the game screen.
  *
  * What is kept in localStorage (all keys start with "qg1."):
- *   list            every quest from the wiki's "List of quests" page: { at, quests: [...] }
- *   minis           every miniquest from the wiki's "Miniquests" page: { at, quests: [...] }
+ *   list, minis     every quest and miniquest from the wiki's lists: { at, quests: [...] }
+ *   order           the wiki's optimal quest order: { at, order: [quest names] }
  *   meta            one small entry per opened quest: { "<page>": { title, done, total, at } }
  *   quest.<page>    the full parsed guide of one quest (JSON)
  *   prog.<page>     your ticks for that quest
- *   settings, last  display settings, and the quest that was open last
- *   order           the wiki's optimal quest order: { at, order: [quest names] }
+ *   qdone           quests marked done by an import: { "<name, letters only>": 1 }
+ *   settings, last  display settings, and the quest or area that was open last
  *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
  *   area.<name>     the parsed "<name> achievements" page (Area Tasks)
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
+ *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
+ *   scannames       what each tier's name looks like in the game, for Scan achievements
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -110,7 +118,6 @@
   function textOf(html) { var d = scratch.createElement('div'); d.innerHTML = String(html || ''); return d.textContent.replace(/\s+/g, ' ').trim(); }
   var uid = 0;
   function nextId() { uid += 1; return 'qt' + uid; }
-
   function svg(paths, cls) {
     return '<svg class="i' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + paths + '</svg>';
   }
@@ -258,6 +265,21 @@
     q.overview = q.overview || {};
     return q;
   }
+  function qdoneAll() {
+    if (!S.qdone) { var d = sget('qdone'); S.qdone = d && typeof d === 'object' && !Array.isArray(d) ? d : {}; }
+    return S.qdone;
+  }
+  function markedDone(title) { return !!qdoneAll()[QG.normName(title)]; }
+  function setMarked(title, on) {
+    var d = qdoneAll(), n = QG.normName(title);
+    // Only kept when nothing else says the quest is done.
+    var other = playerStatus(title) === 2 || (function () {
+      var m = metaAll(), k = Object.keys(m).filter(function (x) { return D.norm(m[x].title) === D.norm(title); })[0];
+      return !!k && m[k].total > 0 && m[k].done >= m[k].total;
+    })();
+    if (on && !other) d[n] = 1; else delete d[n];
+    sset('qdone', d);
+  }
 
   // ---------- step logic ----------
   function buildIndex() {
@@ -375,7 +397,7 @@
     alignTop(target, animate);
   }
 
-  // ---------- loading ----------
+  // ---------- loading a quest guide ----------
   function loadError(e) {
     var c = e && e.code;
     if (c === 'missingtitle') return 'The wiki has no page for this quest yet.';
@@ -445,6 +467,8 @@
       if (!silent) toast('Could not update. ' + loadError(e));
     });
   }
+
+  // ---------- the quest list and the optimal order, from the wiki ----------
   function fetchList(silent, say) {
     if (S.listBusy) return;
     S.listBusy = true;
@@ -467,7 +491,6 @@
       if (say) toast('Could not update the quest list. ' + loadError(e), 5000);
     });
   }
-
   // The miniquests. A failure says nothing: the quests still show, and the app asks again next time.
   function fetchMinis() {
     if (S.minisBusy) return;
@@ -487,7 +510,6 @@
     return out;
   }
   function shortName(t) { return String(t).replace(/\s*\(miniquest\)\s*$/i, ''); }
-
   // The wiki's optimal quest order. With silent, a failure keeps what we have and says nothing.
   function fetchOrder(silent) {
     if (S.orderBusy) return;
@@ -518,62 +540,7 @@
   }
   function orderRank(q) { return orderRanks()[D.norm(q.t)] || 0; }
 
-  // ---------- menus: the cog (settings) and the dots (quest actions) ----------
-  function toggleHtml(act, icon, label, on) {
-    return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
-      icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
-  }
-  function selectHtml(id, label, list, value) {
-    return '<div class="mi mrow"><label class="ml" for="' + id + '">' + label + '</label><select class="sel" id="' + id + '">' + list.map(function (s) {
-      return '<option value="' + s[0] + '"' + (value === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
-    }).join('') + '</select></div>';
-  }
-  // The settings: the same everywhere in the app. Your player, how the quest list is sorted and
-  // filtered, and how things look.
-  function cogHtml() {
-    return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
-      '<div class="menu wide" id="cog" hidden>' +
-      (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
-      '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
-      // Reading the game needs Alt1 (on a computer), so this is only there in Alt1.
-      (window.alt1 ? '<p class="mh">Game</p><button class="mi" type="button" data-act="scan-open">' + I.eye + 'Scan achievements</button><hr>' : '') +
-      '<p class="mh">Lists</p>' +
-      selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
-      toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
-      toggleHtml('hidemini', I.scroll, 'Hide miniquests', S.set.hideMini) +
-      toggleHtml('hidelocked', I.lock, 'Hide locked', S.set.hideLocked) +
-      '<hr><p class="mh">Display</p>' +
-      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
-      '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
-      '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
-      '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
-      '<button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"' + (S.set.fontSize >= FONT_MAX ? ' disabled' : '') + '>' + I.plus + '</button>' +
-      '</div>' +
-      '<hr><button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
-      '<hr><p class="mh">Backup</p>' +
-      '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
-      '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
-      '<hr><p class="mh danger">Danger zone</p>' +
-      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
-      '</div>';
-  }
-  function dotsHtml() {
-    return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +
-      '<div class="menu" id="menu" role="menu" hidden>' +
-      '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
-      '<a class="mi" role="menuitem" href="' + esc(S.q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
-      '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
-      '</div>';
-  }
-
-  // ---------- start screen: all quests ----------
-  function alt1Html() {
-    if (window.alt1 || !/^https?:$/.test(location.protocol)) return '';
-    var cfg;
-    try { cfg = new URL('appconfig.json', location.href).href; } catch (e) { return ''; }
-    return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
-  }
-  // ---------- player lookup ----------
+  // ---------- player lookup (RuneMetrics, passed on by the wiki) ----------
   // 2 = the game says this quest is done, 1 = started, 0 = not started or no player.
   function playerStatus(title) {
     return S.player ? (S.player.quests[QG.normName(title)] || 0) : 0;
@@ -655,11 +622,78 @@
     playerChanged();
   }
 
-  function qdoneAll() {
-    if (!S.qdone) { var d = sget('qdone'); S.qdone = d && typeof d === 'object' && !Array.isArray(d) ? d : {}; }
-    return S.qdone;
+  // ---------- menus: the cog (settings) and the dots (quest or area actions) ----------
+  function toggleHtml(act, icon, label, on) {
+    return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
+      icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
   }
-  function markedDone(title) { return !!qdoneAll()[QG.normName(title)]; }
+  function selectHtml(id, label, list, value) {
+    return '<div class="mi mrow"><label class="ml" for="' + id + '">' + label + '</label><select class="sel" id="' + id + '">' + list.map(function (s) {
+      return '<option value="' + s[0] + '"' + (value === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
+    }).join('') + '</select></div>';
+  }
+  // The settings: the same everywhere in the app. Your player, how the quest list is sorted and
+  // filtered, and how things look.
+  function cogHtml() {
+    return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
+      '<div class="menu wide" id="cog" hidden>' +
+      (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
+      '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
+      // Reading the game needs Alt1 (on a computer), so this is only there in Alt1.
+      (window.alt1 ? '<p class="mh">Game</p><button class="mi" type="button" data-act="scan-open">' + I.eye + 'Scan achievements</button><hr>' : '') +
+      '<p class="mh">Lists</p>' +
+      selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
+      toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
+      toggleHtml('hidemini', I.scroll, 'Hide miniquests', S.set.hideMini) +
+      toggleHtml('hidelocked', I.lock, 'Hide locked', S.set.hideLocked) +
+      '<hr><p class="mh">Display</p>' +
+      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
+      '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
+      '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
+      '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
+      '<button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"' + (S.set.fontSize >= FONT_MAX ? ' disabled' : '') + '>' + I.plus + '</button>' +
+      '</div>' +
+      '<hr><button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
+      '<hr><p class="mh">Backup</p>' +
+      '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
+      '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
+      '<hr><p class="mh danger">Danger zone</p>' +
+      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
+      '</div>';
+  }
+  function dotsHtml() {
+    return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +
+      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
+      '<a class="mi" role="menuitem" href="' + esc(S.q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
+      '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
+      '</div>';
+  }
+  function closeMenus(except) {
+    ['cog', 'menu'].forEach(function (id) {
+      if (id === except) return;
+      var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
+      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); else disarmWipe(); }
+    });
+  }
+  function toggleMenu(id) {
+    var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
+    if (!m) return;
+    closeMenus(id);
+    var show = m.hidden;
+    m.hidden = !show;
+    if (b) b.setAttribute('aria-expanded', show ? 'true' : 'false');
+    if (!show && id === 'menu') disarmReset();
+  }
+
+  // ---------- start screen: the quest list, or the area list ----------
+  function alt1Html() {
+    if (window.alt1 || !/^https?:$/.test(location.protocol)) return '';
+    var cfg;
+    try { cfg = new URL('appconfig.json', location.href).href; } catch (e) { return ''; }
+    return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
+  }
+  function homeHtml() { return S.set.home === 'areas' ? areaListHtml() : listHtml(); }
   // Everything the list needs to know about one quest.
   function questInfo(q, byTitle) {
     var m = byTitle[D.norm(q.t)] || null, ps = playerStatus(q.t);
@@ -816,7 +850,7 @@
     if (!S.list && !S.listBusy && !S.listError) fetchList(false);
   }
 
-  // ---------- shared pieces ----------
+  // ---------- shared pieces: boxes, rows, quest links, skill levels ----------
   function note(html) { return '<div class="note">' + I.info + '<span>' + html + '</span></div>'; }
   function warn(html) { return '<div class="note warn">' + I.alert + '<span>' + html + '</span></div>'; }
   function acc(icon, label, meta, body, open, attrs) {
@@ -862,6 +896,46 @@
     var tid = nextId();
     return '<div class="row"><input class="cb" type="checkbox" data-' + kind + '="' + esc(id) + '" aria-labelledby="' + tid + '"' + (checked ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + textHtml + '</span>' + (extraHtml || '') + '</div></div>';
+  }
+  function liHtml(h) { return '<li>' + h + '</li>'; }
+  // A quest name you can click to open that quest here, in the app.
+  function questBtn(title, label) {
+    return '<button class="qlink" type="button" data-quest="' + esc(title) + '" title="Open this quest">' + esc(label || title) + '</button>';
+  }
+  // Wiki links to quests become buttons that open the quest in the app.
+  function questLinks(html) {
+    var d = scratch.createElement('div');
+    d.innerHTML = String(html || '');
+    arr(d.querySelectorAll('a')).forEach(function (a) {
+      var name = a.textContent.replace(/\s+/g, ' ').trim();
+      if (!name) return;
+      var w = scratch.createElement('span');
+      w.innerHTML = questBtn(name);
+      a.parentNode.replaceChild(w.firstChild, a);
+    });
+    return d.innerHTML;
+  }
+  // A skill level, like the wiki: "100 [icon] Mining ✓". The level is green when you have it and red when you do
+  // not (with your level); "(boostable)" when the wiki says you may boost it. tag: 'li' in a list, 'span' in a line.
+  function skillIcon(name) {
+    return '<img class="sic" src="https://runescape.wiki/images/' + encodeURIComponent(String(name).replace(/ /g, '_')) +
+      '-icon.png" alt="" width="16" height="16" loading="lazy" onerror="this.remove()">';
+  }
+  function skillHtml(s, tag) {
+    var mine = playerLevel(s.skill), st = mine == null ? '' : mine >= s.level ? 'ok' : 'low';
+    var boost = s.boost || /boost|\[\s*b\s*\]|\(\s*b\s*\)/i.test(s.note || '');
+    var note = s.note && !/^\W*(boostable|\[\s*b\s*\]|\(\s*b\s*\))\W*$/i.test(s.note) ? s.note : '';
+    return '<' + tag + ' class="skl' + (st ? ' ' + st : '') + '"><b class="lv">' + esc(s.level) + '</b> ' + skillIcon(s.skill) +
+      ' <span class="sn">' + esc(s.skill) + '</span>' +
+      (st === 'ok' ? ' <span class="tk" aria-label="you have it">\u2713</span>' : '') +
+      (st === 'low' ? ' <span class="no" aria-label="too low">\u2717</span> <span class="you">(you: ' + mine + ')</span>' : '') +
+      (boost ? ' <span class="bst">(boostable)</span>' : '') +
+      (note ? ' <span class="x">' + esc(note) + '</span>' : '') + '</' + tag + '>';
+  }
+  // After a quest's name: a green tick when you have done it, a red cross when you have not (only with a player).
+  function questMark(q) {
+    if (!S.player) return '';
+    return playerStatus(q) === 2 ? ' <span class="tk" aria-label="done">\u2713</span>' : ' <span class="no" aria-label="not done">\u2717</span>';
   }
 
   // ---------- steps tab ----------
@@ -943,7 +1017,7 @@
     return h + '<div class="tail" aria-hidden="true"></div>';
   }
 
-  // ---------- other tabs ----------
+  // ---------- items and overview tabs ----------
   function itemsHtml() {
     var req = S.q.requiredItems, rec = S.q.recommendedItems, h = '';
     function alts(it) { return (it.alternatives || []).map(function (a) { return '<span class="alt">' + a + '</span>'; }).join(''); }
@@ -959,24 +1033,6 @@
         rec.items.map(function (it) { return itemLi(it, alts(it)); }).join('') + '</ul>';
     }
     return h;
-  }
-  function liHtml(h) { return '<li>' + h + '</li>'; }
-  // A quest name you can click to open that quest here, in the app.
-  function questBtn(title, label) {
-    return '<button class="qlink" type="button" data-quest="' + esc(title) + '" title="Open this quest">' + esc(label || title) + '</button>';
-  }
-  // Wiki links to quests become buttons that open the quest in the app.
-  function questLinks(html) {
-    var d = scratch.createElement('div');
-    d.innerHTML = String(html || '');
-    arr(d.querySelectorAll('a')).forEach(function (a) {
-      var name = a.textContent.replace(/\s+/g, ' ').trim();
-      if (!name) return;
-      var w = scratch.createElement('span');
-      w.innerHTML = questBtn(name);
-      a.parentNode.replaceChild(w.firstChild, a);
-    });
-    return d.innerHTML;
   }
   function rewardLi(it) {
     return '<li>' + it.html + (it.subs || []).map(function (s) { return '<span class="alt">' + s + '</span>'; }).join('') + '</li>';
@@ -1012,7 +1068,7 @@
         '<ul class="tree">' + o.questReqs.map(function (e) {
           var have = playerStatus(e.text) === 2;
           return '<li' + (have ? ' class="got"' : '') + ' style="padding-left:' + Math.max(0, e.depth - 1) * 16 + 'px">' +
-            (have ? '<span class="tk">\u2713</span> ' : '') + questBtn(e.text) + '</li>';
+            questBtn(e.text) + questMark(e.text) + '</li>';
         }).join('') + '</ul>') + '</div>';
     } else if (kv.length) {
       h += '<h2 class="bh">Quests</h2><p class="para">No quests needed first.</p>';
@@ -1100,25 +1156,6 @@
     resizeMaps();
     startMaps();
     alignTop(el, false);
-  }
-  // Boxes (pictures, maps, tables, music...) remember if you opened them.
-  function accKey(d) {
-    var host = d.closest('[data-step], [data-item]'), sec = d.closest('.sec');
-    var base = host ? (host.getAttribute('data-step') || host.getAttribute('data-item')) :
-      sec ? (sec.getAttribute('data-sec') || 'ov:' + sec.getAttribute('data-ov')) : S.prog.tab;
-    var sl = d.querySelector(':scope > summary .sl'), label = sl ? sl.textContent : '';
-    var same = arr((host || sec || byId('main')).querySelectorAll('details.acc')).filter(function (x) {
-      var l = x.querySelector(':scope > summary .sl');
-      return (l ? l.textContent : '') === label;
-    });
-    return base + '|' + label + '|' + same.indexOf(d);
-  }
-  function restoreAcc() {
-    var saved = S.prog.acc || {}, main = byId('main');
-    arr(main.querySelectorAll('details.acc')).forEach(function (d) {
-      var v = saved[accKey(d)];
-      if (v === 1) d.open = true; else if (v === 0) d.open = false;
-    });
   }
 
   // ---------- quest screen ----------
@@ -1208,6 +1245,63 @@
     remember(S.key, S.q.title, t.done, t.total);
     startMaps();
   }
+  // Boxes (pictures, maps, tables, music...) remember if you opened them.
+  function accKey(d) {
+    var host = d.closest('[data-step], [data-item]'), sec = d.closest('.sec');
+    var base = host ? (host.getAttribute('data-step') || host.getAttribute('data-item')) :
+      sec ? (sec.getAttribute('data-sec') || 'ov:' + sec.getAttribute('data-ov')) : S.prog.tab;
+    var sl = d.querySelector(':scope > summary .sl'), label = sl ? sl.textContent : '';
+    var same = arr((host || sec || byId('main')).querySelectorAll('details.acc')).filter(function (x) {
+      var l = x.querySelector(':scope > summary .sl');
+      return (l ? l.textContent : '') === label;
+    });
+    return base + '|' + label + '|' + same.indexOf(d);
+  }
+  function restoreAcc() {
+    var saved = S.prog.acc || {}, main = byId('main');
+    arr(main.querySelectorAll('details.acc')).forEach(function (d) {
+      var v = saved[accKey(d)];
+      if (v === 1) d.open = true; else if (v === 0) d.open = false;
+    });
+  }
+  function switchTab(tab) {
+    tab = validTab(tab);
+    if (tab === S.prog.tab) return;
+    S.prog.tab = tab;
+    saveProg();
+    renderQuest();
+    if (tab === 'steps' && S.scroll.steps == null) jumpTo(current(), false);
+  }
+  function toggleSection(id) {
+    var sec = S.idx.secs[id];
+    if (!sec) return;
+    S.prog.open[id] = !isOpen(sec, current());
+    refresh();
+    resizeMaps();
+    // Keep the part you just opened or closed at the top, so you do not lose your place.
+    alignTop(document.querySelector('[data-sec="' + id + '"]'), false);
+  }
+  function disarmReset() {
+    S.resetArmed = 0;
+    var s = document.querySelector('[data-act="reset"] span');
+    if (s) s.textContent = 'Reset progress';
+  }
+  function resetClick(btn) {
+    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
+      S.prog.steps = {};
+      S.prog.items = {};
+      S.prog.open = {};
+      S.prog.acc = {};
+      S.scroll = {};
+      S.resetArmed = 0;
+      renderQuest();
+      toast('Progress reset.');
+      if (S.prog.tab === 'steps') jumpTo(current(), false);
+      return;
+    }
+    S.resetArmed = Date.now();
+    btn.querySelector('span').textContent = 'Click again to reset';
+  }
 
   // ---------- maps (Leaflet with the wiki's map tiles) ----------
   var DOT = { radius: 7, color: '#1b1510', weight: 2, opacity: 1, fillColor: '#f2c45a', fillOpacity: 1 };
@@ -1273,7 +1367,7 @@
     setTimeout(function () { if (S.live.indexOf(map) >= 0) map.invalidateSize(); }, 60);
   }
 
-  // ---------- small UI bits ----------
+  // ---------- settings, Delete everything, and the toast ----------
   function toast(msg, ms) {
     var el = byId('toast');
     if (!el) return;
@@ -1281,75 +1375,6 @@
     el.hidden = false;
     clearTimeout(S.toastTimer);
     if (ms !== 0) S.toastTimer = setTimeout(function () { el.hidden = true; }, ms || 2600);
-  }
-  // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds.
-  function disarmWipe() {
-    S.wipeArmed = 0;
-    var w = document.querySelector('[data-act="wipe"] span');
-    if (w) w.textContent = 'Delete everything';
-  }
-  function wipeClick(btn) {
-    if (!(S.wipeArmed && Date.now() - S.wipeArmed < 4000)) {
-      S.wipeArmed = Date.now();
-      btn.querySelector('span').textContent = 'Click again to delete everything';
-      return;
-    }
-    S.wipeArmed = 0;
-    closeMenus();
-    closeBackup();
-    stopScan();
-    try {
-      var ls = window.localStorage, keys = [];
-      for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
-      keys.forEach(function (k) { ls.removeItem(k); });
-    } catch (e) { /* blocked: only memory to clear */ }
-    memory = {};
-    S.set = { showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: FONT_DEFAULT, sort: 'name', home: 'quests' };
-    S.player = null; S.playerMsg = ''; S.playerInput = '';
-    S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
-    S.listError = ''; S.orderError = ''; S.aidxFail = [];
-    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
-    S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
-    applySettings();
-    renderStart();
-    toast('Everything is deleted.');
-  }
-  function disarmReset() {
-    S.resetArmed = 0;
-    var s = document.querySelector('[data-act="reset"] span');
-    if (s) s.textContent = 'Reset progress';
-  }
-  function closeMenus(except) {
-    ['cog', 'menu'].forEach(function (id) {
-      if (id === except) return;
-      var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
-      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); else disarmWipe(); }
-    });
-  }
-  function toggleMenu(id) {
-    var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
-    if (!m) return;
-    closeMenus(id);
-    var show = m.hidden;
-    m.hidden = !show;
-    if (b) b.setAttribute('aria-expanded', show ? 'true' : 'false');
-    if (!show && id === 'menu') disarmReset();
-  }
-  function resetClick(btn) {
-    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
-      S.prog.steps = {};
-      S.prog.items = {};
-      S.prog.open = {};
-      S.prog.acc = {};
-      S.scroll = {};
-      S.resetArmed = 0;
-      renderQuest();
-      toast('Progress reset.');
-      if (S.prog.tab === 'steps') jumpTo(current(), false);
-      return;
-    }
-    S.resetArmed = Date.now();
-    btn.querySelector('span').textContent = 'Click again to reset';
   }
   function setFont(delta) {
     S.set.fontSize = clampFont(S.set.fontSize + delta);
@@ -1392,26 +1417,40 @@
     if (mi) mi.setAttribute('aria-checked', S.set.hideLocked ? 'true' : 'false');
     drawList();
   }
-  function switchTab(tab) {
-    tab = validTab(tab);
-    if (tab === S.prog.tab) return;
-    S.prog.tab = tab;
-    saveProg();
-    renderQuest();
-    if (tab === 'steps' && S.scroll.steps == null) jumpTo(current(), false);
+  // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds.
+  function disarmWipe() {
+    S.wipeArmed = 0;
+    var w = document.querySelector('[data-act="wipe"] span');
+    if (w) w.textContent = 'Delete everything';
   }
-  function toggleSection(id) {
-    var sec = S.idx.secs[id];
-    if (!sec) return;
-    S.prog.open[id] = !isOpen(sec, current());
-    refresh();
-    resizeMaps();
-    // Keep the part you just opened or closed at the top, so you do not lose your place.
-    alignTop(document.querySelector('[data-sec="' + id + '"]'), false);
+  function wipeClick(btn) {
+    if (!(S.wipeArmed && Date.now() - S.wipeArmed < 4000)) {
+      S.wipeArmed = Date.now();
+      btn.querySelector('span').textContent = 'Click again to delete everything';
+      return;
+    }
+    S.wipeArmed = 0;
+    closeMenus();
+    closeBackup();
+    stopScan();
+    try {
+      var ls = window.localStorage, keys = [];
+      for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
+      keys.forEach(function (k) { ls.removeItem(k); });
+    } catch (e) { /* blocked: only memory to clear */ }
+    memory = {};
+    S.set = { showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: FONT_DEFAULT, sort: 'name', home: 'quests' };
+    S.player = null; S.playerMsg = ''; S.playerInput = '';
+    S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
+    S.listError = ''; S.orderError = ''; S.aidxFail = [];
+    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
+    S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
+    applySettings();
+    renderStart();
+    toast('Everything is deleted.');
   }
 
-  // ---------- Area Tasks ----------
-  function homeHtml() { return S.set.home === 'areas' ? areaListHtml() : listHtml(); }
+  // ---------- Area Tasks: saved areas and the task index ----------
   function ametaAll() { var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
   function loadAprog(name) {
     var p = sget('aprog.' + name);
@@ -1470,6 +1509,64 @@
     });
     return out;
   }
+  function subId(u) { return typeof u === 'string' ? u : u.id; }
+  // Every task and sub-step by id, with the task it belongs to.
+  function taskIndex(a) {
+    var idx = {};
+    a.tiers.forEach(function (t) {
+      t.tasks.forEach(function (x) {
+        idx[x.id] = { task: x, parent: null };
+        (x.subs || []).forEach(function (u) { idx[subId(u)] = { task: x, parent: x.id, sub: u }; });
+      });
+    });
+    return idx;
+  }
+  // Sets a task or sub-step in a set of ticks. A task ticks all its steps; a task is done when all its steps are.
+  function setTick(ticks, idx, id, on) {
+    var e = idx[id];
+    function put(k, v) { if (v) ticks[k] = 1; else delete ticks[k]; }
+    put(id, on);
+    if (!e) return;
+    if (!e.parent) (e.task.subs || []).forEach(function (u) { put(subId(u), on); });
+    else put(e.parent, e.task.subs.every(function (u) { return ticks[subId(u)]; }));
+  }
+  function missingAreas() {
+    var ix = aidxAll();
+    return QG.AREAS.filter(function (a) { return !ix[a.name] || ix[a.name].v !== QG.AREA_VERSION; }).map(function (a) { return a.name; });
+  }
+  // Reads every area, so all tasks can be searched. Done once: later searches use the saved index.
+  function loadAllAreas() {
+    if (S.aidxBusy) return;
+    var todo = missingAreas().filter(function (n) { return S.aidxFail.indexOf(n) < 0; });
+    if (!todo.length) return;
+    S.aidxBusy = true;
+    var running = 0, next = 0;
+    function pump() {
+      while (running < 3 && next < todo.length) start(todo[next++]);
+      if (!running && next >= todo.length) {
+        S.aidxBusy = false;
+        drawList();
+        var w = S.aidxWait;
+        S.aidxWait = [];
+        w.forEach(function (fn) { fn(); });
+      }
+    }
+    function start(name) {
+      running++;
+      QG.loadArea(name).then(function (na) { sset('area.' + name, na); indexArea(name, na); },
+        function () { S.aidxFail.push(name); }).then(function () { running--; drawList(); pump(); });
+    }
+    pump();
+  }
+  // Runs fn once every area that can be read is read (at once when they all are).
+  function whenAreasRead(fn) {
+    var todo = missingAreas().filter(function (n) { return S.aidxFail.indexOf(n) < 0; });
+    if (!todo.length && !S.aidxBusy) { fn(); return; }
+    S.aidxWait.push(fn);
+    loadAllAreas();
+  }
+
+  // ---------- Area Tasks: the list of tiers, and search ----------
   function tierRow(x) {
     var status = '', bar = '';
     if (x.started) {
@@ -1499,10 +1596,6 @@
     var where = '<div class="ext"><button class="qlink where" type="button" data-area="' + esc(r.area) + '" data-atier="' + esc(r.tier.id) + '">' + esc(r.area + ' ' + r.tier.name) + '</button></div>';
     var li = '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where) + '</li>';
     return li.replace('data-acb=', 'data-aarea="' + esc(r.area) + '" data-acb=');
-  }
-  function missingAreas() {
-    var ix = aidxAll();
-    return QG.AREAS.filter(function (a) { return !ix[a.name] || ix[a.name].v !== QG.AREA_VERSION; }).map(function (a) { return a.name; });
   }
   function groupHtml(key, title, count, inner) {
     var shut = !!S.closed['areas:' + key];
@@ -1536,7 +1629,6 @@
       return h;
     }
     // "Hide completed" and "Hide locked" work here too.
-    var hid = 0;
     if (S.set.hideDone) tiers = tiers.filter(function (t) { return !t.full; });
     if (S.set.hideLocked) tiers = tiers.filter(function (t) { return !t.locked; });
     // Each tier stays in its own area, in the game's order; a started one has its progress bar right there.
@@ -1546,37 +1638,6 @@
     });
     if (!tiers.length) h += '<p class="empty">All tiers are done or locked. Turn off “Hide completed” or “Hide locked” in the settings to see them.</p>';
     return h;
-  }
-  // Reads every area, so all tasks can be searched. Done once: later searches use the saved index.
-  function loadAllAreas() {
-    if (S.aidxBusy) return;
-    var todo = missingAreas().filter(function (n) { return S.aidxFail.indexOf(n) < 0; });
-    if (!todo.length) return;
-    S.aidxBusy = true;
-    var running = 0, next = 0;
-    function pump() {
-      while (running < 3 && next < todo.length) start(todo[next++]);
-      if (!running && next >= todo.length) {
-        S.aidxBusy = false;
-        drawList();
-        var w = S.aidxWait;
-        S.aidxWait = [];
-        w.forEach(function (fn) { fn(); });
-      }
-    }
-    function start(name) {
-      running++;
-      QG.loadArea(name).then(function (na) { sset('area.' + name, na); indexArea(name, na); },
-        function () { S.aidxFail.push(name); }).then(function () { running--; drawList(); pump(); });
-    }
-    pump();
-  }
-  // Runs fn once every area that can be read is read (at once when they all are).
-  function whenAreasRead(fn) {
-    var todo = missingAreas().filter(function (n) { return S.aidxFail.indexOf(n) < 0; });
-    if (!todo.length && !S.aidxBusy) { fn(); return; }
-    S.aidxWait.push(fn);
-    loadAllAreas();
   }
   // Ticks a task from the search results, without opening its area.
   function tickInArea(name, id, on) {
@@ -1595,6 +1656,8 @@
     S.error = '';
     renderStart();
   }
+
+  // ---------- Area Tasks: one area ----------
   // Opens an area (at a tier): from storage if it is saved, else from the wiki.
   function openArea(name, tier) {
     S.error = '';
@@ -1641,23 +1704,6 @@
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="areset">' + I.reset + '<span>Reset progress</span></button>' +
       '</div>';
   }
-  // A skill level, like the wiki: "100 [icon] Mining ✓". The level is green when you have it and red when you do
-  // not (with your level); "(boostable)" when the wiki says you may boost it. tag: 'li' in a list, 'span' in a line.
-  function skillIcon(name) {
-    return '<img class="sic" src="https://runescape.wiki/images/' + encodeURIComponent(String(name).replace(/ /g, '_')) +
-      '-icon.png" alt="" width="16" height="16" loading="lazy" onerror="this.remove()">';
-  }
-  function skillHtml(s, tag) {
-    var mine = playerLevel(s.skill), st = mine == null ? '' : mine >= s.level ? 'ok' : 'low';
-    var boost = s.boost || /boost|\[\s*b\s*\]|\(\s*b\s*\)/i.test(s.note || '');
-    var note = s.note && !/^\W*(boostable|\[\s*b\s*\]|\(\s*b\s*\))\W*$/i.test(s.note) ? s.note : '';
-    return '<' + tag + ' class="skl' + (st ? ' ' + st : '') + '"><b class="lv">' + esc(s.level) + '</b> ' + skillIcon(s.skill) +
-      ' <span class="sn">' + esc(s.skill) + '</span>' +
-      (st === 'ok' ? ' <span class="tk" aria-label="you have it">\u2713</span>' : '') +
-      (st === 'low' ? ' <span class="no" aria-label="too low">\u2717</span> <span class="you">(you: ' + mine + ')</span>' : '') +
-      (boost ? ' <span class="bst">(boostable)</span>' : '') +
-      (note ? ' <span class="x">' + esc(note) + '</span>' : '') + '</' + tag + '>';
-  }
   function needText(n) {
     var bits = [], low = false;
     (n.skills || []).forEach(function (x) {
@@ -1668,7 +1714,7 @@
     (n.quests || []).forEach(function (q) {
       var got = playerStatus(q) === 2;
       if (S.player && !got) low = true;
-      bits.push(esc(q) + (got ? ' ✓' : ''));
+      bits.push(esc(q) + questMark(q));
     });
     (n.other || []).forEach(function (o) { bits.push(esc(textOf(o))); });
     return bits.length ? '<span class="need' + (low ? ' low' : '') + '">Needs ' + bits.join(', ') + '</span>' : '';
@@ -1682,7 +1728,7 @@
     if (t.quests.length) {
       h += '<h2 class="bh">Quests</h2><ul class="tree areq">' + t.quests.map(function (q) {
         var have = playerStatus(q) === 2;
-        return '<li' + (have ? ' class="got"' : '') + '>' + (have ? '<span class="tk">✓</span> ' : '') + questBtn(q) + '</li>';
+        return '<li' + (have ? ' class="got"' : '') + '>' + questBtn(q) + questMark(q) + '</li>';
       }).join('') + '</ul>';
     }
     if (t.other.length) h += '<h2 class="bh">Also needed</h2>' + t.other.map(function (o) { return '<p class="para">' + o + '</p>'; }).join('');
@@ -1703,27 +1749,6 @@
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
       rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '') +
       (subs ? '<ul class="steps subs">' + subs + '</ul>' : '') + '</li>';
-  }
-  function subId(u) { return typeof u === 'string' ? u : u.id; }
-  // Every task and sub-step by id, with the task it belongs to.
-  function taskIndex(a) {
-    var idx = {};
-    a.tiers.forEach(function (t) {
-      t.tasks.forEach(function (x) {
-        idx[x.id] = { task: x, parent: null };
-        (x.subs || []).forEach(function (u) { idx[subId(u)] = { task: x, parent: x.id, sub: u }; });
-      });
-    });
-    return idx;
-  }
-  // Sets a task or sub-step in a set of ticks. A task ticks all its steps; a task is done when all its steps are.
-  function setTick(ticks, idx, id, on) {
-    var e = idx[id];
-    function put(k, v) { if (v) ticks[k] = 1; else delete ticks[k]; }
-    put(id, on);
-    if (!e) return;
-    if (!e.parent) (e.task.subs || []).forEach(function (u) { put(subId(u), on); });
-    else put(e.parent, e.task.subs.every(function (u) { return ticks[subId(u)]; }));
   }
   // A part of an area tier that folds open and shut. The app remembers it per tier.
   // A finished list of tasks starts shut; opening it shows the done tasks, so you can untick one.
@@ -1825,8 +1850,6 @@
     }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
 
-
-
   // ---------- export and import ----------
   // Everything you ticked, your settings and your player, as text. Guides and lists are not in it: the app reads them from the wiki.
   var FORMAT = 2;
@@ -1842,21 +1865,6 @@
       }
     } catch (e) { /* blocked */ }
     return Object.keys(out).sort();
-  }
-  // What each step and item of a saved guide says, by id.
-  function questLabels(q) {
-    var L = {};
-    function step(st) { L[st.id] = st.text || textOf(st.html); (st.substeps || []).forEach(function (c) { if (c.type === 'step') step(c); }); }
-    ((q && q.sections) || []).forEach(function (sec) {
-      sec.blocks.forEach(function (b) {
-        if (b.type === 'step') step(b);
-        else if (b.type === 'bring') (b.needed || []).concat(b.recommended || []).forEach(function (it) { if (it && it.id) L[it.id] = it.text || textOf(it.html); });
-      });
-    });
-    [q && q.requiredItems, q && q.recommendedItems].forEach(function (g) {
-      ((g && g.items) || []).forEach(function (it) { if (it && it.id) L[it.id] = it.text || textOf(it.html); });
-    });
-    return L;
   }
   function ticked(map) { var o = {}; Object.keys(map || {}).forEach(function (k) { if (map[k]) o[k] = 1; }); return o; }
   // A line of the file: "<code> <what it says>", cut short so the file stays easy to read.
@@ -2002,16 +2010,6 @@
     }
     return { quests: nq, areas: na };
   }
-  function setMarked(title, on) {
-    var d = qdoneAll(), n = QG.normName(title);
-    // Only kept when nothing else says the quest is done.
-    var other = playerStatus(title) === 2 || (function () {
-      var m = metaAll(), k = Object.keys(m).filter(function (x) { return D.norm(m[x].title) === D.norm(title); })[0];
-      return !!k && m[k].total > 0 && m[k].done >= m[k].total;
-    })();
-    if (on && !other) d[n] = 1; else delete d[n];
-    sset('qdone', d);
-  }
   // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
   function importV2(j) {
     var nq = 0, na = 0, m = metaAll(), byTitle = {};
@@ -2069,13 +2067,91 @@
     }
     return { quests: nq, areas: na };
   }
+  function closeBackup() {
+    var b = byId('bk');
+    if (b) b.parentNode.removeChild(b);
+    if (S.bkUrl) { try { URL.revokeObjectURL(S.bkUrl); } catch (e) { /* gone */ } S.bkUrl = ''; }
+  }
+  function openBackup(mode) {
+    closeMenus();
+    closeBackup();
+    var exp = mode === 'export';
+    app.insertAdjacentHTML('beforeend',
+      '<div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h">' +
+      '<h2 class="dh" id="bk-h">' + (exp ? 'Export state' : 'Import state') + '</h2>' +
+      '<p class="para">' + (exp ?
+        'Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
+        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it.') + '</p>' +
+      (exp ? '<div class="state" id="bk-wait" role="status">' + I.loader + '<p>Reading the areas, so all their tasks are in the file…</p></div>' :
+        '<label class="btn file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
+      '<textarea class="inp tx" id="bk-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="' + (exp ? 'Exported state' : 'State to import') + '"' +
+      (exp ? ' readonly' : ' placeholder="Or paste an export here"') + '></textarea>' +
+      '<p class="note" id="bk-note" hidden></p>' +
+      '<p class="err" id="bk-err" role="alert" hidden></p>' +
+      '<div class="dbtn">' + (exp ?
+        '<a class="btn" id="bk-save" role="link" aria-disabled="true">Download file</a><button class="btn alt" type="button" data-act="bk-copy" disabled>Copy</button>' :
+        '<button class="btn" type="button" data-act="bk-import">Import</button>') +
+      '<button class="btn alt" type="button" data-act="bk-close">' + (exp ? 'Close' : 'Cancel') + '</button></div></div></div>');
+    if (!exp) { var t0 = byId('bk-text'); if (t0) t0.focus(); return; }
+    S.aidxFail = [];
+    whenAreasRead(function () {
+      var ta = byId('bk-text');
+      if (!ta) return;   // closed while reading
+      var text = JSON.stringify(buildExport(), null, 2);
+      ta.value = text;
+      var w = byId('bk-wait');
+      if (w) w.parentNode.removeChild(w);
+      var failed = S.aidxFail.filter(function (n) { return missingAreas().indexOf(n) >= 0; }), note = byId('bk-note');
+      if (failed.length && note) {
+        note.textContent = 'Could not read ' + failed.join(' and ') + ', so ' + (failed.length === 1 ? 'its' : 'their') + ' tasks are not in the file.';
+        note.hidden = false;
+      }
+      var a = byId('bk-save'), c = document.querySelector('[data-act="bk-copy"]');
+      try {
+        S.bkUrl = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+        a.href = S.bkUrl;
+      } catch (e) { a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(text); }
+      a.download = 'quick-guide-' + new Date().toISOString().slice(0, 10) + '.json';
+      a.removeAttribute('aria-disabled');
+      if (c) c.disabled = false;
+    });
+  }
+  function copyBackup() {
+    var ta = byId('bk-text');
+    if (!ta) return;
+    function fallback() {
+      ta.focus();
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      toast(ok ? 'Copied.' : 'Select the text and copy it.');
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(function () { toast('Copied.'); }, fallback);
+    else fallback();
+  }
+  function runImport() {
+    var ta = byId('bk-text'), err = byId('bk-err');
+    if (!ta || !err) return;
+    var r = importState(ta.value);
+    if (r.error) { err.textContent = r.error; err.hidden = false; return; }
+    closeBackup();
+    S.error = '';
+    S.input = '';
+    renderStart();
+    var parts = [];
+    if (r.quests) parts.push(plural(r.quests, 'quest', 'quests'));
+    if (r.areas) parts.push(plural(r.areas, 'area', 'areas'));
+    toast(parts.length ? 'Imported ' + parts.join(' and ') + '.' : 'Imported.');
+  }
+
   // ---------- scan achievements (Alt1) ----------
   // Alt1 looks at the game twice a second. The player opens Hero > Achievements > Area Tasks and picks a tier.
   // The tier picked in the game has a gold box in the list on the left. Which one it is, the app counts from the
   // "Area Tasks" title above Easy Ardougne (or from the next title, below the last tier), and it remembers what each
   // row's name looks like, for when no title is in view. Then each task row on the right is set to what the game
   // shows: done is ticked, not done (or locked) is unticked.
-  var SCAN_MS = 500, SAME = 0.15, ROW_SAME = 0.45;
+  // Tests may look faster (window.__scanMs); the game itself is looked at twice a second.
+  var SCAN_MS = (typeof window.__scanMs === 'number' && window.__scanMs > 0) ? window.__scanMs : 500, SAME = 0.15, ROW_SAME = 0.45;
   // Every tier of every area, in the order the game lists them: Easy Ardougne, Medium Ardougne, ...
   function scanTiers() {
     var ix = aidxAll(), out = [];
@@ -2166,7 +2242,7 @@
     var sc = S.scan;
     if (!sc || k < 0 || k >= sc.tiers.length) return;
     // The arrows win until another row is picked in the game.
-    sc.k = k; sc.names = {}; sc.prev = null; sc.pin = { k: k, sig: null }; sc.sum = null;
+    sc.k = k; sc.names = {}; sc.prev = null; sc.pin = { k: k, sig: sc.last ? sc.last.sig : null, y: sc.last ? sc.last.top : null }; sc.sum = null;
     try { sdel('scannames'); } catch (e) { /* not saved */ }
     showScanBar();
   }
@@ -2275,10 +2351,14 @@
     var R = window.QuickGuideReader, n = sc.tiers.length, at = null;
     if (!p) return sc.k >= 0;   // the list on the left is out of view: keep the tier as it is
     var picked = p.rows[p.sel];
+    // The row picked in the game, for the arrows: they hold for this row.
+    sc.last = { sig: picked.sig, top: picked.top };
     // Set with the arrows: that holds while the same row is picked in the game.
     if (sc.pin) {
-      if (!sc.pin.sig) sc.pin.sig = picked.sig;
-      if (picked.sig && R.textDiffer(picked.sig, sc.pin.sig) < ROW_SAME) {
+      // The same row: in the same place, with the same name ("Easy Ardougne" and "Easy Daemonheim" look alike).
+      if (!sc.pin.sig) { sc.pin.sig = picked.sig; sc.pin.y = picked.top; }
+      var bh = p.box.y1 - p.box.y0 + 1;
+      if (picked.sig && Math.abs(picked.top - sc.pin.y) <= bh / 2 && R.textDiffer(picked.sig, sc.pin.sig) < ROW_SAME) {
         sc.pickSig = picked.sig;
         p.rows.forEach(function (row) { learnName(sc, sc.pin.k + row.at, row.sig); });
         return true;
@@ -2358,9 +2438,9 @@
         near++;
         if (R.textDiffer(x.fp, q.fp) < ROW_SAME) { var b = q.idx - x.slot; same[b] = (same[b] || 0) + 1; }
       });
-      var sb = null;
-      Object.keys(same).forEach(function (b) { if (sb == null || same[b] > same[sb]) sb = b; });
-      if (sb != null && same[sb] * 2 > near && near * 2 >= rows.length) base = +sb;
+      var most = null;
+      Object.keys(same).forEach(function (b) { if (most == null || same[b] > same[most]) most = b; });
+      if (most != null && same[most] * 2 > near && near * 2 >= rows.length) base = +most;
       else {
         // Each row votes for the row of the last look it looks most like, if that one is clearly closest.
         // A row like none of them (scrolled in, or under a tooltip) does not vote.
@@ -2409,83 +2489,6 @@
     if (open) { saveAprog(); renderArea(true); }
     else { sset('aprog.' + area, p); writeAmeta(area, aidxAll()[area], p); if (S.view === 'start') drawList(); }
     return n;
-  }
-
-  function closeBackup() {
-    var b = byId('bk');
-    if (b) b.parentNode.removeChild(b);
-    if (S.bkUrl) { try { URL.revokeObjectURL(S.bkUrl); } catch (e) { /* gone */ } S.bkUrl = ''; }
-  }
-  function openBackup(mode) {
-    closeMenus();
-    closeBackup();
-    var exp = mode === 'export';
-    app.insertAdjacentHTML('beforeend',
-      '<div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h">' +
-      '<h2 class="dh" id="bk-h">' + (exp ? 'Export state' : 'Import state') + '</h2>' +
-      '<p class="para">' + (exp ?
-        'Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
-        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it.') + '</p>' +
-      (exp ? '<div class="state" id="bk-wait" role="status">' + I.loader + '<p>Reading the areas, so all their tasks are in the file…</p></div>' :
-        '<label class="btn file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
-      '<textarea class="inp tx" id="bk-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="' + (exp ? 'Exported state' : 'State to import') + '"' +
-      (exp ? ' readonly' : ' placeholder="Or paste an export here"') + '></textarea>' +
-      '<p class="note" id="bk-note" hidden></p>' +
-      '<p class="err" id="bk-err" role="alert" hidden></p>' +
-      '<div class="dbtn">' + (exp ?
-        '<a class="btn" id="bk-save" role="link" aria-disabled="true">Download file</a><button class="btn alt" type="button" data-act="bk-copy" disabled>Copy</button>' :
-        '<button class="btn" type="button" data-act="bk-import">Import</button>') +
-      '<button class="btn alt" type="button" data-act="bk-close">' + (exp ? 'Close' : 'Cancel') + '</button></div></div></div>');
-    if (!exp) { var t0 = byId('bk-text'); if (t0) t0.focus(); return; }
-    S.aidxFail = [];
-    whenAreasRead(function () {
-      var ta = byId('bk-text');
-      if (!ta) return;   // closed while reading
-      var text = JSON.stringify(buildExport(), null, 2);
-      ta.value = text;
-      var w = byId('bk-wait');
-      if (w) w.parentNode.removeChild(w);
-      var failed = S.aidxFail.filter(function (n) { return missingAreas().indexOf(n) >= 0; }), note = byId('bk-note');
-      if (failed.length && note) {
-        note.textContent = 'Could not read ' + failed.join(' and ') + ', so ' + (failed.length === 1 ? 'its' : 'their') + ' tasks are not in the file.';
-        note.hidden = false;
-      }
-      var a = byId('bk-save'), c = document.querySelector('[data-act="bk-copy"]');
-      try {
-        S.bkUrl = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
-        a.href = S.bkUrl;
-      } catch (e) { a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(text); }
-      a.download = 'quick-guide-' + new Date().toISOString().slice(0, 10) + '.json';
-      a.removeAttribute('aria-disabled');
-      if (c) c.disabled = false;
-    });
-  }
-  function copyBackup() {
-    var ta = byId('bk-text');
-    if (!ta) return;
-    function fallback() {
-      ta.focus();
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-      toast(ok ? 'Copied.' : 'Select the text and copy it.');
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(function () { toast('Copied.'); }, fallback);
-    else fallback();
-  }
-  function runImport() {
-    var ta = byId('bk-text'), err = byId('bk-err');
-    if (!ta || !err) return;
-    var r = importState(ta.value);
-    if (r.error) { err.textContent = r.error; err.hidden = false; return; }
-    closeBackup();
-    S.error = '';
-    S.input = '';
-    renderStart();
-    var parts = [];
-    if (r.quests) parts.push(plural(r.quests, 'quest', 'quests'));
-    if (r.areas) parts.push(plural(r.areas, 'area', 'areas'));
-    toast(parts.length ? 'Imported ' + parts.join(' and ') + '.' : 'Imported.');
   }
 
   // ---------- events ----------
@@ -2645,13 +2648,6 @@
     ev.preventDefault();
     try { window.alt1.openBrowser(a.href); } catch (e) { /* stay on the guide */ }
   });
-  // Phones: no pinch zoom and no double-tap zoom. The page stays as it is. (Maps still zoom by themselves.)
-  ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (n) {
-    document.addEventListener(n, function (ev) { ev.preventDefault(); }, { passive: false });
-  });
-  document.addEventListener('touchmove', function (ev) {
-    if (ev.touches && ev.touches.length > 1 && !(ev.target.closest && ev.target.closest('.leaflet-container'))) ev.preventDefault();
-  }, { passive: false });
 
   // ---------- start ----------
   applySettings();
@@ -2670,4 +2666,5 @@
   if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
   // Keep the player fresh too: quietly, once a day.
   if (S.player && Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE) lookUpPlayer(S.player.name, true);
+
 })();

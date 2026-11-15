@@ -1,36 +1,12 @@
 # Quick Guide
 
-A tick list for RuneScape Wiki quest quick guides, made for the Alt1 browser.
-You pick a quest from the list, and the app shows the guide as a checklist in the RS3 brown style.
+A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser, in the game's brown window style.
 
-## Files
+- **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
+- **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
+- **Scan achievements:** Alt1 reads the game's achievement list and ticks the tasks you have done.
 
-| File | What it is |
-| --- | --- |
-| `index.html` | The page |
-| `style.css` | The look |
-| `parser.js` | Reads one quest guide and turns it into JSON |
-| `quests.js` | Reads the list of all quests |
-| `reader.js` | Reads the in-game task list from the screen (Scan achievements) |
-| `app.js` | The screens, ticks, buttons and maps |
-| `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
-| `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
-| `tests/`, `playwright.config.js`, `package.json` | The tests (see "Tests" below) |
-| `.github/workflows/tests.yml` | Runs the tests on GitHub |
-| `designs/` | Design mockups and screenshots |
-
-## 1. Put it online
-
-Alt1 adds apps from a web address, so the files must be on the web. GitHub Pages is free:
-
-1. On github.com, open the repo and go to **Settings → Pages**.
-2. Under "Build and deployment", pick **Deploy from a branch**, branch `main`, folder `/ (root)`, and save.
-3. Wait a minute. The app is now at `https://erikdekamps.github.io/quick-guide/`.
-
-The repo must be **public** for free GitHub Pages.
-Any other web host works too, as long as it serves the files over `https`.
-
-## 2. Add it to Alt1
+## Add it to Alt1
 
 With Alt1 running, paste this into your normal web browser's address bar and press Enter:
 
@@ -38,79 +14,99 @@ With Alt1 running, paste this into your normal web browser's address bar and pre
 alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json
 ```
 
-Alt1 asks if you want to add the app. Say yes.
+Alt1 asks if you want to add the app. Say yes. (Or open `https://erikdekamps.github.io/quick-guide/` in the Alt1 browser and press **Add app**.)
 
-Two other ways:
+The app asks for two permissions:
 
-- Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
-- Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
+- **View screen** (`pixel`): for **Scan achievements**. It looks at the game only while you scan.
+- **Overlay**: Alt1 wants at least one. The app draws nothing on the game.
 
-The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Scan achievements**: it looks at the game only while you scan. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
-If you added the app before, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
-Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
+If you added the app before the scan existed, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
+Wiki links open in your normal browser, so the app stays on the guide.
 
-### After a change
+## Quests
 
-Alt1 keeps old copies of files. When you change a file, also change the `?v=1.1.0` numbers in `index.html`, so Alt1 loads the new ones.
+- The start screen lists every quest from the wiki's [List of quests](https://runescape.wiki/w/List_of_quests),
+  and every miniquest from [Miniquests](https://runescape.wiki/w/Miniquests).
+  Type to search; **Enter** opens the best match.
+- Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
+  difficulty, length, series or newest. Click a group name to fold it.
+- Click a quest. Its guide is read from the wiki once, then kept on your computer. It has three tabs:
+  - **Overview:** details, the quest tree, skills, enemies and rewards.
+  - **Items:** what to bring, with tick boxes.
+  - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
+    A part folds shut when you finish it. Maps are the wiki's own (drag to move, + and − to zoom).
+- Boxes that fold (parts, pictures, maps, tables) start open. The app remembers the ones you close.
 
-## 3. Use it
+### Your character
 
-1. The first screen lists **every quest** from the wiki's [List of quests](https://runescape.wiki/w/List_of_quests),
-   and every miniquest from [Miniquests](https://runescape.wiki/w/Miniquests).
-   - Type in the box to search. Press **Open** (or Enter) to open the top match.
-   - The line under the box says how the list is set up. You change all of that in the **cog** menu (see below).
-   - Sort by name, **optimal order**, difficulty, length, series or newest. Click a group name (like **A**) to fold it shut or open.
-   - **Hide miniquests** takes the miniquests out of the list.
-   - Optimal order is the wiki's [quest progression guide](https://runescape.wiki/w/Quests/Progression_guide).
-     Each quest shows its place (#1, #2, ...). Quests the guide does not list come last.
-   - **Hide completed** in the cog menu takes finished quests out of the list. A search still finds them.
-   - In the cog menu, type your **character name** and press **Look up**. Quests you finished in the game turn green,
-     quests you started turn yellow, and inside a quest you see your own skill levels and which
-     required quests you have done. Your RuneMetrics profile must be public.
-     The round arrow updates it; the ✕ forgets the player. It also updates by itself once a day.
-   - Quests you cannot start yet (you miss a quest, a level or something else) are **grayed out** and say **Locked**.
-     **Hide locked** in the cog menu takes them out of the list.
-   - The **Area tasks** tab has a row for every tier of the 13 areas from the wiki's [Area Tasks achievements](https://runescape.wiki/w/Area_Tasks_achievements):
-     **Ardougne Easy**, **Ardougne Hard**, and so on. Click one to open it (read from the wiki once, then kept). See "Area tasks" below.
-2. Click a quest. Its guide is read from the wiki once, then kept on your computer.
-3. Three tabs: **Overview**, **Items** and **Steps**.
-   - Overview has four parts that fold open and shut: **Details**, **Skills**, **Enemies**, **Rewards**.
-     They start open. The app remembers which ones you closed.
-   - Quest names in the **Quest tree** and in **Needed for later quests** open that quest in the app.
-   - Items has the **Required** and **Recommended** items, each with a tick box.
-   - Everything that folds starts open: parts, and the boxes for pictures, maps, tables and music.
-     The app remembers the ones you close.
-4. On **Steps**:
-   - Click anywhere on a step to tick it. It goes away, and the next step moves to the top, right under the part's name.
-   - A part folds shut when you finish it.
-   - **Show done steps** in the cog menu shows ticked steps again, so you can untick one.
-     With it on, finished parts and "Bring" boxes stay open.
-   - **Done, next step** ticks the next step. **Jump to next step** is in the cog menu.
-   - Opening or closing a part keeps that part at the top.
-   - "Bring for this part" boxes close by themselves when every item in them is ticked.
-   - Maps are the wiki's own map. Drag to move, + and − to zoom.
-5. The **cog** button holds the settings. They are the same on every screen:
-   - **Jump to next step** (in a quest).
-   - **Player**: look up your character, update it, or forget it.
-   - **Quest list**: **Sort by**, **Hide completed**, **Hide miniquests**, **Hide locked**.
-   - **Display**: **Show done steps** and **Text size** (12 to 40).
-   - **Update quest list** reads the list from the wiki again, and tells you when it is done.
-   - **Backup**: **Export state** and **Import state** (see below).
-   - **Danger zone**, at the very bottom: **Delete everything** deletes all your ticks, saved guides and areas,
-     settings and your player, and starts the app fresh. It takes two clicks (the second within 4 seconds).
-     Export first if you want to keep anything.
-6. The **⋯** button (in a quest): refresh from the wiki, open on the wiki, reset progress.
-7. The **←** button goes back to the quest list.
+In the settings, type your **character name** and press **Look up** (your RuneMetrics profile must be public).
 
-### Export and import
+- Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
+- Skill levels show like the wiki: "16 [icon] Thieving". The level is green with a ✓ when you have it,
+  red with a ✗ and your own level when you do not. "(boostable)" follows a level you may boost.
+- Quests you need get a green ✓ when done and a red ✗ when not, in a quest's tree and in Area tasks.
+- It updates by itself once a day. The round arrow updates it now; the ✕ forgets the character.
 
-**Export state** (at the bottom of the settings) gives a JSON file with **every quest and every area task**,
-each `true` (done) or `false` (not done). **Download file** saves it; **Copy** puts the text on the clipboard
-(use Copy inside Alt1 if the download does not work there).
+## Area tasks
 
-Change what you like in any text editor: set a quest, task or step to `true` to mark it done, or `false` to undo it.
-Then **Import state**, **Choose a file**, **Import**. The number at the start of a task (`447 …`) or a step (`993:1 …`)
-is how the app finds it; a task can also be written by its name alone.
+The **Area tasks** tab has a row per tier (**Ardougne Easy**, **Ardougne Medium**, …) with its count and a progress bar,
+under its area, in the game's order.
+
+- Click a tier to open it. Each tier has **Needs** (levels, quests, items to bring, notes for Ironmen),
+  **Tasks** and **Rewards**.
+- Click a task to tick it. A task that needs more than you have says so in red, like "Needs 5 Thieving ✗ (you: 3)".
+  The wiki's tip for a task is right under it. **Done, next task** ticks the next one.
+- A task with a numbered list on the wiki (or a lot of text) has steps. Ticking the task ticks its steps;
+  ticking all steps ticks the task.
+- **Search** finds tiers ("ardougne hard") and tasks by name. Tick a task right in the results,
+  or press **Enter** to open its tier. The first search reads all 13 areas once.
+
+## Scan achievements
+
+In the settings, only in Alt1. The app reads the game and sets every task to what the game shows:
+done is ticked, not done (or locked) is unticked.
+
+1. In the game, open **Hero → Achievements → Area Tasks** and click a tier, for example **Easy Ardougne**.
+   Keep **Show Completed** on and **List Mode** off.
+2. Press **Start**. A green bar at the top names the tier and the tasks in view.
+3. Scroll each list down, then click the next tier in the game. Go through them all, top to bottom.
+
+How it knows where it is:
+
+- **The tier:** the one with the gold box in the list on the left. The app counts it from the **Area Tasks**
+  title above Easy Ardougne (or the next title, below the last tier). It remembers what each tier's name looks like,
+  so after one scan with the title in view it knows them without it. If it cannot tell, it asks you to scroll the
+  list on the left up until **Area Tasks** shows.
+- **The tasks:** a new tier starts at the top of its list (the scrollbar says when it is). When you scroll,
+  each row is matched to the row it looks most like in the last look. A tier or a task only changes when two looks
+  in a row agree, so a tooltip or a moving background does not confuse it.
+- If the bar shows the wrong tier, use **◀ ▶**. They hold until you click another tier in the game.
+  **Stop** ends the scan.
+- It works at any interface size and on big screens. If it cannot see the list, the bar says so.
+
+## Settings (the cog)
+
+The same on every screen:
+
+- **Player:** look up your character, update it, or forget it.
+- **Quest list:** sort, **Hide completed**, **Hide miniquests**, **Hide locked**. Hide completed and Hide locked work for area tiers too.
+- **Display:** **Show done steps** (to untick one) and **Text size** (12 to 40).
+- **Update quest list** reads the lists from the wiki again.
+- **Scan achievements** (only in Alt1).
+- **Backup:** **Export state** and **Import state** (below).
+- **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, settings and your character.
+  It takes two clicks, the second within 4 seconds.
+
+The **⋯** button in a quest or area refreshes it from the wiki, opens it on the wiki, or resets its progress.
+
+## Export and import
+
+**Export state** gives a JSON file with **every quest and every area task**, each `true` (done) or `false` (not done).
+**Download file** saves it; **Copy** puts the text on the clipboard (use Copy inside Alt1 if the download does not work).
+
+Change it in any text editor, then **Import state**, **Choose a file**, **Import**. The number at the start of a task
+(`447 …`) or a step (`993:1 …`) is how the app finds it; a task can also be written by its name alone.
 
 ```json
 {
@@ -120,7 +116,6 @@ is how the app finds it; a task can also be written by its name alone.
   "player": { "name": "Zezima", "quests": { "cooksassistant": 2 }, "levels": { "magic": 80 } },
   "quests": {
     "Cook's Assistant": true,
-    "Imp Catcher": false,
     "While Guthix Sleeps": {
       "done": false,
       "progress": "10 / 118",
@@ -129,130 +124,77 @@ is how the app finds it; a task can also be written by its name alone.
     }
   },
   "areas": {
-    "Ardougne": {
-      "Easy": {
-        "447 The Essence of Magic": true,
-        "448 Yoink!": false
-      }
-    },
-    "Varrock": {
-      "Elite": {
-        "993 Red, Red Pies of Summer": { "done": false, "steps": { "993:1 Make pastry dough…": true } }
-      }
-    }
+    "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
   }
 }
 ```
 
-- A whole quest set to `true` shows as done in the list (the game's own data, when you looked up a player, still counts too).
-- Steps of a quest are only listed for quests you opened; the others are one line.
-- To put the tasks in the file, the app reads all 13 area pages first (once).
-- Import replaces the ticks of the quests and areas in the file and leaves the others. It says what is wrong with
-  a file it cannot read, and changes nothing then. Files from the first version (format 1) still import.
-
-### Area tasks
-
-- One tab per tier: **Easy**, **Medium**, **Hard**, **Elite** (Lumbridge: **Beginner** to **Hard**).
-- **Needs**: the levels and quests the whole tier needs, the items to bring, and notes for Ironmen.
-  Levels are one line each, like the wiki: "16 [icon] Thieving ✓". With a player, the level is green when you have it,
-  and red with a ✗ and your level when you do not. "(boostable)" follows a level the wiki marks with "(b)".
-  Quests show their skill levels the same way.
-  Done quests get a ✓, and a quest name opens that quest.
-- **Tasks**: click a task to tick it. "Needs 5 Thieving (you: 3)" in red means you cannot do it yet.
-  The wiki's tip for how to do it is right under the task. **Done, next task** ticks the next one.
-- **Needs** and **Tasks** fold open and shut. When you finish a tier, its tasks fold shut;
-  open them again to see the done tasks and untick one.
-- **Rewards**: what you get for the tier, and what it does.
-- The game does not share which tasks you have done. Tick them yourself, or let the app read them:
-- **Scan achievements** (in the settings, only in Alt1, which runs on a computer): the app reads the game and sets
-  every area task to what the game shows.
-  1. In the game, open **Hero → Achievements → Area Tasks** and click a tier (for example **Easy Ardougne**).
-     Keep **Show Completed** on and **List Mode** off.
-  2. Press **Start**. A green bar at the top says which tier the app is on and which tasks are in view.
-  3. Scroll each list down, then click the next one in the game.
-  - The app sees which tier is picked in the game: the one with the gold box in the list on the left. It counts it
-    from the **Area Tasks** title right above Easy Ardougne (or from the next title, below the last tier), so you can
-    start anywhere. It remembers what each name looks like, also for the next scans, so after one scan with the title
-    in view it knows them all it has seen. If it cannot tell, it asks you to scroll the list on the left up until
-    Area Tasks shows. If the bar shows the wrong tier, use
-    **◀ ▶**: they hold until you pick another tier in the game. **Stop** ends it.
-  - When it first sees a tier, it only starts if the list is at the top (the scrollbar says so); else it asks you to
-    scroll the list to the top. A tier or a task only changes when two looks in a row agree.
-  - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked. A locked task whose
-    grey badge is too faint still counts, by its lock. Some badges have green of their own (Desert): only a tick counts.
-    The **Set tasks** page you see before picking a tier changes nothing.
-  - It reads only the bright text, so the game moving behind the window does not confuse it. When the rows have not
-    moved, it keeps its place without comparing; when they have, each row is matched to the row it looks most like,
-    and a row under a tooltip simply does not count.
-  - If it cannot see the list, the bar says so, and how big a picture Alt1 hands over (or that it hands over none).
-- Each tier has its own row with its count ("2 / 23") and a progress bar, under its area, in the game's order.
-  A finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
-  says **Locked**. **Hide completed** and **Hide locked** work here too.
-- **Search** finds tiers ("ardougne hard") and tasks (by name). The first time you search, the app reads all 13 areas
-  once, so every task can be found; after that it is instant. Tick a task right in the results,
-  or click the area and tier under it to open it. This is the quick way to put your progress in on a fresh start.
-- Some tasks have **steps** (a numbered list on the wiki, like Red, Red Pies of Summer). They work like the steps of a quest:
-  ticking a task ticks its steps, and ticking all steps ticks the task.
-- A task with a lot of text (more than 250 letters) is split into steps too: one per paragraph, and one per sentence
-  for a long paragraph. A line that ends with ":" keeps its list under it.
-
-On a phone the page does not zoom when you pinch or double-tap.
+- Steps are only listed for quests you opened; the others are one line.
+- Import replaces the ticks of the quests and areas in the file and leaves the others alone.
+  If a file has a mistake, it says what is wrong and changes nothing. Files from the first version still import.
 
 ## What is saved
 
-Everything is in the browser's local storage, on that computer. All keys start with `qg1.`:
+Everything is in the browser's local storage, on your computer. All keys start with `qg1.`:
 
 | Key | What |
 | --- | --- |
-| `list` | Every quest from the wiki list (name, members, length, difficulty, points, series, date) |
-| `meta` | One small entry per quest you opened (ticks done, total, last opened) |
-| `quest.<page>` | The full parsed guide of one quest, as JSON |
-| `prog.<page>` | Your ticks for that quest |
-| `settings`, `last` | Display settings, and the quest that was open last |
+| `list`, `minis` | Every quest and miniquest from the wiki's lists |
 | `order` | The wiki's optimal quest order |
-| `player` | The character you looked up: name, quests done or started, skill levels |
+| `quest.<page>`, `prog.<page>` | A quest's guide, and your ticks for it |
+| `meta` | One small entry per quest you opened (steps done, total, last opened) |
+| `qdone` | Quests marked done by an import |
+| `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
+| `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
+| `settings`, `last` | Your settings, and the quest or area that was open last |
+| `player` | The character you looked up: quests done or started, skill levels |
+| `scannames` | What each tier's name looks like in the game (for Scan achievements) |
 
-Local storage holds about 5 MB. If it gets full, the guides you opened longest ago are dropped
-(your ticks stay). They are read from the wiki again when you open them.
+Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
+and read from the wiki again when you open them.
 
 ## How it reads the wiki
 
-- `quests.js` reads the quest list: `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`
-- `quests.js` also reads the optimal order: the same address with `page=Quests/Progression_guide`
-- `parser.js` reads one guide: `https://runescape.wiki/api.php?action=parse&page=<Quest>/Quick_guide&prop=text|jsconfigvars&origin=*`
-  It turns the page into JSON with these parts: `overview`, `requiredItems`, `recommendedItems`,
-  `sections` (each with `blocks`: steps, sub-steps, chat options, pictures, maps, tables, notes, warnings,
-  "bring" lists), `rewards`, `music`, `achievements` and `requiredFor`.
-  If a quest has no Quick guide, it falls back to the quest's main page.
+- `quests.js` reads the quest lists and the optimal order through the wiki's API, for example
+  `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
+- `parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
+  and the area pages (`<Area>_achievements`), and turns them into JSON.
 - Map pictures load from `maps.runescape.wiki`.
-- The player lookup asks the wiki too. The wiki passes on Jagex's RuneMetrics data and lets any web page read it:
-  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` (quests) and
-  `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>` (levels).
-  No other service is used, so it works from GitHub Pages as it is.
+- The character lookup goes through the wiki too, which passes on Jagex's RuneMetrics data:
+  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` and
+  `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>`.
+
+No other service is used.
+
+## Files
+
+| File | What it is |
+| --- | --- |
+| `index.html`, `style.css` | The page and its look |
+| `app.js` | The screens, ticks, settings, export and import, and the scan |
+| `parser.js` | Reads a quest guide or an area page from the wiki |
+| `quests.js` | Reads the quest lists and the optimal order |
+| `reader.js` | Reads the game's task list from the screen (for Scan achievements) |
+| `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
+| `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
+| `tests/`, `playwright.config.js`, `package.json` | The tests |
+| `.github/workflows/tests.yml` | Runs the tests on GitHub |
+| `designs/` | Design boards and screenshots of every screen |
+
+When you change a file, also raise the `?v=1.25.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
-The tests use [Playwright](https://playwright.dev/) with Chromium, the same browser engine as Alt1.
-They open the app in a 360 × 720 window, like Alt1, and click through it like a person would.
+The tests use [Playwright](https://playwright.dev/) with Chromium, the browser Alt1 is built on. They open the app
+in a 360 × 720 window, like Alt1, and click through it like a person would.
 
-- **On GitHub:** they run for every pull request and every push to `main` (the **Actions** tab).
-  A red ✗ on a pull request means something broke.
-- **The wiki:** the normal tests use a fake copy of the wiki (`tests/fixtures/`), so they need no internet
-  and never fail because the wiki is slow.
-- **Live check:** once a week, GitHub also checks the app against the real wiki, to catch wiki changes
-  that would break it. You can start it by hand: **Actions → Tests → Run workflow**.
-
-What they cover: the quest list (search, sorting, groups, opening quests, errors), the three tabs,
-the player lookup, ticking steps and items, sub-steps, chat options, "Bring" boxes, maps, pictures and tables,
-"Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
-storage, Alt1, missing files, the window look, and the parser itself.
-
-**Scan achievements** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
-with a fake Alt1: not done, done and locked tasks; the picture made bigger, darker, greyer, blurry and as a JPEG;
-40 made-up busy screens full of red and green shapes, where it must never find a list that is not there;
-reading the picked tier from the gold box, skipping ahead and back; unticking what is not done; a picture that flickers on every look,
-with and without scrolling; a tooltip over some rows; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
-pictures (and a big screen in strips); a picture that fails to come through; and how fast it is.
+- They run on GitHub for every pull request and every push to `main` (the **Actions** tab).
+- They use a fake copy of the wiki (`tests/fixtures/`), so they need no internet.
+- Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
+- **Scan achievements** is tested on screenshots of the game (`tests/fixtures/game/`) with a fake Alt1: done, not done
+  and locked tasks; bigger screens and interface sizes; blurry, dark and JPEG pictures; busy screens where no list
+  may be found; scrolling (slow, fast, too far); tooltips; a see-through window; both ways Alt1 hands over pictures;
+  and how fast one look is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 
@@ -262,7 +204,8 @@ npx playwright install chromium
 npm test
 ```
 
-`npm run test:live` runs the live check. It needs the internet.
+- `npm run test:live` checks against the real wiki (needs the internet).
+- `npm run coverage` runs the tests and shows how much of each file they run.
 
 ## Credits
 

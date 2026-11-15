@@ -441,6 +441,23 @@ test.describe('searching the area tasks', () => {
     await expect(page.locator('.tab[data-tier="medium"]')).toHaveAttribute('aria-selected', 'true');
   });
 
+  test('Enter with a task name opens the tier it is in; with nothing found, it says so', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'red, red');
+    await expect(taskRows(page)).toHaveCount(1);
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('h1.qt')).toHaveText('Varrock');
+    await expect(page.locator('.tab[data-tier="elite"]')).toHaveAttribute('aria-selected', 'true');
+    await page.getByRole('button', { name: 'All areas' }).click();
+    await search(page, 'no such thing');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('#load-err')).toHaveText('Nothing matches “no such thing”.');
+    await search(page, '');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('#load-err')).toHaveText('Type an area or task name first.');
+  });
+
   test('says when some areas could not be read, and tries again', async ({ page, wiki }) => {
     withAllAreas(wiki).fail('Desert achievements', 'http');
     await areasTab(page);
@@ -586,11 +603,19 @@ test.describe('an area', () => {
     await expect(sk.nth(1).locator('.lv')).toHaveCSS('color', 'rgb(102, 211, 92)');
     await expect(sk.nth(1).locator('.tk')).toHaveText('\u2713');
     await expect(n.locator('.sech .c')).toHaveText('1 too low');
-    await expect(n.locator('.tree li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
+    // quests: done ones get a green tick after the name, the rest a red cross
+    await expect(n.locator('.tree li.got')).toHaveText(['Biohazard ✓', 'Plague City ✓']);
+    await expect(n.locator('.tree li.got .tk').first()).toHaveCSS('color', 'rgb(102, 211, 92)');
+    await expect(n.locator('.tree li:not(.got)')).toHaveCount(await n.locator('.tree li .no').count());
+    for (const li of await n.locator('.tree li:not(.got)').all()) {
+      await expect(li).toHaveText(/ ✗$/);
+      await expect(li.locator('.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
+    }
     // a task that needs more than you have says so
     await expect(task(page, '448').locator('.need')).toHaveText('Needs 5 Thieving \u2717 (you: 3)');
     await expect(task(page, '448').locator('.need')).toHaveClass(/\blow\b/);
     await expect(task(page, '450').locator('.need')).toHaveText('Needs Plague City ✓');
+    await expect(task(page, '450').locator('.need .tk')).toHaveCSS('color', 'rgb(102, 211, 92)');
   });
 
   test('a quest in Needs opens that quest', async ({ page, wiki }) => {

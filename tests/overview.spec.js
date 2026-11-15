@@ -1,5 +1,5 @@
 // The Overview tab: Details, Skills, Enemies and Rewards.
-const { test, expect, stored, openQuest } = require('./support/app');
+const { test, expect, stored, openQuest, openTab, part } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const ov = (page, id) => page.locator('section[data-ov="' + id + '"]');
@@ -137,4 +137,28 @@ test.describe('rewards', () => {
     await box(body(page, 'rewards'), 'Music unlocked').locator('summary').click();
     await expect.poll(async () => Object.values((await stored(page, 'prog.' + WGS)).acc)).toEqual([1]);
   });
+});
+
+test('rewards under their own heading get their own list', async ({ page, wiki }) => {
+  wiki.page('Imp Catcher/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>' +
+    '<h2>Rewards</h2><ul><li>2 quest points</li></ul><h3>Other</h3><ul><li>A lamp</li><li>A cake</li></ul>');
+  await openQuest(page, expect, 'Imp Catcher');
+  const r = body(page, 'rewards');
+  await expect(r.locator('h2.bh')).toHaveText(['Rewards', 'Other']);
+  await expect(r.locator('ul.plain').nth(0).locator('li')).toHaveText(['2 quest points']);
+  await expect(r.locator('ul.plain').nth(1).locator('li')).toHaveText(['A lamp', 'A cake']);
+});
+
+test('a gallery of pictures in a part is one "Pictures" box', async ({ page, wiki }) => {
+  wiki.page('Imp Catcher/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>' +
+    '<ul class="gallery"><li class="gallerybox"><div class="thumb"><img src="/images/A.png" width="120" alt="A"></div><div class="gallerytext">First</div></li>' +
+    '<li class="gallerybox"><div class="thumb"><img src="/images/B.png" width="120" alt="B"></div><div class="gallerytext">Second</div></li></ul>');
+  await openQuest(page, expect, 'Imp Catcher');
+  await openTab(page, 'steps');
+  const stepsBox = (scope, label) => scope.locator('details.acc').filter({ has: scope.page().locator('summary .sl', { hasText: label }) }).first();
+  const pics = stepsBox(part(page, 'Part'), 'Pictures');
+  await expect(pics.locator('summary .m')).toHaveText('2 pictures');
+  await expect(pics.locator('img')).toHaveCount(2);
+  await expect(pics.locator('img').first()).toHaveAttribute('src', 'https://runescape.wiki/images/A.png');
+  expect(page.errors).toEqual([]);
 });
