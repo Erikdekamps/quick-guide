@@ -1,6 +1,6 @@
 # Quick Guide
 
-A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser, in the game's brown window style.
+A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser. It looks like the game's own Hero window.
 
 - **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
 - **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.

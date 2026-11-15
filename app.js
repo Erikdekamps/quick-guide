@@ -827,7 +827,7 @@
     S.view = 'start';
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
+      '<header class="hdr"><img class="emb" src="icon.png" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
       '<nav class="tabs home" role="tablist" aria-label="Lists">' + HOMES.map(function (h) {
         return '<button class="tab" type="button" role="tab" data-home="' + h[0] + '" aria-selected="' + (S.set.home === h[0]) + '"><span class="tl-l">' + h[1] + '</span></button>';
       }).join('') + '</nav>' +
@@ -1173,7 +1173,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button></div>' +
+      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button>' +
       '<h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1><div class="hs he">' + cogHtml() + dotsHtml() + '</div></header>' +
       '<div class="prog"><progress class="pg" id="pg" value="0" max="1" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt"></span></div>' +
       '<nav class="tabs" role="tablist" aria-label="Guide parts">' + TABS.map(tabHtml).join('') + '</nav>' +
@@ -1789,7 +1789,7 @@
     }
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas">' + I.back + '</button></div>' +
+      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas">' + I.back + '</button>' +
       '<h1 class="qt" title="' + esc(a.name) + '">' + esc(a.name) + '</h1><div class="hs he">' + cogHtml() + areaDotsHtml() + '</div></header>' +
       '<div class="prog"><progress class="pg" id="pg" value="' + done + '" max="' + Math.max(t.tasks.length, 1) + '" aria-label="Tier progress"></progress>' +
       '<span class="cnt" id="pg-cnt">' + done + ' / ' + plural(t.tasks.length, 'task', 'tasks') + '</span></div>' +
