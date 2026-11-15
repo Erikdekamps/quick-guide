@@ -22,7 +22,7 @@ so they match it.
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |
-| `Components.dc.html` | All parts, colors and type |
+| `Components.dc.html` | All parts, colors and type, with skill and quest requirements like the wiki |
 | `Data.dc.html` | The quest JSON shape, and what is saved |
 | `canvas.json` | Board layout on the canvas |
 
@@ -31,3 +31,6 @@ These files are made for the design canvas. Opened on their own in a browser, th
 ## Screenshots
 
 PNG pictures of each board are in `screenshots/`, at 2× size.
+
+Skill icons come from the wiki. In the pictures, Mining, Smithing and Necromancy are the wiki's own icons; any other
+skill shows a dashed square where its icon goes (the app and the boards load the real one from the wiki).
