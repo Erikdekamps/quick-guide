@@ -142,8 +142,12 @@
     var mh = median(list.map(function (b) { return b.h; })), mw = median(list.map(function (b) { return b.w; }));
     list = list.filter(function (b) { return b.h <= mh * 1.6 && b.w <= mw * 1.6; });
     if (list.length < 4) return [];
+    // A badge that came out clearly taller than the others took in something below it: its place is its top plus
+    // the usual height, not its bottom.
+    list.forEach(function (b) { b.yb = b.h > mh * 1.25 ? b.y0 + Math.round(mh) - 1 : b.y1; });
+    list.sort(function (a, b) { return a.yb - b.yb; });
     var gaps = [];
-    for (var i = 1; i < list.length; i++) gaps.push(list[i].y1 - list[i - 1].y1);
+    for (var i = 1; i < list.length; i++) gaps.push(list[i].yb - list[i - 1].yb);
     var p = step(gaps, mh), best = [list[0]], run = [list[0]];
     if (!p) return [];
     for (i = 1; i < list.length; i++) {
@@ -206,16 +210,33 @@
       var partial = b.y0 <= 0 || b.y1 >= h - 1 || (edge && (b.h < mh * 0.5 || b.w < mw * 0.5));
       // Done or not is counted in a badge-sized box on the row, at the column's place: not in the blob,
       // which may have taken in something next to the badge.
-      var c = count(px, w, h, cx0, Math.max(0, b.y1 - mh + 1), cx1, b.y1), all = c.red + c.green + c.lock || 1;
+      var c = count(px, w, h, cx0, Math.max(0, b.yb - mh + 1), cx1, b.yb), all = c.red + c.green + c.lock || 1;
       return {
-        y: b.y1, h: b.h,
+        y: b.yb, h: b.h,
         // The text next to the badge (bright pixels only): the same row looks the same after a scroll,
         // whatever shows through the window behind it.
-        done: c.green / all >= 0.08,
+        // A tick is a lot of bright green (a third or more); some emblems (Desert) have a little green of their own.
+        done: c.green / all >= 0.2,
         locked: c.lock > c.green && c.lock >= all * 0.3,
         partial: partial
       };
     });
+    // A locked task whose grey badge is too faint to be found shows only its small lock: look in each empty place
+    // between the rows found, and add a locked row where the lock is.
+    var gp = pitch(rows);
+    if (gp) {
+      for (var gi = 1; gi < rows.length; gi++) {
+        var k = Math.round((rows[gi].y - rows[gi - 1].y) / gp);
+        for (var gk = 1; gk < k; gk++) {
+          var gy = Math.round(rows[gi - 1].y + (rows[gi].y - rows[gi - 1].y) * gk / k);
+          var gc = count(px, w, h, cx0, gy - mh + 1, cx1, gy);
+          if (gc.lock >= 10 && gc.lock > gc.green) {
+            rows.splice(gi, 0, { y: gy, h: mh, done: false, locked: true, partial: false });
+            gi++;
+          }
+        }
+      }
+    }
     // At least 4 whole rows: a few shapes that only happen to line up are not a list.
     if (rows.filter(function (r) { return !r.partial; }).length < 4) return { found: false, rows: [] };
     var x0 = Math.min.apply(null, best.map(function (b) { return b.x0; }));
