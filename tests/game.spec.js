@@ -925,8 +925,21 @@ test.describe('Scan achievements in Alt1', () => {
     const ms = await page.evaluate(() => window.__ticks.slice(2));
     // The middle one: one slow look (the test machine is busy with other tests) does not count.
     const mid = ms.slice().sort((a, b) => a - b)[Math.floor(ms.length / 2)];
-    console.log('one look, ms:', ms.map((x) => Math.round(x)).join(' '), 'middle', Math.round(mid));
-    expect(mid).toBeLessThan(100);
+    // How fast this machine is right now, measured the same way: a plain pass over as many pixels as one look
+    // reads (the middle one of 9, with the other tests still running). A look takes about 15 such passes, and
+    // may take 25: the test machines on GitHub differ and are shared, so a fixed time would fail on a slow day.
+    const ref = await page.evaluate(() => {
+      const n = 1048 * 1360, px = new Uint8ClampedArray(n * 4).fill(37), out = new Uint8Array(n), times = [];
+      for (let k = 0; k < 9; k++) {
+        const t = performance.now();
+        for (let i = 0, j = 0; i < n; i++, j += 4) out[i] = ((px[j] + px[j + 1] + px[j + 2]) * 21846) >> 16;
+        times.push(performance.now() - t);
+      }
+      return times.sort((x, y) => x - y)[4];
+    });
+    const limit = Math.max(75, 25 * ref);
+    console.log('one look, ms:', ms.map((x) => Math.round(x)).join(' '), 'middle', Math.round(mid), '| plain pass', ref.toFixed(1), 'ms, limit', Math.round(limit));
+    expect(mid).toBeLessThan(limit);
   });
 
   test('when Alt1 gives no picture, the bar says so', async ({ page }) => {
