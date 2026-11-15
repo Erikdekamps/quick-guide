@@ -11,18 +11,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
 <style>
 /* Quick Guide - style.css
-   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
-   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Looks like a RuneScape 3 window in the brown interface skin, like the game's Hero window: a bronze rim,
+   a dark title band with the name in gold capitals on the left, square bronze buttons, tabs on a bronze
+   line, warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
    Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
    Window parts (title band, tabs, menus, footer) use px so they always fit. */
 :root {
   color-scheme: dark;
   /* window */
   --win: #1b1713;          /* window body, around the panels */
-  --deep: #13100d;         /* the scrolling panel */
-  --hover: #211c17;        /* a row under the mouse */
-  --sel: #2a241d;          /* the next step */
-  --rule: #2b251f;         /* thin lines between rows */
+  --deep: #25211e;         /* the scrolling panel */
+  --hover: #2e2925;        /* a row under the mouse */
+  --sel: #352e27;          /* the next step */
+  --rule: #342e28;         /* thin lines between rows */
+  --line: #6d5e4a;         /* the line the tabs sit on */
   /* bronze rim and frames */
   --rim-1: #67584a;
   --rim-2: #8a7046;
@@ -48,6 +50,16 @@
   --muted: #b8ac97;
   --faint: #968b7b;
   --title: #e8d4a2;
+  --hero: #e3c39b;         /* the window's name, like "HERO" in the game */
+  /* square buttons, like the game's "i" button */
+  --btn-edge: #827660;
+  --btn-top: #484035;
+  --btn-bot: #2d2619;
+  --btn-sign: #c8b084;
+  /* tick boxes */
+  --cb-edge: #6e604a;
+  --cb-in: #17110b;
+  --cb-tick: #dfbe89;
   --gold: #f2c45e;
   --orange: #ff981f;
   --link: #f3c565;
@@ -135,17 +147,18 @@ button, input, select { font: inherit; color: inherit; }
   border-bottom: 1px solid #4a3c28;
   box-shadow: 0 1px 0 #0c0a08;
 }
-/* both sides are the same width, so the name sits in the middle */
-.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
-.he { justify-content: flex-end; }
+/* like the game's Hero window: the emblem (or the back button), the name on the left, the buttons on the right */
+.hs { flex: none; display: flex; align-items: center; gap: 3px; }
+.he { margin-left: auto; }
+.emb { flex: none; width: 26px; height: 26px; filter: drop-shadow(0 1px 0 #000); }
 .qt {
   flex: 1;
   min-width: 0;
   margin: 0;
-  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
-  letter-spacing: .05em;
-  color: var(--title);
-  text-align: center;
+  font: 700 16px/1.2 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .04em;
+  color: var(--hero);
+  text-align: left;
   text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
   overflow-wrap: break-word;
   /* long names stop after two lines; the full name is in the tooltip */
@@ -154,24 +167,24 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/* small square buttons, like the close button on a game window, in bronze */
+/* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
   place-items: center;
   flex: none;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  background: linear-gradient(#3a3027, #221c16);
-  border: 1px solid #5c4a2e;
+  background: linear-gradient(var(--btn-top), var(--btn-bot));
+  border: 1px solid var(--btn-edge);
   border-radius: 2px;
-  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
-  color: var(--title);
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 230, 180, .12);
+  color: var(--btn-sign);
   cursor: pointer;
 }
-.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
-.ib:active { background: linear-gradient(#1d1813, #2c241c); }
-.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:hover { background: linear-gradient(#574c3e, #352d20); border-color: #a8977a; color: #ecd6a8; }
+.ib:active { background: linear-gradient(#2d2619, #3b3326); }
+.ib[aria-expanded="true"] { border-color: #a8977a; color: var(--gold); background: linear-gradient(#2d2619, #3b3326); }
 .ib:disabled { opacity: .4; cursor: default; }
 .ib.xs { width: 24px; height: 24px; }
 .ib.xs .i { width: 14px; height: 14px; }
@@ -221,16 +234,16 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
-/* an on/off setting: a tick box, like the game's settings */
+/* an on/off setting: a tick box, like the game's ("Show Completed"): a bronze edge and a gold tick */
 .tg {
   position: relative;
   flex: none;
   width: 16px;
   height: 16px;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
-  box-shadow: inset 0 1px 3px #000;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 3px #000;
 }
 .tg::after {
   content: "";
@@ -239,7 +252,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   top: 0;
   width: 5px;
   height: 10px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -285,27 +298,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   height: 28px;
   margin-top: 3px;
   padding: 0 6px;
-  background: linear-gradient(#302a23, #231e19);
-  border: 1px solid #4a3d2b;
-  border-bottom-color: var(--bronze);
+  background: linear-gradient(#30241f, #241a17);
+  border: 1px solid #4a4134;
+  border-bottom-color: var(--line);
   border-radius: 3px 3px 0 0;
   box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
-  color: var(--muted);
+  color: #9b938f;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
 }
-.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab:hover { color: #ddd5c9; background: linear-gradient(#3b2d27, #2b201c); }
+/* the open tab: lit, in warm brown, on the line like the others (as in the game) */
 .tab[aria-selected="true"] {
-  height: 31px;
-  margin-top: 0;
-  background: var(--deep);
-  border-color: var(--bronze);
-  border-bottom-color: var(--deep);
-  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
-  color: var(--gold);
+  background: linear-gradient(#615140, #4b3627 45%, #382210);
+  border-color: #8f7552;
+  border-bottom-color: var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 225, 180, .2);
+  color: #f0e8dc;
   cursor: default;
 }
 .tab .i { display: none; width: 15px; height: 15px; }
@@ -321,25 +333,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   overflow-wrap: anywhere;
   background: var(--deep);
   border: 1px solid var(--bronze);
+  border-top-color: var(--line);
   border-radius: 2px;
   box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
 }
 .tabs + .scroll { margin-top: 0; }
 /* the game's gold scrollbar */
 .scroll::-webkit-scrollbar { width: 12px; }
-.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-track { background: #14130f; border-left: 1px solid #2b251f; }
 .scroll::-webkit-scrollbar-thumb {
   min-height: 32px;
-  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background: linear-gradient(90deg, #fae9bc, #fad69b 25%, #c8a067 50%, #82663e 75%, #4d3d25);
   background-clip: padding-box;
   border: 2px solid transparent;
   border-left-width: 3px;
   border-radius: 6px;
 }
 .scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
-.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #14130f; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
 
 /* part headers: raised bars. They stay at the top while you scroll through their steps. */
 /* 1px up, so no sliver of the list shows above the header */
@@ -470,7 +483,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
 
-/* tick boxes: a dark inset square with a gold tick */
+/* tick boxes, like the game's: a dark square with a bronze edge and a gold tick */
 .cb {
   -webkit-appearance: none;
   appearance: none;
@@ -480,8 +493,8 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: 1.286rem;
   height: 1.286rem;
   margin: 1px 0 0;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
   box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
   cursor: pointer;
@@ -491,7 +504,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: .429rem;
   height: .786rem;
   margin-top: -2px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -850,7 +863,7 @@ ul.steps.ql { padding: 0; }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="true"><span class="tl-l">Area tasks</span></button></nav><main class="scroll" id="main"><form class="find" id="load-form"><label class="vh" for="quest-link">Search areas and tasks</label><div class="row-f"><input class="inp" id="quest-link" name="link" type="text" placeholder="Search areas and tasks"><button class="btn" type="submit">Open</button></div></form><div id="qarea"><p class="qmeta"><span id="qcount">13 areas</span><span class="how"> · Sir Example</span></p><h2 class="gh"><button class="ghb" type="button" data-group="Ardougne" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Ardougne</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q started" type="button" data-area="Ardougne" data-atier="easy"><span class="q1"><b>Ardougne Easy</b><span class="qs">2 / 23</span></span><span class="q2">23 tasks</span><progress class="pg" value="2" max="23" aria-hidden="true"></progress></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="medium" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Medium</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">16 tasks</span></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="hard" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Hard</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">17 tasks</span></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="elite" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Elite</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">5 tasks</span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Daemonheim" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Daemonheim</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Daemonheim" data-atier="easy"><span class="q1"><b>Daemonheim Easy</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="medium"><span class="q1"><b>Daemonheim Medium</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="hard"><span class="q1"><b>Daemonheim Hard</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="elite"><span class="q1"><b>Daemonheim Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Desert" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Desert</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Desert" data-atier="easy"><span class="q1"><b>Desert Easy</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="medium"><span class="q1"><b>Desert Medium</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="hard"><span class="q1"><b>Desert Hard</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="elite"><span class="q1"><b>Desert Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Falador" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Falador</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Falador" data-atier="easy"><span class="q1"><b>Falador Easy</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="medium"><span class="q1"><b>Falador Medium</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="hard"><span class="q1"><b>Falador Hard</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="elite"><span class="q1"><b>Falador Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Fremennik" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Fremennik</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Fremennik" data-atier="easy"><span class="q1"><b>Fremennik Easy</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="medium"><span class="q1"><b>Fremennik Medium</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="hard"><span class="q1"><b>Fremennik Hard</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="elite"><span class="q1"><b>Fremennik Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Karamja" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Karamja</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Karamja" data-atier="easy"><span class="q1"><b>Karamja Easy</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="medium"><span class="q1"><b>Karamja Medium</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="hard"><span class="q1"><b>Karamja Hard</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="elite"><span class="q1"><b>Karamja Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Lumbridge" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Lumbridge</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Lumbridge" data-atier="beginner"><span class="q1"><b>Lumbridge Beginner</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="easy"><span class="q1"><b>Lumbridge Easy</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="medium"><span class="q1"><b>Lumbridge Medium</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="hard"><span class="q1"><b>Lumbridge Hard</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Morytania" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Morytania</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Morytania" data-atier="easy"><span class="q1"><b>Morytania Easy</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="medium"><span class="q1"><b>Morytania Medium</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="hard"><span class="q1"><b>Morytania Hard</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="elite"><span class="q1"><b>Morytania Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Seers' Village" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Seers' Village</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Seers' Village" data-atier="easy"><span class="q1"><b>Seers' Village Easy</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="medium"><span class="q1"><b>Seers' Village Medium</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="hard"><span class="q1"><b>Seers' Village Hard</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="elite"><span class="q1"><b>Seers' Village Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Tirannwn" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tirannwn</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Tirannwn" data-atier="easy"><span class="q1"><b>Tirannwn Easy</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="medium"><span class="q1"><b>Tirannwn Medium</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="hard"><span class="q1"><b>Tirannwn Hard</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="elite"><span class="q1"><b>Tirannwn Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Underworld" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Underworld</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Underworld" data-atier="easy"><span class="q1"><b>Underworld Easy</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="medium"><span class="q1"><b>Underworld Medium</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="hard"><span class="q1"><b>Underworld Hard</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="elite"><span class="q1"><b>Underworld Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Varrock" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Varrock</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Varrock" data-atier="easy"><span class="q1"><b>Varrock Easy</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="medium"><span class="q1"><b>Varrock Medium</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="hard"><span class="q1"><b>Varrock Hard</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="elite"><span class="q1"><b>Varrock Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Wilderness" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Wilderness</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Wilderness" data-atier="easy"><span class="q1"><b>Wilderness Easy</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="medium"><span class="q1"><b>Wilderness Medium</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="hard"><span class="q1"><b>Wilderness Hard</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="elite"><span class="q1"><b>Wilderness Elite</b></span></button></li></ul></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main><div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h"><h2 class="dh" id="bk-h">Export state</h2><p class="para">Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.</p><textarea class="inp tx" id="bk-text" aria-label="Exported state" readonly="">{ …
+<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.png" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="true"><span class="tl-l">Area tasks</span></button></nav><main class="scroll" id="main"><form class="find" id="load-form"><label class="vh" for="quest-link">Search areas and tasks</label><div class="row-f"><input class="inp" id="quest-link" name="link" type="text" placeholder="Search areas and tasks"><button class="btn" type="submit">Open</button></div></form><div id="qarea"><p class="qmeta"><span id="qcount">13 areas</span><span class="how"> · Sir Example</span></p><h2 class="gh"><button class="ghb" type="button" data-group="Ardougne" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Ardougne</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q started" type="button" data-area="Ardougne" data-atier="easy"><span class="q1"><b>Ardougne Easy</b><span class="qs">2 / 23</span></span><span class="q2">23 tasks</span><progress class="pg" value="2" max="23" aria-hidden="true"></progress></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="medium" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Medium</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">16 tasks</span></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="hard" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Hard</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">17 tasks</span></button></li><li><button class="q locked" type="button" data-area="Ardougne" data-atier="elite" title="You do not have what this tier needs yet"><span class="q1"><b>Ardougne Elite</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">5 tasks</span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Daemonheim" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Daemonheim</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Daemonheim" data-atier="easy"><span class="q1"><b>Daemonheim Easy</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="medium"><span class="q1"><b>Daemonheim Medium</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="hard"><span class="q1"><b>Daemonheim Hard</b></span></button></li><li><button class="q" type="button" data-area="Daemonheim" data-atier="elite"><span class="q1"><b>Daemonheim Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Desert" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Desert</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Desert" data-atier="easy"><span class="q1"><b>Desert Easy</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="medium"><span class="q1"><b>Desert Medium</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="hard"><span class="q1"><b>Desert Hard</b></span></button></li><li><button class="q" type="button" data-area="Desert" data-atier="elite"><span class="q1"><b>Desert Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Falador" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Falador</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Falador" data-atier="easy"><span class="q1"><b>Falador Easy</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="medium"><span class="q1"><b>Falador Medium</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="hard"><span class="q1"><b>Falador Hard</b></span></button></li><li><button class="q" type="button" data-area="Falador" data-atier="elite"><span class="q1"><b>Falador Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Fremennik" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Fremennik</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Fremennik" data-atier="easy"><span class="q1"><b>Fremennik Easy</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="medium"><span class="q1"><b>Fremennik Medium</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="hard"><span class="q1"><b>Fremennik Hard</b></span></button></li><li><button class="q" type="button" data-area="Fremennik" data-atier="elite"><span class="q1"><b>Fremennik Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Karamja" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Karamja</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Karamja" data-atier="easy"><span class="q1"><b>Karamja Easy</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="medium"><span class="q1"><b>Karamja Medium</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="hard"><span class="q1"><b>Karamja Hard</b></span></button></li><li><button class="q" type="button" data-area="Karamja" data-atier="elite"><span class="q1"><b>Karamja Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Lumbridge" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Lumbridge</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Lumbridge" data-atier="beginner"><span class="q1"><b>Lumbridge Beginner</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="easy"><span class="q1"><b>Lumbridge Easy</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="medium"><span class="q1"><b>Lumbridge Medium</b></span></button></li><li><button class="q" type="button" data-area="Lumbridge" data-atier="hard"><span class="q1"><b>Lumbridge Hard</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Morytania" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Morytania</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Morytania" data-atier="easy"><span class="q1"><b>Morytania Easy</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="medium"><span class="q1"><b>Morytania Medium</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="hard"><span class="q1"><b>Morytania Hard</b></span></button></li><li><button class="q" type="button" data-area="Morytania" data-atier="elite"><span class="q1"><b>Morytania Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Seers' Village" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Seers' Village</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Seers' Village" data-atier="easy"><span class="q1"><b>Seers' Village Easy</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="medium"><span class="q1"><b>Seers' Village Medium</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="hard"><span class="q1"><b>Seers' Village Hard</b></span></button></li><li><button class="q" type="button" data-area="Seers' Village" data-atier="elite"><span class="q1"><b>Seers' Village Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Tirannwn" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tirannwn</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Tirannwn" data-atier="easy"><span class="q1"><b>Tirannwn Easy</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="medium"><span class="q1"><b>Tirannwn Medium</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="hard"><span class="q1"><b>Tirannwn Hard</b></span></button></li><li><button class="q" type="button" data-area="Tirannwn" data-atier="elite"><span class="q1"><b>Tirannwn Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Underworld" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Underworld</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Underworld" data-atier="easy"><span class="q1"><b>Underworld Easy</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="medium"><span class="q1"><b>Underworld Medium</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="hard"><span class="q1"><b>Underworld Hard</b></span></button></li><li><button class="q" type="button" data-area="Underworld" data-atier="elite"><span class="q1"><b>Underworld Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Varrock" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Varrock</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Varrock" data-atier="easy"><span class="q1"><b>Varrock Easy</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="medium"><span class="q1"><b>Varrock Medium</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="hard"><span class="q1"><b>Varrock Hard</b></span></button></li><li><button class="q" type="button" data-area="Varrock" data-atier="elite"><span class="q1"><b>Varrock Elite</b></span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Wilderness" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Wilderness</span><span class="c">4</span></button></h2><ul class="ql"><li><button class="q" type="button" data-area="Wilderness" data-atier="easy"><span class="q1"><b>Wilderness Easy</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="medium"><span class="q1"><b>Wilderness Medium</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="hard"><span class="q1"><b>Wilderness Hard</b></span></button></li><li><button class="q" type="button" data-area="Wilderness" data-atier="elite"><span class="q1"><b>Wilderness Elite</b></span></button></li></ul></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main><div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h"><h2 class="dh" id="bk-h">Export state</h2><p class="para">Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.</p><textarea class="inp tx" id="bk-text" aria-label="Exported state" readonly="">{ …
   "areas": {
     "Ardougne": {
       "Easy": {
@@ -866,7 +879,7 @@ ul.steps.ql { padding: 0; }
           "steps": {
             "454:1 Talk to a civilian in West Ardougne about selling a cat while having a non-kitten cat in the…": false,
             "454:2 Civilians are locate
-…</textarea><p class="err" id="bk-err" role="alert" hidden=""></p><div class="dbtn"><a class="btn" id="bk-save" role="link" href="blob:https://erikdekamps.github.io/quick-guide/d83f33ef-ddcb-43f9-a6a7-098d77aef726" download="quick-guide-2026-11-15.json">Download file</a><button class="btn alt" type="button" data-act="bk-copy">Copy</button><button class="btn alt" type="button" data-act="bk-close">Close</button></div></div></div></div>
+…</textarea><p class="err" id="bk-err" role="alert" hidden=""></p><div class="dbtn"><a class="btn" id="bk-save" role="link" href="blob:https://erikdekamps.github.io/quick-guide/1811a5e0-c85d-4deb-874e-fde129b80313" download="quick-guide-2026-11-15.json">Download file</a><button class="btn alt" type="button" data-act="bk-copy">Copy</button><button class="btn alt" type="button" data-act="bk-close">Close</button></div></div></div></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

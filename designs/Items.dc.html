@@ -11,18 +11,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
 <style>
 /* Quick Guide - style.css
-   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
-   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Looks like a RuneScape 3 window in the brown interface skin, like the game's Hero window: a bronze rim,
+   a dark title band with the name in gold capitals on the left, square bronze buttons, tabs on a bronze
+   line, warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
    Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
    Window parts (title band, tabs, menus, footer) use px so they always fit. */
 :root {
   color-scheme: dark;
   /* window */
   --win: #1b1713;          /* window body, around the panels */
-  --deep: #13100d;         /* the scrolling panel */
-  --hover: #211c17;        /* a row under the mouse */
-  --sel: #2a241d;          /* the next step */
-  --rule: #2b251f;         /* thin lines between rows */
+  --deep: #25211e;         /* the scrolling panel */
+  --hover: #2e2925;        /* a row under the mouse */
+  --sel: #352e27;          /* the next step */
+  --rule: #342e28;         /* thin lines between rows */
+  --line: #6d5e4a;         /* the line the tabs sit on */
   /* bronze rim and frames */
   --rim-1: #67584a;
   --rim-2: #8a7046;
@@ -48,6 +50,16 @@
   --muted: #b8ac97;
   --faint: #968b7b;
   --title: #e8d4a2;
+  --hero: #e3c39b;         /* the window's name, like "HERO" in the game */
+  /* square buttons, like the game's "i" button */
+  --btn-edge: #827660;
+  --btn-top: #484035;
+  --btn-bot: #2d2619;
+  --btn-sign: #c8b084;
+  /* tick boxes */
+  --cb-edge: #6e604a;
+  --cb-in: #17110b;
+  --cb-tick: #dfbe89;
   --gold: #f2c45e;
   --orange: #ff981f;
   --link: #f3c565;
@@ -135,17 +147,18 @@ button, input, select { font: inherit; color: inherit; }
   border-bottom: 1px solid #4a3c28;
   box-shadow: 0 1px 0 #0c0a08;
 }
-/* both sides are the same width, so the name sits in the middle */
-.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
-.he { justify-content: flex-end; }
+/* like the game's Hero window: the emblem (or the back button), the name on the left, the buttons on the right */
+.hs { flex: none; display: flex; align-items: center; gap: 3px; }
+.he { margin-left: auto; }
+.emb { flex: none; width: 26px; height: 26px; filter: drop-shadow(0 1px 0 #000); }
 .qt {
   flex: 1;
   min-width: 0;
   margin: 0;
-  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
-  letter-spacing: .05em;
-  color: var(--title);
-  text-align: center;
+  font: 700 16px/1.2 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .04em;
+  color: var(--hero);
+  text-align: left;
   text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
   overflow-wrap: break-word;
   /* long names stop after two lines; the full name is in the tooltip */
@@ -154,24 +167,24 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/* small square buttons, like the close button on a game window, in bronze */
+/* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
   place-items: center;
   flex: none;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  background: linear-gradient(#3a3027, #221c16);
-  border: 1px solid #5c4a2e;
+  background: linear-gradient(var(--btn-top), var(--btn-bot));
+  border: 1px solid var(--btn-edge);
   border-radius: 2px;
-  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
-  color: var(--title);
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 230, 180, .12);
+  color: var(--btn-sign);
   cursor: pointer;
 }
-.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
-.ib:active { background: linear-gradient(#1d1813, #2c241c); }
-.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:hover { background: linear-gradient(#574c3e, #352d20); border-color: #a8977a; color: #ecd6a8; }
+.ib:active { background: linear-gradient(#2d2619, #3b3326); }
+.ib[aria-expanded="true"] { border-color: #a8977a; color: var(--gold); background: linear-gradient(#2d2619, #3b3326); }
 .ib:disabled { opacity: .4; cursor: default; }
 .ib.xs { width: 24px; height: 24px; }
 .ib.xs .i { width: 14px; height: 14px; }
@@ -221,16 +234,16 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
-/* an on/off setting: a tick box, like the game's settings */
+/* an on/off setting: a tick box, like the game's ("Show Completed"): a bronze edge and a gold tick */
 .tg {
   position: relative;
   flex: none;
   width: 16px;
   height: 16px;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
-  box-shadow: inset 0 1px 3px #000;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 3px #000;
 }
 .tg::after {
   content: "";
@@ -239,7 +252,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   top: 0;
   width: 5px;
   height: 10px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -285,27 +298,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   height: 28px;
   margin-top: 3px;
   padding: 0 6px;
-  background: linear-gradient(#302a23, #231e19);
-  border: 1px solid #4a3d2b;
-  border-bottom-color: var(--bronze);
+  background: linear-gradient(#30241f, #241a17);
+  border: 1px solid #4a4134;
+  border-bottom-color: var(--line);
   border-radius: 3px 3px 0 0;
   box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
-  color: var(--muted);
+  color: #9b938f;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
 }
-.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab:hover { color: #ddd5c9; background: linear-gradient(#3b2d27, #2b201c); }
+/* the open tab: lit, in warm brown, on the line like the others (as in the game) */
 .tab[aria-selected="true"] {
-  height: 31px;
-  margin-top: 0;
-  background: var(--deep);
-  border-color: var(--bronze);
-  border-bottom-color: var(--deep);
-  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
-  color: var(--gold);
+  background: linear-gradient(#615140, #4b3627 45%, #382210);
+  border-color: #8f7552;
+  border-bottom-color: var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 225, 180, .2);
+  color: #f0e8dc;
   cursor: default;
 }
 .tab .i { display: none; width: 15px; height: 15px; }
@@ -321,25 +333,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   overflow-wrap: anywhere;
   background: var(--deep);
   border: 1px solid var(--bronze);
+  border-top-color: var(--line);
   border-radius: 2px;
   box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
 }
 .tabs + .scroll { margin-top: 0; }
 /* the game's gold scrollbar */
 .scroll::-webkit-scrollbar { width: 12px; }
-.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-track { background: #14130f; border-left: 1px solid #2b251f; }
 .scroll::-webkit-scrollbar-thumb {
   min-height: 32px;
-  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background: linear-gradient(90deg, #fae9bc, #fad69b 25%, #c8a067 50%, #82663e 75%, #4d3d25);
   background-clip: padding-box;
   border: 2px solid transparent;
   border-left-width: 3px;
   border-radius: 6px;
 }
 .scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
-.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #14130f; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
 
 /* part headers: raised bars. They stay at the top while you scroll through their steps. */
 /* 1px up, so no sliver of the list shows above the header */
@@ -470,7 +483,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
 
-/* tick boxes: a dark inset square with a gold tick */
+/* tick boxes, like the game's: a dark square with a bronze edge and a gold tick */
 .cb {
   -webkit-appearance: none;
   appearance: none;
@@ -480,8 +493,8 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: 1.286rem;
   height: 1.286rem;
   margin: 1px 0 0;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
   box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
   cursor: pointer;
@@ -491,7 +504,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: .429rem;
   height: .786rem;
   margin-top: -2px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -850,7 +863,7 @@ ul.steps.ql { padding: 0; }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button></div><h1 class="qt" title="While Guthix Sleeps">While Guthix Sleeps</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="10" max="118" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt">10 / 118 steps</span></div><nav class="tabs" role="tablist" aria-label="Guide parts"><button class="tab" type="button" role="tab" data-tab="overview" aria-selected="false" title="Overview"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span class="tl-l">Overview</span></button><button class="tab" type="button" role="tab" data-tab="items" aria-selected="true" title="Items"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path><path d="M8 10h8"></path><path d="M8 18h8"></path><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg><span class="tl-l">Items</span></button><button class="tab" type="button" role="tab" data-tab="steps" aria-selected="false" title="Steps"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="tl-l">Steps</span></button></nav><main class="scroll show-done" id="main" role="tabpanel"><div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Tool belt items are not listed, unless they don't work from the belt.</span></div><h2 class="bh">Required <span class="c" data-count="req">4 / 13</span></h2><ul class="steps"><li class="step done" data-item="req:1"><div class="row"><input class="cb" type="checkbox" data-icb="req:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></div></div></li><li class="step done" data-item="req:2"><div class="row"><input class="cb" type="checkbox" data-icb="req:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Runes: 3 air, and 1 each of earth, fire, water, mind, law and death</span></div></div></li><li class="step done" data-item="req:3"><div class="row"><input class="cb" type="checkbox" data-icb="req:3" aria-labelledby="qt3" checked="{{ true }}"><div class="rb"><span class="t" id="qt3">Any <a href="https://runescape.wiki/w/Logs_(type)">logs</a>, but not acadia or eternal magic</span></div></div></li><li class="step" data-item="req:4"><div class="row"><input class="cb" type="checkbox" data-icb="req:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4"><a href="https://runescape.wiki/w/Charcoal">Charcoal</a> and <a href="https://runescape.wiki/w/Papyrus">papyrus</a></span><span class="alt">Both are easy to get during the quest</span></div></div></li><li class="step done" data-item="req:5"><div class="row"><input class="cb" type="checkbox" data-icb="req:5" aria-labelledby="qt5" checked="{{ true }}"><div class="rb"><span class="t" id="qt5"><a href="https://runescape.wiki/w/Lantern_lens">Lantern lens</a></span></div></div></li><li class="step" data-item="req:6"><div class="row"><input class="cb" type="checkbox" data-icb="req:6" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a></span><span class="alt">You get one during the quest</span></div></div></li><li class="step" data-item="req:7"><div class="row"><input class="cb" type="checkbox" data-icb="req:7" aria-labelledby="qt7"><div class="rb"><span class="t" id="qt7"><a href="https://runescape.wiki/w/Unpowered_orb">Unpowered orb</a></span></div></div></li><li class="step" data-item="req:8"><div class="row"><input class="cb" type="checkbox" data-icb="req:8" aria-labelledby="qt8"><div class="rb"><span class="t" id="qt8"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a></span><span class="alt">or 5,000 coins</span></div></div></li><li class="step" data-item="req:9"><div class="row"><input class="cb" type="checkbox" data-icb="req:9" aria-labelledby="qt9"><div class="rb"><span class="t" id="qt9">Gear to enter the <a href="https://runescape.wiki/w/Black_Knights'_Fortress">Black Knights' Fortress</a></span></div></div></li><li class="step" data-item="req:10"><div class="row"><input class="cb" type="checkbox" data-icb="req:10" aria-labelledby="qt10"><div class="rb"><span class="t" id="qt10">Runes for 4 casts of <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a></span><span class="alt">8 air, 4 astral, 4 cosmic</span></div></div></li><li class="step" data-item="req:11"><div class="row"><input class="cb" type="checkbox" data-icb="req:11" aria-labelledby="qt11"><div class="rb"><span class="t" id="qt11">Runes for any charge orb spell</span><span class="alt">30 of one element, 3 cosmic</span></div></div></li><li class="step" data-item="req:12"><div class="row"><input class="cb" type="checkbox" data-icb="req:12" aria-labelledby="qt12"><div class="rb"><span class="t" id="qt12">Gear for two combat styles, or Necromancy gear</span></div></div></li><li class="step" data-item="req:13"><div class="row"><input class="cb" type="checkbox" data-icb="req:13" aria-labelledby="qt13"><div class="rb"><span class="t" id="qt13"><a href="https://runescape.wiki/w/Snapdragon_seed">Snapdragon seed</a></span><span class="alt">or 100 coins to buy one from Thaerisk</span></div></div></li></ul><h2 class="bh">Recommended <span class="c" data-count="rec">0 / 13</span></h2><ul class="steps"><li class="step" data-item="rec:1"><div class="row"><input class="cb" type="checkbox" data-icb="rec:1" aria-labelledby="qt14"><div class="rb"><span class="t" id="qt14"><a href="https://runescape.wiki/w/Nature_Spirit">Nature Spirit</a> done, for a druid or ouroboros pouch</span><span class="alt">or bring the statue ingredients</span></div></div></li><li class="step" data-item="rec:2"><div class="row"><input class="cb" type="checkbox" data-icb="rec:2" aria-labelledby="qt15"><div class="rb"><span class="t" id="qt15">Lodestones: Burthorpe, Canifis, Edgeville, Falador, Karamja, Oo'glog, Port Sarim, Seers' Village, Taverley, Varrock, Ardougne, Yanille</span></div></div></li><li class="step" data-item="rec:3"><div class="row"><input class="cb" type="checkbox" data-icb="rec:3" aria-labelledby="qt16"><div class="rb"><span class="t" id="qt16">Dramen or lunar staff, unless you finished A Fairy Tale III</span><span class="alt">and/or a portable fairy ring</span></div></div></li><li class="step" data-item="rec:4"><div class="row"><input class="cb" type="checkbox" data-icb="rec:4" aria-labelledby="qt17"><div class="rb"><span class="t" id="qt17"><a href="https://runescape.wiki/w/Cape_of_legends">Cape of legends</a>, to teleport to the Legends' Guild</span></div></div></li><li class="step" data-item="rec:5"><div class="row"><input class="cb" type="checkbox" data-icb="rec:5" aria-labelledby="qt18"><div class="rb"><span class="t" id="qt18">Falador teletabs or a ring of respawn</span></div></div></li><li class="step" data-item="rec:6"><div class="row"><input class="cb" type="checkbox" data-icb="rec:6" aria-labelledby="qt19"><div class="rb"><span class="t" id="qt19"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></div></div></li><li class="step" data-item="rec:7"><div class="row"><input class="cb" type="checkbox" data-icb="rec:7" aria-labelledby="qt20"><div class="rb"><span class="t" id="qt20">Ardougne Teleport or Ardougne cloak</span></div></div></li><li class="step" data-item="rec:8"><div class="row"><input class="cb" type="checkbox" data-icb="rec:8" aria-labelledby="qt21"><div class="rb"><span class="t" id="qt21">Watchtower Teleport</span></div></div></li><li class="step" data-item="rec:9"><div class="row"><input class="cb" type="checkbox" data-icb="rec:9" aria-labelledby="qt22"><div class="rb"><span class="t" id="qt22">Runes for 3 more NPC Contact casts</span><span class="alt">6 air, 3 astral, 3 cosmic</span></div></div></li><li class="step" data-item="rec:10"><div class="row"><input class="cb" type="checkbox" data-icb="rec:10" aria-labelledby="qt23"><div class="rb"><span class="t" id="qt23">Some super energy potions</span></div></div></li><li class="step" data-item="rec:11"><div class="row"><input class="cb" type="checkbox" data-icb="rec:11" aria-labelledby="qt24"><div class="rb"><span class="t" id="qt24">Elite black armour or Black Knight captain's armour, to save time</span><span class="alt">Otherwise you kill guards for each piece during the quest</span></div></div></li><li class="step" data-item="rec:12"><div class="row"><input class="cb" type="checkbox" data-icb="rec:12" aria-labelledby="qt25"><div class="rb"><span class="t" id="qt25"><a href="https://runescape.wiki/w/Ring_of_life">Ring of life</a></span></div></div></li><li class="step" data-item="rec:13"><div class="row"><input class="cb" type="checkbox" data-icb="rec:13" aria-labelledby="qt26"><div class="rb"><span class="t" id="qt26">Guthix balance ingredients for the statue</span><span class="alt">Clean harralander, red spiders' eggs, garlic, silver dust</span></div></div></li></ul></main></div>
+<div id="app"><header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button><h1 class="qt" title="While Guthix Sleeps">While Guthix Sleeps</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="10" max="118" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt">10 / 118 steps</span></div><nav class="tabs" role="tablist" aria-label="Guide parts"><button class="tab" type="button" role="tab" data-tab="overview" aria-selected="false" title="Overview"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span class="tl-l">Overview</span></button><button class="tab" type="button" role="tab" data-tab="items" aria-selected="true" title="Items"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path><path d="M8 10h8"></path><path d="M8 18h8"></path><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg><span class="tl-l">Items</span></button><button class="tab" type="button" role="tab" data-tab="steps" aria-selected="false" title="Steps"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="tl-l">Steps</span></button></nav><main class="scroll show-done" id="main" role="tabpanel"><div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>Tool belt items are not listed, unless they don't work from the belt.</span></div><h2 class="bh">Required <span class="c" data-count="req">4 / 13</span></h2><ul class="steps"><li class="step done" data-item="req:1"><div class="row"><input class="cb" type="checkbox" data-icb="req:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">A lit <a href="https://runescape.wiki/w/Sapphire_lantern_(lit)">sapphire lantern</a></span></div></div></li><li class="step done" data-item="req:2"><div class="row"><input class="cb" type="checkbox" data-icb="req:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Runes: 3 air, and 1 each of earth, fire, water, mind, law and death</span></div></div></li><li class="step done" data-item="req:3"><div class="row"><input class="cb" type="checkbox" data-icb="req:3" aria-labelledby="qt3" checked="{{ true }}"><div class="rb"><span class="t" id="qt3">Any <a href="https://runescape.wiki/w/Logs_(type)">logs</a>, but not acadia or eternal magic</span></div></div></li><li class="step" data-item="req:4"><div class="row"><input class="cb" type="checkbox" data-icb="req:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4"><a href="https://runescape.wiki/w/Charcoal">Charcoal</a> and <a href="https://runescape.wiki/w/Papyrus">papyrus</a></span><span class="alt">Both are easy to get during the quest</span></div></div></li><li class="step done" data-item="req:5"><div class="row"><input class="cb" type="checkbox" data-icb="req:5" aria-labelledby="qt5" checked="{{ true }}"><div class="rb"><span class="t" id="qt5"><a href="https://runescape.wiki/w/Lantern_lens">Lantern lens</a></span></div></div></li><li class="step" data-item="req:6"><div class="row"><input class="cb" type="checkbox" data-icb="req:6" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><a href="https://runescape.wiki/w/Mort_myre_fungus">Mort myre fungus</a></span><span class="alt">You get one during the quest</span></div></div></li><li class="step" data-item="req:7"><div class="row"><input class="cb" type="checkbox" data-icb="req:7" aria-labelledby="qt7"><div class="rb"><span class="t" id="qt7"><a href="https://runescape.wiki/w/Unpowered_orb">Unpowered orb</a></span></div></div></li><li class="step" data-item="req:8"><div class="row"><input class="cb" type="checkbox" data-icb="req:8" aria-labelledby="qt8"><div class="rb"><span class="t" id="qt8"><a href="https://runescape.wiki/w/Ring_of_charos_(a)">Ring of charos (a)</a></span><span class="alt">or 5,000 coins</span></div></div></li><li class="step" data-item="req:9"><div class="row"><input class="cb" type="checkbox" data-icb="req:9" aria-labelledby="qt9"><div class="rb"><span class="t" id="qt9">Gear to enter the <a href="https://runescape.wiki/w/Black_Knights'_Fortress">Black Knights' Fortress</a></span></div></div></li><li class="step" data-item="req:10"><div class="row"><input class="cb" type="checkbox" data-icb="req:10" aria-labelledby="qt10"><div class="rb"><span class="t" id="qt10">Runes for 4 casts of <a href="https://runescape.wiki/w/NPC_Contact">NPC Contact</a></span><span class="alt">8 air, 4 astral, 4 cosmic</span></div></div></li><li class="step" data-item="req:11"><div class="row"><input class="cb" type="checkbox" data-icb="req:11" aria-labelledby="qt11"><div class="rb"><span class="t" id="qt11">Runes for any charge orb spell</span><span class="alt">30 of one element, 3 cosmic</span></div></div></li><li class="step" data-item="req:12"><div class="row"><input class="cb" type="checkbox" data-icb="req:12" aria-labelledby="qt12"><div class="rb"><span class="t" id="qt12">Gear for two combat styles, or Necromancy gear</span></div></div></li><li class="step" data-item="req:13"><div class="row"><input class="cb" type="checkbox" data-icb="req:13" aria-labelledby="qt13"><div class="rb"><span class="t" id="qt13"><a href="https://runescape.wiki/w/Snapdragon_seed">Snapdragon seed</a></span><span class="alt">or 100 coins to buy one from Thaerisk</span></div></div></li></ul><h2 class="bh">Recommended <span class="c" data-count="rec">0 / 13</span></h2><ul class="steps"><li class="step" data-item="rec:1"><div class="row"><input class="cb" type="checkbox" data-icb="rec:1" aria-labelledby="qt14"><div class="rb"><span class="t" id="qt14"><a href="https://runescape.wiki/w/Nature_Spirit">Nature Spirit</a> done, for a druid or ouroboros pouch</span><span class="alt">or bring the statue ingredients</span></div></div></li><li class="step" data-item="rec:2"><div class="row"><input class="cb" type="checkbox" data-icb="rec:2" aria-labelledby="qt15"><div class="rb"><span class="t" id="qt15">Lodestones: Burthorpe, Canifis, Edgeville, Falador, Karamja, Oo'glog, Port Sarim, Seers' Village, Taverley, Varrock, Ardougne, Yanille</span></div></div></li><li class="step" data-item="rec:3"><div class="row"><input class="cb" type="checkbox" data-icb="rec:3" aria-labelledby="qt16"><div class="rb"><span class="t" id="qt16">Dramen or lunar staff, unless you finished A Fairy Tale III</span><span class="alt">and/or a portable fairy ring</span></div></div></li><li class="step" data-item="rec:4"><div class="row"><input class="cb" type="checkbox" data-icb="rec:4" aria-labelledby="qt17"><div class="rb"><span class="t" id="qt17"><a href="https://runescape.wiki/w/Cape_of_legends">Cape of legends</a>, to teleport to the Legends' Guild</span></div></div></li><li class="step" data-item="rec:5"><div class="row"><input class="cb" type="checkbox" data-icb="rec:5" aria-labelledby="qt18"><div class="rb"><span class="t" id="qt18">Falador teletabs or a ring of respawn</span></div></div></li><li class="step" data-item="rec:6"><div class="row"><input class="cb" type="checkbox" data-icb="rec:6" aria-labelledby="qt19"><div class="rb"><span class="t" id="qt19"><a href="https://runescape.wiki/w/Games_necklace">Games necklace</a></span></div></div></li><li class="step" data-item="rec:7"><div class="row"><input class="cb" type="checkbox" data-icb="rec:7" aria-labelledby="qt20"><div class="rb"><span class="t" id="qt20">Ardougne Teleport or Ardougne cloak</span></div></div></li><li class="step" data-item="rec:8"><div class="row"><input class="cb" type="checkbox" data-icb="rec:8" aria-labelledby="qt21"><div class="rb"><span class="t" id="qt21">Watchtower Teleport</span></div></div></li><li class="step" data-item="rec:9"><div class="row"><input class="cb" type="checkbox" data-icb="rec:9" aria-labelledby="qt22"><div class="rb"><span class="t" id="qt22">Runes for 3 more NPC Contact casts</span><span class="alt">6 air, 3 astral, 3 cosmic</span></div></div></li><li class="step" data-item="rec:10"><div class="row"><input class="cb" type="checkbox" data-icb="rec:10" aria-labelledby="qt23"><div class="rb"><span class="t" id="qt23">Some super energy potions</span></div></div></li><li class="step" data-item="rec:11"><div class="row"><input class="cb" type="checkbox" data-icb="rec:11" aria-labelledby="qt24"><div class="rb"><span class="t" id="qt24">Elite black armour or Black Knight captain's armour, to save time</span><span class="alt">Otherwise you kill guards for each piece during the quest</span></div></div></li><li class="step" data-item="rec:12"><div class="row"><input class="cb" type="checkbox" data-icb="rec:12" aria-labelledby="qt25"><div class="rb"><span class="t" id="qt25"><a href="https://runescape.wiki/w/Ring_of_life">Ring of life</a></span></div></div></li><li class="step" data-item="rec:13"><div class="row"><input class="cb" type="checkbox" data-icb="rec:13" aria-labelledby="qt26"><div class="rb"><span class="t" id="qt26">Guthix balance ingredients for the statue</span><span class="alt">Clean harralander, red spiders' eggs, garlic, silver dust</span></div></div></li></ul></main></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

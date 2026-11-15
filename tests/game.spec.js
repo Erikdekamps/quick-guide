@@ -15,6 +15,9 @@ const SHOT = {
   // 1 done; no title in view in the list on the left.
   elite: '/tests/fixtures/game/desktop-alt1-elite-desert.png'
 };
+// The chat, as on a real game screen: the same green line over and over ("The ensouled moonstone consumes…"),
+// whose letters line up like a column of ticks, more of them than the tasks in view.
+const CHAT = 'The ensouled moonstone consumes the escaped spirit of the rock.';
 const HARD_DAEMONHEIM = ['not', 'not', 'not', 'locked', 'locked', 'done', 'done'];
 
 // Reads a picture with the reader, in the page. scale resizes it first; cut keeps only the top part;
@@ -150,7 +153,7 @@ test.describe('the screen reader', () => {
         const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
         const x = cv.getContext('2d'); x.imageSmoothingEnabled = sm; x.drawImage(im, 0, 0, w, h);
         const d = x.getImageData(0, 0, w, h).data, R = window.QuickGuideReader, r = R.read(d, w, h);
-        const p = r.found ? R.panel(d, w, h, r.x0) : null;
+        const p = r.found ? (r.panel || R.panel(d, w, h, r.x0)) : null;
         done(p && { head: p.head, tail: p.tail, rows: p.rows.length });
       };
       im.src = s;
@@ -178,6 +181,61 @@ test.describe('the screen reader', () => {
       }
     });
   }
+
+  // What made every scan ask "Which tier is this?": the chat's green letters, the same on every line, line up like a
+  // column of ticks, more of them than the tasks in view. The list is the one with the tier list (and its gold box)
+  // on its left; with no tier list in view, only a column whose rows are as far apart as a task list's.
+  // The whole game screen picture with a chat under it: lines of a font size, so far apart, then made scale times as big.
+  function readWithChat(page, o) {
+    return page.evaluate(([src, chat, o]) => new Promise((done) => {
+      const im = new Image();
+      im.onload = () => {
+        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height + o.lines * o.gap + 40;
+        const x = cv.getContext('2d'); x.fillStyle = '#16120e'; x.fillRect(0, 0, cv.width, cv.height); x.drawImage(im, 0, 0);
+        if (o.noBox) { x.fillStyle = 'rgb(40,36,33)'; x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); }
+        x.fillStyle = '#00ff00'; x.font = o.font + 'px sans-serif';
+        for (let i = 0; i < o.lines; i++) x.fillText('[17:3' + (i % 10) + ':50] ' + chat + ' (' + (30 + i) + '/50)', 10, im.height + 30 + i * o.gap);
+        const w = Math.round(cv.width * o.scale), h = Math.round(cv.height * o.scale), big = document.createElement('canvas');
+        big.width = w; big.height = h;
+        const bx = big.getContext('2d'); bx.drawImage(cv, 0, 0, w, h);
+        const R = window.QuickGuideReader, r = R.read(bx.getImageData(0, 0, w, h).data, w, h);
+        done(r.found ? r.rows.map((q) => (q.done ? 'Y' : 'n')).join('') + (r.panel ? ' head ' + r.panel.head : ' no tier list') : 'none');
+      };
+      im.src = src;
+    }), [SHOT.screen, CHAT, o]);
+  }
+
+  test('a chat full of the same green line never wins over the list, however many lines, big or small', async ({ page }) => {
+    for (const [font, gap] of [[12, 15], [13, 17], [14, 18]]) {
+      for (const lines of [8, 16]) {
+        for (const scale of [1, 1.28, 2]) {
+          expect(await readWithChat(page, { font, gap, lines, scale }), [font, gap, lines, scale].join(' ')).toBe('YYYYYYY head 0');
+        }
+      }
+    }
+  });
+
+  test('with the tier list out of view, the chat is still not taken for the list', async ({ page }) => {
+    for (const scale of [1, 1.28]) expect(await readWithChat(page, { font: 13, gap: 17, lines: 16, scale, noBox: true }), String(scale)).toBe('YYYYYYY no tier list');
+  });
+
+  // A picture made smaller or blurred: the gold box's lines come out darker, and one can break.
+  test('a dim gold box with a broken line is still found', async ({ page }) => {
+    const res = await page.evaluate((src) => new Promise((done) => {
+      const im = new Image();
+      im.onload = () => {
+        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
+        const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
+        x.fillStyle = 'rgb(40,36,33)'; x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 145, 1); x.fillRect(514, 244, 1, 30); x.fillRect(658, 244, 1, 30);
+        x.fillStyle = 'rgb(175,159,101)';
+        x.fillRect(514, 244, 145, 1); x.fillRect(514, 273, 50, 1); x.fillRect(567, 273, 92, 1); x.fillRect(658, 244, 1, 30);
+        const R = window.QuickGuideReader, d = x.getImageData(0, 0, im.width, im.height).data, r = R.read(d, im.width, im.height);
+        done(r.panel ? { head: r.panel.head, box: r.panel.box } : null);
+      };
+      im.src = src;
+    }), SHOT.screen);
+    expect(res).toMatchObject({ head: 0, box: { x0: 514, x1: 658 } });
+  });
 
   test('a picture without the list finds nothing', async ({ page }) => {
     expect(await readShot(page, '/icon.png')).toBeNull();
@@ -253,12 +311,12 @@ test.describe('Scan achievements in Alt1', () => {
   // Puts a screenshot on the fake game screen. On the whole-screen one, pick: the row of the tier list on the left
   // that has the gold box (0 is Easy Ardougne), and other: another list on the right (rows 1 to 6 upside down),
   // as when another tier is clicked in the game. scale: a bigger screen (smooth: blurred a little, as when resized).
-  // list: the task list scrolled down that many pixels (one row is 62).
+  // list: the task list scrolled down that many pixels (one row is 62). chat: that many lines of chat under the game.
   async function show(page, src, o) {
-    await page.evaluate(([s, pick, other, cover, scale, smooth, list]) => new Promise((done) => {
+    await page.evaluate(([s, pick, other, cover, scale, smooth, list, chat, line]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
-        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
+        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height + (chat ? 300 : 0);
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
         if (pick) {
           x.fillStyle = 'rgb(40,36,33)';
@@ -274,6 +332,12 @@ test.describe('Scan achievements in Alt1', () => {
           x.fillStyle = '#ddd'; x.font = '13px sans-serif';
           for (let k = 0; k < 8; k++) x.fillText('Some words about this task, line ' + (k + 1), 712, 272 + k * 19);
         }
+        if (chat) {
+          // A chat under the game: the same green line, chat times.
+          x.fillStyle = '#16120e'; x.fillRect(0, im.height, cv.width, 300);
+          x.fillStyle = '#00ff00'; x.font = '13px sans-serif';
+          for (let i = 0; i < chat; i++) x.fillText('[17:3' + (i % 10) + ':50] ' + line + ' (' + (30 + i) + '/50)', 10, im.height + 24 + i * 17);
+        }
         if (list) {
           // The task list scrolled down by list pixels, as in the game: only the rows move (what comes in at the
           // bottom is left empty), and the scrollbar's handle moves down its track.
@@ -285,7 +349,7 @@ test.describe('Scan achievements in Alt1', () => {
           x.drawImage(was, 1171, 189, 7, 113, 1171, 189 + Math.round(list * 0.262), 7, 113);
         }
         // A bigger screen: the same picture, scale times as big.
-        const W = Math.round(im.width * scale), H = Math.round(im.height * scale), big = document.createElement('canvas');
+        const W = Math.round(cv.width * scale), H = Math.round(cv.height * scale), big = document.createElement('canvas');
         big.width = W; big.height = H;
         const bx = big.getContext('2d'); bx.imageSmoothingEnabled = scale === 1 || smooth; bx.drawImage(cv, 0, 0, W, H);
         const d = bx.getImageData(0, 0, W, H).data, bgra = new Uint8Array(d.length);
@@ -294,7 +358,7 @@ test.describe('Scan achievements in Alt1', () => {
         done();
       };
       im.src = s;
-    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0]);
+    }), [src, (o && o.pick) || 0, !!(o && o.other), !!(o && o.cover), (o && o.scale) || 1, !!(o && o.smooth), (o && o.list) || 0, (o && o.chat) || 0, CHAT]);
   }
   // Daemonheim and Desert with 4 tiers each, as in the game (the other areas have one tier on the fake wiki).
   function fourTiers(wiki) {
@@ -378,6 +442,16 @@ test.describe('Scan achievements in Alt1', () => {
     await show(page, SHOT.screen, { scale: 2, pick: 1, other: true });
     await expect(tier(page)).toHaveText('Medium Ardougne');
     await expect.poll(() => ticked(page, 'Ardougne', 1, 8)).toEqual(ALL7);
+  });
+
+  test('the whole game screen with a chat full of green lines: it finds Easy Ardougne by itself and ticks its tasks', async ({ page }) => {
+    await inAlt1(page, { h: 747 + 300 });
+    await openApp(page, expect);
+    await show(page, SHOT.screen, { chat: 16 });
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
   });
 
   test('it starts at the tier picked in the game, found from the "Area Tasks" title above it', async ({ page, wiki }) => {

@@ -174,9 +174,15 @@
 
 
   /*
-   * read(pixels, width, height) -> { found, rows: [{ y, done, partial }] }
-   * partial: the badge is cut off (scrolled half out of view), so its state
-   * is not trusted.
+   * read(pixels, width, height) -> { found, rows: [{ y, done, locked, partial, fp }], x0, x1, pitch, red, panel }
+   * partial: the badge is cut off (scrolled half out of view), so its state is not trusted.
+   * panel: the tier list on the left of the list (see panel()), or null when it is not in view.
+   *
+   * The whole game screen has more than the list on it. The chat can be full of the same green line, whose letters
+   * line up like a column of ticks, more of them than the tasks in view. So every column that could be the list is
+   * tried, best first, and the one with the tier list (and its gold box) on its left wins. A column whose rows are
+   * as close as lines of text is not tried; with no tier list in view, only a column whose rows are clearly far
+   * apart is taken (a task row is three and a half badges tall or more, a line of text two and a half at most).
    */
   function read(px, w, h) {
     var all = join(blobs(px, w, h), h / 5).filter(function (b) {
@@ -186,19 +192,51 @@
       return (b.red >= 10 || b.green >= 14 || b.lock >= 14) && aspect > 0.6 && aspect < 3 && b.h < h / 5 &&
         fill >= 0.15 && fill <= 0.7;
     });
-    // Group blobs whose centres share a column.
-    var best = [];
+    // Every column of blobs whose centres line up and whose sizes match, once each.
+    var cols = [], seen = {};
     all.forEach(function (a) {
-      var cx = a.x0 + a.w / 2;
-      var grp = all.filter(function (b) {
-        return Math.abs(b.x0 + b.w / 2 - cx) <= Math.max(a.w, b.w) * 0.15 + 1 &&
-          b.w > a.w * 0.7 && b.w < a.w * 1.4;
+      var cx = a.x0 + a.w / 2, ids = [];
+      var grp = all.filter(function (b, i) {
+        var ok = Math.abs(b.x0 + b.w / 2 - cx) <= Math.max(a.w, b.w) * 0.15 + 1 && b.w > a.w * 0.7 && b.w < a.w * 1.4;
+        if (ok) ids.push(i);
+        return ok;
       });
-      // The list with the most red and green badges wins; a column of only locks or text is not it.
-      if (score(grp) > score(best)) best = grp;
+      var key = ids.join(',');
+      if (seen[key] || !score(grp)) return;
+      seen[key] = 1;
+      cols.push(grp);
     });
-    best = tidy(best);
-    if (best.length < 2 || !best.some(colour)) return { found: false, rows: [] };
+    // The list with the most red and green badges first; a column of only locks or text is not it.
+    cols.sort(function (a, b) { return score(b) - score(a); });
+    var first = null, firstFar = 0, tried = 0;
+    for (var i = 0; i < cols.length && tried < 60; i++) {
+      var best = tidy(cols[i]);
+      if (best.length < 2 || !best.some(colour)) continue;
+      var far = apart(best);
+      if (far < 2) continue;
+      var r = rowsOf(best, px, w, h);
+      if (!r) continue;
+      tried++;
+      // The tier list is on the left of the list, in the same window (which shows about 7 rows): its right edge is
+      // half a row from the badges, its left edge about three rows.
+      var top = r.rows[0].y, bottom = r.rows[r.rows.length - 1].y, pp = r.pitch || (r.x1 - r.x0 + 1) * 3;
+      r.panel = panel(px, w, h, r.x0, { y0: top - pp * 8, y1: bottom + pp * 4, reach: pp * 5 });
+      if (r.panel) return r;
+      // With no tier list in view, only a column whose rows are clearly a task list's, the farthest apart: never the chat.
+      if (far >= 2.8 && far > firstFar) { first = r; firstFar = far; }
+    }
+    return first || { found: false, rows: [] };
+  }
+  // How far apart a column's rows are, in badge heights. A task row has a title and a line of text under it: three
+  // and a half to five badges (two and a half when the badges come out big). Lines of text, like the chat, are
+  // about two to two and a half letters apart.
+  function apart(list) {
+    var mh = median(list.map(function (b) { return b.h; })), ys = list.map(function (b) { return b.yb; }), d = [];
+    for (var i = 1; i < ys.length; i++) d.push(ys[i] - ys[i - 1]);
+    return mh >= 6 ? step(d, mh) / mh : 0;
+  }
+  // The rows of a column of badges: where each is, and done, locked or not.
+  function rowsOf(best, px, w, h) {
     var mh = median(best.map(function (b) { return b.h; }));
     var mw = median(best.map(function (b) { return b.w; }));
     var last = best.length - 1;
@@ -238,7 +276,7 @@
       }
     }
     // At least 4 whole rows: a few shapes that only happen to line up are not a list.
-    if (rows.filter(function (r) { return !r.partial; }).length < 4) return { found: false, rows: [] };
+    if (rows.filter(function (r) { return !r.partial; }).length < 4) return null;
     var x0 = Math.min.apply(null, best.map(function (b) { return b.x0; }));
     var x1 = Math.max.apply(null, best.map(function (b) { return b.x1; }));
     // The text next to each badge (bright pixels only), as a fingerprint: the same row looks the same after a scroll,
@@ -276,32 +314,53 @@
   // with a dark gap between them. Each row's name is kept as a fingerprint of its text (bright pixels only,
   // so what shows through the window does not matter), so the app can tell the rows apart.
   function isGold(r, g, b) { return r >= 170 && g >= 140 && b <= 175 && r - b >= 55 && r >= g && g - b >= 30; }
+  // A 1 pixel gold line in a picture made smaller (or blurred) comes out darker: tried when no box is found.
+  function isDimGold(r, g, b) { return r >= 140 && g >= 120 && b <= 160 && r - b >= 45 && r >= g && g - b >= 25; }
   function lum(px, w, x, y) { var j = (y * w + x) * 4; return (px[j] + px[j + 1] + px[j + 2]) / 3; }
   // Brightness of 3 pixels side by side: steadier than one.
   function lum3(px, w, x, y) { return (lum(px, w, x, y) + lum(px, w, x + 1, y) + lum(px, w, x + 2, y)) / 3; }
 
-  function panel(px, w, h, maxX) {
+  // near: { y0, y1, reach } to look only beside the task list: up to reach pixels left of it, from y0 to y1.
+  function panel(px, w, h, maxX, near) {
     maxX = Math.min(w, maxX || w);
-    // Long gold lines: the top and bottom of the box.
+    var xa = near ? Math.max(0, maxX - Math.round(near.reach)) : 0;
+    var ya = near ? Math.max(0, Math.round(near.y0)) : 0, yb = near ? Math.min(h, Math.round(near.y1)) : h;
+    return boxPanel(px, w, h, goldBox(px, w, xa, maxX, ya, yb, isGold)) || boxPanel(px, w, h, goldBox(px, w, xa, maxX, ya, yb, isDimGold));
+  }
+  // The gold box: two long gold lines, one above the other, the nearest to the list (rightmost).
+  function goldBox(px, w, xa, maxX, ya, yb, gold) {
+    // Long gold lines: the top and bottom of the box. A line broken by a few pixels (a blurred picture) is one line.
     var runs = [];
-    for (var y = 0; y < h; y++) {
-      var x0 = -1;
-      for (var x = 0; x <= maxX; x++) {
-        var j = (y * w + x) * 4, on = x < maxX && isGold(px[j], px[j + 1], px[j + 2]);
-        if (on && x0 < 0) x0 = x;
-        if (!on && x0 >= 0) { if (x - x0 >= 40) runs.push({ y: y, x0: x0, x1: x - 1 }); x0 = -1; }
+    for (var y = ya; y < yb; y++) {
+      var x0 = -1, last = -9, cur = null;
+      for (var x = xa; x <= maxX; x++) {
+        var j = (y * w + x) * 4, on = x < maxX && gold(px[j], px[j + 1], px[j + 2]);
+        if (on) {
+          if (cur && x - last <= 4) cur.x1 = x;
+          else { if (cur && cur.x1 - cur.x0 + 1 >= 40) runs.push(cur); cur = { y: y, x0: x, x1: x }; }
+          last = x;
+        }
       }
+      if (cur && cur.x1 - cur.x0 + 1 >= 40) runs.push(cur);
     }
     var box = null;
     runs.forEach(function (a) {
       runs.forEach(function (b) {
         var d = b.y - a.y;
-        if (d < 18 || d > 90 || Math.abs(a.x0 - b.x0) > 3 || Math.abs(a.x1 - b.x1) > 3) return;
-        if (a.x1 - a.x0 < d * 2) return;
+        if (d < 18 || d > 90) return;
+        // The top and the bottom of one box: one end the same, and mostly over each other. (A blurred corner can
+        // break a line short at the other end.)
+        if (Math.abs(a.x0 - b.x0) > 3 && Math.abs(a.x1 - b.x1) > 3) return;
+        var x0 = Math.min(a.x0, b.x0), x1 = Math.max(a.x1, b.x1), over = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0) + 1;
+        if (over < (x1 - x0 + 1) * 0.6 || x1 - x0 < d * 2) return;
         // The nearest one to the list (rightmost), and the tightest pair.
-        if (!box || a.x1 > box.x1 + 3 || (Math.abs(a.x1 - box.x1) <= 3 && d < box.y1 - box.y0)) box = { x0: Math.min(a.x0, b.x0), x1: Math.max(a.x1, b.x1), y0: a.y, y1: b.y };
+        if (!box || x1 > box.x1 + 3 || (Math.abs(x1 - box.x1) <= 3 && d < box.y1 - box.y0)) box = { x0: x0, x1: x1, y0: a.y, y1: b.y };
       });
     });
+    return box;
+  }
+  // The tier list around the gold box: its rows, which one is picked, and the titles above and below.
+  function boxPanel(px, w, h, box) {
     if (!box) return null;
     var bh = box.y1 - box.y0 + 1, bw = box.x1 - box.x0 + 1;
     // The rows: runs down a line just inside the box's left edge, lighter than the gaps between them.
@@ -313,19 +372,37 @@
     for (var gy = box.y1 + 1; gy < Math.min(h, box.y1 + bh); gy++) gapLum = Math.min(gapLum, lum3(px, w, cx, gy));
     var cut = (gapLum + Math.min(rowLum, lum3(px, w, cx, Math.min(h - 1, box.y1 + bh)))) / 2;
     if (!(cut > gapLum + 3)) return null;
-    var rows = [], tall = [], top = -1;
+    // "Area Tasks" has a green icon on its left; no tier row has one.
+    var need = Math.max(15, Math.round(15 * (bh / 30) * (bh / 30)));
+    function greenIn(t, b) {
+      var n = 0;
+      for (var y = t; y <= b; y++) {
+        for (var x = box.x0; x < Math.min(w, box.x0 + bh * 2); x++) { var j = (y * w + x) * 4; if (isGreen(px[j], px[j + 1], px[j + 2])) n++; }
+      }
+      return n;
+    }
+    // The light runs down that line: rows, and titles.
+    var runs = [], top = -1;
     for (var yy = 0; yy <= h; yy++) {
       var light = yy < h && lum3(px, w, cx, yy) > cut;
       if (light && top < 0) top = yy;
-      if (!light && top >= 0) {
-        var hh = yy - top;
-        if (Math.abs(hh - bh) <= Math.max(4, bh * 0.12)) rows.push({ top: top, bottom: yy - 1 });
-        // A title is about one and a half rows tall (two rows run together are more than two).
-        else if (hh >= bh * 1.3 && hh <= bh * 1.8) tall.push({ top: top, bottom: yy - 1 });
-        top = -1;
-      }
+      if (!light && top >= 0) { runs.push({ top: top, bottom: yy - 1, hh: yy - top }); top = -1; }
     }
-    if (!rows.length) return null;
+    // A row's height, as most rows have it (the gold lines can make the box itself a pixel or two off).
+    var rh = median(runs.filter(function (r) { return r.hh >= bh * 0.75 && r.hh <= bh * 1.35; }).map(function (r) { return r.hh; })) || bh;
+    var rows = [], tall = [];
+    runs.forEach(function (r) {
+      var g = r.hh >= rh * 0.5 ? greenIn(r.top, r.bottom) : 0;
+      // The row in the gold box can come out a little taller (its gold lines blur into the gap on a big screen).
+      var inBox = r.top <= box.y1 && r.bottom >= box.y0 && r.hh >= rh * 0.75 && r.hh <= rh * 1.35;
+      // The title with the green icon, even when the list is scrolled so it is partly cut off.
+      if (g >= need) tall.push({ top: r.top, bottom: r.bottom, green: g });
+      else if (inBox || Math.abs(r.hh - rh) <= Math.max(4, rh * 0.12)) rows.push({ top: r.top, bottom: r.bottom });
+      // Another title is about one and a half rows tall (two rows run together are more than two).
+      else if (r.hh >= rh * 1.3 && r.hh <= rh * 1.8) tall.push({ top: r.top, bottom: r.bottom, green: 0 });
+    });
+    // The tier list always shows a few rows; a lone box (a tab, a button) is not it.
+    if (rows.length < 3) return null;
     // Which row the box is on.
     var sel = -1;
     rows.forEach(function (r, i) { if (r.top <= box.y1 && r.bottom >= box.y0) sel = i; });
@@ -334,6 +411,10 @@
     var steps = [];
     for (var i = 1; i < rows.length; i++) steps.push(rows[i].top - rows[i - 1].top);
     var p = (steps.length && step(steps, bh)) || bh + 6;
+    // The tier list's rows are stacked one under the other, a small gap apart, a few of them around the picked one.
+    // (A gold button somewhere else, with a few light bits above and below it, is not the tier list.)
+    if (p < rh * 1.02 || p > rh * 1.7) return null;
+    if (rows.filter(function (r) { return Math.abs(r.top - rows[sel].top) <= p * 3.2; }).length < 3) return null;
     rows.forEach(function (r) {
       r.at = Math.round((r.top - rows[sel].top) / p);
       // The name only (the left 60%), not the count on the right.
@@ -342,15 +423,11 @@
     // The titles around the tiers. "Area Tasks" (a taller box with a green icon) sits right above Easy Ardougne;
     // the next title (no green icon) sits right below the last tier. head: the place of the row under "Area Tasks",
     // tail: the place of the row above the next title (each only when seen, and on the right side of the gold box).
-    var gap = p - bh + Math.max(5, Math.round(bh / 6)), head = null, tail = null, need = Math.max(15, Math.round(15 * (bh / 30) * (bh / 30)));
+    var gap = p - bh + Math.max(5, Math.round(bh / 6)), head = null, tail = null;
     tall.forEach(function (t) {
-      var green = 0;
-      for (var y = t.top; y <= t.bottom; y++) {
-        for (var x = box.x0; x < Math.min(w, box.x0 + bh * 2); x++) { var j = (y * w + x) * 4; if (isGreen(px[j], px[j + 1], px[j + 2])) green++; }
-      }
       rows.forEach(function (r) {
-        if (green >= need && r.top > t.bottom && r.top - t.bottom <= gap && r.at <= 0) head = r.at;
-        if (green < need && t.top > r.bottom && t.top - r.bottom <= gap && r.at >= 0) tail = r.at;
+        if (t.green >= need && r.top > t.bottom && r.top - t.bottom <= gap && r.at <= 0) head = r.at;
+        if (t.green < need && t.top > r.bottom && t.top - r.bottom <= gap && r.at >= 0) tail = r.at;
       });
     });
     return { box: box, rows: rows, sel: sel, head: head, tail: tail };

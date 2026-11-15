@@ -24,23 +24,59 @@ test('the window is never wider than 640 px', async ({ page }) => {
   expect((await page.locator('#app').boundingBox()).width).toBe(640);
 });
 
-test('the quest name sits in the middle of the title band', async ({ page }) => {
+// Like the game's Hero window (Hero > Achievements).
+test('like the game: the name on the left of the title band, in gold capitals, after the back button', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
-  const band = await page.locator('.hdr').boundingBox();
+  const back = await page.locator('.hdr [data-act="change"]').boundingBox();
   const title = await page.locator('h1.qt').boundingBox();
-  expect(Math.abs((title.x + title.width / 2) - (band.x + band.width / 2))).toBeLessThanOrEqual(2);
-  await expect(page.locator('h1.qt')).toHaveCSS('text-align', 'center');
+  expect(title.x - (back.x + back.width)).toBeGreaterThanOrEqual(4);
+  expect(title.x - (back.x + back.width)).toBeLessThanOrEqual(12);
+  await expect(page.locator('h1.qt')).toHaveCSS('text-align', 'left');
+  await expect(page.locator('h1.qt')).toHaveCSS('color', 'rgb(227, 195, 155)');
   expect(await page.locator('h1.qt').evaluate((e) => getComputedStyle(e).fontFamily)).toContain('Cinzel');
 });
 
-test('the open tab joins the panel below it', async ({ page }) => {
+test('like the game: the start screen has the app emblem on the left of its name', async ({ page }) => {
+  await openApp(page, expect);
+  const emb = page.locator('.hdr img.emb');
+  await expect(emb).toBeVisible();
+  await expect(emb).toHaveAttribute('src', 'icon.png');
+  const e = await emb.boundingBox(), t = await page.locator('h1.qt').boundingBox();
+  expect(t.x).toBeGreaterThan(e.x + e.width);
+  await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
+});
+
+test('like the game: square buttons with a bronze edge and a gold sign', async ({ page }) => {
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  const btn = page.locator('#cog-btn');
+  await expect(btn).toHaveCSS('width', '28px');
+  await expect(btn).toHaveCSS('border-top-color', 'rgb(130, 118, 96)');
+  await expect(btn).toHaveCSS('color', 'rgb(200, 176, 132)');
+  expect(await btn.evaluate((e) => getComputedStyle(e).backgroundImage)).toContain('linear-gradient');
+});
+
+test('like the game: the tabs sit on a bronze line, and the open one is lit in warm brown', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
   await openTab(page, 'items');
-  const bg = (sel) => page.locator(sel).evaluate((e) => getComputedStyle(e).backgroundColor);
-  const panel = await bg('#main');
-  expect(await bg('.tab[aria-selected="true"]')).toBe(panel);
-  expect(await page.locator('.tab[aria-selected="true"]').evaluate((e) => getComputedStyle(e).borderBottomColor)).toBe(panel);
-  expect(await page.locator('.tab[aria-selected="false"]').first().evaluate((e) => getComputedStyle(e).backgroundImage)).toContain('linear-gradient');
+  const on = page.locator('.tab[aria-selected="true"]'), off = page.locator('.tab[aria-selected="false"]').first();
+  const img = (l) => l.evaluate((e) => getComputedStyle(e).backgroundImage);
+  expect(await img(on)).toContain('linear-gradient');
+  expect(await img(off)).toContain('linear-gradient');
+  expect(await img(on)).not.toBe(await img(off));
+  await expect(on).toHaveCSS('color', 'rgb(240, 232, 220)');
+  await expect(off).toHaveCSS('color', 'rgb(155, 147, 143)');
+  // all the same height, on the line: the open one does not join the panel
+  expect((await on.boundingBox()).height).toBe((await off.boundingBox()).height);
+  await expect(page.locator('#main')).toHaveCSS('border-top-color', 'rgb(109, 94, 74)');
+});
+
+test('like the game: the panel is a warm dark grey, and tick boxes have a bronze edge and a gold tick', async ({ page }) => {
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  await openTab(page, 'items');
+  await expect(page.locator('#main')).toHaveCSS('background-color', 'rgb(37, 33, 30)');
+  const cb = page.locator('.cb').first();
+  await expect(cb).toHaveCSS('border-top-color', 'rgb(110, 96, 74)');
+  expect(await cb.evaluate((e) => getComputedStyle(e, '::before').borderRightColor)).toBe('rgb(223, 190, 137)');
 });
 
 test('a bronze rim around the window', async ({ page }) => {

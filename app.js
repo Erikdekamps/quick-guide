@@ -827,7 +827,7 @@
     S.view = 'start';
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"></div><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
+      '<header class="hdr"><img class="emb" src="icon.png" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he">' + cogHtml() + '</div></header>' +
       '<nav class="tabs home" role="tablist" aria-label="Lists">' + HOMES.map(function (h) {
         return '<button class="tab" type="button" role="tab" data-home="' + h[0] + '" aria-selected="' + (S.set.home === h[0]) + '"><span class="tl-l">' + h[1] + '</span></button>';
       }).join('') + '</nav>' +
@@ -1173,7 +1173,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button></div>' +
+      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All quests" title="All quests">' + I.back + '</button>' +
       '<h1 class="qt" title="' + esc(q.title) + '">' + esc(q.title) + '</h1><div class="hs he">' + cogHtml() + dotsHtml() + '</div></header>' +
       '<div class="prog"><progress class="pg" id="pg" value="0" max="1" aria-label="Quest progress"></progress><span class="cnt" id="pg-cnt"></span></div>' +
       '<nav class="tabs" role="tablist" aria-label="Guide parts">' + TABS.map(tabHtml).join('') + '</nav>' +
@@ -1789,7 +1789,7 @@
     }
     dropMaps();
     app.innerHTML =
-      '<header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas">' + I.back + '</button></div>' +
+      '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas">' + I.back + '</button>' +
       '<h1 class="qt" title="' + esc(a.name) + '">' + esc(a.name) + '</h1><div class="hs he">' + cogHtml() + areaDotsHtml() + '</div></header>' +
       '<div class="prog"><progress class="pg" id="pg" value="' + done + '" max="' + Math.max(t.tasks.length, 1) + '" aria-label="Tier progress"></progress>' +
       '<span class="cnt" id="pg-cnt">' + done + ' / ' + plural(t.tasks.length, 'task', 'tasks') + '</span></div>' +
@@ -2257,9 +2257,11 @@
     if (sc.swap) R.swapRB(c.px);
     var r = R.read(c.px, c.w, c.h);
     if (sc.swap != null) return r;
-    // Not known yet: read it the other way round too, and keep the way with the most red in the badges.
+    // Not known yet: read it the other way round too, and keep the way that finds the tier list's gold box, or else
+    // the one with the most red in the badges.
     var copy = R.swapRB(new Uint8ClampedArray(c.px)), r2 = R.read(copy, c.w, c.h);
-    if (r2.found && (!r.found || r2.red > r.red)) { c.px = copy; sc.swap = true; return r2; }
+    function worth(x) { return x.found ? (x.panel ? 1e9 : 0) + x.red : -1; }
+    if (worth(r2) > worth(r)) { c.px = copy; sc.swap = true; return r2; }
     if (r.found) sc.swap = false;
     return r;
   }
@@ -2298,7 +2300,8 @@
       }
       // Rows are placed on the whole screen, not in the part, so places can be compared from one look to the next.
       r.rows.forEach(function (q) { q.ay = c.y + q.y; });
-      var known = scanPicked(sc, R.panel(c.px, c.w, c.h, r.x0));
+      // The tier list on the left, found by the reader next to the list.
+      var known = scanPicked(sc, r.panel || null);
       if (known === null) { /* another tier, not sure yet: set nothing this look */ }
       else if (known) {
         var ry = r.rows.map(function (q) { return q.y; });

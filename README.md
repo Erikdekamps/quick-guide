@@ -1,6 +1,6 @@
 # Quick Guide
 
-A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser, in the game's brown window style.
+A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser. It looks like the game's own Hero window.
 
 - **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
 - **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
@@ -83,7 +83,8 @@ How it knows where it is:
   in a row agree, so a tooltip or a moving background does not confuse it.
 - If the bar shows the wrong tier, use **◀ ▶**. They hold until you click another tier in the game.
   **Stop** ends the scan.
-- It works at any interface size and on big screens. If it cannot see the list, the bar says so.
+- It finds the list by the tier list next to it, so the rest of the screen (like a chat full of green lines)
+  does not fool it. It works at any interface size and on big screens. If it cannot see the list, the bar says so.
 
 ## Settings (the cog)
 
@@ -181,7 +182,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.25.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.26.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
