@@ -11,7 +11,8 @@ module.exports = defineConfig({
   // A test that only passes on its second try still fails the run: a retry must not hide a problem.
   // (The retry still runs, so its trace shows what went wrong.)
   failOnFlakyTests: !!process.env.CI,
-  workers: process.env.CI ? 2 : undefined,
+  // One worker per processor: the tests mostly wait on the browser, so this is about twice as fast as the default (half).
+  workers: '100%',
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   timeout: 30000,
   expect: { timeout: 5000 },

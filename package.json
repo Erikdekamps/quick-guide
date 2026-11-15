@@ -1,11 +1,12 @@
 {
   "name": "quick-guide",
   "private": true,
-  "description": "RuneScape Wiki quest quick guides as a tick list, made for the Alt1 browser.",
+  "description": "RuneScape Wiki quest quick guides and Area Tasks as a tick list, made for the Alt1 browser.",
   "license": "GPL-3.0-only",
   "scripts": {
     "test": "playwright test --project=app",
-    "test:live": "playwright test --project=live"
+    "test:live": "playwright test --project=live",
+    "coverage": "QG_COVERAGE=coverage playwright test --project=app && node tests/support/coverage.js coverage"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"

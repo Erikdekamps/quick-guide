@@ -1,9 +1,7 @@
 // Miniquests, locked quests, search, quests you can open from a guide, and League rows.
-const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openCog, closeCog, lookUp, toggle, row, names } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
-const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
-const names = (page) => page.locator('.q .q1 b');
 const details = (page) => page.locator('section[data-ov="details"] .secb');
 const rewards = (page) => page.locator('section[data-ov="rewards"] .secb');
 const MINIS = ['A Guild of Our Own', 'Bar Crawl', "Benedict's World Tour", 'Curse of the Empty Lord'];
@@ -156,6 +154,13 @@ test.describe('search', () => {
     await page.locator('#quest-link').press('Enter');
     await expect(page.locator('#load-err')).toHaveText('No quest matches “shield of arrav”.');
     expect(wiki.asked()).toEqual(['List of quests']);
+  });
+
+  test('Enter opens the best match: a name that starts with the text comes before one that only has it inside', async ({ page, wiki }) => {
+    await openApp(page, expect);
+    await page.locator('#quest-link').fill('re');   // "Desert Treasure" has it inside, "Recipe for Disaster…" starts with it
+    await page.locator('#quest-link').press('Enter');
+    await expect.poll(() => wiki.asked().slice(-1)[0]).toMatch(/^Recipe for Disaster/);
   });
 
   test('an empty box asks for a name', async ({ page }) => {

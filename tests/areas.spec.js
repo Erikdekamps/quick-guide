@@ -441,6 +441,23 @@ test.describe('searching the area tasks', () => {
     await expect(page.locator('.tab[data-tier="medium"]')).toHaveAttribute('aria-selected', 'true');
   });
 
+  test('Enter with a task name opens the tier it is in; with nothing found, it says so', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await areasTab(page);
+    await search(page, 'red, red');
+    await expect(taskRows(page)).toHaveCount(1);
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('h1.qt')).toHaveText('Varrock');
+    await expect(page.locator('.tab[data-tier="elite"]')).toHaveAttribute('aria-selected', 'true');
+    await page.getByRole('button', { name: 'All areas' }).click();
+    await search(page, 'no such thing');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('#load-err')).toHaveText('Nothing matches “no such thing”.');
+    await search(page, '');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('#load-err')).toHaveText('Type an area or task name first.');
+  });
+
   test('says when some areas could not be read, and tries again', async ({ page, wiki }) => {
     withAllAreas(wiki).fail('Desert achievements', 'http');
     await areasTab(page);
@@ -544,14 +561,16 @@ test.describe('an area', () => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const n = sec(page, 'needs');
-    // levels are one line each, like the wiki: "16 [icon] Thieving"
+    // levels like the wiki: "• 16 [icon] Thieving", the skill's name a link to its wiki page
     const sk = n.locator('ul.skl-list li');
+    await expect(n.locator('ul.skl-list')).toHaveCSS('list-style-type', 'disc');
     await expect(sk.locator('.lv')).toHaveText(['16', '10']);
     await expect(sk.locator('.sn')).toHaveText(['Thieving', 'Construction']);
+    await expect(sk.locator('a.sn').first()).toHaveAttribute('href', 'https://runescape.wiki/w/Thieving');
     await expect(sk.locator('img.sic').first()).toHaveAttribute('src', 'https://runescape.wiki/images/Thieving-icon.png');
-    // no player: no colour, no tick
+    // no player: no tick and no cross
     await expect(sk.first()).not.toHaveClass(/\b(ok|low)\b/);
-    await expect(sk.locator('.tk, .no')).toHaveCount(0);
+    await expect(n.locator('.mk')).toHaveCount(0);
     await expect(n.locator('.tree li')).toHaveText(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
     await expect(n.locator('details.acc summary .sl')).toHaveText(['Items to bring', 'Ironmen']);
     await expect(n.locator('details.acc', { hasText: 'Ironmen' })).not.toHaveAttribute('open', '');
@@ -564,7 +583,7 @@ test.describe('an area', () => {
     await page.locator('.tab[data-tier="hard"]').click();
     const magic = sec(page, 'needs').locator('ul.skl-list li', { hasText: 'Magic' });
     await expect(magic.locator('.lv')).toHaveText('71');
-    await expect(magic.locator('.bst')).toHaveText('(boostable)');
+    await expect(magic.locator('sup.bst')).toHaveText('(boostable)');
   });
 
   test('Needs with a player: your levels and quests', async ({ page, wiki }) => {
@@ -577,20 +596,30 @@ test.describe('an area', () => {
     await area(page, 'Ardougne').first().click();
     const n = sec(page, 'needs');
     const sk = n.locator('ul.skl-list li');
-    // too low: the level in red, a cross and your level; enough: the level in green and a tick
+    // like the wiki: the level stays plain. Too low: a red cross (your level in its tooltip). Enough: a green tick.
     await expect(sk.nth(0)).toHaveClass(/\blow\b/);
-    await expect(sk.nth(0).locator('.lv')).toHaveCSS('color', 'rgb(255, 91, 73)');
-    await expect(sk.nth(0).locator('.no')).toHaveText('\u2717');
-    await expect(sk.nth(0).locator('.you')).toHaveText('(you: 3)');
+    await expect(sk.nth(0)).toHaveText('16 Thieving');
+    await expect(sk.nth(0).locator('.lv')).toHaveCSS('color', 'rgb(236, 230, 218)');
+    await expect(sk.nth(0).locator('.mk.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
+    await expect(sk.nth(0).locator('.mk.no')).toHaveAttribute('title', 'Too low: you have 3');
+    await expect(sk.nth(0).locator('.mk.ok')).toHaveCount(0);
     await expect(sk.nth(1)).toHaveClass(/\bok\b/);
-    await expect(sk.nth(1).locator('.lv')).toHaveCSS('color', 'rgb(102, 211, 92)');
-    await expect(sk.nth(1).locator('.tk')).toHaveText('\u2713');
+    await expect(sk.nth(1).locator('.lv')).toHaveCSS('color', 'rgb(236, 230, 218)');
+    await expect(sk.nth(1).locator('.mk.ok')).toHaveCSS('color', 'rgb(102, 211, 92)');
+    await expect(sk.nth(1).locator('.mk.ok')).toHaveAttribute('title', 'You have 40');
     await expect(n.locator('.sech .c')).toHaveText('1 too low');
-    await expect(n.locator('.tree li.got')).toHaveText(['✓ Biohazard', '✓ Plague City']);
-    // a task that needs more than you have says so
-    await expect(task(page, '448').locator('.need')).toHaveText('Needs 5 Thieving \u2717 (you: 3)');
-    await expect(task(page, '448').locator('.need')).toHaveClass(/\blow\b/);
-    await expect(task(page, '450').locator('.need')).toHaveText('Needs Plague City ✓');
+    // quests: a green tick after the ones you have done; nothing after the others, like the wiki
+    await expect(n.locator('.tree li.got')).toHaveText(['Biohazard', 'Plague City']);
+    await expect(n.locator('.tree li.got .mk.ok')).toHaveCount(2);
+    await expect(n.locator('.tree li:not(.got)')).toHaveCount(3);
+    await expect(n.locator('.tree li:not(.got) .mk')).toHaveCount(0);
+    // a task that needs more than you have: the same cross
+    const need = task(page, '448').locator('.need');
+    await expect(need).toHaveText('Needs 5 Thieving');
+    await expect(need.locator('.mk.no')).toHaveAttribute('title', 'Too low: you have 3');
+    await expect(need).toHaveClass(/\blow\b/);
+    await expect(task(page, '450').locator('.need')).toHaveText('Needs Plague City');
+    await expect(task(page, '450').locator('.need .mk.ok')).toHaveCount(1);
   });
 
   test('a quest in Needs opens that quest', async ({ page, wiki }) => {

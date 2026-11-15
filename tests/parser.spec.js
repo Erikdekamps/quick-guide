@@ -338,6 +338,25 @@ test.describe('wiki markup details', () => {
     expect(q.sections[0].blocks).toHaveLength(1);
   });
 
+  test('a table inside a step stays with that step; small text like H<sub>2</sub>O keeps its tag', async ({ page }) => {
+    const q = await parse(page, '<h2>Part</h2><ul><li>Mix H<sub>2</sub>O with:<table class="wikitable"><tr><th>Item</th><th>Amount</th></tr>' +
+      '<tr><td>Salt</td><td>2</td></tr></table></li></ul>');
+    const s = steps(q)[0];
+    expect(s.html).toBe('Mix H<sub>2</sub>O with:');
+    expect(s.tables).toHaveLength(1);
+    expect(s.tables[0].head).toEqual(['Item', 'Amount']);
+    expect(s.tables[0].rows).toEqual([['Salt', '2']]);
+    expect(q.sections[0].blocks).toHaveLength(1);
+  });
+
+  test('the optimal order without its usual table class: the table with the most quest rows is used', async ({ page }) => {
+    const html = fixture('progression-guide.html'), plain = html.replace(/\boqg-table\b/g, 'some-table');
+    expect(plain).not.toContain('oqg-table');
+    const run = (h) => page.evaluate((x) => window.QuickGuideData.parseOrder('<table><tr data-rowid="Other"><td>x</td></tr></table>' + x), h);
+    expect(await run(plain)).toEqual(await run(html));
+    expect((await run(plain)).length).toBeGreaterThan(5);
+  });
+
   test('quest details without the questdetails class, and free quests', async ({ page }) => {
     const q = await parse(page, '<table><tr><th>Start point</th><td>Lumbridge</td></tr><tr><th>Members</th><td>Free-to-play</td></tr>' +
       '<tr><th>Length</th><td>Short</td></tr></table><h2>Part</h2><ul><li>Go.</li></ul>');

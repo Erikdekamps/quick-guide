@@ -1,11 +1,9 @@
 // The quest list in the wiki's optimal order (Quests/Progression guide), hiding done quests,
 // and the border of the next step.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openCog, closeCog, lookUp, toggle, names, groups } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const GUIDE = 'Quests/Progression guide';
-const names = (page) => page.locator('.q .q1 b');
-const groups = (page) => page.locator('.ghb .n');
 const ORDER = ["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps'];
 const REST = ['101 Test Quest', "'Phite Club", 'Recipe for Disaster: Freeing King Awowogei'];
 
