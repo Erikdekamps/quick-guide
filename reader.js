@@ -211,7 +211,6 @@
         y: b.y1, h: b.h,
         // The text next to the badge (bright pixels only): the same row looks the same after a scroll,
         // whatever shows through the window behind it.
-        fp: partial ? null : textPrint(px, w, h, cx1 + Math.round((cx1 - cx0) * 0.4), b.y1 - mh + 1, cx1 + (cx1 - cx0 + 1) * 14, b.y1),
         done: c.green / all >= 0.08,
         locked: c.lock > c.green && c.lock >= all * 0.3,
         partial: partial
@@ -221,7 +220,20 @@
     if (rows.filter(function (r) { return !r.partial; }).length < 4) return { found: false, rows: [] };
     var x0 = Math.min.apply(null, best.map(function (b) { return b.x0; }));
     var x1 = Math.max.apply(null, best.map(function (b) { return b.x1; }));
-    return { found: true, rows: rows, x0: x0, x1: x1, pitch: pitch(rows) };
+    // The text next to each badge (bright pixels only), as a fingerprint: the same row looks the same after a scroll,
+    // whatever shows through the window behind it. It is taken on the even grid of the rows, not at each badge's own
+    // edge: that edge moves a few pixels from look to look (and a red badge ends a bit higher than one with a tick).
+    // It starts at the top of the first line of text, found near the badge, so it does not move when the badge's
+    // edge moves a few pixels from look to look (or when a red badge ends a bit higher than one with a tick).
+    var p = pitch(rows);
+    rows.forEach(function (r) {
+      if (r.partial) return;
+      r.fp = textPrint(px, w, h, cx1 + Math.round((cx1 - cx0) * 0.4), r.y - mh - 6, cx1 + (cx1 - cx0 + 1) * 14, r.y + 6, mh + 2);
+    });
+    // How much red the badges have: every real badge has a red shield, so this tells if red and blue came the right
+    // way round (the other way, the shields are blue and only the green ticks are found).
+    var red = best.reduce(function (a, b) { return a + b.red; }, 0);
+    return { found: true, rows: rows, x0: x0, x1: x1, pitch: p, red: red };
   }
 
   // Alt1 hands pixels over as base64 BGRA. Turn that into RGBA.
@@ -244,6 +256,9 @@
   // so what shows through the window does not matter), so the app can tell the rows apart.
   function isGold(r, g, b) { return r >= 170 && g >= 140 && b <= 175 && r - b >= 55 && r >= g && g - b >= 30; }
   function lum(px, w, x, y) { var j = (y * w + x) * 4; return (px[j] + px[j + 1] + px[j + 2]) / 3; }
+  // Brightness of 3 pixels side by side: steadier than one.
+  function lum3(px, w, x, y) { return (lum(px, w, x, y) + lum(px, w, x + 1, y) + lum(px, w, x + 2, y)) / 3; }
+
   function panel(px, w, h, maxX) {
     maxX = Math.min(w, maxX || w);
     // Long gold lines: the top and bottom of the box.
@@ -269,18 +284,20 @@
     if (!box) return null;
     var bh = box.y1 - box.y0 + 1, bw = box.x1 - box.x0 + 1;
     // The rows: runs down a line just inside the box's left edge, lighter than the gaps between them.
-    var cx = box.x0 + 2, gapLum = Infinity, rowLum = lum(px, w, cx, Math.round((box.y0 + box.y1) / 2));
+    var cx = box.x0 + 1, gapLum = Infinity, rowLum = lum3(px, w, cx, Math.round((box.y0 + box.y1) / 2));
     // The gap is the darkest thing right under the box.
-    for (var gy = box.y1 + 1; gy < Math.min(h, box.y1 + bh); gy++) gapLum = Math.min(gapLum, lum(px, w, cx, gy));
-    var cut = (gapLum + Math.min(rowLum, lum(px, w, cx, Math.min(h - 1, box.y1 + bh)))) / 2;
+    for (var gy = box.y1 + 1; gy < Math.min(h, box.y1 + bh); gy++) gapLum = Math.min(gapLum, lum3(px, w, cx, gy));
+    var cut = (gapLum + Math.min(rowLum, lum3(px, w, cx, Math.min(h - 1, box.y1 + bh)))) / 2;
     if (!(cut > gapLum + 3)) return null;
-    var rows = [], top = -1;
+    var rows = [], tall = [], top = -1;
     for (var yy = 0; yy <= h; yy++) {
-      var light = yy < h && lum(px, w, cx, yy) > cut;
+      var light = yy < h && lum3(px, w, cx, yy) > cut;
       if (light && top < 0) top = yy;
       if (!light && top >= 0) {
         var hh = yy - top;
         if (Math.abs(hh - bh) <= 4) rows.push({ top: top, bottom: yy - 1 });
+        // A title is about one and a half rows tall (two rows run together are more than two).
+        else if (hh >= bh * 1.3 && hh <= bh * 1.8) tall.push({ top: top, bottom: yy - 1 });
         top = -1;
       }
     }
@@ -292,30 +309,55 @@
     // Each row's place, in steps from the picked one (rows of another kind in between keep their place apart).
     var steps = [];
     for (var i = 1; i < rows.length; i++) steps.push(rows[i].top - rows[i - 1].top);
-    var p = median(steps.length ? steps : [bh + 6]);
+    var p = (steps.length && step(steps, bh)) || bh + 6;
     rows.forEach(function (r) {
       r.at = Math.round((r.top - rows[sel].top) / p);
       // The name only (the left 60%), not the count on the right.
       r.sig = textPrint(px, w, h, box.x0 + 3, r.top + 2, box.x0 + Math.round(bw * 0.6), r.top + bh - 3);
     });
-    return { box: box, rows: rows, sel: sel };
+    // The titles around the tiers. "Area Tasks" (a taller box with a green icon) sits right above Easy Ardougne;
+    // the next title (no green icon) sits right below the last tier. head: the place of the row under "Area Tasks",
+    // tail: the place of the row above the next title (each only when seen, and on the right side of the gold box).
+    var gap = p - bh + 5, head = null, tail = null;
+    tall.forEach(function (t) {
+      var green = 0;
+      for (var y = t.top; y <= t.bottom; y++) {
+        for (var x = box.x0; x < Math.min(w, box.x0 + bh * 2); x++) { var j = (y * w + x) * 4; if (isGreen(px[j], px[j + 1], px[j + 2])) green++; }
+      }
+      rows.forEach(function (r) {
+        if (green >= 15 && r.top > t.bottom && r.top - t.bottom <= gap && r.at <= 0) head = r.at;
+        if (green < 15 && t.top > r.bottom && t.top - r.bottom <= gap && r.at >= 0) tail = r.at;
+      });
+    });
+    return { box: box, rows: rows, sel: sel, head: head, tail: tail };
   }
-  // The text pixels of a box (bright ones), as a mask: { w, h, m }.
-  function textPrint(px, w, h, x0, y0, x1, y1) {
+  // The text pixels of a box (bright ones), as a mask: { w, h, m }. With tall: the mask starts at the first line
+  // of the box that has text in it, and is that many lines tall.
+  function textPrint(px, w, h, x0, y0, x1, y1, tall) {
     x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(w - 1, x1); y1 = Math.min(h - 1, y1);
     var mw = x1 - x0 + 1, mh = y1 - y0 + 1;
     if (mw < 10 || mh < 6) return null;
     var m = new Uint8Array(mw * mh);
     for (var y = 0; y < mh; y++) for (var x = 0; x < mw; x++) m[y * mw + x] = lum(px, w, x0 + x, y0 + y) > 110 ? 1 : 0;
-    return { w: mw, h: mh, m: m };
+    if (!tall) return { w: mw, h: mh, m: m };
+    var need = Math.max(3, Math.round(mw * 0.02)), top = -1;
+    for (var yy = 0; yy < mh && top < 0; yy++) {
+      var on = 0;
+      for (var xx = 0; xx < mw; xx++) on += m[yy * mw + xx];
+      if (on >= need) top = yy;
+    }
+    if (top < 0) return null;
+    var th = Math.min(tall, mh - top), out = new Uint8Array(mw * tall);
+    out.set(m.subarray(top * mw, (top + th) * mw));
+    return { w: mw, h: tall, m: out };
   }
-  // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel sideways and 2 up or down
+  // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel sideways and up to 3 up or down
   // is allowed (the edge of a badge can move a little from one look to the next).
   function textDiffer(a, b) {
     if (!a || !b) return 1;
     var w = Math.min(a.w, b.w), h = Math.min(a.h, b.h), best = 1;
     // No shift first: when that is already a clear match, the other 8 are not needed.
-    var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1], [0, -2], [0, 2], [-1, -2], [1, -2], [-1, 2], [1, 2]];
+    var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1], [0, -2], [0, 2], [-1, -2], [1, -2], [-1, 2], [1, 2], [0, -3], [0, 3]];
     for (var s = 0; s < shifts.length; s++) {
       var dx = shifts[s][0], dy = shifts[s][1];
       {
@@ -332,6 +374,42 @@
       }
     }
     return best;
+  }
+
+  // ---------- the list's scrollbar ----------
+  // A light handle in a dark track, right of the rows. atTop: the handle touches the top of the track (or there is
+  // no scrollbar: the whole list fits). Searched between x0 and x1, and y0 and y1 (the height of the rows).
+  function isThumb(r, g, b) { return r > 150 && g > 120 && r > b + 40; }
+  // The handle sits in a dark track: at least 5 dark pixels right above it or right below it (a border does not).
+  function darkBy(px, w, h, x, top, bot) {
+    function dark(a, b) { var n = 0; for (var y = a; y <= b; y++) { if (y >= 0 && y < h && lum(px, w, x, y) < 45) n++; } return n >= 4; }
+    return dark(top - 8, top - 4) || dark(bot + 3, bot + 7);
+  }
+  function scrollbar(px, w, h, x0, x1, y0, y1) {
+    x0 = Math.max(0, x0); x1 = Math.min(w - 1, x1); y0 = Math.max(0, y0 || 0); y1 = Math.min(h - 1, y1 == null ? h - 1 : y1);
+    var best = null, span = y1 - y0 + 1;
+    for (var x = x0; x <= x1; x++) {
+      // A run of handle pixels, with gaps of up to 2 pixels bridged (a noisy picture breaks it up).
+      var start = -1, last = -1;
+      for (var y = y0; y <= y1 + 3; y++) {
+        var j = (y * w + x) * 4, on = y <= y1 && isThumb(px[j], px[j + 1], px[j + 2]);
+        if (on) { if (start < 0) start = y; last = y; continue; }
+        if (start >= 0 && y - last > 2) {
+          var run = last - start + 1;
+          // Not one that runs the whole height: that is the window's border, not the handle.
+          if (run >= 20 && run < span - 6 && (!best || run > best.len) && darkBy(px, w, h, x, start, last)) best = { x: x, top: start, len: run };
+          start = -1;
+        }
+      }
+    }
+    if (!best) return { atTop: true, found: false };
+    // The track: dark above and below the handle, up to the arrows.
+    // (The handle's soft edge is skipped: 3 pixels.)
+    var up = best.top - 3, down = best.top + best.len + 2;
+    while (up > 0 && lum(px, w, best.x, up) < 45) up--;
+    while (down < h - 1 && lum(px, w, best.x, down) < 45) down++;
+    var above = Math.max(0, best.top - up - 3), below = Math.max(0, down - (best.top + best.len) - 2);
+    return { found: true, x: best.x, top: best.top, len: best.len, above: above, below: below, atTop: above <= 3, atBottom: below <= 3, frac: above + below ? above / (above + below) : 0 };
   }
 
   // Grab the game screen (or part of it: { x, y, w, h }) through Alt1. Returns null outside Alt1.
@@ -370,7 +448,7 @@
     return px;
   }
 
-  var api = { read: read, panel: panel, textPrint: textPrint, textDiffer: textDiffer, capture: capture, fromBgraBase64: fromBgraBase64, swapRB: swapRB };
+  var api = { read: read, panel: panel, scrollbar: scrollbar, textPrint: textPrint, textDiffer: textDiffer, capture: capture, fromBgraBase64: fromBgraBase64, swapRB: swapRB };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.QuickGuideReader = api;
 })(typeof window !== 'undefined' ? window : this);

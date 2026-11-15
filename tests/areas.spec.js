@@ -231,7 +231,7 @@ test.describe('the area list', () => {
     await expect(page.locator('.tab[data-tier="hard"]')).toHaveAttribute('aria-selected', 'true');
   });
 
-  test('a tier you started goes first, with its own progress bar', async ({ page, wiki }) => {
+  test('a tier you started stays in its area, with its own progress bar', async ({ page, wiki }) => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     // Easy is untouched; Medium is where the ticks are
@@ -239,7 +239,9 @@ test.describe('the area list', () => {
     await page.locator('#next-btn').click();
     await page.locator('#next-btn').click();
     await page.getByRole('button', { name: 'All areas' }).click();
-    await expect(page.locator('.ghb .n').first()).toHaveText('In progress');
+    // No "In progress" group: the tier stays under its area.
+    await expect(page.locator('.ghb .n')).not.toContainText(['In progress']);
+    await expect(page.locator('.ghb .n').first()).toHaveText('Ardougne');
     const row = area(page, 'Ardougne', 'medium');
     await expect(row.locator('.q1 b')).toHaveText('Ardougne Medium');
     await expect(row.locator('.qs')).toHaveText('2 / 16');
@@ -247,8 +249,8 @@ test.describe('the area list', () => {
     await expect(row.locator('progress')).toHaveJSProperty('max', 16);
     await expect(row).toHaveCSS('color', 'rgb(236, 230, 218)');
     await expect(row.locator('.q1 b')).toHaveCSS('color', 'rgb(245, 225, 90)');
-    // it shows once: not again in its area
-    await expect(tierRows(page, 'Ardougne')).toHaveText(['Ardougne Easy', 'Ardougne Hard', 'Ardougne Elite']);
+    // in its place among the area's tiers
+    await expect(tierRows(page, 'Ardougne')).toHaveText(['Ardougne Easy', 'Ardougne Medium', 'Ardougne Hard', 'Ardougne Elite']);
     // tiers that were never touched have no bar and no count of their own
     await expect(area(page, 'Ardougne', 'easy').locator('progress')).toHaveCount(0);
     await expect(area(page, 'Ardougne', 'easy').locator('.q2')).toHaveText('23 tasks');

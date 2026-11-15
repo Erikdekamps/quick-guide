@@ -1,6 +1,6 @@
 // Read from game: Alt1 shows the in-game Achievements list, and the app ticks the done tasks.
 // Alt1 runs on a computer only, so the tests use screenshots of the desktop game, and a fake Alt1 that hands them over.
-const { test, expect, openApp, openCog, stored, withAllAreas } = require('./support/app');
+const { test, expect, openApp, openCog, stored, withAllAreas, areaPage } = require('./support/app');
 
 const SHOT = {
   // Hard Daemonheim: 3 not done (red), 2 locked (grey with a lock), 2 done (green tick).
@@ -156,7 +156,7 @@ test.describe('Scan achievements in Alt1', () => {
   async function inAlt1(page, o) {
     o = Object.assign({ w: 1244, h: 747, pixel: true, limit: 0 }, o);
     await page.addInitScript(([fw, fh, pixel, limit]) => {
-      window.__scroll = 0; window.__grabs = 0; window.__closed = false; window.__broken = false; window.__shot = null; window.__noise = 0;
+      window.__scroll = 0; window.__grabs = 0; window.__closed = false; window.__broken = false; window.__shot = null; window.__noise = 0; window.__wobble = 0; window.__patches = 0;
       window.alt1 = {
         permissionPixel: pixel, rsLinked: true, rsWidth: fw, rsHeight: fh,
         getRegion: (rx, ry, rw, rh) => {
@@ -164,13 +164,20 @@ test.describe('Scan achievements in Alt1', () => {
           if (window.__broken) throw new Error('capture failed');
           if (limit && rw * rh * 4 > limit) return '';
           const s = window.__shot, top = window.__scroll, noise = window.__noise, u = new Uint8Array(rw * rh * 4);
+          // Each badge's edge moves a little from look to look, each its own way (the text next to it does not).
+          // What shows through the window: patches of 16 x 16 pixels, each a little lighter or darker, new every look.
+          const pat = {};
+          const patch = (x, y) => { const k = (x >> 4) + ',' + (y >> 4); if (!(k in pat)) pat[k] = Math.round((Math.random() * 2 - 1) * window.__patches); return pat[k]; };
+          const wobs = [];
+          for (let k = 0; k < 16; k++) wobs.push(window.__wobble ? Math.round((Math.random() * 2 - 1) * window.__wobble) : 0);
           let o = 0;
           for (let yy = ry; yy < ry + rh; yy++) {
             for (let xx = rx; xx < rx + rw; xx++, o += 4) {
-              const sy = yy + top;
+              const wob = xx >= 690 && xx <= 718 ? wobs[Math.max(0, Math.floor((yy + top - 150) / 62)) % 16] : 0;
+              const sy = yy + top + wob;
               u[o + 3] = 255;
               if (!s || window.__closed || sy < 0 || sy >= s.h || xx >= s.w) continue;
-              const i = (sy * s.w + xx) * 4, n = noise ? Math.round((Math.random() * 2 - 1) * noise) : 0;
+              const i = (sy * s.w + xx) * 4, n = (noise ? Math.round((Math.random() * 2 - 1) * noise) : 0) + (window.__patches ? patch(xx, yy) : 0);
               u[o] = s.d[i + 2] + n; u[o + 1] = s.d[i + 1] + n; u[o + 2] = s.d[i] + n;
               if (n) { for (let k = 0; k < 3; k++) u[o + k] = Math.max(0, Math.min(255, [s.d[i + 2], s.d[i + 1], s.d[i]][k] + n)); }
             }
@@ -232,15 +239,15 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(page.locator('[data-act="scan-open"]')).toHaveCount(0);
   });
 
-  test('in Alt1 it is in the settings; the box says to start at Easy Ardougne and go from top to bottom', async ({ page }) => {
+  test('in Alt1 it is in the settings; the box says to open a tier and go on from there', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
     await openCog(page);
     await page.locator('[data-act="scan-open"]').click();
     const dlg = page.locator('#rd');
     await expect(dlg).toContainText('Hero');
-    await expect(dlg).toContainText('Easy Ardougne');
-    await expect(dlg).toContainText('from top to bottom');
+    await expect(dlg).toContainText('click a tier');
+    await expect(dlg).toContainText('The app sees which one you picked');
     await expect(dlg).toContainText('not done is unticked');
     await page.locator('[data-act="rd-close"]').click();
     await expect(dlg).toHaveCount(0);
@@ -263,6 +270,21 @@ test.describe('Scan achievements in Alt1', () => {
     await page.locator('.tab[data-home="areas"]').click();
     await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('7 / 23');
     expect(page.errors).toEqual([]);
+  });
+
+  test('it starts at the tier picked in the game, found from the "Area Tasks" title above it', async ({ page, wiki }) => {
+    // As in the game: 4 tiers in each area, so the ninth is Easy Desert.
+    for (const n of ['Daemonheim', 'Desert']) {
+      wiki.page(n + ' achievements', areaPage(['Easy', 'Medium', 'Hard', 'Elite'].map((t, i) => ({ name: t, tasks: Array.from({ length: 12 }, (_, k) => ({ id: 7000 + (n === 'Desert' ? 100 : 0) + i * 20 + k, name: n + ' ' + t + ' task ' + (k + 1), desc: 'A task.' })) }))));
+    }
+    await inAlt1(page, { w: 1174, h: 718 });
+    await openApp(page, expect);
+    await show(page, SHOT.desert);
+    await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Desert');
+    // The list is scrolled down (the scrollbar says so), so it does not know which task the first row is yet.
+    await expect(page.locator('#scan-msg')).toHaveText('Scroll this list to the top.');
+    expect(await ticked(page, 'Desert', 0, 12)).toEqual(Array(12).fill(false));
   });
 
   test('clicking the next tier in the game: the app reads which one has the gold box', async ({ page }) => {
@@ -293,6 +315,11 @@ test.describe('Scan achievements in Alt1', () => {
     await boxes.nth(9).check();
     await show(page, SHOT.daemonheim);
     await startScan(page);
+    // This picture has no title in view in the list on the left, so the app cannot tell which tier it is.
+    await expect(page.locator('#scan-msg')).toHaveText('Which one is this? Scroll the list on the left up to Area Tasks.');
+    expect(await ticked(page, 'Ardougne', 0, 10)).toEqual([true, true, true, true, false, false, false, false, false, true]);
+    await page.locator('[data-act="scan-next"]').click();
+    await expect(tier(page)).toHaveText('Easy Ardougne');
     // Rows 1 to 7 are set to what the game shows; task 10 is not on the screen, so it stays.
     await expect.poll(() => ticked(page, 'Ardougne', 0, 10)).toEqual([...DAEM.slice(0, 7), false, false, true]);
   });
@@ -331,11 +358,11 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(tier(page)).toHaveText('Easy Ardougne');
   });
 
-  test('a lot of flicker on every look, and no scrolling at all: it never loses its place', async ({ page }) => {
+  test('what shows through the window changes on every look, and no scrolling at all: it never loses its place', async ({ page }) => {
     await inAlt1(page);
     await openApp(page, expect);
     await show(page, SHOT.screen);
-    await page.evaluate(() => { window.__noise = 40; window.__lost = 0; });
+    await page.evaluate(() => { window.__noise = 6; window.__patches = 10; window.__lost = 0; });
     await startScan(page);
     await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
     await page.evaluate(() => {
@@ -346,6 +373,24 @@ test.describe('Scan achievements in Alt1', () => {
     expect(await page.evaluate(() => window.__lost)).toBe(0);
     await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
     await expect(tier(page)).toHaveText('Easy Ardougne');
+  });
+
+  test('badges that move a few pixels on every look, and no scrolling: it never loses its place', async ({ page }) => {
+    await inAlt1(page);
+    await openApp(page, expect);
+    await show(page, SHOT.screen);
+    await page.evaluate(() => { window.__noise = 10; window.__wobble = 3; window.__lost = 0; });
+    await startScan(page);
+
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    await page.evaluate(() => {
+      new MutationObserver(() => { const m = document.getElementById('scan-msg'); if (m && /Lost/.test(m.textContent)) window.__lost++; })
+        .observe(document.getElementById('app'), { subtree: true, childList: true, characterData: true });
+    });
+    await frames(page, 12);
+    expect(await page.evaluate(() => window.__lost)).toBe(0);
+    await expect(page.locator('#scan-msg')).toHaveText('Tasks 1\u20137 of 23.');
+    expect(await ticked(page, 'Ardougne', 1, 8)).toEqual(Array(8).fill(false));
   });
 
   test('a tooltip over some rows while scrolling: it keeps its place', async ({ page }) => {
@@ -371,6 +416,7 @@ test.describe('Scan achievements in Alt1', () => {
     await openApp(page, expect);
     await show(page, SHOT.screen);
     await startScan(page);
+    await expect(tier(page)).toHaveText('Easy Ardougne');
     await expect(page.locator('[data-act="scan-back"]')).toBeDisabled();
     await page.locator('[data-act="scan-next"]').click();
     await page.locator('[data-act="scan-next"]').click();
