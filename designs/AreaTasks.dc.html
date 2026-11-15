@@ -11,18 +11,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
 <style>
 /* Quick Guide - style.css
-   Looks like a RuneScape 3 window in the brown interface skin: a bronze rim, a dark title band
-   with the name in small capitals, dark inset panels, gold buttons and a gold scrollbar.
+   Looks like a RuneScape 3 window in the brown interface skin, like the game's Hero window: a bronze rim,
+   a dark title band with the name in gold capitals on the left, square bronze buttons, tabs on a bronze
+   line, warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
    Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
    Window parts (title band, tabs, menus, footer) use px so they always fit. */
 :root {
   color-scheme: dark;
   /* window */
   --win: #1b1713;          /* window body, around the panels */
-  --deep: #13100d;         /* the scrolling panel */
-  --hover: #211c17;        /* a row under the mouse */
-  --sel: #2a241d;          /* the next step */
-  --rule: #2b251f;         /* thin lines between rows */
+  --deep: #25211e;         /* the scrolling panel */
+  --hover: #2e2925;        /* a row under the mouse */
+  --sel: #352e27;          /* the next step */
+  --rule: #342e28;         /* thin lines between rows */
+  --line: #6d5e4a;         /* the line the tabs sit on */
   /* bronze rim and frames */
   --rim-1: #67584a;
   --rim-2: #8a7046;
@@ -48,6 +50,16 @@
   --muted: #b8ac97;
   --faint: #968b7b;
   --title: #e8d4a2;
+  --hero: #e3c39b;         /* the window's name, like "HERO" in the game */
+  /* square buttons, like the game's "i" button */
+  --btn-edge: #827660;
+  --btn-top: #484035;
+  --btn-bot: #2d2619;
+  --btn-sign: #c8b084;
+  /* tick boxes */
+  --cb-edge: #6e604a;
+  --cb-in: #17110b;
+  --cb-tick: #dfbe89;
   --gold: #f2c45e;
   --orange: #ff981f;
   --link: #f3c565;
@@ -135,17 +147,18 @@ button, input, select { font: inherit; color: inherit; }
   border-bottom: 1px solid #4a3c28;
   box-shadow: 0 1px 0 #0c0a08;
 }
-/* both sides are the same width, so the name sits in the middle */
-.hs { flex: 0 0 62px; display: flex; align-items: center; gap: 2px; }
-.he { justify-content: flex-end; }
+/* like the game's Hero window: the emblem (or the back button), the name on the left, the buttons on the right */
+.hs { flex: none; display: flex; align-items: center; gap: 3px; }
+.he { margin-left: auto; }
+.emb { flex: none; width: 26px; height: 26px; filter: drop-shadow(0 1px 0 #000); }
 .qt {
   flex: 1;
   min-width: 0;
   margin: 0;
-  font: 700 14px/1.25 "Cinzel", "Trajan Pro", Georgia, serif;
-  letter-spacing: .05em;
-  color: var(--title);
-  text-align: center;
+  font: 700 16px/1.2 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .04em;
+  color: var(--hero);
+  text-align: left;
   text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
   overflow-wrap: break-word;
   /* long names stop after two lines; the full name is in the tooltip */
@@ -154,24 +167,24 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/* small square buttons, like the close button on a game window, in bronze */
+/* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
   place-items: center;
   flex: none;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  background: linear-gradient(#3a3027, #221c16);
-  border: 1px solid #5c4a2e;
+  background: linear-gradient(var(--btn-top), var(--btn-bot));
+  border: 1px solid var(--btn-edge);
   border-radius: 2px;
-  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 222, 160, .14);
-  color: var(--title);
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 0 rgba(255, 230, 180, .12);
+  color: var(--btn-sign);
   cursor: pointer;
 }
-.ib:hover { background: linear-gradient(#4a3d2f, #2c241c); border-color: var(--bronze-lt); color: #fff2cf; }
-.ib:active { background: linear-gradient(#1d1813, #2c241c); }
-.ib[aria-expanded="true"] { border-color: var(--bronze-lt); color: var(--gold); background: linear-gradient(#1d1813, #2c241c); }
+.ib:hover { background: linear-gradient(#574c3e, #352d20); border-color: #a8977a; color: #ecd6a8; }
+.ib:active { background: linear-gradient(#2d2619, #3b3326); }
+.ib[aria-expanded="true"] { border-color: #a8977a; color: var(--gold); background: linear-gradient(#2d2619, #3b3326); }
 .ib:disabled { opacity: .4; cursor: default; }
 .ib.xs { width: 24px; height: 24px; }
 .ib.xs .i { width: 14px; height: 14px; }
@@ -221,16 +234,16 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 .qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid #0b0907; border-bottom: 1px solid #3a3025; }
-/* an on/off setting: a tick box, like the game's settings */
+/* an on/off setting: a tick box, like the game's ("Show Completed"): a bronze edge and a gold tick */
 .tg {
   position: relative;
   flex: none;
   width: 16px;
   height: 16px;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
-  box-shadow: inset 0 1px 3px #000;
+  box-shadow: 0 0 0 1px #0b0907, inset 0 1px 3px #000;
 }
 .tg::after {
   content: "";
@@ -239,7 +252,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   top: 0;
   width: 5px;
   height: 10px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -285,27 +298,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   height: 28px;
   margin-top: 3px;
   padding: 0 6px;
-  background: linear-gradient(#302a23, #231e19);
-  border: 1px solid #4a3d2b;
-  border-bottom-color: var(--bronze);
+  background: linear-gradient(#30241f, #241a17);
+  border: 1px solid #4a4134;
+  border-bottom-color: var(--line);
   border-radius: 3px 3px 0 0;
   box-shadow: inset 0 1px 0 rgba(255, 222, 160, .08);
-  color: var(--muted);
+  color: #9b938f;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
 }
-.tab:hover { color: var(--text); background: linear-gradient(#3a3229, #29231d); }
+.tab:hover { color: #ddd5c9; background: linear-gradient(#3b2d27, #2b201c); }
+/* the open tab: lit, in warm brown, on the line like the others (as in the game) */
 .tab[aria-selected="true"] {
-  height: 31px;
-  margin-top: 0;
-  background: var(--deep);
-  border-color: var(--bronze);
-  border-bottom-color: var(--deep);
-  box-shadow: inset 0 1px 0 rgba(255, 222, 160, .12);
-  color: var(--gold);
+  background: linear-gradient(#615140, #4b3627 45%, #382210);
+  border-color: #8f7552;
+  border-bottom-color: var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 225, 180, .2);
+  color: #f0e8dc;
   cursor: default;
 }
 .tab .i { display: none; width: 15px; height: 15px; }
@@ -321,25 +333,26 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   overflow-wrap: anywhere;
   background: var(--deep);
   border: 1px solid var(--bronze);
+  border-top-color: var(--line);
   border-radius: 2px;
   box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #0b0907;
 }
 .tabs + .scroll { margin-top: 0; }
 /* the game's gold scrollbar */
 .scroll::-webkit-scrollbar { width: 12px; }
-.scroll::-webkit-scrollbar-track { background: #0b0907; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-track { background: #14130f; border-left: 1px solid #2b251f; }
 .scroll::-webkit-scrollbar-thumb {
   min-height: 32px;
-  background: linear-gradient(90deg, #5c4529, #a98450 22%, #f6d48c 45%, #ffe9a6 55%, #d6a660 72%, #84643c);
+  background: linear-gradient(90deg, #fae9bc, #fad69b 25%, #c8a067 50%, #82663e 75%, #4d3d25);
   background-clip: padding-box;
   border: 2px solid transparent;
   border-left-width: 3px;
   border-radius: 6px;
 }
 .scroll::-webkit-scrollbar-thumb:hover { background-color: #ffe9a6; }
-.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #0b0907; border-left: 1px solid #2b251f; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
-.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #e9be6c 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #e9be6c 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #0b0907; }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: #14130f; border-left: 1px solid #2b251f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, #f5dbab 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, #f5dbab 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, #14130f; }
 
 /* part headers: raised bars. They stay at the top while you scroll through their steps. */
 /* 1px up, so no sliver of the list shows above the header */
@@ -470,7 +483,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
 
-/* tick boxes: a dark inset square with a gold tick */
+/* tick boxes, like the game's: a dark square with a bronze edge and a gold tick */
 .cb {
   -webkit-appearance: none;
   appearance: none;
@@ -480,8 +493,8 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: 1.286rem;
   height: 1.286rem;
   margin: 1px 0 0;
-  background: var(--inset);
-  border: 1px solid var(--bronze);
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
   border-radius: 2px;
   box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
   cursor: pointer;
@@ -491,7 +504,7 @@ button.mi:hover, a.mi:hover { background: #2e261e; color: #fff4d6; text-decorati
   width: .429rem;
   height: .786rem;
   margin-top: -2px;
-  border: solid var(--gold);
+  border: solid var(--cb-tick);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   opacity: 0;
@@ -850,7 +863,7 @@ ul.steps.ql { padding: 0; }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><div class="hs"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button></div><h1 class="qt" title="Varrock">Varrock</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="0" max="2" aria-label="Tier progress"></progress><span class="cnt" id="pg-cnt">0 / 2 tasks</span></div><nav class="tabs" role="tablist" aria-label="Tiers"><button class="tab" type="button" role="tab" data-tier="easy" aria-selected="false"><span class="tl-l">Easy</span></button><button class="tab" type="button" role="tab" data-tier="elite" aria-selected="true"><span class="tl-l">Elite</span></button></nav><main class="scroll" id="main" role="tabpanel"><section class="sec" data-asec="tasks"><h2 class="sh"><button class="sech" type="button" data-asec-btn="elite:tasks" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tasks</span><span class="c">0 / 2</span></button></h2><div class="secb"><ul class="steps"><li class="step task cur" data-task="993"><div class="row"><input class="cb" type="checkbox" data-acb="993" aria-labelledby="qt5"><div class="rb"><span class="t" id="qt5"><b>Red, Red Pies of Summer</b> — Bake a summer pie in the Cooking Guild from scratch.</span><div class="ext"><span class="need">Needs <span class="skl"><span class="lv">95</span> <img class="sic" src="https://runescape.wiki/images/Cooking-icon.png" alt="" width="20" height="20" loading="lazy" onerror="this.remove()"> <a class="sn" href="https://runescape.wiki/w/Cooking" target="_blank" rel="noopener">Cooking</a> <sup class="bst" title="You may use a boost for this level">(boostable)</sup></span></span><div class="howto">Bake a <a href="https://runescape.wiki/w/Summer_pie" target="_blank" rel="noopener">summer pie</a> in the <a href="https://runescape.wiki/w/Cooks%27_Guild" target="_blank" rel="noopener">Cooks' Guild</a> from scratch by following the steps below:<br>Required items<br>• <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">Pot of flour</a> (sold in the Guild)<br>• <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">Pie dish</a> (found in the Guild)<br>• <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">Strawberry</a><br>• <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">Watermelon</a><br>• <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">Cooking apple</a> (found in the Guild)</div></div></div></div><ul class="steps subs"><li class="step task done" data-task="993:1"><div class="row"><input class="cb" type="checkbox" data-acb="993:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">Make <a href="https://runescape.wiki/w/Pastry_dough" target="_blank" rel="noopener">pastry dough</a> by mixing a <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">pot of flour</a> with <a href="https://runescape.wiki/w/Water" target="_blank" rel="noopener">water</a> by using the pot of flour on the pump and drain.</span></div></div></li><li class="step task done" data-task="993:2"><div class="row"><input class="cb" type="checkbox" data-acb="993:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Use the pastry dough on a <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">pie dish</a>.</span></div></div></li><li class="step task" data-task="993:3"><div class="row"><input class="cb" type="checkbox" data-acb="993:3" aria-labelledby="qt3"><div class="rb"><span class="t" id="qt3">Add a <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">strawberry</a>, <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">watermelon</a>, and <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">cooking apple</a> to the shell (in that order).</span><div class="ext"><div class="howto">The cooking apple can be found in the Guild, the rest needs to be brought from outside.</div></div></div></div></li><li class="step task" data-task="993:4"><div class="row"><input class="cb" type="checkbox" data-acb="993:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4">Bake the <a href="https://runescape.wiki/w/Raw_summer_pie" target="_blank" rel="noopener">raw summer pie</a>.</span><div class="ext"><div class="howto">The pie must be baked on one of the ranges of the Cooks' Guild. Using the Bake Pie spell inside the Cooks' Guild will not count.<br>Ranges can be found on the first floor, or after having completed the hard Varrock achievements also on the ground floor.</div></div></div></div></li></ul></li><li class="step task" data-task="994"><div class="row"><input class="cb" type="checkbox" data-acb="994" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><b>Pie in the Sky</b> — Eat a pie.</span><div class="ext"><div class="howto">Eat a pie.<br>• Only one step here.</div></div></div></div></li></ul></div></section><div class="blk" style="margin-top:14px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span class="sl">Rewards</span></summary><div class="body"><p class="para">Talk to someone to claim the rewards.</p><ul class="plain"><li>A reward</li></ul></div></details></div><p class="foot">Tasks: <a href="https://runescape.wiki/w/Varrock_achievements" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded Nov 14, 2026.</p></main><footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next task</span></button></footer></div>
+<div id="app"><header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button><h1 class="qt" title="Varrock">Varrock</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></header><div class="prog"><progress class="pg" id="pg" value="0" max="2" aria-label="Tier progress"></progress><span class="cnt" id="pg-cnt">0 / 2 tasks</span></div><nav class="tabs" role="tablist" aria-label="Tiers"><button class="tab" type="button" role="tab" data-tier="easy" aria-selected="false"><span class="tl-l">Easy</span></button><button class="tab" type="button" role="tab" data-tier="elite" aria-selected="true"><span class="tl-l">Elite</span></button></nav><main class="scroll" id="main" role="tabpanel"><section class="sec" data-asec="tasks"><h2 class="sh"><button class="sech" type="button" data-asec-btn="elite:tasks" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tasks</span><span class="c">0 / 2</span></button></h2><div class="secb"><ul class="steps"><li class="step task cur" data-task="993"><div class="row"><input class="cb" type="checkbox" data-acb="993" aria-labelledby="qt5"><div class="rb"><span class="t" id="qt5"><b>Red, Red Pies of Summer</b> — Bake a summer pie in the Cooking Guild from scratch.</span><div class="ext"><span class="need">Needs <span class="skl"><span class="lv">95</span> <img class="sic" src="https://runescape.wiki/images/Cooking-icon.png" alt="" width="20" height="20" loading="lazy" onerror="this.remove()"> <a class="sn" href="https://runescape.wiki/w/Cooking" target="_blank" rel="noopener">Cooking</a> <sup class="bst" title="You may use a boost for this level">(boostable)</sup></span></span><div class="howto">Bake a <a href="https://runescape.wiki/w/Summer_pie" target="_blank" rel="noopener">summer pie</a> in the <a href="https://runescape.wiki/w/Cooks%27_Guild" target="_blank" rel="noopener">Cooks' Guild</a> from scratch by following the steps below:<br>Required items<br>• <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">Pot of flour</a> (sold in the Guild)<br>• <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">Pie dish</a> (found in the Guild)<br>• <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">Strawberry</a><br>• <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">Watermelon</a><br>• <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">Cooking apple</a> (found in the Guild)</div></div></div></div><ul class="steps subs"><li class="step task done" data-task="993:1"><div class="row"><input class="cb" type="checkbox" data-acb="993:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">Make <a href="https://runescape.wiki/w/Pastry_dough" target="_blank" rel="noopener">pastry dough</a> by mixing a <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">pot of flour</a> with <a href="https://runescape.wiki/w/Water" target="_blank" rel="noopener">water</a> by using the pot of flour on the pump and drain.</span></div></div></li><li class="step task done" data-task="993:2"><div class="row"><input class="cb" type="checkbox" data-acb="993:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Use the pastry dough on a <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">pie dish</a>.</span></div></div></li><li class="step task" data-task="993:3"><div class="row"><input class="cb" type="checkbox" data-acb="993:3" aria-labelledby="qt3"><div class="rb"><span class="t" id="qt3">Add a <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">strawberry</a>, <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">watermelon</a>, and <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">cooking apple</a> to the shell (in that order).</span><div class="ext"><div class="howto">The cooking apple can be found in the Guild, the rest needs to be brought from outside.</div></div></div></div></li><li class="step task" data-task="993:4"><div class="row"><input class="cb" type="checkbox" data-acb="993:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4">Bake the <a href="https://runescape.wiki/w/Raw_summer_pie" target="_blank" rel="noopener">raw summer pie</a>.</span><div class="ext"><div class="howto">The pie must be baked on one of the ranges of the Cooks' Guild. Using the Bake Pie spell inside the Cooks' Guild will not count.<br>Ranges can be found on the first floor, or after having completed the hard Varrock achievements also on the ground floor.</div></div></div></div></li></ul></li><li class="step task" data-task="994"><div class="row"><input class="cb" type="checkbox" data-acb="994" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><b>Pie in the Sky</b> — Eat a pie.</span><div class="ext"><div class="howto">Eat a pie.<br>• Only one step here.</div></div></div></div></li></ul></div></section><div class="blk" style="margin-top:14px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span class="sl">Rewards</span></summary><div class="body"><p class="para">Talk to someone to claim the rewards.</p><ul class="plain"><li>A reward</li></ul></div></details></div><p class="foot">Tasks: <a href="https://runescape.wiki/w/Varrock_achievements" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded Nov 14, 2026.</p></main><footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next task</span></button></footer></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

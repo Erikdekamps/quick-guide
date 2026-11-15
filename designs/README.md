@@ -1,8 +1,9 @@
 # Designs
 
 Design mockups for Quick Guide, copied from the "Quest Guide Overlay" design canvas.
-They use the brown RuneScape 3 window look: a bronze rim, a dark title band,
-dark panels, gold buttons and a gold scrollbar.
+They look like the game's Hero window (Hero > Achievements): a bronze rim, a dark title band with the
+name in gold capitals on the left, square bronze buttons, tabs on a bronze line (the open one lit in warm
+brown), warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
 
 The screens are built from the real app (`style.css` and the app's own markup),
 so they match it.
