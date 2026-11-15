@@ -164,21 +164,25 @@ is how the app finds it; a task can also be written by its name alone.
 - The game does not share which tasks you have done. Tick them yourself, or let the app read them:
 - **Scan achievements** (in the settings, only in Alt1, which runs on a computer): the app reads the game and sets
   every area task to what the game shows.
-  1. In the game, open **Hero → Achievements → Area Tasks** and click **Easy Ardougne**.
+  1. In the game, open **Hero → Achievements → Area Tasks** and click a tier (for example **Easy Ardougne**).
      Keep **Show Completed** on and **List Mode** off.
   2. Press **Start**. A green bar at the top says which tier the app is on and which tasks are in view.
-  3. Go from top to bottom: scroll each list down, then click the next one in the game.
-  - The app sees which tier is picked in the game: the one with the gold box in the list on the left. It starts out
-    knowing that is Easy Ardougne, so the rows under it are Medium Ardougne and so on; it remembers what each name
-    looks like, so you can also skip ahead or go back. If the bar shows the wrong tier, use **◀ ▶**. **Stop** ends it.
+  3. Scroll each list down, then click the next one in the game.
+  - The app sees which tier is picked in the game: the one with the gold box in the list on the left. It counts it
+    from the **Area Tasks** title right above Easy Ardougne (or from the next title, below the last tier), so you can
+    start anywhere. If neither title is in view, it says so: scroll the list on the left up to Area Tasks. It also
+    remembers what each name looks like, so skipping ahead or back works. If the bar shows the wrong tier, use
+    **◀ ▶**: they hold until you pick another tier in the game. **Stop** ends it.
+  - When it first sees a tier, it only starts if the list is at the top (the scrollbar says so); else it asks you to
+    scroll the list to the top. A tier or a task only changes when two looks in a row agree.
   - A task with a green tick is ticked; a task the game shows as not done (or locked) is unticked.
     The **Set tasks** page you see before picking a tier changes nothing.
   - It reads only the bright text, so the game moving behind the window does not confuse it. When the rows have not
     moved, it keeps its place without comparing; when they have, each row is matched to the row it looks most like,
     and a row under a tooltip simply does not count.
   - If it cannot see the list, the bar says so, and how big a picture Alt1 hands over (or that it hands over none).
-- Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
-  **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
+- Each tier has its own row with its count ("2 / 23") and a progress bar, under its area, in the game's order.
+  A finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
 - **Search** finds tiers ("ardougne hard") and tasks (by name). The first time you search, the app reads all 13 areas
   once, so every task can be found; after that it is instant. Tick a task right in the results,
