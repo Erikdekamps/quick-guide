@@ -1055,6 +1055,50 @@
     Object.keys(quests).forEach(function (k) { if (quests[k] === 2) done++; else if (quests[k] === 1) started++; });
     return { name: name, source: source, at: new Date().toISOString(), quests: quests, titles: titles || {}, levels: levels, locked: locked || {}, done: done, started: started };
   }
+  // The game's quest objects (a list, or a map by quest id), as { quests, titles, locked }; null when there are none.
+  function questsOf(ql) {
+    var o = { quests: {}, titles: {}, locked: {} }, got = false;
+    (Array.isArray(ql) ? ql : ql && typeof ql === 'object' ? Object.keys(ql).map(function (k) { return ql[k]; }) : []).forEach(function (it) {
+      if (!it || !it.title) return;
+      got = true;
+      var k = normName(it.title), st = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
+      o.quests[k] = st;
+      o.titles[k] = clean(it.title);
+      if (st === 0 && it.eligible === false) o.locked[k] = 1;
+    });
+    return got ? o : null;
+  }
+  // Jagex's Player Data API (developer.runescape.com): quests, skill levels and quest points in one answer, more
+  // up to date than the hiscores. Asked through the wiki first, then at Jagex itself. Gives null when neither
+  // answers with quests (then the older lookup is used); a player the game does not know is an error at once.
+  var PLAYER_DATA = [WIKI + '/cors/m=adventurers-log', 'https://secure.runescape.com/m=adventurers-log'];
+  // The game's own skill names that differ from the ones the wiki uses.
+  var SKILL_NAMES = { hitpoints: 'constitution', runecraft: 'runecrafting' };
+  function fromPlayerData(name) {
+    var enc = encodeURIComponent(name);
+    function ask(i) {
+      if (i >= PLAYER_DATA.length) return Promise.resolve(null);
+      return getJson(PLAYER_DATA[i] + '/api/v1/playerData/' + enc + '?includeQuests=true&includeSkills=true').then(function (r) {
+        var j = r.json, q = r.ok && j ? questsOf(j.quests) : null;
+        if (j && j.error === 'PLAYER_NOT_FOUND') { var e = new Error('No such player.'); e.code = 'nodata'; throw e; }
+        if (!q) return ask(i + 1);
+        var levels = {};
+        Object.keys(j.skills && typeof j.skills === 'object' ? j.skills : {}).forEach(function (k) {
+          var lv = j.skills[k] && +j.skills[k].level;
+          if (isFinite(lv)) levels[SKILL_NAMES[k] || k] = lv;
+        });
+        var p = playerResult(clean(j.name || '') || name, 'Player Data', q.quests, levels, q.locked, q.titles);
+        if (isFinite(+j.qp) && j.qp != null) p.qp = +j.qp;
+        if (isFinite(+j.qp_max) && j.qp_max != null) p.qpMax = +j.qp_max;
+        return p;
+      }, function (err) {
+        if (err && err.code === 'nodata') throw err;
+        return ask(i + 1);
+      });
+    }
+    return ask(0);
+  }
+  // The older lookup: the quests, and the levels from the hiscores, both passed on by the wiki.
   function fromRuneMetrics(name) {
     var enc = encodeURIComponent(name), fails = [];
     function soft(p) { return p.then(function (r) { return r.ok ? r.json : null; }, function (e) { fails.push(e); return null; }); }
@@ -1062,16 +1106,8 @@
       soft(getJson(WIKI + '/cors/m=adventurers-log/api/v1/playerQuests/' + enc)),
       soft(getJson(WIKI + '/cors/m=hiscore/index_lite.json?player=' + enc))
     ]).then(function (res) {
-      var quests = {}, levels = {}, locked = {}, titles = {}, got = false;
-      var ql = res[0] && res[0].quests;
-      (Array.isArray(ql) ? ql : ql && typeof ql === 'object' ? Object.keys(ql).map(function (k) { return ql[k]; }) : []).forEach(function (it) {
-        if (!it || !it.title) return;
-        got = true;
-        var k = normName(it.title), st = it.status === 'COMPLETED' ? 2 : it.status === 'STARTED' ? 1 : 0;
-        quests[k] = st;
-        titles[k] = clean(it.title);
-        if (st === 0 && it.eligible === false) locked[k] = 1;
-      });
+      var q = questsOf(res[0] && res[0].quests) || { quests: {}, titles: {}, locked: {} };
+      var quests = q.quests, levels = {}, locked = q.locked, titles = q.titles, got = Object.keys(quests).length > 0;
       (res[1] && Array.isArray(res[1].skills) ? res[1].skills : []).forEach(function (it) {
         var nm = it && HISCORE_SKILLS[it.id];
         if (!nm || !isFinite(+it.level)) return;
@@ -1086,10 +1122,11 @@
       return playerResult(name, 'RuneMetrics', quests, levels, locked, titles);
     });
   }
-  // Quests and levels of one player: Jagex's RuneMetrics data, passed on by the wiki.
-  // (The wiki lets any web page read it, so this works from GitHub Pages.)
+  // Quests and levels of one player, from Jagex: the Player Data API when it answers, else the older lookup.
+  // (The wiki passes both on and lets any web page read them, so this works from GitHub Pages.)
   function loadPlayer(name) {
-    return fromRuneMetrics(clean(name));
+    name = clean(name);
+    return fromPlayerData(name).then(function (p) { return p || fromRuneMetrics(name); });
   }
 
 
