@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Quick Guide</title>
+  <!-- The app's icon: a tick box with a green tick, on a grey tile with a silver rim.
+       Only greys and green, so it fits both themes (green is "done" in both).
+       icon.png is made from this file: npm run icon -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4a4a"/>
+      <stop offset="1" stop-color="#1c1c1c"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d2d2d2"/>
+      <stop offset=".5" stop-color="#9c9c9c"/>
+      <stop offset="1" stop-color="#5c5c5c"/>
+    </linearGradient>
+    <linearGradient id="tick" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a6f08a"/>
+      <stop offset="1" stop-color="#3fae37"/>
+    </linearGradient>
+  </defs>
+  <!-- the tile -->
+  <rect x="2.5" y="2.5" width="59" height="59" rx="13" fill="url(#tile)" stroke="url(#rim)" stroke-width="3"/>
+  <rect x="5.5" y="5.5" width="53" height="53" rx="10" fill="none" stroke="#000" stroke-opacity=".45"/>
+  <!-- the tick box -->
+  <rect x="14.5" y="21.5" width="27" height="27" rx="5" fill="#121212" stroke="#e6e6e6" stroke-width="3.5"/>
+  <!-- the tick, breaking out of the box: a dark edge, then the green -->
+  <path d="M20 34.5 L27.5 42 L48.5 17.5" fill="none" stroke="#0e200c" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 34.5 L27.5 42 L48.5 17.5" fill="none" stroke="url(#tick)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

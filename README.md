@@ -1,6 +1,7 @@
 # Quick Guide
 
-A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser. It looks like the game's own Hero window.
+A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) browser. It looks like the game's own Hero window,
+in the brown interface the game has now, or the blue one it had before (a setting).
 
 - **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
 - **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
@@ -100,7 +101,8 @@ The same on every screen:
 
 - **Player:** look up your character, update it, or forget it.
 - **Quest list:** sort, **Hide completed**, **Hide miniquests**, **Hide locked**. Hide completed and Hide locked work for area tiers too.
-- **Display:** **Show done steps** (to untick one) and **Text size** (12 to 40).
+- **Display:** **Theme** (Brown, like the game now, or Blue, like the game before), **Show done steps** (to untick one)
+  and **Text size** (12 to 40).
 - **Update quest list** reads the lists from the wiki again.
 - **Scan achievements** (only in Alt1).
 - **Backup:** **Export state** and **Import state** (below).
@@ -159,7 +161,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `qdone` | Quests marked done by an import |
 | `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
-| `settings`, `last` | Your settings, and the quest or area that was open last |
+| `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels |
 | `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
 
@@ -183,19 +185,26 @@ No other service is used.
 
 | File | What it is |
 | --- | --- |
-| `index.html`, `style.css` | The page and its look |
-| `app.js` | The screens, ticks, settings, export and import, and the scan |
+| `index.html`, `style.css` | The page and its look (both themes: every colour is a token at the top of `style.css`) |
+| `app-core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
+| `app-quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
+| `app-areas.js` | Area tasks: the list of tiers, search, and one area |
+| `app-backup.js` | Export and import |
+| `app-scan.js` | Scan achievements (Alt1) |
+| `app.js` | Loaded last: the clicks and keys of every screen, and the start |
 | `parser.js` | Reads a quest guide or an area page from the wiki |
 | `quests.js` | Reads the quest lists and the optimal order |
 | `reader.js` | Reads the game's task list from the screen (for Scan achievements) |
 | `tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
-| `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
+| `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
+| `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
+| `tools/icon.js` | Makes `icon.png` from `icon.svg` |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.29.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.31.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
@@ -220,6 +229,7 @@ npm test
 
 - `npm run test:live` checks against the real wiki (needs the internet).
 - `npm run coverage` runs the tests and shows how much of each file they run.
+- `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
 
 ## Credits
 

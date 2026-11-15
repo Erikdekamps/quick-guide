@@ -115,7 +115,7 @@ const test = base.test.extend({
     if (cov) await page.coverage.startJSCoverage({ resetOnNavigation: false });
     await use(page);
     if (cov) {
-      const out = (await page.coverage.stopJSCoverage()).filter((e) => /^http:\/\/quick-guide\.test\/[a-z]+\.js/.test(e.url))
+      const out = (await page.coverage.stopJSCoverage()).filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
         .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
       fs.mkdirSync(cov, { recursive: true });
       fs.writeFileSync(path.join(cov, info.testId + '.json'), JSON.stringify(out));

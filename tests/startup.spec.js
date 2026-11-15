@@ -17,11 +17,17 @@ test.describe('a file that does not load', () => {
     });
   }
 
-  test('app.js: the page says so', async ({ page }) => {
-    await page.route('**/app.js?*', (r) => r.abort());
-    await page.goto('/');
-    await expect(page.locator('#app')).toHaveText(/^The app could not start\. This file did not load: http:\/\/quick-guide\.test\/app\.js\?v=[\d.]+ Upload all the files again, then reload\.$/);
-  });
+  // The app is in six files (app-core.js first, app.js last): any one missing, the page says which, and nothing
+  // half-works under it.
+  for (const file of ['app-core.js', 'app-quests.js', 'app-areas.js', 'app-backup.js', 'app-scan.js', 'app.js']) {
+    test(file + ': the page says so', async ({ page }) => {
+      await page.route('**/' + file + '?*', (r) => r.abort());
+      await page.goto('/');
+      await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace('.', '\\.') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
+      await page.waitForTimeout(300);
+      await expect(page.locator('#app .hdr')).toHaveCount(0);
+    });
+  }
 
   test('the map library: only maps are missing', async ({ page }) => {
     await page.route('**/leaflet.js?*', (r) => r.abort());

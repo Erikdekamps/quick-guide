@@ -4,6 +4,8 @@ Design mockups for Quick Guide, copied from the "Quest Guide Overlay" design can
 They look like the game's Hero window (Hero > Achievements): a bronze rim, a dark title band with the
 name in gold capitals on the left, square bronze buttons, tabs on a bronze line (the open one lit in warm
 brown), warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
+The Blue theme (Settings > Theme) is the same window in the game's earlier blue interface: steel blue rims and
+panels, light blue buttons and ticks. The `…Blue` boards show it.
 
 The screens are built from the real app (`style.css` and the app's own markup),
 so they match it.
@@ -23,7 +25,11 @@ so they match it.
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |
-| `Components.dc.html` | All parts, colors and type, with skill and quest requirements like the wiki |
+| `StartBlue.dc.html` | The start screen in the Blue theme |
+| `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
+| `MainBlue.dc.html` | Steps tab in the Blue theme |
+| `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
+| `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, and skill and quest requirements like the wiki |
 | `Data.dc.html` | The quest JSON shape, and what is saved |
 | `canvas.json` | Board layout on the canvas |
 
