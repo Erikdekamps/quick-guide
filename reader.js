@@ -190,21 +190,36 @@
   }
   // The rows as the old way gives them ({ found, rows, x0, x1, pitch, red }), or null when no such list is in view
   // (a blurry picture: then the badges' colours are tried).
-  function boxList(px, w, h) {
-    var L = new Uint8Array(w * h), i, j;
-    for (i = 0, j = 0; i < w * h; i++, j += 4) L[i] = (px[j] + px[j + 1] + px[j + 2]) / 3;
+  var lumBuf = null, sumBuf = null;
+  // The top and bottom edges of every box in the picture, and how light each pixel is. (On its own, with nothing
+  // but these loops in it: the browser keeps such a function fast, where a long one with more in it gets slow
+  // every few looks.)
+  function boxEdges(px, w, h) {
+    // (The same two buffers are used for every look of one size: making new big ones each time is slow.)
+    if (!lumBuf || lumBuf.length !== w * h) { lumBuf = new Uint8Array(w * h); sumBuf = new Uint16Array(w * h); }
+    var L = lumBuf, S = sumBuf, n = w * h, i = 0, j = 0;
+    S[n - 1] = S[n - 2] = S[n - 3] = 0;
+    for (i = 0, j = 0; i < n; i++, j += 4) L[i] = ((px[j] + px[j + 1] + px[j + 2]) * 21846) >> 16;
+    // Four pixels side by side, added up: a picture with some noise in it (a see-through window) still has clean edges.
+    for (i = 0; i + 3 < n; i++) S[i] = L[i] + L[i + 1] + L[i + 2] + L[i + 3];
     // The top and bottom edges of boxes: long level lines where a dark line turns lighter (a top) or the other way
-    // round (a bottom).
-    var WMIN = 160, tops = [], bots = [];
+    // round (a bottom). (Four pixels wide, a run starts 2 pixels before the box and ends 1 before its end.)
+    var WMIN = 160, tops = [], bots = [], last = w - 3;
     for (var y = 1; y < h; y++) {
       var o = y * w, ts = -1, tl = -1, bs = -1, bl = -1;
-      for (var x = 0; x <= w; x++) {
-        var a = x < w ? L[o - w + x] : 0, b = x < w ? L[o + x] : 0;
-        var rise = x < w && b - a >= 8 && a < 60, drop = x < w && a - b >= 8 && b < 60;
-        if (rise) { if (ts < 0) ts = x; tl = x; } else if (ts >= 0 && x - tl > 2) { if (tl - ts + 1 >= WMIN) tops.push({ y: y, xa: ts, xb: tl }); ts = -1; }
-        if (drop) { if (bs < 0) bs = x; bl = x; } else if (bs >= 0 && x - bl > 2) { if (bl - bs + 1 >= WMIN) bots.push({ y: y, xa: bs, xb: bl }); bs = -1; }
+      for (var x = 0; x < last; x++) {
+        var a = S[o - w + x], b = S[o + x];
+        if (b - a >= 32 && a < 240) { if (ts < 0) ts = x; tl = x; } else if (ts >= 0 && x - tl > 2) { if (tl - ts + 1 >= WMIN) tops.push({ y: y, xa: ts + 2, xb: tl + 1 }); ts = -1; }
+        if (a - b >= 32 && b < 240) { if (bs < 0) bs = x; bl = x; } else if (bs >= 0 && x - bl > 2) { if (bl - bs + 1 >= WMIN) bots.push({ y: y, xa: bs + 2, xb: bl + 1 }); bs = -1; }
       }
+      if (ts >= 0 && tl - ts + 1 >= WMIN) tops.push({ y: y, xa: ts + 2, xb: tl + 1 });
+      if (bs >= 0 && bl - bs + 1 >= WMIN) bots.push({ y: y, xa: bs + 2, xb: bl + 1 });
     }
+    return { L: L, tops: tops, bots: bots };
+  }
+  function boxList(px, w, h) {
+    if (w < 8 || h < 8) return null;
+    var edges = boxEdges(px, w, h), L = edges.L, tops = edges.tops, bots = edges.bots;
     function sameX(p, q) { return Math.abs(p.xa - q.xa) <= 3 && Math.abs(p.xb - q.xb) <= 3; }
     // A box: a top with the first bottom under it that is as wide. (A box cut off by the edge of the picture ends there.)
     var boxes = tops.map(function (t) {
@@ -251,17 +266,26 @@
     // last whole one, cut off by the bottom of the list. Such a row counts when it has its gold icon, a top edge,
     // and enough of it shows for its title and most of its badge.
     var xb = median(rows.map(function (q) { return q.xb; })), needMark = Math.max(4, Math.round(6 * sc * sc));
-    function side(y) { var n = 0, t = 0; for (var x = Math.round(xb) - 7; x < Math.round(xb) - 1; x++) { if (x >= 0 && x < w && y >= 0 && y < h) { t += L[y * w + x]; n++; } } return n ? t / n : 0; }
+    // How light a line of the list is, across the rows' width (text only makes it lighter). The thin line between
+    // two rows is dark; so is what is under the list.
+    var lx0 = Math.round(xa) + 2, lx1 = Math.round(xb) - 2;
+    function level(y) { if (y < 0 || y >= h) return 0; var n = 0, t = 0, o = y * w; for (var x = lx0; x <= lx1; x += 3) { t += L[o + x]; n++; } return n ? t / n : 0; }
+    var lit = level(rows[0].bot + 1) + 5;
     function missed(at) {
       // The edge itself, within 2 pixels of where the grid says (a resized picture is off by a pixel here and there).
       var top = -1, jump = 5;
-      for (var dy = -2; dy <= 2; dy++) { var e = side(at + dy + 1) - side(at + dy - 1); if (at + dy >= 1 && at + dy < h - 2 && e >= jump) { jump = e + 0.01; top = at + dy; } }
+      for (var dy = -2; dy <= 2; dy++) { var e = level(at + dy) - level(at + dy - 1); if (at + dy >= 1 && at + dy < h - 2 && e > jump) { jump = e; top = at + dy; } }
       if (top < 0) return null;
       for (var k = 0; k < rows.length; k++) if (Math.abs(rows[k].top - top) <= 3) return null;
-      var bg = side(top + 2);
+      // A row starts under a dark line, with a line of its own flat colour (no text yet). What is under the list
+      // (the window's edge, the game behind it) does not.
+      if (level(top - 1) > lit && level(top - 2) > lit) return null;
+      var flat = 0, all = 0, bg = level(top + 1), fo = (top + 1) * w;
+      for (var fx = lx0; fx <= lx1; fx += 3) { all++; if (Math.abs(L[fo + fx] - bg) <= 9) flat++; }
+      if (flat < all * 0.9) return null;
       if (countIf(px, w, h, Math.round(xa + 0.5 * H), top, Math.round(xa + 0.8 * H), Math.round(top + 0.17 * H), isMark) < needMark) return null;
-      var end = top + 2;
-      while (end < h - 1 && end < top + H - 1 && Math.abs(side(end + 1) - bg) < 5) end++;
+      var end = top + 1;
+      while (end < h - 1 && end < top + H - 1 && level(end + 1) > lit) end++;
       return end - top + 1 >= H * 0.35 ? { top: top, bot: end, xa: xa, xb: xb, H: end - top + 1 } : null;
     }
     // The step as a fraction: on a resized picture it is not a whole number of pixels.
@@ -271,14 +295,16 @@
     for (n = nLast + 1; n < nLast + 40; n++) { var under = missed(top0 + Math.round(n * pf)); if (!under) break; found.push(under); }
     for (n = -1; n > -40; n--) { var over = missed(top0 + Math.round(n * pf)); if (!over) break; found.push(over); }
     rows = rows.concat(found).sort(function (p, q) { return p.top - q.top; });
-    var crisp = !found.some(function (q) { return q.H >= H * 0.9; });
+    // A sharp picture: no row is missing between the first and the last, and most rows were found by their own edges.
+    var holes = Math.round((rows[rows.length - 1].top - rows[0].top) / pf) + 1 - rows.length;
+    var crisp = holes <= 0 && best.rows.length >= 3 && best.rows.length * 2 >= rows.length;
     // A task opened up to show its steps is a taller box, and pushes the rows under it off the grid the app counts
     // on. Only the rows down to it are kept; with one right above the rows found, none can be trusted.
     var opened = false;
     for (var oi = 0; oi < rows.length && !opened; oi++) {
-      var ro = rows[oi], bgo = side(ro.top + 2);
+      var ro = rows[oi];
       // Where the dark line under the row should be, the row just goes on.
-      if (ro.H >= H - 2 && ro.top + H + 1 < h && Math.abs(side(ro.top + H) - bgo) < 5 && Math.abs(side(ro.top + H + 1) - bgo) < 5) { opened = true; rows = rows.slice(0, oi + 1); }
+      if (ro.H >= H - 2 && ro.top + H + 1 < h && level(ro.top + H) > lit && level(ro.top + H + 1) > lit) { opened = true; rows = rows.slice(0, oi + 1); }
     }
     boxes.forEach(function (q) {
       if (!rows.length || !sameX(q, best.sample) || q.H < H * 1.15 || q.H > H * 8) return;
@@ -319,7 +345,6 @@
     if (byBox) {
       var t0 = byBox.rows[0].y, t1 = byBox.rows[byBox.rows.length - 1].y, bp = byBox.pitch;
       byBox.panel = panel(px, w, h, byBox.x0, { y0: t0 - bp * 8, y1: t1 + bp * 4, reach: bp * 5 });
-      // A sharp picture: every whole row was found by its own edges.
       if (byBox.crisp) return byBox;
     }
     // A blurry picture (the game drawn bigger or smaller than it is): the boxes' edges are soft and some rows may
@@ -599,8 +624,12 @@
   }
   // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel sideways and up to 3 up or down
   // is allowed (the edge of a badge can move a little from one look to the next).
+  function lit(a) { if (a.n == null) { var n = 0; for (var i = 0; i < a.m.length; i++) n += a.m[i]; a.n = n; } return a.n; }
   function textDiffer(a, b) {
     if (!a || !b) return 1;
+    // One with less than half as much text as the other is nothing like it: no need to look closer.
+    var na = lit(a), nb = lit(b), few = na < nb ? na : nb, many = na < nb ? nb : na;
+    if (many > 40 && few < many * 0.5) return 1 - few / many;
     var w = Math.min(a.w, b.w), h = Math.min(a.h, b.h), best = 1;
     // No shift first: when that is already a clear match, the other 8 are not needed.
     var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1], [0, -2], [0, 2], [-1, -2], [1, -2], [-1, 2], [1, 2], [0, -3], [0, 3]];

@@ -2246,7 +2246,7 @@
     var sc = S.scan;
     if (!sc || k < 0 || k >= sc.tiers.length) return;
     // The arrows win until another row is picked in the game.
-    sc.k = k; sc.names = {}; sc.prev = null; sc.pin = { k: k, sig: sc.last ? sc.last.sig : null, y: sc.last ? sc.last.top : null }; sc.sum = null;
+    sc.k = k; sc.names = {}; sc.other = {}; sc.prev = null; sc.pin = { k: k, sig: sc.last ? sc.last.sig : null, y: sc.last ? sc.last.top : null }; sc.sum = null;
     try { sdel('tiernames'); } catch (e) { /* not saved */ }
     showScanBar();
   }
@@ -2357,8 +2357,10 @@
     try { sdel('scannames'); } catch (e) { /* not saved */ }
     return namesFrom(tiers, sget('tiernames') || {});
   }
+  // The names the app comes with are for the game's normal interface size: a name of another size is not tried.
+  function sized(sig, m) { return Math.abs(sig.w - m.w) <= 4 && Math.abs(sig.h - m.h) <= 3; }
   function nameDiffer(sc, sig, k) {
-    var R = window.QuickGuideReader, a = sc.names[k] ? R.textDiffer(sig, sc.names[k]) : 1, b = sc.base[k] ? R.textDiffer(sig, sc.base[k]) : 1;
+    var R = window.QuickGuideReader, a = sc.names[k] ? R.textDiffer(sig, sc.names[k]) : 1, b = sc.base[k] && sized(sig, sc.base[k]) ? R.textDiffer(sig, sc.base[k]) : 1;
     return a < b ? a : b;
   }
   // The tier whose name a row looks like, if one is clearly the closest; else null.
@@ -2375,9 +2377,18 @@
   function learnName(sc, k, sig, again) {
     var R = window.QuickGuideReader;
     if (!sig || k < 0 || k >= sc.tiers.length) return;
-    // A name the app came with is not learnt again (that one is right, whatever the arrows said).
-    for (var b in sc.base) if (R.textDiffer(sig, sc.base[b]) < NAME_SAME) return;
+    // The name the app came with for this tier fits: nothing to learn. (This is every row, every look, at the
+    // game's normal size, so it is checked first: one comparison.)
+    if (sc.base[k] && sized(sig, sc.base[k]) && R.textDiffer(sig, sc.base[k]) < NAME_SAME) return;
     if (sc.names[k] && !(again && R.textDiffer(sig, sc.names[k]) >= NAME_SAME)) return;
+    // With a title in view the place is certain. Without one: a name the app came with for another tier is not
+    // learnt for this one (that one is right, whatever the arrows said). That is looked up once per tier:
+    // comparing with all 52 names on every look would be slow.
+    if (!again) {
+      sc.other = sc.other || {};
+      if (sc.other[k]) return;
+      for (var b in sc.base) if (sized(sig, sc.base[b]) && R.textDiffer(sig, sc.base[b]) < NAME_SAME) { sc.other[k] = true; return; }
+    }
     sc.names[k] = sig;
     var saved = sget('tiernames') || {};
     saved[tierKey(sc.tiers[k])] = packMask(sig);
