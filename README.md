@@ -167,9 +167,12 @@ is how the app finds it; a task can also be written by its name alone.
   (task 1 when the list is at the top), then press **Start scanning** (in Alt1) or **Use a screenshot**.
   Each task with a green tick on its badge gets ticked in the app.
   - **Scanning** (Alt1): a green bar says **Scanning for achievements…** and Alt1 looks at the game twice a second.
-    Scroll the list in the game and it keeps up. Pick another tier in the app, open the same tier in the game, and it
-    scans that one from its first task. **Stop** ends it; so does leaving the area.
+    Scroll the list in the game and it keeps up. Pick another tier in the app and it waits: open the same tier in the
+    game and it goes on when the list changes, from the tier's first task. Opened it in the game first? Press **Go**.
+    **Stop** ends it; so does leaving the area.
     The app cannot read the tier's name in the game yet, so the tier in the app and in the game must match.
+    Scroll at a normal pace: it follows the rows by how far they moved since the last look (twice a second),
+    so a jump of more than half a row at once can put a row on the wrong task. Moving the game window does the same.
   - **Screenshot**: after reading, the app tells you which task to put at the top for the next screenshot.
   It only ticks; it never unticks. It is built from phone screenshots for now; desktop may need a tweak.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
@@ -233,6 +236,11 @@ What they cover: the quest list (search, sorting, groups, opening quests, errors
 the player lookup, ticking steps and items, sub-steps, chat options, "Bring" boxes, maps, pictures and tables,
 "Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
 storage, Alt1, missing files, the window look, and the parser itself.
+
+**Read from game** has its own tests (`tests/game.spec.js`), run on real screenshots from the game (`tests/fixtures/game/`):
+the same pictures shrunk to desktop size, darker, greyer, blurry and as a JPEG; 40 made-up busy screens full of red
+and green shapes, where it must never find a list that is not there; scrolling down and back up; switching tier;
+closing the list; a picture that fails to come through; and how fast it is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 

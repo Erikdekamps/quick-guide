@@ -45,7 +45,87 @@ test.describe('the screen reader', () => {
   test('a badge cut off at the edge is marked, so it is not trusted', async ({ page }) => {
     const rows = await readShot(page, SHOT.senntisten, 1, 1035 / 1170);
     expect(rows.slice(0, 6)).toEqual(['not', 'done', 'done', 'done', 'done', 'done']);
-    expect(rows[6]).toBe('done cut');
+    // The cut one is either left out or marked as cut: never read as a whole row.
+    expect([undefined, 'done cut', 'not cut']).toContain(rows[6]);
+    expect(rows.length).toBeLessThanOrEqual(7);
+  });
+
+  // The same screenshots made harder: as if the game were darker, greyer, blurry, or saved as a JPEG.
+  test('a darker, greyer, blurry or JPEG picture reads the same', async ({ page }) => {
+    for (const f of ['brightness(0.6)', 'brightness(1.4)', 'contrast(0.6)', 'saturate(0.5)', 'blur(1px)', 'jpeg']) {
+      const rows = (src) => page.evaluate(([s, filter]) => new Promise((done) => {
+        const im = new Image();
+        im.onload = async () => {
+          const w = Math.round(im.width * 0.5), h = Math.round(im.height * 0.5);
+          const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+          const x = cv.getContext('2d');
+          if (filter !== 'jpeg') x.filter = filter;
+          x.drawImage(im, 0, 0, w, h);
+          if (filter === 'jpeg') {
+            const j = new Image(); j.src = cv.toDataURL('image/jpeg', 0.6); await j.decode();
+            x.drawImage(j, 0, 0);
+          }
+          const r = window.QuickGuideReader.read(x.getImageData(0, 0, w, h).data, w, h);
+          done(r.found ? r.rows.map((row) => (row.done ? 'done' : 'not')) : null);
+        };
+        im.src = s;
+      }), [src, f]);
+      expect(await rows(SHOT.ardougne), f).toEqual(Array(7).fill('done'));
+      expect(await rows(SHOT.senntisten), f).toEqual(['not', 'done', 'done', 'done', 'done', 'done', 'done']);
+    }
+  });
+
+  // Random red and green shapes, like a busy game screen. With no list, nothing may be found;
+  // with the list window on top, it must still read right.
+  test('a busy screen full of red and green things: no list is made up, and a real one is still read', async ({ page }) => {
+    const res = await page.evaluate(([a, b]) => Promise.all([a, b].map((s) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = s; })))
+      .then((shots) => {
+        let seed = 7;
+        const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+        const out = { empty: 0, wrong: [] };
+        for (let n = 0; n < 40; n++) {
+          const cv = document.createElement('canvas'); cv.width = 1280; cv.height = 720;
+          const x = cv.getContext('2d');
+          x.fillStyle = 'rgb(' + [0, 0, 0].map(() => Math.floor(rnd() * 80)).join() + ')'; x.fillRect(0, 0, 1280, 720);
+          const cols = ['#c81e1e', '#28c828', '#961414', '#5adc5a', '#785a3c', '#1e1e1e', '#dcc83c', '#3ca03c', '#aa2828'];
+          for (let i = 0; i < 300; i++) {
+            x.fillStyle = cols[Math.floor(rnd() * cols.length)];
+            const r = 2 + rnd() * 28;
+            x.beginPath();
+            if (i % 2) x.ellipse(rnd() * 1280, rnd() * 720, r / 2, r * (0.25 + rnd() / 2), 0, 0, 7); else x.rect(rnd() * 1280, rnd() * 720, r, r * (0.5 + rnd()));
+            x.fill();
+          }
+          if (window.QuickGuideReader.read(x.getImageData(0, 0, 1280, 720).data, 1280, 720).found) out.empty++;
+          if (n < 10) {
+            const im = shots[n % 2], k = 0.3 + rnd() * 0.2, w = Math.round(im.width * k), h = Math.round(im.height * k);
+            x.drawImage(im, Math.floor(rnd() * (1280 - w)), Math.floor(rnd() * (720 - h)), w, h);
+            const r = window.QuickGuideReader.read(x.getImageData(0, 0, 1280, 720).data, 1280, 720);
+            const got = r.found ? r.rows.map((row) => (row.done ? 'Y' : 'n')).join('') : 'none';
+            const want = n % 2 ? 'nYYYYYY' : 'YYYYYYY';
+            if (got !== want && got !== 'none') out.wrong.push(n + ':' + got);
+            if (got === 'none') out.missed = (out.missed || 0) + 1;
+          }
+        }
+        return out;
+      }), [SHOT.ardougne, SHOT.senntisten]);
+    expect(res.empty).toBe(0);          // never a list where there is none
+    expect(res.wrong).toEqual([]);      // never a wrong reading
+    expect(res.missed || 0).toBeLessThanOrEqual(2);   // missing one now and then is fine: scanning tries again
+  });
+
+  test('it is quick: a full 1920 x 1080 screen in well under the time between scans', async ({ page }) => {
+    const ms = await page.evaluate((s) => new Promise((done) => {
+      const im = new Image();
+      im.onload = () => {
+        const cv = document.createElement('canvas'); cv.width = 1920; cv.height = 1080;
+        const x = cv.getContext('2d'); x.drawImage(im, 0, 0, 1920, 1080 * im.height / im.width * 1920 / 1920);
+        const d = x.getImageData(0, 0, 1920, 1080).data, t = performance.now();
+        for (let i = 0; i < 5; i++) window.QuickGuideReader.read(d, 1920, 1080);
+        done((performance.now() - t) / 5);
+      };
+      im.src = s;
+    }), SHOT.senntisten);
+    expect(ms).toBeLessThan(250);
   });
 
   test('a picture without the list finds nothing', async ({ page }) => {
@@ -119,36 +199,37 @@ test.describe('the Read from game button', () => {
 
   // A fake Alt1. It shows one "frame" of the game at a time: a slice of a screenshot, shrunk to half size.
   // Moving the slice down is like scrolling down the list in the game. getRegion hands back base64 BGRA, as Alt1 does.
+  // window.__shot picks the screenshot (when there are several), __closed shows a black screen, __broken makes it throw.
   async function fakeAlt1(page, src, h) {
-    await page.evaluate(([s, fh]) => new Promise((done) => {
+    await page.evaluate(([list, fh]) => Promise.all(list.map((s) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
         const w = Math.round(im.width / 2), full = Math.round(im.height / 2);
         const cv = document.createElement('canvas'); cv.width = w; cv.height = full;
         const x = cv.getContext('2d'); x.drawImage(im, 0, 0, w, full);
-        const all = x.getImageData(0, 0, w, full).data;
-        window.__scroll = 0;
-        window.__grabs = 0;
-        window.alt1 = {
-          permissionPixel: true, rsLinked: true, rsWidth: w, rsHeight: fh,
-          getRegion: (rx, ry, rw, rh) => {
-            window.__grabs++;
-            const top = window.__scroll;
-            let out = '';
-            for (let yy = ry; yy < ry + rh; yy++) {
-              for (let xx = rx; xx < rx + rw; xx++) {
-                const sy = yy + top, i = (sy * w + xx) * 4;
-                if (sy < 0 || sy >= full) { out += '\0\0\0\xff'; continue; }
-                out += String.fromCharCode(all[i + 2], all[i + 1], all[i], 255);
-              }
-            }
-            return btoa(out);
-          }
-        };
-        done();
+        done({ w, full, all: x.getImageData(0, 0, w, full).data });
       };
       im.src = s;
-    }), [src, h]);
+    }))).then((shots) => {
+      window.__scroll = 0; window.__grabs = 0; window.__shot = 0; window.__closed = false; window.__broken = false;
+      window.alt1 = {
+        permissionPixel: true, rsLinked: true, rsWidth: shots[0].w, rsHeight: fh,
+        getRegion: (rx, ry, rw, rh) => {
+          window.__grabs++;
+          if (window.__broken) throw new Error('capture failed');
+          const { w, full, all } = shots[window.__shot], top = window.__scroll;
+          let out = '';
+          for (let yy = ry; yy < ry + rh; yy++) {
+            for (let xx = rx; xx < rx + rw; xx++) {
+              const sy = yy + top, i = (sy * w + xx) * 4;
+              if (window.__closed || sy < 0 || sy >= full) { out += '\0\0\0\xff'; continue; }
+              out += String.fromCharCode(all[i + 2], all[i + 1], all[i], 255);
+            }
+          }
+          return btoa(out);
+        }
+      };
+    }), [[].concat(src), h]);
   }
   const grabs = (page) => page.evaluate(() => window.__grabs);
   async function frames(page, n) {
@@ -183,17 +264,117 @@ test.describe('the Read from game button', () => {
     // Task 1 was the red one, so it stays unticked, even though a done row is now at the top.
   });
 
-  test('switching to another tier in the app scans that tier, from its first task', async ({ page }) => {
+  test('switching tier in the app waits until the game shows another list, then scans it from its first task', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, [SHOT.ardougne, SHOT.senntisten], 585);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+    await page.locator('.tab[data-tier="medium"]').click();
+    await expect(page.locator('#scan')).toContainText('Open Medium Ardougne in the game');
+    await expect(page.locator('[data-act="scan-go"]')).toBeVisible();
+    // The game still shows Easy: nothing is ticked in Medium.
+    await frames(page, 4);
+    expect(await doneList(page, 8)).toEqual(Array(8).fill(false));
+    // Now the game shows another list.
+    await page.evaluate(() => { window.__shot = 1; });
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+    await expect(page.locator('[data-act="scan-go"]')).toHaveCount(0);
+    await page.locator('.tab[data-tier="easy"]').click();
+    expect(await doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+  });
+
+  test('Go: you already opened the tier in the game, so it scans right away', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.ardougne, 585);
+    await page.locator('.tab[data-tier="medium"]').click();
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await page.locator('.tab[data-tier="hard"]').click();
+    await frames(page, 3);
+    expect(await doneList(page, 8)).toEqual(Array(8).fill(false));
+    await page.locator('[data-act="scan-go"]').click();
+    await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+  });
+
+  test('closing the list in the game and opening the new tier counts as a change', async ({ page }) => {
     await openArdougne(page);
     await fakeAlt1(page, SHOT.ardougne, 585);
     await page.locator('[data-act="read"]').click();
     await page.locator('[data-act="scan-start"]').click();
     await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
     await page.locator('.tab[data-tier="medium"]').click();
-    await expect(page.locator('#scan')).toContainText('Medium Ardougne');
+    await frames(page, 2);
+    await page.evaluate(() => { window.__closed = true; });
+    await frames(page, 3);
+    await page.evaluate(() => { window.__closed = false; });
     await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
-    await page.locator('.tab[data-tier="easy"]').click();
-    expect(await doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+  });
+
+  test('scrolling down and back up keeps each row on its own task', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 440);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await frames(page, 2);
+    for (const y of [25, 50, 75, 100, 125, 145, 120, 95, 70, 45, 20, 0, 30, 60, 90]) {
+      await page.evaluate((v) => { window.__scroll = v; }, y);
+      await frames(page, 2);
+    }
+    await expect.poll(() => doneList(page, 9)).toEqual([false, true, true, true, true, true, true, false, false]);
+    await expect(page.locator('#scan')).toContainText(/tasks \d+–\d+ in view/);
+  });
+
+  test('closing the list in the game: it keeps looking; open it again and it goes on', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
+    await page.evaluate(() => { window.__closed = true; });
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await frames(page, 3);
+    await expect(page.locator('#scan')).toContainText('Open Easy Ardougne in the game');
+    expect(await doneList(page, 8)).toEqual(Array(8).fill(false));
+    await page.evaluate(() => { window.__closed = false; });
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+  });
+
+  test('a picture that fails to come through does not stop the scanning', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
+    await page.evaluate(() => { window.__broken = true; });
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await frames(page, 3);
+    await page.evaluate(() => { window.__broken = false; });
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('ticks from scanning are saved, and the area list shows them', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect(page.locator('#pg-cnt')).toHaveText('6 / 23 tasks');
+    await page.reload();
+    await expect(page.locator('#pg-cnt')).toHaveText('6 / 23 tasks');
+    await expect(page.locator('#scan')).toHaveCount(0);
+    await page.locator('[data-act="change"]').click();
+    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('6 / 23');
+  });
+
+  test('newer Alt1: pictures come from alt1.capture as raw bytes', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
+    await page.evaluate(() => {
+      const a = window.alt1;
+      a.capture = (x, y, w, h) => { const b = atob(a.getRegion(x, y, w, h)), u = new Uint8ClampedArray(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; };
+      const old = a.getRegion; a.getRegion = () => { throw new Error('should use capture'); }; a.__old = old;
+      a.capture = ((cap) => (x, y, w, h) => { a.getRegion = old; const r = cap(x, y, w, h); a.getRegion = () => { throw new Error('should use capture'); }; return r; })(a.capture);
+    });
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
   });
 
   test('Stop ends the scanning; so does leaving the area', async ({ page }) => {

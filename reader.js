@@ -15,8 +15,9 @@
 (function (root) {
   'use strict';
 
-  function isRed(r, g, b) { return r >= 60 && r > 1.8 * g && r > 1.5 * b; }
-  function isGreen(r, g, b) { return g >= 150 && g > 1.5 * r && g > 1.3 * b; }
+  function isRed(r, g, b) { return r >= 45 && r > 1.8 * g && r > 1.5 * b; }
+  // Clearly greener than red and blue, so a darker or greyer screen still counts.
+  function isGreen(r, g, b) { var m = r > b ? r : b; return g >= 100 && g - m >= 40 && g > 1.3 * m; }
 
   // Pixels: RGBA bytes, like ImageData.data.
   function blobs(px, w, h) {
@@ -53,26 +54,31 @@
     return out;
   }
 
-  // A tick can cut the shield into pieces. Join pieces that sit close together.
+  // A tick can cut the shield into pieces. The biggest piece is the seed; smaller pieces close by join it,
+  // as long as the whole stays within one and a half times the seed. A seed never grows past that, so a crowded
+  // screen cannot chain up into one big blob.
   function join(list) {
-    list = list.filter(function (b) { return b.red + b.green >= 3; });
-    var changed = true;
-    while (changed) {
-      changed = false;
-      for (var i = 0; i < list.length && !changed; i++) {
-        for (var j = i + 1; j < list.length; j++) {
-          var a = list[i], b = list[j];
-          var pad = Math.max(3, Math.round(Math.max(a.w, a.h, b.w, b.h) * 0.25));
-          if (a.x0 - pad > b.x1 || b.x0 - pad > a.x1 || a.y0 - pad > b.y1 || b.y0 - pad > a.y1) continue;
-          a.x0 = Math.min(a.x0, b.x0); a.y0 = Math.min(a.y0, b.y0);
-          a.x1 = Math.max(a.x1, b.x1); a.y1 = Math.max(a.y1, b.y1);
-          a.red += b.red; a.green += b.green;
-          a.w = a.x1 - a.x0 + 1; a.h = a.y1 - a.y0 + 1;
-          list.splice(j, 1); changed = true; break;
-        }
+    list = list.filter(function (b) { return b.red + b.green >= 3; })
+      .sort(function (a, b) { return (b.red + b.green) - (a.red + a.green); });
+    var used = new Uint8Array(list.length), out = [];
+    for (var i = 0; i < list.length; i++) {
+      if (used[i]) continue;
+      used[i] = 1;
+      var a = list[i], size = Math.max(a.w, a.h), lim = size * 1.5, pad = Math.max(3, Math.round(size * 0.5));
+      var m = { x0: a.x0, y0: a.y0, x1: a.x1, y1: a.y1, red: a.red, green: a.green };
+      for (var j = i + 1; j < list.length; j++) {
+        if (used[j]) continue;
+        var b = list[j];
+        if (m.x0 - pad > b.x1 || b.x0 - pad > m.x1 || m.y0 - pad > b.y1 || b.y0 - pad > m.y1) continue;
+        var x0 = Math.min(m.x0, b.x0), y0 = Math.min(m.y0, b.y0), x1 = Math.max(m.x1, b.x1), y1 = Math.max(m.y1, b.y1);
+        if (x1 - x0 + 1 > lim || y1 - y0 + 1 > lim) continue;
+        m.x0 = x0; m.y0 = y0; m.x1 = x1; m.y1 = y1; m.red += b.red; m.green += b.green;
+        used[j] = 1;
       }
+      m.w = m.x1 - m.x0 + 1; m.h = m.y1 - m.y0 + 1;
+      out.push(m);
     }
-    return list;
+    return out;
   }
 
   function median(a) {
@@ -87,6 +93,28 @@
     return d.length ? median(d) : 0;
   }
 
+  // The real list: badges of about the same size, one under the other at an even step.
+  // Something that only happens to sit in the same column (far above, or much bigger) is dropped.
+  function tidy(list) {
+    // Rows are measured at their bottom edge: the top of a shield can be faint, the bottom is steady.
+    list = list.slice().sort(function (a, b) { return a.y1 - b.y1; });
+    var mh = median(list.map(function (b) { return b.h; })), mw = median(list.map(function (b) { return b.w; }));
+    list = list.filter(function (b) { return b.h <= mh * 1.6 && b.w <= mw * 1.6; });
+    if (list.length < 4) return [];
+    var gaps = [];
+    for (var i = 1; i < list.length; i++) gaps.push(list[i].y1 - list[i - 1].y1);
+    var p = median(gaps), best = [list[0]], run = [list[0]];
+    for (i = 1; i < list.length; i++) {
+      var g = gaps[i - 1];
+      // Rows follow each other at one step. Only a row cut off at the top may sit a bit closer.
+      var ok = g >= p * 0.92 && g <= p * 1.08;
+      if (ok) run.push(list[i]); else run = [list[i]];
+      if (run.length > best.length) best = run.slice();
+    }
+    // The list always shows at least 4 rows; fewer is more likely chance.
+    return best.length >= 4 ? best : [];
+  }
+
   /*
    * read(pixels, width, height) -> { found, rows: [{ y, done, partial }] }
    * partial: the badge is cut off (scrolled half out of view), so its state
@@ -94,29 +122,33 @@
    */
   function read(px, w, h) {
     var all = join(blobs(px, w, h)).filter(function (b) {
-      var aspect = b.w / b.h;
-      return (b.red >= 10 || b.green >= 14) && aspect > 0.4 && aspect < 2.5;
+      var aspect = b.w / b.h, fill = (b.red + b.green) / (b.w * b.h);
+      // A badge is a shield with an outline, a letter and laurels: only part of its box is red or green.
+      // A solid red or green shape is something else.
+      return (b.red >= 10 || b.green >= 14) && aspect > 0.6 && aspect < 3 && b.h < h / 5 &&
+        fill >= 0.15 && fill <= 0.62;
     });
     // Group blobs whose centres share a column.
     var best = [];
     all.forEach(function (a) {
       var cx = a.x0 + a.w / 2;
       var grp = all.filter(function (b) {
-        return Math.abs(b.x0 + b.w / 2 - cx) <= Math.max(a.w, b.w) * 0.35 &&
-          b.w > a.w * 0.6 && b.w < a.w * 1.6;
+        return Math.abs(b.x0 + b.w / 2 - cx) <= Math.max(a.w, b.w) * 0.15 + 1 &&
+          b.w > a.w * 0.7 && b.w < a.w * 1.4;
       });
       if (grp.length > best.length) best = grp;
     });
+    best = tidy(best);
     if (best.length < 2) return { found: false, rows: [] };
     var mh = median(best.map(function (b) { return b.h; }));
     var mw = median(best.map(function (b) { return b.w; }));
     var last = best.length - 1;
-    var rows = best.sort(function (a, b) { return a.y0 - b.y0; }).map(function (b, i) {
+    var rows = best.map(function (b, i) {
       // Only the top or bottom row can be scrolled half out of view.
       var edge = i === 0 || i === last;
       var partial = b.y0 <= 0 || b.y1 >= h - 1 || (edge && (b.h < mh * 0.7 || b.w < mw * 0.7));
       return {
-        y: b.y0, h: b.h,
+        y: b.y1, h: b.h,
         done: b.green / (b.red + b.green) >= 0.08,
         partial: partial
       };

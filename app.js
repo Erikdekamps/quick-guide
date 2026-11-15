@@ -2124,6 +2124,7 @@
     if (!S.scan) return '';
     return '<div class="scanbar" id="scan" role="status"><span class="dot" aria-hidden="true"></span>' +
       '<span class="smsg" id="scan-msg">' + esc(S.scan.msg) + '</span>' +
+      (S.scan.wait ? '<button class="btn sm" type="button" data-act="scan-go">Go</button>' : '') +
       '<button class="btn alt sm" type="button" data-act="scan-stop">Stop</button></div>';
   }
   function scanMsg(t) {
@@ -2133,6 +2134,40 @@
     if (e) e.textContent = t;
   }
   function looking() { return 'Scanning for achievements\u2026 Open ' + scanWhere() + ' in the game.'; }
+  function waiting() { return 'Scanning for achievements\u2026 Open ' + scanWhere() + ' in the game, at the top of the list. It goes on when the list changes, or press Go.'; }
+  // A rough picture of the badge strip: the average brightness of 8 by 8 blocks. Another tier has other badges
+  // and other names next to them, so the picture changes.
+  function stripSig(c, rect) {
+    var out = [], B = 8;
+    for (var y = rect.y; y + B <= rect.y + rect.h; y += B) {
+      for (var x = rect.x; x + B <= rect.x + rect.w; x += B) {
+        var sum = 0, n = 0;
+        for (var yy = y; yy < y + B; yy += 2) {
+          for (var xx = x; xx < x + B; xx += 2) {
+            var lx = xx - c.x, ly = yy - c.y;
+            if (lx < 0 || ly < 0 || lx >= c.w || ly >= c.h) continue;
+            var i = (ly * c.w + lx) * 4;
+            sum += c.px[i] + c.px[i + 1] + c.px[i + 2]; n++;
+          }
+        }
+        out.push(n ? sum / n / 3 : 0);
+      }
+    }
+    return out;
+  }
+  function sigChanged(a, b) {
+    if (a.length !== b.length) return true;
+    var d = 0;
+    for (var i = 0; i < a.length; i++) d += Math.abs(a[i] - b[i]);
+    return d / Math.max(a.length, 1) > 3;
+  }
+  function scanGo() {
+    var sc = S.scan;
+    if (!sc || !sc.wait) return;
+    sc.wait = false; sc.sig = null; sc.off = null;
+    sc.msg = looking();
+    renderArea(true);
+  }
   function startScan() {
     var a = window.alt1, R = window.QuickGuideReader;
     if (!a || !R) return;
@@ -2159,16 +2194,25 @@
     if (S.view !== 'area' || S.areaKey !== sc.area || !S.area) { stopScan(); return; }
     var t = tierNow();
     if (t.id !== sc.tier) {
-      // Another tier: its list starts at the top in the game too.
-      sc.tier = t.id; sc.start = 0; sc.off = null; sc.ticked = 0;
-      scanMsg(looking());
+      // Another tier. The game may still show the old one, so wait until its list changes
+      // (or the player presses Go). The new tier starts at its first task.
+      sc.tier = t.id; sc.start = 0; sc.off = null; sc.ticked = 0; sc.wait = true; sc.sig = null;
+      sc.msg = waiting();
+      renderArea(true);
     }
     var c = null, r = null;
     try { c = R.capture(sc.region); } catch (e) { c = null; }
     if (c) r = R.read(c.px, c.w, c.h);
     if (!r || !r.found) {
       if (sc.region) sc.region = null;   // look at the whole screen again
+      else if (sc.wait) sc.sig = 'gone';  // the list went away: when it comes back, it is the new one
       else scanMsg(looking());
+    } else if (sc.wait) {
+      var bw = r.x1 - r.x0 + 1, strip = { x: c.x + r.x0 - bw, y: 0, w: bw * 3, h: window.alt1.rsHeight };
+      var sig = stripSig(c, strip);
+      if (sc.sig && sc.sig !== 'gone' && !sigChanged(sc.sig, sig)) { sc.region = strip; }
+      else if (!sc.sig) { sc.sig = sig; sc.region = strip; }
+      else { sc.wait = false; sc.sig = null; sc.msg = looking(); renderArea(true); scanRows(sc, t, r, c); }
     } else {
       scanRows(sc, t, r, c);
     }
@@ -2389,6 +2433,7 @@
       else if (act === 'rd-close') closeRead();
       else if (act === 'scan-start') startScan();
       else if (act === 'scan-stop') stopScan();
+      else if (act === 'scan-go') scanGo();
       else if (act === 'bk-copy') copyBackup();
       else if (act === 'bk-import') runImport();
       else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }
