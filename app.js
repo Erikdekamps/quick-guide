@@ -2062,10 +2062,12 @@
     return { quests: nq, areas: na };
   }
   // ---------- scan achievements (Alt1) ----------
-  // Alt1 looks at the game twice a second. The player opens Easy Ardougne in Hero > Achievements > Area Tasks,
-  // and clicks through every tier in the game's order; the app follows along and ticks each task with a green tick.
-  // Each row has a fingerprint of its text: the same rows moved up or down is a scroll, all new rows is the next tier.
-  var SCAN_MS = 500, SAME = 3;
+  // Alt1 looks at the game twice a second. The player opens Hero > Achievements > Area Tasks, picks Easy Ardougne,
+  // and goes from top to bottom. The tier picked in the game has a gold box in the list on the left: the app reads
+  // which row that is. It starts out knowing the picked row is Easy Ardougne, so the rows under it are Medium
+  // Ardougne and so on, and it remembers what each row's name looks like. Then each task row on the right is set
+  // to what the game shows: done is ticked, not done (or locked) is unticked.
+  var SCAN_MS = 500, SAME = 0.15;
   // Every tier of every area, in the order the game lists them: Easy Ardougne, Medium Ardougne, ...
   function scanTiers() {
     var ix = aidxAll(), out = [];
@@ -2086,10 +2088,10 @@
       '<div class="dlgbg" id="rd"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="rd-h">' +
       '<h2 class="dh" id="rd-h">Scan achievements</h2>' +
       '<ol class="rdhow"><li>In the game, open <b>Hero → Achievements → Area Tasks</b> and click <b>Easy Ardougne</b>.</li>' +
-      '<li>Keep <b>Show Completed</b> ticked and <b>List Mode</b> unticked.</li>' +
-      '<li>Press <b>Start</b>. Scroll each list to the bottom, then click the next one in the game: <b>Medium Ardougne</b>, <b>Hard Ardougne</b>, and so on, to the last one.</li></ol>' +
-      '<p class="rdtip">The app follows along and ticks every task with a green tick. It only ticks; it never unticks. ' +
-      'The bar at the top says which one it is on; if that is wrong, use ◀ ▶.</p>' +
+      '<li>Keep <b>Show Completed</b> on and <b>List Mode</b> off.</li>' +
+      '<li>Press <b>Start</b>. Then go from top to bottom: scroll each list down, then click the next one. ' +
+      'The app sees which one you picked.</li></ol>' +
+      '<p class="rdtip">Each task is set to what the game shows: done is ticked, not done is unticked.</p>' +
       '<p class="note" id="rd-msg" role="status"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
       '<div class="dbtn"><button class="btn" type="button" data-act="scan-start">Start</button>' +
       '<button class="btn alt" type="button" data-act="rd-close">Close</button></div>' +
@@ -2111,8 +2113,8 @@
       var tiers = scanTiers();
       if (!tiers.length) { readMsg('Could not read the task lists from the wiki. Try again in a moment.'); return; }
       stopScan();
-      S.scan = { tiers: tiers, k: 0, prev: null, region: null, swap: null, ticked: 0, looks: 0, blank: 0, lo: -1, hi: -1, timer: 0, msg: '' };
-      S.scan.msg = scanLooking();
+      S.scan = { tiers: tiers, k: 0, names: {}, prev: null, region: null, swap: null, set: 0, misses: 0, blank: 0, timer: 0, msg: '' };
+      S.scan.msg = 'Looking for the list…';
       closeRead();
       showScanBar();
       scanTick();
@@ -2126,11 +2128,10 @@
     if (b) b.parentNode.removeChild(b);
   }
   function scanTier() { return S.scan.tiers[S.scan.k]; }
-  function scanLooking() { return 'Scanning… Open ' + scanTier().name + ' in the game.'; }
   function scanBarHtml() {
     var sc = S.scan, t = scanTier();
     return '<div class="scanbar" id="scan" role="status"><span class="dot" aria-hidden="true"></span>' +
-      '<span class="smsg"><b id="scan-tier">' + esc(t.name) + '</b> <span class="sk">(' + (sc.k + 1) + ' of ' + sc.tiers.length + ')</span><br>' +
+      '<span class="smsg"><b id="scan-tier">' + esc(t.name) + '</b> <span class="sk">' + (sc.k + 1) + '/' + sc.tiers.length + '</span><br>' +
       '<span id="scan-msg">' + esc(sc.msg) + '</span></span>' +
       '<button class="ib xs" type="button" data-act="scan-back" aria-label="The one before" title="The one before"' + (sc.k ? '' : ' disabled') + '>◀</button>' +
       '<button class="ib xs" type="button" data-act="scan-next" aria-label="The next one" title="The next one"' + (sc.k < sc.tiers.length - 1 ? '' : ' disabled') + '>▶</button>' +
@@ -2152,19 +2153,12 @@
     var e = byId('scan-msg');
     if (e) e.textContent = t;
   }
-  // Goes to another tier (the arrows, or the game showing a new list). Its list starts at the top.
+  // The arrows: the app got the tier wrong. The picked row in the game is that tier; the rest is learnt again.
   function scanGoTo(k) {
     var sc = S.scan;
     if (!sc || k < 0 || k >= sc.tiers.length) return;
-    sc.k = k; sc.prev = null; sc.lo = -1; sc.hi = -1;
-    sc.msg = scanLooking();
+    sc.k = k; sc.names = {}; sc.prev = null;
     showScanBar();
-  }
-  // What it saw so far, when it has not found the list for a while: helps to find out why.
-  function seen(sc, c) {
-    if (sc.looks < 6) return '';
-    if (!c) return ' (Alt1 gives no picture of the game: ' + sc.blank + ' of ' + sc.looks + ' tries.)';
-    return ' (Looked ' + sc.looks + ' times at a ' + c.w + '×' + c.h + ' picture; no list yet.)';
   }
   // Alt1 versions differ in which way round they hand over red and blue. Until the list is found once,
   // try both; then keep the one that worked.
@@ -2186,70 +2180,103 @@
     if (!sc) return;
     var c = null, r = null;
     try { c = R.capture(sc.region); } catch (e) { c = null; }
+    // The same picture as last time (nothing moved in the game): nothing to do.
+    var sum = c ? frameSum(c) : null;
+    if (c && sum === sc.sum && sc.region) { sc.timer = setTimeout(scanTick, SCAN_MS); return; }
+    sc.sum = sum;
     if (c) r = readFrame(sc, c);
-    sc.looks++;
-    if (!c) sc.blank++;
+    if (!c) sc.blank++; else sc.blank = 0;
     if (!r || !r.found) {
+      sc.misses++;
       if (sc.region) sc.region = null;   // look at the whole screen again
-      else scanMsg(scanLooking() + seen(sc, c));
+      else if (sc.blank >= 6) scanMsg('Alt1 gives no picture of the game.');
+      else if (sc.misses >= 6) scanMsg('No list seen in the ' + c.w + '×' + c.h + ' picture.');
+      else scanMsg('Looking for the list…');
     } else {
-      // From now on, only look at the list part: the badges and the text next to them.
-      var bw = r.x1 - r.x0 + 1;
-      sc.region = { x: c.x + r.x0 - bw, y: 0, w: bw * 17, h: window.alt1.rsHeight };
+      sc.misses = 0;
+      // From now on, only look at the part with the tier list on the left and the task list: much less to copy
+      // and read each time. It reaches a few rows above and below the list, for the list on the left.
+      var bw = r.x1 - r.x0 + 1, x0 = Math.max(0, c.x + r.x0 - bw * 28), pitch = r.pitch || bw * 4;
+      var ys = r.rows.map(function (q) { return q.y; }), y0 = Math.max(0, c.y + Math.min.apply(null, ys) - pitch * 3);
+      var y1 = Math.min(window.alt1.rsHeight, c.y + Math.max.apply(null, ys) + pitch * 3);
+      sc.region = { x: x0, y: y0, w: c.x + r.x0 + bw * 17 - x0, h: y1 - y0 };
+      scanPicked(sc, R.panel(c.px, c.w, c.h, r.x0));
       scanRows(sc, r);
     }
     if (S.scan === sc) sc.timer = setTimeout(scanTick, SCAN_MS);
   }
-  // Which task each row is. Each row has a slot: how many steps below the first row it is (a row that was not seen
-  // leaves its slot empty). Rows that look the same as rows of the last look vote for where the list is now.
-  // No row looks the same: a new list, so the next tier (unless nothing of this one was seen yet).
+  // A quick sum of a sample of the picture's bytes, to see if anything changed.
+  function frameSum(c) {
+    var px = c.px, sum = 0, step = 4 * 7 + 4;
+    for (var i = 0; i < px.length; i += step) sum = (sum * 31 + px[i] + px[i + 1] * 3 + px[i + 2] * 7) | 0;
+    return sum + ':' + c.x + ':' + c.y + ':' + c.w + ':' + c.h;
+  }
+  // Which tier is picked in the game: rows whose names it knows say where the list on the left is.
+  function scanPicked(sc, p) {
+    if (!p) return;
+    var R0 = window.QuickGuideReader, picked = p.rows[p.sel];
+    // Most looks: the picked row is still the tier it was. One comparison, and learn any new rows around it.
+    if (picked.sig && sc.names[sc.k] && R0.textDiffer(picked.sig, sc.names[sc.k]) < SAME) {
+      p.rows.forEach(function (row) { var k = sc.k + row.at; if (row.sig && k >= 0 && k < sc.tiers.length && !sc.names[k]) sc.names[k] = row.sig; });
+      return;
+    }
+    // Another row is picked: which name does it have? The closest one it knows.
+    var R = window.QuickGuideReader, n = sc.tiers.length, known = Object.keys(sc.names).length, at = null, bestD = SAME;
+    if (picked.sig) Object.keys(sc.names).forEach(function (k) { var d = R.textDiffer(picked.sig, sc.names[k]); if (d < bestD) { bestD = d; at = +k; } });
+    if (at == null) {
+      if (known) return;   // a row it does not know: keep the tier as it is
+      at = sc.k;           // the first look: the picked row is the one we start at (Easy Ardougne)
+    }
+    p.rows.forEach(function (row) { var k = at + row.at; if (row.sig && k >= 0 && k < n) sc.names[k] = row.sig; });
+    if (at !== sc.k) {
+      // Another tier: its list starts at the top.
+      sc.k = at; sc.prev = null;
+      showScanBar();
+    }
+  }
+  // Which task each row on the right is. Each row has a slot: how many steps below the first row it is (a row that
+  // was not seen leaves its slot empty). Rows that look the same as rows of the last look vote for where the list
+  // is now. A new tier starts at the top.
   function scanRows(sc, r) {
     var R = window.QuickGuideReader, rows = r.rows.filter(function (x) { return !x.partial && x.fp; });
     if (!rows.length) return;
-    var p = r.pitch || 1, y0 = rows[0].y;
+    var p = r.pitch || 1, y0 = rows[0].y, base = 0;
     rows.forEach(function (x, j) { x.slot = r.pitch ? Math.round((x.y - y0) / p) : j; });
-    var base = 0;
     if (sc.prev) {
       var votes = {}, best = null;
       rows.forEach(function (x) {
-        sc.prev.forEach(function (q) { if (R.differ(x.fp, q.fp) < SAME) { var b = q.idx - x.slot; votes[b] = (votes[b] || 0) + 1; } });
+        sc.prev.forEach(function (q) { if (R.textDiffer(x.fp, q.fp) < SAME) { var b = q.idx - x.slot; votes[b] = (votes[b] || 0) + 1; } });
       });
       Object.keys(votes).forEach(function (b) {
         b = +b;
         // Rows that should be the same row at this place but do not look it speak against it.
         var against = rows.filter(function (x) {
           var q = sc.prev.filter(function (z) { return z.idx === b + x.slot; })[0];
-          return q && R.differ(x.fp, q.fp) >= SAME;
+          return q && R.textDiffer(x.fp, q.fp) >= SAME;
         }).length;
-        // Clearly more rows that match than rows that clash (a scroll keeps every row the same).
         if (votes[b] > against * 2 && (votes[b] >= 2 || !against) && (!best || votes[b] > best.v)) best = { b: b, v: votes[b] };
       });
-      if (best) base = best.b;
-      else if (sc.hi >= 0) {
-        // A new list: the next tier, from its first task.
-        if (sc.k >= sc.tiers.length - 1) { scanMsg('That was the last one. All done: ticked ' + sc.ticked + ' tasks.'); return; }
-        scanGoTo(sc.k + 1);
-      }
+      if (!best) { scanMsg('Lost my place: scroll back a little.'); return; }
+      base = best.b;
     }
-    var t = scanTier(), ticks = [], lo = Infinity, hi = -1;
+    var t = scanTier(), on = [], off = [], lo = Infinity, hi = -1;
     sc.prev = rows.map(function (x) { return { fp: x.fp, idx: base + x.slot }; });
     rows.forEach(function (x) {
       var i = base + x.slot;
       if (i < 0 || i >= t.tasks.length) return;
       lo = Math.min(lo, i); hi = Math.max(hi, i);
-      if (x.done) ticks.push(t.tasks[i]);
+      (x.done ? on : off).push(t.tasks[i]);
     });
-    if (hi >= 0) { sc.lo = sc.lo < 0 ? lo : Math.min(sc.lo, lo); sc.hi = Math.max(sc.hi, hi); }
-    sc.ticked += scanTickAll(t.area, ticks);
-    scanMsg(hi < 0 ? scanLooking() : 'Tasks ' + (lo + 1) + (hi > lo ? '–' + (hi + 1) : '') + ' of ' + t.tasks.length + ' in view. Ticked ' + sc.ticked + '.' +
-      (sc.hi >= t.tasks.length - 1 ? ' Done here: click the next one in the game.' : ''));
+    sc.set += scanSet(t.area, on, off);
+    scanMsg(hi < 0 ? 'Looking for the list…' : 'Tasks ' + (lo + 1) + (hi > lo ? '–' + (hi + 1) : '') + ' of ' + t.tasks.length +
+      (hi >= t.tasks.length - 1 ? ', all seen.' : '.'));
   }
-  // Ticks tasks of an area (only ones not ticked yet). Returns how many were new.
-  function scanTickAll(area, ids) {
-    if (!ids.length) return 0;
+  // Sets tasks of an area to what the game shows. Returns how many changed.
+  function scanSet(area, on, off) {
     var open = S.view === 'area' && S.areaKey === area && S.aprog;
     var p = open ? S.aprog : loadAprog(area), ix = open ? taskIndex(S.area) : taskIndex(aidxAll()[area]), n = 0;
-    ids.forEach(function (id) { if (!p.tasks[id]) { setTick(p.tasks, ix, id, true); n++; } });
+    on.forEach(function (id) { if (!p.tasks[id]) { setTick(p.tasks, ix, id, true); n++; } });
+    off.forEach(function (id) { if (p.tasks[id]) { setTick(p.tasks, ix, id, false); n++; } });
     if (!n) return 0;
     if (open) { saveAprog(); renderArea(true); }
     else { sset('aprog.' + area, p); writeAmeta(area, aidxAll()[area], p); if (S.view === 'start') drawList(); }

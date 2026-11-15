@@ -107,30 +107,6 @@
     }
     return c;
   }
-  // The mean brightness of 24 x 4 blocks of a box: a fingerprint of the text in it.
-  function print(px, w, h, x0, y0, x1, y1) {
-    x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(w - 1, x1); y1 = Math.min(h - 1, y1);
-    var C = 24, R = 4, out = [];
-    if (x1 - x0 < C || y1 - y0 < R) return null;
-    for (var r = 0; r < R; r++) {
-      var ya = y0 + Math.floor((y1 - y0 + 1) * r / R), yb = y0 + Math.floor((y1 - y0 + 1) * (r + 1) / R);
-      for (var c = 0; c < C; c++) {
-        var xa = x0 + Math.floor((x1 - x0 + 1) * c / C), xb = x0 + Math.floor((x1 - x0 + 1) * (c + 1) / C), sum = 0, n = 0;
-        for (var y = ya; y < yb; y++) {
-          for (var x = xa; x < xb; x++) { var j = (y * w + x) * 4; sum += px[j] + px[j + 1] + px[j + 2]; n++; }
-        }
-        out.push(n ? sum / n / 3 : 0);
-      }
-    }
-    return out;
-  }
-  // How different two fingerprints are: the mean difference in brightness (0 is the same).
-  function differ(a, b) {
-    if (!a || !b || a.length !== b.length) return 255;
-    var d = 0;
-    for (var i = 0; i < a.length; i++) d += Math.abs(a[i] - b[i]);
-    return d / a.length;
-  }
   function colour(b) { return b.red >= 10 || b.green >= 14; }
   function score(g) { var c = g.filter(colour).length; return c ? c * 1000 + g.length : 0; }
 
@@ -232,9 +208,9 @@
       var c = count(px, w, h, cx0, Math.max(0, b.y1 - mh + 1), cx1, b.y1), all = c.red + c.green + c.lock || 1;
       return {
         y: b.y1, h: b.h,
-        // The row's title and description next to the badge, as a rough picture: the same row looks the same
-        // after a scroll, and another list (another tier) looks different.
-        fp: partial ? null : print(px, w, h, cx1 + Math.round((cx1 - cx0) * 0.4), b.y1 - mh + 1, cx1 + (cx1 - cx0 + 1) * 14, b.y1),
+        // The text next to the badge (bright pixels only): the same row looks the same after a scroll,
+        // whatever shows through the window behind it.
+        fp: partial ? null : textPrint(px, w, h, cx1 + Math.round((cx1 - cx0) * 0.4), b.y1 - mh + 1, cx1 + (cx1 - cx0 + 1) * 14, b.y1),
         done: c.green / all >= 0.08,
         locked: c.lock > c.green && c.lock >= all * 0.3,
         partial: partial
@@ -259,6 +235,101 @@
       out[at + i + 3] = 255;
     }
     return out;
+  }
+
+  // ---------- the tier list on the left ----------
+  // The tier you picked in the game has a gold box around it. The rows of the list are boxes of one height
+  // with a dark gap between them. Each row's name is kept as a fingerprint of its text (bright pixels only,
+  // so what shows through the window does not matter), so the app can tell the rows apart.
+  function isGold(r, g, b) { return r >= 170 && g >= 140 && b <= 175 && r - b >= 55 && r >= g && g - b >= 30; }
+  function lum(px, w, x, y) { var j = (y * w + x) * 4; return (px[j] + px[j + 1] + px[j + 2]) / 3; }
+  function panel(px, w, h, maxX) {
+    maxX = Math.min(w, maxX || w);
+    // Long gold lines: the top and bottom of the box.
+    var runs = [];
+    for (var y = 0; y < h; y++) {
+      var x0 = -1;
+      for (var x = 0; x <= maxX; x++) {
+        var j = (y * w + x) * 4, on = x < maxX && isGold(px[j], px[j + 1], px[j + 2]);
+        if (on && x0 < 0) x0 = x;
+        if (!on && x0 >= 0) { if (x - x0 >= 40) runs.push({ y: y, x0: x0, x1: x - 1 }); x0 = -1; }
+      }
+    }
+    var box = null;
+    runs.forEach(function (a) {
+      runs.forEach(function (b) {
+        var d = b.y - a.y;
+        if (d < 18 || d > 90 || Math.abs(a.x0 - b.x0) > 3 || Math.abs(a.x1 - b.x1) > 3) return;
+        if (a.x1 - a.x0 < d * 2) return;
+        // The nearest one to the list (rightmost), and the tightest pair.
+        if (!box || a.x1 > box.x1 + 3 || (Math.abs(a.x1 - box.x1) <= 3 && d < box.y1 - box.y0)) box = { x0: Math.min(a.x0, b.x0), x1: Math.max(a.x1, b.x1), y0: a.y, y1: b.y };
+      });
+    });
+    if (!box) return null;
+    var bh = box.y1 - box.y0 + 1, bw = box.x1 - box.x0 + 1;
+    // The rows: runs down a line just inside the box's left edge, lighter than the gaps between them.
+    var cx = box.x0 + 2, gapLum = Infinity, rowLum = lum(px, w, cx, Math.round((box.y0 + box.y1) / 2));
+    // The gap is the darkest thing right under the box.
+    for (var gy = box.y1 + 1; gy < Math.min(h, box.y1 + bh); gy++) gapLum = Math.min(gapLum, lum(px, w, cx, gy));
+    var cut = (gapLum + Math.min(rowLum, lum(px, w, cx, Math.min(h - 1, box.y1 + bh)))) / 2;
+    if (!(cut > gapLum + 3)) return null;
+    var rows = [], top = -1;
+    for (var yy = 0; yy <= h; yy++) {
+      var light = yy < h && lum(px, w, cx, yy) > cut;
+      if (light && top < 0) top = yy;
+      if (!light && top >= 0) {
+        var hh = yy - top;
+        if (Math.abs(hh - bh) <= 4) rows.push({ top: top, bottom: yy - 1 });
+        top = -1;
+      }
+    }
+    if (!rows.length) return null;
+    // Which row the box is on.
+    var sel = -1;
+    rows.forEach(function (r, i) { if (r.top <= box.y1 && r.bottom >= box.y0) sel = i; });
+    if (sel < 0) return null;
+    // Each row's place, in steps from the picked one (rows of another kind in between keep their place apart).
+    var steps = [];
+    for (var i = 1; i < rows.length; i++) steps.push(rows[i].top - rows[i - 1].top);
+    var p = median(steps.length ? steps : [bh + 6]);
+    rows.forEach(function (r) {
+      r.at = Math.round((r.top - rows[sel].top) / p);
+      // The name only (the left 60%), not the count on the right.
+      r.sig = textPrint(px, w, h, box.x0 + 3, r.top + 2, box.x0 + Math.round(bw * 0.6), r.top + bh - 3);
+    });
+    return { box: box, rows: rows, sel: sel };
+  }
+  // The text pixels of a box (bright ones), as a mask: { w, h, m }.
+  function textPrint(px, w, h, x0, y0, x1, y1) {
+    x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(w - 1, x1); y1 = Math.min(h - 1, y1);
+    var mw = x1 - x0 + 1, mh = y1 - y0 + 1;
+    if (mw < 10 || mh < 6) return null;
+    var m = new Uint8Array(mw * mh);
+    for (var y = 0; y < mh; y++) for (var x = 0; x < mw; x++) m[y * mw + x] = lum(px, w, x0 + x, y0 + y) > 110 ? 1 : 0;
+    return { w: mw, h: mh, m: m };
+  }
+  // How different two text masks are: 0 is the same, 1 is nothing alike. A shift of 1 pixel is allowed.
+  function textDiffer(a, b) {
+    if (!a || !b) return 1;
+    var w = Math.min(a.w, b.w), h = Math.min(a.h, b.h), best = 1;
+    // No shift first: when that is already a clear match, the other 8 are not needed.
+    var shifts = [[0, 0], [-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, -1], [-1, 1], [1, 1]];
+    for (var s = 0; s < shifts.length; s++) {
+      var dx = shifts[s][0], dy = shifts[s][1];
+      {
+        var both = 0, any = 0;
+        for (var y = 1; y < h - 1; y++) {
+          for (var x = 1; x < w - 1; x++) {
+            var p = a.m[y * a.w + x], q = b.m[(y + dy) * b.w + x + dx];
+            if (p || q) { any++; if (p && q) both++; }
+          }
+        }
+        var d = any ? 1 - both / any : 0;
+        if (d < best) best = d;
+        if (best < 0.05) return best;
+      }
+    }
+    return best;
   }
 
   // Grab the game screen (or part of it: { x, y, w, h }) through Alt1. Returns null outside Alt1.
@@ -297,7 +368,7 @@
     return px;
   }
 
-  var api = { read: read, capture: capture, fromBgraBase64: fromBgraBase64, swapRB: swapRB, differ: differ };
+  var api = { read: read, panel: panel, textPrint: textPrint, textDiffer: textDiffer, capture: capture, fromBgraBase64: fromBgraBase64, swapRB: swapRB };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.QuickGuideReader = api;
 })(typeof window !== 'undefined' ? window : this);
