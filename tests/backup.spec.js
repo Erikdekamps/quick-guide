@@ -97,7 +97,7 @@ test.describe('export', () => {
     expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'tiers', 'areas']);
     expect(j).toMatchObject({ app: 'Quick Guide', format: 2 });
     expect(j.help).toContain('true');
-    expect(j.settings).toEqual({ showDone: false, hideDone: true, hideLocked: false, hideMini: false, fontSize: 14, sort: 'name', home: 'areas' });
+    expect(j.settings).toEqual({ showDone: false, hideDone: true, hideLocked: false, hideMini: false, fontSize: 14, sort: 'name', home: 'areas', theme: 'brown' });
     expect(j.player).toMatchObject({ name: 'Zezima', done: 2 });
     // every quest in the list, by name: true when it is done
     expect(j.quests["Cook's Assistant"]).toBe(true);
@@ -300,12 +300,12 @@ test.describe('import', () => {
     await openApp(page, expect);
     await importText(page, JSON.stringify({
       app: 'Quick Guide', format: 2,
-      settings: { fontSize: 999, sort: 'nonsense', hideDone: 'yes', home: 'elsewhere', extra: 1 },
+      settings: { fontSize: 999, sort: 'nonsense', hideDone: 'yes', home: 'elsewhere', theme: 'pink', extra: 1 },
       quests: { 'Imp Catcher': 'yes', "Cook's Assistant": true },
       areas: { Atlantis: { Easy: { '1 x': true } }, Ardougne: 'all of it' }
     }));
     await expect(page.locator('#toast')).toHaveText('Imported 1 quest.');
-    expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: 40, sort: 'name', home: 'quests' });
+    expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: 40, sort: 'name', home: 'quests', theme: 'brown' });
     expect(await stored(page, 'qdone')).toEqual({ cooksassistant: 1 });
     expect(await stored(page, 'aprog.Atlantis')).toBeNull();
     expect(await stored(page, 'aprog.Ardougne')).toBeNull();
@@ -371,7 +371,7 @@ test.describe('danger zone', () => {
   const all = async (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('qg1.')).map((k) => k.slice(4)).sort());
   async function lots(page) {
     await seed(page, {
-      settings: { fontSize: 18, home: 'areas', hideDone: true }, player: { name: 'Zezima', quests: { cooksassistant: 2 }, levels: {}, done: 1, started: 0 },
+      settings: { fontSize: 18, home: 'areas', hideDone: true, theme: 'blue' }, player: { name: 'Zezima', quests: { cooksassistant: 2 }, levels: {}, done: 1, started: 0 },
       [ 'prog.' + WGS ]: { steps: { 'a:1': 1 } }, meta: { [WGS]: { title: 'While Guthix Sleeps', done: 1, total: 12, at: 1 } },
       'aprog.Ardougne': { tasks: { 447: 1 } }, qdone: { impcatcher: 1 }, last: 'nothing'
     });
@@ -413,6 +413,7 @@ test.describe('danger zone', () => {
     await expect(page.locator('#qcount')).toHaveText('11 quests');
     expect(await all(page)).toEqual(['list']);
     await expect(page.locator('html')).toHaveCSS('font-size', '14px');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
     await expect(page.locator('.tab[data-home="quests"]')).toHaveAttribute('aria-selected', 'true');
     await openCog(page);
     await expect(page.locator('#player-name')).toBeVisible();

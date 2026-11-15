@@ -1,5 +1,5 @@
 // The window look: sizes, the title band, tabs, the bronze rim and the gold buttons.
-const { test, expect, openApp, openQuest, openTab } = require('./support/app');
+const { test, expect, openApp, openQuest, openTab, openCog, choose, seed, stored } = require('./support/app');
 
 for (const width of [280, 360, 640, 1000]) {
   test('fits a ' + width + ' px window with no sideways scrolling', async ({ page }) => {
@@ -92,4 +92,51 @@ test('gold buttons for the main actions', async ({ page }) => {
   expect(await next.evaluate((e) => getComputedStyle(e).backgroundImage)).toContain('linear-gradient');
   expect(await next.evaluate((e) => getComputedStyle(e).fontFamily)).toContain('Cinzel');
   await expect(page.locator('#next-btn .i')).toBeVisible();
+});
+
+// The blue interface skin, the game's look before the brown one: a setting, kept after a reload.
+test.describe('theme', () => {
+  const shade = (page, sel, prop) => page.locator(sel).first().evaluate((e, p) => getComputedStyle(e)[p], prop);
+  // Blue is cool: more blue than red.
+  const cool = (rgb) => { const [r, , b] = rgb.match(/\d+/g).map(Number); return b > r; };
+
+  test('brown at first; Blue turns the whole window blue, and it stays after a reload', async ({ page }) => {
+    await openApp(page, expect);
+    await openCog(page);
+    await expect(page.locator('#theme')).toHaveValue('brown');
+    await expect(page.locator('#theme option')).toHaveText(['Brown', 'Blue']);
+    expect(cool(await shade(page, '#main', 'backgroundColor'))).toBe(false);
+    await choose(page, '#theme', 'blue');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'blue');
+    for (const [sel, prop] of [['#main', 'backgroundColor'], ['.hdr', 'borderBottomColor'], ['#cog-btn', 'borderTopColor'], ['.tab[aria-selected="true"]', 'borderTopColor'], ['h1.qt', 'color']]) {
+      expect(cool(await shade(page, sel, prop)), sel + ' ' + prop).toBe(true);
+    }
+    // what the game shows in colour keeps its colour: done is green
+    expect((await stored(page, 'settings')).theme).toBe('blue');
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'blue');
+    await openCog(page);
+    await expect(page.locator('#theme')).toHaveValue('blue');
+    await choose(page, '#theme', 'brown');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
+    expect(cool(await shade(page, '#main', 'backgroundColor'))).toBe(false);
+  });
+
+  test('a quest and an area look blue too, and done stays green', async ({ page, wiki }) => {
+    await seed(page, { settings: { theme: 'blue' } });
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openTab(page, 'steps');
+    expect(cool(await shade(page, '.cb', 'borderTopColor'))).toBe(true);
+    expect(cool(await shade(page, '.btn', 'backgroundColor') === 'rgba(0, 0, 0, 0)' ? await shade(page, '.btn', 'borderTopColor') : await shade(page, '.btn', 'backgroundColor'))).toBe(true);
+    await page.getByRole('button', { name: 'All quests' }).click();
+    await page.locator('.tab[data-home="areas"]').click();
+    expect(cool(await shade(page, '.ghb', 'borderTopColor'))).toBe(true);
+    await expect(page.locator('.mk.ok').first().or(page.locator('#main'))).toBeVisible();
+  });
+
+  test('a saved theme the app does not know is brown', async ({ page }) => {
+    await seed(page, { settings: { theme: 'pink' } });
+    await openApp(page, expect);
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');   // only themes the app knows
+  });
 });
