@@ -1757,7 +1757,7 @@
         return '<button class="tab" type="button" role="tab" data-tier="' + esc(x.id) + '" aria-selected="' + (x === t) + '"><span class="tl-l">' + esc(x.name) + '</span></button>';
       }).join('') + '</nav>' +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
-      '<div class="rdbar"><button class="btn alt sm" type="button" data-act="read">' + I.eye + '<span>Read from game</span></button></div>' +
+      '<div class="rdbar">' + scanBarHtml() + '<button class="btn alt sm" type="button" data-act="read">' + I.eye + '<span>Read from game</span></button></div>' +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
       areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>', !cur) +
@@ -2081,10 +2081,11 @@
         return '<option value="' + i + '"' + (i === top ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(x.name) + '</option>';
       }).join('') + '</select>' +
       '<p class="note" id="rd-msg" role="status"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
-      '<div class="dbtn">' + (inAlt1 ? '<button class="btn" type="button" data-act="rd-screen">Read screen</button>' : '') +
+      '<div class="dbtn">' + (inAlt1 ? '<button class="btn" type="button" data-act="scan-start">Start scanning</button>' : '') +
       '<label class="btn file' + (inAlt1 ? ' alt' : '') + '">Use a screenshot<input type="file" id="rd-file" accept="image/*"></label>' +
       '<button class="btn alt" type="button" data-act="rd-close">Close</button></div>' +
-      '<p class="rdtip">' + (inAlt1 ? '' : 'Open this app in Alt1 to read the game screen straight away. ') + 'It only ticks tasks. It never unticks one.</p>' +
+      '<p class="rdtip">' + (inAlt1 ? 'Scanning keeps watching the game: scroll the list, or pick another tier here and in the game. ' :
+        'Open this app in Alt1 to scan the game screen as you go. ') + 'It only ticks tasks. It never unticks one.</p>' +
       '</div></div>');
   }
   function readMsg(text) {
@@ -2115,15 +2116,92 @@
     renderArea(true);
     openRead(msg);
   }
-  function readScreen() {
+  // Scanning: Alt1 looks at the game twice a second. It follows the list as you scroll it,
+  // by how far the rows moved, so each row keeps its task. Picking another tier in the app starts that tier at its first task.
+  var SCAN_MS = 500;
+  function scanWhere() { return tierNow().name + ' ' + S.area.name; }
+  function scanBarHtml() {
+    if (!S.scan) return '';
+    return '<div class="scanbar" id="scan" role="status"><span class="dot" aria-hidden="true"></span>' +
+      '<span class="smsg" id="scan-msg">' + esc(S.scan.msg) + '</span>' +
+      '<button class="btn alt sm" type="button" data-act="scan-stop">Stop</button></div>';
+  }
+  function scanMsg(t) {
+    if (!S.scan) return;
+    S.scan.msg = t;
+    var e = byId('scan-msg');
+    if (e) e.textContent = t;
+  }
+  function looking() { return 'Scanning for achievements\u2026 Open ' + scanWhere() + ' in the game.'; }
+  function startScan() {
     var a = window.alt1, R = window.QuickGuideReader;
     if (!a || !R) return;
     if (!a.permissionPixel) { readMsg('Alt1 has no permission to see the screen. In Alt1, remove this app, add it again, and allow it to view the screen.'); return; }
     if (!a.rsLinked) { readMsg('Alt1 cannot find the game. Open RuneScape and try again.'); return; }
-    var c = null;
-    try { c = R.capture(); } catch (e) { c = null; }
-    if (!c) { readMsg('Could not take a picture of the game. Try again.'); return; }
-    applyRead(R.read(c.px, c.w, c.h));
+    var sel = byId('rd-top');
+    stopScan();
+    S.scan = { area: S.areaKey, tier: tierNow().id, start: +(sel && sel.value) || 0, off: null, pitch: 0, region: null, ticked: 0, msg: '', timer: 0 };
+    S.scan.msg = looking();
+    closeRead();
+    renderArea(true);
+    scanTick();
+  }
+  function stopScan() {
+    if (!S.scan) return;
+    clearTimeout(S.scan.timer);
+    S.scan = null;
+    var b = byId('scan');
+    if (b) b.parentNode.removeChild(b);
+  }
+  function scanTick() {
+    var sc = S.scan, R = window.QuickGuideReader;
+    if (!sc) return;
+    if (S.view !== 'area' || S.areaKey !== sc.area || !S.area) { stopScan(); return; }
+    var t = tierNow();
+    if (t.id !== sc.tier) {
+      // Another tier: its list starts at the top in the game too.
+      sc.tier = t.id; sc.start = 0; sc.off = null; sc.ticked = 0;
+      scanMsg(looking());
+    }
+    var c = null, r = null;
+    try { c = R.capture(sc.region); } catch (e) { c = null; }
+    if (c) r = R.read(c.px, c.w, c.h);
+    if (!r || !r.found) {
+      if (sc.region) sc.region = null;   // look at the whole screen again
+      else scanMsg(looking());
+    } else {
+      scanRows(sc, t, r, c);
+    }
+    if (S.scan === sc) sc.timer = setTimeout(scanTick, SCAN_MS);
+  }
+  function scanRows(sc, t, r, c) {
+    var rows = r.rows, good = [], k0 = -1;
+    rows.forEach(function (row, k) { if (!row.partial) { good.push(row); if (k0 < 0) k0 = k; } });
+    if (r.pitch) sc.pitch = r.pitch;
+    // From now on, only look at the strip with the badges: much less to copy each time.
+    var bw = r.x1 - r.x0 + 1;
+    sc.region = { x: c.x + r.x0 - bw, y: 0, w: bw * 3, h: window.alt1.rsHeight };
+    if (!good.length || !sc.pitch) return;
+    var p = sc.pitch, y0 = good[0].y;
+    // off: where row 0 of the list would be, above the first row we see. Rows keep their task as the list scrolls.
+    if (sc.off == null) sc.off = (sc.start + k0) * p - y0;
+    else sc.off = Math.round((sc.off + y0) / p) * p - y0;
+    var idx = taskIndex(S.area), ticked = 0, lo = Infinity, hi = -1;
+    good.forEach(function (row) {
+      var i = Math.round((row.y + sc.off) / p), x = t.tasks[i];
+      if (!x) return;
+      lo = Math.min(lo, i); hi = Math.max(hi, i);
+      if (row.done && !S.aprog.tasks[x.id]) { setTick(S.aprog.tasks, idx, x.id, true); ticked++; }
+    });
+    sc.ticked += ticked;
+    var msg = hi < 0 ? looking() : 'Scanning for achievements\u2026 ' + scanWhere() + ': tasks ' + (lo + 1) + (hi > lo ? '\u2013' + (hi + 1) : '') +
+      ' in view. Ticked ' + sc.ticked + '.';
+    if (ticked) {
+      if (t.tasks.every(function (x) { return S.aprog.tasks[x.id]; }) && S.aprog.open) delete S.aprog.open[t.id + ':tasks'];
+      saveAprog();
+      sc.msg = msg;
+      renderArea(true);
+    } else scanMsg(msg);
   }
   function readFile(f) {
     var R = window.QuickGuideReader;
@@ -2309,7 +2387,8 @@
       else if (act === 'bk-close') closeBackup();
       else if (act === 'read') openRead();
       else if (act === 'rd-close') closeRead();
-      else if (act === 'rd-screen') readScreen();
+      else if (act === 'scan-start') startScan();
+      else if (act === 'scan-stop') stopScan();
       else if (act === 'bk-copy') copyBackup();
       else if (act === 'bk-import') runImport();
       else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }

@@ -45,7 +45,7 @@ Two other ways:
 - Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
 - Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
 
-The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Read from game**: it looks at the game only when you press **Read screen**. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
+The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Read from game**: it looks at the game only while you scan. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
 If you added the app before, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
 Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
 
@@ -163,9 +163,14 @@ is how the app finds it; a task can also be written by its name alone.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done. Tick them yourself, or let the app read them:
 - **Read from game** (top of a tier): open the same tier in the game (**Hero → Achievements → Area Tasks**),
-  with **Show Completed** ticked and **List Mode** unticked. Pick the task at the top of the game's list, then press
-  **Read screen** (in Alt1) or **Use a screenshot**. Each task with a green tick on its badge gets ticked in the app.
-  Then scroll down in the game and read again: the app tells you which task to put at the top next.
+  with **Show Completed** ticked and **List Mode** unticked. Pick the task at the top of the game's list
+  (task 1 when the list is at the top), then press **Start scanning** (in Alt1) or **Use a screenshot**.
+  Each task with a green tick on its badge gets ticked in the app.
+  - **Scanning** (Alt1): a green bar says **Scanning for achievements…** and Alt1 looks at the game twice a second.
+    Scroll the list in the game and it keeps up. Pick another tier in the app, open the same tier in the game, and it
+    scans that one from its first task. **Stop** ends it; so does leaving the area.
+    The app cannot read the tier's name in the game yet, so the tier in the app and in the game must match.
+  - **Screenshot**: after reading, the app tells you which task to put at the top for the next screenshot.
   It only ticks; it never unticks. It is built from phone screenshots for now; desktop may need a tweak.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and

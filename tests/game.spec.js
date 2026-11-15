@@ -110,41 +110,129 @@ test.describe('the Read from game button', () => {
     expect(await doneList(page, 23)).toEqual(Array(23).fill(false));
   });
 
-  test('outside Alt1 there is no Read screen button', async ({ page }) => {
+  test('outside Alt1 there is no Start scanning button', async ({ page }) => {
     await openArdougne(page);
     await page.locator('[data-act="read"]').click();
-    await expect(page.locator('[data-act="rd-screen"]')).toHaveCount(0);
+    await expect(page.locator('[data-act="scan-start"]')).toHaveCount(0);
     await expect(page.locator('#rd')).toContainText('Alt1');
   });
 
-  test('in Alt1, Read screen reads the game window', async ({ page }) => {
-    await openArdougne(page);
-    // A fake Alt1 that hands over the screenshot, as Alt1 does: base64 BGRA pixels.
-    await page.evaluate((src) => new Promise((done) => {
+  // A fake Alt1. It shows one "frame" of the game at a time: a slice of a screenshot, shrunk to half size.
+  // Moving the slice down is like scrolling down the list in the game. getRegion hands back base64 BGRA, as Alt1 does.
+  async function fakeAlt1(page, src, h) {
+    await page.evaluate(([s, fh]) => new Promise((done) => {
       const im = new Image();
       im.onload = () => {
-        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
-        const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
-        const d = x.getImageData(0, 0, im.width, im.height).data;
-        let s = '';
-        for (let i = 0; i < d.length; i += 4) s += String.fromCharCode(d[i + 2], d[i + 1], d[i], 255);
-        const b64 = btoa(s);
-        window.alt1 = { permissionPixel: true, rsLinked: true, rsWidth: im.width, rsHeight: im.height, getRegion: () => b64 };
+        const w = Math.round(im.width / 2), full = Math.round(im.height / 2);
+        const cv = document.createElement('canvas'); cv.width = w; cv.height = full;
+        const x = cv.getContext('2d'); x.drawImage(im, 0, 0, w, full);
+        const all = x.getImageData(0, 0, w, full).data;
+        window.__scroll = 0;
+        window.__grabs = 0;
+        window.alt1 = {
+          permissionPixel: true, rsLinked: true, rsWidth: w, rsHeight: fh,
+          getRegion: (rx, ry, rw, rh) => {
+            window.__grabs++;
+            const top = window.__scroll;
+            let out = '';
+            for (let yy = ry; yy < ry + rh; yy++) {
+              for (let xx = rx; xx < rx + rw; xx++) {
+                const sy = yy + top, i = (sy * w + xx) * 4;
+                if (sy < 0 || sy >= full) { out += '\0\0\0\xff'; continue; }
+                out += String.fromCharCode(all[i + 2], all[i + 1], all[i], 255);
+              }
+            }
+            return btoa(out);
+          }
+        };
         done();
       };
-      im.src = src;
-    }), SHOT.senntisten);
+      im.src = s;
+    }), [src, h]);
+  }
+  const grabs = (page) => page.evaluate(() => window.__grabs);
+  async function frames(page, n) {
+    const g = await grabs(page);
+    await expect.poll(() => grabs(page), { timeout: 10000 }).toBeGreaterThanOrEqual(g + n);
+  }
+
+  test('Start scanning: the app says it is scanning, and ticks what it sees', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
     await page.locator('[data-act="read"]').click();
-    await page.locator('[data-act="rd-screen"]').click();
-    await expect(page.locator('#rd-msg')).toHaveText(/Found 7 tasks: 6 done\. Ticked 6\./);
-    expect(await doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+    await page.locator('[data-act="scan-start"]').click();
+    await expect(page.locator('#rd')).toHaveCount(0);
+    await expect(page.locator('#scan')).toContainText('Scanning for achievements');
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+    await expect(page.locator('#scan')).toContainText('Easy Ardougne');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('scanning follows the list as you scroll it in the game', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 440);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await frames(page, 2);
+    // Scroll down bit by bit, until the red "not done" row has gone off the top.
+    for (const y of [20, 40, 60, 80, 100, 120, 140]) {
+      await page.evaluate((v) => { window.__scroll = v; }, y);
+      await frames(page, 2);
+    }
+    await expect.poll(() => doneList(page, 8)).toEqual([false, true, true, true, true, true, true, false]);
+    // Task 1 was the red one, so it stays unticked, even though a done row is now at the top.
+  });
+
+  test('switching to another tier in the app scans that tier, from its first task', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.ardougne, 585);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+    await page.locator('.tab[data-tier="medium"]').click();
+    await expect(page.locator('#scan')).toContainText('Medium Ardougne');
+    await expect.poll(() => doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+    await page.locator('.tab[data-tier="easy"]').click();
+    expect(await doneList(page, 8)).toEqual([...Array(7).fill(true), false]);
+  });
+
+  test('Stop ends the scanning; so does leaving the area', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, SHOT.senntisten, 585);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect(page.locator('#scan')).toBeVisible();
+    await page.locator('[data-act="scan-stop"]').click();
+    await expect(page.locator('#scan')).toHaveCount(0);
+    const g = await grabs(page);
+    await page.waitForTimeout(1200);
+    expect(await grabs(page)).toBe(g);
+
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect(page.locator('#scan')).toBeVisible();
+    await page.locator('[data-act="change"]').click();
+    const g2 = await grabs(page);
+    await page.waitForTimeout(1200);
+    expect(await grabs(page)).toBeLessThanOrEqual(g2 + 1);
+  });
+
+  test('no list on the screen: it keeps looking, and says so', async ({ page }) => {
+    await openArdougne(page);
+    await fakeAlt1(page, '/icon.png', 100);
+    await page.locator('[data-act="read"]').click();
+    await page.locator('[data-act="scan-start"]').click();
+    await expect(page.locator('#scan')).toContainText('Open Easy Ardougne in the game');
+    await frames(page, 2);
+    expect(await doneList(page, 23)).toEqual(Array(23).fill(false));
   });
 
   test('in Alt1 without the screen permission, it says how to fix it', async ({ page }) => {
     await openArdougne(page);
     await page.evaluate(() => { window.alt1 = { permissionPixel: false, rsLinked: true, rsWidth: 800, rsHeight: 600, getRegion: () => '' }; });
     await page.locator('[data-act="read"]').click();
-    await page.locator('[data-act="rd-screen"]').click();
+    await page.locator('[data-act="scan-start"]').click();
     await expect(page.locator('#rd-msg')).toContainText('permission');
+    await expect(page.locator('#scan')).toHaveCount(0);
   });
 });

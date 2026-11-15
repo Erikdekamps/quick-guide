@@ -838,3 +838,10 @@ ul.steps.ql { padding: 0; }
 .rdhow li + li { margin-top: 2px; }
 .rdtip { margin: 0; font-size: 12px; line-height: 1.4; color: var(--faint); }
 #rd-top { flex: none; }
+.rdbar { flex-wrap: wrap; gap: 6px; }
+.scanbar { display: flex; align-items: center; gap: 8px; width: 100%; padding: 6px 8px; background: #1d2a17; border: 1px solid #3f6b2c; border-radius: 2px; font-size: 12px; line-height: 1.35; color: var(--text); }
+.scanbar .smsg { flex: 1; min-width: 0; }
+.scanbar .btn { flex: none; }
+.scanbar .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #6fd34a; box-shadow: 0 0 6px #6fd34a; animation: scanpulse 1.2s ease-in-out infinite; }
+@keyframes scanpulse { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .scanbar .dot { animation: none; } }

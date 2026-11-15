@@ -80,6 +80,13 @@
     return s.length ? s[s.length >> 1] : 0;
   }
 
+  // The space from one row to the next: the middle gap between whole rows. 0 when there are fewer than 2.
+  function pitch(rows) {
+    var ys = rows.filter(function (r) { return !r.partial; }).map(function (r) { return r.y; }), d = [];
+    for (var i = 1; i < ys.length; i++) d.push(ys[i] - ys[i - 1]);
+    return d.length ? median(d) : 0;
+  }
+
   /*
    * read(pixels, width, height) -> { found, rows: [{ y, done, partial }] }
    * partial: the badge is cut off (scrolled half out of view), so its state
@@ -114,7 +121,9 @@
         partial: partial
       };
     });
-    return { found: true, rows: rows };
+    var x0 = Math.min.apply(null, best.map(function (b) { return b.x0; }));
+    var x1 = Math.max.apply(null, best.map(function (b) { return b.x1; }));
+    return { found: true, rows: rows, x0: x0, x1: x1, pitch: pitch(rows) };
   }
 
   // Alt1 hands pixels over as base64 BGRA. Turn that into RGBA.
@@ -129,25 +138,30 @@
     return out;
   }
 
-  // Grab the game screen through Alt1. Returns null outside Alt1.
-  function capture() {
+  // Grab the game screen (or part of it: { x, y, w, h }) through Alt1. Returns null outside Alt1.
+  function capture(rect) {
     var a = root.alt1;
     if (!a || !a.permissionPixel || !a.rsLinked) return null;
-    var w = a.rsWidth, h = a.rsHeight;
-    if (!w || !h) return null;
+    var W = a.rsWidth, H = a.rsHeight;
+    if (!W || !H) return null;
+    var x = 0, y = 0, w = W, h = H;
+    if (rect) {
+      x = Math.max(0, Math.min(W - 1, rect.x | 0)); y = Math.max(0, Math.min(H - 1, rect.y | 0));
+      w = Math.max(1, Math.min(W - x, rect.w | 0)); h = Math.max(1, Math.min(H - y, rect.h | 0));
+    }
     if (typeof a.capture === 'function') {
       try {
-        var buf = a.capture(0, 0, w, h);
+        var buf = a.capture(x, y, w, h);
         if (buf && buf.length === w * h * 4) {
           var px = new Uint8ClampedArray(buf); // BGRA too
           for (var i = 0; i < px.length; i += 4) { var t = px[i]; px[i] = px[i + 2]; px[i + 2] = t; px[i + 3] = 255; }
-          return { px: px, w: w, h: h };
+          return { px: px, w: w, h: h, x: x, y: y };
         }
       } catch (e) { /* fall back to getRegion */ }
     }
-    var s = a.getRegion(0, 0, w, h);
+    var s = a.getRegion(x, y, w, h);
     if (!s) return null;
-    return { px: fromBgraBase64(s, w, h), w: w, h: h };
+    return { px: fromBgraBase64(s, w, h), w: w, h: h, x: x, y: y };
   }
 
   var api = { read: read, capture: capture, fromBgraBase64: fromBgraBase64 };
