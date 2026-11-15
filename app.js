@@ -1757,6 +1757,8 @@
         return '<button class="tab" type="button" role="tab" data-tier="' + esc(x.id) + '" aria-selected="' + (x === t) + '"><span class="tl-l">' + esc(x.name) + '</span></button>';
       }).join('') + '</nav>' +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
+      // Reading the game needs Alt1 (on a computer), so the button is only there in Alt1.
+      (window.alt1 ? '<div class="rdbar">' + scanBarHtml() + '<button class="btn alt sm" type="button" data-act="read">' + I.eye + '<span>Read from game</span></button></div>' : '') +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
       areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>', !cur) +
@@ -2058,6 +2060,169 @@
     }
     return { quests: nq, areas: na };
   }
+  // ---------- read from game ----------
+  // Alt1 shows the in-game list. The reader finds each task's badge, top to bottom,
+  // and sees if it has a green tick. The player says which task is at the top; the app counts on from there.
+  function closeRead() {
+    var d = byId('rd');
+    if (d) d.parentNode.removeChild(d);
+  }
+  function openRead(msg) {
+    closeMenus();
+    closeRead();
+    var t = tierNow();
+    app.insertAdjacentHTML('beforeend',
+      '<div class="dlgbg" id="rd"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="rd-h">' +
+      '<h2 class="dh" id="rd-h">Read from game</h2>' +
+      '<ol class="rdhow"><li>In the game, open <b>Hero \u2192 Achievements \u2192 Area Tasks</b>, then <b>' + esc(t.name + ' ' + S.area.name) + '</b>.</li>' +
+      '<li>Keep <b>Show Completed</b> ticked and <b>List Mode</b> unticked.</li>' +
+      '<li>Scroll so this task is at the top of the list:</li></ol>' +
+      '<select class="inp" id="rd-top" aria-label="Top task in the game">' + t.tasks.map(function (x, i) {
+        return '<option value="' + i + '">' + (i + 1) + '. ' + esc(x.name) + '</option>';
+      }).join('') + '</select>' +
+      '<p class="note" id="rd-msg" role="status"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
+      '<div class="dbtn"><button class="btn" type="button" data-act="scan-start">Start scanning</button>' +
+      '<button class="btn alt" type="button" data-act="rd-close">Close</button></div>' +
+      '<p class="rdtip">Scanning keeps watching the game: scroll the list, or pick another tier here and in the game. It only ticks tasks. It never unticks one.</p>' +
+      '</div></div>');
+  }
+  function readMsg(text) {
+    var m = byId('rd-msg');
+    if (m) { m.textContent = text; m.hidden = false; }
+  }
+  // Scanning: Alt1 looks at the game twice a second. It follows the list as you scroll it,
+  // by how far the rows moved, so each row keeps its task. Picking another tier in the app starts that tier at its first task.
+  var SCAN_MS = 500;
+  function scanWhere() { return tierNow().name + ' ' + S.area.name; }
+  function scanBarHtml() {
+    if (!S.scan) return '';
+    return '<div class="scanbar" id="scan" role="status"><span class="dot" aria-hidden="true"></span>' +
+      '<span class="smsg" id="scan-msg">' + esc(S.scan.msg) + '</span>' +
+      (S.scan.wait ? '<button class="btn sm" type="button" data-act="scan-go">Go</button>' : '') +
+      '<button class="btn alt sm" type="button" data-act="scan-stop">Stop</button></div>';
+  }
+  function scanMsg(t) {
+    if (!S.scan) return;
+    S.scan.msg = t;
+    var e = byId('scan-msg');
+    if (e) e.textContent = t;
+  }
+  function looking() { return 'Scanning for achievements\u2026 Open ' + scanWhere() + ' in the game.'; }
+  function waiting() { return 'Scanning for achievements\u2026 Open ' + scanWhere() + ' in the game, at the top of the list. It goes on when the list changes, or press Go.'; }
+  // A rough picture of the badge strip: the average brightness of 8 by 8 blocks. Another tier has other badges
+  // and other names next to them, so the picture changes.
+  function stripSig(c, rect) {
+    var out = [], B = 8;
+    for (var y = rect.y; y + B <= rect.y + rect.h; y += B) {
+      for (var x = rect.x; x + B <= rect.x + rect.w; x += B) {
+        var sum = 0, n = 0;
+        for (var yy = y; yy < y + B; yy += 2) {
+          for (var xx = x; xx < x + B; xx += 2) {
+            var lx = xx - c.x, ly = yy - c.y;
+            if (lx < 0 || ly < 0 || lx >= c.w || ly >= c.h) continue;
+            var i = (ly * c.w + lx) * 4;
+            sum += c.px[i] + c.px[i + 1] + c.px[i + 2]; n++;
+          }
+        }
+        out.push(n ? sum / n / 3 : 0);
+      }
+    }
+    return out;
+  }
+  function sigChanged(a, b) {
+    if (a.length !== b.length) return true;
+    var d = 0;
+    for (var i = 0; i < a.length; i++) d += Math.abs(a[i] - b[i]);
+    return d / Math.max(a.length, 1) > 3;
+  }
+  function scanGo() {
+    var sc = S.scan;
+    if (!sc || !sc.wait) return;
+    sc.wait = false; sc.sig = null; sc.off = null;
+    sc.msg = looking();
+    renderArea(true);
+  }
+  function startScan() {
+    var a = window.alt1, R = window.QuickGuideReader;
+    if (!a || !R) return;
+    if (!a.permissionPixel) { readMsg('Alt1 has no permission to see the screen. In Alt1, remove this app, add it again, and allow it to view the screen.'); return; }
+    if (!a.rsLinked) { readMsg('Alt1 cannot find the game. Open RuneScape and try again.'); return; }
+    var sel = byId('rd-top');
+    stopScan();
+    S.scan = { area: S.areaKey, tier: tierNow().id, start: +(sel && sel.value) || 0, off: null, pitch: 0, region: null, ticked: 0, msg: '', timer: 0 };
+    S.scan.msg = looking();
+    closeRead();
+    renderArea(true);
+    scanTick();
+  }
+  function stopScan() {
+    if (!S.scan) return;
+    clearTimeout(S.scan.timer);
+    S.scan = null;
+    var b = byId('scan');
+    if (b) b.parentNode.removeChild(b);
+  }
+  function scanTick() {
+    var sc = S.scan, R = window.QuickGuideReader;
+    if (!sc) return;
+    if (S.view !== 'area' || S.areaKey !== sc.area || !S.area) { stopScan(); return; }
+    var t = tierNow();
+    if (t.id !== sc.tier) {
+      // Another tier. The game may still show the old one, so wait until its list changes
+      // (or the player presses Go). The new tier starts at its first task.
+      sc.tier = t.id; sc.start = 0; sc.off = null; sc.ticked = 0; sc.wait = true; sc.sig = null;
+      sc.msg = waiting();
+      renderArea(true);
+    }
+    var c = null, r = null;
+    try { c = R.capture(sc.region); } catch (e) { c = null; }
+    if (c) r = R.read(c.px, c.w, c.h);
+    if (!r || !r.found) {
+      if (sc.region) sc.region = null;   // look at the whole screen again
+      else if (sc.wait) sc.sig = 'gone';  // the list went away: when it comes back, it is the new one
+      else scanMsg(looking());
+    } else if (sc.wait) {
+      var bw = r.x1 - r.x0 + 1, strip = { x: c.x + r.x0 - bw, y: 0, w: bw * 3, h: window.alt1.rsHeight };
+      var sig = stripSig(c, strip);
+      if (sc.sig && sc.sig !== 'gone' && !sigChanged(sc.sig, sig)) { sc.region = strip; }
+      else if (!sc.sig) { sc.sig = sig; sc.region = strip; }
+      else { sc.wait = false; sc.sig = null; sc.msg = looking(); renderArea(true); scanRows(sc, t, r, c); }
+    } else {
+      scanRows(sc, t, r, c);
+    }
+    if (S.scan === sc) sc.timer = setTimeout(scanTick, SCAN_MS);
+  }
+  function scanRows(sc, t, r, c) {
+    var rows = r.rows, good = [], k0 = -1;
+    rows.forEach(function (row, k) { if (!row.partial) { good.push(row); if (k0 < 0) k0 = k; } });
+    if (r.pitch) sc.pitch = r.pitch;
+    // From now on, only look at the strip with the badges: much less to copy each time.
+    var bw = r.x1 - r.x0 + 1;
+    sc.region = { x: c.x + r.x0 - bw, y: 0, w: bw * 3, h: window.alt1.rsHeight };
+    if (!good.length || !sc.pitch) return;
+    var p = sc.pitch, y0 = good[0].y;
+    // off: where row 0 of the list would be, above the first row we see. Rows keep their task as the list scrolls.
+    if (sc.off == null) sc.off = (sc.start + k0) * p - y0;
+    else sc.off = Math.round((sc.off + y0) / p) * p - y0;
+    var idx = taskIndex(S.area), ticked = 0, lo = Infinity, hi = -1;
+    good.forEach(function (row) {
+      var i = Math.round((row.y + sc.off) / p), x = t.tasks[i];
+      if (!x) return;
+      lo = Math.min(lo, i); hi = Math.max(hi, i);
+      if (row.done && !S.aprog.tasks[x.id]) { setTick(S.aprog.tasks, idx, x.id, true); ticked++; }
+    });
+    sc.ticked += ticked;
+    var msg = hi < 0 ? looking() : 'Scanning for achievements\u2026 ' + scanWhere() + ': tasks ' + (lo + 1) + (hi > lo ? '\u2013' + (hi + 1) : '') +
+      ' in view. Ticked ' + sc.ticked + '.';
+    if (ticked) {
+      if (t.tasks.every(function (x) { return S.aprog.tasks[x.id]; }) && S.aprog.open) delete S.aprog.open[t.id + ':tasks'];
+      saveAprog();
+      sc.msg = msg;
+      renderArea(true);
+    } else scanMsg(msg);
+  }
+
+
   function closeBackup() {
     var b = byId('bk');
     if (b) b.parentNode.removeChild(b);
@@ -2196,6 +2361,7 @@
   });
   app.addEventListener('click', function (ev) {
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
+    if (ev.target.id === 'rd') { closeRead(); return; }
     var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
@@ -2221,6 +2387,11 @@
       else if (act === 'export') openBackup('export');
       else if (act === 'import') openBackup('import');
       else if (act === 'bk-close') closeBackup();
+      else if (act === 'read') openRead();
+      else if (act === 'rd-close') closeRead();
+      else if (act === 'scan-start') startScan();
+      else if (act === 'scan-stop') stopScan();
+      else if (act === 'scan-go') scanGo();
       else if (act === 'bk-copy') copyBackup();
       else if (act === 'bk-import') runImport();
       else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }
@@ -2276,7 +2447,7 @@
     var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
     if (!inside) closeMenus();
   });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { closeMenus(); closeBackup(); } });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); } });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {
     if (!window.alt1 || typeof window.alt1.openBrowser !== 'function') return;
