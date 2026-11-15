@@ -154,7 +154,9 @@ is how the app finds it; a task can also be written by its name alone.
 
 - One tab per tier: **Easy**, **Medium**, **Hard**, **Elite** (Lumbridge: **Beginner** to **Hard**).
 - **Needs**: the levels and quests the whole tier needs, the items to bring, and notes for Ironmen.
-  Levels are one line each ("16 Construction ✓"; with a player, "16 Thieving (you: 3)" in red when you are too low).
+  Levels are one line each, like the wiki: "16 [icon] Thieving ✓". With a player, the level is green when you have it,
+  and red with a ✗ and your level when you do not. "(boostable)" follows a level the wiki marks with "(b)".
+  Quests show their skill levels the same way.
   Done quests get a ✓, and a quest name opens that quest.
 - **Tasks**: click a task to tick it. "Needs 5 Thieving (you: 3)" in red means you cannot do it yet.
   The wiki's tip for how to do it is right under the task. **Done, next task** ticks the next one.
@@ -170,8 +172,9 @@ is how the app finds it; a task can also be written by its name alone.
   3. Scroll each list down, then click the next one in the game.
   - The app sees which tier is picked in the game: the one with the gold box in the list on the left. It counts it
     from the **Area Tasks** title right above Easy Ardougne (or from the next title, below the last tier), so you can
-    start anywhere. If neither title is in view, it says so: scroll the list on the left up to Area Tasks. It also
-    remembers what each name looks like, so skipping ahead or back works. If the bar shows the wrong tier, use
+    start anywhere. It remembers what each name looks like, also for the next scans, so after one scan with the title
+    in view it knows them all it has seen. If it cannot tell, it asks you to scroll the list on the left up until
+    Area Tasks shows. If the bar shows the wrong tier, use
     **◀ ▶**: they hold until you pick another tier in the game. **Stop** ends it.
   - When it first sees a tier, it only starts if the list is at the top (the scrollbar says so); else it asks you to
     scroll the list to the top. A tier or a task only changes when two looks in a row agree.

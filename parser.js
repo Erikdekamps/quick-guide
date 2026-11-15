@@ -1092,7 +1092,7 @@
 
 
   // ---------- Area Tasks: the "<Area> achievements" pages ----------
-  var AREA_VERSION = 3;   // a new number makes saved areas read the wiki again
+  var AREA_VERSION = 4;   // a new number makes saved areas read the wiki again
   var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
     "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
     return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
@@ -1119,8 +1119,12 @@
     var t = text(li);
     if (!t || /^none\.?$/i.test(t)) return;
     var sk = li.querySelectorAll('.skillreq[data-skill]');
-    if (sk.length === 1 && clean(t.replace(text(sk[0]), '')) === '') {
-      into.skills.push({ skill: sk[0].getAttribute('data-skill'), level: +sk[0].getAttribute('data-level') || 0 });
+    // A level on its own, or with "(b)" after it: the wiki's mark for a level you may boost.
+    var rest = sk.length === 1 ? clean(t.replace(text(sk[0]), '')) : null;
+    if (sk.length === 1 && (rest === '' || /^\(\s*b\s*\)$/i.test(rest))) {
+      var need = { skill: sk[0].getAttribute('data-skill'), level: +sk[0].getAttribute('data-level') || 0 };
+      if (rest) need.boost = true;
+      into.skills.push(need);
       return;
     }
     var q = li.querySelector('.achievement-req-quest[data-quest]');

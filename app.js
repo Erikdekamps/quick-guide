@@ -1030,11 +1030,7 @@
   function skillsHtml() {
     var o = S.q.overview, h = '';
     if (o.skillReqs && o.skillReqs.length) {
-      h += '<h2 class="bh">Skill levels</h2><ul class="skills">' + o.skillReqs.map(function (s) {
-        var mine = playerLevel(s.skill), cls = mine == null ? '' : mine >= s.level ? ' ok' : ' low';
-        return '<li class="chip' + cls + '"><b>' + esc(s.level) + '</b><span class="sn">' + esc(s.skill) + (s.note ? ' <span class="x">' + esc(s.note) + '</span>' : '') + '</span>' +
-          (mine == null ? '' : '<span class="you">you: ' + mine + '</span>') + '</li>';
-      }).join('') + '</ul>';
+      h += '<h2 class="bh">Skill levels</h2><ul class="skl-list">' + o.skillReqs.map(function (s) { return skillHtml(s, 'li'); }).join('') + '</ul>';
     }
     if (o.otherReqs && o.otherReqs.length) {
       h += '<h2 class="bh">Also needed</h2>' + o.otherReqs.map(function (r) { return '<p class="para">' + r + '</p>'; }).join('');
@@ -1645,12 +1641,29 @@
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="areset">' + I.reset + '<span>Reset progress</span></button>' +
       '</div>';
   }
+  // A skill level, like the wiki: "100 [icon] Mining ✓". The level is green when you have it and red when you do
+  // not (with your level); "(boostable)" when the wiki says you may boost it. tag: 'li' in a list, 'span' in a line.
+  function skillIcon(name) {
+    return '<img class="sic" src="https://runescape.wiki/images/' + encodeURIComponent(String(name).replace(/ /g, '_')) +
+      '-icon.png" alt="" width="16" height="16" loading="lazy" onerror="this.remove()">';
+  }
+  function skillHtml(s, tag) {
+    var mine = playerLevel(s.skill), st = mine == null ? '' : mine >= s.level ? 'ok' : 'low';
+    var boost = s.boost || /boost|\[\s*b\s*\]|\(\s*b\s*\)/i.test(s.note || '');
+    var note = s.note && !/^\W*(boostable|\[\s*b\s*\]|\(\s*b\s*\))\W*$/i.test(s.note) ? s.note : '';
+    return '<' + tag + ' class="skl' + (st ? ' ' + st : '') + '"><b class="lv">' + esc(s.level) + '</b> ' + skillIcon(s.skill) +
+      ' <span class="sn">' + esc(s.skill) + '</span>' +
+      (st === 'ok' ? ' <span class="tk" aria-label="you have it">\u2713</span>' : '') +
+      (st === 'low' ? ' <span class="no" aria-label="too low">\u2717</span> <span class="you">(you: ' + mine + ')</span>' : '') +
+      (boost ? ' <span class="bst">(boostable)</span>' : '') +
+      (note ? ' <span class="x">' + esc(note) + '</span>' : '') + '</' + tag + '>';
+  }
   function needText(n) {
     var bits = [], low = false;
     (n.skills || []).forEach(function (x) {
       var v = playerLevel(x.skill);
       if (v != null && v < x.level) low = true;
-      bits.push(x.level + ' ' + esc(x.skill) + (v == null ? '' : v < x.level ? ' (you: ' + v + ')' : ' ✓'));
+      bits.push(skillHtml(x, 'span'));
     });
     (n.quests || []).forEach(function (q) {
       var got = playerStatus(q) === 2;
@@ -1663,12 +1676,8 @@
   function areaNeedsHtml(t) {
     var h = '';
     if (t.skills.length) {
-      // One line each, like the quests: "16 Construction ✓", or "16 Thieving (you: 3)" when you are too low.
-      h += '<h2 class="bh">Skill levels</h2><ul class="tree areq askill">' + t.skills.map(function (s) {
-        var mine = playerLevel(s.skill), ok = mine != null && mine >= s.level, low = mine != null && mine < s.level;
-        return '<li class="' + (ok ? 'got' : low ? 'low' : '') + '">' + s.level + ' ' + esc(s.skill) +
-          (ok ? ' <span class="tk">\u2713</span>' : low ? ' <span class="you">(you: ' + mine + ')</span>' : '') + '</li>';
-      }).join('') + '</ul>';
+      // One line each, like the wiki: "16 [icon] Thieving ✓".
+      h += '<h2 class="bh">Skill levels</h2><ul class="skl-list areq">' + t.skills.map(function (s) { return skillHtml(s, 'li'); }).join('') + '</ul>';
     }
     if (t.quests.length) {
       h += '<h2 class="bh">Quests</h2><ul class="tree areq">' + t.quests.map(function (q) {
@@ -2112,7 +2121,7 @@
       var tiers = scanTiers();
       if (!tiers.length) { readMsg('Could not read the task lists from the wiki. Try again in a moment.'); return; }
       stopScan();
-      S.scan = { tiers: tiers, k: -1, names: {}, prev: null, region: null, swap: null, set: 0, misses: 0, blank: 0, timer: 0, msg: '' };
+      S.scan = { tiers: tiers, k: -1, names: loadNames(tiers), prev: null, region: null, swap: null, set: 0, misses: 0, blank: 0, timer: 0, msg: '' };
       S.scan.msg = 'Looking for the list…';
       closeRead();
       showScanBar();
@@ -2158,6 +2167,7 @@
     if (!sc || k < 0 || k >= sc.tiers.length) return;
     // The arrows win until another row is picked in the game.
     sc.k = k; sc.names = {}; sc.prev = null; sc.pin = { k: k, sig: null }; sc.sum = null;
+    try { sdel('scannames'); } catch (e) { /* not saved */ }
     showScanBar();
   }
   // Alt1 versions differ in which way round they hand over red and blue. Until the list is found once,
@@ -2180,7 +2190,7 @@
     try { c = R.capture(sc.region); } catch (e) { c = null; }
     // The same picture as last time (nothing moved in the game): nothing to do.
     var sum = c ? frameSum(c) : null;
-    if (c && sum === sc.sum && sc.region && sc.cand == null && !sc.pending) { sc.timer = setTimeout(scanTick, SCAN_MS); return; }
+    if (c && sum === sc.sum && sc.region && sc.cand == null && !sc.pending && sc.k >= 0) { sc.timer = setTimeout(scanTick, SCAN_MS); return; }
     sc.sum = sum;
     if (c) r = readFrame(sc, c);
     if (!c) sc.blank++; else sc.blank = 0;
@@ -2215,7 +2225,7 @@
         var sb = R.scrollbar(c.px, c.w, c.h, r.x1 + bw * 10, r.x0 + right - bw, Math.min.apply(null, ry) - pitch, Math.max.apply(null, ry) + pitch);
         scanRows(sc, r, sb);
       }
-      else scanMsg('Which one is this? Scroll the list on the left up to Area Tasks.');
+      else scanMsg('Which tier is this? Scroll the list on the left up until Area Tasks shows (only needed once).');
     }
     if (S.scan === sc) sc.timer = setTimeout(scanTick, SCAN_MS);
   }
@@ -2224,6 +2234,40 @@
     var px = c.px, sum = 0, step = 4 * 7 + 4;
     for (var i = 0; i < px.length; i += step) sum = (sum * 31 + px[i] + px[i + 1] * 3 + px[i + 2] * 7) | 0;
     return sum + ':' + c.x + ':' + c.y + ':' + c.w + ':' + c.h;
+  }
+  // What each tier's name looks like in the list on the left is kept, so a later scan knows them without the
+  // "Area Tasks" title in view. Saved as the size and the text pixels packed 6 to a character.
+  var B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  function packMask(sig) {
+    var out = sig.w + ',' + sig.h + ',';
+    for (var i = 0; i < sig.m.length; i += 6) {
+      var v = 0;
+      for (var b = 0; b < 6; b++) v = v * 2 + (sig.m[i + b] ? 1 : 0);
+      out += B64.charAt(v);
+    }
+    return out;
+  }
+  function unpackMask(str) {
+    var p = String(str).split(','), w = +p[0], h = +p[1], d = p[2] || '', m = new Uint8Array(w * h);
+    if (!(w > 0 && h > 0)) return null;
+    for (var i = 0; i < d.length; i++) {
+      var v = B64.indexOf(d.charAt(i));
+      for (var b = 5; b >= 0; b--) { var j = i * 6 + (5 - b); if (j < m.length) m[j] = (v >> b) & 1; }
+    }
+    return { w: w, h: h, m: m };
+  }
+  function tierKey(t) { return t.area + '|' + t.id; }
+  function loadNames(tiers) {
+    var saved = sget('scannames') || {}, out = {};
+    tiers.forEach(function (t, k) { if (typeof saved[tierKey(t)] === 'string') { var m = unpackMask(saved[tierKey(t)]); if (m) out[k] = m; } });
+    return out;
+  }
+  function learnName(sc, k, sig) {
+    if (!sig || k < 0 || k >= sc.tiers.length || sc.names[k]) return;
+    sc.names[k] = sig;
+    var saved = sget('scannames') || {};
+    saved[tierKey(sc.tiers[k])] = packMask(sig);
+    sset('scannames', saved);
   }
   // Which tier is picked in the game (the row with the gold box in the list on the left). True when it knows,
   // false when it does not, null when it saw another tier only once (it moves on after two looks in a row agree).
@@ -2236,7 +2280,7 @@
       if (!sc.pin.sig) sc.pin.sig = picked.sig;
       if (picked.sig && R.textDiffer(picked.sig, sc.pin.sig) < ROW_SAME) {
         sc.pickSig = picked.sig;
-        p.rows.forEach(function (row) { var k = sc.pin.k + row.at; if (row.sig && k >= 0 && k < n && !sc.names[k]) sc.names[k] = row.sig; });
+        p.rows.forEach(function (row) { learnName(sc, sc.pin.k + row.at, row.sig); });
         return true;
       }
       sc.pin = null;
@@ -2273,14 +2317,16 @@
       Object.keys(votes).forEach(function (v) { if (votes[v] >= 2 && votes[v] * 2 > nv && (at == null || votes[v] > votes[at])) at = +v; });
       if (at != null && (at < 0 || at >= n)) at = null;
     }
-    if (at == null) { sc.cand = null; return false; }
+    // Cannot tell this look. If a tier was seen once and waits for a second look, keep waiting (one look that
+    // missed the title must not throw it away); else say so.
+    if (at == null) return sc.cand != null ? null : false;
     if (at !== sc.k) {
       if (sc.cand !== at) { sc.cand = at; return null; }
     }
     sc.cand = null;
     sc.pickSig = picked.sig;
     // Learn the names of the rows in view (they are in the game's order around the picked one).
-    p.rows.forEach(function (row) { var k = at + row.at; if (row.sig && k >= 0 && k < n && !sc.names[k]) sc.names[k] = row.sig; });
+    p.rows.forEach(function (row) { learnName(sc, at + row.at, row.sig); });
     if (at !== sc.k) {
       // Another tier: its list starts at the top.
       sc.k = at; sc.prev = null;

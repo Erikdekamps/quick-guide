@@ -243,7 +243,7 @@ test.describe('the settings menu holds the player, sorting and filters', () => {
     await lookUp(page, 'Zezima');
     await expect(page.locator('#cog #player')).toContainText('Zezima');
     await expect(page.locator('#cog')).toBeVisible();
-    await expect(page.locator('section[data-ov="skills"] .chip').first()).toHaveClass(/\bok\b/);
+    await expect(page.locator('section[data-ov="skills"] ul.skl-list li').first()).toHaveClass(/\bok\b/);
     await expect(page.locator('section[data-ov="details"] .tree li').first()).toHaveClass(/\bgot\b/);
   });
 });

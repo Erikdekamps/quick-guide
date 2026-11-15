@@ -181,11 +181,11 @@ test.describe('inside a quest', () => {
   });
 
   test('skills show your level: enough, too low, or unknown', async ({ page }) => {
-    const chips = ov(page, 'skills').locator('.chip');
-    await expect(chips.nth(0)).toHaveClass(/\bok\b/);          // Magic 75, you have 80
-    await expect(chips.nth(0).locator('.you')).toHaveText('you: 80');
-    await expect(chips.nth(1)).toHaveClass(/\blow\b/);         // Herblore 65, you have 60
-    await expect(chips.nth(1).locator('.you')).toHaveText('you: 60');
+    const chips = ov(page, 'skills').locator('ul.skl-list li');
+    await expect(chips.nth(0)).toHaveClass(/\bok\b/);          // Magic 75, you have 80: green, with a tick
+    await expect(chips.nth(0).locator('.tk')).toHaveCount(1);
+    await expect(chips.nth(1)).toHaveClass(/\blow\b/);         // Herblore 65, you have 60: red, with your level
+    await expect(chips.nth(1).locator('.you')).toHaveText('(you: 60)');
     await expect(chips.nth(2)).not.toHaveClass(/\b(ok|low)\b/); // Hunter: no data
     await expect(chips.nth(2).locator('.you')).toHaveCount(0);
     await expect(page.locator('[data-ovc="skills"]')).toHaveText('1 too low');
