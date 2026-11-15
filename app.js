@@ -2257,9 +2257,11 @@
     if (sc.swap) R.swapRB(c.px);
     var r = R.read(c.px, c.w, c.h);
     if (sc.swap != null) return r;
-    // Not known yet: read it the other way round too, and keep the way with the most red in the badges.
+    // Not known yet: read it the other way round too, and keep the way that finds the tier list's gold box, or else
+    // the one with the most red in the badges.
     var copy = R.swapRB(new Uint8ClampedArray(c.px)), r2 = R.read(copy, c.w, c.h);
-    if (r2.found && (!r.found || r2.red > r.red)) { c.px = copy; sc.swap = true; return r2; }
+    function worth(x) { return x.found ? (x.panel ? 1e9 : 0) + x.red : -1; }
+    if (worth(r2) > worth(r)) { c.px = copy; sc.swap = true; return r2; }
     if (r.found) sc.swap = false;
     return r;
   }
@@ -2298,7 +2300,8 @@
       }
       // Rows are placed on the whole screen, not in the part, so places can be compared from one look to the next.
       r.rows.forEach(function (q) { q.ay = c.y + q.y; });
-      var known = scanPicked(sc, R.panel(c.px, c.w, c.h, r.x0));
+      // The tier list on the left, found by the reader next to the list.
+      var known = scanPicked(sc, r.panel || null);
       if (known === null) { /* another tier, not sure yet: set nothing this look */ }
       else if (known) {
         var ry = r.rows.map(function (q) { return q.y; });
