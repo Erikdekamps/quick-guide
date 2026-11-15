@@ -11,7 +11,7 @@ You pick a quest from the list, and the app shows the guide as a checklist in th
 | `style.css` | The look |
 | `parser.js` | Reads one quest guide and turns it into JSON |
 | `quests.js` | Reads the list of all quests |
-| `reader.js` | Reads the in-game task list from the screen (Read from game) |
+| `reader.js` | Reads the in-game task list from the screen (Scan achievements) |
 | `app.js` | The screens, ticks, buttons and maps |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app |
@@ -45,7 +45,7 @@ Two other ways:
 - Open `https://erikdekamps.github.io/quick-guide/` in a normal browser and click **Add this app to Alt1** at the bottom.
 - Open that same address in the **Alt1 browser**. Alt1 shows an **Add app** button.
 
-The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Read from game**: it looks at the game only while you scan. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
+The app asks Alt1 for two permissions. **View screen** (`pixel`) is for **Scan achievements**: it looks at the game only while you scan. **Overlay** is asked because Alt1 wants at least one; the app draws nothing on the game.
 If you added the app before, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
 Inside Alt1, wiki links open in your normal browser, so the app stays on the guide.
 
@@ -162,19 +162,20 @@ is how the app finds it; a task can also be written by its name alone.
   open them again to see the done tasks and untick one.
 - **Rewards**: what you get for the tier, and what it does.
 - The game does not share which tasks you have done. Tick them yourself, or let the app read them:
-- **Read from game** (top of a tier, only in Alt1, which runs on a computer): open the same tier in the game
-  (**Hero → Achievements → Area Tasks**), with **Show Completed** ticked and **List Mode** unticked.
-  Pick the task at the top of the game's list (task 1 when the list is at the top), then press **Start scanning**.
-  - A green bar says **Scanning for achievements…** and Alt1 looks at the game twice a second.
-    Each task with a green tick on its badge gets ticked in the app.
-  - Scroll the list in the game and it keeps up. Pick another tier in the app and it waits: open the same tier in the
-    game and it goes on when the list changes, from the tier's first task. Opened it in the game first? Press **Go**.
-  - **Stop** ends it; so does leaving the area.
-  - The app cannot read the tier's name in the game, so the tier in the app and in the game must match.
-  - Scroll at a normal pace: it follows the rows by how far they moved since the last look,
-    so a jump of more than half a row at once can put a row on the wrong task. Moving the game window does the same.
+- **Scan achievements** (in the settings, only in Alt1, which runs on a computer): the app reads the game and ticks
+  every area task that is done.
+  1. In the game, open **Hero → Achievements → Area Tasks** and click **Easy Ardougne**.
+     Keep **Show Completed** ticked and **List Mode** unticked.
+  2. Press **Start**. A green bar at the top says which tier the app is on, how far down the list you are, and how
+     many tasks it ticked.
+  3. Scroll each list to the bottom, then click the next one in the game (**Medium Ardougne**, **Hard Ardougne**,
+     and so on, to the last one). The app notices the new list and goes on to the next tier by itself.
+  - The app does not read the tier's name. It knows each row by a fingerprint of its text: the same rows moved
+    up or down is a scroll (fast is fine), all new rows is the next tier. If the bar shows the wrong tier,
+    use **◀ ▶**. **Stop** ends it.
   - It only ticks; it never unticks. A **locked** task (a grey badge with a lock) counts as not done.
     The **Set tasks** page you see before picking a tier ticks nothing.
+  - If it cannot see the list for a while, the bar says how big a picture Alt1 hands over, or that it hands over none.
 - Each tier has its own row with its count ("2 / 23") and a progress bar. A tier you started goes to the top, under
   **In progress**; a finished tier is green and says **Done**. With a player, a tier you cannot do yet is grayed out and
   says **Locked**. **Hide completed** and **Hide locked** work here too.
@@ -237,10 +238,11 @@ the player lookup, ticking steps and items, sub-steps, chat options, "Bring" box
 "Show done steps", text size, refresh and reset, what is saved and old saved data, a full or blocked
 storage, Alt1, missing files, the window look, and the parser itself.
 
-**Read from game** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
+**Scan achievements** has its own tests (`tests/game.spec.js`), run on screenshots of the desktop game (`tests/fixtures/game/`)
 with a fake Alt1: not done, done and locked tasks; the picture made bigger, darker, greyer, blurry and as a JPEG;
 40 made-up busy screens full of red and green shapes, where it must never find a list that is not there;
-scrolling down and back up; switching tier; closing the list; a picture that fails to come through; and how fast it is.
+going on to the next tier by itself; scrolling slowly and fast; closing the list; the arrows; both ways Alt1 hands over
+pictures (and a big screen in strips); a picture that fails to come through; and how fast it is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 
