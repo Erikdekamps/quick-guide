@@ -30,7 +30,8 @@ async function importFile(page, text) {
 }
 // Some ticks in a quest and in an area, a player and a changed setting.
 async function someState(page, wiki) {
-  wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, { 7: 80 });
+  // Two parts of a bigger quest, which the wiki's quest list does not have: the game counts them on their own.
+  wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED', 'Recipe for Disaster: Freeing Evil Dave': 'COMPLETED', 'Recipe for Disaster: Freeing Pirate Pete': 'STARTED' }, { 7: 80 });
   await openQuest(page, expect, 'While Guthix Sleeps');
   await openTab(page, 'items');
   await item(page, 'sapphire lantern').locator('.cb').click();
@@ -93,15 +94,23 @@ test.describe('export', () => {
     await openApp(page, expect);
     await someState(page, wiki);
     const j = JSON.parse(await exportText(page));
-    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'areas']);
+    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'tiers', 'areas']);
     expect(j).toMatchObject({ app: 'Quick Guide', format: 2 });
     expect(j.help).toContain('true');
     expect(j.settings).toEqual({ showDone: false, hideDone: true, hideLocked: false, hideMini: false, fontSize: 14, sort: 'name', home: 'areas' });
-    expect(j.player).toMatchObject({ name: 'Zezima', done: 1 });
+    expect(j.player).toMatchObject({ name: 'Zezima', done: 2 });
     // every quest in the list, by name: true when it is done
-    expect(Object.keys(j.quests)).toHaveLength(11);
     expect(j.quests["Cook's Assistant"]).toBe(true);
     expect(j.quests['Imp Catcher']).toBe(false);
+    // and the quests the game knows that are not in the list (parts of a bigger quest), so the file has as many done
+    // quests as the game says
+    expect(Object.keys(j.quests)).toHaveLength(13);
+    expect(j.quests['Recipe for Disaster: Freeing Evil Dave']).toBe(true);
+    expect(j.quests['Recipe for Disaster: Freeing Pirate Pete']).toBe(false);
+    expect(Object.values(j.quests).filter((v) => v === true || v.done === true)).toHaveLength(j.player.done);
+    // each tier's count, as the game shows it, to read at a glance (an import does not use it)
+    expect(Object.keys(j.tiers)).toEqual(AREAS);
+    expect(j.tiers.Ardougne).toEqual({ Easy: '2 / 23', Medium: '0 / 16', Hard: '0 / 17', Elite: '0 / 5' });
     // a quest whose guide is saved lists each step and item: its code, what it says, and whether it is done
     const w = j.quests['While Guthix Sleeps'];
     expect(Object.keys(w)).toEqual(['done', 'progress', 'steps', 'items']);
@@ -125,8 +134,9 @@ test.describe('export', () => {
     expect(red.done).toBe(false);
     expect(Object.keys(red.steps)).toHaveLength(4);
     expect(Object.keys(red.steps)[0]).toMatch(/^993:1 Make pastry dough/);
-    // long step texts are cut short, so the file stays easy to read
-    for (const k of Object.keys(w.steps)) expect(k.length).toBeLessThanOrEqual(100);
+    // each step says all it says: nothing is cut off
+    for (const k of Object.keys(w.steps)) expect(k).not.toMatch(/…$/);
+    expect(Math.max(...Object.keys(w.steps).map((k) => k.length))).toBeGreaterThan(100);
   });
 
   test('reads the areas it has not read yet first, so all their tasks are in it', async ({ page, wiki }) => {
@@ -213,7 +223,7 @@ test.describe('import', () => {
     const other = Object.keys(w.steps).find((k) => w.steps[k] === false && k !== taverley && !k.includes(':', k.indexOf(' ')) && k.split(' ')[0].split(':').length === 2);
     w.steps[other] = true;
     await importFile(page, JSON.stringify(j, null, 2));
-    await expect(page.locator('#toast')).toHaveText('Imported 11 quests and 13 areas.');
+    await expect(page.locator('#toast')).toHaveText('Imported 13 quests and 13 areas.');
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1, 449: 1 });
     expect(await stored(page, 'qdone')).toEqual({ impcatcher: 1 });
     expect((await stored(page, 'prog.' + WGS)).steps).toEqual({ [other.split(' ')[0]]: 1 });
@@ -261,7 +271,7 @@ test.describe('import', () => {
     await seed(other, {});
     await openApp(other, expect);
     await importText(other, first);
-    await expect(other.locator('#toast')).toHaveText('Imported 11 quests and 13 areas.');
+    await expect(other.locator('#toast')).toHaveText('Imported 13 quests and 13 areas.');
     const second = await exportText(other);
     // what each step of a quest says comes from its guide, which this fresh start has not read yet: compare what is ticked
     const strip = (t) => {
