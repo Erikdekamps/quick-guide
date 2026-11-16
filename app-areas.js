@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
+  var restoreScroll = A.restoreScroll, acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
     dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, HOMES = A.HOMES, I = A.I, liHtml = A.liHtml,
     loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
@@ -359,7 +359,8 @@
       nextHtml('anext', cur ? 'Done, next task' : 'All tasks done', !cur) +
       toastHtml();
     main = byId('main');
-    if (main) main.scrollTop = top;
+    // Ticking keeps the place; another tier goes to where you left it.
+    if (keepScroll) { if (main) main.scrollTop = top; } else restoreScroll();
   }
   function tickTask(id, on) {
     setTick(S.aprog.tasks, taskIndex(S.area), id, on);

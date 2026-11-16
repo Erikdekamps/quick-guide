@@ -25,6 +25,7 @@
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
  *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
+ *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
  */
 (function () {
@@ -164,6 +165,7 @@
   function clampFont(n) { n = Math.round(+n || FONT_DEFAULT); return Math.max(FONT_MIN, Math.min(FONT_MAX, n)); }
   function pick(list, v, d) { return list.some(function (x) { return x[0] === v; }) ? v : d; }
   // The settings, from what was saved: anything missing or unknown is the default.
+  function obj(v) { return v && typeof v === 'object' && !Array.isArray(v) ? v : {}; }
   function readSettings(o) {
     o = o || {};
     return {
@@ -175,6 +177,7 @@
     };
   }
   var saved = sget('settings') || {};
+  var savedView = sget('view') || {};
   var savedList = sget('list');
   var savedOrder = sget('order');
   var savedMinis = sget('minis');
@@ -207,13 +210,13 @@
     playerBusy: false,
     playerMsg: '',
     playerInput: '',
-    closed: {},       // letter groups in the quest list that are folded shut
+    closed: obj(savedView.closed),   // groups in the lists that are folded shut
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
     loading: false,
     error: '',
-    input: '',
-    scroll: {},
+    input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
+    scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
     resetArmed: 0,
     toastTimer: 0
   };
@@ -442,6 +445,41 @@
     if (!show && id === 'menu') disarmReset();
   }
 
+  // ---------- the view: kept across a reload ----------
+  // The place on screen: the screen and its tab. Each place keeps its own scroll position.
+  function place() {
+    if (S.view === 'quest') return 'quest:' + S.key + ':' + S.prog.tab;
+    if (S.view === 'area') return 'area:' + S.areaKey + ':' + ((S.aprog && S.aprog.tier) || '');
+    return 'start:' + S.set.home;
+  }
+  // The scroll position saved for the place on screen, or null.
+  function savedScroll() { var v = S.scroll[place()]; return typeof v === 'number' ? v : null; }
+  // Scrolls #main to the place's saved position. Returns false when there is none.
+  function restoreScroll() {
+    var m = byId('main'), v = savedScroll();
+    if (!m || v == null) return false;
+    m.scrollTop = v;
+    return true;
+  }
+  var VIEW_PLACES = 80, viewTimer = 0;
+  // Saves the view a moment after the last change. Only the most recent places keep a scroll position.
+  function saveView() {
+    clearTimeout(viewTimer);
+    viewTimer = setTimeout(function () {
+      var keys = Object.keys(S.scroll);
+      keys.slice(0, Math.max(0, keys.length - VIEW_PLACES)).forEach(function (k) { delete S.scroll[k]; });
+      sset('view', { input: S.input, closed: S.closed, scroll: S.scroll });
+    }, 250);
+  }
+  // Remembers where #main is scrolled, for the place on screen (the newest place goes last).
+  app.addEventListener('scroll', function (ev) {
+    if (!ev.target || ev.target.id !== 'main') return;
+    var k = place();
+    delete S.scroll[k];
+    S.scroll[k] = ev.target.scrollTop;
+    saveView();
+  }, true);
+
   // ---------- the window: the parts every screen has ----------
   // The title band: a back button (with what it goes back to), or the app's emblem on the start screen; the name;
   // the settings cog and any more buttons on the right.
@@ -510,6 +548,7 @@
       '<p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>' +
       '</main>' +
       '<div class="toast low" id="toast" role="status" aria-live="polite" hidden></div>';
+    restoreScroll();
     if (!S.list && !S.listBusy && !S.listError) A.fetchList(false);
   }
 
@@ -773,13 +812,14 @@
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
     S.listError = ''; S.orderError = ''; S.aidxFail = [];
     S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
+    clearTimeout(viewTimer);
     S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
     applySettings();
     renderStart();
     toast('Everything is deleted.');
   }
 
-  A.share({ D: D, partHtml: partHtml, headerHtml: headerHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,

@@ -6,7 +6,7 @@
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
   if (!A || ['core', 'quests', 'areas', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
-  var accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
+  var saveView = A.saveView, sdel = A.sdel, accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
     areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup, closeMenus = A.closeMenus,
     closeRead = A.closeRead, copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
     fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder, FONT_STEP = A.FONT_STEP,
@@ -45,6 +45,7 @@
     if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
     if (ev.target.id !== 'quest-link') return;
     S.input = ev.target.value;
+    saveView();
     if (S.set.home === 'areas' && S.input.trim()) loadAllAreas();
     if (S.error) {
       S.error = '';
@@ -97,6 +98,7 @@
         S.closed[gk] = !S.closed[gk];
         t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
         if (ul) ul.hidden = !!S.closed[gk];
+        saveView();
         return;
       }
       if (t.hasAttribute('data-tab')) { switchTab(t.getAttribute('data-tab')); return; }
@@ -124,7 +126,7 @@
       else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
       else if (SWITCHES[act]) toggleSetting(act);
       else if (act === 'order-refresh') { S.orderError = ''; drawList(); }
-      else if (act === 'change') { S.error = ''; S.input = ''; renderStart(); }
+      else if (act === 'change') { S.error = ''; S.input = ''; sdel('last'); saveView(); renderStart(); }
       else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
       else if (act === 'wiki') closeMenus();
       else if (act === 'reset') resetClick(t);

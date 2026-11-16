@@ -38,6 +38,8 @@ Wiki links open in your normal browser, so the app stays on the guide.
   - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
     A part folds shut when you finish it. Maps are the wiki's own (drag to move, + and − to zoom).
 - Boxes that fold (parts, pictures, maps, tables) start open. The app remembers the ones you close.
+- A reload (or opening the app again) shows the screen, tab and tier you were on, scrolled where you left it.
+  Each tab and tier keeps its own place, and the start screen keeps your search text and folded groups.
 
 ### Your character
 
@@ -165,6 +167,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
 | `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
+| `view` | Where you were: the search text, folded groups, and where each list, tab and tier is scrolled |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
 and read from the wiki again when you open them.
@@ -211,7 +214,7 @@ No other service is used.
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.33.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.34.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

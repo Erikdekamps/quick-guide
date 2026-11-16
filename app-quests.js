@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var acc = A.acc, app = A.app, arr = A.arr, byId = A.byId, D = A.D, dateText = A.dateText, DIF_ORDER = A.DIF_ORDER,
+  var restoreScroll = A.restoreScroll, savedScroll = A.savedScroll, acc = A.acc, app = A.app, arr = A.arr, byId = A.byId, D = A.D, dateText = A.dateText, DIF_ORDER = A.DIF_ORDER,
     dotsHtml = A.dotsHtml, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeHtml = A.homeHtml,
     I = A.I, imageAcc = A.imageAcc, imgHtml = A.imgHtml, LEN_ORDER = A.LEN_ORDER, liHtml = A.liHtml,
     loadProg = A.loadProg, mapAcc = A.mapAcc, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
@@ -178,12 +178,12 @@
     S.key = key;
     S.prog = loadProg(key);
     S.view = 'quest';
-    S.scroll = {};
     S.resetArmed = 0;
     sset('last', key);
     buildIndex();
     renderQuest();
-    if (S.prog.tab === 'steps') jumpTo(current(), false);
+    // The steps tab, not seen before: the next step is in view.
+    if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
     if (q.version !== QG.VERSION) refreshQuest(true);
   }
   function refreshQuest(silent) {
@@ -198,7 +198,7 @@
       S.q = nq;
       buildIndex();
       renderQuest();
-      if (S.prog.tab === 'steps' && S.scroll.steps == null) jumpTo(current(), false);
+      if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
       if (!silent) toast('Updated from the wiki.');
     }, function (e) {
       if (!silent) toast('Could not update. ' + loadError(e));
@@ -632,12 +632,10 @@
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
       (tab === 'steps' ? nextHtml('next', 'Done, next step') : '') +
       toastHtml(tab !== 'steps');
-    var main = byId('main');
-    if (S.scroll[tab] != null) main.scrollTop = S.scroll[tab];
+    restoreScroll();
     restoreAcc();
-    main.addEventListener('scroll', function () { S.scroll[tab] = main.scrollTop; }, { passive: true });
     refresh();
-    if (S.scroll[tab] != null) main.scrollTop = S.scroll[tab];
+    restoreScroll();
   }
   // Updates ticks, counts and open parts without rebuilding the page.
   function refresh() {
@@ -704,7 +702,7 @@
     S.prog.tab = tab;
     saveProg();
     renderQuest();
-    if (tab === 'steps' && S.scroll.steps == null) jumpTo(current(), false);
+    if (tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
   }
   function toggleSection(id) {
     var sec = S.idx.secs[id];
