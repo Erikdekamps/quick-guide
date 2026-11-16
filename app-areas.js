@@ -10,7 +10,7 @@
     loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questMark = A.questMark, renderStart = A.renderStart, rowHtml = A.rowHtml, S = A.S, saveSettings = A.saveSettings,
-    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
+    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, subHtml = A.subHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
     textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml;
 
   // ---------- Area Tasks: saved areas and the task index ----------
@@ -157,7 +157,8 @@
   function taskResult(r, ticks) {
     var done = !!ticks[r.task.id];
     var where = '<div class="ext"><button class="qlink where" type="button" data-area="' + esc(r.area) + '" data-atier="' + esc(r.tier.id) + '">' + esc(r.area + ' ' + r.tier.name) + '</button></div>';
-    var li = '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where) + '</li>';
+    var li = '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where,
+      A.taskMenuHtml({ area: r.area, tier: r.tier.id, tname: r.tier.name, task: r.task.id, title: r.task.name })) + '</li>';
     return li.replace('data-acb=', 'data-aarea="' + esc(r.area) + '" data-acb=');
   }
   function groupHtml(key, title, count, inner) {
@@ -260,8 +261,9 @@
     return t || S.area.tiers[0];
   }
   function areaDotsHtml() {
+    var t = tierNow();
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu">' + I.dots + '</button>' +
-      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<div class="menu" id="menu" role="menu" hidden>' + A.addToItemHtml('tier', { area: S.areaKey, tier: t.id, tname: t.name }) + '<hr>' +
       '<button class="mi" type="button" role="menuitem" data-act="arefresh">' + I.refresh + 'Refresh from wiki</button>' +
       '<a class="mi" role="menuitem" href="' + esc(S.area.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="areset">' + I.reset + '<span>Reset progress</span></button>' +
@@ -301,7 +303,7 @@
     if (boxes) h += '<div class="blk">' + boxes + '</div>';
     return h;
   }
-  function areaTaskHtml(x, cur) {
+  function areaTaskHtml(x, cur, t) {
     var done = !!S.aprog.tasks[x.id];
     var ext = needText(x) + (x.notes ? '<div class="howto">' + x.notes + '</div>' : '');
     var subs = (x.subs || []).map(function (u) {
@@ -310,7 +312,8 @@
         rowHtml('acb', u.id, d, u.html, u.notes && u.notes.length ? '<div class="ext"><div class="howto">' + u.notes.join('<br>') + '</div></div>' : '') + '</li>';
     }).join('');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
-      rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '') +
+      rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
+        A.taskMenuHtml({ area: S.areaKey, tier: t.id, tname: t.name, task: x.id, title: x.name })) +
       (subs ? '<ul class="steps subs">' + subs + '</ul>' : '') + '</li>';
   }
   // A part of an area tier that folds open and shut. The app remembers it per tier.
@@ -346,13 +349,13 @@
     }
     dropMaps();
     app.innerHTML =
-      headerHtml(a.name, 'All areas', areaDotsHtml()) +
+      headerHtml(true) + subHtml(a.name, 'All areas', areaDotsHtml()) +
       progHtml(done, t.tasks.length, 'Tier progress', done + ' / ' + plural(t.tasks.length, 'task', 'tasks')) +
       tabsHtml('Tiers', a.tiers.map(function (x) { return tabHtml('data-tier', x.id, x === t, x.name); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
-      areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur); }).join('') + '</ul>', !cur) +
+      areaSec('tasks', 'Tasks', (cur ? '' : '\u2713 ') + done + ' / ' + t.tasks.length, '<ul class="steps">' + t.tasks.map(function (x) { return areaTaskHtml(x, x === cur, t); }).join('') + '</ul>', !cur) +
       reward +
       '<p class="foot">Tasks: <a href="' + esc(a.source) + '" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded ' + esc(dateText(a.fetchedAt)) + '.</p>' +
       '</main>' +

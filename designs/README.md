@@ -29,8 +29,18 @@ so they match it.
 | `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
-| `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, and skill and quest requirements like the wiki |
-| `Data.dc.html` | The quest JSON shape, and what is saved |
+| `MyList.dc.html` | My list: the add box with its list, then your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals |
+| `MyListNew.dc.html` | A new list: type a name, or start from a suggestion |
+| `MyListLists.dc.html` | A list's menu: add a goal here, rename, move the list, clear done goals, delete the list |
+| `MyListAdd.dc.html` | The Add a goal box: the goal, the list, how often, a note |
+| `MyListMenu.dc.html` | A goal's menu: edit, open, move to another list (or a new one), move up or down, remove |
+| `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
+| `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list) |
+| `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name under the title band: Add to list… first |
+| `MyListEmpty.dc.html` | My list with no lists yet: how to start |
+| `MyListBlue.dc.html` | My list in the Blue theme |
+| `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
+| `Data.dc.html` | The quest JSON shape, what is saved (My list too), and the export file |
 | `canvas.json` | Board layout on the canvas |
 
 These files are made for the design canvas. Opened on their own in a browser, they may not look right.

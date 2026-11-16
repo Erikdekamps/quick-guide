@@ -15,7 +15,8 @@ module.exports = defineConfig({
   workers: '100%',
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   timeout: 30000,
-  expect: { timeout: 5000 },
+  // A coverage run (npm run coverage) counts every line the app runs, which makes it slower: it waits longer.
+  expect: { timeout: process.env.QG_COVERAGE ? 15000 : 5000 },
   use: {
     browserName: 'chromium',
     baseURL: 'http://quick-guide.test',

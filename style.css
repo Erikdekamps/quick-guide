@@ -324,6 +324,10 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+/* under the title band, on a quest or an area: the way back, the name of what is open, and its menu */
+.sbar { position: relative; z-index: 19; flex: none; display: flex; align-items: center; gap: 8px; padding: 8px 1px 0; }
+.sbar .qt { font-size: 15px; }
+.sbar .hs { margin-left: auto; }
 /* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
@@ -1016,3 +1020,62 @@ ul.steps.ql { padding: 0; }
 .skl .x { color: var(--faint); font-size: .9em; }
 .need .skl .sic { width: 16px; height: 16px; }
 .need .mk .i { width: 14px; height: 14px; }
+
+/* ---------- My list: your own lists of goals ---------- */
+/* the number of open goals, on the tab */
+.tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
+/* the add box, with the list a goal goes in */
+#todo-form .sel { flex: 0 1 108px; min-width: 64px; height: 34px; margin-left: 0; }
+/* a list's bar: its name and done / all fold it; its menu is on the right */
+.gh.lh { display: flex; align-items: center; background: var(--grain), linear-gradient(var(--raise-top), var(--panel)); border-top: 1px solid var(--panel-hi); border-bottom: 1px solid var(--panel-lo); }
+.gh.lh .ghb { flex: 1; min-width: 0; background: none; border: 0; }
+.gh.lh .ghb:hover { background: linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.gh.lh > .ib { margin: 0 6px 0 2px; }
+/* a list's goals: flat rows, a tick box, what the goal says, and its menu */
+.todo { list-style: none; margin: 0; padding: 0 4px; }
+.todo > li { border-bottom: 1px solid var(--rule); }
+.todo > li:last-child { border-bottom: 0; }
+.todo .row { align-items: center; padding: 6px 4px 6px 6px; }
+.todo .none { padding: 10px 8px; font-size: .857rem; color: var(--faint); }
+.goal .rb { line-height: 1.4; }
+.goal .t { display: inline; font-weight: 600; color: var(--bright); }
+/* after the goal: "every day" (or when it is back), and its note */
+.goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
+.goal .rp { white-space: nowrap; }
+.goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
+/* a done goal: struck through */
+.goal.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+.rowm { flex: none; }
+.newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
+.para.mid { text-align: center; }
+.plain.start { margin: 14px 26px; }
+.plain .i, .para .i, .note span .i { width: 14px; height: 14px; vertical-align: -2px; }
+/* "+ goal" next to a level you do not have yet */
+.addgoal { display: inline-flex; align-items: center; gap: 2px; height: 18px; margin-left: 4px; padding: 0 5px 0 3px; vertical-align: 1px; background: none; border: 1px solid var(--bronze-dk); border-radius: 2px; color: var(--gold); font-size: 11px; line-height: 1; cursor: pointer; }
+.addgoal:hover { border-color: var(--gold); background: var(--hover); }
+.addgoal .i { width: 10px; height: 10px; }
+/* the ⋯ at the end of an area task's row */
+.row > .rowm { margin: -2px -2px 0 0; }
+/* the menu of a task, a goal or a list, next to its button */
+.menu.at { position: absolute; }
+.mi:disabled { opacity: .45; cursor: default; }
+button.mi:disabled:hover { background: none; color: var(--text); }
+/* the boxes: a new list, a goal, Add to list */
+.dlg.form { gap: 10px; }
+.dlg .what { margin: 0; font-size: .929rem; color: var(--soft); }
+.dlg .what b { color: var(--bright); font-weight: 600; }
+.fld { display: flex; flex-direction: column; gap: 4px; }
+.fld[hidden] { display: none; }
+.fld > label, .fld > .fl { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.fld .inp, .fld .sel { flex: none; width: 100%; height: 32px; margin-left: 0; }
+.seg { display: flex; }
+.seg button { flex: 1; min-width: 0; height: 28px; margin-left: -1px; padding: 0 6px; background: linear-gradient(var(--tab-top), var(--tab-bot)); border: 1px solid var(--tab-edge); color: var(--tab-text); font: 500 12px "Fira Sans", sans-serif; cursor: pointer; }
+.seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
+.seg button:last-child { border-radius: 0 2px 2px 0; }
+.seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
+.sugg { display: flex; flex-wrap: wrap; gap: 6px; }
+/* the buttons in a message: "Undo" */
+.toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.toast .tl:hover { color: var(--gold); }
+.toast .sep { margin: 0 6px; color: var(--faint); }
+.toast b { color: var(--title); font-weight: 600; }

@@ -16,7 +16,7 @@
     whenAreasRead = A.whenAreasRead, writeAmeta = A.writeAmeta;
 
   // ---------- export and import ----------
-  // Everything you ticked, your settings and your player, as text. Guides and lists are not in it: the app reads them from the wiki.
+  // Everything you ticked, your settings, your player and My list, as text. Guides and quest lists are not in it: the app reads them from the wiki.
   var FORMAT = 2;
   var BOOL_SETTINGS = ['showDone', 'hideDone', 'hideLocked', 'hideMini'];
   function storageKeys(prefix) {
@@ -50,7 +50,8 @@
     });
     return { steps: steps, items: items };
   }
-  // The file: every quest and every area task, each true (done) or false, so you can change them by hand and import it again.
+  // The file: every quest and every area task, each true (done) or false, and your lists of goals, so you can change them
+  // by hand and import it again.
   function buildExport() {
     var m = metaAll(), byTitle = {}, progs = {}, quests = {}, areas = {}, titles = [];
     Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
@@ -111,8 +112,10 @@
       app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
       help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
         'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
-        '"tiers" is each tier\'s count, to read at a glance: an import does not use it.',
-      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas
+        '"tiers" is each tier\'s count, to read at a glance: an import does not use it. ' +
+        '"mylist" is your lists of goals: add a goal by typing it the way you would in the add box, like "82 Thieving" or "500 Magic logs". ' +
+        'Skill, quest, task and tier goals tick themselves, so their true or false is only to read.',
+      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas, mylist: A.exportTodo()
     };
   }
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
@@ -184,7 +187,9 @@
         na++;
       });
     }
-    return { quests: nq, areas: na };
+    // My list: the file's lists replace yours. A file without them leaves yours alone.
+    var nl = isMap(j.mylist) ? A.importTodo(j.mylist) : 0;
+    return { quests: nq, areas: na, lists: nl };
   }
   // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
   function importV2(j) {
@@ -256,8 +261,8 @@
       '<div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h">' +
       '<h2 class="dh" id="bk-h">' + (exp ? 'Export state' : 'Import state') + '</h2>' +
       '<p class="para">' + (exp ?
-        'Every quest and every area task, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
-        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it.') + '</p>' +
+        'Every quest, every area task and your lists, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
+        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it, and your lists when it has them.') + '</p>' +
       (exp ? '<div class="state" id="bk-wait" role="status">' + I.loader + '<p>Reading the areas, so all their tasks are in the file…</p></div>' :
         '<label class="btn file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
       '<textarea class="inp tx" id="bk-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="' + (exp ? 'Exported state' : 'State to import') + '"' +
@@ -317,7 +322,10 @@
     var parts = [];
     if (r.quests) parts.push(plural(r.quests, 'quest', 'quests'));
     if (r.areas) parts.push(plural(r.areas, 'area', 'areas'));
-    toast(parts.length ? 'Imported ' + parts.join(' and ') + '.' : 'Imported.');
+    if (r.lists) parts.push(plural(r.lists, 'list', 'lists'));
+    // "1 quest", "1 quest and 2 areas", "1 quest, 2 areas and 3 lists"
+    var last = parts.pop();
+    toast(last ? 'Imported ' + (parts.length ? parts.join(', ') + ' and ' : '') + last + '.' : 'Imported.');
   }
 
   A.share({ closeBackup: closeBackup, copyBackup: copyBackup, openBackup: openBackup, runImport: runImport });

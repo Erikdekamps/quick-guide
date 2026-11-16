@@ -25,9 +25,9 @@ test('the window is never wider than 640 px', async ({ page }) => {
 });
 
 // Like the game's Hero window (Hero > Achievements).
-test('like the game: the name on the left of the title band, in gold capitals, after the back button', async ({ page }) => {
+test('like the game: under the title band, the quest\'s name on the left in gold capitals, after the back button', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
-  const back = await page.locator('.hdr [data-act="change"]').boundingBox();
+  const back = await page.locator('.sbar [data-act="change"]').boundingBox();
   const title = await page.locator('h1.qt').boundingBox();
   expect(title.x - (back.x + back.width)).toBeGreaterThanOrEqual(4);
   expect(title.x - (back.x + back.width)).toBeLessThanOrEqual(12);

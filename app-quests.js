@@ -13,7 +13,7 @@
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset, subHtml = A.subHtml,
     startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
     upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
@@ -400,10 +400,13 @@
     });
     return h + '</ul>';
   }
-  // Redraws only the list, so the search box keeps its text and focus.
+  // Redraws only the list, so the search box keeps its text and focus. The count on the My list tab may change too
+  // (a new player can finish skill goals).
   function drawList() {
     var el = byId('qarea');
-    if (el && S.view === 'start') el.innerHTML = S.loading ? '' : homeHtml();
+    if (!el || S.view !== 'start') return;
+    el.innerHTML = S.loading ? '' : homeHtml();
+    A.updateTodoCount();
   }
 
   // ---------- steps tab ----------
@@ -626,7 +629,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(q.title, 'All quests', dotsHtml()) +
+      headerHtml(true) + subHtml(q.title, 'All quests', dotsHtml()) +
       progHtml(0, 1, 'Quest progress', '') +
       tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +

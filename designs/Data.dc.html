@@ -336,6 +336,10 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+/* under the title band, on a quest or an area: the way back, the name of what is open, and its menu */
+.sbar { position: relative; z-index: 19; flex: none; display: flex; align-items: center; gap: 8px; padding: 8px 1px 0; }
+.sbar .qt { font-size: 15px; }
+.sbar .hs { margin-left: auto; }
 /* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
@@ -1029,6 +1033,65 @@ ul.steps.ql { padding: 0; }
 .need .skl .sic { width: 16px; height: 16px; }
 .need .mk .i { width: 14px; height: 14px; }
 
+/* ---------- My list: your own lists of goals ---------- */
+/* the number of open goals, on the tab */
+.tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
+/* the add box, with the list a goal goes in */
+#todo-form .sel { flex: 0 1 108px; min-width: 64px; height: 34px; margin-left: 0; }
+/* a list's bar: its name and done / all fold it; its menu is on the right */
+.gh.lh { display: flex; align-items: center; background: var(--grain), linear-gradient(var(--raise-top), var(--panel)); border-top: 1px solid var(--panel-hi); border-bottom: 1px solid var(--panel-lo); }
+.gh.lh .ghb { flex: 1; min-width: 0; background: none; border: 0; }
+.gh.lh .ghb:hover { background: linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.gh.lh > .ib { margin: 0 6px 0 2px; }
+/* a list's goals: flat rows, a tick box, what the goal says, and its menu */
+.todo { list-style: none; margin: 0; padding: 0 4px; }
+.todo > li { border-bottom: 1px solid var(--rule); }
+.todo > li:last-child { border-bottom: 0; }
+.todo .row { align-items: center; padding: 6px 4px 6px 6px; }
+.todo .none { padding: 10px 8px; font-size: .857rem; color: var(--faint); }
+.goal .rb { line-height: 1.4; }
+.goal .t { display: inline; font-weight: 600; color: var(--bright); }
+/* after the goal: "every day" (or when it is back), and its note */
+.goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
+.goal .rp { white-space: nowrap; }
+.goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
+/* a done goal: struck through */
+.goal.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+.rowm { flex: none; }
+.newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
+.para.mid { text-align: center; }
+.plain.start { margin: 14px 26px; }
+.plain .i, .para .i, .note span .i { width: 14px; height: 14px; vertical-align: -2px; }
+/* "+ goal" next to a level you do not have yet */
+.addgoal { display: inline-flex; align-items: center; gap: 2px; height: 18px; margin-left: 4px; padding: 0 5px 0 3px; vertical-align: 1px; background: none; border: 1px solid var(--bronze-dk); border-radius: 2px; color: var(--gold); font-size: 11px; line-height: 1; cursor: pointer; }
+.addgoal:hover { border-color: var(--gold); background: var(--hover); }
+.addgoal .i { width: 10px; height: 10px; }
+/* the ⋯ at the end of an area task's row */
+.row > .rowm { margin: -2px -2px 0 0; }
+/* the menu of a task, a goal or a list, next to its button */
+.menu.at { position: absolute; }
+.mi:disabled { opacity: .45; cursor: default; }
+button.mi:disabled:hover { background: none; color: var(--text); }
+/* the boxes: a new list, a goal, Add to list */
+.dlg.form { gap: 10px; }
+.dlg .what { margin: 0; font-size: .929rem; color: var(--soft); }
+.dlg .what b { color: var(--bright); font-weight: 600; }
+.fld { display: flex; flex-direction: column; gap: 4px; }
+.fld[hidden] { display: none; }
+.fld > label, .fld > .fl { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.fld .inp, .fld .sel { flex: none; width: 100%; height: 32px; margin-left: 0; }
+.seg { display: flex; }
+.seg button { flex: 1; min-width: 0; height: 28px; margin-left: -1px; padding: 0 6px; background: linear-gradient(var(--tab-top), var(--tab-bot)); border: 1px solid var(--tab-edge); color: var(--tab-text); font: 500 12px "Fira Sans", sans-serif; cursor: pointer; }
+.seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
+.seg button:last-child { border-radius: 0 2px 2px 0; }
+.seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
+.sugg { display: flex; flex-wrap: wrap; gap: 6px; }
+/* the buttons in a message: "Undo" */
+.toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.toast .tl:hover { color: var(--gold); }
+.toast .sep { margin: 0 6px; color: var(--faint); }
+.toast b { color: var(--title); font-weight: 600; }
+
 .doc { width: 680px; padding: 28px; background: #0f0c0a; color: var(--text); font-size: 14px; }
 .doc > h1 { margin: 0; font: 700 24px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); text-shadow: 0 1px 0 #000; }
 .lead { margin: 6px 0 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }
@@ -1208,12 +1271,70 @@ ul.steps.ql { padding: 0; }
 <div style="padding-left: 4ch"><span class="k">"locked"</span>: { <span class="k">"deserttreasure"</span>: <span class="v">1</span> },</div>
 <div style="padding-left: 4ch"><span class="k">"done"</span>: <span class="v">7</span>,</div>
 <div style="padding-left: 4ch"><span class="k">"started"</span>: <span class="v">1</span></div>
+<div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"qg1.todo"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"v"</span>: <span class="v">1</span>,</div>
+<div style="padding-left: 4ch"><span class="k">"last"</span>: "l1",</div>
+<div style="padding-left: 4ch"><span class="k">"lists"</span>: [</div>
+<div style="padding-left: 6ch">{</div>
+<div style="padding-left: 8ch"><span class="k">"id"</span>: "l1",</div>
+<div style="padding-left: 8ch"><span class="k">"name"</span>: "Today",</div>
+<div style="padding-left: 8ch"><span class="k">"items"</span>: [</div>
+<div style="padding-left: 10ch">{</div>
+<div style="padding-left: 12ch"><span class="k">"id"</span>: "g7e8f9",</div>
+<div style="padding-left: 12ch"><span class="k">"kind"</span>: "task",</div>
+<div style="padding-left: 12ch"><span class="k">"area"</span>: "Ardougne",</div>
+<div style="padding-left: 12ch"><span class="k">"tier"</span>: "easy",</div>
+<div style="padding-left: 12ch"><span class="k">"tname"</span>: "Easy",</div>
+<div style="padding-left: 12ch"><span class="k">"task"</span>: "448",</div>
+<div style="padding-left: 12ch"><span class="k">"title"</span>: "Yoink!",</div>
+<div style="padding-left: 12ch"><span class="k">"at"</span>: <span class="v">1794816200000</span></div>
+<div style="padding-left: 10ch">},</div>
+<div style="padding-left: 10ch">{</div>
+<div style="padding-left: 12ch"><span class="k">"id"</span>: "g0aa11",</div>
+<div style="padding-left: 12ch"><span class="k">"kind"</span>: "other",</div>
+<div style="padding-left: 12ch"><span class="k">"title"</span>: "Vis wax",</div>
+<div style="padding-left: 12ch"><span class="k">"repeat"</span>: "day",</div>
+<div style="padding-left: 12ch"><span class="k">"done"</span>: <span class="v">1794787200000</span>,</div>
+<div style="padding-left: 12ch"><span class="k">"at"</span>: <span class="v">1794816600000</span></div>
+<div style="padding-left: 10ch">},</div>
+<div style="padding-left: 10ch">…</div>
+<div style="padding-left: 8ch">]</div>
+<div style="padding-left: 6ch">},</div>
+<div style="padding-left: 6ch">{</div>
+<div style="padding-left: 8ch"><span class="k">"id"</span>: "l2",</div>
+<div style="padding-left: 8ch"><span class="k">"name"</span>: "Skilling goals",</div>
+<div style="padding-left: 8ch"><span class="k">"items"</span>: [</div>
+<div style="padding-left: 10ch">{</div>
+<div style="padding-left: 12ch"><span class="k">"id"</span>: "g1a2b3",</div>
+<div style="padding-left: 12ch"><span class="k">"kind"</span>: "skill",</div>
+<div style="padding-left: 12ch"><span class="k">"skill"</span>: "thieving",</div>
+<div style="padding-left: 12ch"><span class="k">"level"</span>: <span class="v">82</span>,</div>
+<div style="padding-left: 12ch"><span class="k">"note"</span>: "For the Ardougne Hard tasks",</div>
+<div style="padding-left: 12ch"><span class="k">"at"</span>: <span class="v">1794816000000</span></div>
+<div style="padding-left: 10ch">}</div>
+<div style="padding-left: 8ch">]</div>
+<div style="padding-left: 6ch">},</div>
+<div style="padding-left: 6ch">{</div>
+<div style="padding-left: 8ch"><span class="k">"id"</span>: "l3",</div>
+<div style="padding-left: 8ch"><span class="k">"name"</span>: "Gathering",</div>
+<div style="padding-left: 8ch"><span class="k">"items"</span>: [</div>
+<div style="padding-left: 10ch">{</div>
+<div style="padding-left: 12ch"><span class="k">"id"</span>: "g4c5d6",</div>
+<div style="padding-left: 12ch"><span class="k">"kind"</span>: "other",</div>
+<div style="padding-left: 12ch"><span class="k">"title"</span>: "500 Magic logs",</div>
+<div style="padding-left: 12ch"><span class="k">"at"</span>: <span class="v">1794816100000</span></div>
+<div style="padding-left: 10ch">}</div>
+<div style="padding-left: 8ch">]</div>
+<div style="padding-left: 6ch">},</div>
+<div style="padding-left: 6ch">…</div>
+<div style="padding-left: 4ch">]</div>
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, the theme (brown or blue), and the list you looked at (quests or area tasks).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, and where each list, tab and tier is scrolled.</dd><dt>tiernames</dt><dd>What each tier’s name looks like in the game at another interface size, as Scan achievements learns it (the app comes with all 52 at the normal size).</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, the theme (brown or blue), and the tab you looked at (quests, area tasks or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, and where each list, tab and tier is scrolled.</dd><dt>tiernames</dt><dd>What each tier’s name looks like in the game at another interface size, as Scan achievements learns it (the app comes with all 52 at the normal size).</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>repeat</code>: day, week or month. <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 <h2>Export file</h2>
-<p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it.</p>
+<p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false, and your lists. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it. A goal in “mylist” is read the way the add box reads what you type.</p>
 <div class="json" role="figure" aria-label="Export example">
 <div>{</div>
 <div style="padding-left: 2ch"><span class="k">"app"</span>: "Quick Guide",</div>
@@ -1267,12 +1388,28 @@ ul.steps.ql { padding: 0; }
 <div style="padding-left: 8ch">}</div>
 <div style="padding-left: 6ch">}</div>
 <div style="padding-left: 4ch">}</div>
+<div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"mylist"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"Today"</span>: {</div>
+<div style="padding-left: 6ch"><span class="k">"Task 448: Yoink! (Ardougne Easy)"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Vis wax (daily)"</span>: <span class="v">true</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Unlock Soul Split"</span>: {</div>
+<div style="padding-left: 8ch"><span class="k">"done"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 8ch"><span class="k">"note"</span>: "Needs The Temple at Senntisten"</div>
+<div style="padding-left: 6ch">}</div>
+<div style="padding-left: 4ch">},</div>
+<div style="padding-left: 4ch"><span class="k">"Skilling goals"</span>: {</div>
+<div style="padding-left: 6ch"><span class="k">"82 Thieving"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Quest: While Guthix Sleeps"</span>: <span class="v">false</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Tier: Ardougne Hard"</span>: <span class="v">false</span></div>
+<div style="padding-left: 4ch">},</div>
+<div style="padding-left: 4ch"><span class="k">"Gathering"</span>: { <span class="k">"500 Magic logs"</span>: <span class="v">false</span> }</div>
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":5102}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":6539}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};

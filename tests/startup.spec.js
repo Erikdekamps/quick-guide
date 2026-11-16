@@ -17,9 +17,9 @@ test.describe('a file that does not load', () => {
     });
   }
 
-  // The app is in six files (app-core.js first, app.js last): any one missing, the page says which, and nothing
+  // The app is in seven files (app-core.js first, app.js last): any one missing, the page says which, and nothing
   // half-works under it.
-  for (const file of ['app-core.js', 'app-quests.js', 'app-areas.js', 'app-backup.js', 'app-scan.js', 'app.js']) {
+  for (const file of ['app-core.js', 'app-quests.js', 'app-areas.js', 'app-todo.js', 'app-backup.js', 'app-scan.js', 'app.js']) {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
       await page.goto('/');

@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'areas', 'todo', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
   var saveView = A.saveView, sdel = A.sdel, accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
     areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup, closeMenus = A.closeMenus,
     closeRead = A.closeRead, copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
@@ -20,11 +20,16 @@
     startMaps = A.startMaps, startScan = A.startScan, stopScan = A.stopScan, SWITCHES = A.SWITCHES,
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickTask = A.tickTask, toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu,
-    toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick;
+    toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick,
+    addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeTodoDialog = A.closeTodoDialog,
+    goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct, newListDialog = A.newListDialog,
+    pickSeg = A.pickSeg, setTodoLast = A.setTodoLast, startTodoClock = A.startTodoClock, tickGoal = A.tickGoal,
+    todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist, useSuggestion = A.useSuggestion;
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    if (todoSubmit(ev.target)) return;
     if (ev.target.id === 'player-form') { S.playerInput = ev.target.elements.player.value; lookUpPlayer(S.playerInput); return; }
     if (ev.target.id !== 'load-form') return;
     var v = ev.target.elements.link.value.trim();
@@ -43,6 +48,13 @@
   });
   app.addEventListener('input', function (ev) {
     if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
+    if (ev.target.id === 'todo-text') {
+      S.todoInput = ev.target.value;
+      S.error = '';
+      var te = byId('todo-err');
+      if (te) te.hidden = true;
+      return;
+    }
     if (ev.target.id !== 'quest-link') return;
     S.input = ev.target.value;
     saveView();
@@ -68,6 +80,9 @@
     }
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
     if (t.id === 'theme') { S.set.theme = pick(THEMES, t.value, 'brown'); saveSettings(); applySettings(); return; }
+    if (t.id === 'todo-list') { setTodoLast(t.value); return; }
+    if (t.id === 'ta-list') { addToPick(t); return; }
+    if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) {
       var ar = t.getAttribute('data-aarea');
@@ -86,6 +101,24 @@
   app.addEventListener('click', function (ev) {
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
     if (ev.target.id === 'rd') { closeRead(); return; }
+    if (ev.target.id === 'td') { closeTodoDialog(); return; }
+    // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal and
+    // a list, the items of their menus, and the boxes.
+    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-tdx]');
+    if (g) {
+      if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
+      else if (g.hasAttribute('data-addto')) addFromButton(g);
+      else if (g.hasAttribute('data-unlist')) unlist(g);
+      else if (g.hasAttribute('data-addgoal')) addSkillGoal(g);
+      else if (g.hasAttribute('data-imenu')) itemMenu(g);
+      else if (g.hasAttribute('data-gmenu')) goalMenu(g);
+      else if (g.hasAttribute('data-lmenu')) listMenu(g);
+      else if (g.hasAttribute('data-tm')) menuAct(g);
+      else if (g.hasAttribute('data-seg')) pickSeg(g);
+      else if (g.hasAttribute('data-sugg')) useSuggestion(g);
+      else closeTodoDialog();
+      return;
+    }
     var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
@@ -94,7 +127,7 @@
       if (t.hasAttribute('data-home')) { setHome(t.getAttribute('data-home')); return; }
       if (t.hasAttribute('data-tier')) { switchTier(t.getAttribute('data-tier')); return; }
       if (t.hasAttribute('data-group')) {
-        var gk = (S.set.home === 'areas' ? 'areas' : S.set.sort) + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
+        var home = S.set.home, gk = (home === 'areas' || home === 'todo' ? home : S.set.sort) + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
         S.closed[gk] = !S.closed[gk];
         t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
         if (ul) ul.hidden = !!S.closed[gk];
@@ -135,6 +168,7 @@
       else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); if (S.order || S.set.sort === 'opt') fetchOrder(true); }
       else if (act === 'player-refresh') { if (S.player) lookUpPlayer(S.player.name); }
       else if (act === 'player-clear') forgetPlayer();
+      else if (act === 'tnew') newListDialog();
       return;
     }
     // Remember boxes you open or close by hand.
@@ -155,7 +189,7 @@
     var sel = window.getSelection ? String(window.getSelection()) : '';
     if (sel.trim()) return;
     var cb = row.querySelector(':scope > .cb');
-    if (!cb) return;
+    if (!cb || cb.disabled) return;
     cb.checked = !cb.checked;
     cb.dispatchEvent(new Event('change', { bubbles: true }));
   });
@@ -170,7 +204,9 @@
     var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
     if (!inside) closeMenus();
   });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); } });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); }
+  });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {
     if (!window.alt1 || typeof window.alt1.openBrowser !== 'function') return;
@@ -195,6 +231,8 @@
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
   if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
   if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
+  // Goals that come back: checked once a minute.
+  startTodoClock();
   // Keep the player fresh too: quietly, once a day.
   // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);

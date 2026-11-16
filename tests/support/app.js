@@ -1,13 +1,13 @@
 // Shared test setup for Quick Guide.
 // - The app's files are served from this folder at http://quick-guide.test (no web server needed).
-// - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures).
+// - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures/wiki).
 // - Fonts, map tiles and wiki pictures are stubbed, and anything else on the internet is blocked.
 const base = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
-const FIXTURES = path.join(ROOT, 'tests', 'fixtures');
+const FIXTURES = path.join(ROOT, 'tests', 'fixtures', 'wiki');
 const ORIGIN = 'http://quick-guide.test';
 // A 1x1 transparent PNG, for map tiles and wiki pictures.
 // The wiki API allows any site to read it (origin=*); the fake one says the same.
@@ -30,7 +30,7 @@ class Wiki {
   missing(title) { this.pages[title] = { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } }; return this; }
   // A page that fails: 'http' (500), 'network', 'format' (no parse), 'slow' (never answers).
   fail(title, how) { this.pages[title] = { fail: how }; return this; }
-  // The standard set: the quest list and the guides in tests/fixtures.
+  // The standard set: the quest list and the guides in tests/fixtures/wiki.
   standard() {
     this.page('List of quests', fixture('list-of-quests.html'));
     this.page('Quests/Progression guide', fixture('progression-guide.html'));
@@ -128,11 +128,23 @@ const test = base.test.extend({
     page.errors = [];
     page.on('pageerror', (e) => page.errors.push(e.message));
     // QG_COVERAGE=dir: save which code of the app each test ran (see tests/support/coverage.js).
-    const cov = process.env.QG_COVERAGE;
-    if (cov) await page.coverage.startJSCoverage({ resetOnNavigation: false });
+    // A new page drops what the old page's scripts ran, so it is kept before every goto and reload.
+    const cov = process.env.QG_COVERAGE, ran = [];
+    if (cov) {
+      await page.coverage.startJSCoverage({ resetOnNavigation: false });
+      for (const name of ['goto', 'reload']) {
+        const go = page[name].bind(page);
+        page[name] = async (...args) => {
+          ran.push(...await page.coverage.stopJSCoverage());
+          await page.coverage.startJSCoverage({ resetOnNavigation: false });
+          return go(...args);
+        };
+      }
+    }
     await use(page);
     if (cov) {
-      const out = (await page.coverage.stopJSCoverage()).filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
+      ran.push(...await page.coverage.stopJSCoverage());
+      const out = ran.filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
         .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
       fs.mkdirSync(cov, { recursive: true });
       fs.writeFileSync(path.join(cov, info.testId + '.json'), JSON.stringify(out));
