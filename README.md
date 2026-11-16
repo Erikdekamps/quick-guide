@@ -81,14 +81,16 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
 - **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
-- Skill levels, quests and tiers tick themselves. An area task is one tick, shown in the list and in its area.
+- You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
+  the list and in its area; a quest ticked here is done in the quest list too.
 - A list's **⋯**: add a goal (with every field: the goal, the list, how often, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, open it (its quest or area, or the wiki), move it to another list or a new one, move it up
   or down, remove it. Removing, clearing and deleting can be undone.
 - Done goals go to the bottom of their list, struck through, until you clear them.
-- A goal can come back **every day** or **every week**. It is unticked at the game's reset: 00:00 UTC each day,
-  and Wednesday 00:00 UTC each week. Until then it says when it is back, in your own time.
+- A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,
+  Wednesday 00:00 UTC each week, and the 1st of the month at 00:00 UTC. Until then it says when it is back, in your
+  own time.
 - At most 30 lists and 300 goals.
 
 ## Scan achievements
@@ -153,8 +155,7 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
 `"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
-`"Vis wax (every day)"`. Add a list or a goal by hand and it comes in. Skill, quest, task and tier goals tick themselves,
-so their `true` or `false` is only to read.
+`"Vis wax (daily)"` (or weekly, monthly). Add a list or a goal by hand and it comes in.
 
 ```json
 {
@@ -176,7 +177,7 @@ so their `true` or `false` is only to read.
     "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
   },
   "mylist": {
-    "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax (every day)": true },
+    "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax (daily)": true },
     "Gathering": { "500 Magic logs": false }
   }
 }

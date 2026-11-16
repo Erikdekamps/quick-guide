@@ -1043,11 +1043,6 @@ ul.steps.ql { padding: 0; }
 .goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 .goal .rp { white-space: nowrap; }
 .goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
-/* a goal that ticks itself: its row is not a tick target */
-.goal.auto > .row { cursor: default; }
-.goal.auto > .row:hover { background: none; }
-.cb:disabled { opacity: .55; cursor: default; }
-.cb:disabled:hover { border-color: var(--cb-edge); }
 /* a done goal: struck through */
 .goal.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
 .rowm { flex: none; }

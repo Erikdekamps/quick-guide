@@ -1,21 +1,23 @@
 /*!
  * Quick Guide - app-todo.js
- * My list: your own lists of goals. A goal is one flat row: a tick box, what it says, and its menu. Skill levels,
- * quests and tiers tick themselves; an area task shares its tick with its area; a goal can come back every day or
- * every week. Quests, tiers, area tasks and levels you miss go on a list from their ⋯ menu (or "+ goal").
+ * My list: your own lists of goals. A goal is one flat row: a tick box, what it says, and its menu. You can tick any
+ * goal; skill levels, quests and tiers also tick themselves; an area task shares its tick with its area, and a quest
+ * with the quest list. A goal can repeat daily, weekly or monthly. Quests, tiers, area tasks and levels you miss go on
+ * a list from their ⋯ menu (or "+ goal").
  */
 (function (A) {
   'use strict';
   if (!A) return;
   var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, D = A.D, esc = A.esc, I = A.I,
     markedDone = A.markedDone, metaAll = A.metaAll, note = A.note, playerLevel = A.playerLevel,
-    playerStatus = A.playerStatus, plural = A.plural, QG = A.QG, S = A.S, sget = A.sget, sset = A.sset, toast = A.toast;
+    playerStatus = A.playerStatus, plural = A.plural, QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset,
+    toast = A.toast;
 
   var MAX_LISTS = 30, MAX_GOALS = 300, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
   var DAY = 24 * 3600 * 1000;
   var FULL_GOALS = 'You have 300 goals. Remove some first.', FULL_LISTS = 'You have 30 lists. Delete one first.';
-  // The kinds of goal. A skill goal ticks itself once your character's level is known; a quest and a tier tick
-  // themselves; an area task is one tick with its area; any other goal you tick.
+  // The kinds of goal. You tick any of them; a skill goal also ticks itself when your character has the level, a
+  // quest when the quest is done, a tier when all its tasks are. An area task is one tick with its area.
   var KINDS = { skill: 1, task: 1, tier: 1, quest: 1, other: 1 };
   // Goals that stand for a quest, a task or a tier: only their list and note can change.
   var FIXED = { quest: 1, task: 1, tier: 1 };
@@ -31,8 +33,10 @@
     thieve: 'thieving', thiev: 'thieving', slay: 'slayer', farm: 'farming', rc: 'runecrafting', runecraft: 'runecrafting',
     hunt: 'hunter', con: 'construction', summ: 'summoning', dg: 'dungeoneering', dung: 'dungeoneering', div: 'divination',
     inv: 'invention', arch: 'archaeology', necro: 'necromancy' };
-  var REPEAT_SEG = [['', 'Once'], ['day', 'Every day'], ['week', 'Every week']];
+  var REPEAT_SEG = [['', 'Never'], ['day', 'Daily'], ['week', 'Weekly'], ['month', 'Monthly']];
+  var REPEATS = { day: 'daily', week: 'weekly', month: 'monthly' };
   var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   // ---------- helpers ----------
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
@@ -97,7 +101,7 @@
     }
     var nt = line(x.note, NOTE_MAX);
     if (nt) g.note = nt;
-    if (g.kind === 'other' && (x.repeat === 'day' || x.repeat === 'week')) g.repeat = x.repeat;
+    if (g.kind === 'other' && REPEATS[x.repeat]) g.repeat = x.repeat;
     ['at', 'done', 'upd'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
     if (!g.at) g.at = Date.now();
     return g;
@@ -178,19 +182,24 @@
     };
   }
 
-  // ---------- goals that come back: the game's daily reset (00:00 UTC) and weekly reset (Wednesday 00:00 UTC) ----------
+  // ---------- goals that repeat: the game's resets, daily (00:00 UTC), weekly (Wednesday 00:00 UTC) and monthly (the
+  // 1st, 00:00 UTC) ----------
   function lastReset(rep, now) {
     var d = new Date(now), day = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-    return rep === 'week' ? day - ((d.getUTCDay() + 4) % 7) * DAY : day;
+    return rep === 'month' ? Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1) : rep === 'week' ? day - ((d.getUTCDay() + 4) % 7) * DAY : day;
   }
-  function nextReset(rep, now) { return lastReset(rep, now) + (rep === 'week' ? 7 : 1) * DAY; }
-  // "back tomorrow, 01:00", in your own time.
+  function nextReset(rep, now) {
+    var d = new Date(now);
+    return rep === 'month' ? Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1) : lastReset(rep, now) + (rep === 'week' ? 7 : 1) * DAY;
+  }
+  // "back tomorrow, 01:00", "back Wednesday, 01:00" or "back 1 December, 01:00", in your own time.
   function backText(rep) {
     var now = new Date(), at = new Date(nextReset(rep, now.getTime()));
     var days = Math.round((new Date(at.getFullYear(), at.getMonth(), at.getDate()) - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / DAY);
-    return 'back ' + (days <= 0 ? 'today' : days === 1 ? 'tomorrow' : DAYS[at.getDay()]) + ', ' + pad(at.getHours()) + ':' + pad(at.getMinutes());
+    return 'back ' + (days <= 0 ? 'today' : days === 1 ? 'tomorrow' : days < 7 ? DAYS[at.getDay()] : at.getDate() + ' ' + MONTHS[at.getMonth()]) +
+      ', ' + pad(at.getHours()) + ':' + pad(at.getMinutes());
   }
-  // Unticks goals that come back once their reset has passed. True when one changed.
+  // Unticks goals that repeat once their reset has passed. True when one changed.
   function resetDue() {
     var t = S.todo || todo(), now = Date.now(), changed = false;
     t.lists.forEach(function (l) {
@@ -227,37 +236,30 @@
       }
     };
   }
-  // A goal: done or not, and whether it ticks itself (then why, for its tick box's tooltip).
-  function goalState(g, c) {
-    var s = { done: false, auto: false, why: '' };
-    if (g.kind === 'skill') {
-      var lv = playerLevel(g.skill);
-      if (lv == null) s.done = !!g.done;
-      else {
-        s.auto = true;
-        s.done = lv >= g.level;
-        s.why = 'This ticks itself: ' + S.player.name + ' has ' + lv + ' ' + skillName(g.skill);
-      }
-    } else if (g.kind === 'task') {
-      s.done = !!c.tasks(g.area)[g.task];
-    } else if (g.kind === 'tier') {
+  // Is a goal done by itself? A skill level your character has, a quest that is done, a tier with all its tasks ticked.
+  function selfDone(g, c) {
+    if (g.kind === 'skill') { var lv = playerLevel(g.skill); return lv != null && lv >= g.level; }
+    if (g.kind === 'tier') {
       var t = c.tier(g.area, g.tier), ticks = c.tasks(g.area);
-      s.auto = true;
-      s.done = !!t && t.tasks.length > 0 && t.tasks.every(function (x) { return ticks[x.id]; });
-      s.why = 'This ticks itself when all its tasks are done';
-    } else if (g.kind === 'quest') {
+      return !!t && t.tasks.length > 0 && t.tasks.every(function (x) { return ticks[x.id]; });
+    }
+    if (g.kind === 'quest') {
       var m = c.meta()[D.norm(g.title)];
-      s.auto = true;
-      s.done = (!!m && m.total > 0 && m.done >= m.total) || playerStatus(g.title) === 2 || markedDone(g.title);
-      s.why = 'This ticks itself when the quest is done';
-    } else s.done = !!g.done;
-    return s;
+      return (!!m && m.total > 0 && m.done >= m.total) || playerStatus(g.title) === 2 || markedDone(g.title);
+    }
+    return false;
   }
-  // Goals that tick themselves get the time they were first seen done, so done goals sort the same way for every kind.
+  // A goal is done when you ticked it or it is done by itself. An area task is done when it is ticked in its area.
+  function goalState(g, c) {
+    if (g.kind === 'task') return { done: !!c.tasks(g.area)[g.task], self: false };
+    var self = selfDone(g, c);
+    return { done: !!g.done || self, self: self };
+  }
+  // A goal done by itself gets the time it was first seen done, so done goals sort the same way for every kind.
+  // An area task follows its tick in the area both ways.
   function stamp(g, s) {
-    if (!s.auto && g.kind !== 'task') return false;
     if (s.done && !g.done) { g.done = Date.now(); return true; }
-    if (!s.done && g.done) { delete g.done; return true; }
+    if (g.kind === 'task' && !s.done && g.done) { delete g.done; return true; }
     return false;
   }
   function goalTitle(g) { return g.kind === 'skill' ? g.level + ' ' + skillName(g.skill) : g.title; }
@@ -274,14 +276,13 @@
   }
 
   // ---------- the My list tab ----------
-  // One goal: its tick box, what it says (with "every day" or when it is back, and its note), and its menu.
+  // One goal: its tick box, what it says (with "daily" or when it is back, and its note), and its menu.
   function goalHtml(g, s) {
     var title = goalTitle(g), tid = esc('gt-' + g.id);
-    return '<li class="goal' + (s.done ? ' done' : '') + (g.repeat ? ' rep' : '') + (s.auto ? ' auto' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
-      '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') +
-      (s.auto ? ' disabled title="' + esc(s.why) + '"' : '') + '>' +
+    return '<li class="goal' + (s.done ? ' done' : '') + (g.repeat ? ' rep' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
+      '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
-      (g.repeat ? '<span class="rp">' + I.refresh + (s.done ? backText(g.repeat) : 'every ' + g.repeat) + '</span>' : '') +
+      (g.repeat ? '<span class="rp">' + I.refresh + (s.done ? backText(g.repeat) : REPEATS[g.repeat]) + '</span>' : '') +
       (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
       '</div></li>';
@@ -389,11 +390,11 @@
   // ---------- adding: the add box ----------
   // What you type, as a goal: "82 thieving" or "thieving 82" is a skill goal; anything else is a goal as you typed it.
   // The lines of an export read the same way: "Quest: …", "Tier: Ardougne Hard", "Task 448: Yoink! (Ardougne Easy)",
-  // and " (every day)" or " (every week)" at the end.
+  // and " (daily)", " (weekly)" or " (monthly)" at the end (or "every day", "every week", "every month").
   function parseGoal(text) {
     var s = String(text || '').slice(0, 300).replace(/\s+/g, ' ').trim(), rep = '', m;
-    m = / ?\((every day|daily|every week|weekly)\)$/i.exec(s);
-    if (m) { rep = /day|daily/i.test(m[1]) ? 'day' : 'week'; s = s.slice(0, m.index).trim(); }
+    m = / ?\((every day|daily|every week|weekly|every month|monthly)\)$/i.exec(s);
+    if (m) { rep = /day|daily/i.test(m[1]) ? 'day' : /week/i.test(m[1]) ? 'week' : 'month'; s = s.slice(0, m.index).trim(); }
     if (!s) return null;
     var g = lineGoal(s);
     if (rep && g.kind === 'other') g.repeat = rep;
@@ -548,11 +549,13 @@
     sset('aprog.' + g.area, p);
     if (ix) A.writeAmeta(g.area, ix, p);
   }
+  // A goal ticked by hand. An area task is ticked in its area, and a quest in the quest list, too.
   function tickGoal(id, on) {
     var hit = goalById(id);
-    if (!hit || goalState(hit.g, ctx()).auto) return;
+    if (!hit) return;
     var g = hit.g;
     if (g.kind === 'task') tickTaskInArea(g, on);
+    if (g.kind === 'quest') setMarked(g.title, on);
     if (on) g.done = Date.now(); else delete g.done;
     if (g.repeat) g.upd = Date.now();
     changed();
@@ -751,7 +754,7 @@
     h += fixed ? '<p class="what">' + whatHtml({ kind: st.g.kind, title: st.g.title, area: st.g.area, tname: st.g.tname || '' }) + '</p>' :
       fieldHtml('tg-text', 'Goal', d.text, TEXT_MAX, 'Like 82 Thieving, or Buy a cape');
     h += '<div class="fld"><label for="tg-list">List</label><select class="sel" id="tg-list">' + pickerHtml(d.list) + '</select></div>';
-    if (!fixed) h += '<div class="fld"><span class="fl" id="tg-repeat-l">Again</span>' + segHtml('repeat', REPEAT_SEG, d.repeat) + '</div>';
+    if (!fixed) h += '<div class="fld"><span class="fl" id="tg-repeat-l">Repeat</span>' + segHtml('repeat', REPEAT_SEG, d.repeat) + '</div>';
     h += fieldHtml('tg-note', 'Note (optional)', d.note, NOTE_MAX);
     if (!st.edit) h += note('A quest, an area task or a tier? Its ' + I.dots + ' menu has Add to list.');
     return h + errHtml() + buttonsHtml(st.edit ? 'Save' : 'Add');
@@ -759,7 +762,7 @@
   function readDraft(d) {
     ['text', 'list', 'note'].forEach(function (k) { var el = byId('tg-' + k); if (el) d[k] = el.value; });
   }
-  // How often the goal comes back: the box shows the choice, and keeps what you typed.
+  // How often the goal repeats: the box shows the choice, and keeps what you typed.
   function pickSeg(b) {
     var st = S.tdlg, f = byId('td-form');
     if (!st || st.type !== 'goal' || !f) return;
@@ -777,7 +780,7 @@
     else {
       g = parseGoal(d.text);
       if (!g) { dialogErr('Type a goal first.'); return; }
-      if (g.kind === 'other' && (d.repeat === 'day' || d.repeat === 'week')) g.repeat = d.repeat;
+      if (g.kind === 'other' && REPEATS[d.repeat]) g.repeat = d.repeat;
     }
     delete g.note;
     if (line(d.note, NOTE_MAX)) g.note = line(d.note, NOTE_MAX);
@@ -815,7 +818,7 @@
     if (g.kind === 'task') return 'Task ' + g.task + ': ' + g.title + ' (' + g.area + ' ' + g.tname + ')';
     if (g.kind === 'tier') return 'Tier: ' + g.title;
     if (g.kind === 'quest') return 'Quest: ' + g.title;
-    return g.title + (g.repeat ? ' (every ' + g.repeat + ')' : '');
+    return g.title + (g.repeat ? ' (' + REPEATS[g.repeat] + ')' : '');
   }
   // { "<list>": { "<goal>": true or false } }. A goal with a note: { done, note }.
   function exportTodo() {

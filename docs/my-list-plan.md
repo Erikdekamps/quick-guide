@@ -11,7 +11,11 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
   message is gone: you pick the list first.
 - **Flat goals.** A goal is a tick box, what it says, and its menu. No tag for its kind, no detail line, no bar, and
   no counter: "500 Magic logs" is a goal you tick, as you typed it. Items and unlocks are no kinds of their own any
-  more (saved ones become plain goals). A skill goal ticks itself once your character is known; until then you tick it.
+  more (saved ones become plain goals).
+- **Any goal can be ticked by hand.** Skill levels, quests and tiers also tick themselves. A quest ticked on a list is
+  done in the quest list too (one tick, shown in two places, like an area task).
+- **Repeat:** Never, Daily, Weekly or Monthly. The monthly reset is the 1st of the month, 00:00 UTC. In a file a goal
+  that repeats ends in " (daily)", " (weekly)" or " (monthly)"; the older " (every day)" still reads.
 - **The title band** (the emblem, Quick Guide, the cog) is on every screen. On a quest or an area, the back button,
   the name and its ⋯ menu are in a bar under it.
 

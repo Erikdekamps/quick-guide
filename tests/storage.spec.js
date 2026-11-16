@@ -26,7 +26,8 @@ test('what is saved while you use a quest', async ({ page }) => {
   await page.locator('#cog-btn').click();
   await page.getByRole('button', { name: 'Bigger text' }).click();
   expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: 16, sort: 'name', home: 'quests', theme: 'brown' });
-  expect(await storedKeys(page)).toEqual(['last', 'list', 'meta', 'prog.' + WGS, 'quest.' + WGS, 'settings']);
+  // and where you are (the tab, how far it is scrolled), a moment after you scroll
+  await expect.poll(() => storedKeys(page)).toEqual(['last', 'list', 'meta', 'prog.' + WGS, 'quest.' + WGS, 'settings', 'view']);
 });
 
 test('the old "recent" list is moved into the new saved list', async ({ page }) => {
