@@ -212,7 +212,7 @@ test.describe('reading an area page', () => {
 test.describe('the area list', () => {
   test('a row for each tier of the 13 areas, grouped by area, and the tab is remembered', async ({ page, wiki }) => {
     await openApp(page, expect);
-    await expect(page.locator('.tab[data-home]')).toHaveText(['Quests', 'Area tasks']);
+    await expect(page.locator('.tab[data-home]')).toHaveText(['Quests', 'Area tasks', 'My list']);
     await expect(page.locator('.tab[data-home="quests"]')).toHaveAttribute('aria-selected', 'true');
     await page.locator('.tab[data-home="areas"]').click();
     await expect(page.locator('.tab[data-home="areas"]')).toHaveAttribute('aria-selected', 'true');
@@ -589,9 +589,11 @@ test.describe('an area', () => {
     await area(page, 'Ardougne').first().click();
     const n = sec(page, 'needs');
     const sk = n.locator('ul.skl-list li');
-    // like the wiki: the level stays plain. Too low: a red cross (your level in its tooltip). Enough: a green tick.
+    // like the wiki: the level stays plain. Too low: a red cross (your level in its tooltip) and "+ goal". Enough: a green tick.
     await expect(sk.nth(0)).toHaveClass(/\blow\b/);
-    await expect(sk.nth(0)).toHaveText('16 Thieving');
+    await expect(sk.nth(0)).toHaveText('16 Thieving goal');
+    await expect(sk.nth(0).locator('.addgoal')).toHaveAttribute('aria-label', 'Add 16 Thieving to my list');
+    await expect(sk.nth(1).locator('.addgoal')).toHaveCount(0);
     await expect(sk.nth(0).locator('.lv')).toHaveCSS('color', 'rgb(236, 230, 218)');
     await expect(sk.nth(0).locator('.mk.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
     await expect(sk.nth(0).locator('.mk.no')).toHaveAttribute('title', 'Too low: you have 3');
@@ -608,7 +610,7 @@ test.describe('an area', () => {
     await expect(n.locator('.tree li:not(.got) .mk')).toHaveCount(0);
     // a task that needs more than you have: the same cross
     const need = task(page, '448').locator('.need');
-    await expect(need).toHaveText('Needs 5 Thieving');
+    await expect(need).toHaveText('Needs 5 Thieving goal');
     await expect(need.locator('.mk.no')).toHaveAttribute('title', 'Too low: you have 3');
     await expect(need).toHaveClass(/\blow\b/);
     await expect(task(page, '450').locator('.need')).toHaveText('Needs Plague City');

@@ -2,10 +2,11 @@
  * Quick Guide - app-core.js
  * A tick list for RuneScape Wiki quest quick guides and Area Tasks, made for the Alt1 browser.
  *
- * The app is in six files, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
+ * The app is in seven files, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
  *   app-core.js     storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   app-quests.js   the quest list and the quest screen
  *   app-areas.js    Area Tasks
+ *   app-todo.js     My list: your own lists of goals
  *   app-backup.js   export and import
  *   app-scan.js     Scan achievements (Alt1)
  *   app.js          the clicks and keys of every screen, and the start
@@ -26,7 +27,8 @@
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
  *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
- * When the storage is full, the guides that were opened longest ago are dropped (ticks are kept).
+ *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see app-todo.js)
+ * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
  */
 (function () {
   'use strict';
@@ -48,7 +50,7 @@
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
-  var HOMES = [['quests', 'Quests'], ['areas', 'Area tasks']];
+  var HOMES = [['quests', 'Quests'], ['areas', 'Area tasks'], ['todo', 'My list']];
   // The look: the game's brown interface skin, or the blue one it had before (style.css has both).
   var THEMES = [['brown', 'Brown'], ['blue', 'Blue']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
@@ -157,7 +159,14 @@
     bag: svg('<path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 10h8"/><path d="M8 18h8"/><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>'),
     swords: svg('<path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="m13 19 6-6"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="M14.5 6.5 18 3h3v3l-3.5 3.5"/><path d="m5 14 4 4"/><path d="m7 17-3 3"/><path d="m3 19 2 2"/>'),
     steps: svg('<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>'),
-    trophy: svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>')
+    trophy: svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
+    star: svg('<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>'),
+    key: svg('<path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5"/>'),
+    target: svg('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'),
+    edit: svg('<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>'),
+    up: svg('<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>'),
+    down: svg('<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>'),
+    blank: svg('')
   };
   var TAB_ICON = { overview: I.info, skills: I.skills, items: I.bag, enemies: I.swords, steps: I.steps, rewards: I.trophy };
 
@@ -218,7 +227,9 @@
     input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
     scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
     resetArmed: 0,
-    toastTimer: 0
+    toastTimer: 0,
+    todo: null,       // My list (app-todo.js): read from storage when it is first needed
+    todoInput: ''     // what is typed in My list's add box
   };
   function applySettings() {
     document.documentElement.style.fontSize = S.set.fontSize + 'px';
@@ -428,12 +439,18 @@
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
       '</div>';
   }
+  // The cog, the dots, and the menu of a goal or a list in My list (#tmenu, which is taken away when it closes).
   function closeMenus(except) {
     ['cog', 'menu'].forEach(function (id) {
       if (id === except) return;
       var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
       if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); else disarmWipe(); }
     });
+    if (except === 'tmenu') return;
+    var tm = byId('tmenu');
+    if (tm) tm.parentNode.removeChild(tm);
+    arr(document.querySelectorAll('[data-menu="tmenu"][aria-expanded="true"]')).forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    S.tmenu = null;
   }
   function toggleMenu(id) {
     var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
@@ -495,10 +512,10 @@
     return '<div class="prog"><progress class="pg" id="pg" value="' + done + '" max="' + Math.max(max, 1) + '" aria-label="' + label + '"></progress>' +
       '<span class="cnt" id="pg-cnt">' + count + '</span></div>';
   }
-  // One tab: attr is what the click handler reads (data-tab, data-tier, data-home).
-  function tabHtml(attr, value, on, label, icon) {
+  // One tab: attr is what the click handler reads (data-tab, data-tier, data-home). after: more after the name.
+  function tabHtml(attr, value, on, label, icon, after) {
     return '<button class="tab" type="button" role="tab" ' + attr + '="' + esc(value) + '" aria-selected="' + on + '"' +
-      (icon ? ' title="' + label + '"' : '') + '>' + (icon || '') + '<span class="tl-l">' + esc(label) + '</span></button>';
+      (icon ? ' title="' + label + '"' : '') + '>' + (icon || '') + '<span class="tl-l">' + esc(label) + '</span>' + (after || '') + '</button>';
   }
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
   // The big button at the bottom ("Done, next step").
@@ -517,30 +534,35 @@
       '<div class="secb"' + (open ? '' : ' hidden') + '>' + body + '</div></section>';
   }
   function toastHtml(low) { return '<div class="toast' + (low ? ' low' : '') + '" id="toast" role="status" aria-live="polite" hidden></div>'; }
-  // ---------- the start screen: the quest list, or the area list ----------
+  // ---------- the start screen: the quest list, the area list, or My list ----------
   function alt1Html() {
     if (window.alt1 || !/^https?:$/.test(location.protocol)) return '';
     var cfg;
     try { cfg = new URL('appconfig.json', location.href).href; } catch (e) { return ''; }
     return '<p class="foot">Using Alt1? <a href="alt1://addapp/' + esc(cfg) + '">Add this app to Alt1</a>.</p>';
   }
-  function homeHtml() { return S.set.home === 'areas' ? A.areaListHtml() : A.listHtml(); }
+  function homeHtml() { return S.set.home === 'areas' ? A.areaListHtml() : S.set.home === 'todo' ? A.todoHtml() : A.listHtml(); }
   function sortKey(t) { return t.replace(/^[^A-Za-z0-9]+/, '').toLowerCase(); }
+  // The search box of the Quests and Area tasks tabs.
+  function searchHtml() {
+    var what = S.set.home === 'areas' ? 'Search areas and tasks' : 'Search quests';
+    return '<form class="find" id="load-form" novalidate>' +
+      '<label class="vh" for="quest-link">' + what + '</label>' +
+      '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text"' +
+      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + what + '" value="' + esc(S.input) + '"' +
+      (S.error ? ' aria-invalid="true" aria-describedby="load-err"' : '') + (S.loading ? ' disabled' : '') + '>' +
+      '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
+      (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
+      '</form>';
+  }
   function renderStart() {
     S.view = 'start';
     dropMaps();
     app.innerHTML =
       headerHtml('Quick Guide') +
-      tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], S.set.home === h[0], h[1]); }), 'home') +
+      tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], S.set.home === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home') +
       '<main class="scroll" id="main">' +
-      '<form class="find" id="load-form" novalidate>' +
-      '<label class="vh" for="quest-link">' + (S.set.home === 'areas' ? 'Search areas and tasks' : 'Search quests') + '</label>' +
-      '<div class="row-f"><input class="inp' + (S.error ? ' bad' : '') + '" id="quest-link" name="link" type="text"' +
-      ' autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + (S.set.home === 'areas' ? 'Search areas and tasks' : 'Search quests') + '" value="' + esc(S.input) + '"' +
-      (S.error ? ' aria-invalid="true" aria-describedby="load-err"' : '') + (S.loading ? ' disabled' : '') + '>' +
-      '<button class="btn" type="submit"' + (S.loading ? ' disabled' : '') + '>Open</button></div>' +
-      (S.error ? '<p class="err" id="load-err" role="alert">' + esc(S.error) + '</p>' : '') +
-      '</form>' +
+      (S.set.home === 'todo' ? A.todoFormHtml() : searchHtml()) +
 
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
       '<div id="qarea">' + (S.loading ? '' : homeHtml()) + '</div>' +
@@ -593,11 +615,11 @@
       }).join('') + '</tbody></table></div>';
     return acc(I.table, t.label || 'Table', plural(t.rows.length, 'row', 'rows'), body);
   }
-  // One clickable row with a tick box. kind: "scb" for steps, "icb" for items.
-  function rowHtml(kind, id, checked, textHtml, extraHtml) {
+  // One clickable row with a tick box. kind: "scb" for steps, "icb" for items, "acb" for area tasks. tail: a button at its end.
+  function rowHtml(kind, id, checked, textHtml, extraHtml, tail) {
     var tid = nextId();
     return '<div class="row"><input class="cb" type="checkbox" data-' + kind + '="' + esc(id) + '" aria-labelledby="' + tid + '"' + (checked ? ' checked' : '') + '>' +
-      '<div class="rb"><span class="t" id="' + tid + '">' + textHtml + '</span>' + (extraHtml || '') + '</div></div>';
+      '<div class="rb"><span class="t" id="' + tid + '">' + textHtml + '</span>' + (extraHtml || '') + '</div>' + (tail || '') + '</div>';
   }
   function liHtml(h) { return '<li>' + h + '</li>'; }
   // A quest name you can click to open that quest here, in the app.
@@ -620,6 +642,7 @@
   // Skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level, the skill's icon and its name
   // (a link to the wiki) stay as they are; with a player looked up, a green tick follows when you have it and a red
   // cross when you do not (its tooltip says your level). "(boostable)" when the wiki marks the level [B].
+  // A level you do not have gets "+ goal", which puts it on My list (not when a goal there has it already).
   // tag: 'li' in a list, 'span' in a line.
   function skillIcon(name) {
     return '<img class="sic" src="https://runescape.wiki/images/' + encodeURIComponent(String(name).replace(/ /g, '_')) +
@@ -637,7 +660,9 @@
       ' <a class="sn" href="' + esc(QG.pageUrl(s.skill)) + '" target="_blank" rel="noopener">' + esc(s.skill) + '</a>' +
       (st ? ' ' + markHtml(st === 'ok', st === 'ok' ? 'You have ' + mine : 'Too low: you have ' + mine) : '') +
       (boost ? ' <sup class="bst" title="You may use a boost for this level">(boostable)</sup>' : '') +
-      (note ? ' <span class="x">' + esc(note) + '</span>' : '') + '</' + tag + '>';
+      (note ? ' <span class="x">' + esc(note) + '</span>' : '') +
+      (st === 'low' && !A.hasSkillGoal(s.skill, s.level) ? ' <button class="addgoal" type="button" data-addgoal="' + esc(String(s.skill).toLowerCase()) + '" data-level="' + esc(s.level) + '"' +
+        ' aria-label="Add ' + esc(s.level + ' ' + s.skill) + ' to my list" title="Add this level to my list">' + I.plus + 'goal</button>' : '') + '</' + tag + '>';
   }
   // After a quest's name: a green tick when you have done it (like the wiki, nothing when you have not).
   function questMark(q) {
@@ -800,6 +825,7 @@
     S.wipeArmed = 0;
     closeMenus();
     A.closeBackup();
+    A.closeTodoDialog();
     A.stopScan();
     try {
       var ls = window.localStorage, keys = [];
@@ -812,6 +838,7 @@
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
     S.listError = ''; S.orderError = ''; S.aidxFail = [];
     S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
+    S.todo = null; S.todoIdx = null; S.todoInput = '';
     clearTimeout(viewTimer);
     S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
     applySettings();
@@ -827,7 +854,7 @@
     imageAcc: imageAcc, imgHtml: imgHtml, liHtml: liHtml, loadProg: loadProg, lookUpPlayer: lookUpPlayer,
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
-    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,
+    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart, skillIcon: skillIcon,
     resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
     saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,

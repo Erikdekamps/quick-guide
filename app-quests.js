@@ -323,10 +323,10 @@
     else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
     var bar = x.started && x.m && x.m.total && x.m.done > 0 ?
       '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
-    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
+    return '<li class="qr"><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
       (x.locked ? ' title="You do not have what this quest needs yet"' : '') + '>' +
       '<span class="q1"><b>' + esc(shortName(q.t)) + '</b>' + status + '</span>' +
-      (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
+      (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button>' + A.starHtml('quest', { title: q.t }) + '</li>';
   }
   function matchQuests(v) {
     var n = String(v || '').toLowerCase().trim();
@@ -400,10 +400,13 @@
     });
     return h + '</ul>';
   }
-  // Redraws only the list, so the search box keeps its text and focus.
+  // Redraws only the list, so the search box keeps its text and focus. The count on the My list tab may change too
+  // (a new player can finish skill goals).
   function drawList() {
     var el = byId('qarea');
-    if (el && S.view === 'start') el.innerHTML = S.loading ? '' : homeHtml();
+    if (!el || S.view !== 'start') return;
+    el.innerHTML = S.loading ? '' : homeHtml();
+    A.updateTodoCount();
   }
 
   // ---------- steps tab ----------
@@ -626,7 +629,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(q.title, 'All quests', dotsHtml()) +
+      headerHtml(q.title, 'All quests', A.starHtml('quest', { title: q.title }, 'ib') + dotsHtml()) +
       progHtml(0, 1, 'Quest progress', '') +
       tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +

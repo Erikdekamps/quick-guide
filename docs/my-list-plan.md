@@ -1,8 +1,8 @@
 # Plan: My list
 
-A plan for a third tab in Quick Guide: your own lists of goals.
-Nothing in this plan is built yet. The designs are in `designs/` (the `MyList…` boards) and
-`designs/screenshots/`.
+The plan for the third tab in Quick Guide: your own lists of goals.
+**It is built** (`app-todo.js`, tested in `tests/todo.spec.js`). The README's "My list" part says how to use it.
+The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/`, made from the real app.
 
 ## What it is for
 
@@ -31,8 +31,7 @@ What can go in a list:
 | `MyListEmpty.dc.html` | No lists yet: it says how to start |
 | `MyListBlue.dc.html` | The tab in the Blue theme |
 
-These eight boards are drawn by hand on the app's own stylesheet, plus the new CSS listed under
-[New CSS](#new-css). Once the feature is built they are made from the real app, like the other boards.
+These eight boards are made from the real app, like the other boards.
 
 ## How it works
 
@@ -125,8 +124,8 @@ One new item in local storage, `todo`:
   "last": "l1",
   "lists": [
     { "id": "l1", "name": "Today", "items": [
-      { "id": "t7e8f9", "kind": "task", "area": "Ardougne", "task": "448", "title": "Yoink!", "at": 1794816200000 },
-      { "id": "t0aa11", "kind": "other", "title": "Vis wax", "repeat": "day", "done": 1794787200000, "at": 1794816600000 },
+      { "id": "t7e8f9", "kind": "task", "area": "Ardougne", "tier": "easy", "tname": "Easy", "task": "448", "title": "Yoink!", "at": 1794816200000 },
+      { "id": "t0aa11", "kind": "other", "title": "Vis wax", "repeat": "day", "done": 1794787200000, "upd": 1794787200000, "at": 1794816600000 },
       { "id": "t56789", "kind": "unlock", "title": "Soul Split", "note": "Needs The Temple at Senntisten", "at": 1794816500000 }
     ] },
     { "id": "l2", "name": "Skilling goals", "items": [
@@ -143,7 +142,8 @@ One new item in local storage, `todo`:
 - `kind`: `skill`, `item`, `task`, `tier`, `quest`, `unlock`, `other`.
 - `done`: the time it was ticked. Goals that tick themselves get it when the app first sees them finished,
   so done goals sort the same way for every kind.
-- `repeat`: `day`, `week`, or nothing.
+- `repeat`: `day`, `week`, or nothing (only for items, unlocks and other goals). `upd`: when a goal that comes back
+  last changed, so the app knows which reset it belongs to.
 - A task goal keeps the task's name too, so the row can be drawn before its area is read from the wiki.
 - At most 30 lists and 300 goals in all. The item is small (about 150 bytes per goal), so it does not get in the way
   of saved guides, and it is never dropped to make room.
@@ -155,8 +155,8 @@ The export file gets a `mylist` part, one entry per list, readable and editable 
 
 ```json
 "mylist": {
-  "Today": { "Yoink! (Ardougne Easy)": false, "Vis wax (every day)": true, "Unlock: Soul Split": false },
-  "Skilling goals": { "82 Thieving": false },
+  "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax (every day)": true, "Unlock: Soul Split": { "done": false, "note": "Needs The Temple at Senntisten" } },
+  "Skilling goals": { "82 Thieving": false, "Quest: While Guthix Sleeps": false, "Tier: Ardougne Hard": false },
   "Gathering": { "500 Magic logs": "320 / 500" }
 }
 ```
@@ -196,7 +196,7 @@ The classes the boards use, to be added to `style.css`:
 
 ## Build order
 
-Each step is a pull request that works on its own, with its tests written first.
+It was built in one pull request, in this order, with its tests written first.
 
 1. **Lists and plain goals.** The tab; new, rename, move, delete a list; the add box (only "Other" goals) with its
    list; tick, move to another list, move up and down, remove, clear done; saved in `todo`, kept across a reload.
@@ -239,9 +239,9 @@ A new `tests/todo.spec.js`, in the style of the others (the app in a 360 × 720 
 - **Dragging** goals and lists to sort them (the menus' Move up and Move down do the same for now).
 - **A list that empties itself:** a "Today" that clears at the game's daily reset.
 
-## Questions for you
+## Questions
 
-My pick is first each time; say so if you want the other.
+Built with the first answer to each; the other is easy to add later.
 
-1. **A goal in more than one list:** no, one list each (my pick: simpler, and a star is either on or off), or yes?
-2. **Done goals:** stay in their list until you clear them (my pick), or disappear by themselves the next day?
+1. **A goal in more than one list:** no, one list each (simpler, and a star is either on or off), or yes?
+2. **Done goals:** stay in their list until you clear them, or disappear by themselves the next day?

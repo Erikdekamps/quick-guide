@@ -94,7 +94,7 @@ test.describe('export', () => {
     await openApp(page, expect);
     await someState(page, wiki);
     const j = JSON.parse(await exportText(page));
-    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'tiers', 'areas']);
+    expect(Object.keys(j)).toEqual(['app', 'format', 'exportedAt', 'help', 'settings', 'player', 'quests', 'tiers', 'areas', 'mylist']);
     expect(j).toMatchObject({ app: 'Quick Guide', format: 2 });
     expect(j.help).toContain('true');
     expect(j.settings).toEqual({ showDone: false, hideDone: true, hideLocked: false, hideMini: false, fontSize: 14, sort: 'name', home: 'areas', theme: 'brown' });

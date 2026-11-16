@@ -128,11 +128,23 @@ const test = base.test.extend({
     page.errors = [];
     page.on('pageerror', (e) => page.errors.push(e.message));
     // QG_COVERAGE=dir: save which code of the app each test ran (see tests/support/coverage.js).
-    const cov = process.env.QG_COVERAGE;
-    if (cov) await page.coverage.startJSCoverage({ resetOnNavigation: false });
+    // A new page drops what the old page's scripts ran, so it is kept before every goto and reload.
+    const cov = process.env.QG_COVERAGE, ran = [];
+    if (cov) {
+      await page.coverage.startJSCoverage({ resetOnNavigation: false });
+      for (const name of ['goto', 'reload']) {
+        const go = page[name].bind(page);
+        page[name] = async (...args) => {
+          ran.push(...await page.coverage.stopJSCoverage());
+          await page.coverage.startJSCoverage({ resetOnNavigation: false });
+          return go(...args);
+        };
+      }
+    }
     await use(page);
     if (cov) {
-      const out = (await page.coverage.stopJSCoverage()).filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
+      ran.push(...await page.coverage.stopJSCoverage());
+      const out = ran.filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
         .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
       fs.mkdirSync(cov, { recursive: true });
       fs.writeFileSync(path.join(cov, info.testId + '.json'), JSON.stringify(out));
