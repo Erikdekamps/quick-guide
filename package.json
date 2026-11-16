@@ -7,7 +7,8 @@
     "test": "playwright test --project=app",
     "test:live": "playwright test --project=live",
     "coverage": "QG_COVERAGE=coverage playwright test --project=app && node tests/support/coverage.js coverage",
-    "icon": "node tools/icon.js"
+    "icon": "node tools/icon.js",
+    "security": "node tools/security.js"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"

@@ -207,6 +207,8 @@ No other service is used.
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
+| `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
+| `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards and screenshots of every screen |
 
 When you change a file, also raise the `?v=1.32.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
@@ -234,9 +236,30 @@ npm test
 
 - `npm run test:live` checks against the real wiki (needs the internet).
 - `npm run coverage` runs the tests and shows how much of each file they run.
+- `npm run security` checks for known security problems and newer versions (see below).
 - `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
 
+## Security and updates
+
+The app itself has no npm packages: it runs as plain files in the browser. It uses Leaflet (a copy in
+`vendor/leaflet/`), and the tests use Playwright (an npm package).
+
+- **Security check** (`.github/workflows/security.yml`): on every pull request, every push to `main`, and every
+  Monday. It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
+  you update. Lower-rated problems and newer versions show as notes on the run and in its summary.
+  Run it yourself with `npm run security`.
+- **Dependabot** (`.github/dependabot.yml`): every Monday it opens a pull request for a newer Playwright or a newer
+  GitHub Action, so the tests run on it before you merge. It cannot see the Leaflet copy; the security check
+  says when a newer Leaflet is out.
+- To also get a pull request for a security fix as soon as one is out, turn on **Dependabot security updates** on
+  GitHub: Settings → Code security → Dependabot.
+
 ## Credits
+
+Built by **Claude**, Anthropic's AI ([Claude Opus 5.5 and Claude Fable 5.2](https://www.anthropic.com/claude)),
+working in [Claude Code](https://claude.com/claude-code): the app, the wiki parser, the game screen reader,
+the tests, the designs, the icon and this README. The ideas, the testing in the game and the screenshots
+came from the repository owner.
 
 Guide text, pictures and map tiles come from the [RuneScape Wiki](https://runescape.wiki/) (CC BY-NC-SA 3.0).
 Maps use [Leaflet](https://leafletjs.com/) (BSD-2 licence, see `vendor/leaflet/LICENSE`).
