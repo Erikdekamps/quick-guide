@@ -87,7 +87,7 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, open it (its quest or area, or the wiki), move it to another list or a new one, move it up
   or down, remove it. Removing, clearing and deleting can be undone.
-- Done goals go to the bottom of their list, struck through, until you clear them.
+- A done goal stays where it is, struck through, until you clear it.
 - A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,
   Wednesday 00:00 UTC each week, and the 1st of the month at 00:00 UTC. Until then it says when it is back, in your
   own time.

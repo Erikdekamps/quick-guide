@@ -255,20 +255,10 @@
     var self = selfDone(g, c);
     return { done: !!g.done || self, self: self };
   }
-  // A goal done by itself gets the time it was first seen done, so done goals sort the same way for every kind.
-  // An area task follows its tick in the area both ways.
-  function stamp(g, s) {
-    if (s.done && !g.done) { g.done = Date.now(); return true; }
-    if (g.kind === 'task' && !s.done && g.done) { delete g.done; return true; }
-    return false;
-  }
   function goalTitle(g) { return g.kind === 'skill' ? g.level + ' ' + skillName(g.skill) : g.title; }
-  // A list's goals as they are shown: open ones in your order, then the done ones in the order they were done.
-  // A goal that comes back keeps its place.
+  // A list's goals, in your order, each with how it stands. A goal you tick stays where it is.
   function order(l, c) {
-    var rows = l.items.map(function (g) { var s = goalState(g, c); return { g: g, s: s, sunk: s.done && !g.repeat }; });
-    return rows.filter(function (r) { return !r.sunk; }).concat(rows.filter(function (r) { return r.sunk; })
-      .sort(function (a, b) { return (a.g.done || 0) - (b.g.done || 0); }));
+    return l.items.map(function (g) { return { g: g, s: goalState(g, c) }; });
   }
   function openCount() {
     var c = ctx();
@@ -290,7 +280,7 @@
   // One list: its bar (the name, done / all, the list menu), then its goals. tally counts what the line above the lists says.
   function listHtml(l, c, tally) {
     var shut = !!S.closed['todo:' + l.id], rows = order(l, c), done = 0;
-    rows.forEach(function (r) { if (stamp(r.g, r.s)) tally.dirty = true; if (r.s.done) done++; });
+    rows.forEach(function (r) { if (r.s.done) done++; });
     tally.goals += rows.length;
     tally.done += done;
     return '<h2 class="gh lh"><button class="ghb" type="button" data-group="' + esc(l.id) + '" aria-expanded="' + (shut ? 'false' : 'true') + '">' + I.chev +
@@ -310,11 +300,10 @@
   }
   // What the tab shows under the add box.
   function todoHtml() {
-    var t = todo(), c = ctx(), tally = { goals: 0, done: 0, dirty: false };
+    var t = todo(), c = ctx(), tally = { goals: 0, done: 0 };
     resetDue();
     if (!t.lists.length) return emptyHtml();
     var lists = t.lists.map(function (l) { return listHtml(l, c, tally); }).join('');
-    if (tally.dirty) saveTodo();
     return '<p class="qmeta"><span>' + plural(t.lists.length, 'list', 'lists') + ' \u00b7 ' + plural(tally.goals, 'goal', 'goals') +
       (tally.done ? ', ' + tally.done + ' done' : '') + '</span>' + (S.player ? '<span class="how"> \u00b7 ' + esc(S.player.name) + '</span>' : '') + '</p>' +
       lists + '<div class="newlist"><button class="btn alt sm" type="button" data-act="tnew">' + I.plus + 'New list</button></div>';
@@ -585,7 +574,7 @@
     m.style.top = Math.max(6, Math.round(top)) + 'px';
     m.style.right = Math.max(6, Math.round(box.right - r.right)) + 'px';
   }
-  function canShift(rows, i, d) { var j = i + d; return i >= 0 && j >= 0 && j < rows.length && rows[i].sunk === rows[j].sunk; }
+  function canShift(rows, i, d) { var j = i + d; return i >= 0 && j >= 0 && j < rows.length; }
   function goalMenu(btn) {
     var hit = goalById(btn.getAttribute('data-gmenu'));
     if (!hit) return;

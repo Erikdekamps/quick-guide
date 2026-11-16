@@ -218,11 +218,16 @@ test.describe('adding goals', () => {
 });
 
 test.describe('ticking and planning', () => {
-  test('tick a goal: it sinks to the bottom of its list; Clear done goals removes it, Undo brings it back', async ({ page }) => {
+  test('tick a goal: it stays where it is, struck through; Clear done goals removes it, Undo brings it back', async ({ page }) => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Buy a cape' }] }));
     await goal(page, 'Vis wax').locator('.t').click();
     await expect(goal(page, 'Vis wax')).toHaveClass(/\bdone\b/);
-    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Unlock Soul Split', 'Buy a cape', 'Vis wax']);
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Unlock Soul Split', 'Buy a cape']);
+    // the next one is still under the mouse: tick two in a row
+    await goal(page, 'Unlock Soul Split').locator('.t').click();
+    await expect(page.locator('li.goal.done .t')).toHaveText(['Vis wax', 'Unlock Soul Split']);
+    await goal(page, 'Unlock Soul Split').locator('.cb').click();
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Unlock Soul Split', 'Buy a cape']);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('1 / 3');
     await expect(tab(page).locator('.tc')).toHaveText('2');
     await page.reload();
