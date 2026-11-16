@@ -1,0 +1,16 @@
+# Dependabot opens a pull request when a newer version is out, so the tests run on it before it is merged.
+# The npm packages (the test tools) and the GitHub Actions the workflows use, checked every Monday.
+# Leaflet in vendor/leaflet is a copy that Dependabot cannot see: the Security workflow checks it.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday

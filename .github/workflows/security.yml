@@ -1,0 +1,29 @@
+name: Security
+
+# Known security problems in what the app and its tests use, and newer versions to plan an update.
+# It fails on a high or critical problem. See tools/security.js; run it yourself with: npm run security
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Every Monday: new problems are found in old versions too, so nothing has to change for this to fail.
+    - cron: '41 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Security check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run security
