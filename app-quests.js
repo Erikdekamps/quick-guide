@@ -13,7 +13,7 @@
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset, subHtml = A.subHtml,
     startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
     upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
@@ -323,10 +323,10 @@
     else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
     var bar = x.started && x.m && x.m.total && x.m.done > 0 ?
       '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
-    return '<li class="qr"><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
+    return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
       (x.locked ? ' title="You do not have what this quest needs yet"' : '') + '>' +
       '<span class="q1"><b>' + esc(shortName(q.t)) + '</b>' + status + '</span>' +
-      (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button>' + A.starHtml('quest', { title: q.t }) + '</li>';
+      (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
   }
   function matchQuests(v) {
     var n = String(v || '').toLowerCase().trim();
@@ -629,7 +629,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(q.title, 'All quests', A.starHtml('quest', { title: q.title }, 'ib') + dotsHtml()) +
+      headerHtml(true) + subHtml(q.title, 'All quests', dotsHtml()) +
       progHtml(0, 1, 'Quest progress', '') +
       tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +

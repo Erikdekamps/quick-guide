@@ -10,7 +10,7 @@
     loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questMark = A.questMark, renderStart = A.renderStart, rowHtml = A.rowHtml, S = A.S, saveSettings = A.saveSettings,
-    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
+    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, subHtml = A.subHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
     textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml;
 
   // ---------- Area Tasks: saved areas and the task index ----------
@@ -137,10 +137,9 @@
       bar = '<progress class="pg" value="' + x.done + '" max="' + x.total + '" aria-hidden="true"></progress>';
     } else if (x.full) status = '<span class="qs ok">✓ Done</span>';
     else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
-    return '<li class="qr"><button class="q' + (x.full ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-area="' + esc(x.area) + '" data-atier="' + esc(x.id) + '"' +
+    return '<li><button class="q' + (x.full ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-area="' + esc(x.area) + '" data-atier="' + esc(x.id) + '"' +
       (x.locked ? ' title="You do not have what this tier needs yet"' : '') + '>' +
-      '<span class="q1"><b>' + esc(x.area + ' ' + x.name) + '</b>' + status + '</span>' + (x.total ? '<span class="q2">' + plural(x.total, 'task', 'tasks') + '</span>' : '') + bar + '</button>' +
-      A.starHtml('tier', { area: x.area, tier: x.id, tname: x.name }) + '</li>';
+      '<span class="q1"><b>' + esc(x.area + ' ' + x.name) + '</b>' + status + '</span>' + (x.total ? '<span class="q2">' + plural(x.total, 'task', 'tasks') + '</span>' : '') + bar + '</button></li>';
   }
   // What a search finds: tiers by "area tier" name, tasks by their own name.
   function areaMatches(v) {
@@ -159,7 +158,7 @@
     var done = !!ticks[r.task.id];
     var where = '<div class="ext"><button class="qlink where" type="button" data-area="' + esc(r.area) + '" data-atier="' + esc(r.tier.id) + '">' + esc(r.area + ' ' + r.tier.name) + '</button></div>';
     var li = '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where,
-      A.starHtml('task', { area: r.area, tier: r.tier.id, tname: r.tier.name, task: r.task.id, title: r.task.name })) + '</li>';
+      A.taskMenuHtml({ area: r.area, tier: r.tier.id, tname: r.tier.name, task: r.task.id, title: r.task.name })) + '</li>';
     return li.replace('data-acb=', 'data-aarea="' + esc(r.area) + '" data-acb=');
   }
   function groupHtml(key, title, count, inner) {
@@ -262,8 +261,9 @@
     return t || S.area.tiers[0];
   }
   function areaDotsHtml() {
+    var t = tierNow();
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu">' + I.dots + '</button>' +
-      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<div class="menu" id="menu" role="menu" hidden>' + A.addToItemHtml('tier', { area: S.areaKey, tier: t.id, tname: t.name }) + '<hr>' +
       '<button class="mi" type="button" role="menuitem" data-act="arefresh">' + I.refresh + 'Refresh from wiki</button>' +
       '<a class="mi" role="menuitem" href="' + esc(S.area.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="areset">' + I.reset + '<span>Reset progress</span></button>' +
@@ -313,7 +313,7 @@
     }).join('');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
       rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
-        A.starHtml('task', { area: S.areaKey, tier: t.id, tname: t.name, task: x.id, title: x.name })) +
+        A.taskMenuHtml({ area: S.areaKey, tier: t.id, tname: t.name, task: x.id, title: x.name })) +
       (subs ? '<ul class="steps subs">' + subs + '</ul>' : '') + '</li>';
   }
   // A part of an area tier that folds open and shut. The app remembers it per tier.
@@ -349,7 +349,7 @@
     }
     dropMaps();
     app.innerHTML =
-      headerHtml(a.name, 'All areas', areaDotsHtml()) +
+      headerHtml(true) + subHtml(a.name, 'All areas', areaDotsHtml()) +
       progHtml(done, t.tasks.length, 'Tier progress', done + ' / ' + plural(t.tasks.length, 'task', 'tasks')) +
       tabsHtml('Tiers', a.tiers.map(function (x) { return tabHtml('data-tier', x.id, x === t, x.name); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +

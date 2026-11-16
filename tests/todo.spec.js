@@ -1,9 +1,9 @@
 // My list: your own lists of goals (docs/my-list-plan.md). A third tab on the start screen.
-// Lists have names you choose; goals are skill levels, items with a count, unlocks, quests, area tasks and tiers,
-// and anything else. Some tick themselves; some come back every day or every week.
-const { test, expect, seed, stored, openApp, openQuest, openTab, openCog, lookUp, withAllAreas, toggle } = require('./support/app');
+// Lists have names you choose. A goal is one flat row: a tick box, what it says, and its menu. Skill levels, quests and
+// tiers tick themselves; an area task shares its tick with its area; a goal can come back every day or every week.
+// Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
+const { test, expect, seed, stored, openApp, openQuest, openCog, lookUp, withAllAreas, toggle } = require('./support/app');
 
-const WGS = 'While Guthix Sleeps/Quick guide';
 const tab = (page) => page.locator('.tab[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
 const goals = (page, list) => listBar(page, list).locator('xpath=following-sibling::ul[1]').locator('li.goal');
@@ -15,7 +15,7 @@ const dialog = (page) => page.locator('#td .dlg');
 async function saved(page) {
   const t = await stored(page, 'todo');
   const out = {};
-  for (const l of (t && t.lists) || []) out[l.name] = l.items.map((x) => x.kind + ':' + (x.kind === 'skill' ? x.level + ' ' + x.skill : x.title || x.task || x.tier));
+  for (const l of (t && t.lists) || []) out[l.name] = l.items.map((x) => x.kind + ':' + (x.kind === 'skill' ? x.level + ' ' + x.skill : x.title));
   return out;
 }
 // Lists to start with: { name: [goals] }.
@@ -41,6 +41,17 @@ async function goalMenu(page, text) {
 async function listMenu(page, name) {
   await listBar(page, name).locator('[data-lmenu]').click();
   await expect(page.locator('#tmenu')).toBeVisible();
+}
+// The ⋯ menu of an area task, and its "Add to list…".
+async function taskMenu(page, id) {
+  await page.locator('li[data-task="' + id + '"] > .row [data-imenu]').click();
+  await expect(page.locator('#tmenu')).toBeVisible();
+}
+async function addTo(page, list) {
+  await expect(dialog(page).locator('.dh')).toHaveText('Add to list');
+  if (list) await page.locator('#ta-list').selectOption({ label: list });
+  await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+  await expect(page.locator('#td')).toHaveCount(0);
 }
 
 test.describe('the My list tab', () => {
@@ -129,21 +140,20 @@ test.describe('the My list tab', () => {
 });
 
 test.describe('adding goals', () => {
-  test('the box reads what you type: skill levels, items with a count, unlocks, and anything else', async ({ page }) => {
+  test('the box: a skill level ticks itself; anything else is a goal as you typed it', async ({ page }) => {
     await openList(page, lists({ Today: [], Gathering: [] }));
-    for (const t of ['82 thieving', 'Herblore 96', '500 magic logs', 'yew logs x1,000', '2k oak logs', 'unlock soul split', 'Vis wax', 'penguins (every week)']) await add(page, t);
-    await expect(goals(page, 'Today').locator('.t')).toHaveText(['82 Thieving', '96 Herblore', 'Magic logs', 'Yew logs', 'Oak logs', 'Unlock Soul split', 'Vis wax', 'Penguins']);
-    await expect(goals(page, 'Today').locator('.tag')).toHaveText(['Skill', 'Skill', 'Item', 'Item', 'Item', 'Unlock', 'Goal', 'Weekly']);
-    await expect(goal(page, 'Yew logs').locator('.numv')).toHaveValue('0');
-    await expect(goal(page, 'Yew logs').locator('.of')).toHaveText('/ 1,000');
-    await expect(goal(page, 'Oak logs').locator('.tsub')).toContainText('2,000 to go');
+    for (const t of ['82 thieving', 'Herblore 96', '500 magic logs', 'unlock soul split', 'Vis wax', 'penguins (every week)']) await add(page, t);
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['82 Thieving', '96 Herblore', '500 magic logs', 'Unlock soul split', 'Vis wax', 'Penguins']);
+    // flat: no kind, no count, no bar
+    await expect(page.locator('li.goal .tag, li.goal .num, li.goal progress, li.goal .tsub')).toHaveCount(0);
+    await expect(goal(page, 'Penguins').locator('.rp')).toHaveText('every week');
     const t = await stored(page, 'todo');
-    expect(t.lists[0].items.map((x) => [x.kind, x.title || x.skill, x.level || x.want || null, x.repeat || ''])).toEqual([
-      ['skill', 'thieving', 82, ''], ['skill', 'herblore', 96, ''], ['item', 'Magic logs', 500, ''], ['item', 'Yew logs', 1000, ''],
-      ['item', 'Oak logs', 2000, ''], ['unlock', 'Soul split', null, ''], ['other', 'Vis wax', null, ''], ['other', 'Penguins', null, 'week']]);
+    expect(t.lists[0].items.map((x) => [x.kind, x.title || x.skill, x.level || null, x.repeat || ''])).toEqual([
+      ['skill', 'thieving', 82, ''], ['skill', 'herblore', 96, ''], ['other', '500 magic logs', null, ''],
+      ['other', 'Unlock soul split', null, ''], ['other', 'Vis wax', null, ''], ['other', 'Penguins', null, 'week']]);
     // a goal goes in the list picked next to the box, and that list stays picked
     await add(page, '50 vis wax', 'Gathering');
-    await expect(goals(page, 'Gathering').locator('.t')).toHaveText(['Vis wax']);
+    await expect(goals(page, 'Gathering').locator('.t')).toHaveText(['50 vis wax']);
     await expect(page.locator('#toast')).toContainText('Added to Gathering.');
     await expect(page.locator('#todo-list option:checked')).toHaveText('Gathering');
     expect((await stored(page, 'todo')).last).toBe('l2');
@@ -154,8 +164,8 @@ test.describe('adding goals', () => {
     await add(page, '   ');
     await expect(page.locator('#todo-err')).toHaveText('Type a goal first.');
     // the tab counts the open goals
-    await expect(tab(page).locator('.tc')).toHaveText('8');
-    await expect(page.locator('.qmeta')).toHaveText('2 lists · 8 goals');
+    await expect(tab(page).locator('.tc')).toHaveText('6');
+    await expect(page.locator('.qmeta')).toHaveText('2 lists · 6 goals');
     expect(page.errors).toEqual([]);
   });
 
@@ -168,56 +178,37 @@ test.describe('adding goals', () => {
     await expect(page.locator('#toast')).toContainText('Added to My list.');
   });
 
-  test('the full Add a goal box: every kind, the list, how often, a note; and Edit', async ({ page }) => {
+  test('the Add a goal box: the goal, the list, how often, a note; and Edit', async ({ page }) => {
     await openList(page, lists({ Today: [], 'Skilling goals': [] }));
     await listMenu(page, 'Skilling goals');
     await page.locator('#tmenu .mi', { hasText: 'Add a goal here' }).click();
     await expect(dialog(page).locator('.dh')).toHaveText('Add a goal');
-    await expect(dialog(page).locator('.seg[data-for="kind"] button')).toHaveText(['Skill', 'Item', 'Unlock', 'Other']);
     await expect(page.locator('#tg-list option:checked')).toHaveText('Skilling goals');
-    // a skill: no "how often" (it ticks itself)
-    await dialog(page).locator('.seg[data-for="kind"] button', { hasText: 'Skill' }).click();
-    await expect(dialog(page).locator('.seg[data-for="repeat"]')).toHaveCount(0);
-    await page.locator('#tg-skill').selectOption('Thieving');
-    await page.locator('#tg-level').fill('82');
+    await expect(dialog(page).locator('.seg[data-for="repeat"] button')).toHaveText(['Once', 'Every day', 'Every week']);
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('Type a goal first.');
+    await page.locator('#tg-text').fill('82 thieving');
     await page.locator('#tg-note').fill('For Ardougne Hard');
     await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
     await expect(goals(page, 'Skilling goals').locator('.t')).toHaveText(['82 Thieving']);
-    await expect(goal(page, '82 Thieving').locator('.tsub')).toContainText('For Ardougne Hard');
-    // a level out of range is refused
+    await expect(goal(page, '82 Thieving').locator('.gn')).toHaveText('For Ardougne Hard');
+    // a goal that comes back every day, into another list
     await listMenu(page, 'Skilling goals');
     await page.locator('#tmenu .mi', { hasText: 'Add a goal here' }).click();
-    await dialog(page).locator('.seg[data-for="kind"] button', { hasText: 'Skill' }).click();
-    await page.locator('#tg-level').fill('150');
-    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
-    await expect(page.locator('#td-err')).toHaveText('A level is 2 to 120.');
-    // an item that comes back every day, into another list
-    await dialog(page).locator('.seg[data-for="kind"] button', { hasText: 'Item' }).click();
-    await page.locator('#tg-title').fill('Vis wax');
-    await page.locator('#tg-want').fill('50');
+    await page.locator('#tg-text').fill('vis wax');
     await dialog(page).locator('.seg[data-for="repeat"] button', { hasText: 'Every day' }).click();
+    await expect(dialog(page).locator('.seg[data-for="repeat"] button[aria-pressed="true"]')).toHaveText('Every day');
     await page.locator('#tg-list').selectOption({ label: 'Today' });
     await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
-    await expect(goal(page, 'Vis wax').locator('.tag')).toHaveText(['Item', 'Daily']);
-    expect((await stored(page, 'todo')).lists[0].items[0]).toMatchObject({ kind: 'item', title: 'Vis wax', want: 50, have: 0, repeat: 'day' });
-    // an unlock: it needs what to unlock
-    await listMenu(page, 'Today');
-    await page.locator('#tmenu .mi', { hasText: 'Add a goal here' }).click();
-    await expect(dialog(page).locator('.seg[data-for="kind"] button[aria-pressed="true"]')).toHaveText('Other');
-    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
-    await expect(page.locator('#td-err')).toHaveText('Type a goal first.');
-    await dialog(page).locator('.seg[data-for="kind"] button', { hasText: 'Unlock' }).click();
-    await expect(dialog(page).locator('label[for="tg-title"]')).toHaveText('What to unlock');
-    await page.locator('#tg-title').fill('soul Split');
-    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
-    await expect(goal(page, 'Unlock Soul Split').locator('.tag')).toHaveText('Unlock');
+    await expect(goal(page, 'Vis wax').locator('.rp')).toHaveText('every day');
+    expect((await stored(page, 'todo')).lists[0].items[0]).toMatchObject({ kind: 'other', title: 'Vis wax', repeat: 'day' });
     // Edit: the same box, with what the goal has
     await goalMenu(page, '82 Thieving');
     await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
     await expect(dialog(page).locator('.dh')).toHaveText('Edit goal');
-    await expect(page.locator('#tg-level')).toHaveValue('82');
+    await expect(page.locator('#tg-text')).toHaveValue('82 Thieving');
     await expect(page.locator('#tg-note')).toHaveValue('For Ardougne Hard');
-    await page.locator('#tg-level').fill('85');
+    await page.locator('#tg-text').fill('85 thieving');
     await dialog(page).getByRole('button', { name: 'Save' }).click();
     await expect(goals(page, 'Skilling goals').locator('.t')).toHaveText(['85 Thieving']);
     expect(page.errors).toEqual([]);
@@ -226,7 +217,7 @@ test.describe('adding goals', () => {
 
 test.describe('ticking and planning', () => {
   test('tick a goal: it sinks to the bottom of its list; Clear done goals removes it, Undo brings it back', async ({ page }) => {
-    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'unlock', title: 'Soul Split' }, { kind: 'other', title: 'Buy a cape' }] }));
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Buy a cape' }] }));
     await goal(page, 'Vis wax').locator('.t').click();
     await expect(goal(page, 'Vis wax')).toHaveClass(/\bdone\b/);
     await expect(goals(page, 'Today').locator('.t')).toHaveText(['Unlock Soul Split', 'Buy a cape', 'Vis wax']);
@@ -282,129 +273,114 @@ test.describe('ticking and planning', () => {
     await expect(page.locator('#tmenu')).toHaveCount(0);
     expect(page.errors).toEqual([]);
   });
-
-  test('item goals: − and +, or type how many you have; done at the target', async ({ page }) => {
-    await openList(page, lists({ Gathering: [{ kind: 'item', title: 'Magic logs', have: 498, want: 500 }] }));
-    const g = goal(page, 'Magic logs');
-    await expect(g.locator('.tsub')).toContainText('2 to go');
-    await expect(g.locator('.cb')).toBeDisabled();
-    await g.getByRole('button', { name: 'One more' }).click();
-    await g.getByRole('button', { name: 'One more' }).click();
-    await expect(g).toHaveClass(/\bdone\b/);
-    await expect(g.locator('.cb')).toBeChecked();
-    await g.getByRole('button', { name: 'One less' }).click();
-    await expect(g).not.toHaveClass(/\bdone\b/);
-    await g.locator('.numv').fill('250');
-    await g.locator('.numv').press('Enter');
-    await expect(g.locator('.tsub')).toContainText('250 to go');
-    await expect(g.locator('progress')).toHaveAttribute('value', '250');
-    expect((await stored(page, 'todo')).lists[0].items[0]).toMatchObject({ have: 250, want: 500 });
-  });
 });
 
 test.describe('goals that tick themselves', () => {
-  test('a skill goal follows your character: your level, how far to go, done when you get there', async ({ page, wiki }) => {
+  test('a skill goal: you tick it until your character is known; then it follows your level', async ({ page, wiki }) => {
     wiki.setPlayer('Zezima', {}, { 18: 79 });   // 18 is Thieving
     await openList(page, lists({ Skilling: [{ kind: 'skill', skill: 'thieving', level: 82 }] }));
-    const g = goal(page, '82 Thieving');
-    await expect(g.locator('.tsub')).toContainText('Look up your character to track it');
-    await expect(g.locator('.cb')).toBeDisabled();
+    const cb = goal(page, '82 Thieving').locator('.cb');
+    await expect(cb).toBeEnabled();
     await lookUp(page, 'Zezima');
-    await expect(g.locator('.tsub')).toContainText('Now 79 · 3 levels to go');
-    await expect(g.locator('.tsub img.sic')).toHaveAttribute('src', 'https://runescape.wiki/images/Thieving-icon.png');
-    await expect(g.locator('progress')).toHaveAttribute('value', '79');
+    await expect(cb).toBeDisabled();
+    await expect(cb).not.toBeChecked();
+    await expect(cb).toHaveAttribute('title', 'This ticks itself: Zezima has 79 Thieving');
     wiki.setPlayer('Zezima', {}, { 18: 82 });
     await page.getByRole('button', { name: 'Update player' }).click();
     await expect(goal(page, '82 Thieving')).toHaveClass(/\bdone\b/);
+    await expect(cb).toBeChecked();
   });
 
-  test('stars on quests, in the list and in a quest; a quest goal is done when the quest is', async ({ page, wiki }) => {
+  test('a quest goes on a list from its menu, in the list you pick; it is done when the quest is', async ({ page, wiki }) => {
     await openApp(page, expect);
-    const star = page.locator('.q[data-quest="Imp Catcher"]').locator('xpath=following-sibling::button[contains(@class, "star")]');
-    await expect(star).toHaveAttribute('aria-pressed', 'false');
-    await star.click();
-    await expect(star).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('#toast')).toContainText('Added to My list.');
+    // no stars in the lists
+    await expect(page.locator('button.star')).toHaveCount(0);
     await openQuest(page, expect, 'While Guthix Sleeps');
-    const hstar = page.locator('.hdr button.star');
-    await expect(hstar).toHaveAttribute('aria-label', 'Add to my list');
-    await hstar.click();
-    await expect(hstar).toHaveAttribute('aria-pressed', 'true');
-    await expect(hstar).toHaveAttribute('aria-label', 'On my list');
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
+    await expect(dialog(page).locator('.what')).toHaveText('While Guthix Sleeps');
+    // no lists yet: a new one, called My list
+    await expect(page.locator('#ta-list option:checked')).toHaveText('New list…');
+    await expect(page.locator('#ta-name')).toHaveValue('My list');
+    await addTo(page);
+    await expect(page.locator('#toast')).toContainText('Added to My list.');
+    await page.locator('#menu-btn').click();
+    await expect(page.locator('#menu .mi', { hasText: 'Remove from My list' })).toBeVisible();
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'All quests' }).click();
+    // Cook's Assistant too, into a second list
+    await page.locator('.q[data-quest="Cook\'s Assistant"]').click();
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
+    await page.locator('#ta-list').selectOption({ label: 'New list…' });
+    await page.locator('#ta-name').fill('my list');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('You already have a list called “My list”.');
+    await page.locator('#ta-name').fill('Quests');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#toast')).toContainText('Added to Quests.');
     await page.getByRole('button', { name: 'All quests' }).click();
     await tab(page).click();
-    await expect(goals(page, 'My list').locator('.t')).toHaveText(['Imp Catcher', 'While Guthix Sleeps']);
-    await expect(goals(page, 'My list').locator('.tag')).toHaveText(['Quest', 'Quest']);
-    await expect(goal(page, 'While Guthix Sleeps').locator('.tsub')).toContainText('0 / 12 steps');
-    await expect(goal(page, 'Imp Catcher').locator('.tsub')).toContainText('Not started');
-    // a quest goal's box: only its list and note can change
+    await expect(goals(page, 'My list').locator('.t')).toHaveText(['While Guthix Sleeps']);
+    await expect(goals(page, 'Quests').locator('.t')).toHaveText(["Cook's Assistant"]);
+    await expect(goal(page, "Cook's Assistant").locator('.cb')).toBeDisabled();
+    // open the quest from the goal's menu
     await goalMenu(page, 'While Guthix Sleeps');
-    await expect(menuItems(page)).toHaveText(['Edit', 'Open the quest', 'My list', 'New list…', 'Move up', 'Move down', 'Remove']);
-    await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
-    await expect(dialog(page).locator('.dh')).toHaveText('Edit goal');
-    await expect(dialog(page).locator('.seg')).toHaveCount(0);
-    await expect(dialog(page).locator('.para')).toHaveText('While Guthix Sleeps · Quest');
-    await page.locator('#tg-note').fill('After the Temple at Senntisten');
-    await dialog(page).getByRole('button', { name: 'Save' }).click();
-    await expect(goal(page, 'While Guthix Sleeps').locator('.tsub')).toContainText('After the Temple at Senntisten');
-    // the quest's name opens it
-    await goal(page, 'While Guthix Sleeps').locator('.t button').click();
+    await expect(menuItems(page)).toHaveText(['Edit', 'Open the quest', 'My list', 'Quests', 'New list…', 'Move up', 'Move down', 'Remove']);
+    await page.locator('#tmenu .mi', { hasText: 'Open the quest' }).click();
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     // done when the game says so
-    wiki.setPlayer('Zezima', { 'Imp Catcher': 'COMPLETED' }, {});
+    wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, {});
     await page.getByRole('button', { name: 'All quests' }).click();
     await lookUp(page, 'Zezima');
     await page.keyboard.press('Escape');
     await tab(page).click();
-    await expect(goal(page, 'Imp Catcher')).toHaveClass(/\bdone\b/);
-    // a star pressed again takes it off
+    await expect(goal(page, "Cook's Assistant")).toHaveClass(/\bdone\b/);
+    // taken off from the quest's menu
     await page.locator('.tab[data-home="quests"]').click();
-    await page.locator('.q[data-quest="Imp Catcher"]').locator('xpath=following-sibling::button[contains(@class, "star")]').click();
+    await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Remove from My list' }).click();
     await expect(page.locator('#toast')).toContainText('Removed from My list.');
-    expect(await saved(page)).toEqual({ 'My list': ['quest:While Guthix Sleeps'] });
+    expect(await saved(page)).toEqual({ 'My list': [], Quests: ["quest:Cook's Assistant"] });
     expect(page.errors).toEqual([]);
   });
 
-  test('"Change list" in the message puts a starred goal in another list', async ({ page }) => {
-    await seed(page, { todo: lists({ Today: [], Gathering: [] }) });
-    await openApp(page, expect);
-    await page.locator('.q[data-quest="Imp Catcher"]').locator('xpath=following-sibling::button[contains(@class, "star")]').click();
-    await expect(page.locator('#toast')).toContainText('Added to Today.');
-    await page.locator('#toast').getByRole('button', { name: 'Change list' }).click();
-    await expect(dialog(page).locator('.dh')).toHaveText('Put it in');
-    await expect(dialog(page).locator('.sugg button')).toHaveText(['Today', 'Gathering']);
-    await expect(dialog(page).locator('.sugg button[aria-pressed="true"]')).toHaveText('Today');
-    await dialog(page).locator('.sugg button', { hasText: 'Gathering' }).click();
-    await expect(page.locator('#td')).toHaveCount(0);
-    await expect(page.locator('#toast')).toContainText('Moved to Gathering.');
-    expect(await saved(page)).toEqual({ Today: [], Gathering: ['quest:Imp Catcher'] });
-    // the next star goes to the list it was moved to
-    expect((await stored(page, 'todo')).last).toBe('l2');
-  });
-
-  test('stars on area tasks and tiers: one tick, shown in two places', async ({ page, wiki }) => {
+  test('area tasks from their ⋯ menu, a tier from the area\'s menu; one tick, shown in two places', async ({ page, wiki }) => {
     withAllAreas(wiki);
-    await seed(page, { todo: lists({ Diary: [] }) });
+    await seed(page, { todo: lists({ Today: [], Diary: [] }) });
     await openApp(page, expect);
     await page.locator('.tab[data-home="areas"]').click();
-    const tierStar = page.locator('button.star[data-star="tier"][data-sarea="Ardougne"][data-stier="elite"]');
-    await tierStar.click();
+    await expect(page.locator('button.star')).toHaveCount(0);
+    await page.locator('.q[data-area="Ardougne"][data-atier="elite"]').click();
+    // the tier, from the area's menu
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
+    await expect(dialog(page).locator('.what')).toHaveText('Ardougne Elite');
+    await expect(page.locator('#ta-list option')).toHaveText(['Today', 'Diary', 'New list…']);
+    await addTo(page, 'Diary');
     await expect(page.locator('#toast')).toContainText('Added to Diary.');
-    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    const yoink = page.locator('li[data-task="448"] > .row .star');
-    await expect(yoink).toHaveAttribute('aria-pressed', 'false');
-    await yoink.click();
-    await expect(yoink).toHaveAttribute('aria-pressed', 'true');
+    // a task, from its own menu: the list used last is picked
+    await page.locator('.tab[data-tier="easy"]').click();
+    await taskMenu(page, '448');
+    await expect(page.locator('#tmenu .mh')).toHaveText('Yoink!');
+    await expect(menuItems(page)).toHaveText(['Add to list…']);
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await expect(dialog(page).locator('.what')).toHaveText('Yoink! · Ardougne Easy');
+    await expect(page.locator('#ta-list option:checked')).toHaveText('Diary');
+    await addTo(page);
+    await taskMenu(page, '448');
+    await expect(menuItems(page)).toHaveText(['Remove from Diary']);
+    await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All areas' }).click();
     await tab(page).click();
-    await expect(goals(page, 'Diary').locator('.tag')).toHaveText(['Tier', 'Task']);
-    await expect(goal(page, 'Ardougne Elite').locator('.tsub')).toContainText('0 / 5 tasks');
-    await expect(goal(page, 'Yoink!').locator('.tsub')).toContainText('Ardougne Easy');
+    await expect(goals(page, 'Diary').locator('.t')).toHaveText(['Ardougne Elite', 'Yoink!']);
     // tick the task on the list: it is ticked in its area too
     await goal(page, 'Yoink!').locator('.cb').click();
     await expect(goal(page, 'Yoink!')).toHaveClass(/\bdone\b/);
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
-    await goal(page, 'Yoink!').locator('.t button').click();
+    await goalMenu(page, 'Yoink!');
+    await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await expect(page.locator('li[data-task="448"] > .row .cb')).toBeChecked();
     // untick it there (done tasks show with "Show done steps"): open again on the list
@@ -417,10 +393,11 @@ test.describe('goals that tick themselves', () => {
     await page.evaluate(() => localStorage.setItem('qg1.aprog.Ardougne', JSON.stringify({ tasks: { 503: 1, 504: 1, 505: 1, 506: 1, 507: 1 } })));
     await page.reload();
     await expect(goal(page, 'Ardougne Elite')).toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Ardougne Elite').locator('.cb')).toBeDisabled();
     expect(page.errors).toEqual([]);
   });
 
-  test('"+ goal" next to a level you do not have adds it', async ({ page, wiki }) => {
+  test('"+ goal" next to a level you do not have: pick the list, and it is added', async ({ page, wiki }) => {
     wiki.setPlayer('Zezima', {}, { 7: 80, 16: 60 });   // Magic 80, Herblore 60
     await openApp(page, expect);
     await lookUp(page, 'Zezima');
@@ -429,6 +406,8 @@ test.describe('goals that tick themselves', () => {
     // Magic 75 you have: no button; Herblore 65 you do not
     await expect(skills.locator('li').nth(0).locator('.addgoal')).toHaveCount(0);
     await skills.getByRole('button', { name: 'Add 65 Herblore to my list' }).click();
+    await expect(dialog(page).locator('.what')).toHaveText('65 Herblore');
+    await addTo(page);
     await expect(page.locator('#toast')).toContainText('Added to My list.');
     await expect(skills.getByRole('button', { name: 'Add 65 Herblore to my list' })).toHaveCount(0);
     expect(await saved(page)).toEqual({ 'My list': ['skill:65 herblore'] });
@@ -441,16 +420,14 @@ test.describe('goals that come back', () => {
   test('every day and every week: unticked at the game\'s reset, shown in your own time', async ({ page }) => {
     // Monday 16 November 2026, 22:00 in Amsterdam (21:00 UTC)
     await page.clock.install({ time: new Date('2026-11-16T21:00:00Z') });
-    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax', repeat: 'day' }, { kind: 'other', title: 'Penguins', repeat: 'week' }, { kind: 'item', title: 'Herbs', want: 10, have: 0, repeat: 'day' }] }));
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax', repeat: 'day' }, { kind: 'other', title: 'Penguins', repeat: 'week' }, { kind: 'other', title: 'Herbs', repeat: 'day' }] }));
     await goal(page, 'Vis wax').locator('.cb').click();
     await goal(page, 'Penguins').locator('.cb').click();
-    await expect(goal(page, 'Vis wax').locator('.tsub')).toContainText('Back tomorrow, 01:00');
-    await expect(goal(page, 'Penguins').locator('.tsub')).toContainText('Back Wednesday, 01:00');
+    await goal(page, 'Herbs').locator('.cb').click();
+    await expect(goal(page, 'Vis wax').locator('.rp')).toHaveText('back tomorrow, 01:00');
+    await expect(goal(page, 'Penguins').locator('.rp')).toHaveText('back Wednesday, 01:00');
     // a goal that comes back stays where it is when ticked
     await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Penguins', 'Herbs']);
-    await goal(page, 'Herbs').locator('.numv').fill('10');
-    await goal(page, 'Herbs').locator('.numv').press('Enter');
-    await expect(goal(page, 'Herbs')).toHaveClass(/\bdone\b/);
     // Clear done goals leaves them alone
     await listMenu(page, 'Today');
     await expect(page.locator('#tmenu .mi', { hasText: 'Clear done goals' })).toHaveText('Clear done goals (0)');
@@ -458,7 +435,8 @@ test.describe('goals that come back', () => {
     // past the daily reset (00:00 UTC): the daily ones are back, the weekly one is not
     await page.clock.fastForward('04:00:00');
     await expect(goal(page, 'Vis wax')).not.toHaveClass(/\bdone\b/);
-    await expect(goal(page, 'Herbs').locator('.numv')).toHaveValue('0');
+    await expect(goal(page, 'Herbs')).not.toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Vis wax').locator('.rp')).toHaveText('every day');
     await expect(goal(page, 'Penguins')).toHaveClass(/\bdone\b/);
     // the app closed over Wednesday's reset: back when it opens
     await page.clock.fastForward('30:00:00');
@@ -483,18 +461,19 @@ test.describe('limits, storage and the look', () => {
   test('long names wrap: no sideways scrolling in a 280 px window, in both themes', async ({ page }) => {
     await page.setViewportSize({ width: 280, height: 640 });
     for (const theme of ['brown', 'blue']) {
-      await seed(page, { settings: { home: 'todo', theme }, todo: lists({ ['A list with a long name for testing']: [{ kind: 'other', title: 'A goal with a very long name that has to wrap onto more lines' }, { kind: 'item', title: 'Uncut dragonstones', have: 1234, want: 100000 }] }) });
+      await seed(page, { settings: { home: 'todo', theme }, todo: lists({ ['A list with a long name for testing']: [{ kind: 'other', title: 'A goal with a very long name that has to wrap onto more lines', note: 'And a note that is long too', repeat: 'week' }, { kind: 'other', title: 'Uncut dragonstones' }] }) });
       await page.goto('/');
       await expect(page.locator('li.goal')).toHaveCount(2);
       expect(await page.evaluate(() => { const m = document.getElementById('main'); return m.scrollWidth > m.clientWidth || document.documentElement.scrollWidth > innerWidth; })).toBe(false);
     }
   });
 
-  test('broken saved lists do not stop the app; Delete everything deletes the lists', async ({ page }) => {
-    await seed(page, { settings: { home: 'todo' }, todo: { v: 1, lists: [{ id: 'x', name: 'Fine', items: [{ id: 'a', kind: 'nonsense' }, { id: 'b', kind: 'other', title: 'Kept' }, null] }, 'junk', { name: 7 }] } });
+  test('broken saved lists do not stop the app; goals of an older kind become plain goals; Delete everything deletes the lists', async ({ page }) => {
+    await seed(page, { settings: { home: 'todo' }, todo: { v: 1, lists: [{ id: 'x', name: 'Fine', items: [{ id: 'a', kind: 'nonsense' }, { id: 'b', kind: 'other', title: 'Kept' }, null,
+      { id: 'c', kind: 'item', title: 'Magic logs', have: 320, want: 500 }, { id: 'd', kind: 'unlock', title: 'Soul Split' }] }, 'junk', { name: 7 }] } });
     await page.goto('/');
     await expect(names(page)).toHaveText(['Fine']);
-    await expect(goals(page, 'Fine').locator('.t')).toHaveText(['Kept']);
+    await expect(goals(page, 'Fine').locator('.t')).toHaveText(['Kept', '500 Magic logs', 'Unlock Soul Split']);
     expect(page.errors).toEqual([]);
     await openCog(page);
     await page.locator('[data-act="wipe"]').click();
@@ -502,6 +481,30 @@ test.describe('limits, storage and the look', () => {
     expect(await stored(page, 'todo')).toBeNull();
     await page.locator('.tab[data-home="todo"]').click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
+  });
+});
+
+test.describe('the window', () => {
+  test('the title band stays on every screen; the way back, the name and its menu are in a bar under it', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await expect(page.locator('.sbar')).toHaveCount(0);
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await expect(page.locator('.hdr .qt')).toHaveText('Quick Guide');
+    await expect(page.locator('.hdr img.emb')).toBeVisible();
+    await expect(page.locator('.hdr [data-act="change"]')).toHaveCount(0);
+    const bar = page.locator('.sbar');
+    await expect(bar.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+    await expect(bar.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All quests');
+    await expect(bar.locator('#menu-btn')).toBeVisible();
+    const hb = await page.locator('.hdr').boundingBox(), bb = await bar.boundingBox();
+    expect(bb.y).toBeGreaterThanOrEqual(hb.y + hb.height - 1);
+    await page.getByRole('button', { name: 'All quests' }).click();
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await expect(page.locator('.hdr .qt')).toHaveText('Quick Guide');
+    await expect(page.locator('.sbar h1.qt')).toHaveText('Ardougne');
+    await expect(page.locator('.sbar [data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
   });
 });
 
@@ -524,17 +527,17 @@ test.describe('export and import', () => {
   test('every list and goal goes out, and comes back the same', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openList(page, lists({
-      Today: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }, { kind: 'other', title: 'Vis wax', repeat: 'day', done: Date.now() }, { kind: 'unlock', title: 'Soul Split', note: 'Needs a quest' }],
+      Today: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }, { kind: 'other', title: 'Vis wax', repeat: 'day', done: Date.now() }, { kind: 'other', title: 'Unlock Soul Split', note: 'Needs a quest' }],
       'Skilling goals': [{ kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'quest', title: 'While Guthix Sleeps' }, { kind: 'tier', area: 'Ardougne', tier: 'hard', title: 'Ardougne Hard' }],
-      Gathering: [{ kind: 'item', title: 'Magic logs', have: 320, want: 500 }],
+      Gathering: [{ kind: 'other', title: '500 Magic logs' }],
       Empty: []
     }));
     const j = JSON.parse(await exportText(page));
     expect(Object.keys(j)).toContain('mylist');
     expect(j.mylist).toEqual({
-      Today: { 'Task 448: Yoink! (Ardougne Easy)': false, 'Vis wax (every day)': true, 'Unlock: Soul Split': { done: false, note: 'Needs a quest' } },
+      Today: { 'Task 448: Yoink! (Ardougne Easy)': false, 'Vis wax (every day)': true, 'Unlock Soul Split': { done: false, note: 'Needs a quest' } },
       'Skilling goals': { '82 Thieving': false, 'Quest: While Guthix Sleeps': false, 'Tier: Ardougne Hard': false },
-      Gathering: { '500 Magic logs': '320 / 500' },
+      Gathering: { '500 Magic logs': false },
       Empty: {}
     });
     // a fresh start, then the file: the same lists
@@ -544,7 +547,7 @@ test.describe('export and import', () => {
     await importText(page, JSON.stringify(j));
     await expect(page.locator('#toast')).toContainText(' and 4 lists.');
     expect(await saved(page)).toEqual(before);
-    expect((await stored(page, 'todo')).lists[2].items[0]).toMatchObject({ have: 320, want: 500 });
+    expect((await stored(page, 'todo')).lists[0].items[2]).toMatchObject({ note: 'Needs a quest' });
   });
 
   test('goals typed by hand in the file are read like the add box reads them; a file without lists leaves yours', async ({ page }) => {
@@ -552,8 +555,8 @@ test.describe('export and import', () => {
     await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, settings: {} }));
     expect(await saved(page)).toEqual({ Mine: ['other:Keep me'] });
     await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Week: { '96 herblore': false, '1,000 yew logs': '10 / 1,000', 'unlock: overloads': true, 'Do the dishes': false, 'Penguins (every week)': false } } }));
-    expect(await saved(page)).toEqual({ Week: ['skill:96 herblore', 'item:Yew logs', 'unlock:Overloads', 'other:Do the dishes', 'other:Penguins'] });
+    expect(await saved(page)).toEqual({ Week: ['skill:96 herblore', 'other:1,000 yew logs', 'other:Unlock: overloads', 'other:Do the dishes', 'other:Penguins'] });
     const t = await stored(page, 'todo');
-    expect(t.lists[0].items.map((x) => [x.have, x.done ? 1 : 0, x.repeat || ''])).toEqual([[undefined, 0, ''], [10, 0, ''], [undefined, 1, ''], [undefined, 0, ''], [undefined, 0, 'week']]);
+    expect(t.lists[0].items.map((x) => [x.done ? 1 : 0, x.repeat || ''])).toEqual([[0, ''], [0, ''], [1, ''], [0, ''], [0, 'week']]);
   });
 });

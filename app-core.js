@@ -433,7 +433,7 @@
   }
   function dotsHtml() {
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +
-      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<div class="menu" id="menu" role="menu" hidden>' + A.addToItemHtml('quest', { title: S.q.title }) + '<hr>' +
       '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
       '<a class="mi" role="menuitem" href="' + esc(S.q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
@@ -498,14 +498,19 @@
   }, true);
 
   // ---------- the window: the parts every screen has ----------
-  // The title band: a back button (with what it goes back to), or the app's emblem on the start screen; the name;
-  // the settings cog and any more buttons on the right.
-  function headerHtml(title, back, more) {
-    return '<header class="hdr">' +
-      (back ? '<button class="ib" type="button" data-act="change" aria-label="' + back + '" title="' + back + '">' + I.back + '</button>' :
-        '<img class="emb" src="icon.svg" alt="" width="26" height="26">') +
-      '<h1 class="qt"' + (back ? ' title="' + esc(title) + '"' : '') + '>' + esc(title) + '</h1>' +
-      '<div class="hs he">' + cogHtml() + (more || '') + '</div></header>';
+  // The title band, the same on every screen: the app's emblem, its name, and the settings cog on the right.
+  // On the start screen the name is the page's heading; elsewhere the heading is in the bar under it.
+  function headerHtml(sub) {
+    var tag = sub ? 'p' : 'h1';
+    return '<header class="hdr"><img class="emb" src="icon.svg" alt="" width="26" height="26">' +
+      '<' + tag + ' class="qt">Quick Guide</' + tag + '>' +
+      '<div class="hs he">' + cogHtml() + '</div></header>';
+  }
+  // The bar under the title band on a quest or an area: a back button (with what it goes back to), the name, and
+  // its menu on the right.
+  function subHtml(title, back, more) {
+    return '<div class="sbar"><button class="ib" type="button" data-act="change" aria-label="' + back + '" title="' + back + '">' + I.back + '</button>' +
+      '<h1 class="qt" title="' + esc(title) + '">' + esc(title) + '</h1><div class="hs">' + (more || '') + '</div></div>';
   }
   // The progress bar under the title band.
   function progHtml(done, max, label, count) {
@@ -559,7 +564,7 @@
     S.view = 'start';
     dropMaps();
     app.innerHTML =
-      headerHtml('Quick Guide') +
+      headerHtml() +
       tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], S.set.home === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home') +
       '<main class="scroll" id="main">' +
       (S.set.home === 'todo' ? A.todoFormHtml() : searchHtml()) +
@@ -846,7 +851,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,

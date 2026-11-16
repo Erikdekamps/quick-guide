@@ -21,10 +21,10 @@
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickTask = A.tickTask, toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu,
     toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick,
-    addSkillGoal = A.addSkillGoal, closeTodoDialog = A.closeTodoDialog, goalMenu = A.goalMenu, listMenu = A.listMenu,
-    menuAct = A.menuAct, newListDialog = A.newListDialog, pickList = A.pickList, pickSeg = A.pickSeg, setTodoLast = A.setTodoLast,
-    startTodoClock = A.startTodoClock, stepHave = A.stepHave, tickGoal = A.tickGoal, todoSubmit = A.todoSubmit,
-    toastAct = A.toastAct, toggleStar = A.toggleStar, typeHave = A.typeHave, useSuggestion = A.useSuggestion;
+    addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeTodoDialog = A.closeTodoDialog,
+    goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct, newListDialog = A.newListDialog,
+    pickSeg = A.pickSeg, setTodoLast = A.setTodoLast, startTodoClock = A.startTodoClock, tickGoal = A.tickGoal,
+    todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist, useSuggestion = A.useSuggestion;
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
@@ -81,8 +81,8 @@
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
     if (t.id === 'theme') { S.set.theme = pick(THEMES, t.value, 'brown'); saveSettings(); applySettings(); return; }
     if (t.id === 'todo-list') { setTodoLast(t.value); return; }
+    if (t.id === 'ta-list') { addToPick(t); return; }
     if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
-    if (t.hasAttribute('data-gnum')) { typeHave(t); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) {
       var ar = t.getAttribute('data-aarea');
@@ -102,20 +102,21 @@
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
     if (ev.target.id === 'rd') { closeRead(); return; }
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
-    // My list: the buttons in its message, stars, "+ goal", the menus of goals and lists, the boxes, − and +.
-    var g = ev.target.closest('[data-tact], [data-star], [data-addgoal], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-pick], [data-tdx], [data-gstep]');
+    // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal and
+    // a list, the items of their menus, and the boxes.
+    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-tdx]');
     if (g) {
       if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
-      else if (g.hasAttribute('data-star')) toggleStar(g);
+      else if (g.hasAttribute('data-addto')) addFromButton(g);
+      else if (g.hasAttribute('data-unlist')) unlist(g);
       else if (g.hasAttribute('data-addgoal')) addSkillGoal(g);
+      else if (g.hasAttribute('data-imenu')) itemMenu(g);
       else if (g.hasAttribute('data-gmenu')) goalMenu(g);
       else if (g.hasAttribute('data-lmenu')) listMenu(g);
       else if (g.hasAttribute('data-tm')) menuAct(g);
       else if (g.hasAttribute('data-seg')) pickSeg(g);
       else if (g.hasAttribute('data-sugg')) useSuggestion(g);
-      else if (g.hasAttribute('data-pick')) pickList(g);
-      else if (g.hasAttribute('data-tdx')) closeTodoDialog();
-      else stepHave(g);
+      else closeTodoDialog();
       return;
     }
     var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
@@ -205,8 +206,6 @@
   });
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); }
-    // Enter in the count of an item goal sets it.
-    if (ev.key === 'Enter' && ev.target.hasAttribute && ev.target.hasAttribute('data-gnum')) { ev.preventDefault(); typeHave(ev.target); }
   });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {

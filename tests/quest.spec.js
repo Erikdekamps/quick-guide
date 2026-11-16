@@ -90,14 +90,20 @@ test.describe('menus', () => {
   test('one menu at a time; a click outside or Escape closes it', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     const cog = page.locator('#cog'), dots = page.locator('#menu');
-    await page.locator('#cog-btn').click();
-    await expect(cog).toBeVisible();
-    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'true');
+    // the quest's menu is in the bar under the title band; the cog, above it, opens over it
     await page.locator('#menu-btn').click();
     await expect(dots).toBeVisible();
+    await page.locator('#cog-btn').click();
+    await expect(cog).toBeVisible();
+    await expect(dots).toBeHidden();
+    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#menu-btn')).toHaveAttribute('aria-expanded', 'false');
+    await page.locator('.hdr .qt').click();
     await expect(cog).toBeHidden();
     await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'false');
-    await page.locator('h1.qt').click();
+    await page.locator('#menu-btn').click();
+    await expect(dots).toBeVisible();
+    await page.locator('.hdr .qt').click();
     await expect(dots).toBeHidden();
     await page.locator('#cog-btn').click();
     await page.keyboard.press('Escape');
