@@ -29,6 +29,7 @@ so they match it.
 | `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
+| `MyList….dc.html` (6 boards) | **Planned, not built yet:** the My list tab, adding a goal, a goal's menu, adding from an area, the empty list, and the Blue theme. Drawn by hand on the app's stylesheet. See `docs/my-list-plan.md` |
 | `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, and skill and quest requirements like the wiki |
 | `Data.dc.html` | The quest JSON shape, and what is saved |
 | `canvas.json` | Board layout on the canvas |

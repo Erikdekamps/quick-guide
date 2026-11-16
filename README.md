@@ -213,6 +213,7 @@ No other service is used.
 | `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards and screenshots of every screen |
+| `docs/my-list-plan.md` | A plan for a feature that is not built yet: My list, your own goals for the day or week |
 
 When you change a file, also raise the `?v=1.34.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
