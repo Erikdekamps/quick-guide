@@ -83,6 +83,7 @@
     if (t.id === 'todo-list') { setTodoLast(t.value); return; }
     if (t.id === 'ta-list') { addToPick(t); return; }
     if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
+    if (t.hasAttribute('data-subcb')) { A.tickSub(t.getAttribute('data-gid'), t.getAttribute('data-subcb'), t.checked); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) {
       var ar = t.getAttribute('data-aarea');
@@ -104,9 +105,10 @@
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
     // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal and
     // a list, the items of their menus, and the boxes.
-    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-tdx]');
+    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-subx], [data-tdx]');
     if (g) {
       if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
+      else if (g.hasAttribute('data-subx')) A.removeSub(g);
       else if (g.hasAttribute('data-addto')) addFromButton(g);
       else if (g.hasAttribute('data-unlist')) unlist(g);
       else if (g.hasAttribute('data-addgoal')) addSkillGoal(g);

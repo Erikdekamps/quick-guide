@@ -14,6 +14,8 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
   more (saved ones become plain goals).
 - **Any goal can be ticked by hand.** Skill levels, quests and tiers also tick themselves. A quest ticked on a list is
   done in the quest list too (one tick, shown in two places, like an area task).
+- **Sub tasks:** a goal can have its own checklist under it (at most 20). It is done when they all are; ticking it
+  ticks them all. In a file: `"subs": { "Buy a rope": true }` next to `"done"`.
 - **A done goal stays where it is**, struck through, until you clear it: it no longer drops to the bottom of its
   list (the next goal would move under your mouse).
 - **Repeat:** Never, Daily, Weekly or Monthly. The monthly reset is the 1st of the month, 00:00 UTC. In a file a goal
