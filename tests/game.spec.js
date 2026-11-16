@@ -19,12 +19,31 @@ const SHOT = {
 // whose letters line up like a column of ticks, more of them than the tasks in view.
 const CHAT = 'The ensouled moonstone consumes the escaped spirit of the rock.';
 const HARD_DAEMONHEIM = ['not', 'not', 'not', 'locked', 'locked', 'done', 'done'];
+// The badges of each area, cut from the game: where each one is in tests/fixtures/game/badges.png.
+const BADGES = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, 'fixtures', 'game', 'badges.json'), 'utf8'));
+// Reads a picture with each row's badge swapped for one of the same state from the sprite: cells.todo, cells.done
+// and cells.locked (a row of a state the sprite has no badge for keeps its own).
+function readWithBadges(page, src, cells) {
+  return page.evaluate(async ([s, c]) => {
+    const load = async (u) => { const im = new Image(); im.src = u; await im.decode(); return im; };
+    const im = await load(s), sprite = await load('/tests/fixtures/game/badges.png');
+    const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
+    const x = cv.getContext('2d'); x.drawImage(im, 0, 0);
+    const R = window.QuickGuideReader, before = R.read(x.getImageData(0, 0, im.width, im.height).data, im.width, im.height);
+    before.rows.forEach((row) => {
+      const at = row.done ? c.done : row.locked ? c.locked : c.todo;
+      if (at) x.drawImage(sprite, at[0], at[1], 28, 28, before.x0 - 7, row.y - 21, 28, 28);
+    });
+    const r = R.read(x.getImageData(0, 0, im.width, im.height).data, im.width, im.height);
+    return r.found ? r.rows.map((row) => (row.locked ? 'locked' : row.done ? 'done' : 'not')) : null;
+  }, [src, cells]);
+}
 
 // Reads a picture with the reader, in the page. scale resizes it first; cut keeps only the top part;
 // filter is a canvas filter, or 'jpeg' to save it as a JPEG first.
 function readShot(page, src, o) {
-  o = Object.assign({ scale: 1, cut: 1, filter: '', blue: null, open: null, raw: false }, o);
-  return page.evaluate(([s, k, c, f, b, open, o]) => new Promise((done, fail) => {
+  o = Object.assign({ scale: 1, cut: 1, filter: '', open: null, raw: false }, o);
+  return page.evaluate(([s, k, c, f, open, o]) => new Promise((done, fail) => {
     const im = new Image();
     im.onload = async () => {
       const w = Math.round(im.width * k), h = Math.round(im.height * k * c);
@@ -34,8 +53,6 @@ function readShot(page, src, o) {
       x.drawImage(im, 0, 0, w, Math.round(im.height * k));
       if (f === 'jpeg') { const j = new Image(); j.src = cv.toDataURL('image/jpeg', 0.6); await j.decode(); x.drawImage(j, 0, 0); }
       const d = x.getImageData(0, 0, w, h);
-      // Badges of another area: red and blue swapped in the badge column (blue shields, as in Falador).
-      if (b) for (let yy = 0; yy < h; yy++) for (let xx = b[0]; xx <= b[1]; xx++) { const j = (yy * w + xx) * 4, t = d.data[j]; d.data[j] = d.data[j + 2]; d.data[j + 2] = t; }
       // A task opened up: everything from this height down moves down, and the box above it grows.
       if (open) {
         const from = open[0], by = open[1], copy = new Uint8ClampedArray(d.data);
@@ -48,7 +65,7 @@ function readShot(page, src, o) {
     };
     im.onerror = fail;
     im.src = s;
-  }), [src, o.scale, o.cut, o.filter, o.blue, o.open, { raw: o.raw }]);
+  }), [src, o.scale, o.cut, o.filter, o.open, { raw: o.raw }]);
 }
 
 test.describe('the screen reader', () => {
@@ -77,13 +94,27 @@ test.describe('the screen reader', () => {
     for (const k of [1.25, 1.5, 2]) expect(await readShot(page, SHOT.daemonheim, { scale: k }), String(k)).toEqual(HARD_DAEMONHEIM);
   });
 
-  // Every area has its own badge (Falador's is a blue shield, Karamja's a palm): the rows are found by their boxes.
-  test('badges of another colour: the rows are found by their boxes, and done is the gold title', async ({ page }) => {
-    const r = await readShot(page, SHOT.daemonheim, { blue: [282, 309], raw: true });
-    expect(r).toEqual({ found: true, sure: true, opened: false, rows: ['not', 'not', 'not', 'not', 'not', 'done', 'done'] });
-    // The same list as the game draws it is read the same way.
+  // Every area has its own badge (Falador's is a blue shield, Karamja's a palm), cut from the game into a sprite
+  // (tests/fixtures/game/badges.png, with badges.json saying where each one is). Each area's badges go over the
+  // badges of a real list: its rows are still found by their boxes, done is still the gold title, and a lock is a lock.
+  test('every area\'s own badges, from the sprite: the list is read the same', async ({ page }) => {
     expect((await readShot(page, SHOT.daemonheim, { raw: true })).sure).toBe(true);
-    expect((await readShot(page, SHOT.desert, { blue: [642, 669], raw: true })).rows).toEqual(['not', 'not', 'done', 'done', 'done', 'done']);
+    for (const [area, cells] of Object.entries(BADGES.areas)) {
+      const c = {};
+      for (const [k, at] of Object.entries(cells)) { const st = /locked$/.test(k) ? 'locked' : /done$/.test(k) ? 'done' : 'todo'; if (!c[st]) c[st] = at; }
+      expect(await readWithBadges(page, SHOT.daemonheim, c), area).toEqual(HARD_DAEMONHEIM);
+      expect(await readWithBadges(page, SHOT.desert, c), area + ' (Desert\'s list)').toEqual(['not', 'not', 'done', 'done', 'done', 'done']);
+    }
+  });
+
+  test('the sprite of badges: every badge in badges.json is a whole 28 x 28 cell of badges.png', async ({ page }) => {
+    const size = await page.evaluate(async () => { const im = new Image(); im.src = '/tests/fixtures/game/badges.png'; await im.decode(); return [im.width, im.height]; });
+    const all = Object.values(BADGES.areas).flatMap((cells) => Object.values(cells));
+    expect(all.length).toBeGreaterThanOrEqual(15);
+    for (const [x, y] of all) {
+      expect(x % BADGES.cell + y % BADGES.cell).toBe(0);
+      expect(x + BADGES.cell <= size[0] && y + BADGES.cell <= size[1]).toBe(true);
+    }
   });
 
   test('a task opened up to show its steps: only the rows above it are read', async ({ page }) => {

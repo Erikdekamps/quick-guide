@@ -1,13 +1,13 @@
 // Shared test setup for Quick Guide.
 // - The app's files are served from this folder at http://quick-guide.test (no web server needed).
-// - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures).
+// - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures/wiki).
 // - Fonts, map tiles and wiki pictures are stubbed, and anything else on the internet is blocked.
 const base = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
-const FIXTURES = path.join(ROOT, 'tests', 'fixtures');
+const FIXTURES = path.join(ROOT, 'tests', 'fixtures', 'wiki');
 const ORIGIN = 'http://quick-guide.test';
 // A 1x1 transparent PNG, for map tiles and wiki pictures.
 // The wiki API allows any site to read it (origin=*); the fake one says the same.
@@ -30,7 +30,7 @@ class Wiki {
   missing(title) { this.pages[title] = { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } }; return this; }
   // A page that fails: 'http' (500), 'network', 'format' (no parse), 'slow' (never answers).
   fail(title, how) { this.pages[title] = { fail: how }; return this; }
-  // The standard set: the quest list and the guides in tests/fixtures.
+  // The standard set: the quest list and the guides in tests/fixtures/wiki.
   standard() {
     this.page('List of quests', fixture('list-of-quests.html'));
     this.page('Quests/Progression guide', fixture('progression-guide.html'));

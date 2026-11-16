@@ -259,7 +259,7 @@ The tests use [Playwright](https://playwright.dev/) with Chromium, the browser A
 in a 360 × 720 window, like Alt1, and click through it like a person would.
 
 - They run on GitHub for every pull request and every push to `main` (the **Actions** tab).
-- They use a fake copy of the wiki (`tests/fixtures/`), so they need no internet.
+- They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
 - **Scan achievements** is tested on screenshots of the game (`tests/fixtures/game/`) with a fake Alt1: done, not done
   and locked tasks; badges of another colour; a task opened up; every tier name the app comes with; bigger screens
