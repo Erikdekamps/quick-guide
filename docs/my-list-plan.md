@@ -4,6 +4,19 @@ The plan for the third tab in Quick Guide: your own lists of goals.
 **It is built** (`app-todo.js`, tested in `tests/todo.spec.js`). The README's "My list" part says how to use it.
 The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/`, made from the real app.
 
+## Changed after the first build
+
+- **No stars.** An area task has a ⋯ menu with **Add to list…**; a quest's and an area's own menu have it too.
+  It opens a box with a dropdown of your lists (or a new list). "+ goal" opens the same box. So "Change list" in the
+  message is gone: you pick the list first.
+- **Flat goals.** A goal is a tick box, what it says, and its menu. No tag for its kind, no detail line, no bar, and
+  no counter: "500 Magic logs" is a goal you tick, as you typed it. Items and unlocks are no kinds of their own any
+  more (saved ones become plain goals). A skill goal ticks itself once your character is known; until then you tick it.
+- **The title band** (the emblem, Quick Guide, the cog) is on every screen. On a quest or an area, the back button,
+  the name and its ⋯ menu are in a bar under it.
+
+The rest of this plan is as it was written before the build.
+
 ## What it is for
 
 You make your own lists and put in what you want to get done. A list can be anything:

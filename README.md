@@ -33,7 +33,8 @@ Wiki links open in your normal browser, so the app stays on the guide.
   Type to search; **Enter** opens the best match.
 - Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
   difficulty, length, series or newest. Click a group name to fold it.
-- Click a quest. Its guide is read from the wiki once, then kept on your computer. It has three tabs:
+- Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band stays on top;
+  under it are the back button (to all quests), the quest's name and its **⋯** menu. It has three tabs:
   - **Overview:** details, the quest tree, skills, enemies and rewards.
   - **Items:** what to bring, with tick boxes.
   - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
@@ -73,15 +74,15 @@ under its area, in the game's order.
 The **My list** tab holds your own lists of goals. Name them what you like: **Today**, **This week**,
 **Skilling goals**, **Gathering**. The tab shows how many goals are still open.
 
-- **Add a goal** in the box at the top. It goes in the list next to the box. The app reads what you type:
-  - "82 thieving" or "thieving 82": a skill goal. It ticks itself when your character gets the level.
-  - "500 magic logs" or "magic logs x500": an item goal, with − and + and a box to type how many you have.
-  - "unlock soul split": an unlock. Anything else is a plain goal.
-- **The ★ on a quest, an area task or a tier** puts it on the list you used last. The message says which, with
-  **Change list** and **Undo**. Press the ★ again to take it off.
-- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) adds that level.
-- Skill, item, quest and tier goals tick themselves. An area task is one tick, shown in the list and in its area.
-- A list's **⋯**: add a goal (with every field: what, the list, how often, a note), rename, move the list up or
+- A goal is one flat row: a tick box, what it says, and its **⋯** menu.
+- **Add a goal** in the box at the top. It goes in the list next to the box, as you typed it ("500 magic logs",
+  "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your character is looked up.
+- **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
+  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list.
+  The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
+- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
+- Skill levels, quests and tiers tick themselves. An area task is one tick, shown in the list and in its area.
+- A list's **⋯**: add a goal (with every field: the goal, the list, how often, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, open it (its quest or area, or the wiki), move it to another list or a new one, move it up
   or down, remove it. Removing, clearing and deleting can be undone.
@@ -135,7 +136,8 @@ The same on every screen:
 - **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
 
-The **⋯** button in a quest or area refreshes it from the wiki, opens it on the wiki, or resets its progress.
+The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
+the wiki, or resets its progress.
 
 ## Export and import
 
@@ -150,7 +152,7 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 (`447 …`) or a step (`993:1 …`) is how the app finds it; a task can also be written by its name alone.
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
-`"500 Magic logs": "320 / 500"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
+`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
 `"Vis wax (every day)"`. Add a list or a goal by hand and it comes in. Skill, quest, task and tier goals tick themselves,
 so their `true` or `false` is only to read.
 
@@ -175,7 +177,7 @@ so their `true` or `false` is only to read.
   },
   "mylist": {
     "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax (every day)": true },
-    "Gathering": { "500 Magic logs": "320 / 500" }
+    "Gathering": { "500 Magic logs": false }
   }
 }
 ```
@@ -232,7 +234,7 @@ No other service is used.
 | `app-core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
 | `app-quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
 | `app-areas.js` | Area tasks: the list of tiers, search, and one area |
-| `app-todo.js` | My list: your lists of goals, the stars and "+ goal", goals that come back |
+| `app-todo.js` | My list: your lists of goals, Add to list (in the ⋯ menus) and "+ goal", goals that come back |
 | `app-backup.js` | Export and import |
 | `app-scan.js` | Scan achievements (Alt1) |
 | `app.js` | Loaded last: the clicks and keys of every screen, and the start |
@@ -262,7 +264,7 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
 - **Scan achievements** is tested on screenshots of the game (`tests/fixtures/game/`) with a fake Alt1: done, not done
-  and locked tasks; badges of another colour; a task opened up; every tier name the app comes with; bigger screens
+  and locked tasks; every area's badge (a sprite cut from the game, `badges.png`); a task opened up; every tier name the app comes with; bigger screens
   and interface sizes; blurry, dark and JPEG pictures; busy screens where no list may be found; scrolling (slow,
   fast, too far); tooltips; both ways Alt1 hands over pictures; and how fast one look is.
 
