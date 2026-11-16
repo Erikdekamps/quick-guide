@@ -1043,8 +1043,15 @@ ul.steps.ql { padding: 0; }
 .goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 .goal .rp { white-space: nowrap; }
 .goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
-/* a done goal: struck through */
-.goal.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a done goal, or sub task: struck through */
+.goal.done > .row .t, .gsub.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a goal's sub tasks: its own small checklist, under it; how many are done after the goal */
+.goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gsubs { list-style: none; margin: -4px 0 4px; padding: 0; }
+.gsub .row { padding: 3px 4px 3px 30px; }
+.gsub .cb { width: 1.071rem; height: 1.071rem; }
+.gsub .cb::before { width: .357rem; height: .643rem; }
+.gsub .t { font-weight: 400; color: var(--text); }
 .rowm { flex: none; }
 .newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
 .para.mid { text-align: center; }

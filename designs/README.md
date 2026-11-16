@@ -29,9 +29,10 @@ so they match it.
 | `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
-| `MyList.dc.html` | My list: the add box with its list, then your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals |
+| `MyList.dc.html` | My list: the add box with its list, then your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks |
 | `MyListNew.dc.html` | A new list: type a name, or start from a suggestion |
 | `MyListLists.dc.html` | A list's menu: add a goal here, rename, move the list, clear done goals, delete the list |
+| `MyListSub.dc.html` | Adding a sub task to a goal |
 | `MyListAdd.dc.html` | The Add a goal box: the goal, the list, how often, a note |
 | `MyListMenu.dc.html` | A goal's menu: edit, open, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |

@@ -247,7 +247,7 @@ test.describe('ticking and planning', () => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'other', title: 'Buy a cape' }], Gathering: [] }));
     await goalMenu(page, 'Vis wax');
     await expect(page.locator('#tmenu .mh')).toHaveText(['Vis wax', 'Move to']);
-    await expect(menuItems(page)).toHaveText(['Edit', 'Today', 'Gathering', 'New list…', 'Move up', 'Move down', 'Remove']);
+    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Today', 'Gathering', 'New list…', 'Move up', 'Move down', 'Remove']);
     await expect(page.locator('#tmenu .mi', { hasText: 'Today' })).toHaveAttribute('aria-checked', 'true');
     await page.locator('#tmenu .mi', { hasText: 'Gathering' }).click();
     await expect(goals(page, 'Gathering').locator('.t')).toHaveText(['Vis wax']);
@@ -279,6 +279,76 @@ test.describe('ticking and planning', () => {
     await page.locator('.qmeta').click();
     await expect(page.locator('#tmenu')).toHaveCount(0);
     expect(page.errors).toEqual([]);
+  });
+});
+
+test.describe('sub tasks', () => {
+  const subs = (page, text) => goal(page, text).locator('li.gsub');
+  async function addSub(page, text, sub) {
+    await goalMenu(page, text);
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Add a sub task');
+    await expect(dialog(page).locator('.what')).toHaveText(text);
+    await page.locator('#ts-text').fill(sub);
+    await page.locator('#ts-text').press('Enter');
+    await expect(page.locator('#td')).toHaveCount(0);
+  }
+
+  test('a goal gets its own small checklist; it is done when every sub task is, and ticking it ticks them all', async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Ardougne Hard' }, { kind: 'other', title: 'Vis wax' }] }));
+    await addSub(page, 'Ardougne Hard', '82 Thieving');
+    await addSub(page, 'Ardougne Hard', 'buy a rope');
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['82 Thieving', 'Buy a rope']);
+    await expect(goal(page, 'Ardougne Hard').locator('.row .sc').first()).toHaveText('0 / 2');
+    // one by one: the goal is done with the last one
+    await subs(page, 'Ardougne Hard').nth(0).locator('.cb').click();
+    await expect(goal(page, 'Ardougne Hard').locator('.row .sc').first()).toHaveText('1 / 2');
+    await expect(goal(page, 'Ardougne Hard')).not.toHaveClass(/\bdone\b/);
+    await subs(page, 'Ardougne Hard').nth(1).locator('.t').click();
+    await expect(goal(page, 'Ardougne Hard')).toHaveClass(/\bdone\b/);
+    await expect(listBar(page, 'Today').locator('.c')).toHaveText('1 / 2');
+    // unticking the goal unticks them all; ticking it ticks them all
+    await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
+    await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(0);
+    await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
+    await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(2);
+    // a sub task unticked: the goal is open again
+    await subs(page, 'Ardougne Hard').nth(0).locator('.cb').click();
+    await expect(goal(page, 'Ardougne Hard')).not.toHaveClass(/\bdone\b/);
+    // kept after a reload
+    await page.reload();
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['82 Thieving', 'Buy a rope']);
+    await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(1);
+    // removed with its ×, and Undo
+    await subs(page, 'Ardougne Hard').nth(1).getByRole('button', { name: 'Remove sub task: Buy a rope' }).click();
+    await expect(subs(page, 'Ardougne Hard')).toHaveCount(1);
+    await expect(page.locator('#toast')).toContainText('Removed Buy a rope.');
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(subs(page, 'Ardougne Hard')).toHaveCount(2);
+    // nothing typed; and at most 20
+    await goalMenu(page, 'Vis wax');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('Type a sub task first.');
+    await page.keyboard.press('Escape');
+    const t = await stored(page, 'todo');
+    expect(t.lists[0].items[0].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['82 Thieving', 0], ['Buy a rope', 1]]);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('at most 20 sub tasks; a goal that repeats unticks its sub tasks too', async ({ page }) => {
+    await page.clock.install({ time: new Date('2026-11-16T21:00:00Z') });
+    const many = Array.from({ length: 20 }, (_, i) => ({ id: 's' + i, title: 'Step ' + (i + 1) }));
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Big', subs: many }, { kind: 'other', title: 'Dailies', repeat: 'day', subs: [{ id: 'a', title: 'Vis wax' }, { id: 'b', title: 'Herbs' }] }] }));
+    await goalMenu(page, 'Big');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await expect(page.locator('#toast')).toHaveText('A goal has at most 20 sub tasks.');
+    await expect(page.locator('#td')).toHaveCount(0);
+    await goal(page, 'Dailies').locator('.row > .cb').first().click();
+    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(2);
+    await page.clock.fastForward('04:00:00');
+    await expect(goal(page, 'Dailies')).not.toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(0);
   });
 });
 
@@ -361,7 +431,7 @@ test.describe('goals that tick themselves', () => {
     await expect(goal(page, 'While Guthix Sleeps')).not.toHaveClass(/\bdone\b/);
     // open the quest from the goal's menu
     await goalMenu(page, 'While Guthix Sleeps');
-    await expect(menuItems(page)).toHaveText(['Edit', 'Open the quest', 'My list', 'Quests', 'New list…', 'Move up', 'Move down', 'Remove']);
+    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Open the quest', 'My list', 'Quests', 'New list…', 'Move up', 'Move down', 'Remove']);
     await page.locator('#tmenu .mi', { hasText: 'Open the quest' }).click();
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     // done when the game says so
@@ -569,7 +639,7 @@ test.describe('export and import', () => {
     await openList(page, lists({
       Today: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }, { kind: 'other', title: 'Vis wax', repeat: 'day', done: Date.now() }, { kind: 'other', title: 'Unlock Soul Split', note: 'Needs a quest' }],
       'Skilling goals': [{ kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'quest', title: 'While Guthix Sleeps' }, { kind: 'tier', area: 'Ardougne', tier: 'hard', title: 'Ardougne Hard' }],
-      Gathering: [{ kind: 'other', title: '500 Magic logs' }],
+      Gathering: [{ kind: 'other', title: '500 Magic logs', subs: [{ id: 'a', title: 'Cut 250', done: 1 }, { id: 'b', title: 'Cut 250 more' }] }],
       Empty: []
     }));
     const j = JSON.parse(await exportText(page));
@@ -577,7 +647,7 @@ test.describe('export and import', () => {
     expect(j.mylist).toEqual({
       Today: { 'Task 448: Yoink! (Ardougne Easy)': false, 'Vis wax (daily)': true, 'Unlock Soul Split': { done: false, note: 'Needs a quest' } },
       'Skilling goals': { '82 Thieving': false, 'Quest: While Guthix Sleeps': false, 'Tier: Ardougne Hard': false },
-      Gathering: { '500 Magic logs': false },
+      Gathering: { '500 Magic logs': { done: false, subs: { 'Cut 250': true, 'Cut 250 more': false } } },
       Empty: {}
     });
     // a fresh start, then the file: the same lists
@@ -588,6 +658,7 @@ test.describe('export and import', () => {
     await expect(page.locator('#toast')).toContainText(' and 4 lists.');
     expect(await saved(page)).toEqual(before);
     expect((await stored(page, 'todo')).lists[0].items[2]).toMatchObject({ note: 'Needs a quest' });
+    expect((await stored(page, 'todo')).lists[2].items[0].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['Cut 250', 1], ['Cut 250 more', 0]]);
   });
 
   test('goals typed by hand in the file are read like the add box reads them; a file without lists leaves yours', async ({ page }) => {

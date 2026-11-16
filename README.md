@@ -88,6 +88,8 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
 - A goal's **⋯**: edit, open it (its quest or area, or the wiki), move it to another list or a new one, move it up
   or down, remove it. Removing, clearing and deleting can be undone.
 - A done goal stays where it is, struck through, until you clear it.
+- **Sub tasks:** a goal's ⋯ → **Add sub task** gives it its own small checklist, under it (at most 20).
+  The goal is done when every sub task is; ticking the goal ticks them all. The × takes one away (with Undo).
 - A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,
   Wednesday 00:00 UTC each week, and the 1st of the month at 00:00 UTC. Until then it says when it is back, in your
   own time.
@@ -155,7 +157,8 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
 `"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
-`"Vis wax (daily)"` (or weekly, monthly). Add a list or a goal by hand and it comes in.
+`"Vis wax (daily)"` (or weekly, monthly). A goal with a note or sub tasks is
+`{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`. Add a list or a goal by hand and it comes in.
 
 ```json
 {
@@ -254,7 +257,7 @@ No other service is used.
 | `designs/` | Design boards and screenshots of every screen |
 | `docs/my-list-plan.md` | The plan My list was built from, and what could come later |
 
-When you change a file, also raise the `?v=1.35.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.36.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

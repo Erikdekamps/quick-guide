@@ -13,7 +13,7 @@
     playerStatus = A.playerStatus, plural = A.plural, QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset,
     toast = A.toast;
 
-  var MAX_LISTS = 30, MAX_GOALS = 300, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
+  var MAX_LISTS = 30, MAX_GOALS = 300, MAX_SUBS = 20, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
   var DAY = 24 * 3600 * 1000;
   var FULL_GOALS = 'You have 300 goals. Remove some first.', FULL_LISTS = 'You have 30 lists. Delete one first.';
   // The kinds of goal. You tick any of them; a skill goal also ticks itself when your character has the level, a
@@ -103,6 +103,15 @@
     if (nt) g.note = nt;
     if (g.kind === 'other' && REPEATS[x.repeat]) g.repeat = x.repeat;
     ['at', 'done', 'upd'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
+    // Its sub tasks: a small checklist of its own.
+    var subs = (Array.isArray(x.subs) ? x.subs : []).map(function (u) {
+      var st = isMap(u) ? line(u.title) : '';
+      if (!st) return null;
+      var o = { id: line(u.id, 40) || newId('s'), title: st };
+      if (+u.done > 0) o.done = +u.done;
+      return o;
+    }).filter(Boolean).slice(0, MAX_SUBS);
+    if (subs.length) g.subs = subs;
     if (!g.at) g.at = Date.now();
     return g;
   }
@@ -204,9 +213,11 @@
     var t = S.todo || todo(), now = Date.now(), changed = false;
     t.lists.forEach(function (l) {
       l.items.forEach(function (g) {
-        if (!g.repeat || !g.done || (g.upd || g.done) >= lastReset(g.repeat, now)) return;
+        var any = g.done || (g.subs || []).some(function (u) { return u.done; });
+        if (!g.repeat || !any || (g.upd || g.done || 0) >= lastReset(g.repeat, now)) return;
         delete g.done;
         delete g.upd;
+        (g.subs || []).forEach(function (u) { delete u.done; });
         changed = true;
       });
     });
@@ -273,9 +284,18 @@
       '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
       (g.repeat ? '<span class="rp">' + I.refresh + (s.done ? backText(g.repeat) : REPEATS[g.repeat]) + '</span>' : '') +
+      (g.subs ? '<span class="sc">' + g.subs.filter(function (u) { return u.done; }).length + ' / ' + g.subs.length + '</span>' : '') +
       (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
-      '</div></li>';
+      '</div>' + (g.subs ? '<ul class="gsubs">' + g.subs.map(function (u) { return subHtml(g, u); }).join('') + '</ul>' : '') + '</li>';
+  }
+  // A sub task: its tick box, what it says, and a button to take it away.
+  function subHtml(g, u) {
+    var tid = esc('st-' + g.id + '-' + u.id);
+    return '<li class="gsub' + (u.done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
+      '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (u.done ? ' checked' : '') + '>' +
+      '<div class="rb"><span class="t" id="' + tid + '">' + esc(u.title) + '</span></div>' +
+      '<button class="ib xs" type="button" data-subx="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-label="Remove sub task: ' + esc(u.title) + '" title="Remove">' + I.x + '</button></div></li>';
   }
   // One list: its bar (the name, done / all, the list menu), then its goals. tally counts what the line above the lists says.
   function listHtml(l, c, tally) {
@@ -542,11 +562,51 @@
   function tickGoal(id, on) {
     var hit = goalById(id);
     if (!hit) return;
-    var g = hit.g;
+    setDone(hit.g, on);
+    (hit.g.subs || []).forEach(function (u) { if (on) u.done = 1; else delete u.done; });
+    changed();
+  }
+  function setDone(g, on) {
     if (g.kind === 'task') tickTaskInArea(g, on);
     if (g.kind === 'quest') setMarked(g.title, on);
     if (on) g.done = Date.now(); else delete g.done;
     if (g.repeat) g.upd = Date.now();
+  }
+  // A sub task ticked: the goal is done when all of them are, and open again when one is not.
+  function tickSub(gid, sid, on) {
+    var hit = goalById(gid), g = hit && hit.g, u = g && (g.subs || []).filter(function (x) { return x.id === sid; })[0];
+    if (!u) return;
+    if (on) u.done = 1; else delete u.done;
+    if (g.repeat) g.upd = Date.now();
+    var all = g.subs.every(function (x) { return x.done; }), done = goalState(g, ctx()).done;
+    if (all && !done) setDone(g, true);
+    else if (!all && g.done) setDone(g, false);
+    changed();
+  }
+  function removeSub(b) {
+    var hit = goalById(b.getAttribute('data-gid')), g = hit && hit.g, id = b.getAttribute('data-subx');
+    var u = g && (g.subs || []).filter(function (x) { return x.id === id; })[0], snap = snapshot();
+    if (!u) return;
+    g.subs.splice(g.subs.indexOf(u), 1);
+    if (!g.subs.length) delete g.subs;
+    changed();
+    tell('Removed <b>' + esc(u.title) + '</b>.', [['Undo', undoer(snap)]]);
+  }
+  // "Add sub task" in a goal's menu: a box for what it says.
+  function subDialog(id) {
+    var hit = goalById(id);
+    if ((hit.g.subs || []).length >= MAX_SUBS) { closeMenus(); toast('A goal has at most 20 sub tasks.'); return; }
+    openDialog({ type: 'sub', id: id }, '<h2 class="dh" id="td-h">Add a sub task</h2><p class="what"><b>' + esc(goalTitle(hit.g)) + '</b></p>' +
+      fieldHtml('ts-text', 'Sub task', '', TEXT_MAX, 'Like Buy a rope') + errHtml() + buttonsHtml('Add'));
+  }
+  function submitSub(st) {
+    var hit = goalById(st.id), text = line(byId('ts-text').value);
+    if (!text) { dialogErr('Type a sub task first.'); return; }
+    closeDialog();
+    if (!hit) return;
+    var g = hit.g;
+    (g.subs = g.subs || []).push({ id: newId('s'), title: cap1(text) });
+    if (g.done) delete g.done;
     changed();
   }
   function setLast(id) {
@@ -582,7 +642,7 @@
     var open = g.kind === 'quest' ? '<button class="mi" type="button" role="menuitem" data-quest="' + esc(g.title) + '">' + I.ext + 'Open the quest</button>' :
       FIXED[g.kind] ? '<button class="mi" type="button" role="menuitem" data-area="' + esc(g.area) + '" data-atier="' + esc(g.tier) + '">' + I.ext + 'Open ' + esc(g.kind === 'task' ? g.area + ' ' + g.tname : g.title) + '</button>' :
         g.kind === 'skill' ? '<a class="mi" role="menuitem" href="' + esc(QG.pageUrl(skillName(g.skill))) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on the wiki</a>' : '';
-    openMenu(btn, 'goal', g.id, '<p class="mh">' + esc(goalTitle(g)) + '</p>' + mitem('gedit', I.edit, 'Edit') + open +
+    openMenu(btn, 'goal', g.id, '<p class="mh">' + esc(goalTitle(g)) + '</p>' + mitem('gedit', I.edit, 'Edit') + mitem('gsub', I.plus, 'Add sub task') + open +
       '<hr><p class="mh">Move to</p>' + todo().lists.map(function (x) {
         return '<button class="mi" type="button" role="menuitemradio" aria-checked="' + (x === l) + '" data-tm="gmove" data-to="' + esc(x.id) + '">' +
           (x === l ? I.check : I.blank) + '<span class="ml">' + esc(x.name) + '</span></button>';
@@ -609,6 +669,7 @@
     if (!hit) { closeMenus(); return; }
     var g = hit.g, l = hit.l, snap = snapshot();
     if (act === 'gedit') { goalDialog({ edit: id }); return; }
+    if (act === 'gsub') { subDialog(id); return; }
     if (act === 'gmovenew') { listDialog('new', '', id); return; }
     closeMenus();
     if (act === 'gmove') {
@@ -797,6 +858,7 @@
     if (st && st.type === 'list') submitList(st);
     else if (st && st.type === 'goal') submitGoal(st);
     else if (st && st.type === 'addto') submitAddTo(st);
+    else if (st && st.type === 'sub') submitSub(st);
     return true;
   }
 
@@ -809,14 +871,18 @@
     if (g.kind === 'quest') return 'Quest: ' + g.title;
     return g.title + (g.repeat ? ' (' + REPEATS[g.repeat] + ')' : '');
   }
-  // { "<list>": { "<goal>": true or false } }. A goal with a note: { done, note }.
+  // { "<list>": { "<goal>": true or false } }. A goal with a note or sub tasks: { done, note, subs: { "<sub task>": true } }.
   function exportTodo() {
     var out = {}, c = ctx();
     todo().lists.forEach(function (l) {
       var o = {};
       l.items.forEach(function (g) {
         var v = goalState(g, c).done;
-        if (g.note) v = { done: v, note: g.note };
+        if (g.note || g.subs) {
+          v = { done: v };
+          if (g.note) v.note = g.note;
+          if (g.subs) { v.subs = {}; g.subs.forEach(function (u) { v.subs[u.title] = !!u.done; }); }
+        }
         var k = goalLine(g), key = k, n = 2;
         while (Object.prototype.hasOwnProperty.call(o, key)) key = k + ' #' + n++;
         o[key] = v;
@@ -839,6 +905,7 @@
         if (!g) return;
         if (isMap(v)) {
           if (typeof v.note === 'string') g.note = v.note;
+          if (isMap(v.subs)) g.subs = Object.keys(v.subs).map(function (t) { return { title: t, done: v.subs[t] === true ? 1 : 0 }; });
           v = v.done;
         }
         var cm = typeof v === 'string' ? /^([\d,.]+[km]?) ?\/ ?([\d,.]+[km]?)$/i.exec(v.replace(/\s+/g, ' ').trim()) : null;
@@ -859,7 +926,7 @@
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToItemHtml: addToItemHtml, addToPick: addToPick,
     closeTodoDialog: closeDialog, exportTodo: exportTodo, goalMenu: goalMenu, hasSkillGoal: hasSkillGoal, importTodo: importTodo,
     itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); },
-    pickSeg: pickSeg, setTodoLast: setLast, startTodoClock: startClock, taskMenuHtml: taskMenuHtml, tickGoal: tickGoal,
+    pickSeg: pickSeg, removeSub: removeSub, setTodoLast: setLast, tickSub: tickSub, startTodoClock: startClock, taskMenuHtml: taskMenuHtml, tickGoal: tickGoal,
     todoCountHtml: countHtml, todoFormHtml: todoFormHtml, todoHtml: todoHtml, todoSubmit: todoSubmit, toastAct: toastAct,
     unlist: unlist, updateTodoCount: updateCount, useSuggestion: useSuggestion });
   A.loaded.todo = true;
