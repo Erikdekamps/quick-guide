@@ -58,6 +58,19 @@ test.describe('reading what you type', () => {
   }
 });
 
+// A link with nothing to read in it is left out; a link whose text sits in other tags is kept.
+// (Tags are never taken out of HTML text with a pattern: the browser reads the HTML, so "<<b>b>" cannot slip through.)
+test('links with no text are left out, links with text in tags are kept', async ({ page }) => {
+  const q = await parse(page, '<h2>Part</h2><ul><li>Go <a href="/w/A"><span></span></a>to <a href="/w/B"><span><b>Bob</b></span></a>, ' +
+    'then <a href="/w/C">&lt;&lt;b&gt;b&gt;</a>.</li></ul>');
+  const h = q.sections[0].blocks[0].html;
+  expect(h).not.toContain('/w/A');
+  expect(h).toContain('<a href="https://runescape.wiki/w/B" target="_blank" rel="noopener"><b>Bob</b></a>');
+  // text that looks like tags is text: kept, and still escaped
+  expect(h).toContain('&lt;&lt;b&gt;b&gt;</a>');
+  expect(h).not.toContain('<<b>');
+});
+
 test('wiki page addresses', async ({ page }) => {
   const urls = await page.evaluate(() => [
     window.QuickGuide.pageUrl("Cook's Assistant"),

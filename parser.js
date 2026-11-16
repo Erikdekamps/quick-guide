@@ -169,7 +169,7 @@
     switch (tag) {
       case 'A':
         inner = inline(n, page, o);
-        if (!clean(inner.replace(/<[^>]*>/g, '')) && inner.indexOf('<img') < 0) return '';
+        if (!plainOf(inner) && inner.indexOf('<img') < 0) return '';   // nothing to read or see in it
         var href = o.noLinks ? '' : absUrl(n.getAttribute('href'), page);
         return href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener">' + inner + '</a>' : inner;
       case 'B': case 'STRONG':

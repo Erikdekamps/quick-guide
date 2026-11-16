@@ -211,7 +211,7 @@ No other service is used.
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.32.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.33.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 
