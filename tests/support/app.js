@@ -253,9 +253,15 @@ async function parsedQuest(page, file, title, live) {
   return page.evaluate(([h, t, l]) => window.QuickGuide.parse('<div class="mw-parser-output">' + h + '</div>',
     { title: t, base: t.replace(/\/Quick guide$/, ''), live: l || {} }), [fixture(file), title, live]);
 }
+// The text of a bit of HTML, for comparing: tags taken out until none is left (so "<<b>b>" does not leave a "<b>").
+function plain(html) {
+  let s = String(html), was;
+  do { was = s; s = s.replace(/<[^<>]*>/g, ''); } while (s !== was);
+  return s.replace(/\s+/g, ' ').trim();
+}
 // On the start screen: a quest's row, every quest name in the list, and the group headers.
 const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest, plain };

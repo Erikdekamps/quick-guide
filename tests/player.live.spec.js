@@ -1,6 +1,6 @@
 // Player lookup against the real wiki. Needs the internet: npm run test:live
 // The wiki passes on Jagex's quest and level data, and lets any web page read it.
-// (Tried and dropped: WikiSync and Jagex's own servers do not answer a page on GitHub Pages.)
+// Jagex's own servers may not answer a page on GitHub Pages: the app asks them after the wiki.
 const base = require('@playwright/test');
 const { ORIGIN, serveFile } = require('./support/app');
 
@@ -21,7 +21,7 @@ test('the wiki passes on quests and levels to any web page', async ({ page }) =>
   expect(p.done).toBeGreaterThan(50);
   expect(p.levels.magic).toBeGreaterThan(1);
   expect(Object.keys(p.levels).length).toBeGreaterThan(20);
-  // Which lookup answered: Jagex's Player Data API (with quest points), or the older one. Both are fine.
+  // Which lookup answered: Player Data (with quest points), or RuneMetrics (playerQuests and the hiscores). Both are fine.
   console.log('player lookup answered by: ' + p.source + (p.qp != null ? ', ' + p.qp + ' / ' + p.qpMax + ' QP' : ''));
   expect(['Player Data', 'RuneMetrics']).toContain(p.source);
 });

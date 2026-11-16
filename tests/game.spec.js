@@ -77,7 +77,7 @@ test.describe('the screen reader', () => {
     for (const k of [1.25, 1.5, 2]) expect(await readShot(page, SHOT.daemonheim, { scale: k }), String(k)).toEqual(HARD_DAEMONHEIM);
   });
 
-  // Every area has its own badge (Falador's is a blue shield, Karamja's a palm): the old way only knew red ones.
+  // Every area has its own badge (Falador's is a blue shield, Karamja's a palm): the rows are found by their boxes.
   test('badges of another colour: the rows are found by their boxes, and done is the gold title', async ({ page }) => {
     const r = await readShot(page, SHOT.daemonheim, { blue: [282, 309], raw: true });
     expect(r).toEqual({ found: true, sure: true, opened: false, rows: ['not', 'not', 'not', 'not', 'not', 'done', 'done'] });
@@ -227,7 +227,7 @@ test.describe('the screen reader', () => {
   });
 
   // A big screen (like 2560 x 1360) shows the interface bigger: the gold box's edge is 2 or 3 pixels thick,
-  // and the rows are taller. It must read the same. (This once made every scan ask "Which tier is this?".)
+  // and the rows are taller. It must read the same.
   for (const k of [2, 2.06, 3]) {
     test('the list of tiers on a bigger screen (' + k + ' times as big) reads the same', async ({ page }) => {
       for (const smooth of [false, true]) {
@@ -240,7 +240,7 @@ test.describe('the screen reader', () => {
     });
   }
 
-  // What made every scan ask "Which tier is this?": the chat's green letters, the same on every line, line up like a
+  // A chat full of one green line: its letters, the same on every line, line up like a
   // column of ticks, more of them than the tasks in view. The list is the one with the tier list (and its gold box)
   // on its left; with no tier list in view, only a column whose rows are as far apart as a task list's.
   // The whole game screen picture with a chat under it: lines of a font size, so far apart, then made scale times as big.
@@ -746,7 +746,7 @@ test.describe('Scan achievements in Alt1', () => {
     await expect(page.locator('#scan-msg')).toHaveText('Tasks 1–7 of 23.');
   });
 
-  // What made the first version race through every tier: the window is a little see-through, so every look at
+  // The window is a little see-through, so every look at
   // the game is a little different. It must stay on the tier, and not tick other tiers.
   test('a picture that is a little different every look (a see-through window) stays on the same tier', async ({ page }) => {
     await inAlt1(page);
@@ -928,7 +928,7 @@ test.describe('Scan achievements in Alt1', () => {
     // The app looks every 500 ms, so a look must stay well under that: at most 150 ms, or on a slow machine 25
     // times a plain pass over as many pixels as one look reads (the middle one of 9; a look takes about 15). The
     // test machines on GitHub differ and are shared, and the pass is timed after the looks, when the machine
-    // may be less busy: a tighter limit failed now and then with nothing changed.
+    // may be less busy than during them: the limit leaves room for that.
     const ref = await page.evaluate(() => {
       const n = 1048 * 1360, px = new Uint8ClampedArray(n * 4).fill(37), out = new Uint8Array(n), times = [];
       for (let k = 0; k < 9; k++) {

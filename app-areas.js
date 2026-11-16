@@ -225,7 +225,7 @@
   function openArea(name, tier) {
     S.error = '';
     var a = sget('area.' + name);
-    // A saved area opens at once. One saved by an older version is read again quietly; if that fails, the saved one stays.
+    // A saved area opens at once. One saved with another AREA_VERSION is read again quietly; if that fails, the saved one stays.
     if (a && Array.isArray(a.tiers) && a.tiers.length) {
       showArea(name, a, tier);
       if (a.version !== QG.AREA_VERSION) refreshArea(true);

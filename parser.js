@@ -169,7 +169,7 @@
     switch (tag) {
       case 'A':
         inner = inline(n, page, o);
-        if (!clean(inner.replace(/<[^>]*>/g, '')) && inner.indexOf('<img') < 0) return '';
+        if (!plainOf(inner) && inner.indexOf('<img') < 0) return '';   // nothing to read or see in it
         var href = o.noLinks ? '' : absUrl(n.getAttribute('href'), page);
         return href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener">' + inner + '</a>' : inner;
       case 'B': case 'STRONG':
@@ -1070,7 +1070,7 @@
   }
   // Jagex's Player Data API (developer.runescape.com): quests, skill levels and quest points in one answer, more
   // up to date than the hiscores. Asked through the wiki first, then at Jagex itself. Gives null when neither
-  // answers with quests (then the older lookup is used); a player the game does not know is an error at once.
+  // answers with quests (then fromRuneMetrics is used); a player the game does not know is an error at once.
   var PLAYER_DATA = [WIKI + '/cors/m=adventurers-log', 'https://secure.runescape.com/m=adventurers-log'];
   // The game's own skill names that differ from the ones the wiki uses.
   var SKILL_NAMES = { hitpoints: 'constitution', runecraft: 'runecrafting' };
@@ -1098,7 +1098,7 @@
     }
     return ask(0);
   }
-  // The older lookup: the quests, and the levels from the hiscores, both passed on by the wiki.
+  // RuneMetrics: the quests (playerQuests), and the levels from the hiscores, both passed on by the wiki.
   function fromRuneMetrics(name) {
     var enc = encodeURIComponent(name), fails = [];
     function soft(p) { return p.then(function (r) { return r.ok ? r.json : null; }, function (e) { fails.push(e); return null; }); }
@@ -1122,7 +1122,7 @@
       return playerResult(name, 'RuneMetrics', quests, levels, locked, titles);
     });
   }
-  // Quests and levels of one player, from Jagex: the Player Data API when it answers, else the older lookup.
+  // Quests and levels of one player, from Jagex: the Player Data API when it answers, else RuneMetrics.
   // (The wiki passes both on and lets any web page read them, so this works from GitHub Pages.)
   function loadPlayer(name) {
     name = clean(name);

@@ -1,5 +1,5 @@
 // Area Tasks: the wiki's "<Area> achievements" pages, read into tiers of tasks you tick off.
-const { test, expect, fixture, seed, stored, openApp, openCog, closeCog, lookUp, toggle, areaPage } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openCog, closeCog, lookUp, toggle, areaPage, plain } = require('./support/app');
 
 const W = 'https://runescape.wiki/w/';
 const AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania', "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'];
@@ -59,7 +59,7 @@ test.describe('reading an area page', () => {
     expect(e.skills).toEqual([{ skill: 'Thieving', level: 16 }, { skill: 'Construction', level: 10 }]);
     expect(e.quests).toEqual(['Biohazard', "Gertrude's Cat", "Monk's Friend", 'Plague City', 'Tower of Life']);
     expect(e.items.length).toBeGreaterThan(2);
-    expect(e.items[0].replace(/<[^>]+>/g, '')).toBe('Around 350 coins');
+    expect(plain(e.items[0])).toBe('Around 350 coins');
     expect(e.ironman).toContain('emerald ring');
     expect(e.ironman).not.toContain('<img');
   });
@@ -80,7 +80,7 @@ test.describe('reading an area page', () => {
     const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
     const r = a.tiers[0].reward;
     expect(r.intro).toContain('Doctor Orbon');
-    expect(r.items.map((x) => x.replace(/<[^>]+>/g, ''))).toContain('Ardougne cloak 1, which grants the following bonuses:');
+    expect(r.items.map(plain)).toContain('Ardougne cloak 1, which grants the following bonuses:');
     expect(r.perks).toContain('Unlimited teleports to the Ardougne Monastery');
     // each tier shows its own cloak's perks
     expect(a.tiers[1].reward.perks.join(' ')).toContain('Manor Farm');
@@ -104,7 +104,7 @@ test.describe('reading an area page', () => {
     const red = v.tiers[1].tasks.find((t) => t.name === 'Red, Red Pies of Summer');
     expect(red.id).toBe('993');
     expect(red.subs.map((x) => x.id)).toEqual(['993:1', '993:2', '993:3', '993:4']);
-    expect(red.subs.map((x) => x.html.replace(/<[^>]+>/g, ''))).toEqual([
+    expect(red.subs.map((x) => plain(x.html))).toEqual([
       'Make pastry dough by mixing a pot of flour with water by using the pot of flour on the pump and drain.',
       'Use the pastry dough on a pie dish.',
       'Add a strawberry, watermelon, and cooking apple to the shell (in that order).',
@@ -138,14 +138,13 @@ test.describe('reading an area page', () => {
     expect(t.subs[0].html).toContain('Go to the Castle Wars lobby');
     expect(t.notes).toContain('A draw will not count');
     // a task with a numbered list keeps its other text as the tip
-    expect(t.notes.replace(/<[^>]+>/g, '').length).toBeGreaterThan(250);
+    expect(plain(t.notes).length).toBeGreaterThan(250);
   });
 
   // Only a numbered list on the wiki is steps. A lot of text is tips, not things to do: no tick boxes for those.
   test('a task with a lot of text keeps it as its tip, with no tick boxes', async ({ page }) => {
     const a = await parse(page, 'ardougne-achievements.html', 'Ardougne');
     const all = a.tiers.flatMap((x) => x.tasks);
-    const plain = (h) => h.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const purse = all.find((x) => x.name === "Honestly, It's Not a Purse");
     expect(purse.subs).toEqual([]);
     expect(plain(purse.notes).length).toBeGreaterThan(250);
@@ -165,7 +164,7 @@ test.describe('reading an area page', () => {
     expect(t.find((x) => x.name === 'Silky Smooth').subs).toEqual([]);
     expect(t.find((x) => x.name === 'Yoink!').subs).toEqual([]);
     const l = await parse(page, 'lumbridge-achievements.html', 'Lumbridge');
-    const len = (x) => [x.notes].concat(x.subs.map((u) => u.html)).join(' ').replace(/<[^>]+>/g, '').length;
+    const len = (x) => plain([x.notes].concat(x.subs.map((u) => u.html)).join(' ')).length;
     const short = l.tiers.flatMap((x) => x.tasks).filter((x) => len(x) < 200);
     expect(short.length).toBeGreaterThan(40);
     for (const x of short) expect(x.subs, x.name).toEqual([]);
