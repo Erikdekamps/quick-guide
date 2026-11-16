@@ -39,7 +39,7 @@ test.describe('looking up a player', () => {
     await expect(row(page, 'Imp Catcher').locator('.qs')).toHaveCount(0);
     const p = await stored(page, 'player');
     expect(p).toMatchObject({ name: 'Zezima', done: 2, started: 1, levels: { magic: 80, herblore: 60 } });
-    // Player Data is tried first (through the wiki, then at Jagex); this wiki has neither, so the older lookup is used
+    // Player Data is tried first (through the wiki, then at Jagex); this wiki has neither, so RuneMetrics is used
     expect(wiki.playerCalls).toEqual([
       'https://runescape.wiki/cors/m=adventurers-log/api/v1/playerData/Zezima?includeQuests=true&includeSkills=true',
       'https://secure.runescape.com/m=adventurers-log/api/v1/playerData/Zezima?includeQuests=true&includeSkills=true',
@@ -202,7 +202,7 @@ test.describe('the Player Data lookup', () => {
 
   test('the game says there is no such player: it says so, and asks nothing more', async ({ page, wiki }) => {
     wiki.player['playerData/Nobody'] = { status: 404, json: { error: 'PLAYER_NOT_FOUND' } };
-    wiki.setPlayer('Nobody', { 'Imp Catcher': 'COMPLETED' }, {});   // the older lookup would find something
+    wiki.setPlayer('Nobody', { 'Imp Catcher': 'COMPLETED' }, {});   // RuneMetrics would find something
     await openApp(page, expect);
     await lookUp(page, 'Nobody');
     await expect(page.locator('#player-msg')).toHaveText('Found no player called “Nobody”. Check the spelling.');

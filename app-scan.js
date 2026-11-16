@@ -215,7 +215,7 @@
     return out;
   }
   function loadNames(tiers) {
-    // (Names saved by older versions could be wrong: they are dropped.)
+    // Names under the key "scannames" can be wrong: they are deleted, and only "tiernames" is read.
     try { sdel('scannames'); } catch (e) { /* not saved */ }
     return namesFrom(tiers, sget('tiernames') || {});
   }

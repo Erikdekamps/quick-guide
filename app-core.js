@@ -168,7 +168,7 @@
     o = o || {};
     return {
       showDone: !!o.showDone, hideDone: !!o.hideDone, hideLocked: !!o.hideLocked,
-      // "hideMini" took the place of the old "Quests only" filter (kind: 'quest').
+      // Settings without "hideMini": kind 'quest' (the "Quests only" filter) means hide miniquests.
       hideMini: o.hideMini != null ? !!o.hideMini : o.kind === 'quest',
       fontSize: clampFont(o.fontSize || FONT_DEFAULT),
       sort: pick(SORTS, o.sort, 'name'), home: pick(HOMES, o.home, 'quests'), theme: pick(THEMES, o.theme, 'brown')
@@ -234,7 +234,7 @@
   function metaAll() {
     var m = sget('meta');
     if (m && typeof m === 'object' && !Array.isArray(m)) return m;
-    // The first version kept a short "recent" list instead.
+    // No meta yet: it is made from a saved "recent" list, if there is one.
     m = {};
     var old = sget('recent');
     if (Array.isArray(old)) {
@@ -265,7 +265,7 @@
     return { steps: p.steps || {}, items: p.items || {}, tab: validTab(p.tab), open: p.open || {}, acc: p.acc || {} };
   }
   function saveProg() { if (S.key && S.prog) sset('prog.' + S.key, S.prog); }
-  // Quests saved by the first version kept "bring" lines as one text.
+  // A saved guide with "bring" lines as one text: each line becomes an item.
   function upgrade(q) {
     (q.sections || []).forEach(function (sec) {
       sec.blocks.forEach(function (b, i) {

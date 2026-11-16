@@ -6,8 +6,8 @@
  * So we:
  *   1. find the boxes by their edges: boxes of one size, one under the other, each with the gold icon,
  *   2. call a row done when its title is gold, locked when its badge has the blue-green lock.
- * That works in every area. On a blurry picture (the game drawn at another size) the edges are soft; then the old
- * way is tried too: blobs of red, green and lock pixels that line up in a column (only areas with red badges).
+ * That works in every area. On a blurry picture (the game drawn at another size) the edges are soft; then the
+ * badges are tried too (badgeList): blobs of red, green and lock pixels that line up in a column (only areas with red badges).
  *
  * The result is the rows from top to bottom. It does not read text: the app works out which task is at the top
  * from the list's scrollbar, and counts on from there.
@@ -188,7 +188,7 @@
     }
     return n;
   }
-  // The rows as the old way gives them ({ found, rows, x0, x1, pitch, red }), or null when no such list is in view
+  // The rows, in the same shape as badgeList gives them ({ found, rows, x0, x1, pitch, red }), or null when no such list is in view
   // (a blurry picture: then the badges' colours are tried).
   var lumBuf = null, sumBuf = null;
   // The top and bottom edges of every box in the picture, and how light each pixel is. (On its own, with nothing
@@ -310,7 +310,7 @@
       if (!rows.length || !sameX(q, best.sample) || q.H < H * 1.15 || q.H > H * 8) return;
       if (q.bot < rows[0].top && q.bot >= rows[0].top - gap - 3) { opened = true; rows = []; }
     });
-    // The badge's place in the row (as the old way measures it: the middle of the badge).
+    // The badge's place in the row (as badgeList measures it: the middle of the badge).
     var bx0 = Math.round(xa + 8 * sc), bx1 = Math.round(xa + 23 * sc), mh = Math.round(14 * sc), red = 0;
     var out = rows.map(function (q) {
       var title = countIf(px, w, h, Math.round(xa + 0.8 * H), q.top, Math.round(xa + 3.8 * H), Math.round(q.top + 0.2 * H), isMark);
@@ -353,7 +353,7 @@
     if (!byBox) return byBadge;
     return byBadge.found && byBadge.rows.length > byBox.rows.length ? byBadge : byBox;
   }
-  // The old way: the badges' colours (red shields, green ticks, blue-green locks). Only areas with red badges.
+  // The rows by the badges' colours (red shields, green ticks, blue-green locks). Only areas with red badges.
   function badgeList(px, w, h) {
     var all = join(blobs(px, w, h), h / 5).filter(function (b) {
       var aspect = b.w / b.h, fill = (b.red + b.green + b.lock) / (b.w * b.h);
