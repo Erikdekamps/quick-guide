@@ -168,6 +168,7 @@
       else if (act === 'player-refresh') { if (S.player) lookUpPlayer(S.player.name); }
       else if (act === 'player-clear') forgetPlayer();
       else if (act === 'tnew') newListDialog();
+      else if (act === 'timport') A.importListDialog();
       return;
     }
     // Remember boxes you open or close by hand.

@@ -79,10 +79,10 @@ test.describe('the My list tab', () => {
     await expect(page.locator('.tabs.home .tab .tl-l')).toHaveText(['Quests', 'Area tasks', 'My list']);
     await tab(page).click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
-    await expect(page.getByRole('button', { name: 'New list' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Create list' })).toBeVisible();
     // a goal needs a list: no box to type one in yet
     await expect(page.locator('form.qadd')).toHaveCount(0);
-    await expect(page.locator('.plain.start li').first()).toContainText('Start with New list.');
+    await expect(page.locator('.plain.start li').first()).toContainText('Start with Create list, or Import list');
     expect((await stored(page, 'settings')).home).toBe('todo');
     await page.reload();
     await expect(tab(page)).toHaveAttribute('aria-selected', 'true');
@@ -91,24 +91,24 @@ test.describe('the My list tab', () => {
 
   test('make lists, rename, move, fold and delete them', async ({ page }) => {
     await openList(page);
-    await page.getByRole('button', { name: 'New list' }).click();
-    await expect(dialog(page).locator('.dh')).toHaveText('New list');
+    await page.getByRole('button', { name: 'Create list' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Create list');
     await page.locator('#tl-name').fill('Today');
-    await page.getByRole('button', { name: 'Make list' }).click();
+    await page.getByRole('button', { name: 'Create', exact: true }).click();
     await expect(names(page)).toHaveText(['Today']);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('0 / 0');
     // the box only asks for a name; Cancel closes it
-    await page.getByRole('button', { name: 'New list' }).click();
+    await page.getByRole('button', { name: 'Create list' }).click();
     await expect(dialog(page).locator('.fld')).toHaveCount(1);
     await dialog(page).getByRole('button', { name: 'Cancel' }).click();
     await expect(page.locator('#td')).toHaveCount(0);
-    await page.getByRole('button', { name: 'New list' }).click();
+    await page.getByRole('button', { name: 'Create list' }).click();
     await page.locator('#tl-name').fill('Skilling goals');
-    await page.getByRole('button', { name: 'Make list' }).click();
+    await page.getByRole('button', { name: 'Create', exact: true }).click();
     // the same name twice, in any case, and no name, are refused
-    await page.getByRole('button', { name: 'New list' }).click();
+    await page.getByRole('button', { name: 'Create list' }).click();
     await page.locator('#tl-name').fill('today');
-    await page.getByRole('button', { name: 'Make list' }).click();
+    await page.getByRole('button', { name: 'Create', exact: true }).click();
     await expect(page.locator('#td-err')).toHaveText('You already have a list called “Today”.');
     await page.locator('#tl-name').fill('  ');
     await page.locator('#tl-name').press('Enter');
@@ -205,7 +205,7 @@ test.describe('adding goals', () => {
   test('with no lists there is no box: make a list first, then type goals in it', async ({ page }) => {
     await openList(page);
     await expect(page.locator('form.qadd')).toHaveCount(0);
-    await page.getByRole('button', { name: 'New list' }).click();
+    await page.getByRole('button', { name: 'Create list' }).click();
     await page.locator('#tl-name').fill('Today');
     await page.locator('#tl-name').press('Enter');
     await add(page, 'Vis wax');
@@ -300,7 +300,7 @@ test.describe('ticking and planning', () => {
     await goalMenu(page, '82 Thieving');
     await page.locator('#tmenu .mi', { hasText: 'New list…' }).click();
     await page.locator('#tl-name').fill('Skilling goals');
-    await page.getByRole('button', { name: 'Make list' }).click();
+    await page.getByRole('button', { name: 'Create', exact: true }).click();
     await expect(names(page)).toHaveText(['Today', 'Gathering', 'Skilling goals']);
     await expect(goals(page, 'Skilling goals').locator('.t')).toHaveText(['82 Thieving']);
     // remove, and Undo
@@ -616,6 +616,24 @@ test.describe('a list as text', () => {
     l.items.forEach((g) => walk(g, 0));
     return out;
   }
+
+  test('"Import list": a new list with a name, its goals from text', async ({ page }) => {
+    await openList(page, lists({ Today: [] }));
+    await page.getByRole('button', { name: 'Import list' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Import list');
+    // a name is needed, and not one that is taken
+    await box(page).fill('- 82 thieving\n  - Buy a lockpick');
+    await dialog(page).getByRole('button', { name: 'Import', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('Type a name first.');
+    await page.locator('#tl-name').fill('today');
+    await dialog(page).getByRole('button', { name: 'Import', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('You already have a list called “Today”.');
+    await page.locator('#tl-name').fill('Skilling');
+    await dialog(page).getByRole('button', { name: 'Import', exact: true }).click();
+    await expect(page.locator('#td')).toHaveCount(0);
+    await expect(names(page)).toHaveText(['Today', 'Skilling']);
+    expect(await outline(page, 1)).toEqual(['82 thieving', '  Buy a lockpick']);
+  });
 
   test('"Paste a list…": a bulleted list becomes goals, and indented lines their sub tasks', async ({ page }) => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Already here' }], Later: [] }));
@@ -1173,7 +1191,7 @@ test.describe('limits, storage and the look', () => {
     await expect(page.locator('#toast')).toHaveText('You have 300 goals. Remove some first.');
     const t = lists(Object.fromEntries(Array.from({ length: 30 }, (_, i) => ['List ' + (i + 1), []])));
     await openList(page, t);
-    await page.getByRole('button', { name: 'New list' }).click();
+    await page.getByRole('button', { name: 'Create list' }).click();
     await expect(page.locator('#toast')).toHaveText('You have 30 lists. Delete one first.');
     await expect(page.locator('#td')).toHaveCount(0);
   });

@@ -73,10 +73,10 @@
     return '<p class="empty">Nothing on your list yet.</p>' +
       '<p class="para mid">Make your own lists, like <b>Today</b>, <b>Skilling goals</b> or <b>Gathering</b>, and put in what you want to get done.</p>' +
       '<ul class="plain start">' +
-      '<li>Start with <b>New list</b>. Then type a goal in the box at its end, like <b>\u201c82 Thieving\u201d</b> or <b>\u201c500 Magic logs\u201d</b>.</li>' +
+      '<li>Start with <b>Create list</b>, or <b>Import list</b> to paste one as text. Then type a goal in the box at its end, like <b>\u201c82 Thieving\u201d</b> or <b>\u201c500 Magic logs\u201d</b>.</li>' +
       '<li>A quest, an area task or a tier: <b>' + I.dots + ' \u2192 Add to list</b>.</li>' +
       '<li>Press <b>+ goal</b> next to a level you still miss.</li></ul>' +
-      '<div class="newlist"><button class="btn" type="button" data-act="tnew">New list</button></div>';
+      '<div class="newlist"><button class="btn" type="button" data-act="tnew">Create list</button><button class="btn alt" type="button" data-act="timport">Import list</button></div>';
   }
   // What the tab shows.
   function todoHtml() {
@@ -88,7 +88,8 @@
     var lists = t.lists.map(function (l) { return listHtml(l, c, tally); }).join('');
     return '<p class="qmeta"><span>' + plural(t.lists.length, 'list', 'lists') + ' \u00b7 ' + plural(tally.goals, 'goal', 'goals') +
       (tally.done ? ', ' + tally.done + ' done' : '') + '</span>' + (S.player ? '<span class="how"> \u00b7 ' + esc(S.player.name) + '</span>' : '') + '</p>' +
-      lists + '<div class="newlist"><button class="btn alt sm" type="button" data-act="tnew">' + I.plus + 'New list</button></div>';
+      lists + '<div class="newlist"><button class="btn alt sm" type="button" data-act="tnew">' + I.plus + 'Create list</button>' +
+      '<button class="btn alt sm" type="button" data-act="timport">' + I.paste + 'Import list</button></div>';
   }
   // The lists as options of a select. more: an option after them ("New list…").
   function pickerHtml(sel, more) {
