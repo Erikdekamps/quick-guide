@@ -11,10 +11,10 @@
   var addGoal = T.addGoal, buttonsHtml = T.buttonsHtml, cap1 = T.cap1, changed = T.changed, cleanGoal = T.cleanGoal, closeDialog = T.closeDialog,
     copy = T.copy, ctx = T.ctx, dialogErr = T.dialogErr, drawTodo = T.drawTodo, errHtml = T.errHtml, fieldHtml = T.fieldHtml,
     findSub = T.findSub, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
-    goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, makeList = T.makeList,
+    goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, listText = T.listText, makeList = T.makeList,
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
-    order = T.order, parseGoal = T.parseGoal, pickerHtml = T.pickerHtml, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
+    order = T.order, parseGoal = T.parseGoal, parseOutline = T.parseOutline, pickerHtml = T.pickerHtml, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     refOf = T.refOf, REPEATS = T.REPEATS, segHtml = T.segHtml, setDone = T.setDone, setSubs = T.setSubs, settleGoal = T.settleGoal,
     skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
     todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
@@ -235,7 +235,8 @@
     if (!l) return;
     var t = todo(), i = t.lists.indexOf(l), c = ctx();
     var done = l.items.filter(function (g) { return !g.repeat && goalState(g, c).done; }).length;
-    openMenu(btn, 'list', l.id, '<p class="mh">' + esc(l.name) + '</p>' + mitem('ladd', I.plus, 'Add a goal here') + mitem('lrename', I.edit, 'Rename') +
+    openMenu(btn, 'list', l.id, '<p class="mh">' + esc(l.name) + '</p>' + mitem('ladd', I.plus, 'Add a goal here') +
+      mitem('lpaste', I.paste, 'Paste a list\u2026') + mitem('lcopy', I.copy, 'Copy as text\u2026', !l.items.length) + mitem('lrename', I.edit, 'Rename') +
       '<hr>' + mitem('lup', I.up, 'Move list up', i === 0) + mitem('ldown', I.down, 'Move list down', i === t.lists.length - 1) +
       '<hr>' + mitem('lclear', I.check, 'Clear done goals (' + done + ')', !done) + mitem('ldelete', I.x, 'Delete list', false, 'danger'), 'List menu');
   }
@@ -338,6 +339,8 @@
     var i = t.lists.indexOf(l);
     if (act === 'ladd') { goalDialog({ list: id }); return; }
     if (act === 'lrename') { listDialog('rename', id); return; }
+    if (act === 'lpaste') { pasteDialog(id, ''); return; }
+    if (act === 'lcopy') { copyDialog(l); return; }
     // A list with goals in it takes two clicks to delete.
     if (act === 'ldelete' && l.items.length && !armed(b, 'Click again to delete the list')) return;
     closeMenus();
@@ -480,6 +483,51 @@
     changed();
     if (!old) tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
+  // ---------- a list as text: "Paste a list" and "Copy as text" ----------
+  var PASTE_HINT = 'One goal on each line. Indent a line to put it under the one above.';
+  var PASTE_SAMPLE = '- Hatchet of bloom and blight\n  - Hatchet of ember and glade\n    - [x] Crystal hatchet\n- 82 Thieving\n- Vis wax (daily)';
+  // What the box reads in its text: "6 goals and 5 sub tasks.", and what does not fit.
+  function pasteSays(r) {
+    if (!r.goals.length && !r.left) return PASTE_HINT;
+    return (r.goals.length ? plural(r.goals.length, 'goal', 'goals') + (r.subs ? ' and ' + plural(r.subs, 'sub task', 'sub tasks') : '') + '.' : '') +
+      (r.left ? ' ' + (r.left === 1 ? '1 line does not fit and is' : r.left + ' lines do not fit and are') + ' left out.' : '');
+  }
+  function readPaste() { return parseOutline(byId('tp-text').value, MAX_GOALS - goalCount()); }
+  // "Paste a list…" in a list's menu (and more than one line pasted in the box at the end of a list): a box for
+  // the text, which says what it reads while you type.
+  function pasteDialog(id, text) {
+    var l = listById(id);
+    if (!l) return;
+    if (goalCount() >= MAX_GOALS) { closeMenus(); toast(FULL_GOALS); return; }
+    openDialog({ type: 'paste', list: id }, '<h2 class="dh" id="td-h">Paste a list</h2><p class="what"><b>' + esc(l.name) + '</b></p>' +
+      '<textarea class="inp tx" id="tp-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Goals, one on each line" placeholder="' + esc(PASTE_SAMPLE) + '">' + esc(text) + '</textarea>' +
+      '<p class="what" id="tp-count" aria-live="polite">' + PASTE_HINT + '</p>' + errHtml() + buttonsHtml('Add'));
+    pasteCount();
+  }
+  function pasteCount() {
+    var c = byId('tp-count'), e = byId('td-err');
+    if (!c || S.tdlg.type !== 'paste') return;
+    c.textContent = pasteSays(readPaste());
+    if (e) e.hidden = true;
+  }
+  function submitPaste(st) {
+    var l = listById(st.list), r = readPaste(), snap = snapshot(), now = Date.now();
+    if (!r.goals.length) { dialogErr('Type or paste a list first.'); return; }
+    closeDialog();
+    if (!l) return;
+    r.goals.forEach(function (g) {
+      if (g.done) { g.done = now; if (g.repeat) g.upd = now; }
+      settleGoal(addGoal(g, l), true);
+    });
+    changed();
+    tell('Added ' + plural(r.goals.length, 'goal', 'goals') + ' to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
+  }
+  // "Copy as text…" in a list's menu: the list the way "Paste a list" reads it, to copy.
+  function copyDialog(l) {
+    openDialog({ type: 'copy' }, '<h2 class="dh" id="td-h">' + esc(l.name) + ' as text</h2>' +
+      '<textarea class="inp tx" id="tp-text" spellcheck="false" readonly aria-label="The list as text">' + esc(listText(l)) + '</textarea>' +
+      '<div class="dbtn"><button class="btn" type="submit">Copy</button><button class="btn alt" type="button" data-tdx>Close</button></div>');
+  }
   // The boxes you type in send their forms here. True when the form was one of them.
   function todoSubmit(form) {
     if (form.classList.contains('sadd')) { quickSub(form); return true; }
@@ -489,11 +537,13 @@
     if (st && st.type === 'list') submitList(st);
     else if (st && st.type === 'goal') submitGoal(st);
     else if (st && st.type === 'addto') submitAddTo(st);
+    else if (st && st.type === 'paste') submitPaste(st);
+    else if (st && st.type === 'copy') A.copyText(byId('tp-text'));
     return true;
   }
 
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToPick: addToPick, closeSubAdd: closeSubAdd, goalMenu: goalMenu,
-    itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); },
+    itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); }, pasteCount: pasteCount, pasteDialog: pasteDialog,
     pickPlace: pickPlace, pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
   A.loaded.todo = true;
 })(window.QuickGuideApp);

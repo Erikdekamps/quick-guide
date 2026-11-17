@@ -375,6 +375,42 @@
     return { kind: 'other', title: cap1(s) };
   }
 
+  // ---------- a list as text: one goal on each line, a line that is further in is under the one above ----------
+  // Reads a pasted list. A line may start with a bullet (-, *, +, \u2022) or a number ("1."), then a tick box ("[ ]",
+  // "[x]" for done); what follows is read like a goal you type. room: how many goals still fit.
+  // Returns { goals (each with its subs), subs (how many sub tasks), left (lines that do not fit) }.
+  function parseOutline(text, room) {
+    var out = { goals: [], subs: 0, left: 0 }, stack = [];
+    String(text || '').slice(0, 60000).split(/\r?\n/).forEach(function (raw) {
+      var m = /^([ \t]*)(.*)$/.exec(raw), indent = m[1].replace(/\t/g, '    ').length;
+      var s = m[2].replace(/^(?:[-*+\u2022\u2013\u2014\u00b7]|\d+[.)])(?:\s+|$)/, '');
+      var box = /^\[([ xX]?)\]\s*/.exec(s), g = parseGoal(box ? s.slice(box[0].length) : s);
+      if (!g) return;
+      if (box && /x/i.test(box[1])) g.done = 1;
+      // What it is under: the last line that is less far in. Deeper than a sub task can be: next to the deepest.
+      while (stack.length && stack[stack.length - 1].indent >= indent) stack.pop();
+      while (stack.length > MAX_DEPTH) stack.pop();
+      var par = stack.length ? stack[stack.length - 1].node : null, fits;
+      if (!stack.length) fits = out.goals.length < room;
+      else fits = !!par && (par.subs || []).length < MAX_SUBS;
+      // (What is under a line that does not fit does not fit either.)
+      stack.push({ indent: indent, node: fits ? g : null });
+      if (!fits) { out.left++; return; }
+      if (par) { (par.subs = par.subs || []).push(g); out.subs++; } else out.goals.push(g);
+    });
+    return out;
+  }
+  // A list as text, the way parseOutline reads it: "- " for each goal, two spaces further in for each level, "[x]" when done.
+  function listText(l) {
+    var c = ctx(), lines = [];
+    function walk(x, depth, done) {
+      lines.push(new Array(depth + 1).join('  ') + '- ' + (done ? '[x] ' : '') + goalLine(x));
+      (x.subs || []).forEach(function (u) { walk(u, depth + 1, isDone(u)); });
+    }
+    l.items.forEach(function (g) { walk(g, 0, goalState(g, c).done); });
+    return lines.join('\n');
+  }
+
   // ---------- a quest, a tier, an area task or a level, as a goal ----------
   // The goal a reference makes.
   function goalOfRef(r) {
@@ -561,7 +597,7 @@
     NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, REPEATS: REPEATS,
     addGoal: addGoal, backText: backText, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
     findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
-    line: line, listById: listById, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
+    line: line, listById: listById, listText: listText, parseOutline: parseOutline, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
     resetDue: resetDue, saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
     skillName: skillName, snapshot: snapshot, todo: todo };

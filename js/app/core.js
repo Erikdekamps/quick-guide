@@ -122,6 +122,19 @@
   function smooth() {
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
   }
+  // Copies the text of a box. Where the browser hides the clipboard (Alt1, plain http), the text is selected and
+  // copied the old way.
+  function copyText(ta) {
+    function fallback() {
+      ta.focus();
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      toast(ok ? 'Copied.' : 'Select the text and copy it.');
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(function () { toast('Copied.'); }, fallback);
+    else fallback();
+  }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
   function dateText(iso) {
     try { return new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return ''; }
@@ -171,6 +184,8 @@
     list: svg('<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>'),
     out: svg('<path d="m9 14-5-5 5-5"/><path d="M4 9h10a6 6 0 0 1 6 6v5"/>'),
     down: svg('<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>'),
+    copy: svg('<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>'),
+    paste: svg('<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h6"/>'),
     blank: svg('')
   };
   var TAB_ICON = { overview: I.info, skills: I.skills, items: I.bag, enemies: I.swords, steps: I.steps, rewards: I.trophy };
@@ -860,7 +875,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,
