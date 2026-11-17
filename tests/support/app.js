@@ -23,6 +23,29 @@ class Wiki {
     this.calls = [];      // every api.php call: { page, prop, url }
     this.player = {};     // fake player data answers, by a part of the URL
     this.playerCalls = [];  // every player data request (URL)
+    this.titles = {};     // pages that exist for "is there a page called …": { title: the page it leads to }
+    this.lookups = [];    // every "is there a page called …" call: the titles it asked for
+    this.lookupFail = false;
+  }
+  // A page that exists when the app asks whether there is one (My list's wiki links). to: the page a redirect leads to.
+  exists(title, to) { this.titles[title] = to || title; return this; }
+  // The wiki's answer to action=query&titles=A|B: which of them exist, after its own first capital and redirects.
+  answerLookup(route, url) {
+    const asked = (url.searchParams.get('titles') || '').split('|');
+    this.lookups.push(asked);
+    if (this.lookupFail) return route.abort('failed');
+    const normalized = [], redirects = [], pages = [], seen = {};
+    for (const t of asked) {
+      const n = t.charAt(0).toUpperCase() + t.slice(1);
+      if (n !== t) normalized.push({ fromencoded: false, from: t, to: n });
+      const to = this.titles[n];
+      if (to && to !== n) redirects.push({ from: n, to });
+      const end = to || n;
+      if (seen[end]) continue;
+      seen[end] = 1;
+      pages.push(to ? { pageid: pages.length + 1, ns: 0, title: end } : { ns: 0, title: end, missing: true });
+    }
+    return route.fulfill({ headers: CORS, json: { batchcomplete: true, query: { normalized, redirects, pages } } });
   }
   // A page that exists. html is the page body; live is the map data (wgKartographerLiveData).
   page(title, html, live) { this.pages[title] = { html, live: live || {} }; return this; }
@@ -53,6 +76,7 @@ class Wiki {
       if (url.pathname.startsWith('/cors/')) return this.answerPlayer(route, url);
       return route.fulfill({ status: 404, body: 'not found' });
     }
+    if (url.searchParams.get('action') === 'query') return this.answerLookup(route, url);
     const title = url.searchParams.get('page');
     this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
     const p = this.pages[title];
@@ -144,7 +168,7 @@ const test = base.test.extend({
     await use(page);
     if (cov) {
       ran.push(...await page.coverage.stopJSCoverage());
-      const out = ran.filter((e) => /^http:\/\/quick-guide\.test\/[a-z-]+\.js/.test(e.url))
+      const out = ran.filter((e) => /^http:\/\/quick-guide\.test\/js\/[a-z-]+\/[a-z-]+\.js/.test(e.url))
         .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
       fs.mkdirSync(cov, { recursive: true });
       fs.writeFileSync(path.join(cov, info.testId + '.json'), JSON.stringify(out));
@@ -261,7 +285,7 @@ function part(page, title) {
 // A quest, parsed by the app's own parser from a fixture, ready to put in storage.
 async function parsedQuest(page, file, title, live) {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/parser.js' });
+  await page.addScriptTag({ url: '/js/wiki/parser.js' });
   return page.evaluate(([h, t, l]) => window.QuickGuide.parse('<div class="mw-parser-output">' + h + '</div>',
     { title: t, base: t.replace(/\/Quick guide$/, ''), live: l || {} }), [fixture(file), title, live]);
 }

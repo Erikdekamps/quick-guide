@@ -71,7 +71,7 @@ function readShot(page, src, o) {
 test.describe('the screen reader', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/reader.js' });
+    await page.addScriptTag({ url: '/js/game/reader.js' });
   });
 
   test('not done, locked and done tasks', async ({ page }) => {
@@ -126,7 +126,7 @@ test.describe('the screen reader', () => {
   });
 
   test('the tier names the app comes with: all 52, each unlike the others, and they fit the game', async ({ page }) => {
-    await page.addScriptTag({ url: '/tiernames.js' });
+    await page.addScriptTag({ url: '/js/game/tiernames.js' });
     const res = await page.evaluate((src) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(im); im.src = src; }).then((im) => {
       const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/', R = window.QuickGuideReader;
       const unpack = (str) => {

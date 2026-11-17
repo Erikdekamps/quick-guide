@@ -75,8 +75,10 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
 **Skilling goals**, **Gathering**. The tab shows how many goals are still open.
 
 - A goal is one flat row: a tick box, what it says, and its **⋯** menu.
-- **Add a goal** in the box at the top. It goes in the list next to the box, as you typed it ("500 magic logs",
-  "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your character is looked up.
+- Start with **New list**: a goal always goes in a list.
+- **Add a goal** in the box at the end of a list: type it, press Enter, and type the next one. It goes in as you
+  typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
+  character is looked up.
 - **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
   and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
@@ -85,11 +87,19 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   the list and in its area; a quest ticked here is done in the quest list too.
 - A list's **⋯**: add a goal (with every field: the goal, the list, how often, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
-- A goal's **⋯**: edit, open it (its quest or area, or the wiki), move it to another list or a new one, move it up
-  or down, remove it. Removing, clearing and deleting can be undone.
+- A goal's **⋯**: edit, add a sub task, open it (its quest or area, or the wiki), move it to another list or a new
+  one, move it up or down, remove it. Removing, clearing and deleting can be undone.
+- **Make it a list** (in the ⋯ of a goal you wrote yourself) turns the goal into a list with its name. Its sub
+  tasks are the goals of that list.
+- **Open on the wiki:** a goal or sub task you wrote yourself gets this in its ⋯ when the wiki has a page for it
+  ("Crystal Hatchet", "500 Magic logs" and "Unlock Soul Split" all find theirs). The app asks the wiki once for each.
 - A done goal stays where it is, struck through, until you clear it.
-- **Sub tasks:** a goal's ⋯ → **Add sub task** gives it its own small checklist, under it (at most 20).
-  The goal is done when every sub task is; ticking the goal ticks them all. The × takes one away (with Undo).
+- **Sub tasks:** a goal's ⋯ → **Add sub task** opens a box under it: type one, press Enter, and type the next
+  (Esc or × closes the box). A sub task can have its own sub tasks, four deep, at most 20 in one place: "Hatchet
+  of bloom and blight" needs a "Hatchet of ember and glade", which needs a "Crystal hatchet".
+  Each is done when all under it are; ticking one ticks all under it.
+- A sub task's **⋯**: edit, add a sub task, move it up or down, move it out a level (at the top: make it a goal),
+  delete it (two clicks, and Undo).
 - A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,
   Wednesday 00:00 UTC each week, and the 1st of the month at 00:00 UTC. Until then it says when it is back, in your
   own time.
@@ -110,7 +120,7 @@ How it knows where it is:
 - **The rows:** every task is a box with a small gold icon and a title. A task is done when its title is gold
   (and its icon a star). That is the same in every area, whatever the area's badge looks like.
 - **The tier:** the one with the gold box in the list on the left. The app comes with what each of the 52 tier
-  names looks like (`tiernames.js`), so it knows the tier you clicked right away. Names of one area look much
+  names looks like (`js/game/tiernames.js`), so it knows the tier you clicked right away. Names of one area look much
   alike ("Hard Ardougne", "Elite Ardougne"), so a name only counts when it is nearly pixel for pixel the same.
   At another interface size the names do not fit: then it counts from the **Area Tasks** title above
   Easy Ardougne (or the next title, below the last tier), and remembers the names it sees. If it cannot tell,
@@ -158,7 +168,8 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
 `"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
 `"Vis wax (daily)"` (or weekly, monthly). A goal with a note or sub tasks is
-`{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`. Add a list or a goal by hand and it comes in.
+`{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`; a sub task with its own is
+`{ "done": false, "subs": { … } }`. Add a list or a goal by hand and it comes in.
 
 ```json
 {
@@ -215,9 +226,9 @@ and read from the wiki again when you open them.
 
 ## How it reads the wiki
 
-- `quests.js` reads the quest lists and the optimal order through the wiki's API, for example
+- `js/wiki/quests.js` reads the quest lists and the optimal order through the wiki's API, for example
   `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
-- `parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
+- `js/wiki/parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
   and the area pages (`<Area>_achievements`), and turns them into JSON.
 - Map pictures load from `maps.runescape.wiki`.
 - The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
@@ -228,6 +239,9 @@ and read from the wiki again when you open them.
   `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` and
   `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>`.
 
+- My list asks the wiki whether it has a page for a goal you wrote yourself (for **Open on the wiki**), for example
+  `https://runescape.wiki/api.php?action=query&titles=Crystal%20hatchet&redirects=1&format=json&origin=*`.
+
 No other service is used.
 
 ## Files
@@ -235,17 +249,19 @@ No other service is used.
 | File | What it is |
 | --- | --- |
 | `index.html`, `style.css` | The page and its look (both themes: every colour is a token at the top of `style.css`) |
-| `app-core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
-| `app-quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
-| `app-areas.js` | Area tasks: the list of tiers, search, and one area |
-| `app-todo.js` | My list: your lists of goals, Add to list (in the ⋯ menus) and "+ goal", goals that come back |
-| `app-backup.js` | Export and import |
-| `app-scan.js` | Scan achievements (Alt1) |
-| `app.js` | Loaded last: the clicks and keys of every screen, and the start |
-| `parser.js` | Reads a quest guide or an area page from the wiki |
-| `quests.js` | Reads the quest lists and the optimal order |
-| `reader.js` | Reads the game's task list from the screen (for Scan achievements) |
-| `tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
+| `js/app/core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
+| `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
+| `js/app/areas.js` | Area tasks: the list of tiers, search, and one area |
+| `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, the resets, wiki links, export and import |
+| `js/app/todo-view.js` | My list: what the tab shows, Add to list in the ⋯ menus, the menus and boxes |
+| `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
+| `js/app/backup.js` | Export and import |
+| `js/app/scan.js` | Scan achievements (Alt1) |
+| `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
+| `js/wiki/parser.js` | Reads a quest guide or an area page from the wiki |
+| `js/wiki/quests.js` | Reads the quest lists and the optimal order |
+| `js/game/reader.js` | Reads the game's task list from the screen (for Scan achievements) |
+| `js/game/tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |

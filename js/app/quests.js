@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - app-quests.js
+ * Quick Guide - js/app/quests.js
  * Quests: the quest list and its order, the quest screen (Overview, Items, Steps) and its step logic.
  */
 (function (A) {

@@ -1,7 +1,7 @@
 # Plan: My list
 
 The plan for the third tab in Quick Guide: your own lists of goals.
-**It is built** (`app-todo.js`, tested in `tests/todo.spec.js`). The README's "My list" part says how to use it.
+**It is built** (`js/app/todo-data.js`, `todo-view.js` and `todo.js`, tested in `tests/todo.spec.js`). The README's "My list" part says how to use it.
 The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/`, made from the real app.
 
 ## Changed after the first build
@@ -14,8 +14,16 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
   more (saved ones become plain goals).
 - **Any goal can be ticked by hand.** Skill levels, quests and tiers also tick themselves. A quest ticked on a list is
   done in the quest list too (one tick, shown in two places, like an area task).
-- **Sub tasks:** a goal can have its own checklist under it (at most 20). It is done when they all are; ticking it
-  ticks them all. In a file: `"subs": { "Buy a rope": true }` next to `"done"`.
+- **Sub tasks:** a goal can have its own checklist under it, and a sub task its own, four deep (at most 20 in one
+  place). Each is done when all under it are; ticking one ticks all under it. A sub task has a ⋯ menu: edit, add a
+  sub task, move up, down or out a level, delete (two clicks).
+- **The box at the end of each list** takes the next goal (Enter, and type another); the add box at the top of the
+  tab is gone. "Add sub task" opens the same kind of box under the goal.
+- **Make it a list:** a goal you wrote yourself becomes a list with its name; its sub tasks are the goals.
+- **Open on the wiki:** goals and sub tasks you wrote yourself are looked up on the wiki once (as typed, with small
+  letters, and without a number or a word like "Buy a" in front); the page's name is kept in `wiki`.
+- **The code is in `js/`:** `js/app` (the app, with My list in three files), `js/wiki` (reading the wiki) and
+  `js/game` (reading the game).
 - **A done goal stays where it is**, struck through, until you clear it: it no longer drops to the bottom of its
   list (the next goal would move under your mouse).
 - **Repeat:** Never, Daily, Weekly or Monthly. The monthly reset is the 1st of the month, 00:00 UTC. In a file a goal

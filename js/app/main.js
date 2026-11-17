@@ -1,11 +1,11 @@
 /*!
- * Quick Guide - app.js
+ * Quick Guide - js/app/main.js
  * Loaded last: the clicks and keys of every screen, and the start.
  */
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'todo', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
   var saveView = A.saveView, sdel = A.sdel, accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
     areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup, closeMenus = A.closeMenus,
     closeRead = A.closeRead, copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
@@ -21,10 +21,10 @@
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickTask = A.tickTask, toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu,
     toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick,
-    addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeTodoDialog = A.closeTodoDialog,
-    goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct, newListDialog = A.newListDialog,
-    pickSeg = A.pickSeg, setTodoLast = A.setTodoLast, startTodoClock = A.startTodoClock, tickGoal = A.tickGoal,
-    todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist, useSuggestion = A.useSuggestion;
+    addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeSubAdd = A.closeSubAdd,
+    closeTodoDialog = A.closeTodoDialog, goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct,
+    newListDialog = A.newListDialog, pickSeg = A.pickSeg, startTodoClock = A.startTodoClock, subMenu = A.subMenu, tickGoal = A.tickGoal,
+    tickSub = A.tickSub, todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist, useSuggestion = A.useSuggestion;
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
@@ -48,13 +48,9 @@
   });
   app.addEventListener('input', function (ev) {
     if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
-    if (ev.target.id === 'todo-text') {
-      S.todoInput = ev.target.value;
-      S.error = '';
-      var te = byId('todo-err');
-      if (te) te.hidden = true;
-      return;
-    }
+    // My list: typing in a box takes its "Type a goal first." away.
+    var qa = ev.target.closest('form.qadd');
+    if (qa) { qa.querySelector('.err').hidden = true; return; }
     if (ev.target.id !== 'quest-link') return;
     S.input = ev.target.value;
     saveView();
@@ -80,10 +76,9 @@
     }
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
     if (t.id === 'theme') { S.set.theme = pick(THEMES, t.value, 'brown'); saveSettings(); applySettings(); return; }
-    if (t.id === 'todo-list') { setTodoLast(t.value); return; }
     if (t.id === 'ta-list') { addToPick(t); return; }
     if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
-    if (t.hasAttribute('data-subcb')) { A.tickSub(t.getAttribute('data-gid'), t.getAttribute('data-subcb'), t.checked); return; }
+    if (t.hasAttribute('data-subcb')) { tickSub(t.getAttribute('data-gid'), t.getAttribute('data-subcb'), t.checked); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) {
       var ar = t.getAttribute('data-aarea');
@@ -103,17 +98,18 @@
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
     if (ev.target.id === 'rd') { closeRead(); return; }
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
-    // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal and
-    // a list, the items of their menus, and the boxes.
-    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-subx], [data-tdx]');
+    // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal, a
+    // sub task and a list, the items of their menus, and the boxes.
+    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-smenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-saddx], [data-tdx]');
     if (g) {
       if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
-      else if (g.hasAttribute('data-subx')) A.removeSub(g);
+      else if (g.hasAttribute('data-saddx')) closeSubAdd();
       else if (g.hasAttribute('data-addto')) addFromButton(g);
       else if (g.hasAttribute('data-unlist')) unlist(g);
       else if (g.hasAttribute('data-addgoal')) addSkillGoal(g);
       else if (g.hasAttribute('data-imenu')) itemMenu(g);
       else if (g.hasAttribute('data-gmenu')) goalMenu(g);
+      else if (g.hasAttribute('data-smenu')) subMenu(g);
       else if (g.hasAttribute('data-lmenu')) listMenu(g);
       else if (g.hasAttribute('data-tm')) menuAct(g);
       else if (g.hasAttribute('data-seg')) pickSeg(g);
@@ -207,7 +203,7 @@
     if (!inside) closeMenus();
   });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); }
+    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); closeSubAdd(); }
   });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {

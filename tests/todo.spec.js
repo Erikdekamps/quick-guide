@@ -3,6 +3,8 @@
 // skill levels, quests and tiers also tick themselves; an area task shares its tick with its area, a quest with the
 // quest list; a goal can repeat daily, weekly or monthly.
 // Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
+// Every list ends with a box to type the next goal in. A goal can have sub tasks, and those their own; a goal you
+// wrote yourself can become a list, and gets a link to its wiki page when there is one.
 const { test, expect, seed, stored, openApp, openQuest, openCog, lookUp, withAllAreas, toggle } = require('./support/app');
 
 const tab = (page) => page.locator('.tab[data-home="todo"]');
@@ -30,10 +32,11 @@ async function openList(page, data) {
   await page.goto('/');
   await expect(tab(page)).toHaveAttribute('aria-selected', 'true');
 }
+// The box at the end of a list (the first list's, when none is named).
+const addBox = (page, list) => (list ? listBar(page, list).locator('xpath=following-sibling::ul[1]') : page).locator('form.qadd:not(.sadd) input').first();
 async function add(page, text, list) {
-  if (list) await page.locator('#todo-list').selectOption({ label: list });
-  await page.locator('#todo-text').fill(text);
-  await page.locator('#todo-text').press('Enter');
+  await addBox(page, list).fill(text);
+  await addBox(page, list).press('Enter');
 }
 async function goalMenu(page, text) {
   await goal(page, text).locator('[data-gmenu]').click();
@@ -62,7 +65,9 @@ test.describe('the My list tab', () => {
     await tab(page).click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
     await expect(page.getByRole('button', { name: 'New list' })).toBeVisible();
-    await expect(page.locator('#todo-text')).toHaveAttribute('placeholder', 'Add a goal, like “82 Thieving”');
+    // a goal needs a list: no box to type one in yet
+    await expect(page.locator('form.qadd')).toHaveCount(0);
+    await expect(page.locator('.plain.start li').first()).toContainText('Start with New list.');
     expect((await stored(page, 'settings')).home).toBe('todo');
     await page.reload();
     await expect(tab(page)).toHaveAttribute('aria-selected', 'true');
@@ -141,9 +146,17 @@ test.describe('the My list tab', () => {
 });
 
 test.describe('adding goals', () => {
-  test('the box: a skill level ticks itself; anything else is a goal as you typed it', async ({ page }) => {
+  test('the box at the end of a list: a skill level ticks itself; anything else is a goal as you typed it', async ({ page }) => {
     await openList(page, lists({ Today: [], Gathering: [] }));
-    for (const t of ['82 thieving', 'Herblore 96', '500 magic logs', 'unlock soul split', 'Vis wax', 'penguins (weekly)']) await add(page, t);
+    await expect(page.locator('#todo-form')).toHaveCount(0);
+    await expect(addBox(page, 'Today')).toHaveAttribute('placeholder', 'Add a goal');
+    await expect(addBox(page, 'Today')).toHaveAttribute('aria-label', 'Add a goal to Today');
+    // one after the other: the box empties and keeps the cursor
+    for (const t of ['82 thieving', 'Herblore 96', '500 magic logs', 'unlock soul split', 'Vis wax', 'penguins (weekly)']) {
+      await add(page, t);
+      await expect(addBox(page, 'Today')).toBeFocused();
+      await expect(addBox(page, 'Today')).toHaveValue('');
+    }
     await expect(goals(page, 'Today').locator('.t')).toHaveText(['82 Thieving', '96 Herblore', '500 magic logs', 'Unlock soul split', 'Vis wax', 'Penguins']);
     // flat: no kind, no count, no bar
     await expect(page.locator('li.goal .tag, li.goal .num, li.goal progress, li.goal .tsub')).toHaveCount(0);
@@ -152,31 +165,37 @@ test.describe('adding goals', () => {
     expect(t.lists[0].items.map((x) => [x.kind, x.title || x.skill, x.level || null, x.repeat || ''])).toEqual([
       ['skill', 'thieving', 82, ''], ['skill', 'herblore', 96, ''], ['other', '500 magic logs', null, ''],
       ['other', 'Unlock soul split', null, ''], ['other', 'Vis wax', null, ''], ['other', 'Penguins', null, 'week']]);
-    // a goal goes in the list picked next to the box, and that list stays picked
-    await add(page, '50 vis wax', 'Gathering');
+    // each list has its own box; the button adds too
+    await addBox(page, 'Gathering').fill('50 vis wax');
+    await listBar(page, 'Gathering').locator('xpath=following-sibling::ul[1]').getByRole('button', { name: 'Add', exact: true }).click();
     await expect(goals(page, 'Gathering').locator('.t')).toHaveText(['50 vis wax']);
-    await expect(page.locator('#toast')).toContainText('Added to Gathering.');
-    await expect(page.locator('#todo-list option:checked')).toHaveText('Gathering');
+    await expect(page.locator('#toast')).toBeHidden();
     expect((await stored(page, 'todo')).last).toBe('l2');
-    // Undo takes it out again
-    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
-    await expect(goals(page, 'Gathering')).toHaveCount(0);
     // nothing typed
-    await add(page, '   ');
-    await expect(page.locator('#todo-err')).toHaveText('Type a goal first.');
+    await add(page, '   ', 'Gathering');
+    await expect(listBar(page, 'Gathering').locator('xpath=following-sibling::ul[1]').locator('.qadd .err')).toHaveText('Type a goal first.');
+    await addBox(page, 'Gathering').pressSequentially('x');
+    await expect(page.locator('.qadd .err:visible')).toHaveCount(0);
     // the tab counts the open goals
-    await expect(tab(page).locator('.tc')).toHaveText('6');
-    await expect(page.locator('.qmeta')).toHaveText('2 lists · 6 goals');
+    await expect(tab(page).locator('.tc')).toHaveText('7');
+    await expect(page.locator('.qmeta')).toHaveText('2 lists · 7 goals');
+    // a folded list hides its box
+    await listBar(page, 'Today').locator('.ghb').click();
+    await expect(addBox(page, 'Today')).toBeHidden();
     expect(page.errors).toEqual([]);
   });
 
-  test('with no lists, the first goal makes a list called "My list"', async ({ page }) => {
+  test('with no lists there is no box: make a list first, then type goals in it', async ({ page }) => {
     await openList(page);
-    await expect(page.locator('#todo-list option')).toHaveText(['My list']);
+    await expect(page.locator('form.qadd')).toHaveCount(0);
+    await page.getByRole('button', { name: 'New list' }).click();
+    await page.locator('#tl-name').fill('Today');
+    await page.locator('#tl-name').press('Enter');
     await add(page, 'Vis wax');
-    await expect(names(page)).toHaveText(['My list']);
-    await expect(goals(page, 'My list').locator('.t')).toHaveText(['Vis wax']);
-    await expect(page.locator('#toast')).toContainText('Added to My list.');
+    await expect(addBox(page, 'Today')).toBeFocused();
+    await add(page, 'Herbs');
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Herbs']);
+    expect(page.errors).toEqual([]);
   });
 
   test('the Add a goal box: the goal, the list, how often, a note; and Edit', async ({ page }) => {
@@ -247,7 +266,7 @@ test.describe('ticking and planning', () => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'other', title: 'Buy a cape' }], Gathering: [] }));
     await goalMenu(page, 'Vis wax');
     await expect(page.locator('#tmenu .mh')).toHaveText(['Vis wax', 'Move to']);
-    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Today', 'Gathering', 'New list…', 'Move up', 'Move down', 'Remove']);
+    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Make it a list', 'Today', 'Gathering', 'New list…', 'Move up', 'Move down', 'Remove']);
     await expect(page.locator('#tmenu .mi', { hasText: 'Today' })).toHaveAttribute('aria-checked', 'true');
     await page.locator('#tmenu .mi', { hasText: 'Gathering' }).click();
     await expect(goals(page, 'Gathering').locator('.t')).toHaveText(['Vis wax']);
@@ -284,20 +303,34 @@ test.describe('ticking and planning', () => {
 
 test.describe('sub tasks', () => {
   const subs = (page, text) => goal(page, text).locator('li.gsub');
-  async function addSub(page, text, sub) {
+  const sub = (page, text) => page.locator('li.gsub').filter({ has: page.locator(':scope > .row .t', { hasText: new RegExp('^' + text + '$') }) });
+  const subBox = (page) => page.locator('form.sadd input');
+  // Types sub tasks into the box that "Add sub task" opens, one after the other.
+  async function typeSubs(page, list) {
+    await expect(subBox(page)).toBeFocused();
+    for (const s of list) {
+      await subBox(page).fill(s);
+      await subBox(page).press('Enter');
+      await expect(subBox(page)).toBeFocused();
+      await expect(subBox(page)).toHaveValue('');
+    }
+  }
+  async function addSubs(page, text, list) {
     await goalMenu(page, text);
     await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
-    await expect(dialog(page).locator('.dh')).toHaveText('Add a sub task');
-    await expect(dialog(page).locator('.what')).toHaveText(text);
-    await page.locator('#ts-text').fill(sub);
-    await page.locator('#ts-text').press('Enter');
-    await expect(page.locator('#td')).toHaveCount(0);
+    await expect(subBox(page)).toHaveAttribute('aria-label', 'Add a sub task to ' + text);
+    await typeSubs(page, list);
+    await subBox(page).press('Escape');
+    await expect(subBox(page)).toHaveCount(0);
+  }
+  async function subMenu(page, text) {
+    await sub(page, text).locator(':scope > .row [data-smenu]').click();
+    await expect(page.locator('#tmenu')).toBeVisible();
   }
 
   test('a goal gets its own small checklist; it is done when every sub task is, and ticking it ticks them all', async ({ page }) => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Ardougne Hard' }, { kind: 'other', title: 'Vis wax' }] }));
-    await addSub(page, 'Ardougne Hard', '82 Thieving');
-    await addSub(page, 'Ardougne Hard', 'buy a rope');
+    await addSubs(page, 'Ardougne Hard', ['82 Thieving', 'buy a rope']);
     await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['82 Thieving', 'Buy a rope']);
     await expect(goal(page, 'Ardougne Hard').locator('.row .sc').first()).toHaveText('0 / 2');
     // one by one: the goal is done with the last one
@@ -319,36 +352,250 @@ test.describe('sub tasks', () => {
     await page.reload();
     await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['82 Thieving', 'Buy a rope']);
     await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(1);
-    // removed with its ×, and Undo
-    await subs(page, 'Ardougne Hard').nth(1).getByRole('button', { name: 'Remove sub task: Buy a rope' }).click();
-    await expect(subs(page, 'Ardougne Hard')).toHaveCount(1);
-    await expect(page.locator('#toast')).toContainText('Removed Buy a rope.');
-    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
-    await expect(subs(page, 'Ardougne Hard')).toHaveCount(2);
-    // nothing typed; and at most 20
+    // nothing typed; the × closes the box
     await goalMenu(page, 'Vis wax');
     await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
-    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
-    await expect(page.locator('#td-err')).toHaveText('Type a sub task first.');
-    await page.keyboard.press('Escape');
+    await subBox(page).press('Enter');
+    await expect(page.locator('.sadd .err')).toHaveText('Type a sub task first.');
+    await page.locator('.sadd').getByRole('button', { name: 'Close' }).click();
+    await expect(subBox(page)).toHaveCount(0);
     const t = await stored(page, 'todo');
     expect(t.lists[0].items[0].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['82 Thieving', 0], ['Buy a rope', 1]]);
+    expect(page.errors).toEqual([]);
+  });
+
+  test("a sub task's menu: edit it, move it up, down and out, and delete it with a second click", async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Ardougne Hard', subs: [{ id: 'a', title: 'Rope' }, { id: 'b', title: 'Lockpick' }, { id: 'c', title: 'Spade' }] }] }));
+    await expect(page.locator('[data-subx]')).toHaveCount(0);
+    await expect(sub(page, 'Rope').getByRole('button', { name: 'Sub task menu: Rope' })).toBeVisible();
+    await subMenu(page, 'Rope');
+    await expect(page.locator('#tmenu .mh').first()).toHaveText('Rope');
+    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Move up', 'Move down', 'Make it a goal', 'Delete']);
+    await expect(page.locator('#tmenu .mi', { hasText: 'Move up' })).toBeDisabled();
+    // the same button closes it
+    await sub(page, 'Rope').locator('[data-smenu]').click();
+    await expect(page.locator('#tmenu')).toHaveCount(0);
+    // edit
+    await subMenu(page, 'Rope');
+    await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Edit sub task');
+    await expect(page.locator('#ts-text')).toHaveValue('Rope');
+    await page.locator('#ts-text').fill(' ');
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect(page.locator('#td-err')).toHaveText('Type a sub task first.');
+    await page.locator('#ts-text').fill('a long rope');
+    await page.locator('#ts-text').press('Enter');
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['A long rope', 'Lockpick', 'Spade']);
+    // down and up
+    await subMenu(page, 'A long rope');
+    await page.locator('#tmenu .mi', { hasText: 'Move down' }).click();
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['Lockpick', 'A long rope', 'Spade']);
+    await subMenu(page, 'Spade');
+    await expect(page.locator('#tmenu .mi', { hasText: 'Move down' })).toBeDisabled();
+    await page.locator('#tmenu .mi', { hasText: 'Move up' }).click();
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['Lockpick', 'Spade', 'A long rope']);
+    // delete: the first click asks, the second deletes; Undo brings it back
+    await subMenu(page, 'Spade');
+    await page.locator('#tmenu .mi.danger').click();
+    await expect(page.locator('#tmenu .mi.danger')).toHaveText('Click again to delete');
+    await expect(subs(page, 'Ardougne Hard')).toHaveCount(3);
+    await page.locator('#tmenu .mi.danger').click();
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['Lockpick', 'A long rope']);
+    await expect(page.locator('#toast')).toContainText('Deleted Spade.');
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(subs(page, 'Ardougne Hard')).toHaveCount(3);
+    // closing the menu forgets the first click
+    await subMenu(page, 'Spade');
+    await page.locator('#tmenu .mi.danger').click();
+    await page.keyboard.press('Escape');
+    await subMenu(page, 'Spade');
+    await expect(page.locator('#tmenu .mi.danger')).toHaveText('Delete');
+    await page.keyboard.press('Escape');
+    // out: it becomes a goal of the list, right after its goal
+    await subMenu(page, 'Lockpick');
+    await page.locator('#tmenu .mi', { hasText: 'Make it a goal' }).click();
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Ardougne Hard', 'Lockpick']);
+    await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['Spade', 'A long rope']);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('sub tasks have their own sub tasks, four deep; each is done when all of its own are', async ({ page }) => {
+    await openList(page, lists({ Gear: [{ kind: 'other', title: 'Hatchet of bloom and blight' }] }));
+    await addSubs(page, 'Hatchet of bloom and blight', ['Hatchet of ember and glade', 'Blight shard']);
+    await subMenu(page, 'Hatchet of ember and glade');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await expect(subBox(page)).toHaveAttribute('aria-label', 'Add a sub task to Hatchet of ember and glade');
+    await typeSubs(page, ['Crystal hatchet', 'Ember shard']);
+    await subBox(page).press('Escape');
+    const mid = sub(page, 'Hatchet of ember and glade');
+    await expect(mid.locator('li.gsub .t')).toHaveText(['Crystal hatchet', 'Ember shard']);
+    await expect(mid.locator(':scope > .row .sc')).toHaveText('0 / 2');
+    await expect(goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc')).toHaveText('0 / 2');
+    // the inner ones done: the one above them is done
+    await sub(page, 'Crystal hatchet').locator('.cb').click();
+    await expect(mid).not.toHaveClass(/\bdone\b/);
+    await sub(page, 'Ember shard').locator('.cb').click();
+    await expect(mid).toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc')).toHaveText('1 / 2');
+    await sub(page, 'Blight shard').locator('.cb').click();
+    await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
+    // one inner one unticked: everything above it is open again
+    await sub(page, 'Ember shard').locator('.cb').click();
+    await expect(mid).not.toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Hatchet of bloom and blight')).not.toHaveClass(/\bdone\b/);
+    // ticking the middle one ticks what is under it
+    await mid.locator(':scope > .row > .cb').click();
+    await expect(mid.locator('li.gsub .cb:checked')).toHaveCount(2);
+    await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
+    // a new sub task under a done one opens it again
+    await subMenu(page, 'Crystal hatchet');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await typeSubs(page, ['Crystal tool seed']);
+    await subBox(page).press('Escape');
+    await expect(sub(page, 'Crystal hatchet')).not.toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Hatchet of bloom and blight')).not.toHaveClass(/\bdone\b/);
+    // four deep, and no deeper
+    await subMenu(page, 'Crystal tool seed');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await typeSubs(page, ['Sing it']);
+    await subBox(page).press('Escape');
+    await subMenu(page, 'Sing it');
+    await expect(page.locator('#tmenu .mi', { hasText: 'Add sub task' })).toBeDisabled();
+    // out one level: next to the one it was under
+    await expect(page.locator('#tmenu .mi', { hasText: 'Move out a level' })).toBeVisible();
+    await page.locator('#tmenu .mi', { hasText: 'Move out a level' }).click();
+    await expect(sub(page, 'Crystal tool seed').locator('xpath=following-sibling::li[1]').locator(':scope > .row .t')).toHaveText('Sing it');
+    // kept after a reload
+    await page.reload();
+    await expect(sub(page, 'Hatchet of ember and glade').locator('li.gsub .t')).toHaveText(['Crystal hatchet', 'Crystal tool seed', 'Sing it', 'Ember shard']);
+    const g = (await stored(page, 'todo')).lists[0].items[0];
+    expect(g.subs[0].subs[0].subs[0].title).toBe('Crystal tool seed');
     expect(page.errors).toEqual([]);
   });
 
   test('at most 20 sub tasks; a goal that repeats unticks its sub tasks too', async ({ page }) => {
     await page.clock.install({ time: new Date('2026-11-16T21:00:00Z') });
     const many = Array.from({ length: 20 }, (_, i) => ({ id: 's' + i, title: 'Step ' + (i + 1) }));
-    await openList(page, lists({ Today: [{ kind: 'other', title: 'Big', subs: many }, { kind: 'other', title: 'Dailies', repeat: 'day', subs: [{ id: 'a', title: 'Vis wax' }, { id: 'b', title: 'Herbs' }] }] }));
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Big', subs: many }, { kind: 'other', title: 'Dailies', repeat: 'day', subs: [{ id: 'a', title: 'Vis wax', subs: [{ id: 'a1', title: 'Rune one' }] }, { id: 'b', title: 'Herbs' }] }] }));
     await goalMenu(page, 'Big');
     await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
     await expect(page.locator('#toast')).toHaveText('A goal has at most 20 sub tasks.');
-    await expect(page.locator('#td')).toHaveCount(0);
+    await expect(subBox(page)).toHaveCount(0);
     await goal(page, 'Dailies').locator('.row > .cb').first().click();
-    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(2);
+    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(3);
     await page.clock.fastForward('04:00:00');
     await expect(goal(page, 'Dailies')).not.toHaveClass(/\bdone\b/);
     await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(0);
+  });
+});
+
+test.describe('a goal becomes a list', () => {
+  test('"Make it a list": its sub tasks are the goals of a new list with its name', async ({ page }) => {
+    await openList(page, lists({
+      Today: [{ kind: 'other', title: 'Hatchet of bloom and blight', subs: [{ id: 'a', title: 'Hatchet of ember and glade', done: 1, subs: [{ id: 'a1', title: 'Crystal hatchet', done: 1 }] }, { id: 'b', title: 'Blight shard' }] },
+        { kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'other', title: 'Today' }, { kind: 'other', title: 'A goal with a name that is far too long for a list' }],
+      Later: []
+    }));
+    // only for goals you wrote yourself
+    await goalMenu(page, '82 Thieving');
+    await expect(page.locator('#tmenu .mi', { hasText: 'Make it a list' })).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    await goalMenu(page, 'Hatchet of bloom and blight');
+    await page.locator('#tmenu .mi', { hasText: 'Make it a list' }).click();
+    // the new list comes right after the one the goal was in
+    await expect(names(page)).toHaveText(['Today', 'Hatchet of bloom and blight', 'Later']);
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['82 Thieving', 'Today', 'A goal with a name that is far too long for a list']);
+    await expect(goals(page, 'Hatchet of bloom and blight').locator(':scope > .row .t')).toHaveText(['Hatchet of ember and glade', 'Blight shard']);
+    await expect(goal(page, 'Hatchet of ember and glade')).toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Hatchet of ember and glade').locator('li.gsub .t')).toHaveText(['Crystal hatchet']);
+    await expect(page.locator('#toast')).toContainText('Made the list Hatchet of bloom and blight.');
+    // Undo
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(names(page)).toHaveText(['Today', 'Later']);
+    await expect(goals(page, 'Today').locator(':scope > .row .t').first()).toHaveText('Hatchet of bloom and blight');
+    // a name that is taken gets a number; a long one is cut; a goal without sub tasks makes an empty list
+    await goalMenu(page, /^Today$/);
+    await page.locator('#tmenu .mi', { hasText: 'Make it a list' }).click();
+    await goalMenu(page, 'A goal with a name');
+    await page.locator('#tmenu .mi', { hasText: 'Make it a list' }).click();
+    await expect(names(page)).toHaveText(['Today', 'A goal with a name that is far', 'Today 2', 'Later']);
+    await expect(goals(page, 'Today 2')).toHaveCount(0);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('not with 30 lists already', async ({ page }) => {
+    const o = { Today: [{ kind: 'other', title: 'Big plan' }] };
+    for (let i = 2; i <= 30; i++) o['List ' + i] = [];
+    await openList(page, lists(o));
+    await goalMenu(page, 'Big plan');
+    await page.locator('#tmenu .mi', { hasText: 'Make it a list' }).click();
+    await expect(page.locator('#toast')).toHaveText('You have 30 lists. Delete one first.');
+    await expect(goals(page, 'Today')).toHaveCount(1);
+  });
+});
+
+test.describe('a link to the wiki', () => {
+  const link = (page) => page.locator('#tmenu a.mi', { hasText: 'Open on the wiki' });
+  const wikiOf = async (page) => (await stored(page, 'todo')).lists[0].items.map((g) => g.wiki);
+
+  test('a goal you wrote gets "Open on the wiki" when the wiki has a page for it', async ({ page, wiki }) => {
+    wiki.exists('Crystal hatchet').exists('Magic logs').exists('Soul Split').exists('Vis wax').exists('Rope');
+    await openList(page, lists({ Gear: [{ kind: 'other', title: 'Crystal Hatchet', subs: [{ id: 'a', title: 'Rope' }, { id: 'b', title: 'Ask Erik' }] }, { kind: 'other', title: '500 Magic logs' },
+      { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Vis wax (daily)' }, { kind: 'other', title: 'Do my own thing' }, { kind: 'skill', skill: 'magic', level: 75 }] }));
+    // as typed, with small letters, without a number or "Unlock" in front
+    await expect.poll(() => wikiOf(page)).toEqual(['Crystal hatchet', 'Magic logs', 'Soul Split', 'Vis wax', '', undefined]);
+    await goalMenu(page, 'Crystal Hatchet');
+    await expect(link(page)).toHaveAttribute('href', 'https://runescape.wiki/w/Crystal_hatchet');
+    await expect(link(page)).toHaveAttribute('target', '_blank');
+    await link(page).click();
+    await expect(page.locator('#tmenu')).toHaveCount(0);
+    await goalMenu(page, '500 Magic logs');
+    await expect(link(page)).toHaveAttribute('href', 'https://runescape.wiki/w/Magic_logs');
+    await page.keyboard.press('Escape');
+    await goalMenu(page, 'Do my own thing');
+    await expect(link(page)).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    // sub tasks too
+    await page.locator('li.gsub', { hasText: 'Rope' }).locator('[data-smenu]').click();
+    await expect(link(page)).toHaveAttribute('href', 'https://runescape.wiki/w/Rope');
+    await page.keyboard.press('Escape');
+    await page.locator('li.gsub', { hasText: 'Ask Erik' }).locator('[data-smenu]').click();
+    await expect(link(page)).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    // asked once: not again after a reload
+    const n = wiki.lookups.length;
+    expect(n).toBeGreaterThan(0);
+    await page.reload();
+    await expect(goal(page, 'Crystal Hatchet')).toBeVisible();
+    await page.waitForTimeout(200);
+    expect(wiki.lookups.length).toBe(n);
+    // a new goal is looked up; a goal with a new name is looked up again
+    wiki.exists('Bones', 'Bones (item)');
+    await add(page, 'bones');
+    await expect.poll(async () => (await wikiOf(page))[6]).toBe('Bones (item)');
+    await goalMenu(page, 'Crystal Hatchet');
+    await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
+    await page.locator('#tg-text').fill('Dragon hatchet');
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect.poll(async () => (await wikiOf(page))[0]).toBe('');
+    // its sub tasks stay
+    await expect(goal(page, 'Dragon hatchet').locator('li.gsub .t')).toHaveText(['Rope', 'Ask Erik']);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('the wiki does not answer: no link, and the app works', async ({ page, wiki }) => {
+    wiki.exists('Crystal hatchet');
+    wiki.lookupFail = true;
+    await openList(page, lists({ Gear: [{ kind: 'other', title: 'Crystal hatchet' }] }));
+    await expect.poll(() => wiki.lookups.length).toBe(1);
+    await goalMenu(page, 'Crystal hatchet');
+    await expect(link(page)).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    // asked again the next time the app starts
+    wiki.lookupFail = false;
+    await page.reload();
+    await expect.poll(() => wikiOf(page)).toEqual(['Crystal hatchet']);
+    expect(page.errors).toEqual([]);
   });
 });
 
@@ -639,7 +886,7 @@ test.describe('export and import', () => {
     await openList(page, lists({
       Today: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }, { kind: 'other', title: 'Vis wax', repeat: 'day', done: Date.now() }, { kind: 'other', title: 'Unlock Soul Split', note: 'Needs a quest' }],
       'Skilling goals': [{ kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'quest', title: 'While Guthix Sleeps' }, { kind: 'tier', area: 'Ardougne', tier: 'hard', title: 'Ardougne Hard' }],
-      Gathering: [{ kind: 'other', title: '500 Magic logs', subs: [{ id: 'a', title: 'Cut 250', done: 1 }, { id: 'b', title: 'Cut 250 more' }] }],
+      Gathering: [{ kind: 'other', title: '500 Magic logs', subs: [{ id: 'a', title: 'Cut 250', done: 1 }, { id: 'b', title: 'Cut 250 more', subs: [{ id: 'b1', title: 'Sharpen', done: 1 }, { id: 'b2', title: 'Sharpen' }] }] }],
       Empty: []
     }));
     const j = JSON.parse(await exportText(page));
@@ -647,7 +894,7 @@ test.describe('export and import', () => {
     expect(j.mylist).toEqual({
       Today: { 'Task 448: Yoink! (Ardougne Easy)': false, 'Vis wax (daily)': true, 'Unlock Soul Split': { done: false, note: 'Needs a quest' } },
       'Skilling goals': { '82 Thieving': false, 'Quest: While Guthix Sleeps': false, 'Tier: Ardougne Hard': false },
-      Gathering: { '500 Magic logs': { done: false, subs: { 'Cut 250': true, 'Cut 250 more': false } } },
+      Gathering: { '500 Magic logs': { done: false, subs: { 'Cut 250': true, 'Cut 250 more': { done: false, subs: { Sharpen: true, 'Sharpen #2': false } } } } },
       Empty: {}
     });
     // a fresh start, then the file: the same lists
@@ -658,7 +905,9 @@ test.describe('export and import', () => {
     await expect(page.locator('#toast')).toContainText(' and 4 lists.');
     expect(await saved(page)).toEqual(before);
     expect((await stored(page, 'todo')).lists[0].items[2]).toMatchObject({ note: 'Needs a quest' });
-    expect((await stored(page, 'todo')).lists[2].items[0].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['Cut 250', 1], ['Cut 250 more', 0]]);
+    const back = (await stored(page, 'todo')).lists[2].items[0].subs;
+    expect(back.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['Cut 250', 1], ['Cut 250 more', 0]]);
+    expect(back[1].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['Sharpen', 1], ['Sharpen', 0]]);
   });
 
   test('goals typed by hand in the file are read like the add box reads them; a file without lists leaves yours', async ({ page }) => {

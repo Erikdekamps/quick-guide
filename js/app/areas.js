@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - app-areas.js
+ * Quick Guide - js/app/areas.js
  * Area Tasks: saved areas and the task index, the list of tiers and search, and one area.
  */
 (function (A) {

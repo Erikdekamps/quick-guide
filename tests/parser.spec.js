@@ -3,8 +3,8 @@ const { test, expect, fixture } = require('./support/app');
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/parser.js' });
-  await page.addScriptTag({ url: '/quests.js' });
+  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await page.addScriptTag({ url: '/js/wiki/quests.js' });
 });
 
 // Parses a bit of wiki HTML. Steps need a part heading, so most snippets start with an <h2>.
