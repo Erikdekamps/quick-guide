@@ -77,6 +77,7 @@
     if (t.id === 'sort') { S.set.sort = pick(SORTS, t.value, 'name'); saveSettings(); drawList(); return; }
     if (t.id === 'theme') { S.set.theme = pick(THEMES, t.value, 'brown'); saveSettings(); applySettings(); return; }
     if (t.id === 'ta-list') { addToPick(t); return; }
+    if (t.id === 'tg-list' || t.id === 'tg-parent') { A.pickPlace(t); return; }
     if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
     if (t.hasAttribute('data-subcb')) { tickSub(t.getAttribute('data-gid'), t.getAttribute('data-subcb'), t.checked); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }

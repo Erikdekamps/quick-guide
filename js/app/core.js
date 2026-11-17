@@ -528,6 +528,10 @@
       (icon ? ' title="' + label + '"' : '') + '>' + (icon || '') + '<span class="tl-l">' + esc(label) + '</span>' + (after || '') + '</button>';
   }
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
+  // The Quests, Area tasks and My list tabs, on every screen (on: the one that is lit). My list shows its open goals.
+  function homeTabsHtml(on) {
+    return tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], on === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home');
+  }
   // The big button at the bottom ("Done, next step").
   function nextHtml(act, label, off) {
     return '<footer class="ftr"><button class="next" type="button" id="next-btn" data-act="' + act + '"' + (off ? ' disabled' : '') + '>' +
@@ -570,7 +574,7 @@
     dropMaps();
     app.innerHTML =
       headerHtml() +
-      tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], S.set.home === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home') +
+      homeTabsHtml(S.set.home) +
       '<main class="scroll" id="main">' +
       (S.set.home === 'todo' ? '' : searchHtml()) +
 
@@ -856,7 +860,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,

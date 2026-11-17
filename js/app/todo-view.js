@@ -40,7 +40,8 @@
     var tid = esc('st-' + g.id + '-' + u.id), done = isDone(u), title = goalTitle(u);
     return '<li class="gsub' + (done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (done ? ' checked' : '') + '>' +
-      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u) : '') + '</div>' +
+      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u) : '') +
+      (u.note ? '<span class="gn">' + esc(u.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-smenu="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" data-menu="tmenu" aria-label="Sub task menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
       '</div>' + subsHtml(g, u) + '</li>';
   }
@@ -128,7 +129,7 @@
   // After a change: the tab, the count on it, and the "Add to list" items and "+ goal" buttons on screen.
   function changed() {
     saveTodo();
-    if (S.view === 'start' && S.set.home === 'todo') drawTodo(); else if (S.view === 'start') updateCount();
+    if (S.view === 'start' && S.set.home === 'todo') drawTodo(); else updateCount();
     updateRefs();
   }
   // The whole screen again (after Undo, so every menu and "+ goal" is right).

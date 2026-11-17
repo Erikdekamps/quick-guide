@@ -80,9 +80,11 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
   character is looked up.
 - **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
-  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and the
-  **place** in it: the end or the top of the list, or under a goal or a sub task. Under one, it is a sub task
-  there and still the same task: one tick, here and in its area.
+  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
+  **parent**: none (it is a goal of the list), or a goal or a sub task of the list. Under a parent it is a sub
+  task there and still the same task: one tick, here and in its area.
+- The **Quests**, **Area tasks** and **My list** tabs stay on every screen, so in a quest or an area you see the
+  number on My list go up when you add something.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
 - **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
@@ -100,6 +102,8 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   (Esc or × closes the box). A sub task can have its own sub tasks, four deep, at most 20 in one place: "Hatchet
   of bloom and blight" needs a "Hatchet of ember and glade", which needs a "Crystal hatchet".
   Each is done when all under it are; ticking one ticks all under it.
+- **Edit** (of a goal or a sub task) also has its **list** and its **parent**: pick another goal or sub task to
+  move it under, or None to make it a goal of the list. A sub task can have a note too.
 - A sub task's **⋯**: edit, add a sub task, move it up or down, move it out a level (at the top: make it a goal),
   delete it (two clicks, and Undo).
 - A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,

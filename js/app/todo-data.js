@@ -81,7 +81,7 @@
       // A sub task that stands for a quest, a tier, an area task or a level is kept like a goal of that kind.
       if (isMap(u) && isRef(u)) {
         var r = cleanGoal(copy(copy({}, u), { id: line(u.id, 40) || newId('s') }), depth);
-        if (r) { delete r.at; delete r.note; }
+        if (r) delete r.at;
         return r;
       }
       var st = isMap(u) ? line(u.title) : '';
@@ -89,6 +89,7 @@
       var o = { id: line(u.id, 40) || newId('s'), title: st };
       if (+u.done > 0) o.done = +u.done;
       if (typeof u.wiki === 'string') o.wiki = line(u.wiki, 120);
+      if (line(u.note, NOTE_MAX)) o.note = line(u.note, NOTE_MAX);
       var kids = cleanSubs(u.subs, depth + 1);
       if (kids.length) o.subs = kids;
       return o;
@@ -473,13 +474,19 @@
     if (g.kind === 'quest') return 'Quest: ' + g.title;
     return g.title + (g.repeat ? ' (' + REPEATS[g.repeat] + ')' : '');
   }
-  // Sub tasks in the file: { "<sub task>": true or false }, or { done, subs } for one with its own.
+  // Sub tasks in the file: { "<sub task>": true or false }, or { done, note, subs } for one with a note or its own.
   function subsOut(list) {
     var o = {};
     list.forEach(function (u) {
       var name = isRef(u) ? goalLine(u) : u.title, k = name, n = 2;
       while (Object.prototype.hasOwnProperty.call(o, k)) k = name + ' #' + n++;
-      o[k] = u.subs ? { done: isDone(u), subs: subsOut(u.subs) } : isDone(u);
+      var v = isDone(u);
+      if (u.note || u.subs) {
+        v = { done: v };
+        if (u.note) v.note = u.note;
+        if (u.subs) v.subs = subsOut(u.subs);
+      }
+      o[k] = v;
     });
     return o;
   }
@@ -487,7 +494,11 @@
     return Object.keys(m).map(function (t) {
       // "Task 448: Yoink! (Ardougne Easy)", "Quest: …", "Tier: …" and "82 Thieving" are read like a goal's line.
       var v = m[t], name = t.replace(/ #\d+$/, ''), g = parseGoal(name), o = g && g.kind !== 'other' ? g : { title: name };
-      if (isMap(v)) { if (isMap(v.subs)) o.subs = subsIn(v.subs); v = v.done; }
+      if (isMap(v)) {
+        if (isMap(v.subs)) o.subs = subsIn(v.subs);
+        if (typeof v.note === 'string') o.note = v.note;
+        v = v.done;
+      }
       o.done = v === true ? 1 : 0;
       return o;
     });

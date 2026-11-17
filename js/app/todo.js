@@ -10,7 +10,7 @@
   var byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, note = A.note, plural = A.plural, QG = A.QG, S = A.S, T = A.T, toast = A.toast;
   var addGoal = T.addGoal, buttonsHtml = T.buttonsHtml, cap1 = T.cap1, changed = T.changed, cleanGoal = T.cleanGoal, closeDialog = T.closeDialog,
     copy = T.copy, ctx = T.ctx, dialogErr = T.dialogErr, drawTodo = T.drawTodo, errHtml = T.errHtml, fieldHtml = T.fieldHtml,
-    findSub = T.findSub, isRef = T.isRef, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
+    findSub = T.findSub, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
     goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, makeList = T.makeList,
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
@@ -78,25 +78,53 @@
       '<div class="fld"><label for="ta-list">List</label><select class="sel" id="ta-list">' + pickerHtml('', '<option value="+"' + (none ? ' selected' : '') + '>New list\u2026</option>') + '</select></div>' +
       '<div class="fld" id="ta-new"' + (none ? '' : ' hidden') + '><label for="ta-name">Name of the new list</label>' +
       '<input class="inp" id="ta-name" type="text" maxlength="' + NAME_MAX + '" autocomplete="off" value="' + (none ? 'My list' : '') + '"></div>' +
-      '<div class="fld" id="ta-where"' + (none ? ' hidden' : '') + '><label for="ta-place">Place</label><select class="sel" id="ta-place">' + placesHtml(listById(pickId())) + '</select></div>' +
+      '<div class="fld" id="ta-where"' + (none ? ' hidden' : '') + '><label for="ta-parent">Parent</label><select class="sel" id="ta-parent">' + parentsHtml(listById(pickId())) + '</select></div>' +
       errHtml() + buttonsHtml('Add'));
   }
-  // Where in a list it can go: the end, the top, or under a goal or a sub task that has room ("g:<goal>" or
-  // "s:<goal>/<sub task>"). A sub task is shown with a dash for each level.
-  function placesHtml(l) {
-    var h = '<option value="">At the end of the list</option><option value="top">At the top of the list</option>';
+  // How many levels a goal or sub task takes: 1, or more with what is under it.
+  function height(x) { return 1 + (x.subs || []).reduce(function (m, u) { return Math.max(m, height(u)); }, 0); }
+  // The parents a goal or sub task can have in a list: none, or a goal or sub task of the list ("g:<goal>" or
+  // "s:<goal>/<sub task>") that has room and is not too deep. A sub task is shown with a dash for each level.
+  // sel: the one that is picked; skip: the goal or sub task itself (not under itself or what is under it).
+  function parentsHtml(l, sel, skip) {
+    var h = '<option value="">None</option>', tall = skip ? height(skip) : 1;
+    function opt(v, depth, x) {
+      if ((x.subs || []).length >= MAX_SUBS && v !== sel) return;
+      h += '<option value="' + esc(v) + '"' + (v === sel ? ' selected' : '') + '>' + new Array(depth + 1).join('\u2014 ') + esc(goalTitle(x)) + '</option>';
+    }
     (l ? l.items : []).forEach(function (g) {
-      if ((g.subs || []).length < MAX_SUBS) h += '<option value="g:' + esc(g.id) + '">Under: ' + esc(goalTitle(g)) + '</option>';
+      if (g === skip) return;
+      opt('g:' + g.id, 0, g);
       (function walk(p, depth) {
         (p.subs || []).forEach(function (u) {
-          if (depth < MAX_DEPTH && (u.subs || []).length < MAX_SUBS) {
-            h += '<option value="s:' + esc(g.id) + '/' + esc(u.id) + '">Under: ' + new Array(depth + 1).join('\u2014 ') + esc(goalTitle(u)) + '</option>';
-          }
+          if (u === skip || depth + tall > MAX_DEPTH) return;
+          opt('s:' + g.id + '/' + u.id, depth, u);
           walk(u, depth + 1);
         });
       })(g, 1);
     });
     return h;
+  }
+  // What a picked parent is: { top (its goal), p (the goal or sub task itself), depth }, or null for none.
+  function parentOf(value) {
+    var m = /^([gs]):([^/]*)(?:\/(.*))?$/.exec(value || ''), top = m && goalById(m[2]);
+    if (!top) return null;
+    if (m[1] === 'g') return { top: top.g, p: top.g, depth: 0 };
+    var hit = findSub(top.g, m[3]);
+    return hit ? { top: top.g, p: hit.u, depth: hit.depth } : null;
+  }
+  // A goal or sub task as a sub task, depth levels under its goal: without what only a goal has.
+  function asSub(x, depth) {
+    var u = cleanGoal(copy(copy({ kind: 'other' }, x), { id: x.id || newId('s') }), depth);
+    ['at', 'repeat', 'upd'].forEach(function (k) { delete u[k]; });
+    if (u.kind === 'other') delete u.kind;
+    return u;
+  }
+  // Puts it under a parent, at the end. False when the parent is full.
+  function putUnder(x, par) {
+    if ((par.p.subs || []).length >= MAX_SUBS) return false;
+    (par.p.subs = par.p.subs || []).push(asSub(x, par.depth + 1));
+    return true;
   }
   // "New list…" picked in the box: the name field shows.
   function addToPick(sel) {
@@ -106,7 +134,7 @@
     f.hidden = sel.value !== '+';
     // The places are those of the list that is picked; a new list has none yet.
     byId('ta-where').hidden = !f.hidden;
-    byId('ta-place').innerHTML = placesHtml(listById(sel.value));
+    byId('ta-parent').innerHTML = parentsHtml(listById(sel.value));
     if (!f.hidden && inp) inp.focus();
   }
   function submitAddTo(st) {
@@ -117,20 +145,11 @@
       if (t.lists.length >= MAX_LISTS) { dialogErr(FULL_LISTS); return; }
       l = makeList(name);
     } else l = listById(sel.value);
-    var place = sel.value === '+' ? '' : byId('ta-place').value, m = /^([gs]):([^/]*)(?:\/(.*))?$/.exec(place);
+    var par = sel.value === '+' ? null : parentOf(byId('ta-parent').value);
     closeDialog();
-    if (m) {
-      // Under a goal or a sub task: it is a sub task there, and still the quest, tier, task or level it stands for.
-      var top = goalById(m[2]), hit = top && m[1] === 's' ? findSub(top.g, m[3]) : null, p = hit ? hit.u : top && top.g;
-      var u = p && cleanGoal(copy({ id: newId('s') }, goalOfRef(st.ref)));
-      if (!u) return;
-      delete u.at;
-      (p.subs = p.subs || []).push(u);
-      settleGoal(top.g);
-    } else {
-      var g = addGoal(goalOfRef(st.ref), l);
-      if (place === 'top') { l.items.pop(); l.items.unshift(g); }
-    }
+    // Under a parent it is a sub task there, and still the quest, tier, task or level it stands for.
+    if (par) { if (!putUnder(goalOfRef(st.ref), par)) { toast(FULL_SUBS); return; } settleGoal(par.top); }
+    else addGoal(goalOfRef(st.ref), l);
     changed();
     tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
@@ -203,7 +222,7 @@
     var gid = btn.getAttribute('data-gid'), sid = btn.getAttribute('data-smenu'), hit = goalById(gid), sub = hit && findSub(hit.g, sid);
     if (!sub) return;
     var u = sub.u, n = sub.p.subs.length;
-    openMenu(btn, 'sub', gid + '/' + sid, '<p class="mh">' + esc(goalTitle(u)) + '</p>' + (isRef(u) ? '' : mitem('sedit', I.edit, 'Edit')) +
+    openMenu(btn, 'sub', gid + '/' + sid, '<p class="mh">' + esc(goalTitle(u)) + '</p>' + mitem('sedit', I.edit, 'Edit') +
       mitem('sadd', I.plus, 'Add sub task', sub.depth >= MAX_DEPTH || (u.subs || []).length >= MAX_SUBS) + openItem(u) +
       '<hr>' + mitem('sup', I.up, 'Move up', sub.i === 0) + mitem('sdown', I.down, 'Move down', sub.i === n - 1) +
       mitem('sout', I.out, sub.depth === 1 ? 'Make it a goal' : 'Move out a level') +
@@ -287,7 +306,7 @@
     var hit = goalById(m.gid), g = hit && hit.g, sub = g && findSub(g, m.sid), snap = snapshot();
     if (!sub) { closeMenus(); return; }
     var u = sub.u, p = sub.p, i = sub.i;
-    if (act === 'sedit') { subDialog(m.gid, m.sid); return; }
+    if (act === 'sedit') { goalDialog({ edit: m.gid, sid: m.sid }); return; }
     if (act === 'sadd') { openSubAdd(m.gid, m.sid); return; }
     if (act === 'sdelete' && !armed(b, 'Click again to delete')) return;
     closeMenus();
@@ -368,84 +387,98 @@
     changed();
     if (mv) tell('Moved to <b>' + esc(nl.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
-  // "Add a goal" (o.list: the list it goes in) and "Edit goal" (o.edit: the goal).
+  // "Add a goal" (o.list: the list it goes in), "Edit goal" (o.edit: the goal) and "Edit sub task" (o.edit and
+  // o.sid). The box has what it says, its list, its parent (none for a goal), how often it repeats, and a note.
   function goalDialog(o) {
-    var hit = o.edit ? goalById(o.edit) : null;
+    var hit = o.edit ? goalById(o.edit) : null, sub = hit && o.sid ? findSub(hit.g, o.sid) : null;
+    if (o.sid && !sub) { closeMenus(); return; }
     if (!hit && goalCount() >= MAX_GOALS) { closeMenus(); toast(FULL_GOALS); return; }
-    var g = hit ? hit.g : null;
-    var st = { type: 'goal', edit: o.edit || '', g: g, d: { text: g ? goalTitle(g) : '', list: hit ? hit.l.id : o.list || pickId(), repeat: (g && g.repeat) || '', note: (g && g.note) || '' } };
+    var x = sub ? sub.u : hit ? hit.g : null;
+    var parent = !sub ? '' : sub.p === hit.g ? 'g:' + hit.g.id : 's:' + hit.g.id + '/' + sub.p.id;
+    var st = { type: 'goal', edit: o.edit || '', sid: o.sid || '', g: x, from: parent,
+      d: { text: x ? goalTitle(x) : '', list: hit ? hit.l.id : o.list || pickId(), parent: parent, repeat: (x && x.repeat) || '', note: (x && x.note) || '' } };
     openDialog(st, goalFormHtml(st));
   }
   function goalFormHtml(st) {
     var d = st.d, fixed = !!st.g && FIXED[st.g.kind];
-    var h = '<h2 class="dh" id="td-h">' + (st.edit ? 'Edit goal' : 'Add a goal') + '</h2>';
+    var h = '<h2 class="dh" id="td-h">' + (st.sid ? 'Edit sub task' : st.edit ? 'Edit goal' : 'Add a goal') + '</h2>';
     h += fixed ? '<p class="what">' + whatHtml({ kind: st.g.kind, title: st.g.title, area: st.g.area, tname: st.g.tname || '' }) + '</p>' :
-      fieldHtml('tg-text', 'Goal', d.text, TEXT_MAX, 'Like 82 Thieving, or Buy a cape');
+      fieldHtml('tg-text', st.sid ? 'Sub task' : 'Goal', d.text, TEXT_MAX, 'Like 82 Thieving, or Buy a cape');
     h += '<div class="fld"><label for="tg-list">List</label><select class="sel" id="tg-list">' + pickerHtml(d.list) + '</select></div>';
-    if (!fixed) h += '<div class="fld"><span class="fl" id="tg-repeat-l">Repeat</span>' + segHtml('repeat', REPEAT_SEG, d.repeat) + '</div>';
+    h += '<div class="fld"><label for="tg-parent">Parent</label><select class="sel" id="tg-parent">' + parentsHtml(listById(d.list), d.parent, st.g) + '</select></div>';
+    // Only a goal repeats.
+    if (!fixed && !d.parent) h += '<div class="fld"><span class="fl" id="tg-repeat-l">Repeat</span>' + segHtml('repeat', REPEAT_SEG, d.repeat) + '</div>';
     h += fieldHtml('tg-note', 'Note (optional)', d.note, NOTE_MAX);
     if (!st.edit) h += note('A quest, an area task or a tier? Its ' + I.dots + ' menu has Add to list.');
     return h + errHtml() + buttonsHtml(st.edit ? 'Save' : 'Add');
   }
   function readDraft(d) {
-    ['text', 'list', 'note'].forEach(function (k) { var el = byId('tg-' + k); if (el) d[k] = el.value; });
+    ['text', 'list', 'parent', 'note'].forEach(function (k) { var el = byId('tg-' + k); if (el) d[k] = el.value; });
   }
-  // How often the goal repeats: the box shows the choice, and keeps what you typed.
+  // The box again after a choice in it, with what you typed. focus: what gets the cursor.
+  function redrawGoal(st, focus) {
+    var f = byId('td-form');
+    f.innerHTML = goalFormHtml(st);
+    var el = f.querySelector(focus);
+    if (el) el.focus();
+  }
+  // How often the goal repeats: the box shows the choice.
   function pickSeg(b) {
-    var st = S.tdlg, f = byId('td-form');
-    if (!st || st.type !== 'goal' || !f) return;
+    var st = S.tdlg;
+    if (!st || st.type !== 'goal' || !byId('td-form')) return;
     var name = b.getAttribute('data-seg'), v = b.getAttribute('data-v');
     readDraft(st.d);
     st.d[name] = v;
-    f.innerHTML = goalFormHtml(st);
-    var nb = f.querySelector('[data-seg="' + name + '"][data-v="' + v + '"]');
-    if (nb) nb.focus();
+    redrawGoal(st, '[data-seg="' + name + '"][data-v="' + v + '"]');
+  }
+  // Another list or parent picked in the box: the parents are those of the list, and only a goal repeats.
+  function pickPlace(sel) {
+    var st = S.tdlg;
+    readDraft(st.d);
+    if (sel.id === 'tg-list') st.d.parent = '';
+    redrawGoal(st, '#' + sel.id);
   }
   function submitGoal(st) {
-    var d = st.d, g;
+    var d = st.d, g, old = st.g;
     readDraft(d);
-    if (st.g && FIXED[st.g.kind]) g = copy({}, st.g);
+    if (old && FIXED[old.kind]) g = copy({}, old);
     else {
       g = parseGoal(d.text);
-      if (!g) { dialogErr('Type a goal first.'); return; }
+      if (!g) { dialogErr(st.sid ? 'Type a sub task first.' : 'Type a goal first.'); return; }
       if (g.kind === 'other' && REPEATS[d.repeat]) g.repeat = d.repeat;
     }
     delete g.note;
     if (line(d.note, NOTE_MAX)) g.note = line(d.note, NOTE_MAX);
-    var l = listById(d.list), snap = snapshot();
+    var l = listById(d.list), par = parentOf(d.parent), snap = snapshot(), hit = st.edit ? goalById(st.edit) : null;
+    var sub = hit && st.sid ? findSub(hit.g, st.sid) : null;
     closeDialog();
-    if (!st.edit) {
-      addGoal(g, l);
-      changed();
-      tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
-      return;
+    if (st.edit && (!hit || (st.sid && !sub))) return;
+    if (old) {
+      // It keeps its ticks when it is the same kind, its sub tasks always, and its wiki page when it says the same.
+      if (old.kind === g.kind || (!old.kind && g.kind === 'other')) { g.done = old.done; g.upd = old.upd; }
+      if (old.subs) g.subs = old.subs;
+      if (old.wiki !== undefined && g.kind === 'other' && g.title === old.title) g.wiki = old.wiki;
+      g.id = old.id;
+      g.at = old.at;
     }
-    var hit = goalById(st.edit);
-    if (!hit) return;
-    // The goal keeps its ticks when it is the same kind, its sub tasks always, and its wiki page when it says the same.
-    var old = hit.g, keep = old.kind === g.kind ? { done: old.done, upd: old.upd } : {};
-    if (old.subs) keep.subs = old.subs;
-    if (old.wiki !== undefined && g.kind === 'other' && g.title === old.title) keep.wiki = old.wiki;
-    var ng = cleanGoal(copy(copy(copy({}, g), keep), { id: old.id, at: old.at }));
-    hit.l.items[hit.l.items.indexOf(old)] = ng;
-    if (l !== hit.l) moveTo(ng, hit.l, l);
+    var stays = !!old && l === hit.l && d.parent === st.from;
+    if (!stays && !par && (!old || sub) && goalCount() >= MAX_GOALS) { toast(FULL_GOALS); return; }
+    if (!stays && par && (par.p.subs || []).length >= MAX_SUBS) { toast(FULL_SUBS); return; }
+    if (stays && sub) {
+      // A sub task that stays where it is: the same place under its parent.
+      sub.p.subs[sub.i] = asSub(g, sub.depth);
+    } else if (stays) hit.l.items[hit.l.items.indexOf(old)] = cleanGoal(g);
+    else {
+      // Out of where it was, and to the end of where it goes.
+      if (sub) { sub.p.subs.splice(sub.i, 1); if (!sub.p.subs.length) delete sub.p.subs; }
+      else if (old) hit.l.items.splice(hit.l.items.indexOf(old), 1);
+      if (par) putUnder(g, par);
+      else { l.items.push(cleanGoal(copy({ id: newId('g'), at: Date.now() }, g))); todo().last = l.id; }
+    }
+    if (hit) settleGoal(hit.g);
+    if (par) settleGoal(par.top);
     changed();
-  }
-  // "Edit" in a sub task's menu: a box with what it says.
-  function subDialog(gid, sid) {
-    var hit = goalById(gid), sub = hit && findSub(hit.g, sid);
-    if (!sub) { closeMenus(); return; }
-    openDialog({ type: 'sub', gid: gid, sid: sid }, '<h2 class="dh" id="td-h">Edit sub task</h2><p class="what"><b>' + esc(goalTitle(hit.g)) + '</b></p>' +
-      fieldHtml('ts-text', 'Sub task', sub.u.title, TEXT_MAX) + errHtml() + buttonsHtml('Save'));
-  }
-  function submitSub(st) {
-    var hit = goalById(st.gid), sub = hit && findSub(hit.g, st.sid), text = cap1(line(byId('ts-text').value));
-    if (!text) { dialogErr('Type a sub task first.'); return; }
-    closeDialog();
-    if (!sub || sub.u.title === text) return;
-    sub.u.title = text;
-    delete sub.u.wiki;
-    changed();
+    if (!old) tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
   // The boxes you type in send their forms here. True when the form was one of them.
   function todoSubmit(form) {
@@ -456,12 +489,11 @@
     if (st && st.type === 'list') submitList(st);
     else if (st && st.type === 'goal') submitGoal(st);
     else if (st && st.type === 'addto') submitAddTo(st);
-    else if (st && st.type === 'sub') submitSub(st);
     return true;
   }
 
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToPick: addToPick, closeSubAdd: closeSubAdd, goalMenu: goalMenu,
     itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); },
-    pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
+    pickPlace: pickPlace, pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
   A.loaded.todo = true;
 })(window.QuickGuideApp);

@@ -218,6 +218,9 @@
     saveSettings();
     S.input = '';
     S.error = '';
+    // From a quest or an area, a tab leaves it.
+    A.sdel('last');
+    A.saveView();
     renderStart();
   }
 
@@ -349,7 +352,7 @@
     }
     dropMaps();
     app.innerHTML =
-      headerHtml(true) + subHtml(a.name, 'All areas', areaDotsHtml()) +
+      headerHtml(true) + A.homeTabsHtml('areas') + subHtml(a.name, 'All areas', areaDotsHtml()) +
       progHtml(done, t.tasks.length, 'Tier progress', done + ' / ' + plural(t.tasks.length, 'task', 'tasks')) +
       tabsHtml('Tiers', a.tiers.map(function (x) { return tabHtml('data-tier', x.id, x === t, x.name); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +

@@ -397,12 +397,13 @@ test.describe('sub tasks', () => {
     await subMenu(page, 'Rope');
     await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
     await expect(dialog(page).locator('.dh')).toHaveText('Edit sub task');
-    await expect(page.locator('#ts-text')).toHaveValue('Rope');
-    await page.locator('#ts-text').fill(' ');
+    await expect(page.locator('#tg-text')).toHaveValue('Rope');
+    await expect(dialog(page).locator('label[for="tg-text"]')).toHaveText('Sub task');
+    await page.locator('#tg-text').fill(' ');
     await dialog(page).getByRole('button', { name: 'Save' }).click();
     await expect(page.locator('#td-err')).toHaveText('Type a sub task first.');
-    await page.locator('#ts-text').fill('a long rope');
-    await page.locator('#ts-text').press('Enter');
+    await page.locator('#tg-text').fill('a long rope');
+    await page.locator('#tg-text').press('Enter');
     await expect(subs(page, 'Ardougne Hard').locator('.t')).toHaveText(['A long rope', 'Lockpick', 'Spade']);
     // down and up
     await subMenu(page, 'A long rope');
@@ -504,6 +505,96 @@ test.describe('sub tasks', () => {
     await page.clock.fastForward('04:00:00');
     await expect(goal(page, 'Dailies')).not.toHaveClass(/\bdone\b/);
     await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(0);
+  });
+});
+
+test.describe('Edit: another parent', () => {
+  const parents = (page) => page.locator('#tg-parent option');
+  async function edit(page, row) {
+    await row.locator(':scope > .row [data-gmenu], :scope > .row [data-smenu]').click();
+    await page.locator('#tmenu .mi', { hasText: 'Edit' }).click();
+  }
+  const sub = (page, text) => page.locator('li.gsub').filter({ has: page.locator(':scope > .row .t', { hasText: new RegExp('^' + text + '$') }) });
+
+  test('a goal goes under another goal or sub task; a sub task goes under another, to another list, or out', async ({ page }) => {
+    await openList(page, lists({
+      Today: [{ kind: 'other', title: 'Alpha', subs: [{ id: 'a1', title: 'Inner', subs: [{ id: 'a1x', title: 'Deep' }] }] }, { kind: 'other', title: 'Beta', repeat: 'day' }, { kind: 'other', title: 'Gamma', note: 'bring food' }],
+      Later: [{ kind: 'other', title: 'Delta' }]
+    }));
+    // a goal: every goal and sub task of its list can be its parent, but not itself
+    await edit(page, goal(page, 'Gamma'));
+    await expect(dialog(page).locator('label[for="tg-parent"]')).toHaveText('Parent');
+    await expect(parents(page)).toHaveText(['None', 'Alpha', '— Inner', '— — Deep', 'Beta']);
+    await expect(page.locator('#tg-parent option:checked')).toHaveText('None');
+    // only a goal repeats: with a parent the choice is gone, and what you typed stays
+    await expect(dialog(page).locator('.seg')).toHaveCount(1);
+    await page.locator('#tg-text').fill('Gamma ray');
+    await page.locator('#tg-parent').selectOption({ label: 'Alpha' });
+    await expect(dialog(page).locator('.seg')).toHaveCount(0);
+    await expect(page.locator('#tg-text')).toHaveValue('Gamma ray');
+    await expect(page.locator('#tg-parent')).toBeFocused();
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Alpha', 'Beta']);
+    await expect(goal(page, 'Alpha').locator(':scope > .gsubs > li.gsub > .row .t')).toHaveText(['Inner', 'Gamma ray']);
+    // its note went with it
+    await expect(sub(page, 'Gamma ray').locator('.gn')).toHaveText('bring food');
+    // a sub task: not under itself or what is under it
+    await edit(page, sub(page, 'Inner'));
+    await expect(dialog(page).locator('.dh')).toHaveText('Edit sub task');
+    await expect(parents(page)).toHaveText(['None', 'Alpha', '— Gamma ray', 'Beta']);
+    await expect(page.locator('#tg-parent option:checked')).toHaveText('Alpha');
+    // no parent: it is a goal at the end of the list, with what was under it
+    await page.locator('#tg-parent').selectOption({ label: 'None' });
+    await expect(dialog(page).locator('.seg')).toHaveCount(1);
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Alpha', 'Beta', 'Inner']);
+    await expect(goal(page, 'Inner').locator('li.gsub .t')).toHaveText(['Deep']);
+    // to another list, under a goal there
+    await edit(page, sub(page, 'Gamma ray'));
+    await page.locator('#tg-list').selectOption({ label: 'Later' });
+    await expect(parents(page)).toHaveText(['None', 'Delta']);
+    await page.locator('#tg-parent').selectOption({ label: 'Delta' });
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect(goal(page, 'Delta').locator('li.gsub .t')).toHaveText(['Gamma ray']);
+    await expect(goal(page, 'Alpha').locator('li.gsub')).toHaveCount(0);
+    // saved without a change: it stays where it is
+    await edit(page, sub(page, 'Gamma ray'));
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    await expect(goal(page, 'Delta').locator('li.gsub .t')).toHaveText(['Gamma ray']);
+    // a goal that repeats, under a parent, no longer does
+    await edit(page, goal(page, 'Beta'));
+    await page.locator('#tg-parent').selectOption({ label: 'Alpha' });
+    await dialog(page).getByRole('button', { name: 'Save' }).click();
+    const t = await stored(page, 'todo');
+    expect(t.lists[0].items.map((g) => g.title)).toEqual(['Alpha', 'Inner']);
+    expect(t.lists[0].items[0].subs).toMatchObject([{ title: 'Beta' }]);
+    expect(t.lists[0].items[0].subs[0].repeat).toBeUndefined();
+    expect(t.lists[1].items[0].subs).toMatchObject([{ title: 'Gamma ray', note: 'bring food' }]);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a new goal can start under a parent; a parent that is full or too deep is not offered', async ({ page }) => {
+    const many = Array.from({ length: 20 }, (_, i) => ({ id: 's' + i, title: 'Step ' + (i + 1) }));
+    await openList(page, lists({ Today: [
+      { kind: 'other', title: 'Full', subs: many },
+      { kind: 'other', title: 'Tall', subs: [{ id: 't1', title: 'T1', subs: [{ id: 't2', title: 'T2', subs: [{ id: 't3', title: 'T3', subs: [{ id: 't4', title: 'T4' }] }] }] }] },
+      { kind: 'other', title: 'Pair', subs: [{ id: 'p1', title: 'P1' }] }] }));
+    await listMenu(page, 'Today');
+    await page.locator('#tmenu .mi', { hasText: 'Add a goal here' }).click();
+    // Full has 20; T4 is four deep
+    const opts = await parents(page).allTextContents();
+    expect(opts.filter((o) => !/Step/.test(o))).toEqual(['None', 'Tall', '— T1', '— — T2', '— — — T3', 'Pair', '— P1']);
+    expect(opts.filter((o) => /Step/.test(o)).length).toBe(20);
+    await page.locator('#tg-text').fill('82 thieving');
+    await page.locator('#tg-parent').selectOption({ label: '— P1' });
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(sub(page, 'P1').locator('li.gsub .t')).toHaveText(['82 Thieving']);
+    await expect(page.locator('#toast')).toContainText('Added to Today.');
+    // Pair, with two levels under it, fits under Tall and T1, and no deeper
+    await edit(page, goal(page, 'Pair'));
+    expect((await parents(page).allTextContents()).filter((o) => !/Step/.test(o))).toEqual(['None', 'Tall', '— T1']);
+    await page.keyboard.press('Escape');
+    expect(page.errors).toEqual([]);
   });
 });
 
@@ -766,7 +857,7 @@ test.describe('goals that tick themselves', () => {
     expect(page.errors).toEqual([]);
   });
 
-  test('Add to list asks where it goes: the end or the top of the list, or under a goal or a sub task', async ({ page, wiki }) => {
+  test('Add to list asks for a parent: none, or a goal or a sub task of the list', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await seed(page, { todo: lists({
       Diary: [{ kind: 'other', title: 'Ardougne', subs: [{ id: 'a', title: 'Easy ones' }] }, { kind: 'other', title: 'Later' }],
@@ -778,39 +869,39 @@ test.describe('goals that tick themselves', () => {
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
     // the places of the list that is picked
-    await expect(dialog(page).locator('label[for="ta-place"]')).toHaveText('Place');
-    await expect(page.locator('#ta-place option')).toHaveText(['At the end of the list', 'At the top of the list', 'Under: Ardougne', 'Under: — Easy ones', 'Under: Later']);
-    await expect(page.locator('#ta-place option:checked')).toHaveText('At the end of the list');
+    await expect(dialog(page).locator('label[for="ta-parent"]')).toHaveText('Parent');
+    await expect(page.locator('#ta-parent option')).toHaveText(['None', 'Ardougne', '— Easy ones', 'Later']);
+    await expect(page.locator('#ta-parent option:checked')).toHaveText('None');
     await page.locator('#ta-list').selectOption({ label: 'Other' });
-    await expect(page.locator('#ta-place option')).toHaveText(['At the end of the list', 'At the top of the list', 'Under: Elsewhere']);
+    await expect(page.locator('#ta-parent option')).toHaveText(['None', 'Elsewhere']);
     // a new list has no places yet
     await page.locator('#ta-list').selectOption({ label: 'New list…' });
-    await expect(page.locator('#ta-place')).toBeHidden();
+    await expect(page.locator('#ta-parent')).toBeHidden();
     await page.locator('#ta-list').selectOption({ label: 'Diary' });
-    await expect(page.locator('#ta-place')).toBeVisible();
+    await expect(page.locator('#ta-parent')).toBeVisible();
     // under a sub task
-    await page.locator('#ta-place').selectOption({ label: 'Under: — Easy ones' });
+    await page.locator('#ta-parent').selectOption({ label: '— Easy ones' });
     await addTo(page);
     await expect(page.locator('#toast')).toContainText('Added to Diary.');
     await taskMenu(page, '448');
     await expect(menuItems(page)).toHaveText(['Remove from Diary']);
     await page.keyboard.press('Escape');
-    // at the top of the list
+    // no parent: a goal at the end of the list
     await taskMenu(page, '447');
     await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
-    await page.locator('#ta-place').selectOption({ label: 'At the top of the list' });
+    await expect(page.locator('#ta-parent option:checked')).toHaveText('None');
     await addTo(page);
     // a level, under a goal
     await page.getByRole('button', { name: 'All areas' }).click();
     await tab(page).click();
-    await expect(goals(page, 'Diary').locator(':scope > .row .t')).toHaveText(['The Essence of Magic', 'Ardougne', 'Later']);
+    await expect(goals(page, 'Diary').locator(':scope > .row .t')).toHaveText(['Ardougne', 'Later', 'The Essence of Magic']);
     const easy = page.locator('li.gsub').filter({ has: page.locator(':scope > .row .t', { hasText: 'Easy ones' }) });
     const yoink = easy.locator('li.gsub');
     await expect(yoink.locator('.t')).toHaveText(['Yoink!']);
     await expect(easy.locator(':scope > .row .sc')).toHaveText('0 / 1');
-    // its menu: no Edit (it says what the task is called), and the way to its area
+    // its menu has the way to its area
     await yoink.locator('[data-smenu]').click();
-    await expect(menuItems(page)).toHaveText(['Add sub task', 'Open Ardougne Easy', 'Move up', 'Move down', 'Move out a level', 'Delete']);
+    await expect(menuItems(page)).toHaveText(['Edit', 'Add sub task', 'Open Ardougne Easy', 'Move up', 'Move down', 'Move out a level', 'Delete']);
     await page.keyboard.press('Escape');
     // one tick: ticked here, it is ticked in its area, and what it is under is done
     await yoink.locator('.cb').click();
@@ -830,7 +921,7 @@ test.describe('goals that tick themselves', () => {
     const j = JSON.parse(await exportText(page));
     expect(j.mylist.Diary.Ardougne).toEqual({ done: false, subs: { 'Easy ones': { done: false, subs: { 'Task 448: Yoink! (Ardougne Easy)': false } } } });
     await importText(page, JSON.stringify(j));
-    expect((await stored(page, 'todo')).lists[0].items[1].subs[0].subs[0]).toMatchObject({ kind: 'task', area: 'Ardougne', task: '448', title: 'Yoink!' });
+    expect((await stored(page, 'todo')).lists[0].items[0].subs[0].subs[0]).toMatchObject({ kind: 'task', area: 'Ardougne', task: '448', title: 'Yoink!' });
     // "Remove from …" in the task's menu takes it out from under its goal
     await page.locator('.tab[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
@@ -956,6 +1047,51 @@ test.describe('the window', () => {
     await expect(page.locator('.hdr .qt')).toHaveText('Quick Guide');
     await expect(page.locator('.sbar h1.qt')).toHaveText('Ardougne');
     await expect(page.locator('.sbar [data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
+  });
+
+  test('the Quests, Area tasks and My list tabs stay on every screen; the number on My list changes right there', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, { todo: lists({ Today: [] }) });
+    await openApp(page, expect);
+    const home = page.locator('.tabs.home .tab');
+    // in a quest: under the title band, above the quest's name, with Quests lit
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await expect(home.locator('.tl-l')).toHaveText(['Quests', 'Area tasks', 'My list']);
+    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Quests');
+    const tb = await page.locator('.tabs.home').boundingBox(), hb = await page.locator('.hdr').boundingBox(), sb = await page.locator('.sbar').boundingBox();
+    expect(tb.y).toBeGreaterThanOrEqual(hb.y + hb.height - 1);
+    expect(sb.y).toBeGreaterThanOrEqual(tb.y + tb.height - 2);
+    await expect(tab(page).locator('.tc')).toHaveCount(0);
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
+    await addTo(page);
+    await expect(tab(page).locator('.tc')).toHaveText('1');
+    // a tab takes you to its list, also the one that is lit
+    await page.locator('.tab[data-home="quests"]').click();
+    await expect(page.locator('#quest-link')).toBeVisible();
+    await expect(page.locator('.sbar')).toHaveCount(0);
+    expect(await stored(page, 'last')).toBeNull();
+    // in an area: Area tasks lit; a task added to a list counts at once
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Area tasks');
+    await expect(page.locator('.tab[data-tier]')).toHaveCount(4);
+    await taskMenu(page, '448');
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await addTo(page);
+    await expect(tab(page).locator('.tc')).toHaveText('2');
+    await tab(page).click();
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['While Guthix Sleeps', 'Yoink!']);
+    // opened from My list, a reload stays in the area
+    await goalMenu(page, 'Yoink!');
+    await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
+    await page.reload();
+    await expect(page.locator('.sbar h1.qt')).toHaveText('Ardougne');
+    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Area tasks');
+    // no sideways scrolling in a narrow window
+    await page.setViewportSize({ width: 280, height: 600 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    expect(page.errors).toEqual([]);
   });
 });
 

@@ -19,8 +19,10 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
   sub task, move up, down or out a level, delete (two clicks).
 - **The box at the end of each list** takes the next goal (Enter, and type another); the add box at the top of the
   tab is gone. "Add sub task" opens the same kind of box under the goal.
-- **Add to list asks the place:** the end or the top of the list, or under a goal or a sub task. A quest, a tier,
-  an area task or a level under a goal is a sub task that still ticks the way a goal of its kind does.
+- **Add to list asks for a parent:** none, or a goal or a sub task of the list. A quest, a tier, an area task or a
+  level under a parent is a sub task that still ticks the way a goal of its kind does.
+- **Edit has the list and the parent** too, for goals and sub tasks: that is how one moves under another, or out.
+- **The Quests, Area tasks and My list tabs are on every screen**, with the number of open goals on My list.
 - **Make it a list:** a goal you wrote yourself becomes a list with its name; its sub tasks are the goals.
 - **Open on the wiki:** goals and sub tasks you wrote yourself are looked up on the wiki once (as typed, with small
   letters, and without a number or a word like "Buy a" in front); the page's name is kept in `wiki`.

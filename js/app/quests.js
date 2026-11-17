@@ -629,7 +629,7 @@
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(true) + subHtml(q.title, 'All quests', dotsHtml()) +
+      headerHtml(true) + A.homeTabsHtml('quests') + subHtml(q.title, 'All quests', dotsHtml()) +
       progHtml(0, 1, 'Quest progress', '') +
       tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +

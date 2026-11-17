@@ -58,7 +58,7 @@ test('like the game: square buttons with a bronze edge and a gold sign', async (
 test('like the game: the tabs sit on a bronze line, and the open one is lit in warm brown', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
   await openTab(page, 'items');
-  const on = page.locator('.tab[aria-selected="true"]'), off = page.locator('.tab[aria-selected="false"]').first();
+  const on = page.locator('.tab[data-tab][aria-selected="true"]'), off = page.locator('.tab[data-tab][aria-selected="false"]').first();
   const img = (l) => l.evaluate((e) => getComputedStyle(e).backgroundImage);
   expect(await img(on)).toContain('linear-gradient');
   expect(await img(off)).toContain('linear-gradient');
