@@ -785,7 +785,9 @@ test.describe('Scan achievements in Alt1', () => {
     await show(page, SHOT.screen);
     await page.evaluate(() => { window.__noise = 12; });
     await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // The fake game makes a new noisy picture for every look, and each task needs two looks that agree: on a slow
+    // machine that can take more than the usual 5 seconds.
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 15000 }).toEqual(ALL7);
     await frames(page, 8);
     await expect(tier(page)).toHaveText('Easy Ardougne');
     expect(await ticked(page, 'Ardougne', 1, 8)).toEqual(Array(8).fill(false));
@@ -802,7 +804,8 @@ test.describe('Scan achievements in Alt1', () => {
     await show(page, SHOT.screen);
     await page.evaluate(() => { window.__noise = 6; window.__patches = 10; });
     await startScan(page);
-    await expect.poll(() => ticked(page, 'Ardougne', 0, 8)).toEqual(ALL7);
+    // (Noisy pictures are slow to make: see the test above.)
+    await expect.poll(() => ticked(page, 'Ardougne', 0, 8), { timeout: 15000 }).toEqual(ALL7);
     await countLost(page);
     await frames(page, 10);
     expect(await page.evaluate(() => window.__lost)).toBe(0);
