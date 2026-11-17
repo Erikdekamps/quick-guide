@@ -29,14 +29,17 @@ so they match it.
 | `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
-| `MyList.dc.html` | My list: the add box with its list, then your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks |
-| `MyListNew.dc.html` | A new list: type a name, or start from a suggestion |
+| `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
+| `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
+| `MyListNew.dc.html` | A new list: type a name |
 | `MyListLists.dc.html` | A list's menu: add a goal here, rename, move the list, clear done goals, delete the list |
-| `MyListSub.dc.html` | Adding a sub task to a goal |
-| `MyListAdd.dc.html` | The Add a goal box: the goal, the list, how often, a note |
-| `MyListMenu.dc.html` | A goal's menu: edit, open, move to another list (or a new one), move up or down, remove |
+| `MyListSub.dc.html` | Adding sub tasks to a goal: the box under it, for one after the other |
+| `MyListSubMenu.dc.html` | A sub task's menu: edit, add a sub task, open on the wiki, move up, down or out a level, delete |
+| `MyListToList.dc.html` | A goal made into a list: its sub tasks are the goals, with Undo |
+| `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, how often, a note |
+| `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
-| `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list) |
+| `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |
 | `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name under the title band: Add to list… first |
 | `MyListEmpty.dc.html` | My list with no lists yet: how to start |
 | `MyListBlue.dc.html` | My list in the Blue theme |

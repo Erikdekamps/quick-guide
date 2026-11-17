@@ -3,7 +3,7 @@ const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, 
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const toast = (page) => page.locator('#toast');
-const tabs = (page) => page.getByRole('tab');
+const tabs = (page) => page.locator('.tab[data-tab]');
 
 async function tickFirstPart(page) {
   await openTab(page, 'steps');

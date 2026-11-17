@@ -12,7 +12,7 @@ const cog = toggle;
 test.describe('optimal order', () => {
   test('quests.js reads the order from the wiki page', async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/quests.js' });
+    await page.addScriptTag({ url: '/js/wiki/quests.js' });
     const order = await page.evaluate((h) => window.QuickGuideData.parseOrder(h), fixture('progression-guide.html'));
     expect(order).toEqual(["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'The Blood Pact', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps']);
   });

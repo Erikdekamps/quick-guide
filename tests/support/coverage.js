@@ -9,7 +9,7 @@ const dir = process.argv[2] || 'coverage', root = path.resolve(__dirname, '..', 
 const files = {};
 for (const f of fs.readdirSync(dir)) {
   for (const e of JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'))) {
-    const name = e.url.replace(/^.*\//, ''), src = fs.readFileSync(path.join(root, name), 'utf8');
+    const name = new URL(e.url).pathname.slice(1), src = fs.readFileSync(path.join(root, name), 'utf8');
     const hit = files[name] || (files[name] = { src, ran: new Uint8Array(src.length) });
     // V8 ranges nest: a later (inner) range overrides an outer one. Mark what ran in this test, then add it up.
     const mine = new Int8Array(src.length).fill(-1);

@@ -1036,8 +1036,12 @@ ul.steps.ql { padding: 0; }
 /* ---------- My list: your own lists of goals ---------- */
 /* the number of open goals, on the tab */
 .tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
-/* the add box, with the list a goal goes in */
-#todo-form .sel { flex: 0 1 108px; min-width: 64px; height: 34px; margin-left: 0; }
+/* the box at the end of a list, and under a goal for its sub tasks: type the next one, Enter adds it */
+.qadd .row-f { align-items: center; }
+.qadd .inp { height: 26px; padding: 0 8px; font-size: 12px; }
+.qadd .err { margin: 4px 0 0; }
+.todo > .addrow { padding: 5px 4px 6px 6px; }
+.gsubs > .addrow { padding: 3px 4px 4px 6px; }
 /* a list's bar: its name and done / all fold it; its menu is on the right */
 .gh.lh { display: flex; align-items: center; background: var(--grain), linear-gradient(var(--raise-top), var(--panel)); border-top: 1px solid var(--panel-hi); border-bottom: 1px solid var(--panel-lo); }
 .gh.lh .ghb { flex: 1; min-width: 0; background: none; border: 0; }
@@ -1056,11 +1060,13 @@ ul.steps.ql { padding: 0; }
 .goal .rp { white-space: nowrap; }
 .goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
 /* a done goal, or sub task: struck through */
-.goal.done > .row .t, .gsub.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
-/* a goal's sub tasks: its own small checklist, under it; how many are done after the goal */
+.goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
+   tasks are a step further in. */
 .goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.gsubs { list-style: none; margin: -4px 0 4px; padding: 0; }
-.gsub .row { padding: 3px 4px 3px 30px; }
+.gsubs { list-style: none; margin: -4px 0 4px; padding: 0 0 0 24px; }
+.gsubs .gsubs { margin: 0; padding-left: 18px; }
+.gsub .row { padding: 3px 4px 3px 6px; }
 .gsub .cb { width: 1.071rem; height: 1.071rem; }
 .gsub .cb::before { width: .357rem; height: .643rem; }
 .gsub .t { font-weight: 400; color: var(--text); }
@@ -1092,7 +1098,6 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
 .seg button:last-child { border-radius: 0 2px 2px 0; }
 .seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
-.sugg { display: flex; flex-wrap: wrap; gap: 6px; }
 /* the buttons in a message: "Undo" */
 .toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .toast .tl:hover { color: var(--gold); }
@@ -1102,7 +1107,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="false"><span class="tl-l">Area tasks</span></button><button class="tab" type="button" role="tab" data-home="todo" aria-selected="true"><span class="tl-l">My list</span></button></nav><main class="scroll" id="main"><form class="find" id="todo-form"><label class="vh" for="todo-text">Add a goal</label><div class="row-f"><input class="inp" id="todo-text" name="goal" type="text" maxlength="80" placeholder="Add a goal, like “82 Thieving”"><select class="sel" id="todo-list" aria-label="To this list" title="To this list"><option>My list</option></select><button class="btn" type="submit">Add</button></div></form><div id="qarea"><p class="empty">Nothing on your list yet.</p><p class="para mid">Make your own lists, like <b>Today</b>, <b>Skilling goals</b> or <b>Gathering</b>, and put in what you want to get done.</p><ul class="plain start"><li>Type a goal above, like <b>“82 Thieving”</b> or <b>“500 Magic logs”</b>.</li><li>A quest, an area task or a tier: <b><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg> → Add to list</b>.</li><li>Press <b>+ goal</b> next to a level you still miss.</li></ul><div class="newlist"><button class="btn" type="button" data-act="tnew">New list</button></div></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main></div>
+<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="false"><span class="tl-l">Area tasks</span></button><button class="tab" type="button" role="tab" data-home="todo" aria-selected="true"><span class="tl-l">My list</span></button></nav><main class="scroll" id="main"><div id="qarea"><p class="empty">Nothing on your list yet.</p><p class="para mid">Make your own lists, like <b>Today</b>, <b>Skilling goals</b> or <b>Gathering</b>, and put in what you want to get done.</p><ul class="plain start"><li>Start with <b>New list</b>. Then type a goal in the box at its end, like <b>“82 Thieving”</b> or <b>“500 Magic logs”</b>.</li><li>A quest, an area task or a tier: <b><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg> → Add to list</b>.</li><li>Press <b>+ goal</b> next to a level you still miss.</li></ul><div class="newlist"><button class="btn" type="button" data-act="tnew">New list</button></div></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

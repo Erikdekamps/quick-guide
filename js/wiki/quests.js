@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - quests.js
+ * Quick Guide - js/wiki/quests.js
  * The list of all quests, from the wiki's "List of quests" page, and the miniquests from "Miniquests".
  */
 (function () {

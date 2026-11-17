@@ -11,19 +11,19 @@ test.describe('a file that does not load', () => {
     ['quests.js', 'The app could not start: quests.js is missing. Upload all the files again, then reload.']
   ]) {
     test(file + ': the app says so', async ({ page }) => {
-      await page.route('**/' + file + '?*', (r) => r.abort());
+      await page.route('**/js/wiki/' + file + '?*', (r) => r.abort());
       await page.goto('/');
       await expect(page.locator('#app')).toHaveText(message);
     });
   }
 
-  // The app is in seven files (app-core.js first, app.js last): any one missing, the page says which, and nothing
-  // half-works under it.
-  for (const file of ['app-core.js', 'app-quests.js', 'app-areas.js', 'app-todo.js', 'app-backup.js', 'app-scan.js', 'app.js']) {
+  // The app is in nine files in js/app (core.js first, main.js last): any one missing, the page says which, and
+  // nothing half-works under it.
+  for (const file of ['js/app/core.js', 'js/app/quests.js', 'js/app/areas.js', 'js/app/todo-data.js', 'js/app/todo-view.js', 'js/app/todo.js', 'js/app/backup.js', 'js/app/scan.js', 'js/app/main.js']) {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
       await page.goto('/');
-      await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace('.', '\\.') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
+      await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
       await page.waitForTimeout(300);
       await expect(page.locator('#app .hdr')).toHaveCount(0);
     });

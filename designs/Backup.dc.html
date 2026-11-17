@@ -1036,8 +1036,12 @@ ul.steps.ql { padding: 0; }
 /* ---------- My list: your own lists of goals ---------- */
 /* the number of open goals, on the tab */
 .tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
-/* the add box, with the list a goal goes in */
-#todo-form .sel { flex: 0 1 108px; min-width: 64px; height: 34px; margin-left: 0; }
+/* the box at the end of a list, and under a goal for its sub tasks: type the next one, Enter adds it */
+.qadd .row-f { align-items: center; }
+.qadd .inp { height: 26px; padding: 0 8px; font-size: 12px; }
+.qadd .err { margin: 4px 0 0; }
+.todo > .addrow { padding: 5px 4px 6px 6px; }
+.gsubs > .addrow { padding: 3px 4px 4px 6px; }
 /* a list's bar: its name and done / all fold it; its menu is on the right */
 .gh.lh { display: flex; align-items: center; background: var(--grain), linear-gradient(var(--raise-top), var(--panel)); border-top: 1px solid var(--panel-hi); border-bottom: 1px solid var(--panel-lo); }
 .gh.lh .ghb { flex: 1; min-width: 0; background: none; border: 0; }
@@ -1055,8 +1059,17 @@ ul.steps.ql { padding: 0; }
 .goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 .goal .rp { white-space: nowrap; }
 .goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
-/* a done goal: struck through */
-.goal.done .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a done goal, or sub task: struck through */
+.goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
+   tasks are a step further in. */
+.goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gsubs { list-style: none; margin: -4px 0 4px; padding: 0 0 0 24px; }
+.gsubs .gsubs { margin: 0; padding-left: 18px; }
+.gsub .row { padding: 3px 4px 3px 6px; }
+.gsub .cb { width: 1.071rem; height: 1.071rem; }
+.gsub .cb::before { width: .357rem; height: .643rem; }
+.gsub .t { font-weight: 400; color: var(--text); }
 .rowm { flex: none; }
 .newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
 .para.mid { text-align: center; }
@@ -1085,7 +1098,6 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
 .seg button:last-child { border-radius: 0 2px 2px 0; }
 .seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
-.sugg { display: flex; flex-wrap: wrap; gap: 6px; }
 /* the buttons in a message: "Undo" */
 .toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .toast .tl:hover { color: var(--gold); }
@@ -1112,7 +1124,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
         "457 Going on a Summer Holiday": false,
         "458 Breaking and Entering": false,
         "459 P-P-P-Pick Up So
-…</textarea><p class="err" id="bk-err" role="alert" hidden=""></p><div class="dbtn"><a class="btn" id="bk-save" role="link" href="blob:https://erikdekamps.github.io/quick-guide/d8909b82-56d7-431c-b16d-21d0e260cedf" download="quick-guide-2026-11-16.json">Download file</a><button class="btn alt" type="button" data-act="bk-copy">Copy</button><button class="btn alt" type="button" data-act="bk-close">Close</button></div></div></div></div>
+…</textarea><p class="err" id="bk-err" role="alert" hidden=""></p><div class="dbtn"><a class="btn" id="bk-save" role="link" href="blob:https://erikdekamps.github.io/quick-guide/4db78a2c-2ae1-49e2-a853-6141ed4a3ff6" download="quick-guide-2026-11-17.json">Download file</a><button class="btn alt" type="button" data-act="bk-copy">Copy</button><button class="btn alt" type="button" data-act="bk-close">Close</button></div></div></div></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

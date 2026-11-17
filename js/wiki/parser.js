@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - parser.js
+ * Quick Guide - js/wiki/parser.js
  * Reads a RuneScape Wiki "Quick guide" page and turns it into plain JSON.
  * Guide text and images belong to the RuneScape Wiki (CC BY-NC-SA 3.0).
  */
@@ -103,6 +103,26 @@
   }
 
   // ---------- fetching ----------
+  // Which of these page names the wiki has: { "<name>": the page it leads to }. Names it does not have are left out.
+  function findPages(names) {
+    var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&titles=' + encodeURIComponent(names.join('|'));
+    return fetch(url, { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('The wiki answered with error ' + r.status + '.');
+      return r.json();
+    }).then(function (d) {
+      var q = d && d.query, to = {}, has = {}, out = {};
+      if (!q || !Array.isArray(q.pages)) throw new Error('The wiki sent something unexpected.');
+      // The wiki gives a name its first capital, then follows a redirect.
+      (q.normalized || []).concat(q.redirects || []).forEach(function (x) { to[x.from] = x.to; });
+      q.pages.forEach(function (p) { if (!p.missing && !p.invalid) has[p.title] = 1; });
+      names.forEach(function (n) {
+        var t = to[n] || n;
+        t = to[t] || t;
+        if (has[t]) out[n] = t;
+      });
+      return out;
+    });
+  }
   function fetchPage(title) {
     var q = 'action=parse&format=json&formatversion=2&prop=text%7Cjsconfigvars&redirects=1' +
       '&disableeditsection=1&disablelimitreport=1&origin=*&page=' + encodeURIComponent(title);
@@ -1299,6 +1319,7 @@
     titleFromInput: titleFromInput,
     load: load,
     parse: parse,
+    findPages: findPages,
     pageUrl: pageUrl
   };
 })(window);

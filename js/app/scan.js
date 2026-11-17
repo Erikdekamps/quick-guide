@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - app-scan.js
+ * Quick Guide - js/app/scan.js
  * Scan achievements (Alt1): reads the game's Area Tasks list with reader.js and ticks the tasks.
  */
 (function (A) {

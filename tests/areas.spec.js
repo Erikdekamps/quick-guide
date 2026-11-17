@@ -35,7 +35,7 @@ async function openArea(page, name) {
 test.describe('reading an area page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/parser.js' });
+    await page.addScriptTag({ url: '/js/wiki/parser.js' });
   });
   const parse = (page, file, name) => page.evaluate(([h, n]) => window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', n), [fixture(file), name]);
 
@@ -489,7 +489,7 @@ test.describe('an area', () => {
   test('an area saved by an older version opens at once, and is read again quietly', async ({ page, wiki }) => {
     withAreas(wiki);
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/parser.js' });
+    await page.addScriptTag({ url: '/js/wiki/parser.js' });
     const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
     wiki.fail('Ardougne achievements', 'slow');
     await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
@@ -503,7 +503,7 @@ test.describe('an area', () => {
   test('when the quiet read works, the area is updated', async ({ page, wiki }) => {
     withAreas(wiki);
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/parser.js' });
+    await page.addScriptTag({ url: '/js/wiki/parser.js' });
     const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
     await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
     await openApp(page, expect);
@@ -516,7 +516,7 @@ test.describe('an area', () => {
   test('when the quiet read fails, the saved area stays, and nothing breaks', async ({ page, wiki }) => {
     withAreas(wiki);
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/parser.js' });
+    await page.addScriptTag({ url: '/js/wiki/parser.js' });
     const old = await page.evaluate((h) => { const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne'); a.version = 1; return a; }, fixture('ardougne-achievements.html'));
     wiki.fail('Ardougne achievements', 'http');
     await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });

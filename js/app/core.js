@@ -1,16 +1,19 @@
 /*!
- * Quick Guide - app-core.js
+ * Quick Guide - js/app/core.js
  * A tick list for RuneScape Wiki quest quick guides and Area Tasks, made for the Alt1 browser.
  *
- * The app is in seven files, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
- *   app-core.js     storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
- *   app-quests.js   the quest list and the quest screen
- *   app-areas.js    Area Tasks
- *   app-todo.js     My list: your own lists of goals
- *   app-backup.js   export and import
- *   app-scan.js     Scan achievements (Alt1)
- *   app.js          the clicks and keys of every screen, and the start
- * parser.js reads the wiki pages, quests.js the quest lists, reader.js the game screen.
+ * The app is in nine files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
+ *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
+ *   quests.js      the quest list and the quest screen
+ *   areas.js       Area Tasks
+ *   todo-data.js   My list: the saved lists, goals and sub tasks, resets, wiki links, export and import
+ *   todo-view.js   My list: what the tab shows, its menus and boxes
+ *   todo.js        My list: adding, ticking, and what the menus do
+ *   backup.js      export and import
+ *   scan.js        Scan achievements (Alt1)
+ *   main.js        the clicks and keys of every screen, and the start
+ * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists); js/game reads the game screen (reader.js,
+ * tiernames.js).
  *
  * What is kept in localStorage (all keys start with "qg1."):
  *   list, minis     every quest and miniquest from the wiki's lists: { at, quests: [...] }
@@ -27,7 +30,7 @@
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
  *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
- *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see app-todo.js)
+ *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
  * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
  */
 (function () {
@@ -165,6 +168,8 @@
     target: svg('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'),
     edit: svg('<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>'),
     up: svg('<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>'),
+    list: svg('<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>'),
+    out: svg('<path d="m9 14-5-5 5-5"/><path d="M4 9h10a6 6 0 0 1 6 6v5"/>'),
     down: svg('<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>'),
     blank: svg('')
   };
@@ -229,7 +234,7 @@
     resetArmed: 0,
     toastTimer: 0,
     todo: null,       // My list (app-todo.js): read from storage when it is first needed
-    todoInput: ''     // what is typed in My list's add box
+    subAdd: null      // My list: where the box for a new sub task is open, { gid, pid }
   };
   function applySettings() {
     document.documentElement.style.fontSize = S.set.fontSize + 'px';
@@ -523,6 +528,10 @@
       (icon ? ' title="' + label + '"' : '') + '>' + (icon || '') + '<span class="tl-l">' + esc(label) + '</span>' + (after || '') + '</button>';
   }
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
+  // The Quests, Area tasks and My list tabs, on every screen (on: the one that is lit). My list shows its open goals.
+  function homeTabsHtml(on) {
+    return tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], on === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home');
+  }
   // The big button at the bottom ("Done, next step").
   function nextHtml(act, label, off) {
     return '<footer class="ftr"><button class="next" type="button" id="next-btn" data-act="' + act + '"' + (off ? ' disabled' : '') + '>' +
@@ -565,9 +574,9 @@
     dropMaps();
     app.innerHTML =
       headerHtml() +
-      tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], S.set.home === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home') +
+      homeTabsHtml(S.set.home) +
       '<main class="scroll" id="main">' +
-      (S.set.home === 'todo' ? A.todoFormHtml() : searchHtml()) +
+      (S.set.home === 'todo' ? '' : searchHtml()) +
 
       (S.loading ? '<div class="state" role="status">' + I.loader + '<p>Reading \u201c' + esc(S.loading) + '\u201d from the wiki\u2026</p></div>' : '') +
       '<div id="qarea">' + (S.loading ? '' : homeHtml()) + '</div>' +
@@ -843,7 +852,7 @@
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
     S.listError = ''; S.orderError = ''; S.aidxFail = [];
     S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
-    S.todo = null; S.todoIdx = null; S.todoInput = '';
+    S.todo = null; S.todoIdx = null; S.subAdd = null;
     clearTimeout(viewTimer);
     S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
     applySettings();
@@ -851,7 +860,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,

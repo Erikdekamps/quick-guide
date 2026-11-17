@@ -1,5 +1,5 @@
 /*!
- * Quick Guide - app-backup.js
+ * Quick Guide - js/app/backup.js
  * Export and import: every quest and area task as an editable JSON file.
  */
 (function (A) {
