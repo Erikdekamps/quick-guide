@@ -23,7 +23,7 @@ test.describe('a file that does not load', () => {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
       await page.goto('/');
-      await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace(/\./g, '\\.') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
+      await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
       await page.waitForTimeout(300);
       await expect(page.locator('#app .hdr')).toHaveCount(0);
     });
