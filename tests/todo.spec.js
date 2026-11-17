@@ -74,7 +74,7 @@ test.describe('the My list tab', () => {
     await expect(tab(page).locator('.tc')).toHaveCount(0);
   });
 
-  test('make lists (typed, or from a suggestion), rename, move, fold and delete them', async ({ page }) => {
+  test('make lists, rename, move, fold and delete them', async ({ page }) => {
     await openList(page);
     await page.getByRole('button', { name: 'New list' }).click();
     await expect(dialog(page).locator('.dh')).toHaveText('New list');
@@ -82,11 +82,10 @@ test.describe('the My list tab', () => {
     await page.getByRole('button', { name: 'Make list' }).click();
     await expect(names(page)).toHaveText(['Today']);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('0 / 0');
-    // from a suggestion: the ones already used are not offered
+    // the box only asks for a name
     await page.getByRole('button', { name: 'New list' }).click();
-    await expect(dialog(page).locator('.sugg button')).toHaveText(['This week', 'Skilling goals', 'Gathering', 'Unlocks']);
-    await dialog(page).locator('.sugg button', { hasText: 'Skilling goals' }).click();
-    await expect(page.locator('#tl-name')).toHaveValue('Skilling goals');
+    await expect(dialog(page).locator('.fld')).toHaveCount(1);
+    await page.locator('#tl-name').fill('Skilling goals');
     await page.getByRole('button', { name: 'Make list' }).click();
     // the same name twice, in any case, and no name, are refused
     await page.getByRole('button', { name: 'New list' }).click();

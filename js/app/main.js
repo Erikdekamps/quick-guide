@@ -24,7 +24,7 @@
     addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeSubAdd = A.closeSubAdd,
     closeTodoDialog = A.closeTodoDialog, goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct,
     newListDialog = A.newListDialog, pickSeg = A.pickSeg, startTodoClock = A.startTodoClock, subMenu = A.subMenu, tickGoal = A.tickGoal,
-    tickSub = A.tickSub, todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist, useSuggestion = A.useSuggestion;
+    tickSub = A.tickSub, todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist;
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
@@ -100,7 +100,7 @@
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
     // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal, a
     // sub task and a list, the items of their menus, and the boxes.
-    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-smenu], [data-lmenu], [data-tm], [data-seg], [data-sugg], [data-saddx], [data-tdx]');
+    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-smenu], [data-lmenu], [data-tm], [data-seg], [data-saddx], [data-tdx]');
     if (g) {
       if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
       else if (g.hasAttribute('data-saddx')) closeSubAdd();
@@ -113,7 +113,6 @@
       else if (g.hasAttribute('data-lmenu')) listMenu(g);
       else if (g.hasAttribute('data-tm')) menuAct(g);
       else if (g.hasAttribute('data-seg')) pickSeg(g);
-      else if (g.hasAttribute('data-sugg')) useSuggestion(g);
       else closeTodoDialog();
       return;
     }

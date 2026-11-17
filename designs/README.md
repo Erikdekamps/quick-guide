@@ -31,7 +31,7 @@ so they match it.
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
 | `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
 | `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
-| `MyListNew.dc.html` | A new list: type a name, or start from a suggestion |
+| `MyListNew.dc.html` | A new list: type a name |
 | `MyListLists.dc.html` | A list's menu: add a goal here, rename, move the list, clear done goals, delete the list |
 | `MyListSub.dc.html` | Adding sub tasks to a goal: the box under it, for one after the other |
 | `MyListSubMenu.dc.html` | A sub task's menu: edit, add a sub task, open on the wiki, move up, down or out a level, delete |

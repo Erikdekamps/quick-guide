@@ -1086,7 +1086,6 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
 .seg button:last-child { border-radius: 0 2px 2px 0; }
 .seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
-.sugg { display: flex; flex-wrap: wrap; gap: 6px; }
 /* the buttons in a message: "Undo" */
 .toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .toast .tl:hover { color: var(--gold); }

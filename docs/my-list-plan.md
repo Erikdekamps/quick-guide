@@ -52,7 +52,7 @@ What can go in a list:
 | Board | What it shows |
 | --- | --- |
 | `MyList.dc.html` | The My list tab: the add box, then your lists (Today, Skilling goals, Gathering, and a folded one), with every kind of goal |
-| `MyListNew.dc.html` | The "New list" box: type a name, or start from a suggestion |
+| `MyListNew.dc.html` | The "New list" box: type a name |
 | `MyListLists.dc.html` | A list's menu: add a goal here, rename, move the list up or down, clear done goals, delete the list |
 | `MyListAdd.dc.html` | The "Add a goal" box, set to a skill goal, with the list it goes in |
 | `MyListMenu.dc.html` | A goal's menu: edit, open, move to another list (or a new one), move up or down, remove |

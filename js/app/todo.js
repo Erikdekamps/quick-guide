@@ -19,7 +19,6 @@
     skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, target = T.target, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
     todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
 
-  var SUGGEST = ['Today', 'This week', 'Skilling goals', 'Gathering', 'Unlocks'];
   var REPEAT_SEG = [['', 'Never'], ['day', 'Daily'], ['week', 'Weekly'], ['month', 'Monthly']];
   var FULL_SUBS = 'A goal has at most 20 sub tasks.';
 
@@ -305,23 +304,12 @@
   // ---------- the boxes: a new list, a name, a goal, a sub task ----------
   // mode "new" (move: a goal to put in the new list) or "rename".
   function listDialog(mode, id, move) {
-    var t = todo(), l = listById(id), used = {};
+    var t = todo(), l = listById(id);
     if (mode === 'new' && t.lists.length >= MAX_LISTS) { closeMenus(); toast(FULL_LISTS); return; }
-    t.lists.forEach(function (x) { used[x.name.toLowerCase()] = 1; });
-    var sugg = mode === 'new' ? SUGGEST.filter(function (n) { return !used[n.toLowerCase()]; }) : [];
     openDialog({ type: 'list', mode: mode, id: id || '', move: move || '' },
       '<h2 class="dh" id="td-h">' + (mode === 'new' ? 'New list' : 'Rename list') + '</h2>' +
       fieldHtml('tl-name', 'Name', mode === 'rename' && l ? l.name : '', NAME_MAX) +
-      (sugg.length ? '<div class="fld"><span class="fl">Or start from</span><div class="sugg">' + sugg.map(function (n) {
-        return '<button class="btn alt sm" type="button" data-sugg="' + esc(n) + '">' + esc(n) + '</button>';
-      }).join('') + '</div></div>' : '') +
       errHtml() + buttonsHtml(mode === 'new' ? 'Make list' : 'Rename'));
-  }
-  function useSuggestion(b) {
-    var inp = byId('tl-name');
-    if (!inp) return;
-    inp.value = b.getAttribute('data-sugg');
-    inp.focus();
   }
   function submitList(st) {
     var inp = byId('tl-name'), name = line(inp ? inp.value : '', NAME_MAX), t = todo(), snap = snapshot(), err = nameError(name, st.id);
@@ -433,7 +421,6 @@
 
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToPick: addToPick, closeSubAdd: closeSubAdd, goalMenu: goalMenu,
     itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); },
-    pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist,
-    useSuggestion: useSuggestion });
+    pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
   A.loaded.todo = true;
 })(window.QuickGuideApp);
