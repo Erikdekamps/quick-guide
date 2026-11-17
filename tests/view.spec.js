@@ -8,8 +8,12 @@ async function reload(page) {
 }
 const scrollTo = (page, y) => page.locator('#main').evaluate((m, v) => { m.scrollTop = v; m.dispatchEvent(new Event('scroll')); }, y);
 const scrolled = (page) => page.locator('#main').evaluate((m) => m.scrollTop);
-// The view is saved a moment after the last change.
-const saved = (page) => expect.poll(() => stored(page, 'view')).not.toBeNull();
+// The view is saved a moment after the last change: wait until what is saved is what the app has now. (Something
+// saved is not enough: an earlier change may be saved while the last one still waits.)
+const saved = (page) => expect.poll(() => page.evaluate(() => {
+  const v = JSON.parse(localStorage.getItem('qg1.view') || 'null'), S = window.QuickGuideApp.S;
+  return !!v && JSON.stringify([v.input, v.closed, v.scroll]) === JSON.stringify([S.input, S.closed, S.scroll]);
+})).toBe(true);
 
 test.describe('a reload keeps the view', () => {
   test('the start screen: its tab, the search text, folded groups and where the list is scrolled', async ({ page, wiki }) => {
