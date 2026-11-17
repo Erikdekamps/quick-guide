@@ -39,7 +39,7 @@ so they match it.
 | `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, how often, a note |
 | `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
-| `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list) |
+| `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and the place in it: the end, the top, or under a goal or a sub task |
 | `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name under the title band: Add to list… first |
 | `MyListEmpty.dc.html` | My list with no lists yet: how to start |
 | `MyListBlue.dc.html` | My list in the Blue theme |

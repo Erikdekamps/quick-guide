@@ -10,13 +10,13 @@
   var byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, note = A.note, plural = A.plural, QG = A.QG, S = A.S, T = A.T, toast = A.toast;
   var addGoal = T.addGoal, buttonsHtml = T.buttonsHtml, cap1 = T.cap1, changed = T.changed, cleanGoal = T.cleanGoal, closeDialog = T.closeDialog,
     copy = T.copy, ctx = T.ctx, dialogErr = T.dialogErr, drawTodo = T.drawTodo, errHtml = T.errHtml, fieldHtml = T.fieldHtml,
-    findSub = T.findSub, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
+    findSub = T.findSub, isRef = T.isRef, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
     goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, makeList = T.makeList,
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
     order = T.order, parseGoal = T.parseGoal, pickerHtml = T.pickerHtml, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     refOf = T.refOf, REPEATS = T.REPEATS, segHtml = T.segHtml, setDone = T.setDone, setSubs = T.setSubs, settleGoal = T.settleGoal,
-    skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, target = T.target, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
+    skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
     todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
 
   var REPEAT_SEG = [['', 'Never'], ['day', 'Daily'], ['week', 'Weekly'], ['month', 'Monthly']];
@@ -57,7 +57,9 @@
     if (!p) { closeSubAdd(); return; }
     if (!text) { formErr(form, 'Type a sub task first.'); return; }
     if ((p.subs || []).length >= MAX_SUBS) { closeSubAdd(); toast(FULL_SUBS); return; }
-    (p.subs = p.subs || []).push({ id: newId('s'), title: cap1(text) });
+    // A level ("82 thieving") ticks itself, like in a list; anything else is a sub task as you typed it.
+    var typed = parseGoal(text);
+    (p.subs = p.subs || []).push(typed.kind === 'skill' ? copy({ id: newId('s') }, typed) : { id: newId('s'), title: cap1(text) });
     settleGoal(g);
     inp.value = '';
     changed();
@@ -76,7 +78,25 @@
       '<div class="fld"><label for="ta-list">List</label><select class="sel" id="ta-list">' + pickerHtml('', '<option value="+"' + (none ? ' selected' : '') + '>New list\u2026</option>') + '</select></div>' +
       '<div class="fld" id="ta-new"' + (none ? '' : ' hidden') + '><label for="ta-name">Name of the new list</label>' +
       '<input class="inp" id="ta-name" type="text" maxlength="' + NAME_MAX + '" autocomplete="off" value="' + (none ? 'My list' : '') + '"></div>' +
+      '<div class="fld" id="ta-where"' + (none ? ' hidden' : '') + '><label for="ta-place">Place</label><select class="sel" id="ta-place">' + placesHtml(listById(pickId())) + '</select></div>' +
       errHtml() + buttonsHtml('Add'));
+  }
+  // Where in a list it can go: the end, the top, or under a goal or a sub task that has room ("g:<goal>" or
+  // "s:<goal>/<sub task>"). A sub task is shown with a dash for each level.
+  function placesHtml(l) {
+    var h = '<option value="">At the end of the list</option><option value="top">At the top of the list</option>';
+    (l ? l.items : []).forEach(function (g) {
+      if ((g.subs || []).length < MAX_SUBS) h += '<option value="g:' + esc(g.id) + '">Under: ' + esc(goalTitle(g)) + '</option>';
+      (function walk(p, depth) {
+        (p.subs || []).forEach(function (u) {
+          if (depth < MAX_DEPTH && (u.subs || []).length < MAX_SUBS) {
+            h += '<option value="s:' + esc(g.id) + '/' + esc(u.id) + '">Under: ' + new Array(depth + 1).join('\u2014 ') + esc(goalTitle(u)) + '</option>';
+          }
+          walk(u, depth + 1);
+        });
+      })(g, 1);
+    });
+    return h;
   }
   // "New list…" picked in the box: the name field shows.
   function addToPick(sel) {
@@ -84,6 +104,9 @@
     if (e) e.hidden = true;
     if (!f) return;
     f.hidden = sel.value !== '+';
+    // The places are those of the list that is picked; a new list has none yet.
+    byId('ta-where').hidden = !f.hidden;
+    byId('ta-place').innerHTML = placesHtml(listById(sel.value));
     if (!f.hidden && inp) inp.focus();
   }
   function submitAddTo(st) {
@@ -94,8 +117,20 @@
       if (t.lists.length >= MAX_LISTS) { dialogErr(FULL_LISTS); return; }
       l = makeList(name);
     } else l = listById(sel.value);
+    var place = sel.value === '+' ? '' : byId('ta-place').value, m = /^([gs]):([^/]*)(?:\/(.*))?$/.exec(place);
     closeDialog();
-    addGoal(goalOfRef(st.ref), l);
+    if (m) {
+      // Under a goal or a sub task: it is a sub task there, and still the quest, tier, task or level it stands for.
+      var top = goalById(m[2]), hit = top && m[1] === 's' ? findSub(top.g, m[3]) : null, p = hit ? hit.u : top && top.g;
+      var u = p && cleanGoal(copy({ id: newId('s') }, goalOfRef(st.ref)));
+      if (!u) return;
+      delete u.at;
+      (p.subs = p.subs || []).push(u);
+      settleGoal(top.g);
+    } else {
+      var g = addGoal(goalOfRef(st.ref), l);
+      if (place === 'top') { l.items.pop(); l.items.unshift(g); }
+    }
     changed();
     tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
@@ -105,7 +140,11 @@
     var r = refOf(b), hit = refIndex()[refKey(r.kind, r)], snap = snapshot();
     closeMenus();
     if (!hit) return;
-    hit.l.items.splice(hit.l.items.indexOf(hit.g), 1);
+    if (hit.p) {
+      hit.p.subs.splice(hit.p.subs.indexOf(hit.g), 1);
+      if (!hit.p.subs.length) delete hit.p.subs;
+      settleGoal(hit.top);
+    } else hit.l.items.splice(hit.l.items.indexOf(hit.g), 1);
     changed();
     tell('Removed from <b>' + esc(hit.l.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
@@ -128,7 +167,7 @@
   function tickSub(gid, sid, on) {
     var hit = goalById(gid), g = hit && hit.g, sub = g && findSub(g, sid);
     if (!sub) return;
-    if (on) sub.u.done = 1; else delete sub.u.done;
+    mark(sub.u, on);
     setSubs(sub.u, on);
     if (g.repeat) g.upd = Date.now();
     settleGoal(g, true);
@@ -141,18 +180,20 @@
     var hit = goalById(btn.getAttribute('data-gmenu'));
     if (!hit) return;
     var g = hit.g, l = hit.l, rows = order(l, ctx()), i = rows.map(function (r) { return r.g; }).indexOf(g);
-    var open = g.kind === 'quest' ? '<button class="mi" type="button" role="menuitem" data-quest="' + esc(g.title) + '">' + I.ext + 'Open the quest</button>' :
-      FIXED[g.kind] ? '<button class="mi" type="button" role="menuitem" data-area="' + esc(g.area) + '" data-atier="' + esc(g.tier) + '">' + I.ext + 'Open ' + esc(g.kind === 'task' ? g.area + ' ' + g.tname : g.title) + '</button>' :
-        g.kind === 'skill' ? '<a class="mi" role="menuitem" href="' + esc(QG.pageUrl(skillName(g.skill))) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on the wiki</a>' : '';
-    var wiki = g.kind === 'other' && g.wiki ? wikiItem(g.wiki) : '';
     openMenu(btn, 'goal', g.id, '<p class="mh">' + esc(goalTitle(g)) + '</p>' + mitem('gedit', I.edit, 'Edit') + mitem('gsub', I.plus, 'Add sub task') +
-      (g.kind === 'other' ? mitem('glist', I.list, 'Make it a list') : '') + open + wiki +
+      (g.kind === 'other' ? mitem('glist', I.list, 'Make it a list') : '') + openItem(g) +
       '<hr><p class="mh">Move to</p>' + todo().lists.map(function (x) {
         return '<button class="mi" type="button" role="menuitemradio" aria-checked="' + (x === l) + '" data-tm="gmove" data-to="' + esc(x.id) + '">' +
           (x === l ? I.check : I.blank) + '<span class="ml">' + esc(x.name) + '</span></button>';
       }).join('') + mitem('gmovenew', I.plus, 'New list\u2026') +
       '<hr>' + mitem('gup', I.up, 'Move up', !canShift(rows, i, -1)) + mitem('gdown', I.down, 'Move down', !canShift(rows, i, 1)) +
       '<hr>' + mitem('gremove', I.x, 'Remove', false, 'danger'), 'Goal menu');
+  }
+  // The way to what a goal or a sub task is about: its quest, its area, or its page on the wiki.
+  function openItem(g) {
+    return g.kind === 'quest' ? '<button class="mi" type="button" role="menuitem" data-quest="' + esc(g.title) + '">' + I.ext + 'Open the quest</button>' :
+      FIXED[g.kind] ? '<button class="mi" type="button" role="menuitem" data-area="' + esc(g.area) + '" data-atier="' + esc(g.tier) + '">' + I.ext + 'Open ' + esc(g.kind === 'task' ? g.area + ' ' + g.tname : g.title) + '</button>' :
+        g.kind === 'skill' ? wikiItem(skillName(g.skill)) : g.wiki ? wikiItem(g.wiki) : '';
   }
   function wikiItem(page) {
     return '<a class="mi" role="menuitem" href="' + esc(QG.pageUrl(page)) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on the wiki</a>';
@@ -162,8 +203,8 @@
     var gid = btn.getAttribute('data-gid'), sid = btn.getAttribute('data-smenu'), hit = goalById(gid), sub = hit && findSub(hit.g, sid);
     if (!sub) return;
     var u = sub.u, n = sub.p.subs.length;
-    openMenu(btn, 'sub', gid + '/' + sid, '<p class="mh">' + esc(u.title) + '</p>' + mitem('sedit', I.edit, 'Edit') +
-      mitem('sadd', I.plus, 'Add sub task', sub.depth >= MAX_DEPTH || (u.subs || []).length >= MAX_SUBS) + (u.wiki ? wikiItem(u.wiki) : '') +
+    openMenu(btn, 'sub', gid + '/' + sid, '<p class="mh">' + esc(goalTitle(u)) + '</p>' + (isRef(u) ? '' : mitem('sedit', I.edit, 'Edit')) +
+      mitem('sadd', I.plus, 'Add sub task', sub.depth >= MAX_DEPTH || (u.subs || []).length >= MAX_SUBS) + openItem(u) +
       '<hr>' + mitem('sup', I.up, 'Move up', sub.i === 0) + mitem('sdown', I.down, 'Move down', sub.i === n - 1) +
       mitem('sout', I.out, sub.depth === 1 ? 'Make it a goal' : 'Move out a level') +
       '<hr>' + mitem('sdelete', I.x, 'Delete', false, 'danger'), 'Sub task menu');
@@ -234,7 +275,7 @@
     if (t.lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; }
     var nl = { id: newId('l'), name: freeName(line(goalTitle(g), NAME_MAX)), items: [] };
     (g.subs || []).forEach(function (u) {
-      var c = cleanGoal({ kind: 'other', title: u.title, done: u.done, wiki: u.wiki, subs: u.subs });
+      var c = cleanGoal(copy({ kind: 'other' }, u));
       if (c) nl.items.push(c);
     });
     l.items.splice(l.items.indexOf(g), 1);
@@ -263,14 +304,14 @@
       p.subs.splice(i, 1);
       if (!p.subs.length) delete p.subs;
       if (up) up.p.subs.splice(up.i + 1, 0, u);
-      else hit.l.items.splice(hit.l.items.indexOf(g) + 1, 0, cleanGoal({ kind: 'other', title: u.title, done: u.done, wiki: u.wiki, subs: u.subs }));
+      else hit.l.items.splice(hit.l.items.indexOf(g) + 1, 0, cleanGoal(copy({ kind: 'other' }, u)));
     } else if (act === 'sdelete') {
       p.subs.splice(i, 1);
       if (!p.subs.length) delete p.subs;
     }
     settleGoal(g);
     changed();
-    if (act === 'sdelete') tell('Deleted <b>' + esc(u.title) + '</b>.', [['Undo', undoer(snap)]]);
+    if (act === 'sdelete') tell('Deleted <b>' + esc(goalTitle(u)) + '</b>.', [['Undo', undoer(snap)]]);
   }
   function listAct(act, id, b) {
     var l = listById(id), t = todo(), snap = snapshot();
@@ -371,7 +412,7 @@
     }
     delete g.note;
     if (line(d.note, NOTE_MAX)) g.note = line(d.note, NOTE_MAX);
-    var l = listById(d.list) || target(), snap = snapshot();
+    var l = listById(d.list), snap = snapshot();
     closeDialog();
     if (!st.edit) {
       addGoal(g, l);

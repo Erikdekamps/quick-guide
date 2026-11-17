@@ -80,7 +80,9 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
   character is looked up.
 - **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
-  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list.
+  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and the
+  **place** in it: the end or the top of the list, or under a goal or a sub task. Under one, it is a sub task
+  there and still the same task: one tick, here and in its area.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
 - **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in

@@ -58,6 +58,21 @@ async function addTo(page, list) {
   await expect(page.locator('#td')).toHaveCount(0);
 }
 
+async function exportText(page) {
+  await openCog(page);
+  await page.getByRole('button', { name: 'Export state' }).click();
+  await expect(page.locator('#bk-text')).not.toHaveValue('');
+  const t = await page.locator('#bk-text').inputValue();
+  await page.getByRole('button', { name: 'Close' }).click();
+  return t;
+}
+async function importText(page, text) {
+  await openCog(page);
+  await page.getByRole('button', { name: 'Import state' }).click();
+  await page.locator('#bk-text').fill(text);
+  await page.getByRole('button', { name: 'Import', exact: true }).click();
+}
+
 test.describe('the My list tab', () => {
   test('a third tab; with no lists yet it says how to start, and it stays after a reload', async ({ page }) => {
     await openApp(page, expect);
@@ -82,9 +97,12 @@ test.describe('the My list tab', () => {
     await page.getByRole('button', { name: 'Make list' }).click();
     await expect(names(page)).toHaveText(['Today']);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('0 / 0');
-    // the box only asks for a name
+    // the box only asks for a name; Cancel closes it
     await page.getByRole('button', { name: 'New list' }).click();
     await expect(dialog(page).locator('.fld')).toHaveCount(1);
+    await dialog(page).getByRole('button', { name: 'Cancel' }).click();
+    await expect(page.locator('#td')).toHaveCount(0);
+    await page.getByRole('button', { name: 'New list' }).click();
     await page.locator('#tl-name').fill('Skilling goals');
     await page.getByRole('button', { name: 'Make list' }).click();
     // the same name twice, in any case, and no name, are refused
@@ -359,7 +377,8 @@ test.describe('sub tasks', () => {
     await page.locator('.sadd').getByRole('button', { name: 'Close' }).click();
     await expect(subBox(page)).toHaveCount(0);
     const t = await stored(page, 'todo');
-    expect(t.lists[0].items[0].subs.map((x) => [x.title, x.done ? 1 : 0])).toEqual([['82 Thieving', 0], ['Buy a rope', 1]]);
+    // a level typed as a sub task is a level, like in a list
+    expect(t.lists[0].items[0].subs.map((x) => [x.kind || '', x.title || x.level + ' ' + x.skill, x.done ? 1 : 0])).toEqual([['skill', '82 thieving', 0], ['', 'Buy a rope', 1]]);
     expect(page.errors).toEqual([]);
   });
 
@@ -747,6 +766,82 @@ test.describe('goals that tick themselves', () => {
     expect(page.errors).toEqual([]);
   });
 
+  test('Add to list asks where it goes: the end or the top of the list, or under a goal or a sub task', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, { todo: lists({
+      Diary: [{ kind: 'other', title: 'Ardougne', subs: [{ id: 'a', title: 'Easy ones' }] }, { kind: 'other', title: 'Later' }],
+      Other: [{ kind: 'other', title: 'Elsewhere' }]
+    }) });
+    await openApp(page, expect);
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await taskMenu(page, '448');
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    // the places of the list that is picked
+    await expect(dialog(page).locator('label[for="ta-place"]')).toHaveText('Place');
+    await expect(page.locator('#ta-place option')).toHaveText(['At the end of the list', 'At the top of the list', 'Under: Ardougne', 'Under: — Easy ones', 'Under: Later']);
+    await expect(page.locator('#ta-place option:checked')).toHaveText('At the end of the list');
+    await page.locator('#ta-list').selectOption({ label: 'Other' });
+    await expect(page.locator('#ta-place option')).toHaveText(['At the end of the list', 'At the top of the list', 'Under: Elsewhere']);
+    // a new list has no places yet
+    await page.locator('#ta-list').selectOption({ label: 'New list…' });
+    await expect(page.locator('#ta-place')).toBeHidden();
+    await page.locator('#ta-list').selectOption({ label: 'Diary' });
+    await expect(page.locator('#ta-place')).toBeVisible();
+    // under a sub task
+    await page.locator('#ta-place').selectOption({ label: 'Under: — Easy ones' });
+    await addTo(page);
+    await expect(page.locator('#toast')).toContainText('Added to Diary.');
+    await taskMenu(page, '448');
+    await expect(menuItems(page)).toHaveText(['Remove from Diary']);
+    await page.keyboard.press('Escape');
+    // at the top of the list
+    await taskMenu(page, '447');
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await page.locator('#ta-place').selectOption({ label: 'At the top of the list' });
+    await addTo(page);
+    // a level, under a goal
+    await page.getByRole('button', { name: 'All areas' }).click();
+    await tab(page).click();
+    await expect(goals(page, 'Diary').locator(':scope > .row .t')).toHaveText(['The Essence of Magic', 'Ardougne', 'Later']);
+    const easy = page.locator('li.gsub').filter({ has: page.locator(':scope > .row .t', { hasText: 'Easy ones' }) });
+    const yoink = easy.locator('li.gsub');
+    await expect(yoink.locator('.t')).toHaveText(['Yoink!']);
+    await expect(easy.locator(':scope > .row .sc')).toHaveText('0 / 1');
+    // its menu: no Edit (it says what the task is called), and the way to its area
+    await yoink.locator('[data-smenu]').click();
+    await expect(menuItems(page)).toHaveText(['Add sub task', 'Open Ardougne Easy', 'Move up', 'Move down', 'Move out a level', 'Delete']);
+    await page.keyboard.press('Escape');
+    // one tick: ticked here, it is ticked in its area, and what it is under is done
+    await yoink.locator('.cb').click();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
+    await expect(yoink).toHaveClass(/\bdone\b/);
+    await expect(easy).toHaveClass(/\bdone\b/);
+    await expect(goal(page, /^Ardougne$/)).toHaveClass(/\bdone\b/);
+    // unticked in its area: open again here
+    await yoink.locator('[data-smenu]').click();
+    await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
+    await toggle(page, 'Show done steps');
+    await page.locator('li[data-task="448"] > .row .cb').click();
+    await page.getByRole('button', { name: 'All areas' }).click();
+    await tab(page).click();
+    await expect(yoink).not.toHaveClass(/\bdone\b/);
+    // the file says which task it is, and it comes back as one
+    const j = JSON.parse(await exportText(page));
+    expect(j.mylist.Diary.Ardougne).toEqual({ done: false, subs: { 'Easy ones': { done: false, subs: { 'Task 448: Yoink! (Ardougne Easy)': false } } } });
+    await importText(page, JSON.stringify(j));
+    expect((await stored(page, 'todo')).lists[0].items[1].subs[0].subs[0]).toMatchObject({ kind: 'task', area: 'Ardougne', task: '448', title: 'Yoink!' });
+    // "Remove from …" in the task's menu takes it out from under its goal
+    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await taskMenu(page, '448');
+    await page.locator('#tmenu .mi', { hasText: 'Remove from Diary' }).click();
+    await page.getByRole('button', { name: 'All areas' }).click();
+    await tab(page).click();
+    await expect(page.locator('li.gsub .t')).toHaveText(['Easy ones']);
+    expect(page.errors).toEqual([]);
+  });
+
   test('"+ goal" next to a level you do not have: pick the list, and it is added', async ({ page, wiki }) => {
     wiki.setPlayer('Zezima', {}, { 7: 80, 16: 60 });   // Magic 80, Herblore 60
     await openApp(page, expect);
@@ -865,21 +960,6 @@ test.describe('the window', () => {
 });
 
 test.describe('export and import', () => {
-  async function exportText(page) {
-    await openCog(page);
-    await page.getByRole('button', { name: 'Export state' }).click();
-    await expect(page.locator('#bk-text')).not.toHaveValue('');
-    const t = await page.locator('#bk-text').inputValue();
-    await page.getByRole('button', { name: 'Close' }).click();
-    return t;
-  }
-  async function importText(page, text) {
-    await openCog(page);
-    await page.getByRole('button', { name: 'Import state' }).click();
-    await page.locator('#bk-text').fill(text);
-    await page.getByRole('button', { name: 'Import', exact: true }).click();
-  }
-
   test('every list and goal goes out, and comes back the same', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openList(page, lists({

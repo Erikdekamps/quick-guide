@@ -8,12 +8,12 @@
   'use strict';
   if (!A || !A.T) return;
   var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
-  var backText = T.backText, cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, lookUpWiki = T.lookUpWiki,
+  var backText = T.backText, cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
     openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey, REPEATS = T.REPEATS,
-    resetDue = T.resetDue, saveTodo = T.saveTodo, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
+    resetDue = T.resetDue, saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
 
   // ---------- the My list tab ----------
-  function doneCount(p) { return '<span class="sc">' + p.subs.filter(function (u) { return u.done; }).length + ' / ' + p.subs.length + '</span>'; }
+  function doneCount(p) { return '<span class="sc">' + p.subs.filter(isDone).length + ' / ' + p.subs.length + '</span>'; }
   // One goal: its tick box, what it says (with "daily" or when it is back, how many sub tasks are done, and its note),
   // its menu, and its sub tasks under it.
   function goalHtml(g, s) {
@@ -33,15 +33,15 @@
     if (!p.subs && !add) return '';
     return '<ul class="gsubs">' + (p.subs || []).map(function (u) { return subHtml(g, u); }).join('') +
       (add ? '<li class="addrow">' + addFormHtml(' data-sadd="' + esc(g.id) + '" data-pid="' + esc(S.subAdd.pid) + '"',
-        'Add a sub task to ' + (p === g ? goalTitle(g) : p.title), 'Add a sub task', true) + '</li>' : '') + '</ul>';
+        'Add a sub task to ' + goalTitle(p), 'Add a sub task', true) + '</li>' : '') + '</ul>';
   }
   // A sub task: its tick box, what it says, its menu, and its own sub tasks.
   function subHtml(g, u) {
-    var tid = esc('st-' + g.id + '-' + u.id);
-    return '<li class="gsub' + (u.done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
-      '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (u.done ? ' checked' : '') + '>' +
-      '<div class="rb"><span class="t" id="' + tid + '">' + esc(u.title) + '</span>' + (u.subs ? doneCount(u) : '') + '</div>' +
-      '<button class="ib xs rowm" type="button" data-smenu="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" data-menu="tmenu" aria-label="Sub task menu: ' + esc(u.title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
+    var tid = esc('st-' + g.id + '-' + u.id), done = isDone(u), title = goalTitle(u);
+    return '<li class="gsub' + (done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
+      '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (done ? ' checked' : '') + '>' +
+      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u) : '') + '</div>' +
+      '<button class="ib xs rowm" type="button" data-smenu="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" data-menu="tmenu" aria-label="Sub task menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
       '</div>' + subsHtml(g, u) + '</li>';
   }
   // A box to type the next goal or sub task in: Enter adds it, and the box stays for another. close: with a button
@@ -81,6 +81,7 @@
   function todoHtml() {
     var t = todo(), c = ctx(), tally = { goals: 0, done: 0 };
     resetDue();
+    settleAll();
     lookUpWiki();
     if (!t.lists.length) return emptyHtml();
     var lists = t.lists.map(function (l) { return listHtml(l, c, tally); }).join('');

@@ -78,6 +78,12 @@
   function cleanSubs(list, depth) {
     if (!Array.isArray(list) || depth > MAX_DEPTH) return [];
     return list.map(function (u) {
+      // A sub task that stands for a quest, a tier, an area task or a level is kept like a goal of that kind.
+      if (isMap(u) && isRef(u)) {
+        var r = cleanGoal(copy(copy({}, u), { id: line(u.id, 40) || newId('s') }), depth);
+        if (r) { delete r.at; delete r.note; }
+        return r;
+      }
       var st = isMap(u) ? line(u.title) : '';
       if (!st) return null;
       var o = { id: line(u.id, 40) || newId('s'), title: st };
@@ -90,7 +96,7 @@
   }
   // One goal from saved data, a file or a form, with only what its kind has. Null when it is not a goal.
   // Goals of an older kind (an item with a count, an unlock) become plain goals that say the same.
-  function cleanGoal(x) {
+  function cleanGoal(x, depth) {
     if (isMap(x) && x.kind === 'item') x = copy(copy({}, x), { kind: 'other', title: (+x.want > 0 ? fmt(Math.round(+x.want)) + ' ' : '') + line(x.title) });
     if (isMap(x) && x.kind === 'unlock') x = copy(copy({}, x), { kind: 'other', title: 'Unlock ' + line(x.title) });
     if (!isMap(x) || !KINDS[x.kind]) return null;
@@ -120,7 +126,7 @@
     ['at', 'done', 'upd'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
     // The wiki page of a goal you wrote yourself: a name, '' when there is none, nothing when it was not looked up yet.
     if (g.kind === 'other' && typeof x.wiki === 'string') g.wiki = line(x.wiki, 120);
-    var subs = cleanSubs(x.subs, 1);
+    var subs = cleanSubs(x.subs, (depth || 0) + 1);
     if (subs.length) g.subs = subs;
     if (!g.at) g.at = Date.now();
     return g;
@@ -168,7 +174,6 @@
     var t = todo();
     return listById(t.last) ? t.last : t.lists.length ? t.lists[0].id : '';
   }
-  function target() { return listById(pickId()) || makeList('My list'); }
   function makeList(name) {
     var l = { id: newId('l'), name: name, items: [] };
     todo().lists.push(l);
@@ -207,18 +212,35 @@
   }
   // Ticks or unticks everything under a goal or a sub task.
   function setSubs(p, on) {
-    (p.subs || []).forEach(function (u) { if (on) u.done = u.done || 1; else delete u.done; setSubs(u, on); });
+    (p.subs || []).forEach(function (u) { mark(u, on); setSubs(u, on); });
   }
-  // After a change: a sub task with its own sub tasks is done when all of them are. True when all under p are done.
-  function settle(p) {
+  // Does a goal or sub task stand for a quest, a tier, an area task or a level?
+  function isRef(x) { return !!KINDS[x.kind] && x.kind !== 'other'; }
+  // Is a sub task done? One that stands for a quest, a tier, an area task or a level is done the way a goal of
+  // that kind is.
+  function isDone(u) { return isRef(u) ? goalState(u, ctx()).done : !!u.done; }
+  // Ticks or unticks one sub task (an area task in its area, a quest in the quest list, too).
+  function mark(u, on) {
+    if (isRef(u)) setDone(u, on); else if (on) u.done = u.done || 1; else delete u.done;
+  }
+  // After a change: a sub task with its own sub tasks is done when all of them are, and open when one is not. One
+  // that stands for a task or a quest is only ticked for that when you just ticked the last one under it (finish).
+  // True when all under p are done.
+  function settle(p, finish) {
     var all = true;
     (p.subs || []).forEach(function (u) {
-      if (u.subs) { if (settle(u)) u.done = u.done || 1; else delete u.done; }
-      if (!u.done) all = false;
+      if (u.subs) {
+        var kids = settle(u, finish);
+        if (kids && (finish || !isRef(u)) && !isDone(u)) mark(u, true);
+        else if (!kids && isDone(u)) mark(u, false);
+      }
+      if (!isDone(u)) all = false;
     });
     return all;
   }
-  function anyDone(p) { return (p.subs || []).some(function (u) { return u.done || anyDone(u); }); }
+  // The sub tasks you wrote yourself: is one ticked, and unticking them all (for a goal that repeats).
+  function anyDone(p) { return (p.subs || []).some(function (u) { return (!isRef(u) && u.done) || anyDone(u); }); }
+  function untickOwn(p) { (p.subs || []).forEach(function (u) { if (!isRef(u)) delete u.done; untickOwn(u); }); }
   // An area task on a list and in its area is one tick.
   function tickTaskInArea(g, on) {
     var ix = A.aidxAll()[g.area], p = A.loadAprog(g.area);
@@ -234,8 +256,15 @@
     if (g.repeat) g.upd = Date.now();
   }
   // After its sub tasks changed: the goal is done when all of them are, and open again when one is not.
+  // A task ticked in its area, or a quest that got done, changes what is above it on a list: every goal with sub
+  // tasks is settled again before the lists are shown or go into a file.
+  function settleAll() {
+    var before = snapshot();
+    todo().lists.forEach(function (l) { l.items.forEach(function (g) { if (g.subs) settleGoal(g); }); });
+    if (snapshot() !== before) saveTodo();
+  }
   function settleGoal(g, finish) {
-    var all = settle(g);
+    var all = settle(g, finish);
     if (!g.subs) return;
     if (finish && all && !goalState(g, ctx()).done) setDone(g, true);
     else if (!all && goalState(g, ctx()).done) setDone(g, false);
@@ -267,7 +296,7 @@
         if (!g.repeat || !any || (g.upd || g.done || 0) >= lastReset(g.repeat, now)) return;
         delete g.done;
         delete g.upd;
-        setSubs(g, false);
+        untickOwn(g);
         changed = true;
       });
     });
@@ -361,7 +390,20 @@
   function refIndex() {
     if (!S.todoIdx) {
       var ix = S.todoIdx = {};
-      todo().lists.forEach(function (l) { l.items.forEach(function (g) { var k = refKey(g.kind, g); if (k && !ix[k]) ix[k] = { g: g, l: l }; }); });
+      // g: the goal or sub task; l: its list; top and p: for a sub task, its goal and what it is under.
+      todo().lists.forEach(function (l) {
+        l.items.forEach(function (g) {
+          var k = refKey(g.kind, g);
+          if (k && !ix[k]) ix[k] = { g: g, l: l };
+          (function walk(p) {
+            (p.subs || []).forEach(function (u) {
+              var uk = refKey(u.kind, u);
+              if (uk && !ix[uk]) ix[uk] = { g: u, l: l, top: g, p: p };
+              walk(u);
+            });
+          })(g);
+        });
+      });
     }
     return S.todoIdx;
   }
@@ -391,7 +433,7 @@
     todo().lists.forEach(function (l) {
       l.items.forEach(function (g) {
         if (g.kind === 'other') fn(g);
-        (function walk(p) { (p.subs || []).forEach(function (u) { fn(u); walk(u); }); })(g);
+        (function walk(p) { (p.subs || []).forEach(function (u) { if (!isRef(u)) fn(u); walk(u); }); })(g);
       });
     });
   }
@@ -435,15 +477,16 @@
   function subsOut(list) {
     var o = {};
     list.forEach(function (u) {
-      var k = u.title, n = 2;
-      while (Object.prototype.hasOwnProperty.call(o, k)) k = u.title + ' #' + n++;
-      o[k] = u.subs ? { done: !!u.done, subs: subsOut(u.subs) } : !!u.done;
+      var name = isRef(u) ? goalLine(u) : u.title, k = name, n = 2;
+      while (Object.prototype.hasOwnProperty.call(o, k)) k = name + ' #' + n++;
+      o[k] = u.subs ? { done: isDone(u), subs: subsOut(u.subs) } : isDone(u);
     });
     return o;
   }
   function subsIn(m) {
     return Object.keys(m).map(function (t) {
-      var v = m[t], o = { title: t.replace(/ #\d+$/, '') };
+      // "Task 448: Yoink! (Ardougne Easy)", "Quest: …", "Tier: …" and "82 Thieving" are read like a goal's line.
+      var v = m[t], name = t.replace(/ #\d+$/, ''), g = parseGoal(name), o = g && g.kind !== 'other' ? g : { title: name };
       if (isMap(v)) { if (isMap(v.subs)) o.subs = subsIn(v.subs); v = v.done; }
       o.done = v === true ? 1 : 0;
       return o;
@@ -451,6 +494,7 @@
   }
   // { "<list>": { "<goal>": true or false } }. A goal with a note or sub tasks: { done, note, subs: { "<sub task>": true } }.
   function exportTodo() {
+    settleAll();
     var out = {}, c = ctx();
     todo().lists.forEach(function (l) {
       var o = {};
@@ -505,11 +549,11 @@
   A.T = { MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
     NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, REPEATS: REPEATS,
     addGoal: addGoal, backText: backText, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
-    findSub: findSub, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
+    findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
     line: line, listById: listById, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
-    resetDue: resetDue, saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleGoal: settleGoal, skillKey: skillKey,
-    skillName: skillName, snapshot: snapshot, target: target, todo: todo };
+    resetDue: resetDue, saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
+    skillName: skillName, snapshot: snapshot, todo: todo };
   A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo });
   A.loaded.todoData = true;
 })(window.QuickGuideApp);
