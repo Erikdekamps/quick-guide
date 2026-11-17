@@ -370,9 +370,9 @@
     var t = todo(), l = listById(id);
     if (mode === 'new' && t.lists.length >= MAX_LISTS) { closeMenus(); toast(FULL_LISTS); return; }
     openDialog({ type: 'list', mode: mode, id: id || '', move: move || '' },
-      '<h2 class="dh" id="td-h">' + (mode === 'new' ? 'New list' : 'Rename list') + '</h2>' +
+      '<h2 class="dh" id="td-h">' + (mode === 'new' ? 'Create list' : 'Rename list') + '</h2>' +
       fieldHtml('tl-name', 'Name', mode === 'rename' && l ? l.name : '', NAME_MAX) +
-      errHtml() + buttonsHtml(mode === 'new' ? 'Make list' : 'Rename'));
+      errHtml() + buttonsHtml(mode === 'new' ? 'Create' : 'Rename'));
   }
   function submitList(st) {
     var inp = byId('tl-name'), name = line(inp ? inp.value : '', NAME_MAX), t = todo(), snap = snapshot(), err = nameError(name, st.id);
@@ -495,13 +495,16 @@
   function readPaste() { return parseOutline(byId('tp-text').value, MAX_GOALS - goalCount()); }
   // "Paste a list…" in a list's menu (and more than one line pasted in the box at the end of a list): a box for
   // the text, which says what it reads while you type.
+  // "Import list" (no id): the same box, with a name for the new list the goals go in.
   function pasteDialog(id, text) {
-    var l = listById(id);
-    if (!l) return;
+    var l = id ? listById(id) : null;
+    if (id && !l) return;
+    if (!l && todo().lists.length >= MAX_LISTS) { closeMenus(); toast(FULL_LISTS); return; }
     if (goalCount() >= MAX_GOALS) { closeMenus(); toast(FULL_GOALS); return; }
-    openDialog({ type: 'paste', list: id }, '<h2 class="dh" id="td-h">Paste a list</h2><p class="what"><b>' + esc(l.name) + '</b></p>' +
+    openDialog({ type: 'paste', list: id || '' }, '<h2 class="dh" id="td-h">' + (l ? 'Paste a list' : 'Import list') + '</h2>' +
+      (l ? '<p class="what"><b>' + esc(l.name) + '</b></p>' : fieldHtml('tl-name', 'Name', '', NAME_MAX)) +
       '<textarea class="inp tx" id="tp-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Goals, one on each line" placeholder="' + esc(PASTE_SAMPLE) + '">' + esc(text) + '</textarea>' +
-      '<p class="what" id="tp-count" aria-live="polite">' + PASTE_HINT + '</p>' + errHtml() + buttonsHtml('Add'));
+      '<p class="what" id="tp-count" aria-live="polite">' + PASTE_HINT + '</p>' + errHtml() + buttonsHtml(l ? 'Add' : 'Import'));
     pasteCount();
   }
   function pasteCount() {
@@ -511,9 +514,16 @@
     if (e) e.hidden = true;
   }
   function submitPaste(st) {
-    var l = listById(st.list), r = readPaste(), snap = snapshot(), now = Date.now();
+    var l = st.list ? listById(st.list) : null, r = readPaste(), snap = snapshot(), now = Date.now(), name = '';
+    if (!st.list) {
+      var inp = byId('tl-name'), err;
+      name = line(inp ? inp.value : '', NAME_MAX);
+      err = nameError(name);
+      if (err) { dialogErr(err); return; }
+    }
     if (!r.goals.length) { dialogErr('Type or paste a list first.'); return; }
     closeDialog();
+    if (!st.list) { if (todo().lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; } l = makeList(name); }
     if (!l) return;
     r.goals.forEach(function (g) {
       if (g.done) { g.done = now; if (g.repeat) g.upd = now; }
@@ -543,7 +553,7 @@
   }
 
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToPick: addToPick, closeSubAdd: closeSubAdd, goalMenu: goalMenu,
-    itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); }, pasteCount: pasteCount, pasteDialog: pasteDialog,
+    itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); }, importListDialog: function () { pasteDialog('', ''); }, pasteCount: pasteCount, pasteDialog: pasteDialog,
     pickPlace: pickPlace, pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
   A.loaded.todo = true;
 })(window.QuickGuideApp);
