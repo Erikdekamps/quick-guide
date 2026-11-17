@@ -300,15 +300,7 @@
   function copyBackup() {
     var ta = byId('bk-text');
     if (!ta) return;
-    function fallback() {
-      ta.focus();
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-      toast(ok ? 'Copied.' : 'Select the text and copy it.');
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(function () { toast('Copied.'); }, fallback);
-    else fallback();
+    A.copyText(ta);
   }
   function runImport() {
     var ta = byId('bk-text'), err = byId('bk-err');

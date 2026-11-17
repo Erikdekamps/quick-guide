@@ -89,6 +89,20 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
 - **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
   the list and in its area; a quest ticked here is done in the quest list too.
+- **Paste a list** (in a list's ⋯): type or paste goals as plain text, one on each line. A line that is further in
+  goes under the one above, as a sub task. Bullets (`-`, `*`, `•`), numbers (`1.`) and tick boxes (`[ ]`, `[x]` for
+  done) are understood, and each line is read like a goal you type ("82 thieving", "Vis wax (daily)",
+  "Quest: Cook's Assistant"). The box says what it reads while you type. Pasting more than one line in the box at
+  the end of a list opens it too.
+
+  ```
+  - Hatchet of bloom and blight
+    - Hatchet of ember and glade
+      - [x] Crystal hatchet
+  - 82 Thieving
+  - Vis wax (daily)
+  ```
+- **Copy as text** (in a list's ⋯) gives the list in that same form, to keep, share or paste into another list.
 - A list's **⋯**: add a goal (with every field: the goal, the list, how often, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, add a sub task, open it (its quest or area, or the wiki), move it to another list or a new

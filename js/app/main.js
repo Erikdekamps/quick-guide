@@ -48,6 +48,7 @@
   });
   app.addEventListener('input', function (ev) {
     if (ev.target.id === 'player-name') { S.playerInput = ev.target.value; return; }
+    if (ev.target.id === 'tp-text') { A.pasteCount(); return; }
     // My list: typing in a box takes its "Type a goal first." away.
     var qa = ev.target.closest('form.qadd');
     if (qa) { qa.querySelector('.err').hidden = true; return; }
@@ -201,6 +202,17 @@
     var path = ev.composedPath ? ev.composedPath() : [ev.target];
     var inside = path.some(function (n) { return n.nodeType === 1 && (n.classList.contains('menu') || n.hasAttribute('data-menu')); });
     if (!inside) closeMenus();
+  });
+  // My list: more than one line pasted in the box at the end of a list is a list to paste.
+  app.addEventListener('paste', function (ev) {
+    var f = ev.target.closest && ev.target.closest('form.qadd'), text = ev.clipboardData ? ev.clipboardData.getData('text/plain') : '';
+    if (!f || f.classList.contains('sadd') || !/\n/.test(text.trim())) return;
+    ev.preventDefault();
+    A.pasteDialog(f.getAttribute('data-qadd'), text);
+  });
+  // Ctrl+Enter in the Paste a list box adds, like its button.
+  app.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey) && ev.target.id === 'tp-text') { ev.preventDefault(); A.todoSubmit(ev.target.form); }
   });
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); closeSubAdd(); }

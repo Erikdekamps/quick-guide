@@ -119,7 +119,7 @@ test.describe('the My list tab', () => {
     // rename
     await listMenu(page, 'Today');
     await expect(page.locator('#tmenu .mh')).toHaveText('Today');
-    await expect(menuItems(page)).toHaveText(['Add a goal here', 'Rename', 'Move list up', 'Move list down', 'Clear done goals (0)', 'Delete list']);
+    await expect(menuItems(page)).toHaveText(['Add a goal here', 'Paste a list…', 'Copy as text…', 'Rename', 'Move list up', 'Move list down', 'Clear done goals (0)', 'Delete list']);
     await page.locator('#tmenu .mi', { hasText: 'Rename' }).click();
     await expect(dialog(page).locator('.dh')).toHaveText('Rename list');
     await expect(page.locator('#tl-name')).toHaveValue('Today');
@@ -595,6 +595,184 @@ test.describe('Edit: another parent', () => {
     expect((await parents(page).allTextContents()).filter((o) => !/Step/.test(o))).toEqual(['None', 'Tall', '— T1']);
     await page.keyboard.press('Escape');
     expect(page.errors).toEqual([]);
+  });
+});
+
+test.describe('a list as text', () => {
+  const box = (page) => page.locator('#tp-text');
+  async function pasteBox(page, list) {
+    await listMenu(page, list);
+    await page.locator('#tmenu .mi', { hasText: 'Paste a list…' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Paste a list');
+  }
+  // What a list holds, as lines: two spaces for each level, "x" in front of what is done.
+  async function outline(page, n) {
+    const l = (await stored(page, 'todo')).lists[n];
+    const out = [];
+    const walk = (x, depth) => {
+      out.push('  '.repeat(depth) + (x.done ? 'x ' : '') + (x.kind === 'skill' ? x.level + ' ' + x.skill : x.title) + (x.repeat ? ' @' + x.repeat : ''));
+      (x.subs || []).forEach((u) => walk(u, depth + 1));
+    };
+    l.items.forEach((g) => walk(g, 0));
+    return out;
+  }
+
+  test('"Paste a list…": a bulleted list becomes goals, and indented lines their sub tasks', async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Already here' }], Later: [] }));
+    await pasteBox(page, 'Today');
+    await expect(dialog(page).locator('.what').first()).toHaveText('Today');
+    await expect(box(page)).toBeFocused();
+    await expect(box(page)).toHaveAttribute('placeholder', /- Hatchet of bloom and blight\n {2}- Hatchet of ember and glade/);
+    await expect(page.locator('#tp-count')).toHaveText('One goal on each line. Indent a line to put it under the one above.');
+    // nothing typed
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#td-err')).toHaveText('Type or paste a list first.');
+    // bullets of every kind, numbers, tick boxes, tabs and spaces
+    await box(page).fill([
+      '- Hatchet of bloom and blight',
+      '  - Hatchet of ember and glade',
+      '    - [x] Crystal hatchet',
+      '    - [ ] Ember shard',
+      '  - Blight shard',
+      '',
+      '* 82 thieving',
+      '• vis wax (daily)',
+      '1. [X] buy a rope',
+      '2) Quest: Cook\'s Assistant',
+      'no bullet at all',
+      '\t+ under the one above',
+      '   ',
+      '-'
+    ].join('\n'));
+    // the box says what it reads, while you type
+    await expect(page.locator('#tp-count')).toHaveText('6 goals and 5 sub tasks.');
+    await expect(page.locator('#td-err')).toBeHidden();
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#td')).toHaveCount(0);
+    await expect(page.locator('#toast')).toContainText('Added 6 goals to Today.');
+    expect(await outline(page, 0)).toEqual([
+      'Already here',
+      'Hatchet of bloom and blight',
+      '  Hatchet of ember and glade',
+      '    x Crystal hatchet',
+      '    Ember shard',
+      '  Blight shard',
+      '82 thieving',
+      'Vis wax @day',
+      'x Buy a rope',
+      "Cook's Assistant",
+      'No bullet at all',
+      '  Under the one above'
+    ]);
+    expect((await stored(page, 'todo')).lists[0].items[5]).toMatchObject({ kind: 'quest' });
+    await expect(goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc')).toHaveText('0 / 2');
+    // Undo takes them all out
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    expect(await outline(page, 0)).toEqual(['Already here']);
+    // one goal; all under a goal ticked: the goal is done
+    await pasteBox(page, 'Later');
+    await box(page).fill('Pack\n  [x] Rope\n  [x] Spade');
+    await expect(page.locator('#tp-count')).toHaveText('1 goal and 2 sub tasks.');
+    await box(page).press('Control+Enter');
+    await expect(page.locator('#toast')).toContainText('Added 1 goal to Later.');
+    expect(await outline(page, 1)).toEqual(['x Pack', '  x Rope', '  x Spade']);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a list that is too deep or too long: what does not fit is left out, and the box says so', async ({ page }) => {
+    await openList(page, lists({ Today: [] }));
+    await pasteBox(page, 'Today');
+    const many = Array.from({ length: 22 }, (_, i) => '  - Step ' + (i + 1));
+    await box(page).fill(['- A', '  - B', '    - C', '      - D', '        - E', '          - F', '- Big'].concat(many).join('\n'));
+    // five deep is one too many (F goes next to E); 22 under one goal is two too many
+    await expect(page.locator('#tp-count')).toHaveText('2 goals and 25 sub tasks. 2 lines do not fit and are left out.');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    const o = await outline(page, 0);
+    expect(o.slice(0, 6)).toEqual(['A', '  B', '    C', '      D', '        E', '        F']);
+    expect(o.length).toBe(6 + 1 + 20);
+    // no room for more goals (the app first saves what the wiki said about the new ones)
+    await expect.poll(async () => JSON.stringify(await stored(page, 'todo')).split('"wiki"').length - 1).toBe(27);
+    await page.evaluate(() => {
+      const t = JSON.parse(localStorage.getItem('qg1.todo'));
+      for (let i = 0; i < 297; i++) t.lists[0].items.push({ id: 'x' + i, kind: 'other', title: 'Goal ' + i, at: 1, wiki: '' });
+      localStorage.setItem('qg1.todo', JSON.stringify(t));
+    });
+    await page.reload();
+    await pasteBox(page, 'Today');
+    await box(page).fill('- One\n- Two\n- Three');
+    await expect(page.locator('#tp-count')).toHaveText('1 goal. 2 lines do not fit and are left out.');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#toast')).toContainText('Added 1 goal to Today.');
+    await listMenu(page, 'Today');
+    await page.locator('#tmenu .mi', { hasText: 'Paste a list…' }).click();
+    await expect(page.locator('#toast')).toHaveText('You have 300 goals. Remove some first.');
+    await expect(page.locator('#td')).toHaveCount(0);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('pasting more than one line in the box at the end of a list opens "Paste a list" with it', async ({ page }) => {
+    await openList(page, lists({ Today: [] }));
+    const paste = (text) => addBox(page, 'Today').evaluate((el, t) => {
+      const dt = new DataTransfer();
+      dt.setData('text/plain', t);
+      el.focus();
+      return el.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true }));
+    }, text);
+    // one line: nothing special (the browser puts it in the box)
+    expect(await paste('just one')).toBe(true);
+    await expect(page.locator('#td')).toHaveCount(0);
+    expect(await paste('- Rope\n- Spade\n')).toBe(false);
+    await expect(dialog(page).locator('.dh')).toHaveText('Paste a list');
+    await expect(box(page)).toHaveValue('- Rope\n- Spade\n');
+    await expect(page.locator('#tp-count')).toHaveText('2 goals.');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Rope', 'Spade']);
+    expect(page.errors).toEqual([]);
+  });
+
+  test('"Copy as text…": the list as a bulleted list, which pastes back the same', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await page.addInitScript(() => { Object.defineProperty(navigator, 'clipboard', { value: { writeText: (t) => { window.__clip = t; return Promise.resolve(); } } }); });
+    await openList(page, lists({
+      Today: [{ kind: 'other', title: 'Hatchet of bloom and blight', note: 'not in the text', subs: [{ id: 'a', title: 'Hatchet of ember and glade', subs: [{ id: 'a1', title: 'Crystal hatchet', done: 1 }, { id: 'a2', title: 'Ember shard' }] }, { id: 'b', kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }] },
+        { kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'other', title: 'Vis wax', repeat: 'day', done: Date.now() }, { kind: 'quest', title: "Cook's Assistant" }],
+      Copy: [], Empty: []
+    }));
+    await listMenu(page, 'Today');
+    await page.locator('#tmenu .mi', { hasText: 'Copy as text…' }).click();
+    await expect(dialog(page).locator('.dh')).toHaveText('Today as text');
+    const text = ['- Hatchet of bloom and blight', '  - Hatchet of ember and glade', '    - [x] Crystal hatchet', '    - Ember shard', '  - Task 448: Yoink! (Ardougne Easy)',
+      '- 82 Thieving', '- [x] Vis wax (daily)', "- Quest: Cook's Assistant"].join('\n');
+    await expect(box(page)).toHaveValue(text);
+    await expect(box(page)).toHaveAttribute('readonly', '');
+    await dialog(page).getByRole('button', { name: 'Copy', exact: true }).click();
+    await expect(page.locator('#toast')).toHaveText('Copied.');
+    expect(await page.evaluate(() => window.__clip)).toBe(text);
+    await dialog(page).getByRole('button', { name: 'Close' }).click();
+    await expect(page.locator('#td')).toHaveCount(0);
+    // pasted into another list: the same goals (the task is still the task)
+    await pasteBox(page, 'Copy');
+    await box(page).fill(text);
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    expect(await outline(page, 1)).toEqual(await outline(page, 0));
+    expect((await stored(page, 'todo')).lists[1].items[0].subs[1]).toMatchObject({ kind: 'task', task: '448' });
+    // an empty list has nothing to copy
+    await listMenu(page, 'Empty');
+    await expect(page.locator('#tmenu .mi', { hasText: 'Copy as text…' })).toBeDisabled();
+    expect(page.errors).toEqual([]);
+  });
+
+  test('Copy without the clipboard (Alt1 or an old browser): the text is selected and copied', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'clipboard', { value: undefined });
+      document.execCommand = (c) => { const e = document.activeElement; window.__cmd = c + ':' + e.value.slice(e.selectionStart, e.selectionEnd); return true; };
+    });
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Rope' }] }));
+    await listMenu(page, 'Today');
+    await page.locator('#tmenu .mi', { hasText: 'Copy as text…' }).click();
+    await dialog(page).getByRole('button', { name: 'Copy', exact: true }).click();
+    await expect(page.locator('#toast')).toHaveText('Copied.');
+    expect(await page.evaluate(() => window.__cmd)).toBe('copy:- Rope');
   });
 });
 

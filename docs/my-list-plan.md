@@ -23,6 +23,8 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
   level under a parent is a sub task that still ticks the way a goal of its kind does.
 - **Edit has the list and the parent** too, for goals and sub tasks: that is how one moves under another, or out.
 - **The Quests, Area tasks and My list tabs are on every screen**, with the number of open goals on My list.
+- **A list as text:** "Paste a list" reads goals from plain text (one on each line; a line further in is a sub
+  task; bullets, numbers and `[x]` are understood), and "Copy as text" writes a list the same way.
 - **Make it a list:** a goal you wrote yourself becomes a list with its name; its sub tasks are the goals.
 - **Open on the wiki:** goals and sub tasks you wrote yourself are looked up on the wiki once (as typed, with small
   letters, and without a number or a word like "Buy a" in front); the page's name is kept in `wiki`.

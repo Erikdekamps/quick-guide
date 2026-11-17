@@ -233,7 +233,7 @@
     closeDialog();
     S.tdlg = state;
     app.insertAdjacentHTML('beforeend', '<div class="dlgbg" id="td"><form class="dlg form" id="td-form" role="dialog" aria-modal="true" aria-labelledby="td-h" novalidate>' + html + '</form></div>');
-    var f = arr(byId('td-form').querySelectorAll('input[type="text"], select, button')).filter(function (x) { return x.offsetParent !== null; })[0];
+    var f = arr(byId('td-form').querySelectorAll('input[type="text"], textarea, select, button')).filter(function (x) { return x.offsetParent !== null; })[0];
     if (f) f.focus();
   }
   function closeDialog() {
