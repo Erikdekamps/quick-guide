@@ -422,7 +422,6 @@
       '<div class="menu wide" id="cog" hidden>' +
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
       '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
-      // Reading the game needs Alt1 (on a computer), so this is only there in Alt1.
       '<p class="mh">Lists</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
       toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
