@@ -415,8 +415,7 @@
 
   A.share({ aidxAll: aidxAll, ametaAll: ametaAll, areaListHtml: areaListHtml, areaMatches: areaMatches,
     areaReset: areaReset, loadAllAreas: loadAllAreas, loadAprog: loadAprog, missingAreas: missingAreas,
-    nextTask: nextTask, openArea: openArea, refreshArea: refreshArea, renderArea: renderArea, saveAprog: saveAprog,
-    setHome: setHome, setTick: setTick, subId: subId, switchTier: switchTier, taskIndex: taskIndex,
+    nextTask: nextTask, openArea: openArea, refreshArea: refreshArea, renderArea: renderArea,     setHome: setHome, setTick: setTick, subId: subId, switchTier: switchTier, taskIndex: taskIndex,
     tickInArea: tickInArea, tickTask: tickTask, toggleAreaSec: toggleAreaSec, whenAreasRead: whenAreasRead,
     writeAmeta: writeAmeta });
   A.loaded.areas = true;
