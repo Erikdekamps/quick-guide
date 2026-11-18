@@ -996,21 +996,9 @@ ul.steps.ql { padding: 0; }
 /* the danger zone in the settings */
 .mh.danger { color: var(--red); }
 
-/* read from game */
+/* small buttons */
 .btn.sm { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; font-size: 12px; }
 .btn.sm svg { width: 14px; height: 14px; }
-.rdhow { margin: 0; padding-left: 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
-.rdhow li { display: list-item; }
-.rdhow li + li { margin-top: 2px; }
-.rdtip { margin: 0; font-size: 12px; line-height: 1.4; color: var(--faint); }
-.scanbar { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 4px; padding: 6px 8px; background: #1d2a17; border: 1px solid #3f6b2c; border-radius: 2px; font-size: 12px; line-height: 1.35; color: var(--text); }
-.scanbar .smsg { flex: 1; min-width: 0; }
-.scanbar .btn, .scanbar .ib { flex: none; }
-.scanbar b { color: var(--title); font-weight: 600; }
-.scanbar .sk { color: var(--faint); }
-.scanbar .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #6fd34a; box-shadow: 0 0 6px #6fd34a; animation: scanpulse 1.2s ease-in-out infinite; }
-@keyframes scanpulse { 50% { opacity: .3; } }
-@media (prefers-reduced-motion: reduce) { .scanbar .dot { animation: none; } }
 
 /* skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level and the name stay as they are;
    a green tick follows when you have it, a red cross when you do not. */
@@ -1071,7 +1059,7 @@ ul.steps.ql { padding: 0; }
 .gsub .cb::before { width: .357rem; height: .643rem; }
 .gsub .t { font-weight: 400; color: var(--text); }
 .rowm { flex: none; }
-.newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
+.newlist { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 10px 4px; }
 .para.mid { text-align: center; }
 .plain.start { margin: 14px 26px; }
 .plain .i, .para .i, .note span .i { width: 14px; height: 14px; vertical-align: -2px; }

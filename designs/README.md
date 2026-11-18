@@ -29,7 +29,8 @@ so they match it.
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
 | `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
 | `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
-| `MyListNew.dc.html` | A new list: type a name |
+| `MyListNew.dc.html` | Create list: type a name |
+| `MyListImport.dc.html` | Import list: a name, and the goals as plain text; it makes a new list from them |
 | `MyListLists.dc.html` | A list's menu: add a goal here, paste a list, copy as text, rename, move the list, clear done goals, delete the list |
 | `MyListPaste.dc.html` | Paste a list: goals as plain text, one on each line, indented lines as sub tasks; the box says what it reads |
 | `MyListCopy.dc.html` | Copy as text: the list in the same form, to copy |
@@ -41,11 +42,11 @@ so they match it.
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
 | `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |
 | `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name under the title band: Add to list… first |
-| `MyListEmpty.dc.html` | My list with no lists yet: how to start |
+| `MyListEmpty.dc.html` | My list with no lists yet: how to start, with Create list and Import list |
 | `MyListBlue.dc.html` | My list in the Blue theme |
 | `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
 | `Data.dc.html` | The quest JSON shape, what is saved (My list too), and the export file |
-| `canvas.json` | Board layout on the canvas |
+| `canvas.json` | Board layout on the canvas: the screens in five rows of seven on the left (quests and settings, area tasks, My list twice, the Blue theme), Components and Data next to them |
 
 These files are made for the design canvas. Opened on their own in a browser, they may not look right.
 
@@ -53,5 +54,4 @@ These files are made for the design canvas. Opened on their own in a browser, th
 
 PNG pictures of each board are in `screenshots/`, at 2× size.
 
-Skill icons come from the wiki. In the pictures, Mining, Smithing and Necromancy are the wiki's own icons; any other
-skill shows a dashed square where its icon goes (the app and the boards load the real one from the wiki).
+Skill icons come from the wiki, in the pictures too.

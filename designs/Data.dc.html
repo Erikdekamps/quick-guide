@@ -996,21 +996,9 @@ ul.steps.ql { padding: 0; }
 /* the danger zone in the settings */
 .mh.danger { color: var(--red); }
 
-/* read from game */
+/* small buttons */
 .btn.sm { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; font-size: 12px; }
 .btn.sm svg { width: 14px; height: 14px; }
-.rdhow { margin: 0; padding-left: 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
-.rdhow li { display: list-item; }
-.rdhow li + li { margin-top: 2px; }
-.rdtip { margin: 0; font-size: 12px; line-height: 1.4; color: var(--faint); }
-.scanbar { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 4px; padding: 6px 8px; background: #1d2a17; border: 1px solid #3f6b2c; border-radius: 2px; font-size: 12px; line-height: 1.35; color: var(--text); }
-.scanbar .smsg { flex: 1; min-width: 0; }
-.scanbar .btn, .scanbar .ib { flex: none; }
-.scanbar b { color: var(--title); font-weight: 600; }
-.scanbar .sk { color: var(--faint); }
-.scanbar .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #6fd34a; box-shadow: 0 0 6px #6fd34a; animation: scanpulse 1.2s ease-in-out infinite; }
-@keyframes scanpulse { 50% { opacity: .3; } }
-@media (prefers-reduced-motion: reduce) { .scanbar .dot { animation: none; } }
 
 /* skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level and the name stay as they are;
    a green tick follows when you have it, a red cross when you do not. */
@@ -1071,7 +1059,7 @@ ul.steps.ql { padding: 0; }
 .gsub .cb::before { width: .357rem; height: .643rem; }
 .gsub .t { font-weight: 400; color: var(--text); }
 .rowm { flex: none; }
-.newlist { display: flex; justify-content: center; margin: 14px 10px 4px; }
+.newlist { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 10px 4px; }
 .para.mid { text-align: center; }
 .plain.start { margin: 14px 26px; }
 .plain .i, .para .i, .note span .i { width: 14px; height: 14px; vertical-align: -2px; }
@@ -1106,7 +1094,11 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 /* a list as text: the box to paste a list in, or to copy it from */
 #tp-text { flex: none; height: 170px; min-height: 96px; font-size: 12px; }
 
-.doc { width: 680px; padding: 28px; background: #0f0c0a; color: var(--text); font-size: 14px; }
+.dcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.dcol { min-width: 0; }
+.dcol > h2:first-child { margin-top: 0; }
+.doc { width: 1992px; padding: 28px; background: #0f0c0a; color: var(--text); font-size: 14px; }
+.doc > .lead { max-width: 840px; }
 .doc > h1 { margin: 0; font: 700 24px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); text-shadow: 0 1px 0 #000; }
 .lead { margin: 6px 0 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }
 .json { margin: 0; padding: 14px 16px; background: var(--deep); border: 1px solid var(--bronze); border-radius: 2px; box-shadow: inset 0 0 0 1px #000; font: 500 12px/1.5 "Fira Mono", ui-monospace, monospace; color: var(--soft); text-shadow: none; }
@@ -1124,6 +1116,8 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div class="doc">
 <h1>Data shape</h1>
 <p class="lead">The app reads the wiki page once, turns it into this JSON, then builds every screen from it. The example is While Guthix Sleeps, cut short with “…”.</p>
+<div class="dcols">
+<div class="dcol">
 <div class="json" role="figure" aria-label="Quest JSON example">
 <div>{</div>
 <div style="padding-left: 2ch"><span class="k">"version"</span>: <span class="v">2</span>,</div>
@@ -1240,6 +1234,8 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <dl class="legend"><dt>Overview</dt><dd><code>overview</code>, <code>rewards</code>, <code>music</code>, <code>achievements</code>, <code>requiredFor</code>. Four parts: Details, Skills, Enemies, Rewards. They start open.</dd><dt>Items</dt><dd><code>requiredItems</code> and <code>recommendedItems</code>, each item with a tick box.</dd><dt>Steps</dt><dd><code>sections</code>: one part per section, with its blocks in wiki order.</dd></dl>
 <h2>What the fields mean</h2>
 <dl class="legend"><dt>blocks[].type</dt><dd><code>step</code> · <code>heading</code> · <code>bring</code> · <code>note</code> · <code>warning</code> · <code>text</code> · <code>image</code> · <code>images</code> · <code>map</code> · <code>table</code>, in the same order as the wiki.</dd><dt>dialogue key</dt><dd><code>1</code>–<code>9</code> number key · <code>✓</code> accept quest · <code>~</code> any option · <code>?</code> number varies</dd><dt>dialogue when</dt><dd><code>null</code> for the normal list. Text like “If you finished The Hand in the Sand” for another case.</dd><dt>html</dt><dd>The wiki’s own words. Only links, bold and italics are kept.</dd><dt>id</dt><dd>Part id + a short code made from the text, so your ticks stay put after a refresh.</dd></dl>
+</div>
+<div class="dcol">
 <h2>Saved on this computer</h2>
 <div class="json" role="figure" aria-label="Saved progress example">
 <div>{</div>
@@ -1347,6 +1343,8 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div>}</div>
 </div>
 <dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, the theme (brown or blue), and the tab you looked at (quests, area tasks or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, and where each list, tab and tier is scrolled.</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>repeat</code>: day, week or month. <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+</div>
+<div class="dcol">
 <h2>Export file</h2>
 <p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false, and your lists. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it. A goal in “mylist” is read the way the add box reads what you type.</p>
 <div class="json" role="figure" aria-label="Export example">
@@ -1422,8 +1420,10 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div>}</div>
 </div>
 </div>
+</div>
+</div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":680,"height":6539}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1992,"height":2640}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};
