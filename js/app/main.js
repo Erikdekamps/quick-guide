@@ -5,19 +5,19 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
   var saveView = A.saveView, sdel = A.sdel, accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
     areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup, closeMenus = A.closeMenus,
-    closeRead = A.closeRead, copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
+    copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
     fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder, FONT_STEP = A.FONT_STEP,
     forgetPlayer = A.forgetPlayer, jumpTo = A.jumpTo, LIST_MAX_AGE = A.LIST_MAX_AGE, loadAllAreas = A.loadAllAreas,
     lookUpPlayer = A.lookUpPlayer, matchQuests = A.matchQuests, nextStep = A.nextStep, nextTask = A.nextTask,
-    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openScan = A.openScan,
+    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest,
     openTitle = A.openTitle, pick = A.pick, PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh,
     refreshArea = A.refreshArea, refreshQuest = A.refreshQuest, renderStart = A.renderStart,
     resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg, saveSettings = A.saveSettings,
-    scanGoTo = A.scanGoTo, setFont = A.setFont, setHome = A.setHome, sget = A.sget, SORTS = A.SORTS,
-    startMaps = A.startMaps, startScan = A.startScan, stopScan = A.stopScan, SWITCHES = A.SWITCHES,
+    setFont = A.setFont, setHome = A.setHome, sget = A.sget, SORTS = A.SORTS,
+    startMaps = A.startMaps, SWITCHES = A.SWITCHES,
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickTask = A.tickTask, toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu,
     toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick,
@@ -98,7 +98,6 @@
   });
   app.addEventListener('click', function (ev) {
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
-    if (ev.target.id === 'rd') { closeRead(); return; }
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
     // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal, a
     // sub task and a list, the items of their menus, and the boxes.
@@ -144,12 +143,6 @@
       else if (act === 'export') openBackup('export');
       else if (act === 'import') openBackup('import');
       else if (act === 'bk-close') closeBackup();
-      else if (act === 'scan-open') openScan();
-      else if (act === 'rd-close') closeRead();
-      else if (act === 'scan-start') startScan();
-      else if (act === 'scan-stop') stopScan();
-      else if (act === 'scan-back') scanGoTo(S.scan.k - 1);
-      else if (act === 'scan-next') scanGoTo(S.scan.k + 1);
       else if (act === 'bk-copy') copyBackup();
       else if (act === 'bk-import') runImport();
       else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }
@@ -216,7 +209,7 @@
     if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey) && ev.target.id === 'tp-text') { ev.preventDefault(); A.todoSubmit(ev.target.form); }
   });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); closeSubAdd(); }
+    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeTodoDialog(); closeSubAdd(); }
   });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {

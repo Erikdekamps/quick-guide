@@ -67,6 +67,5 @@ test.describe('appconfig.json', () => {
     // Alt1 apps in the wild never leave this empty; an empty value may stop Alt1 from adding the app.
     expect(cfg.permissions).not.toBe('');
     for (const p of cfg.permissions.split(',')) expect(['pixel', 'overlay', 'gamestate']).toContain(p);
-    expect(cfg.permissions.split(',')).toContain('pixel');   // Read from game needs to see the screen
   });
 });

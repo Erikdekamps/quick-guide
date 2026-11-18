@@ -28,8 +28,7 @@ The designs are in `designs/` (the `MyList…` boards) and `designs/screenshots/
 - **Make it a list:** a goal you wrote yourself becomes a list with its name; its sub tasks are the goals.
 - **Open on the wiki:** goals and sub tasks you wrote yourself are looked up on the wiki once (as typed, with small
   letters, and without a number or a word like "Buy a" in front); the page's name is kept in `wiki`.
-- **The code is in `js/`:** `js/app` (the app, with My list in three files), `js/wiki` (reading the wiki) and
-  `js/game` (reading the game).
+- **The code is in `js/`:** `js/app` (the app, with My list in three files), `js/wiki` (reading the wiki).
 - **A done goal stays where it is**, struck through, until you clear it: it no longer drops to the bottom of its
   list (the next goal would move under your mouse).
 - **Repeat:** Never, Daily, Weekly or Monthly. The monthly reset is the 1st of the month, 00:00 UTC. In a file a goal
@@ -97,7 +96,7 @@ A goal with a number also has a progress bar.
 | --- | --- | --- | --- |
 | Skill goal | Skill | "Now 79 · 3 levels to go", with the skill's icon | Yes, from your character's levels |
 | Item goal | Item | "180 to go", with − and + and the count "320 / 500" | When the count reaches the target |
-| Area task | Task | "Ardougne Easy" | Yes, when the task is ticked (by you, or by Scan achievements) |
+| Area task | Task | "Ardougne Easy" | Yes, when the task is ticked |
 | Area tier | Tier | "9 / 17 tasks" | Yes, when every task of the tier is ticked |
 | Quest | Quest | "10 / 118 steps", or "Started" | Yes, when the quest is done (your ticks, or the game) |
 | Unlock | Unlock | Your note | No, you tick it |
@@ -145,7 +144,7 @@ For things you do every day or every week (Vis wax, Penguin Hide and Seek):
 No new lookups are needed for the first version:
 
 - **Levels and quests done:** the player lookup (`S.player`).
-- **Area tasks and tiers:** your ticks (`aprog.<area>`), set by hand or by Scan achievements.
+- **Area tasks and tiers:** your ticks (`aprog.<area>`), set by hand.
 - **Quest steps:** your ticks (`prog.<page>`, `meta`).
 - **Skill icons:** the wiki's, as in the skill lists.
 
@@ -241,7 +240,7 @@ It was built in one pull request, in this order, with its tests written first.
    Tests: every way of typing a goal; a level reached after a player update ticks the goal.
 3. **Stars.** On quests, area tasks and tiers; "+ goal" on a level you miss; Change list and Undo in the message.
    Goals of those kinds tick themselves, and a task goal and its task share one tick.
-   Tests: star and unstar everywhere; tick in the area, see it in the list; a scan that ticks a task finishes its goal.
+   Tests: star and unstar everywhere; tick in the area, see it in the list.
 4. **Goals that come back.** Every day and every week, with the game's reset times. Tests with a fake clock:
    before and after the daily reset, across a Wednesday, the app closed over a reset.
 5. **Export and import**, Delete everything, the README, and the eight boards made from the real app.

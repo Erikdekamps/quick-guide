@@ -6,7 +6,6 @@ in the brown interface the game has now, or the blue one it had before (a settin
 - **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
 - **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
 - **My list:** your own lists of goals (levels, items, unlocks, quests, area tasks), to plan your day or week.
-- **Scan achievements:** Alt1 reads the game's achievement list and ticks the tasks you have done.
 
 ## Add it to Alt1
 
@@ -18,12 +17,7 @@ alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json
 
 Alt1 asks if you want to add the app. Say yes. (Or open `https://erikdekamps.github.io/quick-guide/` in the Alt1 browser and press **Add app**.)
 
-The app asks for two permissions:
-
-- **View screen** (`pixel`): for **Scan achievements**. It looks at the game only while you scan.
-- **Overlay**: Alt1 wants at least one. The app draws nothing on the game.
-
-If you added the app before the scan existed, remove it in Alt1 and add it again, so Alt1 asks for the screen permission.
+The app asks for one permission, **Overlay**: Alt1 wants at least one. The app draws nothing on the game.
 Wiki links open in your normal browser, so the app stays on the guide.
 
 ## Quests
@@ -125,37 +119,6 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   own time.
 - At most 30 lists and 300 goals.
 
-## Scan achievements
-
-In the settings, only in Alt1. The app reads the game and sets every task to what the game shows:
-done is ticked, not done (or locked) is unticked.
-
-1. In the game, open **Hero → Achievements → Area Tasks** and click a tier, for example **Easy Ardougne**.
-   Keep **Show Completed** on and **List Mode** off.
-2. Press **Start**. A green bar at the top names the tier and the tasks in view.
-3. Scroll each list down, then click the next tier in the game. Go through them all, top to bottom.
-
-How it knows where it is:
-
-- **The rows:** every task is a box with a small gold icon and a title. A task is done when its title is gold
-  (and its icon a star). That is the same in every area, whatever the area's badge looks like.
-- **The tier:** the one with the gold box in the list on the left. The app comes with what each of the 52 tier
-  names looks like (`js/game/tiernames.js`), so it knows the tier you clicked right away. Names of one area look much
-  alike ("Hard Ardougne", "Elite Ardougne"), so a name only counts when it is nearly pixel for pixel the same.
-  At another interface size the names do not fit: then it counts from the **Area Tasks** title above
-  Easy Ardougne (or the next title, below the last tier), and remembers the names it sees. If it cannot tell,
-  it asks you to scroll the list on the left: until the gold box shows, or up until **Area Tasks** shows.
-- **The tasks:** a new tier starts at the top of its list (the scrollbar says when it is). When you scroll,
-  each row is matched to the row it looks most like in the last look. A tier or a task only changes when two looks
-  in a row agree, so a tooltip or a moving background does not confuse it.
-- A task you opened up in the game (its arrow, to see its steps) pushes the tasks under it out of place.
-  The app reads the tasks down to it, and asks you to close it.
-- If the bar shows the wrong tier, use **◀ ▶**. They hold until you click another tier in the game.
-  **Stop** ends the scan.
-- The scrollbar is the first one right of the list, a narrow handle in a dark track, so the window's gold edge
-  or sand and rocks behind the window are not taken for it. The rest of the screen (like a chat full of green
-  lines) does not fool it either. If it cannot see the list, the bar says so.
-
 ## Settings (the cog)
 
 The same on every screen:
@@ -165,7 +128,6 @@ The same on every screen:
 - **Display:** **Theme** (Brown, like the game now, or Blue, like the game before), **Show done steps** (to untick one)
   and **Text size** (12 to 40).
 - **Update quest list** reads the lists from the wiki again.
-- **Scan achievements** (only in Alt1).
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
@@ -237,7 +199,6 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
-| `tiernames` | What each tier's name looks like in the game, as learnt by Scan achievements |
 | `view` | Where you were: the search text, folded groups and lists, and where each list, tab and tier is scrolled |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
 
@@ -276,12 +237,9 @@ No other service is used.
 | `js/app/todo-view.js` | My list: what the tab shows, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |
-| `js/app/scan.js` | Scan achievements (Alt1) |
 | `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
 | `js/wiki/parser.js` | Reads a quest guide or an area page from the wiki |
 | `js/wiki/quests.js` | Reads the quest lists and the optimal order |
-| `js/game/reader.js` | Reads the game's task list from the screen (for Scan achievements) |
-| `js/game/tiernames.js` | What each of the 52 tier names looks like in the game (for Scan achievements) |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
@@ -303,10 +261,6 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - They run on GitHub for every pull request and every push to `main` (the **Actions** tab).
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
-- **Scan achievements** is tested on screenshots of the game (`tests/fixtures/game/`) with a fake Alt1: done, not done
-  and locked tasks; every area's badge (a sprite cut from the game, `badges.png`); a task opened up; every tier name the app comes with; bigger screens
-  and interface sizes; blurry, dark and JPEG pictures; busy screens where no list may be found; scrolling (slow,
-  fast, too far); tooltips; both ways Alt1 hands over pictures; and how fast one look is.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 
@@ -339,7 +293,7 @@ The app itself has no npm packages: it runs as plain files in the browser. It us
 ## Credits
 
 Built by **Claude**, Anthropic's AI ([Claude Opus 5.5 and Claude Fable 5.2](https://www.anthropic.com/claude)),
-working in [Claude Code](https://claude.com/claude-code): the app, the wiki parser, the game screen reader,
+working in [Claude Code](https://claude.com/claude-code): the app, the wiki parser,
 the tests, the designs, the icon and this README. The ideas, the testing in the game and the screenshots
 came from the repository owner.
 

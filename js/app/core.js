@@ -10,10 +10,8 @@
  *   todo-view.js   My list: what the tab shows, its menus and boxes
  *   todo.js        My list: adding, ticking, and what the menus do
  *   backup.js      export and import
- *   scan.js        Scan achievements (Alt1)
  *   main.js        the clicks and keys of every screen, and the start
- * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists); js/game reads the game screen (reader.js,
- * tiernames.js).
+ * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists).
  *
  * What is kept in localStorage (all keys start with "qg1."):
  *   list, minis     every quest and miniquest from the wiki's lists: { at, quests: [...] }
@@ -28,7 +26,6 @@
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
- *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
  * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
@@ -429,7 +426,6 @@
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
       '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
       // Reading the game needs Alt1 (on a computer), so this is only there in Alt1.
-      (window.alt1 ? '<p class="mh">Game</p><button class="mi" type="button" data-act="scan-open">' + I.eye + 'Scan achievements</button><hr>' : '') +
       '<p class="mh">Lists</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
       toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
@@ -855,7 +851,6 @@
     closeMenus();
     A.closeBackup();
     A.closeTodoDialog();
-    A.stopScan();
     try {
       var ls = window.localStorage, keys = [];
       for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
