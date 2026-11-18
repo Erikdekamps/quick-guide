@@ -1,4 +1,4 @@
-// My list: your own lists of goals (docs/my-list-plan.md). A third tab on the start screen.
+// My list: your own lists of goals. A third tab on the start screen.
 // Lists have names you choose. A goal is one flat row: a tick box, what it says, and its menu. You can tick any goal;
 // skill levels, quests and tiers also tick themselves; an area task shares its tick with its area, a quest with the
 // quest list; a goal can repeat daily, weekly or monthly.
