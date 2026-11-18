@@ -13,11 +13,11 @@
     FONT_STEP = A.FONT_STEP, forgetPlayer = A.forgetPlayer, goalMenu = A.goalMenu, itemMenu = A.itemMenu, jumpTo = A.jumpTo,
     LIST_MAX_AGE = A.LIST_MAX_AGE, listMenu = A.listMenu, loadAllAreas = A.loadAllAreas, lookUpPlayer = A.lookUpPlayer,
     matchQuests = A.matchQuests, menuAct = A.menuAct, newListDialog = A.newListDialog, nextStep = A.nextStep, nextTask = A.nextTask,
-    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick, pickSeg = A.pickSeg,
+    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick,
     PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh, refreshArea = A.refreshArea, refreshQuest = A.refreshQuest,
     renderStart = A.renderStart, resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg,
     saveSettings = A.saveSettings, saveView = A.saveView, sdel = A.sdel, setFont = A.setFont, setHome = A.setHome, sget = A.sget,
-    SORTS = A.SORTS, startMaps = A.startMaps, startTodoClock = A.startTodoClock, subMenu = A.subMenu, SWITCHES = A.SWITCHES,
+    SORTS = A.SORTS, startMaps = A.startMaps, subMenu = A.subMenu, SWITCHES = A.SWITCHES,
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickGoal = A.tickGoal, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickSub = A.tickSub, tickTask = A.tickTask, toastAct = A.toastAct, todoSubmit = A.todoSubmit,
     toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu, toggleOv = A.toggleOv, toggleSection = A.toggleSection,
@@ -37,7 +37,6 @@
     ['data-smenu', subMenu],
     ['data-lmenu', listMenu],
     ['data-tm', menuAct],
-    ['data-seg', pickSeg],
     ['data-tdx', function () { closeTodoDialog(); }]
   ];
   var TODO_SEL = TODO_CLICKS.map(function (c) { return '[' + c[0] + ']'; }).join(', ');
@@ -242,8 +241,6 @@
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
   if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
   if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
-  // Goals that come back: checked once a minute.
-  startTodoClock();
   // Keep the player fresh too: quietly, once a day.
   // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);

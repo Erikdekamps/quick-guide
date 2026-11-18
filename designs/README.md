@@ -37,7 +37,7 @@ so they match it.
 | `MyListSub.dc.html` | Adding sub tasks to a goal: the box under it, for one after the other |
 | `MyListSubMenu.dc.html` | A sub task's menu: edit, add a sub task, open on the wiki, move up, down or out a level, delete |
 | `MyListToList.dc.html` | A goal made into a list: its sub tasks are the goals, with Undo |
-| `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, how often, a note |
+| `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, its parent, a note |
 | `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
 | `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |

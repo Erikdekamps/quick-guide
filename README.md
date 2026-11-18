@@ -69,7 +69,8 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
 **Skilling goals**, **Gathering**. The tab shows how many goals are still open.
 
 - A goal is one flat row: a tick box, what it says, and its **⋯** menu.
-- Start with **New list**: a goal always goes in a list.
+- Start with **Create list**: a goal always goes in a list. **Import list** makes a list from goals you paste as
+  plain text (see Paste a list).
 - **Add a goal** in the box at the end of a list: type it, press Enter, and type the next one. It goes in as you
   typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
   character is looked up.
@@ -85,8 +86,7 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   the list and in its area; a quest ticked here is done in the quest list too.
 - **Paste a list** (in a list's ⋯): type or paste goals as plain text, one on each line. A line that is further in
   goes under the one above, as a sub task. Bullets (`-`, `*`, `•`), numbers (`1.`) and tick boxes (`[ ]`, `[x]` for
-  done) are understood, and each line is read like a goal you type ("82 thieving", "Vis wax (daily)",
-  "Quest: Cook's Assistant"). The box says what it reads while you type. Pasting more than one line in the box at
+  done) are understood, and each line is read like a goal you type ("82 thieving", "Quest: Cook's Assistant"). The box says what it reads while you type. Pasting more than one line in the box at
   the end of a list opens it too.
 
   ```
@@ -94,10 +94,10 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
     - Hatchet of ember and glade
       - [x] Crystal hatchet
   - 82 Thieving
-  - Vis wax (daily)
+  - Vis wax
   ```
 - **Copy as text** (in a list's ⋯) gives the list in that same form, to keep, share or paste into another list.
-- A list's **⋯**: add a goal (with every field: the goal, the list, how often, a note), rename, move the list up or
+- A list's **⋯**: add a goal (with every field: the goal, the list, its parent, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, add a sub task, open it (its quest or area, or the wiki), move it to another list or a new
   one, move it up or down, remove it. Removing, clearing and deleting can be undone.
@@ -114,9 +114,6 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   move it under, or None to make it a goal of the list. A sub task can have a note too.
 - A sub task's **⋯**: edit, add a sub task, move it up or down, move it out a level (at the top: make it a goal),
   delete it (two clicks, and Undo).
-- A goal can **repeat** daily, weekly or monthly. It is unticked at the game's reset: 00:00 UTC each day,
-  Wednesday 00:00 UTC each week, and the 1st of the month at 00:00 UTC. Until then it says when it is back, in your
-  own time.
 - At most 30 lists and 300 goals.
 
 ## Settings (the cog)
@@ -148,8 +145,7 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 (`447 …`) or a step (`993:1 …`) is how the app finds it; a task can also be written by its name alone.
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
-`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
-`"Vis wax (daily)"` (or weekly, monthly). A goal with a note or sub tasks is
+`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`. A goal with a note or sub tasks is
 `{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`; a sub task with its own is
 `{ "done": false, "subs": { … } }`. Add a list or a goal by hand and it comes in.
 
@@ -173,7 +169,7 @@ In `mylist`, each goal is a line, written the way you type it in the add box: `"
     "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
   },
   "mylist": {
-    "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax (daily)": true },
+    "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax": true },
     "Gathering": { "500 Magic logs": false }
   }
 }
@@ -233,7 +229,7 @@ No other service is used.
 | `js/app/core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
 | `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
 | `js/app/areas.js` | Area tasks: the list of tiers, search, and one area |
-| `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, the resets, wiki links, export and import |
+| `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
 | `js/app/todo-view.js` | My list: what the tab shows, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |

@@ -1044,9 +1044,7 @@ ul.steps.ql { padding: 0; }
 .goal .rb { line-height: 1.4; }
 .goal .t { display: inline; font-weight: 600; color: var(--bright); }
 /* after the goal: "every day" (or when it is back), and its note */
-.goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
-.goal .rp { white-space: nowrap; }
-.goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
+.goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 /* a done goal, or sub task: struck through */
 .goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
 /* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
@@ -1079,13 +1077,8 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .dlg .what b { color: var(--bright); font-weight: 600; }
 .fld { display: flex; flex-direction: column; gap: 4px; }
 .fld[hidden] { display: none; }
-.fld > label, .fld > .fl { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.fld > label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .fld .inp, .fld .sel { flex: none; width: 100%; height: 32px; margin-left: 0; }
-.seg { display: flex; }
-.seg button { flex: 1; min-width: 0; height: 28px; margin-left: -1px; padding: 0 6px; background: linear-gradient(var(--tab-top), var(--tab-bot)); border: 1px solid var(--tab-edge); color: var(--tab-text); font: 500 12px "Fira Sans", sans-serif; cursor: pointer; }
-.seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
-.seg button:last-child { border-radius: 0 2px 2px 0; }
-.seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
 /* the buttons in a message: "Undo" */
 .toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .toast .tl:hover { color: var(--gold); }
@@ -1304,7 +1297,6 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div style="padding-left: 12ch"><span class="k">"id"</span>: "g0aa11",</div>
 <div style="padding-left: 12ch"><span class="k">"kind"</span>: "other",</div>
 <div style="padding-left: 12ch"><span class="k">"title"</span>: "Vis wax",</div>
-<div style="padding-left: 12ch"><span class="k">"repeat"</span>: "day",</div>
 <div style="padding-left: 12ch"><span class="k">"done"</span>: <span class="v">1794787200000</span>,</div>
 <div style="padding-left: 12ch"><span class="k">"at"</span>: <span class="v">1794816600000</span></div>
 <div style="padding-left: 10ch">},</div>
@@ -1342,7 +1334,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, the theme (brown or blue), and the tab you looked at (quests, area tasks or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, and where each list, tab and tier is scrolled.</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>repeat</code>: day, week or month. <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>Show done steps, hide completed, hide miniquests, hide locked, text size, sort order, the theme (brown or blue), and the tab you looked at (quests, area tasks or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, and where each list, tab and tier is scrolled.</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 </div>
 <div class="dcol">
 <h2>Export file</h2>
@@ -1404,7 +1396,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div style="padding-left: 2ch"><span class="k">"mylist"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"Today"</span>: {</div>
 <div style="padding-left: 6ch"><span class="k">"Task 448: Yoink! (Ardougne Easy)"</span>: <span class="v">false</span>,</div>
-<div style="padding-left: 6ch"><span class="k">"Vis wax (daily)"</span>: <span class="v">true</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Vis wax"</span>: <span class="v">true</span>,</div>
 <div style="padding-left: 6ch"><span class="k">"Unlock Soul Split"</span>: {</div>
 <div style="padding-left: 8ch"><span class="k">"done"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 8ch"><span class="k">"note"</span>: "Needs The Temple at Senntisten"</div>
@@ -1423,7 +1415,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1992,"height":2640}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1992,"height":2622}}'>
 class Component extends DCLogic {
   renderVals() {
     return {};

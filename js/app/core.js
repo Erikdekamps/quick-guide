@@ -6,7 +6,7 @@
  *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   quests.js      the quest list and the quest screen
  *   areas.js       Area Tasks
- *   todo-data.js   My list: the saved lists, goals and sub tasks, resets, wiki links, export and import
+ *   todo-data.js   My list: the saved lists, goals and sub tasks, wiki links, export and import
  *   todo-view.js   My list: what the tab shows, its menus and boxes
  *   todo.js        My list: adding, ticking, and what the menus do
  *   backup.js      export and import

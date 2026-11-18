@@ -8,20 +8,19 @@
   'use strict';
   if (!A || !A.T) return;
   var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
-  var backText = T.backText, cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
-    openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey, REPEATS = T.REPEATS,
-    resetDue = T.resetDue, saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
+  var cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
+    openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
+    saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
 
   // ---------- the My list tab ----------
   function doneCount(p) { return '<span class="sc">' + p.subs.filter(isDone).length + ' / ' + p.subs.length + '</span>'; }
-  // One goal: its tick box, what it says (with "daily" or when it is back, how many sub tasks are done, and its note),
+  // One goal: its tick box, what it says (with how many sub tasks are done, and its note),
   // its menu, and its sub tasks under it.
   function goalHtml(g, s) {
     var title = goalTitle(g), tid = esc('gt-' + g.id);
-    return '<li class="goal' + (s.done ? ' done' : '') + (g.repeat ? ' rep' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
+    return '<li class="goal' + (s.done ? ' done' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
-      (g.repeat ? '<span class="rp">' + I.refresh + (s.done ? backText(g.repeat) : REPEATS[g.repeat]) + '</span>' : '') +
       (g.subs ? doneCount(g) : '') +
       (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
@@ -81,7 +80,6 @@
   // What the tab shows.
   function todoHtml() {
     var t = todo(), c = ctx(), tally = { goals: 0, done: 0 };
-    resetDue();
     settleAll();
     lookUpWiki();
     if (!t.lists.length) return emptyHtml();
@@ -165,12 +163,6 @@
       refreshScreen();
     };
   }
-  function startClock() {
-    setInterval(function () {
-      if (!resetDue()) return;
-      if (S.view === 'start' && S.set.home === 'todo') drawTodo(); else updateCount();
-    }, 60000);
-  }
 
   // ---------- "Add to list" in the menus of a quest, a tier and an area task, and "+ goal" ----------
   // What a menu item or a button stands for, in data attributes: data-ref="quest", "tier", "task" or "skill", and its parts.
@@ -253,16 +245,11 @@
     return '<div class="fld"><label for="' + id + '">' + label + '</label><input class="inp" id="' + id + '" type="text" maxlength="' + max + '" autocomplete="off"' +
       (hint ? ' placeholder="' + esc(hint) + '"' : '') + ' value="' + esc(v) + '"></div>';
   }
-  function segHtml(name, opts, v) {
-    return '<div class="seg" role="group" aria-labelledby="tg-' + name + '-l" data-for="' + name + '">' + opts.map(function (o) {
-      return '<button type="button" data-seg="' + name + '" data-v="' + o[0] + '" aria-pressed="' + (o[0] === v) + '">' + o[1] + '</button>';
-    }).join('') + '</div>';
-  }
 
-  A.share({ addToItemHtml: addToItemHtml, closeTodoDialog: closeDialog, startTodoClock: startClock, taskMenuHtml: taskMenuHtml,
+  A.share({ addToItemHtml: addToItemHtml, closeTodoDialog: closeDialog, taskMenuHtml: taskMenuHtml,
     toastAct: toastAct, todoCountHtml: countHtml, todoHtml: todoHtml, updateTodoCount: updateCount });
   T.buttonsHtml = buttonsHtml; T.changed = changed; T.closeDialog = closeDialog; T.dialogErr = dialogErr; T.drawTodo = drawTodo;
   T.errHtml = errHtml; T.fieldHtml = fieldHtml; T.mitem = mitem; T.openDialog = openDialog; T.openMenu = openMenu;
-  T.pickerHtml = pickerHtml; T.refOf = refOf; T.segHtml = segHtml; T.tell = tell; T.undoer = undoer; T.whatHtml = whatHtml;
+  T.pickerHtml = pickerHtml; T.refOf = refOf; T.tell = tell; T.undoer = undoer; T.whatHtml = whatHtml;
   A.loaded.todoView = true;
 })(window.QuickGuideApp);
