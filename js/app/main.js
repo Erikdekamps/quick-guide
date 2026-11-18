@@ -5,26 +5,68 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup', 'scan'].some(function (k) { return !A.loaded[k]; })) return;
-  var saveView = A.saveView, sdel = A.sdel, accKey = A.accKey, app = A.app, applySettings = A.applySettings, areaMatches = A.areaMatches,
-    areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup, closeMenus = A.closeMenus,
-    closeRead = A.closeRead, copyBackup = A.copyBackup, current = A.current, drawList = A.drawList,
-    fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder, FONT_STEP = A.FONT_STEP,
-    forgetPlayer = A.forgetPlayer, jumpTo = A.jumpTo, LIST_MAX_AGE = A.LIST_MAX_AGE, loadAllAreas = A.loadAllAreas,
-    lookUpPlayer = A.lookUpPlayer, matchQuests = A.matchQuests, nextStep = A.nextStep, nextTask = A.nextTask,
-    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openScan = A.openScan,
-    openTitle = A.openTitle, pick = A.pick, PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh,
-    refreshArea = A.refreshArea, refreshQuest = A.refreshQuest, renderStart = A.renderStart,
-    resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg, saveSettings = A.saveSettings,
-    scanGoTo = A.scanGoTo, setFont = A.setFont, setHome = A.setHome, sget = A.sget, SORTS = A.SORTS,
-    startMaps = A.startMaps, startScan = A.startScan, stopScan = A.stopScan, SWITCHES = A.SWITCHES,
-    switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickInArea = A.tickInArea,
-    tickStep = A.tickStep, tickTask = A.tickTask, toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu,
-    toggleOv = A.toggleOv, toggleSection = A.toggleSection, toggleSetting = A.toggleSetting, wipeClick = A.wipeClick,
-    addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, closeSubAdd = A.closeSubAdd,
-    closeTodoDialog = A.closeTodoDialog, goalMenu = A.goalMenu, itemMenu = A.itemMenu, listMenu = A.listMenu, menuAct = A.menuAct,
-    newListDialog = A.newListDialog, pickSeg = A.pickSeg, startTodoClock = A.startTodoClock, subMenu = A.subMenu, tickGoal = A.tickGoal,
-    tickSub = A.tickSub, todoSubmit = A.todoSubmit, toastAct = A.toastAct, unlist = A.unlist;
+  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
+  var accKey = A.accKey, addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, app = A.app,
+    applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup,
+    closeMenus = A.closeMenus, closeSubAdd = A.closeSubAdd, closeTodoDialog = A.closeTodoDialog, copyBackup = A.copyBackup,
+    current = A.current, drawList = A.drawList, fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder,
+    FONT_STEP = A.FONT_STEP, forgetPlayer = A.forgetPlayer, goalMenu = A.goalMenu, itemMenu = A.itemMenu, jumpTo = A.jumpTo,
+    LIST_MAX_AGE = A.LIST_MAX_AGE, listMenu = A.listMenu, loadAllAreas = A.loadAllAreas, lookUpPlayer = A.lookUpPlayer,
+    matchQuests = A.matchQuests, menuAct = A.menuAct, newListDialog = A.newListDialog, nextStep = A.nextStep, nextTask = A.nextTask,
+    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick,
+    PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh, refreshArea = A.refreshArea, refreshQuest = A.refreshQuest,
+    renderStart = A.renderStart, resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg,
+    saveSettings = A.saveSettings, saveView = A.saveView, sdel = A.sdel, setFont = A.setFont, setHome = A.setHome, sget = A.sget,
+    SORTS = A.SORTS, startMaps = A.startMaps, subMenu = A.subMenu, SWITCHES = A.SWITCHES,
+    switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickGoal = A.tickGoal, tickInArea = A.tickInArea,
+    tickStep = A.tickStep, tickSub = A.tickSub, tickTask = A.tickTask, toastAct = A.toastAct, todoSubmit = A.todoSubmit,
+    toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu, toggleOv = A.toggleOv, toggleSection = A.toggleSection,
+    toggleSetting = A.toggleSetting, unlist = A.unlist, wipeClick = A.wipeClick;
+
+  // ---------- what a click does ----------
+  // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal, a
+  // sub task and a list, the items of their menus, and the boxes. The first one the button has counts.
+  var TODO_CLICKS = [
+    ['data-tact', function (g) { toastAct(+g.getAttribute('data-tact')); }],
+    ['data-saddx', function () { closeSubAdd(); }],
+    ['data-addto', addFromButton],
+    ['data-unlist', unlist],
+    ['data-addgoal', addSkillGoal],
+    ['data-imenu', itemMenu],
+    ['data-gmenu', goalMenu],
+    ['data-smenu', subMenu],
+    ['data-lmenu', listMenu],
+    ['data-tm', menuAct],
+    ['data-tdx', function () { closeTodoDialog(); }]
+  ];
+  var TODO_SEL = TODO_CLICKS.map(function (c) { return '[' + c[0] + ']'; }).join(', ');
+  // The buttons with data-act. t: the button.
+  var ACTS = {
+    next: function () { nextStep(); },
+    anext: function () { nextTask(); },
+    wipe: wipeClick,
+    'export': function () { openBackup('export'); },
+    'import': function () { openBackup('import'); },
+    'bk-close': function () { closeBackup(); },
+    'bk-copy': function () { copyBackup(); },
+    'bk-import': function () { runImport(); },
+    'areas-retry': function () { S.aidxFail = []; loadAllAreas(); drawList(); },
+    areset: areaReset,
+    arefresh: function () { closeMenus(); refreshArea(); },
+    jump: function () { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); },
+    'order-refresh': function () { S.orderError = ''; drawList(); },
+    change: function () { S.error = ''; S.input = ''; sdel('last'); saveView(); renderStart(); },
+    refresh: function () { closeMenus(); refreshQuest(false); },
+    wiki: function () { closeMenus(); },
+    reset: resetClick,
+    'font-down': function () { setFont(-FONT_STEP); },
+    'font-up': function () { setFont(FONT_STEP); },
+    'list-refresh': function () { closeMenus(); fetchList(false, true); if (S.order || S.set.sort === 'opt') fetchOrder(true); },
+    'player-refresh': function () { if (S.player) lookUpPlayer(S.player.name); },
+    'player-clear': function () { forgetPlayer(); },
+    tnew: function () { newListDialog(); },
+    timport: function () { A.importListDialog(); }
+  };
 
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
@@ -98,24 +140,10 @@
   });
   app.addEventListener('click', function (ev) {
     if (ev.target.id === 'bk') { closeBackup(); return; }   // a click outside the box
-    if (ev.target.id === 'rd') { closeRead(); return; }
     if (ev.target.id === 'td') { closeTodoDialog(); return; }
-    // My list: the buttons in its message, Add to list and Remove from a list, "+ goal", the ⋯ of a task, a goal, a
-    // sub task and a list, the items of their menus, and the boxes.
-    var g = ev.target.closest('[data-tact], [data-addto], [data-unlist], [data-addgoal], [data-imenu], [data-gmenu], [data-smenu], [data-lmenu], [data-tm], [data-seg], [data-saddx], [data-tdx]');
+    var g = ev.target.closest(TODO_SEL);
     if (g) {
-      if (g.hasAttribute('data-tact')) toastAct(+g.getAttribute('data-tact'));
-      else if (g.hasAttribute('data-saddx')) closeSubAdd();
-      else if (g.hasAttribute('data-addto')) addFromButton(g);
-      else if (g.hasAttribute('data-unlist')) unlist(g);
-      else if (g.hasAttribute('data-addgoal')) addSkillGoal(g);
-      else if (g.hasAttribute('data-imenu')) itemMenu(g);
-      else if (g.hasAttribute('data-gmenu')) goalMenu(g);
-      else if (g.hasAttribute('data-smenu')) subMenu(g);
-      else if (g.hasAttribute('data-lmenu')) listMenu(g);
-      else if (g.hasAttribute('data-tm')) menuAct(g);
-      else if (g.hasAttribute('data-seg')) pickSeg(g);
-      else closeTodoDialog();
+      TODO_CLICKS.filter(function (c) { return g.hasAttribute(c[0]); })[0][1](g);
       return;
     }
     var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
@@ -138,37 +166,8 @@
       if (t.hasAttribute('data-asec-btn')) { toggleAreaSec(t.getAttribute('data-asec-btn')); return; }
       if (t.hasAttribute('data-ov-btn')) { toggleOv(t.getAttribute('data-ov-btn')); return; }
       var act = t.getAttribute('data-act');
-      if (act === 'next') nextStep();
-      else if (act === 'anext') nextTask();
-      else if (act === 'wipe') wipeClick(t);
-      else if (act === 'export') openBackup('export');
-      else if (act === 'import') openBackup('import');
-      else if (act === 'bk-close') closeBackup();
-      else if (act === 'scan-open') openScan();
-      else if (act === 'rd-close') closeRead();
-      else if (act === 'scan-start') startScan();
-      else if (act === 'scan-stop') stopScan();
-      else if (act === 'scan-back') scanGoTo(S.scan.k - 1);
-      else if (act === 'scan-next') scanGoTo(S.scan.k + 1);
-      else if (act === 'bk-copy') copyBackup();
-      else if (act === 'bk-import') runImport();
-      else if (act === 'areas-retry') { S.aidxFail = []; loadAllAreas(); drawList(); }
-      else if (act === 'areset') areaReset(t);
-      else if (act === 'arefresh') { closeMenus(); refreshArea(); }
-      else if (act === 'jump') { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); }
+      if (ACTS[act]) ACTS[act](t);
       else if (SWITCHES[act]) toggleSetting(act);
-      else if (act === 'order-refresh') { S.orderError = ''; drawList(); }
-      else if (act === 'change') { S.error = ''; S.input = ''; sdel('last'); saveView(); renderStart(); }
-      else if (act === 'refresh') { closeMenus(); refreshQuest(false); }
-      else if (act === 'wiki') closeMenus();
-      else if (act === 'reset') resetClick(t);
-      else if (act === 'font-down') setFont(-FONT_STEP);
-      else if (act === 'font-up') setFont(FONT_STEP);
-      else if (act === 'list-refresh') { closeMenus(); fetchList(false, true); if (S.order || S.set.sort === 'opt') fetchOrder(true); }
-      else if (act === 'player-refresh') { if (S.player) lookUpPlayer(S.player.name); }
-      else if (act === 'player-clear') forgetPlayer();
-      else if (act === 'tnew') newListDialog();
-      else if (act === 'timport') A.importListDialog();
       return;
     }
     // Remember boxes you open or close by hand.
@@ -216,7 +215,7 @@
     if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey) && ev.target.id === 'tp-text') { ev.preventDefault(); A.todoSubmit(ev.target.form); }
   });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeRead(); closeTodoDialog(); closeSubAdd(); }
+    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeTodoDialog(); closeSubAdd(); }
   });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {
@@ -242,8 +241,6 @@
   else if (S.list && Date.now() - (S.list.at || 0) > LIST_MAX_AGE) fetchList(true);
   if (S.order && Date.now() - (S.order.at || 0) > LIST_MAX_AGE) fetchOrder(true);
   if (S.list && !S.listBusy && (!S.minis || Date.now() - (S.minis.at || 0) > LIST_MAX_AGE)) fetchMinis();
-  // Goals that come back: checked once a minute.
-  startTodoClock();
   // Keep the player fresh too: quietly, once a day.
   // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);

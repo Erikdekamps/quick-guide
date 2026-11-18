@@ -6,14 +6,12 @@
  *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   quests.js      the quest list and the quest screen
  *   areas.js       Area Tasks
- *   todo-data.js   My list: the saved lists, goals and sub tasks, resets, wiki links, export and import
+ *   todo-data.js   My list: the saved lists, goals and sub tasks, wiki links, export and import
  *   todo-view.js   My list: what the tab shows, its menus and boxes
  *   todo.js        My list: adding, ticking, and what the menus do
  *   backup.js      export and import
- *   scan.js        Scan achievements (Alt1)
  *   main.js        the clicks and keys of every screen, and the start
- * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists); js/game reads the game screen (reader.js,
- * tiernames.js).
+ * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists).
  *
  * What is kept in localStorage (all keys start with "qg1."):
  *   list, minis     every quest and miniquest from the wiki's lists: { at, quests: [...] }
@@ -28,7 +26,6 @@
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
- *   tiernames       what each tier's name looks like in the game, as learnt by Scan achievements
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
  * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
@@ -176,9 +173,6 @@
     swords: svg('<path d="M14.5 17.5 3 6V3h3l11.5 11.5"/><path d="m13 19 6-6"/><path d="m16 16 4 4"/><path d="m19 21 2-2"/><path d="M14.5 6.5 18 3h3v3l-3.5 3.5"/><path d="m5 14 4 4"/><path d="m7 17-3 3"/><path d="m3 19 2 2"/>'),
     steps: svg('<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>'),
     trophy: svg('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
-    star: svg('<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>'),
-    key: svg('<path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5"/>'),
-    target: svg('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'),
     edit: svg('<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>'),
     up: svg('<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>'),
     list: svg('<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>'),
@@ -428,8 +422,6 @@
       '<div class="menu wide" id="cog" hidden>' +
       (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
       '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
-      // Reading the game needs Alt1 (on a computer), so this is only there in Alt1.
-      (window.alt1 ? '<p class="mh">Game</p><button class="mi" type="button" data-act="scan-open">' + I.eye + 'Scan achievements</button><hr>' : '') +
       '<p class="mh">Lists</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
       toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
@@ -855,7 +847,6 @@
     closeMenus();
     A.closeBackup();
     A.closeTodoDialog();
-    A.stopScan();
     try {
       var ls = window.localStorage, keys = [];
       for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
@@ -875,16 +866,15 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, readSettings: readSettings, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
-    byId: byId, clampFont: clampFont, closeMenus: closeMenus, cogHtml: cogHtml, dateText: dateText,
+    byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,
     dotsHtml: dotsHtml, dropMaps: dropMaps, esc: esc, forgetPlayer: forgetPlayer, homeHtml: homeHtml,
     imageAcc: imageAcc, imgHtml: imgHtml, liHtml: liHtml, loadProg: loadProg, lookUpPlayer: lookUpPlayer,
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
-    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart, skillIcon: skillIcon,
-    resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
+    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,     resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
     saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,
     textOf: textOf, toast: toast,

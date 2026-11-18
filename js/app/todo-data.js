@@ -1,13 +1,12 @@
 /*!
  * Quick Guide - js/app/todo-data.js
  * My list: your own lists of goals. This file has what is saved and how it is read: the lists, the goals and their
- * sub tasks, the game's resets, how a goal stands, what you type as a goal, the links to the wiki, and export and import.
+ * sub tasks, how a goal stands, what you type as a goal, the links to the wiki, and export and import.
  * todo-view.js draws it and todo.js changes it; they find what is here on A.T.
  *
  * A goal is one row: a tick box, what it says, and its menu. You can tick any goal; skill levels, quests and tiers
- * also tick themselves; an area task shares its tick with its area, and a quest with the quest list. A goal can repeat
- * daily, weekly or monthly. A goal can have sub tasks, and those their own (four deep): each is done when all of its
- * own are.
+ * also tick themselves; an area task shares its tick with its area, and a quest with the quest list. A goal can have sub
+ * tasks, and those their own (four deep): each is done when all of its own are.
  */
 (function (A) {
   'use strict';
@@ -16,7 +15,6 @@
     QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset;
 
   var MAX_LISTS = 30, MAX_GOALS = 300, MAX_SUBS = 20, MAX_DEPTH = 4, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
-  var DAY = 24 * 3600 * 1000;
   var FULL_GOALS = 'You have 300 goals. Remove some first.', FULL_LISTS = 'You have 30 lists. Delete one first.';
   // The kinds of goal. You tick any of them; a skill goal also ticks itself when your character has the level, a
   // quest when the quest is done, a tier when all its tasks are. An area task is one tick with its area.
@@ -34,9 +32,6 @@
     thieve: 'thieving', thiev: 'thieving', slay: 'slayer', farm: 'farming', rc: 'runecrafting', runecraft: 'runecrafting',
     hunt: 'hunter', con: 'construction', summ: 'summoning', dg: 'dungeoneering', dung: 'dungeoneering', div: 'divination',
     inv: 'invention', arch: 'archaeology', necro: 'necromancy' };
-  var REPEATS = { day: 'daily', week: 'weekly', month: 'monthly' };
-  var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   // ---------- helpers ----------
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
@@ -46,7 +41,6 @@
   function cap1(s) { s = String(s); return s.charAt(0).toUpperCase() + s.slice(1); }
   // 1234 -> "1,234"
   function fmt(n) { return Number(n).toLocaleString('en-US'); }
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
   // "500", "1,000", "2k" -> a whole number, or -1 when it is not one.
   function amount(s) {
     var m = /^(\d[\d,]*(?:\.\d+)?)([km]?)$/i.exec(String(s == null ? '' : s).replace(/\s+/g, ''));
@@ -123,8 +117,7 @@
     }
     var nt = line(x.note, NOTE_MAX);
     if (nt) g.note = nt;
-    if (g.kind === 'other' && REPEATS[x.repeat]) g.repeat = x.repeat;
-    ['at', 'done', 'upd'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
+    ['at', 'done'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
     // The wiki page of a goal you wrote yourself: a name, '' when there is none, nothing when it was not looked up yet.
     if (g.kind === 'other' && typeof x.wiki === 'string') g.wiki = line(x.wiki, 120);
     var subs = cleanSubs(x.subs, (depth || 0) + 1);
@@ -158,7 +151,7 @@
     return out;
   }
   function todo() {
-    if (!S.todo) { S.todo = cleanTodo(sget('todo')); resetDue(); }
+    if (!S.todo) { S.todo = cleanTodo(sget('todo')); }
     return S.todo;
   }
   function saveTodo() { S.todoIdx = null; sset('todo', S.todo); }
@@ -239,9 +232,6 @@
     });
     return all;
   }
-  // The sub tasks you wrote yourself: is one ticked, and unticking them all (for a goal that repeats).
-  function anyDone(p) { return (p.subs || []).some(function (u) { return (!isRef(u) && u.done) || anyDone(u); }); }
-  function untickOwn(p) { (p.subs || []).forEach(function (u) { if (!isRef(u)) delete u.done; untickOwn(u); }); }
   // An area task on a list and in its area is one tick.
   function tickTaskInArea(g, on) {
     var ix = A.aidxAll()[g.area], p = A.loadAprog(g.area);
@@ -254,7 +244,6 @@
     if (g.kind === 'task') tickTaskInArea(g, on);
     if (g.kind === 'quest') setMarked(g.title, on);
     if (on) g.done = Date.now(); else delete g.done;
-    if (g.repeat) g.upd = Date.now();
   }
   // After its sub tasks changed: the goal is done when all of them are, and open again when one is not.
   // A task ticked in its area, or a quest that got done, changes what is above it on a list: every goal with sub
@@ -269,40 +258,6 @@
     if (!g.subs) return;
     if (finish && all && !goalState(g, ctx()).done) setDone(g, true);
     else if (!all && goalState(g, ctx()).done) setDone(g, false);
-  }
-
-  // ---------- goals that repeat: the game's resets, daily (00:00 UTC), weekly (Wednesday 00:00 UTC) and monthly (the
-  // 1st, 00:00 UTC) ----------
-  function lastReset(rep, now) {
-    var d = new Date(now), day = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-    return rep === 'month' ? Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1) : rep === 'week' ? day - ((d.getUTCDay() + 4) % 7) * DAY : day;
-  }
-  function nextReset(rep, now) {
-    var d = new Date(now);
-    return rep === 'month' ? Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1) : lastReset(rep, now) + (rep === 'week' ? 7 : 1) * DAY;
-  }
-  // "back tomorrow, 01:00", "back Wednesday, 01:00" or "back 1 December, 01:00", in your own time.
-  function backText(rep) {
-    var now = new Date(), at = new Date(nextReset(rep, now.getTime()));
-    var days = Math.round((new Date(at.getFullYear(), at.getMonth(), at.getDate()) - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / DAY);
-    return 'back ' + (days <= 0 ? 'today' : days === 1 ? 'tomorrow' : days < 7 ? DAYS[at.getDay()] : at.getDate() + ' ' + MONTHS[at.getMonth()]) +
-      ', ' + pad(at.getHours()) + ':' + pad(at.getMinutes());
-  }
-  // Unticks goals that repeat once their reset has passed. True when one changed.
-  function resetDue() {
-    var t = S.todo || todo(), now = Date.now(), changed = false;
-    t.lists.forEach(function (l) {
-      l.items.forEach(function (g) {
-        var any = g.done || anyDone(g);
-        if (!g.repeat || !any || (g.upd || g.done || 0) >= lastReset(g.repeat, now)) return;
-        delete g.done;
-        delete g.upd;
-        untickOwn(g);
-        changed = true;
-      });
-    });
-    if (changed) saveTodo();
-    return changed;
   }
 
   // ---------- how a goal stands ----------
@@ -353,15 +308,9 @@
   // ---------- what you type, as a goal ----------
   // What you type, as a goal: "82 thieving" or "thieving 82" is a skill goal; anything else is a goal as you typed it.
   // The lines of an export read the same way: "Quest: …", "Tier: Ardougne Hard", "Task 448: Yoink! (Ardougne Easy)",
-  // and " (daily)", " (weekly)" or " (monthly)" at the end (or "every day", "every week", "every month").
   function parseGoal(text) {
-    var s = String(text || '').slice(0, 300).replace(/\s+/g, ' ').trim(), rep = '', m;
-    m = / ?\((every day|daily|every week|weekly|every month|monthly)\)$/i.exec(s);
-    if (m) { rep = /day|daily/i.test(m[1]) ? 'day' : /week/i.test(m[1]) ? 'week' : 'month'; s = s.slice(0, m.index).trim(); }
-    if (!s) return null;
-    var g = lineGoal(s);
-    if (rep && g.kind === 'other') g.repeat = rep;
-    return g;
+    var s = String(text || '').slice(0, 300).replace(/\s+/g, ' ').trim();
+    return s ? lineGoal(s) : null;
   }
   function lineGoal(s) {
     var m, at, sk;
@@ -508,7 +457,7 @@
     if (g.kind === 'task') return 'Task ' + g.task + ': ' + g.title + ' (' + g.area + ' ' + g.tname + ')';
     if (g.kind === 'tier') return 'Tier: ' + g.title;
     if (g.kind === 'quest') return 'Quest: ' + g.title;
-    return g.title + (g.repeat ? ' (' + REPEATS[g.repeat] + ')' : '');
+    return g.title;
   }
   // Sub tasks in the file: { "<sub task>": true or false }, or { done, note, subs } for one with a note or its own.
   function subsOut(list) {
@@ -579,7 +528,6 @@
         }
         var cm = typeof v === 'string' ? /^([\d,.]+[km]?) ?\/ ?([\d,.]+[km]?)$/i.exec(v.replace(/\s+/g, ' ').trim()) : null;
         if (v === true || (cm && amount(cm[1]) >= amount(cm[2]))) g.done = now;
-        if (g.repeat && g.done) g.upd = now;
         var c = cleanGoal(copy({ id: newId('g'), at: now }, g));
         if (!c) return;
         l.items.push(c);
@@ -594,12 +542,12 @@
 
   // What todo-view.js and todo.js use.
   A.T = { MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
-    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, REPEATS: REPEATS,
-    addGoal: addGoal, backText: backText, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
+    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED,
+    addGoal: addGoal, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
     findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
     line: line, listById: listById, listText: listText, parseOutline: parseOutline, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
-    resetDue: resetDue, saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
+    saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
     skillName: skillName, snapshot: snapshot, todo: todo };
   A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo });
   A.loaded.todoData = true;

@@ -17,8 +17,6 @@ so they match it.
 | `AreaSearch.dc.html` | Searching the area tasks: tasks are ticked in the results, with the area and tier under each |
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
-| `ReadGame.dc.html` | Scan achievements (in Alt1, from the settings): pick a tier in the game and press Start |
-| `Scanning.dc.html` | Scanning: the green bar with the tier it is on (1/52), the tasks in view, ◀ ▶ and Stop |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
 | `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |
 | `SettingsEnd.dc.html` | The bottom of the settings: Backup, and the Danger zone with Delete everything (after the first click) |
@@ -31,23 +29,24 @@ so they match it.
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
 | `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
 | `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
-| `MyListNew.dc.html` | A new list: type a name |
+| `MyListNew.dc.html` | Create list: type a name |
+| `MyListImport.dc.html` | Import list: a name, and the goals as plain text; it makes a new list from them |
 | `MyListLists.dc.html` | A list's menu: add a goal here, paste a list, copy as text, rename, move the list, clear done goals, delete the list |
 | `MyListPaste.dc.html` | Paste a list: goals as plain text, one on each line, indented lines as sub tasks; the box says what it reads |
 | `MyListCopy.dc.html` | Copy as text: the list in the same form, to copy |
 | `MyListSub.dc.html` | Adding sub tasks to a goal: the box under it, for one after the other |
 | `MyListSubMenu.dc.html` | A sub task's menu: edit, add a sub task, open on the wiki, move up, down or out a level, delete |
 | `MyListToList.dc.html` | A goal made into a list: its sub tasks are the goals, with Undo |
-| `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, how often, a note |
+| `MyListAdd.dc.html` | The Add a goal box (a list's menu → Add a goal here): the goal, the list, its parent, a note |
 | `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
 | `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |
 | `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name under the title band: Add to list… first |
-| `MyListEmpty.dc.html` | My list with no lists yet: how to start |
+| `MyListEmpty.dc.html` | My list with no lists yet: how to start, with Create list and Import list |
 | `MyListBlue.dc.html` | My list in the Blue theme |
 | `Components.dc.html` | All parts, colors and type, the two themes side by side, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
 | `Data.dc.html` | The quest JSON shape, what is saved (My list too), and the export file |
-| `canvas.json` | Board layout on the canvas |
+| `canvas.json` | Board layout on the canvas: the screens in five rows of seven on the left (quests and settings, area tasks, My list twice, the Blue theme), Components and Data next to them |
 
 These files are made for the design canvas. Opened on their own in a browser, they may not look right.
 
@@ -55,5 +54,4 @@ These files are made for the design canvas. Opened on their own in a browser, th
 
 PNG pictures of each board are in `screenshots/`, at 2× size.
 
-Skill icons come from the wiki. In the pictures, Mining, Smithing and Necromancy are the wiki's own icons; any other
-skill shows a dashed square where its icon goes (the app and the boards load the real one from the wiki).
+Skill icons come from the wiki, in the pictures too.

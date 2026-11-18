@@ -15,11 +15,10 @@
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
     order = T.order, parseGoal = T.parseGoal, parseOutline = T.parseOutline, pickerHtml = T.pickerHtml, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
-    refOf = T.refOf, REPEATS = T.REPEATS, segHtml = T.segHtml, setDone = T.setDone, setSubs = T.setSubs, settleGoal = T.settleGoal,
+    refOf = T.refOf, setDone = T.setDone, setSubs = T.setSubs, settleGoal = T.settleGoal,
     skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
     todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
 
-  var REPEAT_SEG = [['', 'Never'], ['day', 'Daily'], ['week', 'Weekly'], ['month', 'Monthly']];
   var FULL_SUBS = 'A goal has at most 20 sub tasks.';
 
   // ---------- adding: the box at the end of a list, and the one under a goal for its sub tasks ----------
@@ -116,7 +115,7 @@
   // A goal or sub task as a sub task, depth levels under its goal: without what only a goal has.
   function asSub(x, depth) {
     var u = cleanGoal(copy(copy({ kind: 'other' }, x), { id: x.id || newId('s') }), depth);
-    ['at', 'repeat', 'upd'].forEach(function (k) { delete u[k]; });
+    delete u.at;
     if (u.kind === 'other') delete u.kind;
     return u;
   }
@@ -188,7 +187,6 @@
     if (!sub) return;
     mark(sub.u, on);
     setSubs(sub.u, on);
-    if (g.repeat) g.upd = Date.now();
     settleGoal(g, true);
     changed();
   }
@@ -234,7 +232,7 @@
     var l = listById(btn.getAttribute('data-lmenu'));
     if (!l) return;
     var t = todo(), i = t.lists.indexOf(l), c = ctx();
-    var done = l.items.filter(function (g) { return !g.repeat && goalState(g, c).done; }).length;
+    var done = l.items.filter(function (g) { return goalState(g, c).done; }).length;
     openMenu(btn, 'list', l.id, '<p class="mh">' + esc(l.name) + '</p>' + mitem('ladd', I.plus, 'Add a goal here') +
       mitem('lpaste', I.paste, 'Paste a list\u2026') + mitem('lcopy', I.copy, 'Copy as text\u2026', !l.items.length) + mitem('lrename', I.edit, 'Rename') +
       '<hr>' + mitem('lup', I.up, 'Move list up', i === 0) + mitem('ldown', I.down, 'Move list down', i === t.lists.length - 1) +
@@ -351,7 +349,7 @@
       t.lists[j] = l;
       changed();
     } else if (act === 'lclear') {
-      var c = ctx(), gone = l.items.filter(function (g) { return !g.repeat && goalState(g, c).done; });
+      var c = ctx(), gone = l.items.filter(function (g) { return goalState(g, c).done; });
       if (!gone.length) return;
       l.items = l.items.filter(function (g) { return gone.indexOf(g) < 0; });
       changed();
@@ -391,7 +389,7 @@
     if (mv) tell('Moved to <b>' + esc(nl.name) + '</b>.', [['Undo', undoer(snap)]]);
   }
   // "Add a goal" (o.list: the list it goes in), "Edit goal" (o.edit: the goal) and "Edit sub task" (o.edit and
-  // o.sid). The box has what it says, its list, its parent (none for a goal), how often it repeats, and a note.
+  // o.sid). The box has what it says, its list, its parent (none for a goal), and a note.
   function goalDialog(o) {
     var hit = o.edit ? goalById(o.edit) : null, sub = hit && o.sid ? findSub(hit.g, o.sid) : null;
     if (o.sid && !sub) { closeMenus(); return; }
@@ -399,7 +397,7 @@
     var x = sub ? sub.u : hit ? hit.g : null;
     var parent = !sub ? '' : sub.p === hit.g ? 'g:' + hit.g.id : 's:' + hit.g.id + '/' + sub.p.id;
     var st = { type: 'goal', edit: o.edit || '', sid: o.sid || '', g: x, from: parent,
-      d: { text: x ? goalTitle(x) : '', list: hit ? hit.l.id : o.list || pickId(), parent: parent, repeat: (x && x.repeat) || '', note: (x && x.note) || '' } };
+      d: { text: x ? goalTitle(x) : '', list: hit ? hit.l.id : o.list || pickId(), parent: parent, note: (x && x.note) || '' } };
     openDialog(st, goalFormHtml(st));
   }
   function goalFormHtml(st) {
@@ -409,8 +407,6 @@
       fieldHtml('tg-text', st.sid ? 'Sub task' : 'Goal', d.text, TEXT_MAX, 'Like 82 Thieving, or Buy a cape');
     h += '<div class="fld"><label for="tg-list">List</label><select class="sel" id="tg-list">' + pickerHtml(d.list) + '</select></div>';
     h += '<div class="fld"><label for="tg-parent">Parent</label><select class="sel" id="tg-parent">' + parentsHtml(listById(d.list), d.parent, st.g) + '</select></div>';
-    // Only a goal repeats.
-    if (!fixed && !d.parent) h += '<div class="fld"><span class="fl" id="tg-repeat-l">Repeat</span>' + segHtml('repeat', REPEAT_SEG, d.repeat) + '</div>';
     h += fieldHtml('tg-note', 'Note (optional)', d.note, NOTE_MAX);
     if (!st.edit) h += note('A quest, an area task or a tier? Its ' + I.dots + ' menu has Add to list.');
     return h + errHtml() + buttonsHtml(st.edit ? 'Save' : 'Add');
@@ -425,16 +421,7 @@
     var el = f.querySelector(focus);
     if (el) el.focus();
   }
-  // How often the goal repeats: the box shows the choice.
-  function pickSeg(b) {
-    var st = S.tdlg;
-    if (!st || st.type !== 'goal' || !byId('td-form')) return;
-    var name = b.getAttribute('data-seg'), v = b.getAttribute('data-v');
-    readDraft(st.d);
-    st.d[name] = v;
-    redrawGoal(st, '[data-seg="' + name + '"][data-v="' + v + '"]');
-  }
-  // Another list or parent picked in the box: the parents are those of the list, and only a goal repeats.
+  // Another list or parent picked in the box: the parents are those of the list.
   function pickPlace(sel) {
     var st = S.tdlg;
     readDraft(st.d);
@@ -448,7 +435,6 @@
     else {
       g = parseGoal(d.text);
       if (!g) { dialogErr(st.sid ? 'Type a sub task first.' : 'Type a goal first.'); return; }
-      if (g.kind === 'other' && REPEATS[d.repeat]) g.repeat = d.repeat;
     }
     delete g.note;
     if (line(d.note, NOTE_MAX)) g.note = line(d.note, NOTE_MAX);
@@ -458,7 +444,7 @@
     if (st.edit && (!hit || (st.sid && !sub))) return;
     if (old) {
       // It keeps its ticks when it is the same kind, its sub tasks always, and its wiki page when it says the same.
-      if (old.kind === g.kind || (!old.kind && g.kind === 'other')) { g.done = old.done; g.upd = old.upd; }
+      if (old.kind === g.kind || (!old.kind && g.kind === 'other')) g.done = old.done;
       if (old.subs) g.subs = old.subs;
       if (old.wiki !== undefined && g.kind === 'other' && g.title === old.title) g.wiki = old.wiki;
       g.id = old.id;
@@ -485,7 +471,7 @@
   }
   // ---------- a list as text: "Paste a list" and "Copy as text" ----------
   var PASTE_HINT = 'One goal on each line. Indent a line to put it under the one above.';
-  var PASTE_SAMPLE = '- Hatchet of bloom and blight\n  - Hatchet of ember and glade\n    - [x] Crystal hatchet\n- 82 Thieving\n- Vis wax (daily)';
+  var PASTE_SAMPLE = '- Hatchet of bloom and blight\n  - Hatchet of ember and glade\n    - [x] Crystal hatchet\n- 82 Thieving\n- Vis wax';
   // What the box reads in its text: "6 goals and 5 sub tasks.", and what does not fit.
   function pasteSays(r) {
     if (!r.goals.length && !r.left) return PASTE_HINT;
@@ -526,7 +512,7 @@
     if (!st.list) { if (todo().lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; } l = makeList(name); }
     if (!l) return;
     r.goals.forEach(function (g) {
-      if (g.done) { g.done = now; if (g.repeat) g.upd = now; }
+      if (g.done) g.done = now;
       settleGoal(addGoal(g, l), true);
     });
     changed();
@@ -554,6 +540,6 @@
 
   A.share({ addFromButton: addFromButton, addSkillGoal: addSkillGoal, addToPick: addToPick, closeSubAdd: closeSubAdd, goalMenu: goalMenu,
     itemMenu: itemMenu, listMenu: listMenu, menuAct: menuAct, newListDialog: function () { listDialog('new'); }, importListDialog: function () { pasteDialog('', ''); }, pasteCount: pasteCount, pasteDialog: pasteDialog,
-    pickPlace: pickPlace, pickSeg: pickSeg, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
+    pickPlace: pickPlace, subMenu: subMenu, tickGoal: tickGoal, tickSub: tickSub, todoSubmit: todoSubmit, unlist: unlist });
   A.loaded.todo = true;
 })(window.QuickGuideApp);

@@ -984,21 +984,9 @@ ul.steps.ql { padding: 0; }
 /* the danger zone in the settings */
 .mh.danger { color: var(--red); }
 
-/* read from game */
+/* small buttons */
 .btn.sm { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; font-size: 12px; }
 .btn.sm svg { width: 14px; height: 14px; }
-.rdhow { margin: 0; padding-left: 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
-.rdhow li { display: list-item; }
-.rdhow li + li { margin-top: 2px; }
-.rdtip { margin: 0; font-size: 12px; line-height: 1.4; color: var(--faint); }
-.scanbar { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 4px; padding: 6px 8px; background: #1d2a17; border: 1px solid #3f6b2c; border-radius: 2px; font-size: 12px; line-height: 1.35; color: var(--text); }
-.scanbar .smsg { flex: 1; min-width: 0; }
-.scanbar .btn, .scanbar .ib { flex: none; }
-.scanbar b { color: var(--title); font-weight: 600; }
-.scanbar .sk { color: var(--faint); }
-.scanbar .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #6fd34a; box-shadow: 0 0 6px #6fd34a; animation: scanpulse 1.2s ease-in-out infinite; }
-@keyframes scanpulse { 50% { opacity: .3; } }
-@media (prefers-reduced-motion: reduce) { .scanbar .dot { animation: none; } }
 
 /* skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level and the name stay as they are;
    a green tick follows when you have it, a red cross when you do not. */
@@ -1044,9 +1032,7 @@ ul.steps.ql { padding: 0; }
 .goal .rb { line-height: 1.4; }
 .goal .t { display: inline; font-weight: 600; color: var(--bright); }
 /* after the goal: "every day" (or when it is back), and its note */
-.goal .rp, .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
-.goal .rp { white-space: nowrap; }
-.goal .rp .i { width: 12px; height: 12px; margin-right: 3px; vertical-align: -1px; color: var(--gold); }
+.goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 /* a done goal, or sub task: struck through */
 .goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
 /* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
@@ -1079,13 +1065,8 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .dlg .what b { color: var(--bright); font-weight: 600; }
 .fld { display: flex; flex-direction: column; gap: 4px; }
 .fld[hidden] { display: none; }
-.fld > label, .fld > .fl { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.fld > label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
 .fld .inp, .fld .sel { flex: none; width: 100%; height: 32px; margin-left: 0; }
-.seg { display: flex; }
-.seg button { flex: 1; min-width: 0; height: 28px; margin-left: -1px; padding: 0 6px; background: linear-gradient(var(--tab-top), var(--tab-bot)); border: 1px solid var(--tab-edge); color: var(--tab-text); font: 500 12px "Fira Sans", sans-serif; cursor: pointer; }
-.seg button:first-child { margin-left: 0; border-radius: 2px 0 0 2px; }
-.seg button:last-child { border-radius: 0 2px 2px 0; }
-.seg button[aria-pressed="true"] { position: relative; background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3)); border-color: var(--tab-on-edge); color: var(--tab-on-text); }
 /* the buttons in a message: "Undo" */
 .toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .toast .tl:hover { color: var(--gold); }
