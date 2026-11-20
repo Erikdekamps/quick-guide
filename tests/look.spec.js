@@ -25,9 +25,9 @@ test('the window is never wider than 640 px', async ({ page }) => {
 });
 
 // Like the game's Hero window (Hero > Achievements).
-test('like the game: under the title band, the quest\'s name on the left in gold capitals, after the back button', async ({ page }) => {
+test('like the game: in the title band, the quest\'s name on the left in gold capitals, after the back button', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
-  const back = await page.locator('.sbar [data-act="change"]').boundingBox();
+  const back = await page.locator('.hdr [data-act="change"]').boundingBox();
   const title = await page.locator('h1.qt').boundingBox();
   expect(title.x - (back.x + back.width)).toBeGreaterThanOrEqual(4);
   expect(title.x - (back.x + back.width)).toBeLessThanOrEqual(12);
@@ -108,7 +108,7 @@ test.describe('theme', () => {
     expect(cool(await shade(page, '#main', 'backgroundColor'))).toBe(false);
     await choose(page, '#theme', 'blue');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'blue');
-    for (const [sel, prop] of [['#main', 'backgroundColor'], ['.hdr', 'borderBottomColor'], ['#cog-btn', 'borderTopColor'], ['.tab[aria-selected="true"]', 'borderTopColor'], ['h1.qt', 'color']]) {
+    for (const [sel, prop] of [['#main', 'backgroundColor'], ['.hdr', 'borderBottomColor'], ['#cog-btn', 'borderTopColor'], ['.bnav', 'borderTopColor'], ['.bn[aria-current="page"]', 'color'], ['h1.qt', 'color']]) {
       expect(cool(await shade(page, sel, prop)), sel + ' ' + prop).toBe(true);
     }
     // what the game shows in colour keeps its colour: done is green
@@ -127,9 +127,10 @@ test.describe('theme', () => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openTab(page, 'steps');
     expect(cool(await shade(page, '.cb', 'borderTopColor'))).toBe(true);
+    expect(cool(await shade(page, '.tab[aria-selected="true"]', 'borderTopColor'))).toBe(true);
     expect(cool(await shade(page, '.btn', 'backgroundColor') === 'rgba(0, 0, 0, 0)' ? await shade(page, '.btn', 'borderTopColor') : await shade(page, '.btn', 'backgroundColor'))).toBe(true);
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     expect(cool(await shade(page, '.ghb', 'borderTopColor'))).toBe(true);
     await expect(page.locator('.mk.ok').first().or(page.locator('#main'))).toBeVisible();
   });

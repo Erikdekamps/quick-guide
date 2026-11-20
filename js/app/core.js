@@ -510,34 +510,39 @@
   }, true);
 
   // ---------- the window: the parts every screen has ----------
-  // The title band, the same on every screen: the app's emblem, its name, and the settings cog on the right.
-  // On the start screen the name is the page's heading; elsewhere the heading is in the bar under it.
-  function headerHtml(sub) {
-    var tag = sub ? 'p' : 'h1';
-    return '<header class="hdr"><img class="emb" src="icon.svg" alt="" width="26" height="26">' +
-      '<' + tag + ' class="qt">Quick Guide</' + tag + '>' +
-      '<div class="hs he">' + cogHtml() + '</div></header>';
+  // The title band, on top of every screen, with the settings cog on the right. On the start screen: the app's emblem
+  // and its name. On a quest or an area (open: { title, back, more }): the way back (back says where to), the name of
+  // what is open, and its menu (more) before the cog.
+  function headerHtml(open) {
+    if (!open) {
+      return '<header class="hdr"><img class="emb" src="icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1>' +
+        '<div class="hs he">' + cogHtml() + '</div></header>';
+    }
+    return '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="' + open.back + '" title="' + open.back + '">' + I.back + '</button>' +
+      '<h1 class="qt" title="' + esc(open.title) + '">' + esc(open.title) + '</h1>' +
+      '<div class="hs he">' + (open.more || '') + cogHtml() + '</div></header>';
   }
-  // The bar under the title band on a quest or an area: a back button (with what it goes back to), the name, and
-  // its menu on the right.
-  function subHtml(title, back, more) {
-    return '<div class="sbar"><button class="ib" type="button" data-act="change" aria-label="' + back + '" title="' + back + '">' + I.back + '</button>' +
-      '<h1 class="qt" title="' + esc(title) + '">' + esc(title) + '</h1><div class="hs">' + (more || '') + '</div></div>';
+  // The thin progress line under the title band. Its count is in a tab.
+  function progHtml(done, max, label) {
+    return '<progress class="pline" id="pg" value="' + done + '" max="' + Math.max(max, 1) + '" aria-label="' + label + '"></progress>';
   }
-  // The progress bar under the title band.
-  function progHtml(done, max, label, count) {
-    return '<div class="prog"><progress class="pg" id="pg" value="' + done + '" max="' + Math.max(max, 1) + '" aria-label="' + label + '"></progress>' +
-      '<span class="cnt" id="pg-cnt">' + count + '</span></div>';
-  }
-  // One tab: attr is what the click handler reads (data-tab, data-tier, data-home). after: more after the name.
+  // One tab: attr is what the click handler reads (data-tab, data-tier). after: more after the name, like its count.
   function tabHtml(attr, value, on, label, icon, after) {
     return '<button class="tab" type="button" role="tab" ' + attr + '="' + esc(value) + '" aria-selected="' + on + '"' +
       (icon ? ' title="' + label + '"' : '') + '>' + (icon || '') + '<span class="tl-l">' + esc(label) + '</span>' + (after || '') + '</button>';
   }
+  // A row of tabs. cls "two": the tabs have a count under their name.
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
-  // The Quests, Area tasks and My list tabs, on every screen (on: the one that is lit). My list shows its open goals.
-  function homeTabsHtml(on) {
-    return tabsHtml('Lists', HOMES.map(function (h) { return tabHtml('data-home', h[0], on === h[0], h[1], '', h[0] === 'todo' ? A.todoCountHtml() : ''); }), 'home');
+  // The count under a tab's name ("3 / 12"). attrs: its id or data-tcount, so it can change without a redraw.
+  function tabCountHtml(done, total, attrs) { return '<span class="tcn"' + (attrs || '') + '>' + done + ' / ' + total + '</span>'; }
+  // The bar at the bottom of every screen: Quests, Area tasks and My list (on: the one that is lit). My list shows its
+  // open goals.
+  var HOME_ICON = { quests: I.scroll, areas: I.map, todo: I.steps };
+  function homeBarHtml(on) {
+    return '<nav class="bnav" aria-label="Lists">' + HOMES.map(function (h) {
+      return '<button class="bn" type="button" data-home="' + h[0] + '"' + (on === h[0] ? ' aria-current="page"' : '') + '>' +
+        HOME_ICON[h[0]] + '<span class="bnl">' + h[1] + '</span>' + (h[0] === 'todo' ? A.todoCountHtml() : '') + '</button>';
+    }).join('') + '</nav>';
   }
   // The big button at the bottom ("Done, next step").
   function nextHtml(act, label, off) {
@@ -581,7 +586,6 @@
     dropMaps();
     app.innerHTML =
       headerHtml() +
-      homeTabsHtml(S.set.home) +
       '<main class="scroll" id="main">' +
       (S.set.home === 'todo' ? '' : searchHtml()) +
 
@@ -590,6 +594,7 @@
       alt1Html() +
       '<p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p>' +
       '</main>' +
+      homeBarHtml(S.set.home) +
       '<div class="toast low" id="toast" role="status" aria-live="polite" hidden></div>';
     restoreScroll();
     if (!S.list && !S.listBusy && !S.listError) A.fetchList(false);
@@ -866,7 +871,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeTabsHtml: homeTabsHtml, subHtml: subHtml, progHtml: progHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,

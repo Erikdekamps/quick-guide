@@ -6,15 +6,15 @@
   'use strict';
   if (!A) return;
   var restoreScroll = A.restoreScroll, savedScroll = A.savedScroll, acc = A.acc, app = A.app, arr = A.arr, byId = A.byId, D = A.D, dateText = A.dateText, DIF_ORDER = A.DIF_ORDER,
-    dotsHtml = A.dotsHtml, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeHtml = A.homeHtml,
+    dotsHtml = A.dotsHtml, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, homeHtml = A.homeHtml,
     I = A.I, imageAcc = A.imageAcc, imgHtml = A.imgHtml, LEN_ORDER = A.LEN_ORDER, liHtml = A.liHtml,
     loadProg = A.loadProg, mapAcc = A.mapAcc, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
     note = A.note, OV = A.OV, partHtml = A.partHtml, playerLevel = A.playerLevel, playerLocked = A.playerLocked,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset, subHtml = A.subHtml,
-    startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabHtml = A.tabHtml,
+    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
     upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
 
@@ -51,6 +51,11 @@
     var d = 0;
     S.idx.order.forEach(function (id) { if (done(id)) d++; });
     return { done: d, total: S.idx.order.length };
+  }
+  // The items of the Items tab (required and recommended) you have.
+  function itemTotals() {
+    var all = S.q.requiredItems.items.concat(S.q.recommendedItems.items);
+    return { done: all.filter(function (it) { return S.prog.items[it.id]; }).length, total: all.length };
   }
   function isOpen(sec, cur) {
     var v = S.prog.open[sec.id];
@@ -625,15 +630,22 @@
 
   // ---------- quest screen ----------
   function bodyHtml(tab) { return tab === 'steps' ? stepsHtml() : tab === 'items' ? itemsHtml() : overviewHtml(); }
+  // The count under a tab's name: the steps you did on Steps, the items you have on Items (none when there are no items).
+  function tabCount(tab) {
+    if (tab === 'steps') { var t = totals(); return tabCountHtml(t.done, t.total, ' id="pg-cnt"'); }
+    if (tab === 'items') { var n = itemTotals(); return n.total ? tabCountHtml(n.done, n.total, ' data-tcount="items"') : ''; }
+    return '';
+  }
   function renderQuest() {
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(true) + A.homeTabsHtml('quests') + subHtml(q.title, 'All quests', dotsHtml()) +
-      progHtml(0, 1, 'Quest progress', '') +
-      tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
+      headerHtml({ title: q.title, back: 'All quests', more: dotsHtml() }) +
+      progHtml(0, 1, 'Quest progress') +
+      tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]], tabCount(t[0])); }), 'two') +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
       (tab === 'steps' ? nextHtml('next', 'Done, next step') : '') +
+      homeBarHtml('quests') +
       toastHtml(tab !== 'steps');
     restoreScroll();
     restoreAcc();
@@ -644,9 +656,10 @@
   function refresh() {
     if (S.view !== 'quest') return;
     var t = totals(), cur = current(), main = byId('main');
-    var pg = byId('pg'), cnt = byId('pg-cnt');
+    var pg = byId('pg'), cnt = byId('pg-cnt'), ic = document.querySelector('[data-tcount="items"]');
     if (pg) { pg.max = Math.max(t.total, 1); pg.value = t.done; }
-    if (cnt) cnt.textContent = t.done + ' / ' + plural(t.total, 'step', 'steps');
+    if (cnt) cnt.textContent = t.done + ' / ' + t.total;
+    if (ic) { var n = itemTotals(); ic.textContent = n.done + ' / ' + n.total; }
     if (!main) return;
     arr(main.querySelectorAll('li[data-step]')).forEach(function (li) {
       var id = li.getAttribute('data-step'), d = done(id);

@@ -95,13 +95,13 @@
     sel = sel || pickId();
     return t.lists.map(function (l) { return '<option value="' + esc(l.id) + '"' + (l.id === sel ? ' selected' : '') + '>' + esc(l.name) + '</option>'; }).join('') + (more || '');
   }
-  // The number of open goals, on the tab.
+  // The number of open goals, on My list in the bar at the bottom.
   function countHtml() {
     var n = openCount();
     return n ? '<span class="tc" title="' + plural(n, 'goal', 'goals') + ' to do">' + n + '</span>' : '';
   }
   function updateCount() {
-    var tab = document.querySelector('.tab[data-home="todo"]');
+    var tab = document.querySelector('.bn[data-home="todo"]');
     if (!tab) return;
     var old = tab.querySelector('.tc');
     if (old) old.parentNode.removeChild(old);

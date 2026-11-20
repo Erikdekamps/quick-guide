@@ -6,11 +6,11 @@
   'use strict';
   if (!A) return;
   var restoreScroll = A.restoreScroll, acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
-    dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, HOMES = A.HOMES, I = A.I, liHtml = A.liHtml,
+    dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, HOMES = A.HOMES, I = A.I, liHtml = A.liHtml,
     loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questMark = A.questMark, renderStart = A.renderStart, rowHtml = A.rowHtml, S = A.S, saveSettings = A.saveSettings,
-    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, subHtml = A.subHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
+    sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
     textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml;
 
   // ---------- Area Tasks: saved areas and the task index ----------
@@ -352,9 +352,13 @@
     }
     dropMaps();
     app.innerHTML =
-      headerHtml(true) + A.homeTabsHtml('areas') + subHtml(a.name, 'All areas', areaDotsHtml()) +
-      progHtml(done, t.tasks.length, 'Tier progress', done + ' / ' + plural(t.tasks.length, 'task', 'tasks')) +
-      tabsHtml('Tiers', a.tiers.map(function (x) { return tabHtml('data-tier', x.id, x === t, x.name); })) +
+      headerHtml({ title: a.name, back: 'All areas', more: areaDotsHtml() }) +
+      progHtml(done, t.tasks.length, 'Tier progress') +
+      // each tier with its own count: the tasks done in it
+      tabsHtml('Tiers', a.tiers.map(function (x) {
+        var d = x.tasks.filter(function (k) { return S.aprog.tasks[k.id]; }).length;
+        return tabHtml('data-tier', x.id, x === t, x.name, '', tabCountHtml(d, x.tasks.length, x === t ? ' id="pg-cnt"' : ''));
+      }), 'two') +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' +
       (t.skills.length + t.quests.length + t.other.length + t.items.length || t.ironman ?
         areaSec('needs', 'Needs', low ? low + ' too low' : String(t.skills.length + t.quests.length), areaNeedsHtml(t)) : '') +
@@ -363,6 +367,7 @@
       '<p class="foot">Tasks: <a href="' + esc(a.source) + '" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded ' + esc(dateText(a.fetchedAt)) + '.</p>' +
       '</main>' +
       nextHtml('anext', cur ? 'Done, next task' : 'All tasks done', !cur) +
+      homeBarHtml('areas') +
       toastHtml();
     main = byId('main');
     // Ticking keeps the place; another tier goes to where you left it.

@@ -25,7 +25,7 @@ test('ticking an item counts it, hides it and saves it', async ({ page }) => {
   await expect(item(page, 'sapphire lantern')).toBeHidden();
   const p = await stored(page, 'prog.' + WGS);
   expect(Object.keys(p.items)).toEqual([expect.stringMatching(/^req:/)]);
-  await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+  await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
   await page.reload();
   await expect(page.locator('#main .bh').first()).toHaveText('Required 1 / 3');
 });

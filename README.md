@@ -27,12 +27,16 @@ Wiki links open in your normal browser, so the app stays on the guide.
   Type to search; **Enter** opens the best match.
 - Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
   difficulty, length, series or newest. Click a group name to fold it.
-- Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band stays on top;
-  under it are the back button (to all quests), the quest's name and its **⋯** menu. It has three tabs:
+- Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band on top holds the
+  back button (to all quests), the quest's name, its **⋯** menu and the settings. A thin gold line under it shows how
+  far you are. It has three tabs, each with its count under the name:
   - **Overview:** details, the quest tree, skills, enemies and rewards.
-  - **Items:** what to bring, with tick boxes.
+  - **Items:** what to bring, with tick boxes. The tab counts the items you have.
   - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
     A part folds shut when you finish it. Maps are the wiki's own (drag to move, + and − to zoom).
+    The tab counts the steps you did.
+- The bar at the bottom of every screen has **Quests**, **Area tasks** and **My list**. The one you are in is lit
+  in gold. Click one to go to its list, from anywhere.
 - Boxes that fold (parts, pictures, maps, tables) start open. The app remembers the ones you close.
 - A reload (or opening the app again) shows the screen, tab and tier you were on, scrolled where you left it.
   Each tab and tier keeps its own place, and the start screen keeps your search text and folded groups.
@@ -50,11 +54,11 @@ when the game gives them, your quest points.
 
 ## Area tasks
 
-The **Area tasks** tab has a row per tier (**Ardougne Easy**, **Ardougne Medium**, …) with its count and a progress bar,
+**Area tasks** (in the bar at the bottom) has a row per tier (**Ardougne Easy**, **Ardougne Medium**, …) with its count and a progress bar,
 under its area, in the game's order.
 
-- Click a tier to open it. Each tier has **Needs** (levels, quests, items to bring, notes for Ironmen),
-  **Tasks** and **Rewards**.
+- Click a tier to open it. Its tab shows how many of its tasks you did; the other tiers' tabs show theirs.
+  Each tier has **Needs** (levels, quests, items to bring, notes for Ironmen), **Tasks** and **Rewards**.
 - Click a task to tick it. A task that needs more than you have says so with a red ✗, like "Needs 5 [icon] Thieving ✗".
   The wiki's tip for a task is right under it. **Done, next task** ticks the next one.
 - A task with a numbered list on the wiki has steps. Other text, however long, is the task's tip (no tick boxes:
@@ -65,8 +69,8 @@ under its area, in the game's order.
 
 ## My list
 
-The **My list** tab holds your own lists of goals. Name them what you like: **Today**, **This week**,
-**Skilling goals**, **Gathering**. The tab shows how many goals are still open.
+**My list** (in the bar at the bottom) holds your own lists of goals. Name them what you like: **Today**, **This week**,
+**Skilling goals**, **Gathering**. Its button shows how many goals are still open.
 
 - A goal is one flat row: a tick box, what it says, and its **⋯** menu.
 - Start with **Create list**: a goal always goes in a list. **Import list** makes a list from goals you paste as
@@ -78,8 +82,8 @@ The **My list** tab holds your own lists of goals. Name them what you like: **To
   and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
   **parent**: none (it is a goal of the list), or a goal or a sub task of the list. Under a parent it is a sub
   task there and still the same task: one tick, here and in its area.
-- The **Quests**, **Area tasks** and **My list** tabs stay on every screen, so in a quest or an area you see the
-  number on My list go up when you add something.
+- The bar at the bottom stays on every screen, so in a quest or an area you see the number on **My list** go up
+  when you add something.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
 - **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
@@ -230,7 +234,7 @@ No other service is used.
 | `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
 | `js/app/areas.js` | Area tasks: the list of tiers, search, and one area |
 | `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
-| `js/app/todo-view.js` | My list: what the tab shows, Add to list in the ⋯ menus, the menus and boxes |
+| `js/app/todo-view.js` | My list: what it shows, its count in the bar at the bottom, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |
 | `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
@@ -246,7 +250,7 @@ No other service is used.
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.39.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.40.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

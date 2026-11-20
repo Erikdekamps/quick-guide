@@ -44,11 +44,11 @@ async function someState(page, wiki) {
   await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();
   await closeCog(page);
   await page.getByRole('button', { name: 'All quests' }).click();
-  await page.locator('.tab[data-home="areas"]').click();
+  await page.locator('.bn[data-home="areas"]').click();
   await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
   await page.locator('#next-btn').click();
   await page.locator('#next-btn').click();
-  await expect(page.locator('#pg-cnt')).toHaveText('2 / 23 tasks');
+  await expect(page.locator('#pg-cnt')).toHaveText('2 / 23');
   await page.getByRole('button', { name: 'All areas' }).click();
 }
 const key = (map, start) => Object.keys(map).find((k) => k.startsWith(start));
@@ -69,7 +69,7 @@ test.describe('the settings', () => {
     await expect(page.getByRole('button', { name: 'Export state' })).toBeVisible();
     await closeCog(page);
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"]').first().click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await openCog(page);
@@ -238,7 +238,7 @@ test.describe('import', () => {
     expect((await stored(page, 'prog.' + WGS)).steps).toEqual({ [other.split(' ')[0]]: 1 });
     // the lists show it
     await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"] .qs')).toHaveText('2 / 23');
-    await page.locator('.tab[data-home="quests"]').click();
+    await page.locator('.bn[data-home="quests"]').click();
     await openCog(page);
     await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();   // off, to see done quests
     await closeCog(page);
@@ -423,7 +423,7 @@ test.describe('danger zone', () => {
     expect(await all(page)).toEqual(['list']);
     await expect(page.locator('html')).toHaveCSS('font-size', '14px');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
-    await expect(page.locator('.tab[data-home="quests"]')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('.bn[data-home="quests"]')).toHaveAttribute('aria-current', 'page');
     await openCog(page);
     await expect(page.locator('#player-name')).toBeVisible();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');

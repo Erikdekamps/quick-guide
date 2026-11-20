@@ -81,7 +81,7 @@ test('the app still works when the browser blocks storage', async ({ page }) => 
   await openQuest(page, expect, 'While Guthix Sleeps');
   await openTab(page, 'steps');
   await page.locator('#next-btn').click();
-  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
   await page.getByRole('button', { name: 'All quests' }).click();
   await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .qs')).toHaveText('1 / 12');
   expect(page.errors).toEqual([]);

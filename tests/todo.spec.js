@@ -7,7 +7,7 @@
 // wrote yourself can become a list, and gets a link to its wiki page when there is one.
 const { test, expect, seed, stored, openApp, openQuest, openCog, lookUp, withAllAreas, toggle } = require('./support/app');
 
-const tab = (page) => page.locator('.tab[data-home="todo"]');
+const tab = (page) => page.locator('.bn[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
 const goals = (page, list) => listBar(page, list).locator('xpath=following-sibling::ul[1]').locator('li.goal');
 const goal = (page, text) => page.locator('li.goal').filter({ has: page.locator('.t', { hasText: text }) });
@@ -30,7 +30,7 @@ async function openList(page, data) {
   if (data) await seed(page, { todo: data, settings: { home: 'todo' } });
   else await seed(page, { settings: { home: 'todo' } });
   await page.goto('/');
-  await expect(tab(page)).toHaveAttribute('aria-selected', 'true');
+  await expect(tab(page)).toHaveAttribute('aria-current', 'page');
 }
 // The box at the end of a list (the first list's, when none is named).
 const addBox = (page, list) => (list ? listBar(page, list).locator('xpath=following-sibling::ul[1]') : page).locator('form.qadd:not(.sadd) input').first();
@@ -76,7 +76,7 @@ async function importText(page, text) {
 test.describe('the My list tab', () => {
   test('a third tab; with no lists yet it says how to start, and it stays after a reload', async ({ page }) => {
     await openApp(page, expect);
-    await expect(page.locator('.tabs.home .tab .tl-l')).toHaveText(['Quests', 'Area tasks', 'My list']);
+    await expect(page.locator('.bnav .bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list']);
     await tab(page).click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
     await expect(page.getByRole('button', { name: 'Create list' })).toBeVisible();
@@ -85,7 +85,7 @@ test.describe('the My list tab', () => {
     await expect(page.locator('.plain.start li').first()).toContainText('Start with Create list, or Import list');
     expect((await stored(page, 'settings')).home).toBe('todo');
     await page.reload();
-    await expect(tab(page)).toHaveAttribute('aria-selected', 'true');
+    await expect(tab(page)).toHaveAttribute('aria-current', 'page');
     await expect(tab(page).locator('.tc')).toHaveCount(0);
   });
 
@@ -974,7 +974,7 @@ test.describe('goals that tick themselves', () => {
     // ticked by hand, the quest is done in the quest list too: one tick, shown in two places
     await goal(page, 'While Guthix Sleeps').locator('.cb').click();
     await expect(goal(page, 'While Guthix Sleeps')).toHaveClass(/\bdone\b/);
-    await page.locator('.tab[data-home="quests"]').click();
+    await page.locator('.bn[data-home="quests"]').click();
     await expect(page.locator('.q[data-quest="While Guthix Sleeps"]')).toHaveClass(/\bdone\b/);
     await tab(page).click();
     await goal(page, 'While Guthix Sleeps').locator('.cb').click();
@@ -992,7 +992,7 @@ test.describe('goals that tick themselves', () => {
     await tab(page).click();
     await expect(goal(page, "Cook's Assistant")).toHaveClass(/\bdone\b/);
     // taken off from the quest's menu
-    await page.locator('.tab[data-home="quests"]').click();
+    await page.locator('.bn[data-home="quests"]').click();
     await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
     await page.locator('#menu-btn').click();
     await page.locator('#menu .mi', { hasText: 'Remove from My list' }).click();
@@ -1005,7 +1005,7 @@ test.describe('goals that tick themselves', () => {
     withAllAreas(wiki);
     await seed(page, { todo: lists({ Today: [], Diary: [] }) });
     await openApp(page, expect);
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await expect(page.locator('button.star')).toHaveCount(0);
     await page.locator('.q[data-area="Ardougne"][data-atier="elite"]').click();
     // the tier, from the area's menu
@@ -1058,7 +1058,7 @@ test.describe('goals that tick themselves', () => {
       Other: [{ kind: 'other', title: 'Elsewhere' }]
     }) });
     await openApp(page, expect);
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
@@ -1117,7 +1117,7 @@ test.describe('goals that tick themselves', () => {
     await importText(page, JSON.stringify(j));
     expect((await stored(page, 'todo')).lists[0].items[0].subs[0].subs[0]).toMatchObject({ kind: 'task', area: 'Ardougne', task: '448', title: 'Yoink!' });
     // "Remove from …" in the task's menu takes it out from under its goal
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Remove from Diary' }).click();
@@ -1178,73 +1178,97 @@ test.describe('limits, storage and the look', () => {
     await page.locator('[data-act="wipe"]').click();
     await page.locator('[data-act="wipe"]').click();
     expect(await stored(page, 'todo')).toBeNull();
-    await page.locator('.tab[data-home="todo"]').click();
+    await page.locator('.bn[data-home="todo"]').click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
   });
 });
 
 test.describe('the window', () => {
-  test('the title band stays on every screen; the way back, the name and its menu are in a bar under it', async ({ page, wiki }) => {
+  test('the title band: the app on the start screen; the way back, the name, its menu and the cog in a quest or an area', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
-    await expect(page.locator('.sbar')).toHaveCount(0);
-    await openQuest(page, expect, 'While Guthix Sleeps');
-    await expect(page.locator('.hdr .qt')).toHaveText('Quick Guide');
+    await expect(page.locator('.hdr h1.qt')).toHaveText('Quick Guide');
     await expect(page.locator('.hdr img.emb')).toBeVisible();
     await expect(page.locator('.hdr [data-act="change"]')).toHaveCount(0);
-    const bar = page.locator('.sbar');
-    await expect(bar.locator('h1.qt')).toHaveText('While Guthix Sleeps');
-    await expect(bar.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All quests');
-    await expect(bar.locator('#menu-btn')).toBeVisible();
-    const hb = await page.locator('.hdr').boundingBox(), bb = await bar.boundingBox();
-    expect(bb.y).toBeGreaterThanOrEqual(hb.y + hb.height - 1);
+    await expect(page.locator('#pg')).toHaveCount(0);
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    const band = page.locator('.hdr');
+    // in a quest the band holds it all, from left to right: back, name, menu, cog; the app's name is gone
+    await expect(band.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+    await expect(band.locator('img.emb')).toHaveCount(0);
+    await expect(page.getByText('Quick Guide', { exact: true })).toHaveCount(0);
+    await expect(band.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All quests');
+    const x = async (sel) => (await band.locator(sel).boundingBox()).x;
+    expect(await x('[data-act="change"]')).toBeLessThan(await x('h1.qt'));
+    expect(await x('h1.qt')).toBeLessThan(await x('#menu-btn'));
+    expect(await x('#menu-btn')).toBeLessThan(await x('#cog-btn'));
+    // the thin progress line is right under the band, and the tabs right under it
+    const hb = await band.boundingBox(), lb = await page.locator('#pg').boundingBox(), tb = await page.locator('.tabs').boundingBox();
+    expect(lb.height).toBeLessThanOrEqual(5);
+    expect(Math.abs(lb.y - (hb.y + hb.height))).toBeLessThanOrEqual(2);
+    expect(tb.y).toBeGreaterThanOrEqual(lb.y + lb.height);
+    expect(tb.y - (lb.y + lb.height)).toBeLessThanOrEqual(6);
+    // one row of tabs
+    await expect(page.locator('.tabs')).toHaveCount(1);
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    await expect(page.locator('.hdr .qt')).toHaveText('Quick Guide');
-    await expect(page.locator('.sbar h1.qt')).toHaveText('Ardougne');
-    await expect(page.locator('.sbar [data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
+    await expect(band.locator('h1.qt')).toHaveText('Ardougne');
+    await expect(band.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
+    await expect(band.locator('#menu-btn')).toBeVisible();
+    await expect(band.locator('#cog-btn')).toBeVisible();
+    await expect(page.locator('.tabs')).toHaveCount(1);
   });
 
-  test('the Quests, Area tasks and My list tabs stay on every screen; the number on My list changes right there', async ({ page, wiki }) => {
+  test('the bar at the bottom: Quests, Area tasks and My list on every screen; the number on My list changes right there', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await seed(page, { todo: lists({ Today: [] }) });
     await openApp(page, expect);
-    const home = page.locator('.tabs.home .tab');
-    // in a quest: under the title band, above the quest's name, with Quests lit
+    const bar = page.locator('.bnav'), lit = page.locator('.bn[aria-current="page"]');
+    // on the start screen: at the very bottom of the window, Quests lit
+    await expect(bar.locator('.bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list']);
+    await expect(lit).toHaveText('Quests');
+    const win = await page.locator('#app').boundingBox();
+    let bb = await bar.boundingBox();
+    expect(Math.abs(win.y + win.height - (bb.y + bb.height))).toBeLessThanOrEqual(1);
+    // in a quest: under the next step button, still Quests lit
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await expect(home.locator('.tl-l')).toHaveText(['Quests', 'Area tasks', 'My list']);
-    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Quests');
-    const tb = await page.locator('.tabs.home').boundingBox(), hb = await page.locator('.hdr').boundingBox(), sb = await page.locator('.sbar').boundingBox();
-    expect(tb.y).toBeGreaterThanOrEqual(hb.y + hb.height - 1);
-    expect(sb.y).toBeGreaterThanOrEqual(tb.y + tb.height - 2);
+    await page.locator('.tab[data-tab="steps"]').click();
+    await expect(lit).toHaveText('Quests');
+    bb = await bar.boundingBox();
+    const nb = await page.locator('#next-btn').boundingBox();
+    expect(bb.y).toBeGreaterThanOrEqual(nb.y + nb.height);
     await expect(tab(page).locator('.tc')).toHaveCount(0);
     await page.locator('#menu-btn').click();
     await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
     await addTo(page);
     await expect(tab(page).locator('.tc')).toHaveText('1');
-    // a tab takes you to its list, also the one that is lit
-    await page.locator('.tab[data-home="quests"]').click();
+    // the message shows above the bar, not over it
+    const tt = await page.locator('#toast').boundingBox();
+    expect(tt.y + tt.height).toBeLessThanOrEqual((await bar.boundingBox()).y);
+    // a button takes you to its list, also the one that is lit
+    await page.locator('.bn[data-home="quests"]').click();
     await expect(page.locator('#quest-link')).toBeVisible();
-    await expect(page.locator('.sbar')).toHaveCount(0);
+    await expect(page.locator('.hdr h1.qt')).toHaveText('Quick Guide');
     expect(await stored(page, 'last')).toBeNull();
     // in an area: Area tasks lit; a task added to a list counts at once
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Area tasks');
+    await expect(lit).toHaveText('Area tasks');
     await expect(page.locator('.tab[data-tier]')).toHaveCount(4);
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
     await addTo(page);
     await expect(tab(page).locator('.tc')).toHaveText('2');
     await tab(page).click();
+    await expect(lit).toHaveText('My list2');
     await expect(goals(page, 'Today').locator('.t')).toHaveText(['While Guthix Sleeps', 'Yoink!']);
     // opened from My list, a reload stays in the area
     await goalMenu(page, 'Yoink!');
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
     await page.reload();
-    await expect(page.locator('.sbar h1.qt')).toHaveText('Ardougne');
-    await expect(page.locator('.tabs.home .tab[aria-selected="true"]')).toHaveText('Area tasks');
+    await expect(page.locator('.hdr h1.qt')).toHaveText('Ardougne');
+    await expect(lit).toHaveText('Area tasks');
     // no sideways scrolling in a narrow window
     await page.setViewportSize({ width: 280, height: 600 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

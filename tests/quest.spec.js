@@ -1,5 +1,5 @@
 // The quest screen: title band, progress, tabs, the two menus, text size, refresh and reset.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, parsedQuest } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, parsedQuest } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const toast = (page) => page.locator('#toast');
@@ -14,8 +14,8 @@ test.describe('title band, progress and tabs', () => {
   test('shows the quest name, the progress and three tabs', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await expect(page.locator('h1.qt')).toHaveAttribute('title', 'While Guthix Sleeps');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
-    await expect(tabs(page)).toHaveText(['Overview', 'Items', 'Steps']);
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
+    await expect(tabs(page).locator('.tl-l')).toHaveText(['Overview', 'Items', 'Steps']);
     await expect(page.getByRole('tab', { name: 'Overview' })).toHaveAttribute('aria-selected', 'true');
     await expect(page.getByRole('button', { name: 'All quests' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
@@ -25,17 +25,43 @@ test.describe('title band, progress and tabs', () => {
   test('progress counts ticked main steps', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await tickFirstPart(page);
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
     await expect(page.locator('#pg')).toHaveJSProperty('value', 3);
     await expect(page.locator('#pg')).toHaveJSProperty('max', 12);
   });
 
-  test('one step: "1 / 1 step"', async ({ page, wiki }) => {
+  test('one step: "1 / 1"; a guide with no items has no count on Items', async ({ page, wiki }) => {
     wiki.page('Imp Catcher/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>');
     await openQuest(page, expect, 'Imp Catcher');
     await openTab(page, 'steps');
     await page.locator('#next-btn').click();
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 1 step');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 1');
+    await expect(page.locator('.tab[data-tab="items"] .tcn')).toHaveCount(0);
+    await expect(page.locator('.tab[data-tab="items"]')).toHaveText('Items');
+  });
+
+  test('the counts under the tab names: the steps you did on Steps, the items you have on Items', async ({ page }) => {
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    const count = (t) => page.locator('.tab[data-tab="' + t + '"] .tcn');
+    await expect(count('overview')).toHaveCount(0);
+    await expect(count('items')).toHaveText('0 / 5');
+    await expect(count('steps')).toHaveText('0 / 12');
+    // all three tabs are as tall, with a count or not
+    const h = await Promise.all(['overview', 'items', 'steps'].map(async (t) => (await page.locator('.tab[data-tab="' + t + '"]').boundingBox()).height));
+    expect(new Set(h).size).toBe(1);
+    await tickFirstPart(page);
+    await expect(count('steps')).toHaveText('3 / 12');
+    // ticking an item changes the count at once, without drawing the tabs again
+    await openTab(page, 'items');
+    const before = await count('items').elementHandle();
+    await item(page, 'sapphire lantern').locator('.cb').click();
+    await expect(count('items')).toHaveText('1 / 5');
+    expect(await before.evaluate((e) => e.isConnected)).toBe(true);
+    await expect(count('steps')).toHaveText('3 / 12');
+    // and they are the same after a reload
+    await page.reload();
+    await expect(count('items')).toHaveText('1 / 5');
+    await expect(count('steps')).toHaveText('3 / 12');
   });
 
   test('tabs switch, and each quest remembers its tab', async ({ page }) => {
@@ -219,7 +245,7 @@ test.describe('the quest menu', () => {
     await page.locator('#menu-btn').click();
     await page.getByRole('menuitem', { name: 'Refresh from wiki' }).click();
     await expect(toast(page)).toHaveText('Updated from the wiki.');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 13 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 13');
     expect(wiki.asked().filter((x) => x === WGS)).toHaveLength(2);
   });
 
@@ -257,10 +283,10 @@ test.describe('the quest menu', () => {
     const reset = page.locator('[data-act="reset"]');
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
     await reset.click();
     await expect(toast(page)).toHaveText('Progress reset.');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
     expect((await stored(page, 'prog.' + WGS)).steps).toEqual({});
   });
 
@@ -275,7 +301,7 @@ test.describe('the quest menu', () => {
     await expect(reset).toHaveText('Reset progress');
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
   });
 
   test('a reset click runs out after 4 seconds', async ({ page }) => {
@@ -288,7 +314,7 @@ test.describe('the quest menu', () => {
     await page.clock.runFor(4500);
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
   });
 });
 
