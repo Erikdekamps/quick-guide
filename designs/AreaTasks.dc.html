@@ -18,7 +18,7 @@
    Settings > Theme) sets them all again for the game's earlier blue interface skin. Green, red, yellow
    and orange (done, too low, started, part names) are the same in both.
    Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
-   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+   Window parts (title band, tabs, menus, footer, the bar at the bottom) use px so they always fit. */
 :root {
   color-scheme: dark;
   /* window */
@@ -336,10 +336,8 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/* under the title band, on a quest or an area: the way back, the name of what is open, and its menu */
-.sbar { position: relative; z-index: 19; flex: none; display: flex; align-items: center; gap: 8px; padding: 8px 1px 0; }
-.sbar .qt { font-size: 15px; }
-.sbar .hs { margin-left: auto; }
+/* on a quest or an area the band starts with the way back, then the name of what is open */
+.hdr > .ib:first-child { margin-right: 2px; }
 /* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
@@ -433,7 +431,24 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 [aria-checked="true"] > .tg::after { opacity: 1; }
 
 /* ---------- progress ---------- */
-.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+/* the thin line under the title band, on a quest or an area; its count is in a tab */
+.pline {
+  flex: none;
+  display: block;
+  width: calc(100% + 10px);
+  height: 4px;
+  margin: 0 -5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 0;
+  border-bottom: 1px solid var(--bronze-dk);
+}
+.pline::-webkit-progress-bar { background: var(--inset); }
+.pline::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline + .tabs { margin-top: 3px; }
+/* a bar in a row of the quest and area lists */
 .pg {
   flex: 1;
   min-width: 0;
@@ -450,7 +465,6 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .pg::-webkit-progress-bar { background: var(--inset); }
 .pg::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
 .pg::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
-.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---------- tabs: the open tab joins the panel below it ---------- */
 .tabs {
@@ -494,6 +508,10 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
   cursor: default;
 }
 .tab .i { display: none; width: 15px; height: 15px; }
+/* tabs with a count under the name ("Steps", "3 / 12"): all of the row is as tall */
+.tabs.two .tab { flex-direction: column; gap: 3px; height: 36px; }
+.tcn { font-size: 10.5px; font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] .tcn { color: var(--soft); }
 
 /* ---------- the scrolling panel ---------- */
 .scroll {
@@ -788,6 +806,40 @@ kbd {
 /* footer: the big gold button */
 .ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
 
+/* the bar at the bottom of every screen: Quests, Area tasks and My list, the open one lit in gold */
+.bnav {
+  position: relative;
+  flex: none;
+  display: flex;
+  margin: 6px -5px -6px;
+  background: var(--grain), linear-gradient(var(--band-bot), var(--band-top));
+  border-top: 1px solid var(--bronze-dk);
+  box-shadow: 0 -1px 0 var(--void);
+}
+.bn {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 44px;
+  padding: 0 4px;
+  background: none;
+  border: 0;
+  color: var(--faint);
+  font: 500 11px/1 "Fira Sans", sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bn .i { width: 18px; height: 18px; }
+.bn:hover { color: var(--soft); }
+.bn[aria-current="page"] { color: var(--gold); }
+.bn[aria-current="page"]::before { content: ""; position: absolute; top: -1px; left: 28%; right: 28%; height: 2px; background: var(--gold); }
+.bn:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
 /* gold buttons, like the game's main action buttons */
 .btn, .next {
   background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
@@ -823,7 +875,7 @@ kbd {
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 60px;
+  bottom: 106px;   /* above the next step button and the bar at the bottom */
   z-index: 1100;
   padding: 8px 12px;
   background: var(--grain), var(--toast);
@@ -834,7 +886,7 @@ kbd {
   color: var(--text);
   text-align: center;
 }
-.toast.low { bottom: 16px; }
+.toast.low { bottom: 60px; }   /* no next step button: just above the bar */
 
 /* ---------- overview, items ---------- */
 .kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
@@ -1022,8 +1074,8 @@ ul.steps.ql { padding: 0; }
 .need .mk .i { width: 14px; height: 14px; }
 
 /* ---------- My list: your own lists of goals ---------- */
-/* the number of open goals, on the tab */
-.tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
+/* the number of open goals, on My list in the bar at the bottom */
+.bn .tc { position: absolute; top: 4px; left: calc(50% + 6px); padding: 0 4px; min-width: 14px; border-radius: 7px; background: var(--inset); color: var(--gold); font-size: 10px; line-height: 14px; text-align: center; font-variant-numeric: tabular-nums; }
 /* the box at the end of a list, and under a goal for its sub tasks: type the next one, Enter adds it */
 .qadd .row-f { align-items: center; }
 .qadd .inp { height: 26px; padding: 0 8px; font-size: 12px; }
@@ -1090,7 +1142,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><p class="qt">Quick Guide</p><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="false"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="true"><span class="tl-l">Area tasks</span></button><button class="tab" type="button" role="tab" data-home="todo" aria-selected="false"><span class="tl-l">My list</span></button></nav><div class="sbar"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button><h1 class="qt" title="Varrock">Varrock</h1><div class="hs"><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></div><div class="prog"><progress class="pg" id="pg" value="0" max="2" aria-label="Tier progress"></progress><span class="cnt" id="pg-cnt">0 / 2 tasks</span></div><nav class="tabs" role="tablist" aria-label="Tiers"><button class="tab" type="button" role="tab" data-tier="easy" aria-selected="false"><span class="tl-l">Easy</span></button><button class="tab" type="button" role="tab" data-tier="elite" aria-selected="true"><span class="tl-l">Elite</span></button></nav><main class="scroll" id="main" role="tabpanel"><section class="sec" data-asec="tasks"><h2 class="sh"><button class="sech" type="button" data-asec-btn="elite:tasks" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tasks</span><span class="c">0 / 2</span></button></h2><div class="secb"><ul class="steps"><li class="step task cur" data-task="993"><div class="row"><input class="cb" type="checkbox" data-acb="993" aria-labelledby="qt5"><div class="rb"><span class="t" id="qt5"><b>Red, Red Pies of Summer</b> — Bake a summer pie in the Cooking Guild from scratch.</span><div class="ext"><span class="need">Needs <span class="skl"><span class="lv">95</span> <img class="sic" src="https://runescape.wiki/images/Cooking-icon.png" alt="" width="20" height="20" loading="lazy" onerror="this.remove()"> <a class="sn" href="https://runescape.wiki/w/Cooking" target="_blank" rel="noopener">Cooking</a> <sup class="bst" title="You may use a boost for this level">(boostable)</sup></span></span><div class="howto">Bake a <a href="https://runescape.wiki/w/Summer_pie" target="_blank" rel="noopener">summer pie</a> in the <a href="https://runescape.wiki/w/Cooks%27_Guild" target="_blank" rel="noopener">Cooks' Guild</a> from scratch by following the steps below:<br>Required items<br>• <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">Pot of flour</a> (sold in the Guild)<br>• <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">Pie dish</a> (found in the Guild)<br>• <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">Strawberry</a><br>• <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">Watermelon</a><br>• <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">Cooking apple</a> (found in the Guild)</div></div></div><button class="ib xs rowm" type="button" data-imenu="" data-ref="task" data-rarea="Varrock" data-rtier="elite" data-rtname="Elite" data-rtask="993" data-rtitle="Red, Red Pies of Summer" data-menu="tmenu" aria-label="Task menu: Red, Red Pies of Summer" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div><ul class="steps subs"><li class="step task done" data-task="993:1"><div class="row"><input class="cb" type="checkbox" data-acb="993:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">Make <a href="https://runescape.wiki/w/Pastry_dough" target="_blank" rel="noopener">pastry dough</a> by mixing a <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">pot of flour</a> with <a href="https://runescape.wiki/w/Water" target="_blank" rel="noopener">water</a> by using the pot of flour on the pump and drain.</span></div></div></li><li class="step task done" data-task="993:2"><div class="row"><input class="cb" type="checkbox" data-acb="993:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Use the pastry dough on a <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">pie dish</a>.</span></div></div></li><li class="step task" data-task="993:3"><div class="row"><input class="cb" type="checkbox" data-acb="993:3" aria-labelledby="qt3"><div class="rb"><span class="t" id="qt3">Add a <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">strawberry</a>, <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">watermelon</a>, and <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">cooking apple</a> to the shell (in that order).</span><div class="ext"><div class="howto">The cooking apple can be found in the Guild, the rest needs to be brought from outside.</div></div></div></div></li><li class="step task" data-task="993:4"><div class="row"><input class="cb" type="checkbox" data-acb="993:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4">Bake the <a href="https://runescape.wiki/w/Raw_summer_pie" target="_blank" rel="noopener">raw summer pie</a>.</span><div class="ext"><div class="howto">The pie must be baked on one of the ranges of the Cooks' Guild. Using the Bake Pie spell inside the Cooks' Guild will not count.<br>Ranges can be found on the first floor, or after having completed the hard Varrock achievements also on the ground floor.</div></div></div></div></li></ul></li><li class="step task" data-task="994"><div class="row"><input class="cb" type="checkbox" data-acb="994" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><b>Pie in the Sky</b> — Eat a pie.</span><div class="ext"><div class="howto">Eat a pie.<br>• Only one step here.</div></div></div><button class="ib xs rowm" type="button" data-imenu="" data-ref="task" data-rarea="Varrock" data-rtier="elite" data-rtname="Elite" data-rtask="994" data-rtitle="Pie in the Sky" data-menu="tmenu" aria-label="Task menu: Pie in the Sky" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li></ul></div></section><div class="blk" style="margin-top:14px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span class="sl">Rewards</span></summary><div class="body"><p class="para">Talk to someone to claim the rewards.</p><ul class="plain"><li>A reward</li></ul></div></details></div><p class="foot">Tasks: <a href="https://runescape.wiki/w/Varrock_achievements" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded Nov 14, 2026.</p></main><footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next task</span></button></footer></div>
+<div id="app"><header class="hdr"><button class="ib" type="button" data-act="change" aria-label="All areas" title="All areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></button><h1 class="qt" title="Varrock">Varrock</h1><div class="hs he"><button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Area menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Area menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></header><progress class="pline" id="pg" value="0" max="2" aria-label="Tier progress"></progress><nav class="tabs two" role="tablist" aria-label="Tiers"><button class="tab" type="button" role="tab" data-tier="easy" aria-selected="false"><span class="tl-l">Easy</span><span class="tcn">0 / 1</span></button><button class="tab" type="button" role="tab" data-tier="elite" aria-selected="true"><span class="tl-l">Elite</span><span class="tcn" id="pg-cnt">0 / 2</span></button></nav><main class="scroll" id="main" role="tabpanel"><section class="sec" data-asec="tasks"><h2 class="sh"><button class="sech" type="button" data-asec-btn="elite:tasks" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Tasks</span><span class="c">0 / 2</span></button></h2><div class="secb"><ul class="steps"><li class="step task cur" data-task="993"><div class="row"><input class="cb" type="checkbox" data-acb="993" aria-labelledby="qt5"><div class="rb"><span class="t" id="qt5"><b>Red, Red Pies of Summer</b> — Bake a summer pie in the Cooking Guild from scratch.</span><div class="ext"><span class="need">Needs <span class="skl"><span class="lv">95</span> <img class="sic" src="https://runescape.wiki/images/Cooking-icon.png" alt="" width="20" height="20" loading="lazy" onerror="this.remove()"> <a class="sn" href="https://runescape.wiki/w/Cooking" target="_blank" rel="noopener">Cooking</a> <sup class="bst" title="You may use a boost for this level">(boostable)</sup></span></span><div class="howto">Bake a <a href="https://runescape.wiki/w/Summer_pie" target="_blank" rel="noopener">summer pie</a> in the <a href="https://runescape.wiki/w/Cooks%27_Guild" target="_blank" rel="noopener">Cooks' Guild</a> from scratch by following the steps below:<br>Required items<br>• <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">Pot of flour</a> (sold in the Guild)<br>• <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">Pie dish</a> (found in the Guild)<br>• <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">Strawberry</a><br>• <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">Watermelon</a><br>• <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">Cooking apple</a> (found in the Guild)</div></div></div><button class="ib xs rowm" type="button" data-imenu="" data-ref="task" data-rarea="Varrock" data-rtier="elite" data-rtname="Elite" data-rtask="993" data-rtitle="Red, Red Pies of Summer" data-menu="tmenu" aria-label="Task menu: Red, Red Pies of Summer" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div><ul class="steps subs"><li class="step task done" data-task="993:1"><div class="row"><input class="cb" type="checkbox" data-acb="993:1" aria-labelledby="qt1" checked="{{ true }}"><div class="rb"><span class="t" id="qt1">Make <a href="https://runescape.wiki/w/Pastry_dough" target="_blank" rel="noopener">pastry dough</a> by mixing a <a href="https://runescape.wiki/w/Pot_of_flour" target="_blank" rel="noopener">pot of flour</a> with <a href="https://runescape.wiki/w/Water" target="_blank" rel="noopener">water</a> by using the pot of flour on the pump and drain.</span></div></div></li><li class="step task done" data-task="993:2"><div class="row"><input class="cb" type="checkbox" data-acb="993:2" aria-labelledby="qt2" checked="{{ true }}"><div class="rb"><span class="t" id="qt2">Use the pastry dough on a <a href="https://runescape.wiki/w/Pie_dish" target="_blank" rel="noopener">pie dish</a>.</span></div></div></li><li class="step task" data-task="993:3"><div class="row"><input class="cb" type="checkbox" data-acb="993:3" aria-labelledby="qt3"><div class="rb"><span class="t" id="qt3">Add a <a href="https://runescape.wiki/w/Strawberry" target="_blank" rel="noopener">strawberry</a>, <a href="https://runescape.wiki/w/Watermelon" target="_blank" rel="noopener">watermelon</a>, and <a href="https://runescape.wiki/w/Cooking_apple" target="_blank" rel="noopener">cooking apple</a> to the shell (in that order).</span><div class="ext"><div class="howto">The cooking apple can be found in the Guild, the rest needs to be brought from outside.</div></div></div></div></li><li class="step task" data-task="993:4"><div class="row"><input class="cb" type="checkbox" data-acb="993:4" aria-labelledby="qt4"><div class="rb"><span class="t" id="qt4">Bake the <a href="https://runescape.wiki/w/Raw_summer_pie" target="_blank" rel="noopener">raw summer pie</a>.</span><div class="ext"><div class="howto">The pie must be baked on one of the ranges of the Cooks' Guild. Using the Bake Pie spell inside the Cooks' Guild will not count.<br>Ranges can be found on the first floor, or after having completed the hard Varrock achievements also on the ground floor.</div></div></div></div></li></ul></li><li class="step task" data-task="994"><div class="row"><input class="cb" type="checkbox" data-acb="994" aria-labelledby="qt6"><div class="rb"><span class="t" id="qt6"><b>Pie in the Sky</b> — Eat a pie.</span><div class="ext"><div class="howto">Eat a pie.<br>• Only one step here.</div></div></div><button class="ib xs rowm" type="button" data-imenu="" data-ref="task" data-rarea="Varrock" data-rtier="elite" data-rtname="Elite" data-rtask="994" data-rtitle="Pie in the Sky" data-menu="tmenu" aria-label="Task menu: Pie in the Sky" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li></ul></div></section><div class="blk" style="margin-top:14px"><details class="acc" open="{{ true }}"><summary><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg><span class="sl">Rewards</span></summary><div class="body"><p class="para">Talk to someone to claim the rewards.</p><ul class="plain"><li>A reward</li></ul></div></details></div><p class="foot">Tasks: <a href="https://runescape.wiki/w/Varrock_achievements" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded Nov 14, 2026.</p></main><footer class="ftr"><button class="next" type="button" id="next-btn" data-act="anext"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg><span>Done, next task</span></button></footer><nav class="bnav" aria-label="Lists"><button class="bn" type="button" data-home="quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><span class="bnl">Quests</span></button><button class="bn" type="button" data-home="areas" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg><span class="bnl">Area tasks</span></button><button class="bn" type="button" data-home="todo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="bnl">My list</span></button></nav></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>

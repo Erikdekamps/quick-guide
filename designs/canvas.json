@@ -206,33 +206,61 @@
       "h": 720,
       "title": "Blue: start"
     },
-    "SettingsBlue.dc.html": {
+    "OverviewBlue.dc.html": {
       "x": 440,
       "y": 3200,
       "w": 360,
       "h": 720,
-      "title": "Blue: settings"
+      "title": "Blue: overview"
+    },
+    "ItemsBlue.dc.html": {
+      "x": 880,
+      "y": 3200,
+      "w": 360,
+      "h": 720,
+      "title": "Blue: items"
     },
     "MainBlue.dc.html": {
-      "x": 880,
+      "x": 1320,
       "y": 3200,
       "w": 360,
       "h": 720,
       "title": "Blue: steps"
     },
+    "SettingsBlue.dc.html": {
+      "x": 1760,
+      "y": 3200,
+      "w": 360,
+      "h": 720,
+      "title": "Blue: settings"
+    },
+    "AreasBlue.dc.html": {
+      "x": 2200,
+      "y": 3200,
+      "w": 360,
+      "h": 720,
+      "title": "Blue: area tasks"
+    },
     "AreaBlue.dc.html": {
-      "x": 1320,
+      "x": 2640,
       "y": 3200,
       "w": 360,
       "h": 720,
       "title": "Blue: area"
     },
-    "MyListBlue.dc.html": {
-      "x": 1760,
-      "y": 3200,
+    "AreaTasksBlue.dc.html": {
+      "x": 0,
+      "y": 4000,
       "w": 360,
       "h": 720,
-      "title": "My list: Blue"
+      "title": "Blue: an area's tasks"
+    },
+    "MyListBlue.dc.html": {
+      "x": 440,
+      "y": 4000,
+      "w": 360,
+      "h": 720,
+      "title": "Blue: my list"
     },
     "Components.dc.html": {
       "x": 3160,
@@ -250,31 +278,50 @@
     }
   },
   "order": [
-    "Main.dc.html",
     "Start.dc.html",
-    "Settings.dc.html",
     "Overview.dc.html",
     "Items.dc.html",
-    "Components.dc.html",
-    "Data.dc.html",
+    "Main.dc.html",
+    "MyListQuest.dc.html",
+    "Settings.dc.html",
+    "SettingsEnd.dc.html",
     "Areas.dc.html",
+    "AreaSearch.dc.html",
     "Area.dc.html",
     "AreaTasks.dc.html",
+    "MyListFrom.dc.html",
+    "MyListAddTo.dc.html",
     "Backup.dc.html",
-    "AreaSearch.dc.html",
-    "SettingsEnd.dc.html",
+    "MyList.dc.html",
+    "MyListEmpty.dc.html",
+    "MyListNew.dc.html",
+    "MyListImport.dc.html",
     "MyListType.dc.html",
+    "MyListAdd.dc.html",
+    "MyListLists.dc.html",
+    "MyListMenu.dc.html",
+    "MyListSub.dc.html",
     "MyListSubMenu.dc.html",
     "MyListToList.dc.html",
     "MyListPaste.dc.html",
     "MyListCopy.dc.html",
-    "MyListImport.dc.html"
+    "StartBlue.dc.html",
+    "OverviewBlue.dc.html",
+    "ItemsBlue.dc.html",
+    "MainBlue.dc.html",
+    "SettingsBlue.dc.html",
+    "AreasBlue.dc.html",
+    "AreaBlue.dc.html",
+    "AreaTasksBlue.dc.html",
+    "MyListBlue.dc.html",
+    "Components.dc.html",
+    "Data.dc.html"
   ],
   "notes": {
     "screens": {
       "x": 0,
       "y": -300,
-      "text": "Screens \u00b7 Alt1 window 360 \u00d7 720",
+      "text": "Screens · Alt1 window 360 × 720",
       "kind": "title1",
       "maxW": 3000
     },

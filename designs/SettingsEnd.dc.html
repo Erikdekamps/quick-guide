@@ -18,7 +18,7 @@
    Settings > Theme) sets them all again for the game's earlier blue interface skin. Green, red, yellow
    and orange (done, too low, started, part names) are the same in both.
    Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
-   Window parts (title band, tabs, menus, footer) use px so they always fit. */
+   Window parts (title band, tabs, menus, footer, the bar at the bottom) use px so they always fit. */
 :root {
   color-scheme: dark;
   /* window */
@@ -336,10 +336,8 @@ button, input, select { font: inherit; color: inherit; }
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-/* under the title band, on a quest or an area: the way back, the name of what is open, and its menu */
-.sbar { position: relative; z-index: 19; flex: none; display: flex; align-items: center; gap: 8px; padding: 8px 1px 0; }
-.sbar .qt { font-size: 15px; }
-.sbar .hs { margin-left: auto; }
+/* on a quest or an area the band starts with the way back, then the name of what is open */
+.hdr > .ib:first-child { margin-right: 2px; }
 /* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
 .ib {
   display: inline-grid;
@@ -433,7 +431,24 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 [aria-checked="true"] > .tg::after { opacity: 1; }
 
 /* ---------- progress ---------- */
-.prog { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 6px 6px; }
+/* the thin line under the title band, on a quest or an area; its count is in a tab */
+.pline {
+  flex: none;
+  display: block;
+  width: calc(100% + 10px);
+  height: 4px;
+  margin: 0 -5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 0;
+  border-bottom: 1px solid var(--bronze-dk);
+}
+.pline::-webkit-progress-bar { background: var(--inset); }
+.pline::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline + .tabs { margin-top: 3px; }
+/* a bar in a row of the quest and area lists */
 .pg {
   flex: 1;
   min-width: 0;
@@ -450,7 +465,6 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .pg::-webkit-progress-bar { background: var(--inset); }
 .pg::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
 .pg::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
-.cnt { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---------- tabs: the open tab joins the panel below it ---------- */
 .tabs {
@@ -494,6 +508,10 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
   cursor: default;
 }
 .tab .i { display: none; width: 15px; height: 15px; }
+/* tabs with a count under the name ("Steps", "3 / 12"): all of the row is as tall */
+.tabs.two .tab { flex-direction: column; gap: 3px; height: 36px; }
+.tcn { font-size: 10.5px; font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] .tcn { color: var(--soft); }
 
 /* ---------- the scrolling panel ---------- */
 .scroll {
@@ -788,6 +806,40 @@ kbd {
 /* footer: the big gold button */
 .ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
 
+/* the bar at the bottom of every screen: Quests, Area tasks and My list, the open one lit in gold */
+.bnav {
+  position: relative;
+  flex: none;
+  display: flex;
+  margin: 6px -5px -6px;
+  background: var(--grain), linear-gradient(var(--band-bot), var(--band-top));
+  border-top: 1px solid var(--bronze-dk);
+  box-shadow: 0 -1px 0 var(--void);
+}
+.bn {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 44px;
+  padding: 0 4px;
+  background: none;
+  border: 0;
+  color: var(--faint);
+  font: 500 11px/1 "Fira Sans", sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bn .i { width: 18px; height: 18px; }
+.bn:hover { color: var(--soft); }
+.bn[aria-current="page"] { color: var(--gold); }
+.bn[aria-current="page"]::before { content: ""; position: absolute; top: -1px; left: 28%; right: 28%; height: 2px; background: var(--gold); }
+.bn:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
 /* gold buttons, like the game's main action buttons */
 .btn, .next {
   background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
@@ -823,7 +875,7 @@ kbd {
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 60px;
+  bottom: 106px;   /* above the next step button and the bar at the bottom */
   z-index: 1100;
   padding: 8px 12px;
   background: var(--grain), var(--toast);
@@ -834,7 +886,7 @@ kbd {
   color: var(--text);
   text-align: center;
 }
-.toast.low { bottom: 16px; }
+.toast.low { bottom: 60px; }   /* no next step button: just above the bar */
 
 /* ---------- overview, items ---------- */
 .kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
@@ -1022,8 +1074,8 @@ ul.steps.ql { padding: 0; }
 .need .mk .i { width: 14px; height: 14px; }
 
 /* ---------- My list: your own lists of goals ---------- */
-/* the number of open goals, on the tab */
-.tab .tc { flex: none; margin-left: 5px; padding: 0 5px; min-width: 16px; border-radius: 8px; background: var(--inset); color: var(--gold); font-size: 11px; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
+/* the number of open goals, on My list in the bar at the bottom */
+.bn .tc { position: absolute; top: 4px; left: calc(50% + 6px); padding: 0 4px; min-width: 14px; border-radius: 7px; background: var(--inset); color: var(--gold); font-size: 10px; line-height: 14px; text-align: center; font-variant-numeric: tabular-nums; }
 /* the box at the end of a list, and under a goal for its sub tasks: type the next one, Enter adds it */
 .qadd .row-f { align-items: center; }
 .qadd .inp { height: 26px; padding: 0 8px; font-size: 12px; }
@@ -1090,7 +1142,7 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 </style>
 </helmet>
 <div style="width: 360px; height: 720px">
-<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="true" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><div class="menu wide" id="cog"><p class="mh">Display</p><div class="mi mrow"><label class="ml" for="theme">Theme</label><select class="sel" id="theme"><option value="brown" selected="{{ true }}">Brown</option><option value="blue">Blue</option></select></div><button class="mi" type="button" role="menuitemcheckbox" aria-checked="false" data-act="showdone"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span class="ml">Show done steps</span><span class="tg" aria-hidden="true"></span></button><div class="mi mrow" role="group" aria-label="Text size"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3"></path><path d="M9 20h6"></path><path d="M12 4v16"></path></svg><span class="ml">Text size</span><button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path></svg></button><span class="fsv" id="fsv" aria-live="polite">14</span><button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button></div><hr><button class="mi" type="button" data-act="list-refresh"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Update quest list</button><hr><p class="mh">Backup</p><button class="mi" type="button" data-act="export"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Export state</button><button class="mi" type="button" data-act="import"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Import state</button><hr><p class="mh danger">Danger zone</p><button class="mi danger" type="button" data-act="wipe"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg><span>Click again to delete everything</span></button></div></div></header><nav class="tabs home" role="tablist" aria-label="Lists"><button class="tab" type="button" role="tab" data-home="quests" aria-selected="true"><span class="tl-l">Quests</span></button><button class="tab" type="button" role="tab" data-home="areas" aria-selected="false"><span class="tl-l">Area tasks</span></button><button class="tab" type="button" role="tab" data-home="todo" aria-selected="false"><span class="tl-l">My list</span></button></nav><main class="scroll" id="main"><form class="find" id="load-form"><label class="vh" for="quest-link">Search quests</label><div class="row-f"><input class="inp" id="quest-link" name="link" type="text" placeholder="Search quests"><button class="btn" type="submit">Open</button></div></form><div id="qarea"><p class="qmeta"><span id="qcount">17 quests</span><span class="how"> · Optimal order · Sir Example</span></p><h2 class="gh"><button class="ghb" type="button" data-group="In progress" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">In progress</span><span class="c">2</span></button></h2><ul class="ql"><li><button class="q started" type="button" data-quest="Demon Slayer"><span class="q1"><b>Demon Slayer</b><span class="qs">Started</span></span><span class="q2">#4 · Novice · Medium · Free · 3 QP</span></button></li><li><button class="q started" type="button" data-quest="While Guthix Sleeps"><span class="q1"><b>While Guthix Sleeps</b><span class="qs">10 / 118</span></span><span class="q2">#14 · Grandmaster · Very, Very Long · Members · 5 QP</span><progress class="pg" value="10" max="118" aria-hidden="true"></progress></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Optimal order" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Optimal order</span><span class="c">12</span></button></h2><ul class="ql"><li><button class="q done" type="button" data-quest="Cook's Assistant"><span class="q1"><b>Cook's Assistant</b><span class="qs ok">✓ 9 / 9</span></span><span class="q2">#1 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Imp Catcher"><span class="q1"><b>Imp Catcher</b><span class="qs ok">✓ Done</span></span><span class="q2">#2 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Druidic Ritual"><span class="q1"><b>Druidic Ritual</b><span class="qs ok">✓ 6 / 6</span></span><span class="q2">#3 · Novice · Short · Members · 4 QP</span></button></li><li><button class="q" type="button" data-quest="Ernest the Chicken"><span class="q1"><b>Ernest the Chicken</b></span><span class="q2">#5 · Novice · Short · Free · 4 QP</span></button></li><li><button class="q" type="button" data-quest="Gertrude's Cat"><span class="q1"><b>Gertrude's Cat</b></span><span class="q2">#6 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Priest in Peril"><span class="q1"><b>Priest in Peril</b><span class="qs ok">✓ Done</span></span><span class="q2">#7 · Novice · Medium · Members · 1 QP</span></button></li><li><button class="q" type="button" data-quest="Death Plateau"><span class="q1"><b>Death Plateau</b></span><span class="q2">#8 · Novice · Medium · Members · 1 QP</span></button></li><li><button class="q" type="button" data-quest="Black Knights' Fortress"><span class="q1"><b>Black Knights' Fortress</b></span><span class="q2">#9 · Intermediate · Short · Free · 3 QP</span></button></li><li><button class="q" type="button" data-quest="Dragon Slayer"><span class="q1"><b>Dragon Slayer</b></span><span class="q2">#10 · Experienced · Long · Free · 2 QP</span></button></li><li><button class="q locked" type="button" data-quest="Family Crest" title="You do not have what this quest needs yet"><span class="q1"><b>Family Crest</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">#11 · Experienced · Medium · Members · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Defender of Varrock"><span class="q1"><b>Defender of Varrock</b><span class="qs ok">✓ Done</span></span><span class="q2">#12 · Experienced · Long · Members · 2 QP</span></button></li><li><button class="q locked" type="button" data-quest="Desert Treasure" title="You do not have what this quest needs yet"><span class="q1"><b>Desert Treasure</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">#13 · Master · Long · Members · 3 QP</span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Not in the guide" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Not in the guide</span><span class="c">3</span></button></h2><ul class="ql"><li><button class="q" type="button" data-quest="Bar Crawl (miniquest)"><span class="q1"><b>Bar Crawl</b></span><span class="q2">Miniquest · Intermediate · Short to Medium · Members</span></button></li><li><button class="q" type="button" data-quest="Benedict's World Tour (miniquest)"><span class="q1"><b>Benedict's World Tour</b></span><span class="q2">Miniquest · Intermediate · Short · Free</span></button></li><li><button class="q" type="button" data-quest="Curse of the Empty Lord (miniquest)"><span class="q1"><b>Curse of the Empty Lord</b></span><span class="q2">Miniquest · Novice · Short · Members</span></button></li></ul></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main></div>
+<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1><div class="hs he"><button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="true" aria-controls="cog" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button><div class="menu wide" id="cog"><p class="mh">Display</p><div class="mi mrow"><label class="ml" for="theme">Theme</label><select class="sel" id="theme"><option value="brown" selected="{{ true }}">Brown</option><option value="blue">Blue</option></select></div><button class="mi" type="button" role="menuitemcheckbox" aria-checked="false" data-act="showdone"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg><span class="ml">Show done steps</span><span class="tg" aria-hidden="true"></span></button><div class="mi mrow" role="group" aria-label="Text size"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3"></path><path d="M9 20h6"></path><path d="M12 4v16"></path></svg><span class="ml">Text size</span><button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path></svg></button><span class="fsv" id="fsv" aria-live="polite">14</span><button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button></div><hr><button class="mi" type="button" data-act="list-refresh"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Update quest list</button><hr><p class="mh">Backup</p><button class="mi" type="button" data-act="export"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Export state</button><button class="mi" type="button" data-act="import"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Import state</button><hr><p class="mh danger">Danger zone</p><button class="mi danger" type="button" data-act="wipe"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg><span>Click again to delete everything</span></button></div></div></header><main class="scroll" id="main"><form class="find" id="load-form"><label class="vh" for="quest-link">Search quests</label><div class="row-f"><input class="inp" id="quest-link" name="link" type="text" placeholder="Search quests"><button class="btn" type="submit">Open</button></div></form><div id="qarea"><p class="qmeta"><span id="qcount">17 quests</span><span class="how"> · Optimal order · Sir Example</span></p><h2 class="gh"><button class="ghb" type="button" data-group="In progress" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">In progress</span><span class="c">2</span></button></h2><ul class="ql"><li><button class="q started" type="button" data-quest="Demon Slayer"><span class="q1"><b>Demon Slayer</b><span class="qs">Started</span></span><span class="q2">#4 · Novice · Medium · Free · 3 QP</span></button></li><li><button class="q started" type="button" data-quest="While Guthix Sleeps"><span class="q1"><b>While Guthix Sleeps</b><span class="qs">10 / 118</span></span><span class="q2">#14 · Grandmaster · Very, Very Long · Members · 5 QP</span><progress class="pg" value="10" max="118" aria-hidden="true"></progress></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Optimal order" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Optimal order</span><span class="c">12</span></button></h2><ul class="ql"><li><button class="q done" type="button" data-quest="Cook's Assistant"><span class="q1"><b>Cook's Assistant</b><span class="qs ok">✓ 9 / 9</span></span><span class="q2">#1 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Imp Catcher"><span class="q1"><b>Imp Catcher</b><span class="qs ok">✓ Done</span></span><span class="q2">#2 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Druidic Ritual"><span class="q1"><b>Druidic Ritual</b><span class="qs ok">✓ 6 / 6</span></span><span class="q2">#3 · Novice · Short · Members · 4 QP</span></button></li><li><button class="q" type="button" data-quest="Ernest the Chicken"><span class="q1"><b>Ernest the Chicken</b></span><span class="q2">#5 · Novice · Short · Free · 4 QP</span></button></li><li><button class="q" type="button" data-quest="Gertrude's Cat"><span class="q1"><b>Gertrude's Cat</b></span><span class="q2">#6 · Novice · Short · Free · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Priest in Peril"><span class="q1"><b>Priest in Peril</b><span class="qs ok">✓ Done</span></span><span class="q2">#7 · Novice · Medium · Members · 1 QP</span></button></li><li><button class="q" type="button" data-quest="Death Plateau"><span class="q1"><b>Death Plateau</b></span><span class="q2">#8 · Novice · Medium · Members · 1 QP</span></button></li><li><button class="q" type="button" data-quest="Black Knights' Fortress"><span class="q1"><b>Black Knights' Fortress</b></span><span class="q2">#9 · Intermediate · Short · Free · 3 QP</span></button></li><li><button class="q" type="button" data-quest="Dragon Slayer"><span class="q1"><b>Dragon Slayer</b></span><span class="q2">#10 · Experienced · Long · Free · 2 QP</span></button></li><li><button class="q locked" type="button" data-quest="Family Crest" title="You do not have what this quest needs yet"><span class="q1"><b>Family Crest</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">#11 · Experienced · Medium · Members · 1 QP</span></button></li><li><button class="q done" type="button" data-quest="Defender of Varrock"><span class="q1"><b>Defender of Varrock</b><span class="qs ok">✓ Done</span></span><span class="q2">#12 · Experienced · Long · Members · 2 QP</span></button></li><li><button class="q locked" type="button" data-quest="Desert Treasure" title="You do not have what this quest needs yet"><span class="q1"><b>Desert Treasure</b><span class="qs lk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Locked</span></span><span class="q2">#13 · Master · Long · Members · 3 QP</span></button></li></ul><h2 class="gh"><button class="ghb" type="button" data-group="Not in the guide" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Not in the guide</span><span class="c">3</span></button></h2><ul class="ql"><li><button class="q" type="button" data-quest="Bar Crawl (miniquest)"><span class="q1"><b>Bar Crawl</b></span><span class="q2">Miniquest · Intermediate · Short to Medium · Members</span></button></li><li><button class="q" type="button" data-quest="Benedict's World Tour (miniquest)"><span class="q1"><b>Benedict's World Tour</b></span><span class="q2">Miniquest · Intermediate · Short · Free</span></button></li><li><button class="q" type="button" data-quest="Curse of the Empty Lord (miniquest)"><span class="q1"><b>Curse of the Empty Lord</b></span><span class="q2">Miniquest · Novice · Short · Members</span></button></li></ul></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main><nav class="bnav" aria-label="Lists"><button class="bn" type="button" data-home="quests" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><span class="bnl">Quests</span></button><button class="bn" type="button" data-home="areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg><span class="bnl">Area tasks</span></button><button class="bn" type="button" data-home="todo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="bnl">My list</span></button></nav></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
