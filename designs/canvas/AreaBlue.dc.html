@@ -664,7 +664,7 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
 .subs .step.cur { background: none; }
 .subs .step.cur::after { display: none; }
-/* Ticked rows go away. "Show done steps" shows them again. */
+/* Ticked rows go away. "Done steps and tasks" (Settings, Show) shows them again. */
 #main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
 /* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
@@ -1023,7 +1023,7 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 /* the steps of an area task */
 .task > .subs { padding-bottom: 4px; }
 .subs .howto { margin-top: 2px; }
-/* "Show done steps" also shows the steps of a done task, so you can untick one */
+/* "Done steps and tasks" also shows the steps of a done task, so you can untick one */
 #main.show-done .task.done > .subs { display: block; }
 
 /* a task found by a search: always shown, even when done, with the area and tier it belongs to */

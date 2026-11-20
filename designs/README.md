@@ -29,10 +29,10 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
-| `Settings.dc.html` | Settings (the last button of the bar): your player, sort and filters, display, backup, the danger zone |
-| `SettingsEnd.dc.html` | Settings with Delete everything after the first click: "Click again to delete everything" |
+| `Settings.dc.html` | Settings (the last button of the bar): your player, Show (a tick means you see them), the sort, display, backup, the danger zone |
+| `SettingsEnd.dc.html` | Settings scrolled down, with Delete everything after the first click: "Click again to delete everything" |
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
-| `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
+| `Items.dc.html` | Items tab: Required and Recommended, with "Done steps and tasks" ticked |
 | `Main.dc.html` | Steps tab: every part and box open |
 | `StartBlue.dc.html` | The start screen in the Blue theme |
 | `SettingsBlue.dc.html` | Settings in the Blue theme, with Theme set to Blue |
