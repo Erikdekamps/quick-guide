@@ -653,7 +653,7 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .subs .step.cur { background: none; }
 .subs .step.cur::after { display: none; }
 /* Ticked rows go away. "Done steps and tasks" (Settings, Show) shows them again. */
-#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task], #main:not(.show-done) li.done[data-cheevo] { display: none; }
 /* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
@@ -790,7 +790,7 @@ kbd {
 /* footer: the big gold button */
 .ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
 
-/* the bar at the bottom of every screen: Quests, Area tasks, My list and Settings, the open one lit in gold */
+/* the bar at the bottom of every screen: Quests, Achievements, My list and Settings, the open one lit in gold */
 .bnav {
   position: relative;
   flex: none;
@@ -1002,7 +1002,7 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
 .step.done .need { display: none; }
 /* a finished tier's tasks, once you open them: shown, so you can untick one */
-#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+#main:not(.show-done) .sec.alldone li.done[data-task], #main:not(.show-done) .sec.alldone li.done[data-cheevo] { display: list-item; }
 /* the wiki's tip for a task, under it */
 .howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
 /* the quests a tier needs line up with the text */
@@ -1131,3 +1131,25 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .toast b { color: var(--title); font-weight: 600; }
 /* a list as text: the box to paste a list in, or to copy it from */
 #tp-text { flex: none; height: 170px; min-height: 96px; font-size: 12px; }
+
+/* ---------- capes, in Achievements ---------- */
+/* the cards on top of the list: the cape, how far you are, and where to go on */
+.capes { display: flex; flex-direction: column; gap: 8px; padding: 8px 8px 10px; }
+.cape { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; text-align: left; background: linear-gradient(var(--panel), var(--panel-2));
+  border: 1px solid var(--edge); border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; color: var(--text); font: inherit; cursor: pointer; }
+.cape:hover { background: linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.cape img, .capehd img { flex: none; width: 48px; height: 48px; filter: drop-shadow(0 1px 0 #000); }
+.cape .cb1, .capehd .cb1 { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cape b { font: 700 14px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); }
+.cape .cn, .capehd .cn { font-size: 12px; color: var(--soft); font-variant-numeric: tabular-nums; }
+.cape .pg { flex: none; height: 6px; box-shadow: none; }
+.cape .cx, .capehd .cx { font-size: 12px; line-height: 1.35; color: var(--muted); }
+.cape.done .cn { color: var(--green); }
+/* the card on top of a cape's page: how far you are, and where to buy it */
+.capehd { display: flex; align-items: center; gap: 12px; margin: 8px 8px 2px; padding: 8px 10px; background: linear-gradient(var(--panel), var(--panel-2));
+  border: 1px solid var(--edge); border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; }
+.capehd .cn { font-weight: 600; color: var(--title); }
+/* an achievement the app ticks itself: from your quests, your levels, or another cape */
+.task.auto > .row > .cb, .task.auto > .row > .cb:hover { border-style: dashed; border-color: var(--cb-edge); opacity: .7; cursor: default; }
+.self { font-size: .857rem; color: var(--muted); }
+.self b { color: var(--soft); font-weight: 600; font-variant-numeric: tabular-nums; }

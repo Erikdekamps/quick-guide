@@ -1,11 +1,12 @@
 /*!
  * Quick Guide - js/app/core.js
- * A tick list for RuneScape Wiki quest quick guides and Area Tasks, made for the Alt1 browser.
+ * A tick list for RuneScape Wiki quest quick guides, capes and Area Tasks, made for the Alt1 browser.
  *
  * The app is in nine files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
  *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   quests.js      the quest list and the quest screen
- *   areas.js       Area Tasks
+ *   areas.js       Achievements: Area Tasks, and the list of tiers
+ *   capes.js       Achievements: the cape cards, and one cape
  *   todo-data.js   My list: the saved lists, goals and sub tasks, wiki links, export and import
  *   todo-view.js   My list: what the tab shows, its menus and boxes
  *   todo.js        My list: adding, ticking, and what the menus do
@@ -20,12 +21,14 @@
  *   quest.<page>    the full parsed guide of one quest (JSON)
  *   prog.<page>     your ticks for that quest
  *   qdone           quests marked done by an import: { "<name, letters only>": 1 }
- *   settings, last  display settings, and the quest or area that was open last
+ *   settings, last  display settings, and the quest, area or cape that was open last
  *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
  *   area.<name>     the parsed "<name> achievements" page (Area Tasks)
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
+ *   cape.<key>      a cape's parsed achievement list (mqc, comp or trim)
+ *   cprog.<key>     your ticks in that cape: { ticks: {id: 1}, tab, open }
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
  * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
@@ -50,7 +53,7 @@
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
   var SORTS = [['name', 'A to Z'], ['opt', 'Optimal order'], ['dif', 'Difficulty'], ['len', 'Length'], ['ser', 'Series'], ['rel', 'Newest']];
-  var HOMES = [['quests', 'Quests'], ['areas', 'Area tasks'], ['todo', 'My list']];
+  var HOMES = [['quests', 'Quests'], ['areas', 'Achievements'], ['todo', 'My list']];   // 'areas': the capes and the area tasks
   // The look: the game's brown interface skin, or the blue one it had before (style.css has both).
   var THEMES = [['brown', 'Brown'], ['blue', 'Blue']];
   var DIF_ORDER = ['novice', 'intermediate', 'experienced', 'master', 'grandmaster', 'special'];
@@ -230,6 +233,9 @@
     area: null,       // the area that is open (Area Tasks), its name, and your ticks
     areaKey: '',
     aprog: null,
+    cape: null,       // the cape that is open (Achievements), its key, and your ticks
+    capeKey: '',
+    cprog: null,
     playerBusy: false,
     playerMsg: '',
     playerInput: '',
@@ -368,9 +374,9 @@
   function playerChanged() {
     drawPlayer();
     A.drawList();
-    if (S.view !== 'quest' && S.view !== 'area') return;
+    if (S.view !== 'quest' && S.view !== 'area' && S.view !== 'cape') return;
     var main = byId('main'), top = main ? main.scrollTop : 0;
-    if (S.view === 'area') A.renderArea(true); else A.renderQuest();
+    if (S.view === 'area') A.renderArea(true); else if (S.view === 'cape') A.renderCape(true); else A.renderQuest();
     main = byId('main');
     if (main) main.scrollTop = top;
   }
@@ -477,6 +483,7 @@
   // The place on screen: the screen and its tab. Each place keeps its own scroll position.
   function place() {
     if (S.view === 'settings') return 'settings';
+    if (S.view === 'cape') return 'cape:' + S.capeKey + ':' + ((S.cprog && S.cprog.tab) || '');
     if (S.view === 'quest') return 'quest:' + S.key + ':' + S.prog.tab;
     if (S.view === 'area') return 'area:' + S.areaKey + ':' + ((S.aprog && S.aprog.tier) || '');
     return 'start:' + S.set.home;
@@ -538,9 +545,9 @@
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
   // The count under a tab's name ("3 / 12"). attrs: its id or data-tcount, so it can change without a redraw.
   function tabCountHtml(done, total, attrs) { return '<span class="tcn"' + (attrs || '') + '>' + done + ' / ' + total + '</span>'; }
-  // The bar at the bottom of every screen: Quests, Area tasks, My list and Settings (on: the one that is lit). My list
+  // The bar at the bottom of every screen: Quests, Achievements, My list and Settings (on: the one that is lit). My list
   // shows its open goals.
-  var HOME_ICON = { quests: I.scroll, areas: I.map, todo: I.steps, settings: I.cog };
+  var HOME_ICON = { quests: I.scroll, areas: I.trophy, todo: I.steps, settings: I.cog };
   function homeBarHtml(on) {
     return '<nav class="bnav" aria-label="Lists">' + HOMES.concat([['settings', 'Settings']]).map(function (h) {
       return '<button class="bn" type="button" data-home="' + h[0] + '"' + (on === h[0] ? ' aria-current="page"' : '') + '>' +
@@ -572,7 +579,7 @@
   }
   function homeHtml() { return S.set.home === 'areas' ? A.areaListHtml() : S.set.home === 'todo' ? A.todoHtml() : A.listHtml(); }
   function sortKey(t) { return t.replace(/^[^A-Za-z0-9]+/, '').toLowerCase(); }
-  // The search box of the Quests and Area tasks tabs.
+  // The search box of the Quests and Achievements tabs.
   function searchHtml() {
     var what = S.set.home === 'areas' ? 'Search areas and tasks' : 'Search quests';
     return '<form class="find" id="load-form" novalidate>' +
@@ -608,7 +615,7 @@
   // takes you back there, like a quest at the tab and place you left it. A reload keeps Settings open.
   function openSettings() {
     closeMenus();
-    if (S.view !== 'settings') S.back = { view: S.view, home: S.view === 'quest' ? 'quests' : S.view === 'area' ? 'areas' : S.set.home };
+    if (S.view !== 'settings') S.back = { view: S.view, home: S.view === 'quest' ? 'quests' : S.view === 'area' || S.view === 'cape' ? 'areas' : S.set.home };
     S.wipeArmed = 0;
     S.view = 'settings';
     dropMaps();
@@ -626,6 +633,7 @@
     S.back = null;
     if (b.view === 'quest' && S.q) { S.view = 'quest'; A.renderQuest(); }
     else if (b.view === 'area' && S.area) { S.view = 'area'; A.renderArea(false); }
+    else if (b.view === 'cape' && S.cape) { S.view = 'cape'; A.renderCape(false); }
     else renderStart();
     saveView(true);
   }
@@ -871,7 +879,7 @@
     if (mi) mi.setAttribute('aria-checked', (key === 'showDone' ? S.set[key] : !S.set[key]) ? 'true' : 'false');
     if (key !== 'showDone') { A.drawList(); return; }
     var main = byId('main');
-    if (main && (S.view === 'quest' || S.view === 'area')) main.classList.toggle('show-done', S.set.showDone);
+    if (main && (S.view === 'quest' || S.view === 'area' || S.view === 'cape')) main.classList.toggle('show-done', S.set.showDone);
   }
   // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds. Leaving Settings cancels it.
   function wipeClick(btn) {
@@ -894,7 +902,7 @@
     S.player = null; S.playerMsg = ''; S.playerInput = '';
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
     S.listError = ''; S.orderError = ''; S.aidxFail = [];
-    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null;
+    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null; S.cape = null; S.capeKey = ''; S.cprog = null;
     S.todo = null; S.todoIdx = null; S.subAdd = null;
     clearTimeout(viewTimer);
     S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};

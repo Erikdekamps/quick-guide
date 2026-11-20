@@ -212,12 +212,13 @@ test.describe('reading an area page', () => {
 test.describe('the area list', () => {
   test('a row for each tier of the 13 areas, grouped by area, and the tab is remembered', async ({ page, wiki }) => {
     await openApp(page, expect);
-    await expect(page.locator('.bn[data-home]')).toHaveText(['Quests', 'Area tasks', 'My list', 'Settings']);
+    await expect(page.locator('.bn[data-home]')).toHaveText(['Quests', 'Achievements', 'My list', 'Settings']);
     await expect(page.locator('.bn[data-home="quests"]')).toHaveAttribute('aria-current', 'page');
     await page.locator('.bn[data-home="areas"]').click();
     await expect(page.locator('.bn[data-home="areas"]')).toHaveAttribute('aria-current', 'page');
     await expect(page.locator('#qcount')).toHaveText('13 areas');
-    await expect(page.locator('.ghb .n')).toHaveText(AREAS);
+    // the capes on top, then the areas
+    await expect(page.locator('.ghb .n')).toHaveText(['Capes', ...AREAS]);
     await expect(tierRows(page, 'Ardougne')).toHaveText(['Ardougne Easy', 'Ardougne Medium', 'Ardougne Hard', 'Ardougne Elite']);
     await expect(tierRows(page, 'Lumbridge')).toHaveText(['Lumbridge Beginner', 'Lumbridge Easy', 'Lumbridge Medium', 'Lumbridge Hard']);
     await expect(page.locator('#quest-link')).toHaveAttribute('placeholder', 'Search areas and tasks');
@@ -242,10 +243,10 @@ test.describe('the area list', () => {
     await page.locator('.tab[data-tier="medium"]').click();
     await page.locator('#next-btn').click();
     await page.locator('#next-btn').click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     // No "In progress" group: the tier stays under its area.
     await expect(page.locator('.ghb .n')).not.toContainText(['In progress']);
-    await expect(page.locator('.ghb .n').first()).toHaveText('Ardougne');
+    await expect(page.locator('.ghb .n')).toHaveText(['Capes', ...AREAS]);
     const row = area(page, 'Ardougne', 'medium');
     await expect(row.locator('.q1 b')).toHaveText('Ardougne Medium');
     await expect(row.locator('.qs')).toHaveText('2 / 16');
@@ -269,7 +270,7 @@ test.describe('the area list', () => {
     await page.reload();
     await expect(page.locator('#pg-cnt')).toHaveText('23 / 23');
     await expect(page.locator('#next-btn')).toHaveText('All tasks done');
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     const row = area(page, 'Ardougne', 'easy');
     await expect(row).toHaveClass(/\bdone\b/);
     await expect(row.locator('.qs')).toHaveText('✓ Done');
@@ -288,7 +289,7 @@ test.describe('the area list', () => {
     await closeSettings(page);
     await page.locator('.bn[data-home="areas"]').click();
     await area(page, 'Ardougne', 'easy').click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     const row = area(page, 'Ardougne', 'easy');
     await expect(row).toHaveClass(/\blocked\b/);
     await expect(row.locator('.qs')).toHaveText('Locked');
@@ -442,7 +443,7 @@ test.describe('searching the area tasks', () => {
     await page.locator('#quest-link').press('Enter');
     await expect(page.locator('h1.qt')).toHaveText('Varrock');
     await expect(page.locator('.tab[data-tier="elite"]')).toHaveAttribute('aria-selected', 'true');
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await search(page, 'no such thing');
     await page.locator('#quest-link').press('Enter');
     await expect(page.locator('#load-err')).toHaveText('Nothing matches “no such thing”.');
@@ -481,7 +482,7 @@ test.describe('an area', () => {
     expect(await stored(page, 'last')).toBe('area:Ardougne');
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await area(page, 'Ardougne').first().click();
     expect(wiki.asked().filter((x) => x === 'Ardougne achievements')).toHaveLength(1);
   });
@@ -808,7 +809,7 @@ test.describe('an area', () => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     for (const t of ['medium', 'hard', 'elite', 'easy']) await page.locator('.tab[data-tier="' + t + '"]').click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await page.locator('.bn[data-home="quests"]').click();
     await expect(page.locator('#qcount')).toHaveText('11 quests');
     expect(page.errors).toEqual([]);

@@ -1304,6 +1304,86 @@
     return fetchPage(name + ' achievements').then(function (p) { return parseArea(p.html, name); });
   }
 
+  // ---------- Capes: the master quest, completionist and trimmed completionist capes ----------
+  // Each cape is an achievement made of other achievements. Its "(achievement)" page has them all in one table, each
+  // with its category (Lore, Skills, Exploration, …). Where to buy a cape and its picture do not change: they are here.
+  var CAPE_VERSION = 1;   // a new number makes saved capes read the wiki again
+  function capeImage(file) { return WIKI + '/images/thumb/' + encodeURIComponent(file) + '/96px-' + encodeURIComponent(file); }
+  var CAPES = [
+    { key: 'mqc', name: 'Master quest cape', page: 'Master Quest Cape (achievement)', levelsPage: 'Master quest cape',
+      image: capeImage('Master_quest_cape_detail.png'), buy: 'Buy it from Curator Haig Halen in the Varrock Museum, for 120,000 coins.' },
+    { key: 'comp', name: 'Completionist cape', page: 'Completionist Cape (achievement)', skillsPage: 'Master Skiller',
+      image: capeImage('Completionist_cape_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' },
+    { key: 'trim', name: 'Trimmed completionist cape', page: 'Trimmed Completionist Cape (achievement)',
+      image: capeImage('Completionist_cape_(t)_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' }
+  ];
+  function capeOf(key) { return CAPES.filter(function (c) { return c.key === key; })[0]; }
+  function docOf(html) {
+    var doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+    return doc.querySelector('.mw-parser-output') || doc.body;
+  }
+  // The achievements of a cape: [{ id, name, desc, members, cat, sub }], in the wiki's order.
+  function parseCape(html, key) {
+    var c = capeOf(key), out = [];
+    var table = docOf(html).querySelector('table.achievements-table');
+    if (c && table) {
+      var rows = arr(table.querySelectorAll('tr')), cols = rows.length ? arr(rows[0].children).map(function (x) { return text(x).toLowerCase(); }) : [];
+      var ci = function (re) { for (var i = 0; i < cols.length; i++) if (re.test(cols[i])) return i; return -1; };
+      var cName = ci(/^name/), cDesc = ci(/^description/), cMem = ci(/^members/), cCat = ci(/^category/), cSub = ci(/^subcategory/);
+      rows.slice(1).forEach(function (tr) {
+        var td = tr.children, name = cName >= 0 && td[cName] ? text(td[cName]) : '';
+        if (!name) return;
+        var sub = cSub >= 0 && td[cSub] ? text(td[cSub]) : '';
+        out.push({
+          id: tr.getAttribute('data-rowid') || hash(name), name: name,
+          // "(X/5)" is the game's count: the app counts the achievement as one tick
+          desc: cDesc >= 0 && td[cDesc] ? text(td[cDesc]).replace(/\s*\(X\/[\d,]+\)\s*$/, '') : '',
+          members: cMem >= 0 && td[cMem] ? /member|p2p/i.test(td[cMem].innerHTML) : null,
+          cat: cCat >= 0 && td[cCat] ? text(td[cCat]) || 'Other' : 'Other',
+          sub: /^n\/?a$/i.test(sub) ? '' : sub
+        });
+      });
+    }
+    if (!out.length) { var e = new Error('This page has no achievements.'); e.code = 'format'; throw e; }
+    return { version: CAPE_VERSION, key: key, name: c.name, page: c.page, source: pageUrl(c.page), fetchedAt: new Date().toISOString(),
+      cheevos: out, levels: [], skiller: [] };
+  }
+  // The lowest skill levels a cape needs (the "Minimum skill level" table of its page): [{ skill, level }]
+  function minLevels(html) {
+    var h = docOf(html).querySelector('#Minimum_skill_level'), table = null;
+    if (!h) return [];
+    for (var n = (h.closest('.mw-heading') || h).nextElementSibling; n && !table; n = n.nextElementSibling) {
+      if (n.tagName === 'TABLE') table = n;
+      else if (/^H[1-6]$/.test(n.tagName) || n.classList.contains('mw-heading')) break;
+    }
+    if (!table) return [];
+    return arr(table.querySelectorAll('tr')).map(function (tr) {
+      var td = tr.querySelectorAll('td'), a = td.length > 1 ? td[0].querySelector('a[title]') : null;
+      var skill = a ? clean(a.getAttribute('title')) : td.length > 1 ? text(td[0]) : '', level = td.length > 1 ? parseInt(text(td[1]), 10) : 0;
+      return skill && level ? { skill: skill, level: level } : null;
+    }).filter(Boolean);
+  }
+  // The levels of an achievement page's requirements (Master Skiller: every skill at its mastery level): [{ skill, level }]
+  function skillReqs(html) {
+    var root = docOf(html), box = root.querySelector('.infobox') || root, seen = {};
+    return arr(box.querySelectorAll('.skillreq[data-skill]')).map(function (s) {
+      return { skill: s.getAttribute('data-skill'), level: +s.getAttribute('data-level') || 0 };
+    }).filter(function (x) { if (!x.level || seen[x.skill]) return false; seen[x.skill] = 1; return true; });
+  }
+  // Reads a cape: its achievements, and the page with its levels when it has one. Without that page it still works.
+  function loadCape(key) {
+    var c = capeOf(key);
+    if (!c) { var e = new Error('There is no such cape.'); e.code = 'format'; return Promise.reject(e); }
+    var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return {}; }) :
+      c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return {}; }) : Promise.resolve({});
+    return Promise.all([fetchPage(c.page), more]).then(function (r) {
+      var cape = parseCape(r[0].html, key);
+      if (r[1].levels) cape.levels = r[1].levels;
+      if (r[1].skiller) cape.skiller = r[1].skiller;
+      return cape;
+    });
+  }
+
   root.QuickGuide = {
     VERSION: VERSION,
     loadQuestList: loadQuestList,
@@ -1313,6 +1393,12 @@
     AREA_VERSION: AREA_VERSION,
     parseArea: parseArea,
     loadArea: loadArea,
+    CAPES: CAPES,
+    CAPE_VERSION: CAPE_VERSION,
+    parseCape: parseCape,
+    minLevels: minLevels,
+    skillReqs: skillReqs,
+    loadCape: loadCape,
     normName: normName,
     MAP_VERSION: MAP_VERSION,
     WIKI: WIKI,

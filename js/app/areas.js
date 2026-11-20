@@ -173,7 +173,8 @@
     var areas = {};
     tiers.forEach(function (t) { areas[t.area] = 1; });
     var n = Object.keys(areas).length;
-    h += '<p class="qmeta"><span id="qcount">' + (n === total ? plural(n, 'area', 'areas') : n + ' of ' + plural(total, 'area', 'areas')) + '</span>' +
+    // "3 capes · 13 areas · Zezima" (a search shows areas and tasks only)
+    h += '<p class="qmeta">' + (v ? '' : plural(QG.CAPES.length, 'cape', 'capes') + ' · ') + '<span id="qcount">' + (n === total ? plural(n, 'area', 'areas') : n + ' of ' + plural(total, 'area', 'areas')) + '</span>' +
       (S.player ? '<span class="how"> · ' + esc(S.player.name) + '</span>' : '') + '</p>';
     if (v) {
       var have = QG.AREAS.length - missingAreas().length;
@@ -192,6 +193,8 @@
       if (!tiers.length && !res.tasks.length && !S.aidxBusy) h += '<p class="empty">Nothing matches “' + esc(v) + '”.</p>';
       return h;
     }
+    // The capes first, as cards; then the areas.
+    h += A.capeCardsHtml();
     // The same switches as for quests: done and locked tiers stay out when they are off.
     if (S.set.hideDone) tiers = tiers.filter(function (t) { return !t.full; });
     if (S.set.hideLocked) tiers = tiers.filter(function (t) { return !t.locked; });
@@ -352,7 +355,7 @@
     }
     dropMaps();
     app.innerHTML =
-      headerHtml({ title: a.name, back: 'All areas', more: areaDotsHtml() }) +
+      headerHtml({ title: a.name, back: 'All achievements', more: areaDotsHtml() }) +
       progHtml(done, t.tasks.length, 'Tier progress') +
       // each tier with its own count: the tasks done in it
       tabsHtml('Tiers', a.tiers.map(function (x) {

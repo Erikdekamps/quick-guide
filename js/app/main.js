@@ -5,22 +5,22 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'areas', 'capes', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
   var accKey = A.accKey, addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, app = A.app,
-    applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup,
+    applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, capeReset = A.capeReset, closeBackup = A.closeBackup,
     closeMenus = A.closeMenus, closeSubAdd = A.closeSubAdd, closeTodoDialog = A.closeTodoDialog, copyBackup = A.copyBackup,
     current = A.current, drawList = A.drawList, fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder,
     FONT_STEP = A.FONT_STEP, forgetPlayer = A.forgetPlayer, goalMenu = A.goalMenu, goHome = A.goHome, itemMenu = A.itemMenu, jumpTo = A.jumpTo,
     LIST_MAX_AGE = A.LIST_MAX_AGE, listMenu = A.listMenu, loadAllAreas = A.loadAllAreas, lookUpPlayer = A.lookUpPlayer,
-    matchQuests = A.matchQuests, menuAct = A.menuAct, newListDialog = A.newListDialog, nextStep = A.nextStep, nextTask = A.nextTask,
-    openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick,
-    PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh, refreshArea = A.refreshArea, refreshQuest = A.refreshQuest,
+    matchQuests = A.matchQuests, menuAct = A.menuAct, newListDialog = A.newListDialog, nextCheevo = A.nextCheevo, nextStep = A.nextStep, nextTask = A.nextTask,
+    openArea = A.openArea, openBackup = A.openBackup, openCape = A.openCape, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick,
+    PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh, refreshArea = A.refreshArea, refreshCape = A.refreshCape, refreshQuest = A.refreshQuest,
     leaveSettings = A.leaveSettings, renderStart = A.renderStart, resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg,
     saveSettings = A.saveSettings, saveView = A.saveView, sdel = A.sdel, setFont = A.setFont, sget = A.sget,
     SORTS = A.SORTS, startMaps = A.startMaps, subMenu = A.subMenu, SWITCHES = A.SWITCHES,
-    switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickGoal = A.tickGoal, tickInArea = A.tickInArea,
+    switchCapeTab = A.switchCapeTab, switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickCheevo = A.tickCheevo, tickGoal = A.tickGoal, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickSub = A.tickSub, tickTask = A.tickTask, toastAct = A.toastAct, todoSubmit = A.todoSubmit,
-    toggleAreaSec = A.toggleAreaSec, toggleMenu = A.toggleMenu, toggleOv = A.toggleOv, toggleSection = A.toggleSection,
+    toggleAreaSec = A.toggleAreaSec, toggleCapePart = A.toggleCapePart, toggleMenu = A.toggleMenu, toggleOv = A.toggleOv, toggleSection = A.toggleSection,
     toggleSetting = A.toggleSetting, unlist = A.unlist, wipeClick = A.wipeClick;
 
   // ---------- what a click does ----------
@@ -53,6 +53,9 @@
     'areas-retry': function () { S.aidxFail = []; loadAllAreas(); drawList(); },
     areset: areaReset,
     arefresh: function () { closeMenus(); refreshArea(); },
+    cnext: function () { nextCheevo(); },
+    creset: capeReset,
+    crefresh: function () { closeMenus(); refreshCape(); },
     jump: function () { closeMenus(); if (S.prog.tab !== 'steps') switchTab('steps'); jumpTo(current(), true); },
     'order-refresh': function () { S.orderError = ''; drawList(); },
     change: function () { S.error = ''; S.input = ''; sdel('last'); saveView(); renderStart(); },
@@ -124,6 +127,7 @@
     if (t.hasAttribute('data-gcb')) { tickGoal(t.getAttribute('data-gcb'), t.checked); return; }
     if (t.hasAttribute('data-subcb')) { tickSub(t.getAttribute('data-gid'), t.getAttribute('data-subcb'), t.checked); return; }
     if (t.hasAttribute('data-scb')) { tickStep(t.getAttribute('data-scb'), t.checked); return; }
+    if (t.hasAttribute('data-ccb')) { tickCheevo(t.getAttribute('data-ccb'), t.checked); return; }
     if (t.hasAttribute('data-acb')) {
       var ar = t.getAttribute('data-aarea');
       if (ar) tickInArea(ar, t.getAttribute('data-acb'), t.checked); else tickTask(t.getAttribute('data-acb'), t.checked);
@@ -146,13 +150,15 @@
       TODO_CLICKS.filter(function (c) { return g.hasAttribute(c[0]); })[0][1](g);
       return;
     }
-    var t = ev.target.closest('[data-quest], [data-area], [data-home], [data-tier], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
       if (t.hasAttribute('data-area')) { openArea(t.getAttribute('data-area'), t.getAttribute('data-atier')); return; }
+      if (t.hasAttribute('data-cape')) { closeMenus(); openCape(t.getAttribute('data-cape')); return; }
       if (t.hasAttribute('data-home')) { goHome(t.getAttribute('data-home')); return; }
       if (t.hasAttribute('data-tier')) { switchTier(t.getAttribute('data-tier')); return; }
+      if (t.hasAttribute('data-ctab')) { switchCapeTab(t.getAttribute('data-ctab')); return; }
       if (t.hasAttribute('data-group')) {
         var home = S.set.home, gk = (home === 'areas' || home === 'todo' ? home : S.set.sort) + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
         S.closed[gk] = !S.closed[gk];
@@ -164,6 +170,7 @@
       if (t.hasAttribute('data-tab')) { switchTab(t.getAttribute('data-tab')); return; }
       if (t.hasAttribute('data-sec-btn')) { toggleSection(t.getAttribute('data-sec-btn')); return; }
       if (t.hasAttribute('data-asec-btn')) { toggleAreaSec(t.getAttribute('data-asec-btn')); return; }
+      if (t.hasAttribute('data-cpart-btn')) { toggleCapePart(t.getAttribute('data-cpart-btn')); return; }
       if (t.hasAttribute('data-ov-btn')) { toggleOv(t.getAttribute('data-ov-btn')); return; }
       var act = t.getAttribute('data-act');
       if (ACTS[act]) ACTS[act](t);
@@ -236,9 +243,10 @@
     try { window.alt1.identifyAppUrl('./appconfig.json'); } catch (e) { /* not important */ }
   }
   var last = sget('last');
-  var lastArea = /^area:/.test(last || '') ? last.slice(5) : '';
+  var lastArea = /^area:/.test(last || '') ? last.slice(5) : '', lastCape = /^cape:/.test(last || '') ? last.slice(5) : '';
   if (lastArea && sget('area.' + lastArea)) openArea(lastArea);
-  else if (last && !lastArea && sget('quest.' + last)) openQuest(last);
+  else if (lastCape && A.savedCape(lastCape)) openCape(lastCape);
+  else if (last && !lastArea && !lastCape && sget('quest.' + last)) openQuest(last);
   else renderStart();
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);

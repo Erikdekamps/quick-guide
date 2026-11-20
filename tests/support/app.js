@@ -262,6 +262,15 @@ function withAllAreas(wiki) {
   });
   return wiki;
 }
+// The three capes on the fake wiki: their achievement pages (a piece of each), the master quest cape's levels and Master Skiller.
+function withCapes(wiki) {
+  wiki.page('Master Quest Cape (achievement)', fixture('master-quest-cape-achievement.html'));
+  wiki.page('Completionist Cape (achievement)', fixture('completionist-cape-achievement.html'));
+  wiki.page('Trimmed Completionist Cape (achievement)', fixture('trimmed-completionist-cape-achievement.html'));
+  wiki.page('Master quest cape', fixture('master-quest-cape.html'));
+  wiki.page('Master Skiller', fixture('master-skiller.html'));
+  return wiki;
+}
 // Opens a quest from the list, as a person would.
 async function openQuest(page, expect, name) {
   await closeSettings(page);
@@ -302,4 +311,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest, plain };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain };
