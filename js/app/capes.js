@@ -7,7 +7,7 @@
   'use strict';
   if (!A) return;
   var alignTop = A.alignTop, app = A.app, byId = A.byId, D = A.D, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml,
-    homeBarHtml = A.homeBarHtml, I = A.I, loadError = A.loadError, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
+    homeBarHtml = A.homeBarHtml, I = A.I, loadError = A.loadError, markedDone = A.markedDone, markHtml = A.markHtml, metaAll = A.metaAll, nextHtml = A.nextHtml,
     partHtml = A.partHtml, playerLevel = A.playerLevel, playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG,
     questBtn = A.questBtn, questMark = A.questMark,
     renderStart = A.renderStart, restoreScroll = A.restoreScroll, rowHtml = A.rowHtml, S = A.S, sget = A.sget, skillHtml = A.skillHtml,
@@ -228,7 +228,9 @@
     return questIdx[QG.normName(name)] || '';
   }
   // What an achievement needs, like an area task: "Needs 93 [icon] Magic ✓, Swept Away ✓, Lunar Diplomacy (partial)".
-  // A level you do not have gets a red ✗ and "+ goal"; a quest opens here, with a ✓ when you have done it.
+  // Once your character is looked up, what you have gets a green ✓ and what you do not a red ✗ (a level also "+ goal").
+  // A quest opens here. A part of a quest ("(partial)") you started gets neither: it may be enough.
+  // "One of these" levels gets one mark for the group.
   function needHtml(x) {
     var bits = [], low = false;
     (x.skills || []).forEach(function (s) {
@@ -239,8 +241,18 @@
     (x.links || []).forEach(function (l) {
       var q = questNamed(l.name), part = l.partial ? ' (partial)' : '';
       if (!q) { bits.push(esc(l.name) + part); return; }
-      if (S.player && playerStatus(q) !== 2 && !l.partial) low = true;
-      bits.push(questBtn(q) + part + questMark(q));
+      var st = playerStatus(q);
+      if (S.player && st !== 2 && !(l.partial && st === 1)) low = true;
+      bits.push(questBtn(q) + part + questMark(q, l.partial));
+    });
+    (x.oneOf || []).forEach(function (o) {
+      var mark = '';
+      if (S.player) {
+        var has = o.any.some(function (g) { return g.every(function (s) { var v = playerLevel(s.skill); return v != null && v >= s.level; }); });
+        if (!has) low = true;
+        mark = ' ' + markHtml(has, has ? 'You have one of these' : 'Too low: you have none of these');
+      }
+      bits.push(esc(o.text) + mark);
     });
     (x.other || []).forEach(function (o) { bits.push(esc(o)); });
     return bits.length ? '<span class="need' + (low ? ' low' : '') + '">Needs ' + bits.join(', ') + '</span>' : '';

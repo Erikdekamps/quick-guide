@@ -1400,8 +1400,11 @@
       .replace(/'''?/g, '');
     return clean(s).replace(/[\s.]+$/, '');
   }
-  // What an achievement needs, from its infobox: { skills: [{ skill, level, boost }], links: [{ name, partial }], other: [text] }.
-  // links: lines that are one link (nearly always a quest, "(partial)" when part of it is enough).
+  // What an achievement needs, from its infobox: { skills: [{ skill, level, boost }], links: [{ name, partial }],
+  // oneOf: [{ text, any: [[{ skill, level }]] }], other: [text] }.
+  // links: lines that are one link (nearly always a quest, "(partial)" when part of it is enough). oneOf: "one of these"
+  // made of levels only, so the app can tell if you have one ("90 Fishing + 90 Slayer or 90 Prayer": any of the groups).
+  // other: the rest, as words.
   // One parameter of the infobox: its text up to the next "|" or the end of the infobox (not counting those inside
   // a template or a link, which can go on over more lines).
   function infoboxParam(wt, name) {
@@ -1418,7 +1421,7 @@
     return out;
   }
   function cheevoNeeds(wt) {
-    var req = infoboxParam(wt, 'requirements'), out = { skills: [], links: [], other: [] };
+    var req = infoboxParam(wt, 'requirements'), out = { skills: [], links: [], oneOf: [], other: [] };
     if (!req.trim()) return out;
     // one item per "*" line; a template that goes on over more lines stays one item
     var items = [], depth = 0;
@@ -1436,10 +1439,22 @@
       var or = /^\{\{\s*achievement requirement\s*\|([\s\S]*)\}\}$/i.exec(t);
       if (or) {
         // one of these; a part that is a list needs all of it ("90 Fishing + 90 Slayer")
-        var parts = topParts(or[1]).filter(function (x) { return !/^or\s*=/i.test(x); }).map(function (x) {
-          return x.split(/(?:^|\s+)\*\s*/).map(wikiWords).filter(Boolean).join(' + ');
-        }).filter(Boolean);
-        if (parts.length) out.other.push(parts.join(' or '));
+        var raw = topParts(or[1]).filter(function (x) { return !/^or\s*=/i.test(x); }).map(function (x) {
+          return x.split(/(?:^|\s+)\*\s*/).filter(function (y) { return y.trim(); });
+        }).filter(function (x) { return x.length; });
+        var parts = raw.map(function (x) { return x.map(wikiWords).filter(Boolean).join(' + '); }).filter(Boolean);
+        if (!parts.length) return;
+        // a level: a template ("{{Skillreq|Fishing|90}}") or words ("90 Fishing")
+        var lv = /^\{\{\s*(?:skillreq|achievement requirement)\s*\|([^|}=]+)\|(\d+)[^}]*\}\}$/i;
+        var level = function (y) {
+          var m2 = lv.exec(y.trim()), m3 = m2 ? null : SKILL_RE.exec(wikiWords(y));
+          if (m2) return { skill: clean(m2[1]), level: +m2[2] };
+          if (m3 && !m3[3]) return { skill: SKILLS.filter(function (k) { return k.toLowerCase() === m3[2].toLowerCase(); })[0], level: +m3[1] };
+          return null;
+        };
+        var any = raw.map(function (x) { return x.map(level); });
+        if (any.every(function (g) { return g.every(Boolean); })) out.oneOf.push({ text: parts.join(' or '), any: any });
+        else out.other.push(parts.join(' or '));
         return;
       }
       if (/^(\{\{\s*skillreq\s*\|[^}]*\}\}\s*)+(\{\{\s*boostable\s*(\|[^}]*)?\}\}\s*)?$/i.test(t)) {
@@ -1499,12 +1514,12 @@
     for (var w = 0; w < Math.min(DETAIL_PARALLEL, batches.length); w++) ws.push(worker());
     return Promise.all(ws).then(function () { return out; });
   }
-  // Each achievement with its details: skills, links, other, also (the other capes it counts for) and tip.
+  // Each achievement with its details: skills, links, oneOf, other, also (the other capes it counts for) and tip.
   function addDetails(cape, details) {
     cape.cheevos.forEach(function (x) {
       var d = details[x.page];
       if (!d) return;
-      x.skills = d.skills; x.links = d.links; x.other = d.other; x.tip = d.tip;
+      x.skills = d.skills; x.links = d.links; x.oneOf = d.oneOf; x.other = d.other; x.tip = d.tip;
       x.also = d.also.filter(function (k) { return k !== cape.key; });
     });
     return cape;

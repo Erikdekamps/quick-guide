@@ -102,15 +102,16 @@ test.describe('reading a cape page', () => {
       return { sweep: of('Advanced Sweeping'), heart: of("Conquered Everyone's Heart"), bane: of('Bane Tuner'), bug: of('A bug in the system') };
     }, pages);
     // levels (boostable or not), quests ("partial" when part of it is enough), and which capes
-    expect(r.sweep.needs).toEqual({ skills: [{ skill: 'Magic', level: 93, boost: true }], other: [],
+    expect(r.sweep.needs).toEqual({ skills: [{ skill: 'Magic', level: 93, boost: true }], oneOf: [], other: [],
       links: [{ name: 'Swept Away', partial: false }, { name: 'Diamond in the Rough', partial: false }, { name: 'Lunar Diplomacy', partial: true }, { name: 'Underground Pass', partial: true }] });
     expect(r.sweep.capes).toEqual(['mqc']);
     // the tip: the first paragraph, without "… is an achievement that requires the player to"
     expect(r.sweep.tip).toMatch(/^Fully enchant the broomstick by bringing it to various magic users around the world\./);
-    // one of several: a line of its own
-    expect(r.heart.needs).toEqual({ skills: [{ skill: 'Constitution', level: 70, boost: false }], links: [], other: ['60 Strength or 60 Agility'] });
+    // one of several levels: the app can tell if you have one
+    expect(r.heart.needs).toEqual({ skills: [{ skill: 'Constitution', level: 70, boost: false }], links: [], other: [],
+      oneOf: [{ text: '60 Strength or 60 Agility', any: [[{ skill: 'Strength', level: 60 }], [{ skill: 'Agility', level: 60 }]] }] });
     expect(r.bane.capes).toEqual(['mqc', 'comp']);
-    expect(r.bug.needs).toEqual({ skills: [], links: [], other: [] });
+    expect(r.bug.needs).toEqual({ skills: [], links: [], oneOf: [], other: [] });
     // other forms the wiki uses: a template over more lines, groups of levels, plain words
     const more = await page.evaluate(() => {
       const Q = window.QuickGuide;
@@ -118,13 +119,18 @@ test.describe('reading a cape page', () => {
         Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n{{Achievement requirement\n|or = y\n|{{Achievement requirement|Agility|90}}\n|{{Achievement requirement|Cooking|90}}\n}}\n|id = 409\n}}'),
         Q.cheevoNeeds('{{Infobox Achievement\n|requirements = \n{{Achievement requirement\n|or = y\n|\n* {{Skillreq|Fishing|90}}\n* {{Skillreq|Slayer|90}}\n|\n* {{Skillreq|Prayer|90}}\n}}\n}}'),
         Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* Tier 10 [[Fort Forinthry|the fort]] in the [[Wilderness]].\n* None\n|mqc = yes\n}}'),
+        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* {{Achievement requirement|or = y|80 Attack|80 [[Strength]]}}\n* {{Achievement requirement|or = y|81 Woodcutting|find an idol}}\n}}'),
         Q.cheevoTip('<p class="mw-empty-elt">\n</p><p><b>Port Life</b> is an achievement awarded for following the tutorial.</p><p>More.</p>')
       ];
     });
-    expect(more[0].other).toEqual(['90 Agility or 90 Cooking']);
-    expect(more[1].other).toEqual(['90 Fishing + 90 Slayer or 90 Prayer']);
-    expect(more[2]).toEqual({ skills: [], links: [], other: ['Tier 10 the fort in the Wilderness'] });
-    expect(more[3]).toBe('Port Life is an achievement awarded for following the tutorial.');
+    expect(more[0].oneOf).toEqual([{ text: '90 Agility or 90 Cooking', any: [[{ skill: 'Agility', level: 90 }], [{ skill: 'Cooking', level: 90 }]] }]);
+    expect(more[1].oneOf).toEqual([{ text: '90 Fishing + 90 Slayer or 90 Prayer',
+      any: [[{ skill: 'Fishing', level: 90 }, { skill: 'Slayer', level: 90 }], [{ skill: 'Prayer', level: 90 }]] }]);
+    expect(more[2]).toEqual({ skills: [], links: [], oneOf: [], other: ['Tier 10 the fort in the Wilderness'] });
+    // levels in words count too; with something that is not a level, it stays words
+    expect(more[3].oneOf).toEqual([{ text: '80 Attack or 80 Strength', any: [[{ skill: 'Attack', level: 80 }], [{ skill: 'Strength', level: 80 }]] }]);
+    expect(more[3].other).toEqual(['81 Woodcutting or find an idol']);
+    expect(more[4]).toBe('Port Life is an achievement awarded for following the tutorial.');
   });
 });
 
@@ -571,21 +577,24 @@ test.describe('more about each achievement', () => {
     expect(page.errors).toEqual([]);
   });
 
-  test('a quest it needs opens here, with a tick when you have done it', async ({ page, wiki }) => {
-    withCapes(wiki).setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, {});
+  test('a quest it needs opens here: a tick when you have done it, a cross when you have not', async ({ page, wiki }) => {
+    withCapes(wiki).setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED', 'Rune Mysteries': 'STARTED' }, {});
     const pages = JSON.parse(fixture('cape-achievements.json'));
     const bones = pages["Aereck's Old Bones"];
-    wiki.details({ "Aereck's Old Bones": { lead: bones.lead.replace('* [[The Restless Ghost]]', "* [[Cook's Assistant]]\n* [[Rune Mysteries]] (partial)"), extract: bones.extract } });
+    wiki.details({ "Aereck's Old Bones": { lead: bones.lead.replace('* [[The Restless Ghost]]', "* [[Cook's Assistant]]\n* [[Rune Mysteries]] (partial)\n* [[Imp Catcher]]"), extract: bones.extract } });
     await openApp(page, expect);
     await lookUp(page, 'Zezima');
     await expect(page.locator('#player')).toContainText('Zezima');
     await closeSettings(page);
     await openCape(page, 'mqc', MQC);
     const need = cheevo(page, '2112').locator('.need');
-    await expect(need.locator('.qlink')).toHaveText(["Cook's Assistant", 'Rune Mysteries']);
+    await expect(need.locator('.qlink')).toHaveText(["Cook's Assistant", 'Rune Mysteries', 'Imp Catcher']);
     await expect(need).toContainText('Rune Mysteries (partial)');
     await expect(need.locator('.mk.ok')).toHaveCount(1);
-    await expect(need).not.toHaveClass(/\blow\b/);   // a partial quest is not counted as missing
+    // part of a quest you started may be enough: no mark; one you have not done: a red cross
+    await expect(need.locator('.mk.no')).toHaveCount(1);
+    await expect(need.locator('.mk.no')).toHaveAttribute('title', 'Not done yet');
+    await expect(need).toHaveClass(/\blow\b/);
     await need.locator('.qlink', { hasText: "Cook's Assistant" }).click();
     await expect(page.locator('h1.qt')).toHaveText("Cook's Assistant");
   });
@@ -695,4 +704,24 @@ test.describe('achievements on My list', () => {
     expect(t.lists[0].items[0]).toMatchObject({ kind: 'cheevo', cape: 'comp', cheevo: '2115', title: 'Annihilator' });
     // (like an area task, its tick comes from "capes" in the file, not from the list)
   });
+});
+
+test.describe('one of these levels', () => {
+  for (const [levels, ok] of [[{ 3: 70 }, true], [{ 3: 50, 17: 40 }, false]]) {
+    test(ok ? 'a tick when you have one of them' : 'a cross when you have none of them', async ({ page, wiki }) => {
+      withCapes(wiki).setPlayer('Zezima', {}, Object.assign({ 4: 99 }, levels));   // Constitution 99, Strength and Agility
+      await openApp(page, expect);
+      await lookUp(page, 'Zezima');
+      await expect(page.locator('#player')).toContainText('Zezima');
+      await closeSettings(page);
+      await openCape(page, 'trim', TRIM);
+      await page.locator('.tab[data-ctab="other"]').click();
+      const need = cheevo(page, '1679').locator('.need');
+      await expect(need).toContainText('60 Strength or 60 Agility');
+      await expect(need.locator('.mk')).toHaveCount(2);   // Constitution, and the group
+      await expect(need.locator('.mk').last()).toHaveClass(ok ? /\bok\b/ : /\bno\b/);
+      await expect(need.locator('.mk').last()).toHaveAttribute('title', ok ? 'You have one of these' : 'Too low: you have none of these');
+      if (ok) await expect(need).not.toHaveClass(/\blow\b/); else await expect(need).toHaveClass(/\blow\b/);
+    });
+  }
 });

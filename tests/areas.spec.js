@@ -613,11 +613,12 @@ test.describe('an area', () => {
     await expect(sk.nth(1).locator('.mk.ok')).toHaveCSS('color', 'rgb(102, 211, 92)');
     await expect(sk.nth(1).locator('.mk.ok')).toHaveAttribute('title', 'You have 40');
     await expect(n.locator('.sech .c')).toHaveText('1 too low');
-    // quests: a green tick after the ones you have done; nothing after the others, like the wiki
+    // quests: a green tick after the ones you have done, a red cross after the others
     await expect(n.locator('.tree li.got')).toHaveText(['Biohazard', 'Plague City']);
     await expect(n.locator('.tree li.got .mk.ok')).toHaveCount(2);
     await expect(n.locator('.tree li:not(.got)')).toHaveCount(3);
-    await expect(n.locator('.tree li:not(.got) .mk')).toHaveCount(0);
+    await expect(n.locator('.tree li:not(.got) .mk.no')).toHaveCount(3);
+    await expect(n.locator('.tree li:not(.got) .mk.no').first()).toHaveAttribute('title', 'Not done yet');
     // a task that needs more than you have: the same cross
     const need = task(page, '448').locator('.need');
     await expect(need).toHaveText('Needs 5 Thieving goal');

@@ -734,9 +734,14 @@
       (st === 'low' && !A.hasSkillGoal(s.skill, s.level) ? ' <button class="addgoal" type="button" data-addgoal="' + esc(String(s.skill).toLowerCase()) + '" data-level="' + esc(s.level) + '"' +
         ' aria-label="Add ' + esc(s.level + ' ' + s.skill) + ' to my list" title="Add this level to my list">' + I.plus + 'goal</button>' : '') + '</' + tag + '>';
   }
-  // After a quest's name: a green tick when you have done it (like the wiki, nothing when you have not).
-  function questMark(q) {
-    return S.player && playerStatus(q) === 2 ? ' ' + markHtml(true, 'Done') : '';
+  // After a quest's name, once your character is looked up: a green tick when you have done it, a red cross when you
+  // have not. partial: part of the quest is enough, so a quest you started gets neither.
+  function questMark(q, partial) {
+    if (!S.player) return '';
+    var st = playerStatus(q);
+    if (st === 2) return ' ' + markHtml(true, 'Done');
+    if (partial && st === 1) return '';
+    return ' ' + markHtml(false, st === 1 ? 'Started, not done yet' : 'Not done yet');
   }
   // Boxes (pictures, maps, tables, music...) remember if you opened them.
   function accKey(d) {
@@ -911,7 +916,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, markHtml: markHtml, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,

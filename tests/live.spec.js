@@ -193,3 +193,40 @@ test('an area page as the wiki sends it to a phone reads into its tiers and task
   expect(t.map((x) => x[0])).toEqual(['Easy', 'Medium', 'Hard', 'Elite']);
   for (const x of t) expect(x[1]).toBeGreaterThan(0);
 });
+
+test('the three capes read from the wiki, with what each achievement needs and a tip', async ({ page }) => {
+  await page.goto('/');
+  const r = await page.evaluate(async () => {
+    const Q = window.QuickGuide, out = {};
+    for (const c of Q.CAPES) {
+      const cape = await Q.loadCape(c.key), xs = cape.cheevos;
+      const words = (x) => (x.other || []).concat((x.links || []).map((l) => l.name), (x.oneOf || []).map((o) => o.text), (x.skills || []).map((s) => s.skill));
+      out[c.key] = {
+        n: xs.length, levels: cape.levels.length, skiller: cape.skiller.length, names: xs.map((x) => x.name),
+        tips: xs.filter((x) => x.tip).length,
+        needs: xs.filter((x) => words(x).length).length,
+        also: xs.filter((x) => (x.also || []).length).length,
+        // wiki markup that was not turned into words
+        raw: xs.flatMap(words).filter((t) => /[{}[\]|<>]/.test(t))
+      };
+    }
+    return out;
+  });
+  expect(r.mqc.n).toBeGreaterThan(250);
+  expect(r.comp.n).toBeGreaterThan(80);
+  expect(r.trim.n).toBeGreaterThan(60);
+  // the master quest cape's levels, and Master Skiller's
+  expect(r.mqc.levels).toBeGreaterThan(20);
+  expect(r.comp.skiller).toBeGreaterThan(25);
+  // the achievements that tick themselves are found by their names
+  expect(r.mqc.names).toContain('Quest Cape');
+  expect(r.comp.names).toEqual(expect.arrayContaining(['Quest Cape', 'Master Skiller']));
+  expect(r.trim.names).toEqual(expect.arrayContaining(['Master Quest Cape', 'Completionist Cape']));
+  for (const k of ['mqc', 'comp', 'trim']) {
+    expect(r[k].tips / r[k].n, k + ': tips').toBeGreaterThan(0.9);
+    expect(r[k].needs / r[k].n, k + ': needs').toBeGreaterThan(0.5);
+    expect(r[k].raw, k + ': wiki markup in needs').toEqual([]);
+  }
+  // some count for two capes
+  expect(r.mqc.also).toBeGreaterThan(10);
+});

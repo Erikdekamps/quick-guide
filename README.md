@@ -51,7 +51,8 @@ when the game gives them, your quest points.
 - Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
 - Skill levels look like the wiki: "• 100 [icon] Mining ✓". A green ✓ follows a level you have, a red ✗ one you
   do not (point at it to see your level). A small "(boostable)" follows a level you may boost.
-- Quests you need get a green ✓ when you have done them, in a quest's tree and in an area.
+- Quests you need get a green ✓ when you have done them and a red ✗ when you have not, in a quest's tree, in an
+  area and in a cape.
 - It updates by itself once a day. The round arrow updates it now; the ✕ forgets the character.
 
 ## Achievements
@@ -70,8 +71,10 @@ Before you open one, it says so. After, it shows how many achievements you did, 
   are together in **Other**.
 - In a tab, a subcategory with 3 or more achievements is a part of its own (**Post-Quest**, **Slayer**…).
   The rest are together ("More lore"). A part folds shut when you finish it.
-- Each achievement shows what it needs and how to do it, like an area task: "Needs 93 [icon] Magic ✓, Swept Away",
-  with a red ✗ and **+ goal** for a level you do not have, and a ✓ after a quest you have done (click a quest to open it).
+- Each achievement shows what it needs and how to do it, like an area task: "Needs 93 [icon] Magic ✓, Swept Away ✗".
+  What you have gets a green ✓, what you do not a red ✗ (a level also **+ goal**). Click a quest to open it. Part of a
+  quest ("(partial)") that you started gets no mark: it may be enough. "One of these" levels ("60 Strength or 60
+  Agility") gets one mark. Needs the app cannot check ("Tier 10 reputation") are only words.
   Under that is the wiki's tip, and "Also counts for the completionist cape" when it is in two capes.
 - Click an achievement to tick it. One that is in two capes is ticked in both. **Done, next achievement** ticks the
   next one. When a tab is done, the button goes to the next tab with some left.
