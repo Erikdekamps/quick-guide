@@ -69,7 +69,8 @@
       var done = (!!me && me.total > 0 && me.done >= me.total) || playerStatus(title) === 2 || markedDone(title);
       var q = sget('quest.' + key), p = progs[key] ? loadProg(key) : null;
       var ticks = p ? Object.keys(ticked(p.steps)).length + Object.keys(ticked(p.items)).length : 0;
-      if (!q && !ticks) { quests[title] = done; return; }
+      // A done quest is just true: its steps would only fill the file.
+      if (done || (!q && !ticks)) { quests[title] = done; return; }
       var e = {};
       if (key !== title + '/Quick guide') e.page = key;
       e.done = done;
@@ -111,6 +112,7 @@
     return {
       app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
       help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
+        'A done quest is just true, without its steps. ' +
         'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
         '"tiers" is each tier\'s count, to read at a glance: an import does not use it. ' +
         '"mylist" is your lists of goals: add a goal by typing it the way you would in the add box, like "82 Thieving" or "500 Magic logs". ' +
