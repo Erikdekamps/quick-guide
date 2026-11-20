@@ -76,7 +76,7 @@ async function importText(page, text) {
 test.describe('the My list tab', () => {
   test('a third tab; with no lists yet it says how to start, and it stays after a reload', async ({ page }) => {
     await openApp(page, expect);
-    await expect(page.locator('.bnav .bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list', 'Settings']);
+    await expect(page.locator('.bnav .bn .bnl')).toHaveText(['Quests', 'Achievements', 'My list', 'Settings']);
     await tab(page).click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
     await expect(page.getByRole('button', { name: 'Create list' })).toBeVisible();
@@ -1030,7 +1030,7 @@ test.describe('goals that tick themselves', () => {
     await taskMenu(page, '448');
     await expect(menuItems(page)).toHaveText(['Remove from Diary']);
     await page.keyboard.press('Escape');
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await tab(page).click();
     await expect(goals(page, 'Diary').locator('.t')).toHaveText(['Ardougne Elite', 'Yoink!']);
     // tick the task on the list: it is ticked in its area too
@@ -1044,7 +1044,7 @@ test.describe('goals that tick themselves', () => {
     // untick it there (done tasks show with "Done steps and tasks"): open again on the list
     await toggle(page, 'Done steps and tasks');
     await page.locator('li[data-task="448"] > .row .cb').click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await tab(page).click();
     await expect(goal(page, 'Yoink!')).not.toHaveClass(/\bdone\b/);
     // a tier is done when all its tasks are
@@ -1089,7 +1089,7 @@ test.describe('goals that tick themselves', () => {
     await expect(page.locator('#ta-parent option:checked')).toHaveText('None');
     await addTo(page);
     // a level, under a goal
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await tab(page).click();
     await expect(goals(page, 'Diary').locator(':scope > .row .t')).toHaveText(['Ardougne', 'Later', 'The Essence of Magic']);
     const easy = page.locator('li.gsub').filter({ has: page.locator(':scope > .row .t', { hasText: 'Easy ones' }) });
@@ -1111,7 +1111,7 @@ test.describe('goals that tick themselves', () => {
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
     await toggle(page, 'Done steps and tasks');
     await page.locator('li[data-task="448"] > .row .cb').click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await tab(page).click();
     await expect(yoink).not.toHaveClass(/\bdone\b/);
     // the file says which task it is, and it comes back as one
@@ -1124,7 +1124,7 @@ test.describe('goals that tick themselves', () => {
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Remove from Diary' }).click();
-    await page.getByRole('button', { name: 'All areas' }).click();
+    await page.getByRole('button', { name: 'All achievements' }).click();
     await tab(page).click();
     await expect(page.locator('li.gsub .t')).toHaveText(['Easy ones']);
     expect(page.errors).toEqual([]);
@@ -1217,7 +1217,7 @@ test.describe('the window', () => {
     await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await expect(band.locator('h1.qt')).toHaveText('Ardougne');
-    await expect(band.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
+    await expect(band.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All achievements');
     await expect(band.locator('#menu-btn')).toBeVisible();
     await expect(band.locator('[aria-label="Settings"]')).toHaveCount(0);
     await expect(page.locator('.tabs')).toHaveCount(1);
@@ -1262,7 +1262,7 @@ test.describe('the window', () => {
     await settings.click();
     await page.keyboard.press('Escape');
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
-    await expect(lit).toHaveText('Area tasks');
+    await expect(lit).toHaveText('Achievements');
     // another button goes to its list, and a reload stays there
     await settings.click();
     await page.locator('.bn[data-home="todo"]').click();
@@ -1280,13 +1280,13 @@ test.describe('the window', () => {
     expect(page.errors).toEqual([]);
   });
 
-  test('the bar at the bottom: Quests, Area tasks, My list and Settings on every screen; the number on My list changes right there', async ({ page, wiki }) => {
+  test('the bar at the bottom: Quests, Achievements, My list and Settings on every screen; the number on My list changes right there', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await seed(page, { todo: lists({ Today: [] }) });
     await openApp(page, expect);
     const bar = page.locator('.bnav'), lit = page.locator('.bn[aria-current="page"]');
     // on the start screen: at the very bottom of the window, Quests lit
-    await expect(bar.locator('.bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list', 'Settings']);
+    await expect(bar.locator('.bn .bnl')).toHaveText(['Quests', 'Achievements', 'My list', 'Settings']);
     await expect(lit).toHaveText('Quests');
     const win = await page.locator('#app').boundingBox();
     let bb = await bar.boundingBox();
@@ -1311,10 +1311,10 @@ test.describe('the window', () => {
     await expect(page.locator('#quest-link')).toBeVisible();
     await expect(page.locator('.hdr h1.qt')).toHaveText('Quick Guide');
     expect(await stored(page, 'last')).toBeNull();
-    // in an area: Area tasks lit; a task added to a list counts at once
+    // in an area: Achievements lit; a task added to a list counts at once
     await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
-    await expect(lit).toHaveText('Area tasks');
+    await expect(lit).toHaveText('Achievements');
     await expect(page.locator('.tab[data-tier]')).toHaveCount(4);
     await taskMenu(page, '448');
     await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
@@ -1328,7 +1328,7 @@ test.describe('the window', () => {
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
     await page.reload();
     await expect(page.locator('.hdr h1.qt')).toHaveText('Ardougne');
-    await expect(lit).toHaveText('Area tasks');
+    await expect(lit).toHaveText('Achievements');
     // no sideways scrolling in a narrow window
     await page.setViewportSize({ width: 280, height: 600 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

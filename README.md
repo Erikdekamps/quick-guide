@@ -4,8 +4,10 @@ A tick list for RuneScape 3, made for the [Alt1](https://runeapps.org/alt1) brow
 in the brown interface the game has now, or the blue one it had before (a setting).
 
 - **Quests:** every quest's [Quick guide](https://runescape.wiki/w/Category:Quick_guides) from the RuneScape Wiki, as steps you tick off.
-- **Area tasks:** every tier of the 13 [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
-- **My list:** your own lists of goals (levels, items, unlocks, quests, area tasks), to plan your day or week.
+- **Achievements:** the [master quest](https://runescape.wiki/w/Master_quest_cape), [completionist](https://runescape.wiki/w/Completionist_cape)
+  and [trimmed completionist](https://runescape.wiki/w/Completionist_cape_(t)) capes, and every tier of the 13
+  [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
+- **My list:** your own lists of goals (levels, items, unlocks, quests, area tasks, achievements), to plan your day or week.
 
 ## Add it to Alt1
 
@@ -35,7 +37,7 @@ Wiki links open in your normal browser, so the app stays on the guide.
   - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
     A part folds shut when you finish it. Maps are the wiki's own (drag to move, + and − to zoom).
     The tab counts the steps you did.
-- The bar at the bottom of every screen has **Quests**, **Area tasks**, **My list** and **Settings** (bottom right).
+- The bar at the bottom of every screen has **Quests**, **Achievements**, **My list** and **Settings** (bottom right).
   The one you are in is lit in gold. Click one to go to its list, from anywhere.
 - Boxes that fold (parts, pictures, maps, tables) start open. The app remembers the ones you close.
 - A reload (or opening the app again) shows the screen, tab and tier you were on, scrolled where you left it.
@@ -49,12 +51,43 @@ when the game gives them, your quest points.
 - Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
 - Skill levels look like the wiki: "• 100 [icon] Mining ✓". A green ✓ follows a level you have, a red ✗ one you
   do not (point at it to see your level). A small "(boostable)" follows a level you may boost.
-- Quests you need get a green ✓ when you have done them, in a quest's tree and in Area tasks.
+- Quests you need get a green ✓ when you have done them and a red ✗ when you have not, in a quest's tree, in an
+  area and in a cape.
 - It updates by itself once a day. The round arrow updates it now; the ✕ forgets the character.
 
-## Area tasks
+## Achievements
 
-**Area tasks** (in the bar at the bottom) has a row per tier (**Ardougne Easy**, **Ardougne Medium**, …) with its count and a progress bar,
+**Achievements** (in the bar at the bottom) starts with the **Capes**, then the areas.
+
+### Capes
+
+A card for each cape: the **master quest cape**, the **completionist cape** and the **trimmed completionist cape**.
+Before you open one, it says so. After, it shows how many achievements you did, a progress bar, and where to go on
+("Next: Lore · Post-Quest, 4 left").
+
+- Click a card to open the cape. The app reads its achievement list from the wiki once, with each achievement's
+  own page (20 at a time). The top shows the cape's picture, your count, and where to buy the cape.
+- A tab for each of the biggest categories (Lore, Skills, Exploration…), with its count. The smaller categories
+  are together in **Other**.
+- In a tab, a subcategory with 3 or more achievements is a part of its own (**Post-Quest**, **Slayer**…).
+  The rest are together ("More lore"). A part folds shut when you finish it.
+- Each achievement shows what it needs and how to do it, like an area task: "Needs 93 [icon] Magic ✓, Swept Away ✗".
+  What you have gets a green ✓, what you do not a red ✗ (a level also **+ goal**). Click a quest to open it. Part of a
+  quest ("(partial)") that you started gets no mark: it may be enough. "One of these" levels ("60 Strength or 60
+  Agility") gets one mark. Needs the app cannot check ("Tier 10 reputation") are only words.
+  Under that is the wiki's tip, and "Also counts for the completionist cape" when it is in two capes.
+- Click an achievement to tick it. One that is in two capes is ticked in both. **Done, next achievement** ticks the
+  next one. When a tab is done, the button goes to the next tab with some left.
+- Its **⋯** menu: **Add to list…** (or **Remove from …**), and **Open on the wiki** (the achievement's own page).
+  On a list, it is one tick with its cape, and its menu opens the cape.
+- Some tick themselves: **Quest Cape** from your quests, **Master Skiller** from your levels (look up your character),
+  and the **Master Quest Cape** and **Completionist Cape** lines of the trimmed cape from those capes (**Open it** opens them).
+- The master quest cape's first tab has **Needs**: the levels it needs, with yours. It lists the ones above the usual
+  level, then "And 90 or more in every other skill". A level you do not have is always listed, and opens the part.
+
+### Area tasks
+
+A row per tier (**Ardougne Easy**, **Ardougne Medium**, …) with its count and a progress bar,
 under its area, in the game's order.
 
 - Click a tier to open it. Its tab shows how many of its tasks you did; the other tiers' tabs show theirs.
@@ -78,16 +111,18 @@ under its area, in the game's order.
 - **Add a goal** in the box at the end of a list: type it, press Enter, and type the next one. It goes in as you
   typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
   character is looked up.
-- **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
-  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
+- **A quest, an area task, a tier or an achievement:** its **⋯** menu has **Add to list…** (an area task and an
+  achievement have their own ⋯; a quest's and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
   **parent**: none (it is a goal of the list), or a goal or a sub task of the list. Under a parent it is a sub
   task there and still the same task: one tick, here and in its area.
 - The bar at the bottom stays on every screen, so in a quest or an area you see the number on **My list** go up
   when you add something.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
-- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
+- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's or an achievement's
+  needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
-  the list and in its area; a quest ticked here is done in the quest list too.
+  the list and in its area, and an achievement in the list and in its cape; a quest ticked here is done in the quest
+  list too.
 - **Paste a list** (in a list's ⋯): type or paste goals as plain text, one on each line. A line that is further in
   goes under the one above, as a sub task. Bullets (`-`, `*`, `•`), numbers (`1.`) and tick boxes (`[ ]`, `[x]` for
   done) are understood, and each line is read like a goal you type ("82 thieving", "Quest: Cook's Assistant"). The box says what it reads while you type. Pasting more than one line in the box at
@@ -128,34 +163,36 @@ button goes to its list.
 
 - **Player:** look up your character, update it, or forget it.
 - **Show:** what the lists and guides show. A tick means you see them.
-  - **Done quests and tiers**, **Miniquests** and **Locked quests and tiers**: in the quest list and Area tasks.
+  - **Done quests and tiers**, **Miniquests** and **Locked quests and tiers**: in the quest list and the area list.
     A search still finds them all.
-  - **Done steps and tasks**: ticked steps, items and tasks go away at first, so the next one is on top.
+  - **Done steps and tasks**: ticked steps, items, tasks and achievements go away at first, so the next one is on top.
     Tick it to see them again, to untick one.
 - **Lists:** how the quest list is sorted.
 - **Display:** **Theme** (Brown, like the game now, or Blue, like the game before) and **Text size** (12 to 40).
 - **Update quest list** reads the lists from the wiki again.
 - **Backup:** **Export state** and **Import state** (below).
-- **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, lists, settings and your character.
+- **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
-the wiki, or resets its progress. In a quest it also jumps to the next step.
+the wiki, or resets its progress. In a quest it also jumps to the next step. In a cape it refreshes, opens the wiki, or resets.
 
 ## Export and import
 
 **Export state** gives a JSON file with **every quest and every area task**, each `true` (done) or `false` (not done),
-and **your lists**.
+**the capes you opened** (each achievement, by category) and **your lists**.
 It also lists the quests the game knows that the wiki's quest list does not have (parts of a bigger quest, like
 Recipe for Disaster), so its done quests add up to what the game says. `tiers` is each tier's count ("7 / 12"),
 to read at a glance; an import does not use it. Steps say all they say, nothing is cut off.
 **Download file** saves it; **Copy** puts the text on the clipboard (use Copy inside Alt1 if the download does not work).
 
 Change it in any text editor, then **Import state**, **Choose a file**, **Import**. The number at the start of a task
-(`447 …`) or a step (`993:1 …`) is how the app finds it; a task can also be written by its name alone.
+(`447 …`), a step (`993:1 …`) or an achievement (`4949 …`) is how the app finds it; a task can also be written by its name alone.
+The achievements that tick themselves (Quest Cape, Master Skiller, and the two capes in the trimmed one) are only to read.
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
-`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`. A goal with a note or sub tasks is
+`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
+`"Achievement 2111: Advanced Sweeping (Master quest cape)"`. A goal with a note or sub tasks is
 `{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`; a sub task with its own is
 `{ "done": false, "subs": { … } }`. Add a list or a goal by hand and it comes in.
 
@@ -178,6 +215,9 @@ In `mylist`, each goal is a line, written the way you type it in the add box: `"
   "areas": {
     "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
   },
+  "capes": {
+    "Master quest cape": { "Lore": { "4949 A Sliver of Silver Helps the Sanguine Go Down": true }, "Completionist": { "1 Quest Cape": false } }
+  },
   "mylist": {
     "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax": true },
     "Gathering": { "500 Magic logs": false }
@@ -186,7 +226,7 @@ In `mylist`, each goal is a line, written the way you type it in the add box: `"
 ```
 
 - Steps are only listed for quests you opened; the others are one line.
-- Import replaces the ticks of the quests and areas in the file and leaves the others alone.
+- Import replaces the ticks of the quests, areas and capes in the file and leaves the others alone.
   A file with `mylist` replaces your lists; a file without it leaves them alone.
   If a file has a mistake, it says what is wrong and changes nothing. Files from the first version still import.
 
@@ -203,7 +243,8 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `qdone` | Quests marked done by an import |
 | `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
-| `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
+| `cape.<key>`, `cprog.<key>` | A cape's achievements (`mqc`, `comp` or `trim`) with what each needs and its tip, and your ticks, tab and folded parts in it |
+| `settings`, `last` | Your settings (the theme too), and the quest, area or cape that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
 | `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
@@ -216,7 +257,12 @@ and read from the wiki again when you open them.
 - `js/wiki/quests.js` reads the quest lists and the optimal order through the wiki's API, for example
   `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
 - `js/wiki/parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
-  and the area pages (`<Area>_achievements`), and turns them into JSON.
+  the area pages (`<Area>_achievements`) and the capes' achievement lists (`Master_Quest_Cape_(achievement)`,
+  `Completionist_Cape_(achievement)`, `Trimmed_Completionist_Cape_(achievement)`), and turns them into JSON. The levels
+  come from `Master_quest_cape` (its minimum skill levels) and `Master_Skiller`. What each achievement needs, the capes
+  it counts for and its tip come from its own page, 20 pages a time: the infobox of the first section, and the first
+  paragraph, for example
+  `https://runescape.wiki/api.php?action=query&prop=revisions|extracts&rvprop=content&rvsection=0&exintro=1&titles=Advanced_Sweeping|Annihilator&format=json&origin=*`.
 - Map pictures load from `maps.runescape.wiki`.
 - The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
   (quests, skill levels and quest points in one answer), through the wiki first, then at Jagex itself:
@@ -238,13 +284,14 @@ No other service is used.
 | `index.html`, `style.css` | The page and its look (both themes: every colour is a token at the top of `style.css`) |
 | `js/app/core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
 | `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
-| `js/app/areas.js` | Area tasks: the list of tiers, search, and one area |
+| `js/app/areas.js` | Achievements: the list of tiers, search, and one area |
+| `js/app/capes.js` | Achievements: the cape cards, and one cape's page |
 | `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
 | `js/app/todo-view.js` | My list: what it shows, its count in the bar at the bottom, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |
 | `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
-| `js/wiki/parser.js` | Reads a quest guide or an area page from the wiki |
+| `js/wiki/parser.js` | Reads a quest guide, an area page or a cape's achievements from the wiki |
 | `js/wiki/quests.js` | Reads the quest lists and the optimal order |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
@@ -256,7 +303,7 @@ No other service is used.
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards (in `designs/canvas/`) and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.40.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+When you change a file, also raise the `?v=1.41.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
 ## Tests
 

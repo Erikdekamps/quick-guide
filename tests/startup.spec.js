@@ -19,7 +19,7 @@ test.describe('a file that does not load', () => {
 
   // The app is in nine files in js/app (core.js first, main.js last): any one missing, the page says which, and
   // nothing half-works under it.
-  for (const file of ['js/app/core.js', 'js/app/quests.js', 'js/app/areas.js', 'js/app/todo-data.js', 'js/app/todo-view.js', 'js/app/todo.js', 'js/app/backup.js', 'js/app/main.js']) {
+  for (const file of ['js/app/core.js', 'js/app/quests.js', 'js/app/areas.js', 'js/app/capes.js', 'js/app/todo-data.js', 'js/app/todo-view.js', 'js/app/todo.js', 'js/app/backup.js', 'js/app/main.js']) {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
       await page.goto('/');

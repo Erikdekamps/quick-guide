@@ -665,7 +665,7 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .subs .step.cur { background: none; }
 .subs .step.cur::after { display: none; }
 /* Ticked rows go away. "Done steps and tasks" (Settings, Show) shows them again. */
-#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task], #main:not(.show-done) li.done[data-cheevo] { display: none; }
 /* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
 #main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
 .alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
@@ -802,7 +802,7 @@ kbd {
 /* footer: the big gold button */
 .ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
 
-/* the bar at the bottom of every screen: Quests, Area tasks, My list and Settings, the open one lit in gold */
+/* the bar at the bottom of every screen: Quests, Achievements, My list and Settings, the open one lit in gold */
 .bnav {
   position: relative;
   flex: none;
@@ -1014,7 +1014,7 @@ div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 
 .need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
 .step.done .need { display: none; }
 /* a finished tier's tasks, once you open them: shown, so you can untick one */
-#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+#main:not(.show-done) .sec.alldone li.done[data-task], #main:not(.show-done) .sec.alldone li.done[data-cheevo] { display: list-item; }
 /* the wiki's tip for a task, under it */
 .howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
 /* the quests a tier needs line up with the text */
@@ -1143,6 +1143,30 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 .toast b { color: var(--title); font-weight: 600; }
 /* a list as text: the box to paste a list in, or to copy it from */
 #tp-text { flex: none; height: 170px; min-height: 96px; font-size: 12px; }
+
+/* ---------- capes, in Achievements ---------- */
+/* the cards on top of the list: the cape, how far you are, and where to go on */
+.capes { display: flex; flex-direction: column; gap: 8px; padding: 8px 8px 10px; }
+.cape { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; text-align: left; background: linear-gradient(var(--panel), var(--panel-2));
+  border: 1px solid var(--edge); border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; color: var(--text); font: inherit; cursor: pointer; }
+.cape:hover { background: linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.cape img, .capehd img { flex: none; width: 48px; height: 48px; filter: drop-shadow(0 1px 0 #000); }
+.cape .cb1, .capehd .cb1 { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cape b { font: 700 14px/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--title); }
+.cape .cn, .capehd .cn { font-size: 12px; color: var(--soft); font-variant-numeric: tabular-nums; }
+.cape .pg { flex: none; height: 6px; box-shadow: none; }
+.cape .cx, .capehd .cx { font-size: 12px; line-height: 1.35; color: var(--muted); }
+.cape.done .cn { color: var(--green); }
+/* the card on top of a cape's page: how far you are, and where to buy it */
+.capehd { display: flex; align-items: center; gap: 12px; margin: 8px 8px 2px; padding: 8px 10px; background: linear-gradient(var(--panel), var(--panel-2));
+  border: 1px solid var(--edge); border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; }
+.capehd .cn { font-weight: 600; color: var(--title); }
+/* an achievement the app ticks itself: from your quests, your levels, or another cape */
+.task.auto > .row > .cb, .task.auto > .row > .cb:hover { border-style: dashed; border-color: var(--cb-edge); opacity: .7; cursor: default; }
+.self { font-size: .857rem; color: var(--muted); }
+/* "Also counts for the completionist cape": an achievement in two capes is one tick */
+.task .also { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
+.self b { color: var(--soft); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 .dcols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
 .dcol { min-width: 0; }
@@ -1391,11 +1415,11 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div style="padding-left: 2ch">}</div>
 <div>}</div>
 </div>
-<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>What the Show switches show (done steps and tasks, done quests and tiers, miniquests, locked quests and tiers), text size, sort order, the theme (brown or blue), and the list you had open (Quests, Area tasks or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, where each list, tab and tier is scrolled, and if Settings is open.</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
+<dl class="legend" style="margin-top: 12px"><dt>open</dt><dd>Parts you opened or closed. <code>ov:</code> is an Overview part: <code>false</code> when you closed it.</dd><dt>acc</dt><dd>Boxes you opened or closed: pictures, maps, tables.</dd><dt>settings</dt><dd>What the Show switches show (done steps and tasks, done quests and tiers, miniquests, locked quests and tiers), text size, sort order, the theme (brown or blue), and the list you had open (Quests, Achievements or My list).</dd><dt>minis</dt><dd>Every miniquest, read from the wiki’s Miniquests page (its main table only).</dd><dt>order</dt><dd>The wiki’s optimal quest order, read from its quest progression guide.</dd><dt>area.&lt;name&gt;</dt><dd>One area’s tasks, read from its “&lt;name&gt; achievements” page: tiers, each with needs (levels, quests, items, Ironmen notes), tasks and rewards.</dd><dt>aprog.&lt;name&gt;</dt><dd>Your ticks in that area, and the tier you looked at last.</dd><dt>ameta</dt><dd>Done and total per tier for each area, and what each tier needs, for the area list.</dd><dt>aidx</dt><dd>Every task of every area (id, name, step ids), so the tasks can be searched. Made once from the 13 area pages.</dd><dt>cape.&lt;key&gt;</dt><dd>One cape’s achievements (<code>mqc</code>, <code>comp</code> or <code>trim</code>), read from its “… Cape (achievement)” page: id, name, what to do, category and subcategory; and from each achievement’s own page what it needs (<code>skills</code>, <code>links</code>, <code>other</code>), the other capes it counts for (<code>also</code>) and a tip. The master quest cape keeps its levels, the completionist cape those of Master Skiller.</dd><dt>cprog.&lt;key&gt;</dt><dd>Your ticks in that cape, the tab you looked at last, and the parts you opened or closed.</dd><dt>qdone</dt><dd>Quests marked done by an import, by name (letters only).</dd><dt>view</dt><dd>Where you were, so a reload shows the same: the search text, folded groups, where each list, tab and tier is scrolled, and if Settings is open.</dd><dt>todo</dt><dd>My list: your lists in their order, each with its goals. <code>kind</code>: skill, task, tier, cheevo (an achievement, with its <code>cape</code>), quest or other (anything you type). <code>done</code>: when it was ticked (a goal that ticks itself gets it when the app first sees it done). <code>last</code>: the list you added to last. At most 30 lists and 300 goals; never dropped to make room.</dd><dt>player</dt><dd>The character you looked up. Quests: <code>2</code> done, <code>1</code> started, <code>0</code> not started. <code>titles</code>: each quest’s name as the game writes it. <code>locked</code>: not started, and you miss what the quest needs.</dd></dl>
 </div>
 <div class="dcol">
 <h2>Export file</h2>
-<p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false, and your lists. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it. A goal in “mylist” is read the way the add box reads what you type.</p>
+<p class="lead">Settings, then “Export state” gives a file with every quest and every area task, each true (done) or false, the capes you opened, and your lists. Change it by hand, then “Import state”. The code at the start of a step or task is how the app finds it. A goal in “mylist” is read the way the add box reads what you type.</p>
 <div class="json" role="figure" aria-label="Export example">
 <div>{</div>
 <div style="padding-left: 2ch"><span class="k">"app"</span>: "Quick Guide",</div>
@@ -1450,10 +1474,17 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 <div style="padding-left: 6ch">}</div>
 <div style="padding-left: 4ch">}</div>
 <div style="padding-left: 2ch">},</div>
+<div style="padding-left: 2ch"><span class="k">"capes"</span>: {</div>
+<div style="padding-left: 4ch"><span class="k">"Master quest cape"</span>: {</div>
+<div style="padding-left: 6ch"><span class="k">"Lore"</span>: { <span class="k">"4949 A Sliver of Silver Helps the Sanguine Go Down"</span>: <span class="v">true</span>, <span class="k">"…"</span>: … },</div>
+<div style="padding-left: 6ch"><span class="k">"Completionist"</span>: { <span class="k">"1 Quest Cape"</span>: <span class="v">false</span> }</div>
+<div style="padding-left: 4ch">}</div>
+<div style="padding-left: 2ch">},</div>
 <div style="padding-left: 2ch"><span class="k">"mylist"</span>: {</div>
 <div style="padding-left: 4ch"><span class="k">"Today"</span>: {</div>
 <div style="padding-left: 6ch"><span class="k">"Task 448: Yoink! (Ardougne Easy)"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 6ch"><span class="k">"Vis wax"</span>: <span class="v">true</span>,</div>
+<div style="padding-left: 6ch"><span class="k">"Achievement 2111: Advanced Sweeping (Master quest cape)"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 6ch"><span class="k">"Unlock Soul Split"</span>: {</div>
 <div style="padding-left: 8ch"><span class="k">"done"</span>: <span class="v">false</span>,</div>
 <div style="padding-left: 8ch"><span class="k">"note"</span>: "Needs The Temple at Senntisten"</div>

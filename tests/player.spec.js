@@ -293,9 +293,11 @@ test.describe('inside a quest', () => {
     await expect(tree.locator('.tree li').nth(0)).toHaveClass(/\bgot\b/);
     await expect(tree.locator('.tree li').nth(0)).toHaveText('Defender of Varrock');
     await expect(tree.locator('.tree li').nth(0).locator('.mk.ok')).toHaveCSS('color', 'rgb(102, 211, 92)');
-    // one you have not done: no mark, like the wiki
+    // one you have not done: a red cross
     await expect(tree.locator('.tree li').nth(1)).not.toHaveClass(/\bgot\b/);
-    await expect(tree.locator('.tree li').nth(1).locator('.mk')).toHaveCount(0);
+    await expect(tree.locator('.tree li').nth(1).locator('.mk.ok')).toHaveCount(0);
+    await expect(tree.locator('.tree li').nth(1).locator('.mk.no')).toHaveAttribute('title', 'Not done yet');
+    await expect(tree.locator('.tree li').nth(1).locator('.mk.no')).toHaveCSS('color', 'rgb(255, 91, 73)');
     // bullets, and a quest needed for another sits one step further in
     await expect(tree.locator('.tree')).toHaveCSS('list-style-type', 'disc');
   });

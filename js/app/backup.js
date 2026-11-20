@@ -109,15 +109,26 @@
       });
       areas[a.name] = out;
     });
+    // The capes you read: each achievement, by category, true (done) or false. Some tick themselves: their value is only to read.
+    var capes = {};
+    QG.CAPES.forEach(function (info) {
+      var c = A.savedCape(info.key);
+      if (!c) return;
+      var out = {};
+      c.cheevos.forEach(function (x) { (out[x.cat] = out[x.cat] || {})[x.id + ' ' + x.name] = A.cheevoDone(info.key, x); });
+      capes[info.name] = out;
+    });
     return {
       app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
       help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
         'A done quest is just true, without its steps. ' +
         'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
         '"tiers" is each tier\'s count, to read at a glance: an import does not use it. ' +
+        '"capes" is every achievement of the capes you opened. Quest Cape, Master Skiller and the two capes in the trimmed one tick themselves, ' +
+        'so their true or false is only to read. ' +
         '"mylist" is your lists of goals: add a goal by typing it the way you would in the add box, like "82 Thieving" or "500 Magic logs". ' +
         'Skill, quest, task and tier goals tick themselves, so their true or false is only to read.',
-      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas, mylist: A.exportTodo()
+      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas, capes: capes, mylist: A.exportTodo()
     };
   }
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
@@ -153,7 +164,8 @@
       if (isFinite(+pl.qpMax) && pl.qpMax != null) S.player.qpMax = +pl.qpMax;
       sset('player', S.player);
     }
-    if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; }
+    var nc = 0;
+    if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; nc = r2.capes; }
     else if (isMap(j.quests)) {
       Object.keys(j.quests).forEach(function (title) {
         var e = j.quests[title];
@@ -191,7 +203,7 @@
     }
     // My list: the file's lists replace yours. A file without them leaves yours alone.
     var nl = isMap(j.mylist) ? A.importTodo(j.mylist) : 0;
-    return { quests: nq, areas: na, lists: nl };
+    return { quests: nq, areas: na, capes: nc, lists: nl };
   }
   // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
   function importV2(j) {
@@ -248,7 +260,25 @@
         na++;
       });
     }
-    return { quests: nq, areas: na };
+    // Capes: your ticks, found by the code at the start of each achievement's line. The ones that tick themselves are left alone.
+    var nc = 0;
+    if (isMap(j.capes)) {
+      QG.CAPES.forEach(function (info) {
+        var e = j.capes[info.name];
+        if (!isMap(e)) return;
+        var c = A.savedCape(info.key), auto = {}, ticks = {};
+        if (c) c.cheevos.forEach(function (x) { if (A.autoOf(x, c)) auto[x.id] = 1; });
+        Object.keys(e).forEach(function (cat) {
+          if (!isMap(e[cat])) return;
+          Object.keys(e[cat]).forEach(function (k) { var id = code(k); if (e[cat][k] === true && !auto[id]) ticks[id] = 1; });
+        });
+        var p = A.loadCprog(info.key);
+        p.ticks = ticks;
+        sset('cprog.' + info.key, p);
+        nc++;
+      });
+    }
+    return { quests: nq, areas: na, capes: nc };
   }
   function closeBackup() {
     var b = byId('bk');
@@ -263,8 +293,8 @@
       '<div class="dlgbg" id="bk"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="bk-h">' +
       '<h2 class="dh" id="bk-h">' + (exp ? 'Export state' : 'Import state') + '</h2>' +
       '<p class="para">' + (exp ?
-        'Every quest, every area task and your lists, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
-        'Choose a file you exported, or paste its text. It replaces your ticks for the quests and areas in it, and your lists when it has them.') + '</p>' +
+        'Every quest, every area task, the capes you opened and your lists, as a file: <b>true</b> is done, <b>false</b> is not. Download it, change what you like in any text editor, then import it again.' :
+        'Choose a file you exported, or paste its text. It replaces your ticks for the quests, areas and capes in it, and your lists when it has them.') + '</p>' +
       (exp ? '<div class="state" id="bk-wait" role="status">' + I.loader + '<p>Reading the areas, so all their tasks are in the file…</p></div>' :
         '<label class="btn file">Choose a file<input type="file" id="bk-file" accept=".json,application/json"></label>') +
       '<textarea class="inp tx" id="bk-text" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="' + (exp ? 'Exported state' : 'State to import') + '"' +
@@ -318,6 +348,7 @@
     var parts = [];
     if (r.quests) parts.push(plural(r.quests, 'quest', 'quests'));
     if (r.areas) parts.push(plural(r.areas, 'area', 'areas'));
+    if (r.capes) parts.push(plural(r.capes, 'cape', 'capes'));
     if (r.lists) parts.push(plural(r.lists, 'list', 'lists'));
     // "1 quest", "1 quest and 2 areas", "1 quest, 2 areas and 3 lists"
     var last = parts.pop();
