@@ -386,10 +386,6 @@ button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright
 .mi.danger, .mi.danger > .i { color: var(--red); }
 .mrow { cursor: default; gap: 8px; }
 .fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
-.menu.wide { width: 286px; }
-.menu .sel { width: 150px; margin-left: 0; }
-.menu .player { margin: 2px 8px 6px; }
-.menu .player .inp { height: 30px; }
 .qmeta .how { color: var(--muted); }
 .mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
 .menu hr { margin: 4px 8px; border: 0; border-top: 1px solid var(--void); border-bottom: 1px solid var(--edge-lo); }
@@ -794,7 +790,7 @@ kbd {
 /* footer: the big gold button */
 .ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
 
-/* the bar at the bottom of every screen: Quests, Area tasks and My list, the open one lit in gold */
+/* the bar at the bottom of every screen: Quests, Area tasks, My list and Settings, the open one lit in gold */
 .bnav {
   position: relative;
   flex: none;
@@ -827,6 +823,15 @@ kbd {
 .bn[aria-current="page"] { color: var(--gold); }
 .bn[aria-current="page"]::before { content: ""; position: absolute; top: -1px; left: 28%; right: 28%; height: 2px; background: var(--gold); }
 .bn:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
+/* the settings: a screen of their own, from the bar at the bottom. A heading per part, rows on thin lines. */
+.setp { padding: 2px 0 10px; }
+.setp .mh { margin: 16px 12px 6px; font-size: 12px; }
+.setp > .mh:first-child { margin-top: 12px; }
+.setp .mi { min-height: 36px; border-bottom: 1px solid var(--rule); }
+.setp .mh + .mi { border-top: 1px solid var(--rule); }
+.setp .sel { width: 150px; margin-left: 0; }
+.setp .player { margin: 0 10px; }
 
 /* gold buttons, like the game's main action buttons */
 .btn, .next {

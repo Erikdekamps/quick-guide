@@ -113,49 +113,55 @@ test.describe('title band, progress and tabs', () => {
 });
 
 test.describe('menus', () => {
-  test('one menu at a time; a click outside or Escape closes it', async ({ page }) => {
+  test('the quest menu: a click outside, Escape or its own button closes it; so does Settings', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    const cog = page.locator('#cog'), dots = page.locator('#menu');
-    // the quest's menu is in the bar under the title band; the cog, above it, opens over it
+    const dots = page.locator('#menu');
+    // the quest's menu is in the title band, next to the name; the cog is not there any more
+    await expect(page.locator('.hdr #menu-btn')).toBeVisible();
+    await expect(page.locator('.hdr [aria-label="Settings"]')).toHaveCount(0);
     await page.locator('#menu-btn').click();
     await expect(dots).toBeVisible();
-    await page.locator('#cog-btn').click();
-    await expect(cog).toBeVisible();
+    await expect(page.locator('#menu-btn')).toHaveAttribute('aria-expanded', 'true');
+    await page.locator('.hdr .qt').click();
     await expect(dots).toBeHidden();
-    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('#menu-btn')).toHaveAttribute('aria-expanded', 'false');
-    await page.locator('.hdr .qt').click();
-    await expect(cog).toBeHidden();
-    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'false');
+    // Escape closes the menu, and the quest stays
     await page.locator('#menu-btn').click();
-    await expect(dots).toBeVisible();
-    await page.locator('.hdr .qt').click();
-    await expect(dots).toBeHidden();
-    await page.locator('#cog-btn').click();
     await page.keyboard.press('Escape');
-    await expect(cog).toBeHidden();
+    await expect(dots).toBeHidden();
+    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     // the same button closes it again
     await page.locator('#menu-btn').click();
     await page.locator('#menu-btn').click();
     await expect(dots).toBeHidden();
+    // Settings in the bar takes its place
+    await page.locator('#menu-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('#settings')).toBeVisible();
+    await expect(dots).toHaveCount(0);
   });
 
-  test('the settings menu: in a quest, and on the start screen', async ({ page }) => {
+  test('Settings: the same screen from a quest and from the start screen; Jump to next step is in the quest menu', async ({ page }) => {
+    const rows = [/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything'];
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
-    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', /^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything']);
-    await expect(page.locator('#cog #player-name')).toBeVisible();
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('h1.qt')).toHaveText('Settings');
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mi')).toHaveText(rows);
+    await expect(page.locator('#settings #player-name')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await page.locator('#menu-btn').click();
+    await expect(page.locator('#menu .mi')).toHaveText(['Jump to next step', 'Add to list…', 'Refresh from wiki', 'Open on wiki', 'Reset progress']);
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText([/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything']);
-    await expect(page.locator('#cog')).not.toContainText('Compact');
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('#settings .mi')).toHaveText(rows);
+    await expect(page.locator('#settings')).not.toContainText('Compact');
   });
 
   test('text size: bigger and smaller, 12 to 40, remembered', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     const up = page.getByRole('button', { name: 'Bigger text' }), down = page.getByRole('button', { name: 'Smaller text' });
     await up.click();
     await expect(page.locator('#fsv')).toHaveText('16');
@@ -179,26 +185,30 @@ test.describe('menus', () => {
 
   test('show done steps: on and off, remembered', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     const t = page.getByRole('menuitemcheckbox', { name: 'Show done steps' });
     await expect(t).toHaveAttribute('aria-checked', 'false');
     await t.click();
     await expect(t).toHaveAttribute('aria-checked', 'true');
-    await expect(page.locator('#main')).toHaveClass(/\bshow-done\b/);
     expect((await stored(page, 'settings')).showDone).toBe(true);
+    // back in the quest, it shows
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#main')).toHaveClass(/\bshow-done\b/);
+    await page.locator('.bn[data-home="settings"]').click();
     await t.click();
-    await expect(page.locator('#main')).not.toHaveClass(/\bshow-done\b/);
     expect((await stored(page, 'settings')).showDone).toBe(false);
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#main')).not.toHaveClass(/\bshow-done\b/);
   });
 
   test('jump to next step: goes to Steps and puts the next step at the top', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await tickFirstPart(page);
     await openTab(page, 'overview');
-    await page.locator('#cog-btn').click();
-    await page.getByRole('button', { name: 'Jump to next step' }).click();
+    await page.locator('#menu-btn').click();
+    await page.getByRole('menuitem', { name: 'Jump to next step' }).click();
     await expect(page.getByRole('tab', { name: 'Steps' })).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('#cog')).toBeHidden();
+    await expect(page.locator('#menu')).toBeHidden();
     const cur = page.locator('li.step.cur');
     await expect(cur).toContainText('Talk to the Hunting expert');
     await expect(cur).toBeInViewport();
@@ -206,12 +216,12 @@ test.describe('menus', () => {
 
   test('update quest list', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Quest list updated.');
     expect(wiki.asked().filter((x) => x === 'List of quests')).toHaveLength(2);
     wiki.fail('List of quests', 'network');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Could not update the quest list. Could not reach the wiki. Check your internet, then try again.');
   });
@@ -219,7 +229,7 @@ test.describe('menus', () => {
   test('update quest list shows a message while it works', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     wiki.fail('List of quests', 'slow');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Updating the quest list…');
   });

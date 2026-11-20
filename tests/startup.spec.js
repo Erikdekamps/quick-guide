@@ -1,7 +1,7 @@
 // Starting the app: missing files, the cache numbers in index.html, and a clean run.
 const fs = require('fs');
 const path = require('path');
-const { test, expect, ROOT, openApp, openQuest, openTab, part, choose, openCog, closeCog, lookUp, toggle } = require('./support/app');
+const { test, expect, ROOT, openApp, openQuest, openTab, part, choose, openSettings, closeSettings, lookUp, toggle } = require('./support/app');
 
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 

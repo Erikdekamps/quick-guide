@@ -1,11 +1,11 @@
 // Export and import: everything as a JSON file you can download, change by hand, and import again.
 const fs = require('fs');
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, openCog, closeCog, withAllAreas, AREAS } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
 async function openExport(page) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('button', { name: 'Export state' }).click();
   await expect(page.locator('#bk-text')).not.toHaveValue('');
 }
@@ -16,13 +16,13 @@ async function exportText(page) {
   return t;
 }
 async function importText(page, text) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('button', { name: 'Import state' }).click();
   await page.locator('#bk-text').fill(text);
   await page.getByRole('button', { name: 'Import', exact: true }).click();
 }
 async function importFile(page, text) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('button', { name: 'Import state' }).click();
   await page.locator('#bk-file').setInputFiles({ name: 'quick-guide.json', mimeType: 'application/json', buffer: Buffer.from(text) });
   await expect(page.locator('#bk-text')).toHaveValue(text);
@@ -37,12 +37,12 @@ async function someState(page, wiki) {
   await item(page, 'sapphire lantern').locator('.cb').click();
   await openTab(page, 'steps');
   await step(page, 'In Taverley').locator('.cb').first().click();
-  await openCog(page);
+  await openSettings(page);
   await page.locator('#player-name').fill('Zezima');
   await page.getByRole('button', { name: 'Look up' }).click();
-  await expect(page.locator('#cog #player')).toContainText('Zezima');
+  await expect(page.locator('#settings #player')).toContainText('Zezima');
   await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();
-  await closeCog(page);
+  await closeSettings(page);
   await page.getByRole('button', { name: 'All quests' }).click();
   await page.locator('.bn[data-home="areas"]').click();
   await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
@@ -56,23 +56,23 @@ const key = (map, start) => Object.keys(map).find((k) => k.startsWith(start));
 test.describe('the settings', () => {
   test('end with a Backup part: Export state and Import state', async ({ page }) => {
     await openApp(page, expect);
-    await openCog(page);
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
-    await expect(page.locator('#cog .mi').nth(-3)).toHaveText('Export state');
-    await expect(page.locator('#cog .mi').nth(-2)).toHaveText('Import state');
+    await openSettings(page);
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mi').nth(-3)).toHaveText('Export state');
+    await expect(page.locator('#settings .mi').nth(-2)).toHaveText('Import state');
   });
 
   test('they are there inside a quest and inside an area too', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await openCog(page);
+    await openSettings(page);
     await expect(page.getByRole('button', { name: 'Export state' })).toBeVisible();
-    await closeCog(page);
+    await closeSettings(page);
     await page.getByRole('button', { name: 'All quests' }).click();
     await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"]').first().click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
-    await openCog(page);
+    await openSettings(page);
     await expect(page.getByRole('button', { name: 'Import state' })).toBeVisible();
   });
 });
@@ -203,16 +203,16 @@ test.describe('export', () => {
     expect(text).toBe(await page.locator('#bk-text').inputValue());
   });
 
-  test('the box closes with Close, Escape or a click outside; the settings are not left open', async ({ page, wiki }) => {
+  test('the box closes with Close, Escape or a click outside, back to Settings', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
     for (const how of ['button', 'escape', 'outside']) {
       await openExport(page);
-      await expect(page.locator('#cog')).toBeHidden();
       if (how === 'button') await page.getByRole('button', { name: 'Close' }).click();
       else if (how === 'escape') await page.keyboard.press('Escape');
       else await page.locator('#bk').click({ position: { x: 3, y: 3 } });
       await expect(page.locator('#bk')).toHaveCount(0);
+      await expect(page.locator('#settings')).toBeVisible();
     }
   });
 });
@@ -239,9 +239,9 @@ test.describe('import', () => {
     // the lists show it
     await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"] .qs')).toHaveText('2 / 23');
     await page.locator('.bn[data-home="quests"]').click();
-    await openCog(page);
+    await openSettings(page);
     await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();   // off, to see done quests
-    await closeCog(page);
+    await closeSettings(page);
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).toHaveClass(/\bdone\b/);
     await expect(page.locator('.q[data-quest="Imp Catcher"] .qs')).toHaveText('✓ Done');
   });
@@ -388,9 +388,9 @@ test.describe('danger zone', () => {
 
   test('is the last part of the settings: Delete everything, in red', async ({ page }) => {
     await openApp(page, expect);
-    await openCog(page);
-    await expect(page.locator('#cog .mh').last()).toHaveText('Danger zone');
-    const del = page.locator('#cog .mi').last();
+    await openSettings(page);
+    await expect(page.locator('#settings .mh').last()).toHaveText('Danger zone');
+    const del = page.locator('#settings .mi').last();
     await expect(del).toHaveText('Delete everything');
     await expect(del).toHaveClass(/\bdanger\b/);
     await expect(del).toHaveCSS('color', 'rgb(255, 91, 73)');
@@ -400,12 +400,12 @@ test.describe('danger zone', () => {
     await lots(page);
     await openApp(page, expect);
     const before = await all(page);
-    await openCog(page);
+    await openSettings(page);
     await page.getByRole('button', { name: 'Delete everything' }).click();
     await expect(page.locator('[data-act="wipe"]')).toHaveText('Click again to delete everything');
     expect(await all(page)).toEqual(before);
-    await closeCog(page);
-    await openCog(page);
+    await closeSettings(page);
+    await openSettings(page);
     await expect(page.locator('[data-act="wipe"]')).toHaveText('Delete everything');
     expect(await all(page)).toEqual(before);
   });
@@ -414,7 +414,7 @@ test.describe('danger zone', () => {
     await lots(page);
     await openApp(page, expect);
     await expect(page.locator('html')).toHaveCSS('font-size', '18px');
-    await openCog(page);
+    await openSettings(page);
     await page.locator('[data-act="wipe"]').click();
     await page.locator('[data-act="wipe"]').click();
     await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
@@ -424,17 +424,17 @@ test.describe('danger zone', () => {
     await expect(page.locator('html')).toHaveCSS('font-size', '14px');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
     await expect(page.locator('.bn[data-home="quests"]')).toHaveAttribute('aria-current', 'page');
-    await openCog(page);
+    await openSettings(page);
     await expect(page.locator('#player-name')).toBeVisible();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');
-    await closeCog(page);
+    await closeSettings(page);
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).not.toHaveClass(/\bdone\b/);
     expect(page.errors).toEqual([]);
   });
 
   test('works inside a quest too: you are back at the start', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await openCog(page);
+    await openSettings(page);
     await page.locator('[data-act="wipe"]').click();
     await page.locator('[data-act="wipe"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
@@ -451,7 +451,7 @@ test.describe('danger zone', () => {
     await lots(page);
     await openApp(page, expect);
     const before = await all(page);
-    await openCog(page);
+    await openSettings(page);
     await page.locator('[data-act="wipe"]').click();
     await page.clock.runFor(5000);
     await page.locator('[data-act="wipe"]').click();

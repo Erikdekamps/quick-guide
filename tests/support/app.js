@@ -211,28 +211,30 @@ async function openApp(page, expect) {
   await page.goto('/');
   await expect(page.locator('#qcount')).toBeVisible();
 }
-// The settings menu (the cog). It holds the player lookup, sorting, filters and display settings.
-async function openCog(page) {
-  if (await page.locator('#cog').isHidden()) await page.locator('#cog-btn').click();
+// Settings: a screen of its own, from the last button of the bar at the bottom. It holds the player lookup, sorting,
+// filters and display settings.
+async function openSettings(page) {
+  if (!(await page.locator('#settings').count())) await page.locator('.bn[data-home="settings"]').click();
 }
-async function closeCog(page) {
-  if (await page.locator('#cog').isVisible()) await page.keyboard.press('Escape');
+// Leaves Settings for the screen you came from (Escape does what that screen's button in the bar does).
+async function closeSettings(page) {
+  if (await page.locator('#settings').count()) await page.keyboard.press('Escape');
 }
 // Picks a value in a menu of the settings (#sort or #kind), then closes the settings.
 async function choose(page, id, value) {
-  await openCog(page);
+  await openSettings(page);
   await page.locator(id).selectOption(value);
-  await closeCog(page);
+  await closeSettings(page);
 }
 // Flips a switch in the settings, like "Hide done quests", then closes the settings.
 async function toggle(page, name) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('menuitemcheckbox', { name }).click();
-  await closeCog(page);
+  await closeSettings(page);
 }
 // Looks up a character in the settings. The settings stay open, so you can see the answer.
 async function lookUp(page, name) {
-  await openCog(page);
+  await openSettings(page);
   await page.locator('#player-name').fill(name);
   await page.getByRole('button', { name: 'Look up' }).click();
 }
@@ -262,8 +264,8 @@ function withAllAreas(wiki) {
 }
 // Opens a quest from the list, as a person would.
 async function openQuest(page, expect, name) {
+  await closeSettings(page);
   if (!(await page.locator('#qcount').count())) await openApp(page, expect);
-  await closeCog(page);
   await page.locator('button.q[data-quest="' + name + '"]').click();
   await expect(page.locator('h1.qt')).toHaveText(name);
 }
@@ -300,4 +302,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openCog, closeCog, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest, plain };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, AREAS, step, item, part, row, names, groups, parsedQuest, plain };

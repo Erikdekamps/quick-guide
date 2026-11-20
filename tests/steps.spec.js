@@ -8,7 +8,7 @@ const head = (page, title) => part(page, title).locator('.sech');
 const box = (scope, label) => scope.locator('details.acc').filter({ has: scope.page().locator('summary .sl', { hasText: label }) }).first();
 
 async function showDone(page) {
-  await page.locator('#cog-btn').click();
+  await page.locator('.bn[data-home="settings"]').click();
   await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
   await page.keyboard.press('Escape');
 }

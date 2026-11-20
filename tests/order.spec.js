@@ -1,13 +1,13 @@
 // The quest list in the wiki's optimal order (Quests/Progression guide), hiding done quests,
 // and the border of the next step.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openCog, closeCog, lookUp, toggle, names, groups } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openSettings, closeSettings, lookUp, toggle, names, groups } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const GUIDE = 'Quests/Progression guide';
 const ORDER = ["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps'];
 const REST = ['101 Test Quest', "'Phite Club", 'Recipe for Disaster: Freeing King Awowogei'];
 
-const cog = toggle;
+const setting = toggle;
 
 test.describe('optimal order', () => {
   test('quests.js reads the order from the wiki page', async ({ page }) => {
@@ -19,7 +19,9 @@ test.describe('optimal order', () => {
 
   test('the sort menu offers it; choosing it reads the wiki once and sorts the list', async ({ page, wiki }) => {
     await openApp(page, expect);
+    await openSettings(page);
     await expect(page.locator('#sort option')).toHaveText(['A to Z', 'Optimal order', 'Difficulty', 'Length', 'Series', 'Newest']);
+    await closeSettings(page);
     expect(wiki.asked()).toEqual(['List of quests']);
     await choose(page, '#sort', 'opt');
     await expect(names(page)).toHaveText(ORDER.concat(REST));
@@ -44,7 +46,9 @@ test.describe('optimal order', () => {
     await choose(page, '#sort', 'opt');
     await expect(names(page).first()).toHaveText("Cook's Assistant");
     await page.reload();
+    await openSettings(page);
     await expect(page.locator('#sort')).toHaveValue('opt');
+    await closeSettings(page);
     await expect(names(page)).toHaveText(ORDER.concat(REST));
     expect(wiki.asked().filter((x) => x === GUIDE)).toHaveLength(1);
   });
@@ -88,9 +92,10 @@ test.describe('optimal order', () => {
     await choose(page, '#sort', 'opt');
     await expect(names(page).first()).toHaveText("Cook's Assistant");
     wiki.page(GUIDE, fixture('progression-guide.html').replace('data-rowid="Cook\'s Assistant"', 'data-rowid="Nothing"').replace('</tbody>', '<tr data-rowid="Cook\'s Assistant"><td>Cook\'s Assistant</td></tr></tbody>'));
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(page.locator('#toast')).toHaveText('Quest list updated.');
+    await closeSettings(page);
     await expect(names(page).first()).toHaveText('Imp Catcher');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"] .q2")).toContainText('#8');
   });
@@ -106,18 +111,19 @@ test.describe('optimal order', () => {
 test.describe('hide done quests', () => {
   const done = { meta: { "Cook's Assistant/Quick guide": { title: "Cook's Assistant", done: 4, total: 4, at: 2 }, [WGS]: { title: 'While Guthix Sleeps', done: 4, total: 12, at: 1 } } };
 
-  test('a setting in the cog menu, off at first', async ({ page }) => {
+  test('a setting in Settings, off at first', async ({ page }) => {
     await seed(page, done);
     await openApp(page, expect);
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');
+    await closeSettings(page);
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toBeVisible();
   });
 
   test('on: done quests leave the list, started ones stay; it is remembered', async ({ page }) => {
     await seed(page, done);
     await openApp(page, expect);
-    await cog(page, 'Hide completed');
+    await setting(page, 'Hide completed');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
     await expect(page.locator('.q[data-quest="While Guthix Sleeps"]')).toBeVisible();
     await expect(page.locator('#qcount')).toHaveText('10 of 11 quests · 1 done hidden');
@@ -125,7 +131,7 @@ test.describe('hide done quests', () => {
     expect((await stored(page, 'settings')).hideDone).toBe(true);
     await page.reload();
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'true');
   });
 
@@ -133,7 +139,7 @@ test.describe('hide done quests', () => {
     await seed(page, Object.assign({ settings: { hideDone: true } }, done));
     await openApp(page, expect);
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
-    await cog(page, 'Hide completed');
+    await setting(page, 'Hide completed');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toBeVisible();
     await expect(page.locator('#qcount')).toHaveText('11 quests');
   });
@@ -144,6 +150,7 @@ test.describe('hide done quests', () => {
     await openApp(page, expect);
     await lookUp(page, 'Zezima');
     await expect(page.locator('#player')).toContainText('1 quest done');
+    await closeSettings(page);
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).toHaveCount(0);
     await expect(page.locator('.q[data-quest="Dragon Slayer"]')).toBeVisible();
   });

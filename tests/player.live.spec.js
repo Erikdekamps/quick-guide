@@ -29,10 +29,11 @@ test('the wiki passes on quests and levels to any web page', async ({ page }) =>
 test('looking up a player marks quests in the list', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
-  await page.locator('#cog-btn').click();
+  await page.locator('.bn[data-home="settings"]').click();
   await page.locator('#player-name').fill(NAME);
   await page.getByRole('button', { name: 'Look up' }).click();
   await expect(page.locator('#player')).toContainText(/\d+ quests done/);
+  await page.keyboard.press('Escape');   // back to the list
   // the game's quest names match the wiki's list names for most quests
   const total = await page.locator('.q').count();
   const done = await page.locator('.q.done').count();

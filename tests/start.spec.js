@@ -1,5 +1,5 @@
 // The start screen: the list of all quests, search, sorting, groups, and opening a quest.
-const { test, expect, fixture, seed, stored, openApp, parsedQuest, choose, openCog, closeCog, lookUp, toggle, groups, names } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, parsedQuest, choose, openSettings, closeSettings, lookUp, toggle, groups, names } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const list = (page) => page.locator('#qarea');
@@ -62,7 +62,9 @@ test.describe('the quest list', () => {
 test.describe('sorting and groups', () => {
   test('A to Z, grouped by first letter; numbers go under #', async ({ page }) => {
     await openApp(page, expect);
+    await openSettings(page);
     await expect(page.locator('#sort')).toHaveValue('name');
+    await closeSettings(page);
     await expect(groups(page)).toHaveText(['#', 'C', 'D', 'I', 'P', 'R', 'W']);
     await expect(names(page)).toHaveText(['101 Test Quest', "Cook's Assistant", 'Demon Slayer', 'Desert Treasure', 'Dragon Slayer', 'Druidic Ritual',
       'Imp Catcher', "'Phite Club", 'Recipe for Disaster: Freeing King Awowogei', 'Rune Mysteries', 'While Guthix Sleeps']);
@@ -95,7 +97,9 @@ test.describe('sorting and groups', () => {
     await choose(page, '#sort', 'len');
     expect((await stored(page, 'settings')).sort).toBe('len');
     await page.reload();
+    await openSettings(page);
     await expect(page.locator('#sort')).toHaveValue('len');
+    await closeSettings(page);
     await expect(groups(page).first()).toHaveText('Very Short');
   });
 

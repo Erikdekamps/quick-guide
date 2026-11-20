@@ -5,7 +5,7 @@
 // Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
 // Every list ends with a box to type the next goal in. A goal can have sub tasks, and those their own; a goal you
 // wrote yourself can become a list, and gets a link to its wiki page when there is one.
-const { test, expect, seed, stored, openApp, openQuest, openCog, lookUp, withAllAreas, toggle } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle } = require('./support/app');
 
 const tab = (page) => page.locator('.bn[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
@@ -59,7 +59,7 @@ async function addTo(page, list) {
 }
 
 async function exportText(page) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('button', { name: 'Export state' }).click();
   await expect(page.locator('#bk-text')).not.toHaveValue('');
   const t = await page.locator('#bk-text').inputValue();
@@ -67,7 +67,7 @@ async function exportText(page) {
   return t;
 }
 async function importText(page, text) {
-  await openCog(page);
+  await openSettings(page);
   await page.getByRole('button', { name: 'Import state' }).click();
   await page.locator('#bk-text').fill(text);
   await page.getByRole('button', { name: 'Import', exact: true }).click();
@@ -76,7 +76,7 @@ async function importText(page, text) {
 test.describe('the My list tab', () => {
   test('a third tab; with no lists yet it says how to start, and it stays after a reload', async ({ page }) => {
     await openApp(page, expect);
-    await expect(page.locator('.bnav .bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list']);
+    await expect(page.locator('.bnav .bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list', 'Settings']);
     await tab(page).click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');
     await expect(page.getByRole('button', { name: 'Create list' })).toBeVisible();
@@ -907,12 +907,15 @@ test.describe('goals that tick themselves', () => {
     wiki.setPlayer('Zezima', {}, { 18: 79 });   // 18 is Thieving
     await openList(page, lists({ Skilling: [{ kind: 'skill', skill: 'thieving', level: 82 }, { kind: 'skill', skill: 'herblore', level: 90 }] }));
     await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('Zezima');
+    await closeSettings(page);
     await expect(goal(page, '82 Thieving')).not.toHaveClass(/\bdone\b/);
     await goal(page, '90 Herblore').locator('.cb').click();
     await expect(goal(page, '90 Herblore')).toHaveClass(/\bdone\b/);
     wiki.setPlayer('Zezima', {}, { 18: 82 });
-    await openCog(page);
+    await openSettings(page);
     await page.getByRole('button', { name: 'Update player' }).click();
+    await closeSettings(page);
     await expect(goal(page, '82 Thieving')).toHaveClass(/\bdone\b/);
     await expect(goal(page, '82 Thieving').locator('.cb')).toBeChecked();
     await expect(page.locator('li.goal .cb:disabled')).toHaveCount(0);
@@ -1174,7 +1177,7 @@ test.describe('limits, storage and the look', () => {
     await expect(names(page)).toHaveText(['Fine']);
     await expect(goals(page, 'Fine').locator('.t')).toHaveText(['Kept', '500 Magic logs', 'Unlock Soul Split']);
     expect(page.errors).toEqual([]);
-    await openCog(page);
+    await openSettings(page);
     await page.locator('[data-act="wipe"]').click();
     await page.locator('[data-act="wipe"]').click();
     expect(await stored(page, 'todo')).toBeNull();
@@ -1184,7 +1187,7 @@ test.describe('limits, storage and the look', () => {
 });
 
 test.describe('the window', () => {
-  test('the title band: the app on the start screen; the way back, the name, its menu and the cog in a quest or an area', async ({ page, wiki }) => {
+  test('the title band: the app on the start screen; the way back, the name and its menu in a quest or an area; no cog', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
     await expect(page.locator('.hdr h1.qt')).toHaveText('Quick Guide');
@@ -1193,7 +1196,7 @@ test.describe('the window', () => {
     await expect(page.locator('#pg')).toHaveCount(0);
     await openQuest(page, expect, 'While Guthix Sleeps');
     const band = page.locator('.hdr');
-    // in a quest the band holds it all, from left to right: back, name, menu, cog; the app's name is gone
+    // in a quest the band holds it all, from left to right: back, name, menu; the app's name is gone, and there is no cog
     await expect(band.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     await expect(band.locator('img.emb')).toHaveCount(0);
     await expect(page.getByText('Quick Guide', { exact: true })).toHaveCount(0);
@@ -1201,7 +1204,7 @@ test.describe('the window', () => {
     const x = async (sel) => (await band.locator(sel).boundingBox()).x;
     expect(await x('[data-act="change"]')).toBeLessThan(await x('h1.qt'));
     expect(await x('h1.qt')).toBeLessThan(await x('#menu-btn'));
-    expect(await x('#menu-btn')).toBeLessThan(await x('#cog-btn'));
+    await expect(band.locator('[aria-label="Settings"]')).toHaveCount(0);
     // the thin progress line is right under the band, and the tabs right under it
     const hb = await band.boundingBox(), lb = await page.locator('#pg').boundingBox(), tb = await page.locator('.tabs').boundingBox();
     expect(lb.height).toBeLessThanOrEqual(5);
@@ -1216,17 +1219,63 @@ test.describe('the window', () => {
     await expect(band.locator('h1.qt')).toHaveText('Ardougne');
     await expect(band.locator('[data-act="change"]')).toHaveAttribute('aria-label', 'All areas');
     await expect(band.locator('#menu-btn')).toBeVisible();
-    await expect(band.locator('#cog-btn')).toBeVisible();
+    await expect(band.locator('[aria-label="Settings"]')).toHaveCount(0);
     await expect(page.locator('.tabs')).toHaveCount(1);
   });
 
-  test('the bar at the bottom: Quests, Area tasks and My list on every screen; the number on My list changes right there', async ({ page, wiki }) => {
+  test('Settings: the last button of the bar; the button of where you were takes you back there, and so does Escape', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    const settings = page.locator('.bn[data-home="settings"]'), lit = page.locator('.bn[aria-current="page"]');
+    // bottom right
+    const bar = await page.locator('.bnav').boundingBox(), sb = await settings.boundingBox();
+    expect(Math.abs(bar.x + bar.width - (sb.x + sb.width))).toBeLessThanOrEqual(1);
+    // from a quest, on its Steps tab, scrolled down
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await page.locator('.tab[data-tab="steps"]').click();
+    await page.locator('#main').evaluate((m) => { m.scrollTop = 300; m.dispatchEvent(new Event('scroll')); });
+    await settings.click();
+    await expect(page.locator('h1.qt')).toHaveText('Settings');
+    await expect(lit).toHaveText('Settings');
+    await expect(page.locator('#settings')).toBeVisible();
+    await expect(page.locator('.hdr [data-act="change"]')).toHaveCount(0);   // no back button: the bar is the way back
+    expect(await stored(page, 'last')).toBe('While Guthix Sleeps/Quick guide');
+    // Quests: back in the quest, on the same tab, at the same place
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+    await expect(page.locator('.tab[data-tab="steps"]')).toHaveAttribute('aria-selected', 'true');
+    expect(await page.locator('#main').evaluate((m) => m.scrollTop)).toBe(300);
+    // Quests again: the list
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#quest-link')).toBeVisible();
+    // from an area, Escape takes you back too
+    await page.locator('.bn[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await settings.click();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    await expect(lit).toHaveText('Area tasks');
+    // another button goes to its list
+    await settings.click();
+    await page.locator('.bn[data-home="todo"]').click();
+    await expect(lit).toHaveText(/^My list/);
+    await expect(page.locator('#settings')).toHaveCount(0);
+    // from a list: back to it, with the search text you typed
+    await page.locator('.bn[data-home="quests"]').click();
+    await page.locator('#quest-link').fill('imp');
+    await settings.click();
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#quest-link')).toHaveValue('imp');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('the bar at the bottom: Quests, Area tasks, My list and Settings on every screen; the number on My list changes right there', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await seed(page, { todo: lists({ Today: [] }) });
     await openApp(page, expect);
     const bar = page.locator('.bnav'), lit = page.locator('.bn[aria-current="page"]');
     // on the start screen: at the very bottom of the window, Quests lit
-    await expect(bar.locator('.bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list']);
+    await expect(bar.locator('.bn .bnl')).toHaveText(['Quests', 'Area tasks', 'My list', 'Settings']);
     await expect(lit).toHaveText('Quests');
     const win = await page.locator('#app').boundingBox();
     let bb = await bar.boundingBox();

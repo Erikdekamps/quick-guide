@@ -1,16 +1,16 @@
 // Miniquests, locked quests, search, quests you can open from a guide, and League rows.
-const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openCog, closeCog, lookUp, toggle, row, names } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openSettings, closeSettings, lookUp, toggle, row, names } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const details = (page) => page.locator('section[data-ov="details"] .secb');
 const rewards = (page) => page.locator('section[data-ov="rewards"] .secb');
 const MINIS = ['A Guild of Our Own', 'Bar Crawl', "Benedict's World Tour", 'Curse of the Empty Lord'];
 
-const cog = toggle;
+const setting = toggle;
 async function lookUpDone(page, name) {
   await lookUp(page, name);
   await expect(page.locator('#player')).toContainText(name);
-  await closeCog(page);
+  await closeSettings(page);
 }
 
 test.describe('miniquests', () => {
@@ -41,15 +41,16 @@ test.describe('miniquests', () => {
     wiki.minis();
     await openApp(page, expect);
     await expect(page.locator('#kind')).toHaveCount(0);
-    await cog(page, 'Hide miniquests');
+    await setting(page, 'Hide miniquests');
     await expect(page.locator('#qcount')).toHaveText('11 of 15 quests');
     await expect(page.locator('.q[data-quest$="(miniquest)"]')).toHaveCount(0);
     expect((await stored(page, 'settings')).hideMini).toBe(true);
     await page.reload();
     await expect(page.locator('.q[data-quest$="(miniquest)"]')).toHaveCount(0);
-    await openCog(page);
+    await openSettings(page);
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' })).toHaveAttribute('aria-checked', 'true');
     await page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' }).click();
+    await closeSettings(page);
     await expect(page.locator('#qcount')).toHaveText('15 quests');
   });
 
@@ -107,15 +108,15 @@ test.describe('locked quests', () => {
     player(wiki);
     await openApp(page, expect);
     await lookUpDone(page, 'Zezima');
-    await cog(page, 'Hide locked');
+    await setting(page, 'Hide locked');
     await expect(row(page, 'Desert Treasure')).toHaveCount(0);
     await expect(page.locator('#qcount')).toHaveText('9 of 11 quests · 2 locked hidden');
     expect((await stored(page, 'settings')).hideLocked).toBe(true);
     // together with "Hide completed"
-    await cog(page, 'Hide completed');
+    await setting(page, 'Hide completed');
     await expect(page.locator('#qcount')).toHaveText('8 of 11 quests · 1 done hidden · 2 locked hidden');
     // off again
-    await cog(page, 'Hide locked');
+    await setting(page, 'Hide locked');
     await expect(row(page, 'Desert Treasure')).toHaveCount(1);
   });
 
@@ -202,23 +203,26 @@ test('League rows show the region names, once, without the badge text', async ({
   await expect(kv.locator('dd').nth(1).locator('.reg')).toHaveText(['Misthalin']);
 });
 
-test.describe('the settings menu holds the player, sorting and filters', () => {
-  test('the start screen has only the search box and the list', async ({ page }) => {
+test.describe('Settings holds the player, sorting and filters', () => {
+  test('the start screen has only the search box and the list; Settings has the rest', async ({ page }) => {
     await openApp(page, expect);
     await expect(page.locator('#main #sort, #main #player-name, #main .filters')).toHaveCount(0);
-    await expect(page.locator('#cog #sort')).toHaveCount(1);
-    await expect(page.locator('#cog #player-name')).toHaveCount(1);
+    await expect(page.locator('#settings')).toHaveCount(0);
+    await openSettings(page);
+    await expect(page.locator('#settings #sort')).toHaveCount(1);
+    await expect(page.locator('#settings #player-name')).toHaveCount(1);
+    await expect(page.locator('#quest-link')).toHaveCount(0);
   });
 
   test('the same settings are there inside a quest', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await openCog(page);
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await openSettings(page);
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
     await expect(page.getByLabel('Sort by')).toBeVisible();
     await expect(page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' })).toBeVisible();
     // a sort picked in a quest is used by the list
     await page.locator('#sort').selectOption('dif');
-    await closeCog(page);
+    await closeSettings(page);
     await page.getByRole('button', { name: 'All quests' }).click();
     await expect(page.locator('.ghb .n').first()).toHaveText('Novice');
   });
@@ -228,26 +232,28 @@ test.describe('the settings menu holds the player, sorting and filters', () => {
     await openApp(page, expect);
     await expect(page.locator('.qmeta')).toHaveText('11 quests · A to Z');
     await choose(page, '#sort', 'opt');
-    await cog(page, 'Hide miniquests');
+    await setting(page, 'Hide miniquests');
     await lookUpDone(page, 'Zezima');
     await expect(page.locator('#qcount')).toHaveText('11 quests');
     await expect(page.locator('.qmeta')).toHaveText('11 quests · Optimal order · Quests only · Zezima');
   });
 
-  test('the menu stays open while you look up a player, and shows the answer', async ({ page, wiki }) => {
+  test('Settings stays open while you look up a player, and shows the answer', async ({ page, wiki }) => {
     wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' });
     await openApp(page, expect);
     await lookUp(page, 'Zezima');
-    await expect(page.locator('#cog #player')).toContainText('Zezima · 1 quest done');
-    await expect(page.locator('#cog')).toBeVisible();
+    await expect(page.locator('#settings #player')).toContainText('Zezima · 1 quest done');
+    await expect(page.locator('#settings')).toBeVisible();
   });
 
   test('looking up a player inside a quest updates the quest', async ({ page, wiki }) => {
     wiki.setPlayer('Zezima', { 'Defender of Varrock': 'COMPLETED' }, { 7: 80 });
     await openQuest(page, expect, 'While Guthix Sleeps');
     await lookUp(page, 'Zezima');
-    await expect(page.locator('#cog #player')).toContainText('Zezima');
-    await expect(page.locator('#cog')).toBeVisible();
+    await expect(page.locator('#settings #player')).toContainText('Zezima');
+    await expect(page.locator('#settings')).toBeVisible();
+    // back in the quest, it shows your levels and the quests you did
+    await closeSettings(page);
     await expect(page.locator('section[data-ov="skills"] ul.skl-list li').first()).toHaveClass(/\bok\b/);
     await expect(page.locator('section[data-ov="details"] .tree li').first()).toHaveClass(/\bgot\b/);
   });

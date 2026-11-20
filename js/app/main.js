@@ -10,13 +10,13 @@
     applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, closeBackup = A.closeBackup,
     closeMenus = A.closeMenus, closeSubAdd = A.closeSubAdd, closeTodoDialog = A.closeTodoDialog, copyBackup = A.copyBackup,
     current = A.current, drawList = A.drawList, fetchList = A.fetchList, fetchMinis = A.fetchMinis, fetchOrder = A.fetchOrder,
-    FONT_STEP = A.FONT_STEP, forgetPlayer = A.forgetPlayer, goalMenu = A.goalMenu, itemMenu = A.itemMenu, jumpTo = A.jumpTo,
+    FONT_STEP = A.FONT_STEP, forgetPlayer = A.forgetPlayer, goalMenu = A.goalMenu, goHome = A.goHome, itemMenu = A.itemMenu, jumpTo = A.jumpTo,
     LIST_MAX_AGE = A.LIST_MAX_AGE, listMenu = A.listMenu, loadAllAreas = A.loadAllAreas, lookUpPlayer = A.lookUpPlayer,
     matchQuests = A.matchQuests, menuAct = A.menuAct, newListDialog = A.newListDialog, nextStep = A.nextStep, nextTask = A.nextTask,
     openArea = A.openArea, openBackup = A.openBackup, openQuest = A.openQuest, openTitle = A.openTitle, pick = A.pick,
     PLAYER_MAX_AGE = A.PLAYER_MAX_AGE, refresh = A.refresh, refreshArea = A.refreshArea, refreshQuest = A.refreshQuest,
-    renderStart = A.renderStart, resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg,
-    saveSettings = A.saveSettings, saveView = A.saveView, sdel = A.sdel, setFont = A.setFont, setHome = A.setHome, sget = A.sget,
+    leaveSettings = A.leaveSettings, renderStart = A.renderStart, resetClick = A.resetClick, runImport = A.runImport, S = A.S, saveProg = A.saveProg,
+    saveSettings = A.saveSettings, saveView = A.saveView, sdel = A.sdel, setFont = A.setFont, sget = A.sget,
     SORTS = A.SORTS, startMaps = A.startMaps, subMenu = A.subMenu, SWITCHES = A.SWITCHES,
     switchTab = A.switchTab, switchTier = A.switchTier, THEMES = A.THEMES, tickGoal = A.tickGoal, tickInArea = A.tickInArea,
     tickStep = A.tickStep, tickSub = A.tickSub, tickTask = A.tickTask, toastAct = A.toastAct, todoSubmit = A.todoSubmit,
@@ -151,7 +151,7 @@
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
       if (t.hasAttribute('data-area')) { openArea(t.getAttribute('data-area'), t.getAttribute('data-atier')); return; }
-      if (t.hasAttribute('data-home')) { setHome(t.getAttribute('data-home')); return; }
+      if (t.hasAttribute('data-home')) { goHome(t.getAttribute('data-home')); return; }
       if (t.hasAttribute('data-tier')) { switchTier(t.getAttribute('data-tier')); return; }
       if (t.hasAttribute('data-group')) {
         var home = S.set.home, gk = (home === 'areas' || home === 'todo' ? home : S.set.sort) + ':' + t.getAttribute('data-group'), ul = t.parentNode.nextElementSibling;
@@ -215,7 +215,11 @@
     if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey) && ev.target.id === 'tp-text') { ev.preventDefault(); A.todoSubmit(ev.target.form); }
   });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') { closeMenus(); closeBackup(); closeTodoDialog(); closeSubAdd(); }
+    if (ev.key !== 'Escape') return;
+    // Escape closes what is open on top; with nothing open, it leaves Settings for the screen you came from.
+    var open = byId('bk') || byId('td') || byId('tmenu') || document.querySelector('.menu:not([hidden])');
+    closeMenus(); closeBackup(); closeTodoDialog(); closeSubAdd();
+    if (!open && S.view === 'settings') leaveSettings();
   });
   // Inside Alt1, web links open in your normal browser, so the app window stays on the guide.
   document.addEventListener('click', function (ev) {

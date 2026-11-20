@@ -28,22 +28,22 @@ Wiki links open in your normal browser, so the app stays on the guide.
 - Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
   difficulty, length, series or newest. Click a group name to fold it.
 - Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band on top holds the
-  back button (to all quests), the quest's name, its **⋯** menu and the settings. A thin gold line under it shows how
-  far you are. It has three tabs, each with its count under the name:
+  back button (to all quests), the quest's name and its **⋯** menu (with **Jump to next step**). A thin gold line
+  under it shows how far you are. It has three tabs, each with its count under the name:
   - **Overview:** details, the quest tree, skills, enemies and rewards.
   - **Items:** what to bring, with tick boxes. The tab counts the items you have.
   - **Steps:** click a step to tick it. The next step moves to the top. **Done, next step** ticks it for you.
     A part folds shut when you finish it. Maps are the wiki's own (drag to move, + and − to zoom).
     The tab counts the steps you did.
-- The bar at the bottom of every screen has **Quests**, **Area tasks** and **My list**. The one you are in is lit
-  in gold. Click one to go to its list, from anywhere.
+- The bar at the bottom of every screen has **Quests**, **Area tasks**, **My list** and **Settings** (bottom right).
+  The one you are in is lit in gold. Click one to go to its list, from anywhere.
 - Boxes that fold (parts, pictures, maps, tables) start open. The app remembers the ones you close.
 - A reload (or opening the app again) shows the screen, tab and tier you were on, scrolled where you left it.
   Each tab and tier keeps its own place, and the start screen keeps your search text and folded groups.
 
 ### Your character
 
-In the settings, type your **character name** and press **Look up**. The app shows your quests done and,
+In **Settings**, type your **character name** and press **Look up**. The app shows your quests done and,
 when the game gives them, your quest points.
 
 - Done quests turn green, started ones yellow. Quests you cannot start yet are grey and say **Locked**.
@@ -120,9 +120,10 @@ under its area, in the game's order.
   delete it (two clicks, and Undo).
 - At most 30 lists and 300 goals.
 
-## Settings (the cog)
+## Settings
 
-The same on every screen:
+**Settings** is the last button of the bar at the bottom: a screen of its own. To go back, press the button of the
+screen you came from (or Escape): a quest opens again at the tab and place you left it. Another button goes to its list.
 
 - **Player:** look up your character, update it, or forget it.
 - **Quest list:** sort, **Hide completed**, **Hide miniquests**, **Hide locked**. Hide completed and Hide locked work for area tiers too.

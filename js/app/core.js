@@ -362,15 +362,14 @@
     var el = byId('parea');
     if (el) el.innerHTML = playerHtml();
   }
-  // A new or forgotten player changes the list, or the quest you are in (your levels, the quest tree).
-  // The settings stay open, and the page keeps its place.
+  // A new or forgotten player changes the list, or the quest you are in (your levels, the quest tree). In Settings the
+  // screen behind is drawn again when you go back to it. The page keeps its place.
   function playerChanged() {
     drawPlayer();
     A.drawList();
-    if (S.view === 'start') return;
-    var cog = byId('cog'), open = cog && !cog.hidden, main = byId('main'), top = main ? main.scrollTop : 0;
+    if (S.view !== 'quest' && S.view !== 'area') return;
+    var main = byId('main'), top = main ? main.scrollTop : 0;
     if (S.view === 'area') A.renderArea(true); else A.renderQuest();
-    if (open) toggleMenu('cog');
     main = byId('main');
     if (main) main.scrollTop = top;
   }
@@ -405,7 +404,7 @@
     playerChanged();
   }
 
-  // ---------- menus: the cog (settings) and the dots (quest or area actions) ----------
+  // ---------- the settings' rows and the dots menu (quest or area actions) ----------
   function toggleHtml(act, icon, label, on) {
     return '<button class="mi" type="button" role="menuitemcheckbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="' + act + '">' +
       icon + '<span class="ml">' + label + '</span><span class="tg" aria-hidden="true"></span></button>';
@@ -415,19 +414,16 @@
       return '<option value="' + s[0] + '"' + (value === s[0] ? ' selected' : '') + '>' + s[1] + '</option>';
     }).join('') + '</select></div>';
   }
-  // The settings: the same everywhere in the app. Your player, how the quest list is sorted and
-  // filtered, and how things look.
-  function cogHtml() {
-    return '<button class="ib" type="button" data-menu="cog" id="cog-btn" aria-label="Settings" aria-haspopup="true" aria-expanded="false" aria-controls="cog" title="Settings">' + I.cog + '</button>' +
-      '<div class="menu wide" id="cog" hidden>' +
-      (S.view === 'quest' ? '<button class="mi" type="button" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' : '') +
-      '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div><hr>' +
+  // The settings, the rows of their own screen (Settings in the bar at the bottom). Your player, how the quest list is
+  // sorted and filtered, how things look, backup, and the danger zone.
+  function settingsHtml() {
+    return '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div>' +
       '<p class="mh">Lists</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
       toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
       toggleHtml('hidemini', I.scroll, 'Hide miniquests', S.set.hideMini) +
       toggleHtml('hidelocked', I.lock, 'Hide locked', S.set.hideLocked) +
-      '<hr><p class="mh">Display</p>' +
+      '<p class="mh">Display</p>' +
       selectHtml('theme', 'Theme', THEMES, S.set.theme) +
       toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
@@ -435,29 +431,29 @@
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
       '<button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"' + (S.set.fontSize >= FONT_MAX ? ' disabled' : '') + '>' + I.plus + '</button>' +
       '</div>' +
-      '<hr><button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
-      '<hr><p class="mh">Backup</p>' +
+      '<button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
+      '<p class="mh">Backup</p>' +
       '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
       '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
-      '<hr><p class="mh danger">Danger zone</p>' +
-      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
-      '</div>';
+      '<p class="mh danger">Danger zone</p>' +
+      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>';
   }
   function dotsHtml() {
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +
-      '<div class="menu" id="menu" role="menu" hidden>' + A.addToItemHtml('quest', { title: S.q.title }) + '<hr>' +
+      '<div class="menu" id="menu" role="menu" hidden>' +
+      '<button class="mi" type="button" role="menuitem" data-act="jump">' + I.locate + 'Jump to next step</button><hr>' +
+      A.addToItemHtml('quest', { title: S.q.title }) + '<hr>' +
       '<button class="mi" type="button" role="menuitem" data-act="refresh">' + I.refresh + 'Refresh from wiki</button>' +
       '<a class="mi" role="menuitem" href="' + esc(S.q.source) + '" target="_blank" rel="noopener" data-act="wiki">' + I.ext + 'Open on wiki</a>' +
       '<hr><button class="mi danger" type="button" role="menuitem" data-act="reset">' + I.reset + '<span>Reset progress</span></button>' +
       '</div>';
   }
-  // The cog, the dots, and the menu of a goal or a list in My list (#tmenu, which is taken away when it closes).
+  // The dots, and the menu of a goal or a list in My list (#tmenu, which is taken away when it closes).
   function closeMenus(except) {
-    ['cog', 'menu'].forEach(function (id) {
-      if (id === except) return;
-      var m = byId(id), b = document.querySelector('[data-menu="' + id + '"]');
-      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); if (id === 'menu') disarmReset(); else disarmWipe(); }
-    });
+    if (except !== 'menu') {
+      var m = byId('menu'), b = document.querySelector('[data-menu="menu"]');
+      if (m && !m.hidden) { m.hidden = true; if (b) b.setAttribute('aria-expanded', 'false'); disarmReset(); }
+    }
     if (except === 'tmenu') return;
     var tm = byId('tmenu');
     if (tm) tm.parentNode.removeChild(tm);
@@ -477,6 +473,7 @@
   // ---------- the view: kept across a reload ----------
   // The place on screen: the screen and its tab. Each place keeps its own scroll position.
   function place() {
+    if (S.view === 'settings') return 'settings';
     if (S.view === 'quest') return 'quest:' + S.key + ':' + S.prog.tab;
     if (S.view === 'area') return 'area:' + S.areaKey + ':' + ((S.aprog && S.aprog.tier) || '');
     return 'start:' + S.set.home;
@@ -510,17 +507,16 @@
   }, true);
 
   // ---------- the window: the parts every screen has ----------
-  // The title band, on top of every screen, with the settings cog on the right. On the start screen: the app's emblem
-  // and its name. On a quest or an area (open: { title, back, more }): the way back (back says where to), the name of
-  // what is open, and its menu (more) before the cog.
+  // The title band, on top of every screen. On the start screen and in Settings: the app's emblem and the name (open:
+  // { title }). On a quest or an area (open: { title, back, more }): the way back (back says where to), the name of what
+  // is open, and its menu (more) on the right.
   function headerHtml(open) {
-    if (!open) {
-      return '<header class="hdr"><img class="emb" src="icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1>' +
-        '<div class="hs he">' + cogHtml() + '</div></header>';
+    if (!open || !open.back) {
+      return '<header class="hdr"><img class="emb" src="icon.svg" alt="" width="26" height="26"><h1 class="qt">' + esc(open ? open.title : 'Quick Guide') + '</h1></header>';
     }
     return '<header class="hdr"><button class="ib" type="button" data-act="change" aria-label="' + open.back + '" title="' + open.back + '">' + I.back + '</button>' +
       '<h1 class="qt" title="' + esc(open.title) + '">' + esc(open.title) + '</h1>' +
-      '<div class="hs he">' + (open.more || '') + cogHtml() + '</div></header>';
+      (open.more ? '<div class="hs he">' + open.more + '</div>' : '') + '</header>';
   }
   // The thin progress line under the title band. Its count is in a tab.
   function progHtml(done, max, label) {
@@ -535,11 +531,11 @@
   function tabsHtml(label, tabs, cls) { return '<nav class="tabs' + (cls ? ' ' + cls : '') + '" role="tablist" aria-label="' + label + '">' + tabs.join('') + '</nav>'; }
   // The count under a tab's name ("3 / 12"). attrs: its id or data-tcount, so it can change without a redraw.
   function tabCountHtml(done, total, attrs) { return '<span class="tcn"' + (attrs || '') + '>' + done + ' / ' + total + '</span>'; }
-  // The bar at the bottom of every screen: Quests, Area tasks and My list (on: the one that is lit). My list shows its
-  // open goals.
-  var HOME_ICON = { quests: I.scroll, areas: I.map, todo: I.steps };
+  // The bar at the bottom of every screen: Quests, Area tasks, My list and Settings (on: the one that is lit). My list
+  // shows its open goals.
+  var HOME_ICON = { quests: I.scroll, areas: I.map, todo: I.steps, settings: I.cog };
   function homeBarHtml(on) {
-    return '<nav class="bnav" aria-label="Lists">' + HOMES.map(function (h) {
+    return '<nav class="bnav" aria-label="Lists">' + HOMES.concat([['settings', 'Settings']]).map(function (h) {
       return '<button class="bn" type="button" data-home="' + h[0] + '"' + (on === h[0] ? ' aria-current="page"' : '') + '>' +
         HOME_ICON[h[0]] + '<span class="bnl">' + h[1] + '</span>' + (h[0] === 'todo' ? A.todoCountHtml() : '') + '</button>';
     }).join('') + '</nav>';
@@ -598,6 +594,37 @@
       '<div class="toast low" id="toast" role="status" aria-live="polite" hidden></div>';
     restoreScroll();
     if (!S.list && !S.listBusy && !S.listError) A.fetchList(false);
+  }
+
+  // ---------- the settings screen ----------
+  // Settings, from the bar at the bottom. The screen you came from stays as it was: its button in the bar (or Escape)
+  // takes you back there, like a quest at the tab and place you left it.
+  function openSettings() {
+    closeMenus();
+    if (S.view !== 'settings') S.back = { view: S.view, home: S.view === 'quest' ? 'quests' : S.view === 'area' ? 'areas' : S.set.home };
+    S.wipeArmed = 0;
+    S.view = 'settings';
+    dropMaps();
+    app.innerHTML =
+      headerHtml({ title: 'Settings' }) +
+      '<main class="scroll" id="main"><div class="setp" id="settings">' + settingsHtml() + '</div></main>' +
+      homeBarHtml('settings') +
+      toastHtml(true);
+    restoreScroll();
+  }
+  // Back to the screen Settings was opened from.
+  function leaveSettings() {
+    var b = S.back || { view: 'start' };
+    S.back = null;
+    if (b.view === 'quest' && S.q) { S.view = 'quest'; A.renderQuest(); return; }
+    if (b.view === 'area' && S.area) { S.view = 'area'; A.renderArea(false); return; }
+    renderStart();
+  }
+  // A button of the bar at the bottom. From Settings, the button of the screen you came from takes you back to it.
+  function goHome(h) {
+    if (h === 'settings') { if (S.view !== 'settings') openSettings(); return; }
+    if (S.view === 'settings' && S.back && S.back.home === h) { leaveSettings(); return; }
+    A.setHome(h);
   }
 
   // ---------- shared pieces: boxes, rows, quest links, skill levels ----------
@@ -834,14 +861,9 @@
     if (mi) mi.setAttribute('aria-checked', S.set[key] ? 'true' : 'false');
     if (key !== 'showDone') { A.drawList(); return; }
     var main = byId('main');
-    if (main && S.view !== 'start') main.classList.toggle('show-done', S.set.showDone);
+    if (main && (S.view === 'quest' || S.view === 'area')) main.classList.toggle('show-done', S.set.showDone);
   }
-  // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds.
-  function disarmWipe() {
-    S.wipeArmed = 0;
-    var w = document.querySelector('[data-act="wipe"] span');
-    if (w) w.textContent = 'Delete everything';
-  }
+  // Danger zone: "Delete everything" takes two clicks, the second within 4 seconds. Leaving Settings cancels it.
   function wipeClick(btn) {
     if (!(S.wipeArmed && Date.now() - S.wipeArmed < 4000)) {
       S.wipeArmed = Date.now();
@@ -871,7 +893,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,
