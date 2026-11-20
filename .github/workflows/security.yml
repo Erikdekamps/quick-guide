@@ -3,8 +3,6 @@ name: Security
 # Known security problems in what the app and its tests use, and newer versions to plan an update.
 # It fails on a high or critical problem. See tools/security.js; run it yourself with: npm run security
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
   schedule:
