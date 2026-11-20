@@ -218,10 +218,10 @@
     saveSettings();
     S.input = '';
     S.error = '';
-    // From a quest or an area, a tab leaves it.
+    // From a quest or an area, a tab leaves it. From Settings too: a reload opens the list.
     A.sdel('last');
-    A.saveView();
     renderStart();
+    A.saveView(true);
   }
 
   // ---------- Area Tasks: one area ----------

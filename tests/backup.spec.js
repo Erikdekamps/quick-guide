@@ -399,8 +399,8 @@ test.describe('danger zone', () => {
   test('the first click only asks again; closing the settings cancels it', async ({ page }) => {
     await lots(page);
     await openApp(page, expect);
-    const before = await all(page);
     await openSettings(page);
+    const before = await all(page);   // opening Settings saves the view: a reload opens it again
     await page.getByRole('button', { name: 'Delete everything' }).click();
     await expect(page.locator('[data-act="wipe"]')).toHaveText('Click again to delete everything');
     expect(await all(page)).toEqual(before);
@@ -450,8 +450,8 @@ test.describe('danger zone', () => {
     await page.clock.install();
     await lots(page);
     await openApp(page, expect);
-    const before = await all(page);
     await openSettings(page);
+    const before = await all(page);
     await page.locator('[data-act="wipe"]').click();
     await page.clock.runFor(5000);
     await page.locator('[data-act="wipe"]').click();

@@ -248,5 +248,7 @@
   // Keep the player fresh too: quietly, once a day.
   // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);
+  // Settings was open: open it again, over the screen it was opened from (its button in the bar goes back there).
+  if (S.reopenSettings) A.openSettings();
 
 })(window.QuickGuideApp);

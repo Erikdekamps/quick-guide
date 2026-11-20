@@ -1223,7 +1223,7 @@ test.describe('the window', () => {
     await expect(page.locator('.tabs')).toHaveCount(1);
   });
 
-  test('Settings: the last button of the bar; the button of where you were takes you back there, and so does Escape', async ({ page, wiki }) => {
+  test('Settings: the last button of the bar; it stays open after a reload; the button of where you were takes you back there, and so does Escape', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
     const settings = page.locator('.bn[data-home="settings"]'), lit = page.locator('.bn[aria-current="page"]');
@@ -1240,6 +1240,14 @@ test.describe('the window', () => {
     await expect(page.locator('#settings')).toBeVisible();
     await expect(page.locator('.hdr [data-act="change"]')).toHaveCount(0);   // no back button: the bar is the way back
     expect(await stored(page, 'last')).toBe('While Guthix Sleeps/Quick guide');
+    // a reload keeps Settings open, scrolled where it was, and the quest under it
+    const top = await page.locator('#main').evaluate((m) => { m.scrollTop = m.scrollHeight; m.dispatchEvent(new Event('scroll')); return m.scrollTop; });
+    expect(top).toBeGreaterThan(0);
+    await expect.poll(async () => ((await stored(page, 'view')) || {}).scroll).toMatchObject({ settings: top });
+    await page.reload();
+    await expect(page.locator('h1.qt')).toHaveText('Settings');
+    await expect(lit).toHaveText('Settings');
+    expect(await page.locator('#main').evaluate((m) => m.scrollTop)).toBe(top);
     // Quests: back in the quest, on the same tab, at the same place
     await page.locator('.bn[data-home="quests"]').click();
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
@@ -1255,9 +1263,12 @@ test.describe('the window', () => {
     await page.keyboard.press('Escape');
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await expect(lit).toHaveText('Area tasks');
-    // another button goes to its list
+    // another button goes to its list, and a reload stays there
     await settings.click();
     await page.locator('.bn[data-home="todo"]').click();
+    await expect(lit).toHaveText(/^My list/);
+    await expect(page.locator('#settings')).toHaveCount(0);
+    await page.reload();
     await expect(lit).toHaveText(/^My list/);
     await expect(page.locator('#settings')).toHaveCount(0);
     // from a list: back to it, with the search text you typed

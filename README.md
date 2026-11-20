@@ -122,8 +122,9 @@ under its area, in the game's order.
 
 ## Settings
 
-**Settings** is the last button of the bar at the bottom: a screen of its own. To go back, press the button of the
-screen you came from (or Escape): a quest opens again at the tab and place you left it. Another button goes to its list.
+**Settings** is the last button of the bar at the bottom: a screen of its own. It stays open after a reload. To go back,
+press the button of the screen you came from (or Escape): a quest opens again at the tab and place you left it. Another
+button goes to its list.
 
 - **Player:** look up your character, update it, or forget it.
 - **Show:** what the lists and guides show. A tick means you see them.
@@ -204,7 +205,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `settings`, `last` | Your settings (the theme too), and the quest or area that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
-| `view` | Where you were: the search text, folded groups and lists, and where each list, tab and tier is scrolled |
+| `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)

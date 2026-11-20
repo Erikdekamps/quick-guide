@@ -240,6 +240,7 @@
     error: '',
     input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
     scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
+    reopenSettings: savedView.settings === true,   // Settings was open: the app opens it again at the start
     resetArmed: 0,
     toastTimer: 0,
     todo: null,       // My list (app-todo.js): read from storage when it is first needed
@@ -490,14 +491,18 @@
     return true;
   }
   var VIEW_PLACES = 80, viewTimer = 0;
-  // Saves the view a moment after the last change. Only the most recent places keep a scroll position.
-  function saveView() {
+  // Saves the view a moment after the last change (now: at once). Only the most recent places keep a scroll position.
+  // With Settings open it says so, and a reload opens Settings again.
+  function saveView(now) {
     clearTimeout(viewTimer);
-    viewTimer = setTimeout(function () {
+    function write() {
       var keys = Object.keys(S.scroll);
       keys.slice(0, Math.max(0, keys.length - VIEW_PLACES)).forEach(function (k) { delete S.scroll[k]; });
-      sset('view', { input: S.input, closed: S.closed, scroll: S.scroll });
-    }, 250);
+      var v = { input: S.input, closed: S.closed, scroll: S.scroll };
+      if (S.view === 'settings') v.settings = true;
+      sset('view', v);
+    }
+    if (now) write(); else viewTimer = setTimeout(write, 250);
   }
   // Remembers where #main is scrolled, for the place on screen (the newest place goes last).
   app.addEventListener('scroll', function (ev) {
@@ -505,8 +510,7 @@
     var k = place();
     delete S.scroll[k];
     S.scroll[k] = ev.target.scrollTop;
-    // Settings keeps its place while the app is open; a reload never opens it, so scrolling it saves nothing
-    if (k !== 'settings') saveView();
+    saveView();
   }, true);
 
   // ---------- the window: the parts every screen has ----------
@@ -601,7 +605,7 @@
 
   // ---------- the settings screen ----------
   // Settings, from the bar at the bottom. The screen you came from stays as it was: its button in the bar (or Escape)
-  // takes you back there, like a quest at the tab and place you left it.
+  // takes you back there, like a quest at the tab and place you left it. A reload keeps Settings open.
   function openSettings() {
     closeMenus();
     if (S.view !== 'settings') S.back = { view: S.view, home: S.view === 'quest' ? 'quests' : S.view === 'area' ? 'areas' : S.set.home };
@@ -614,14 +618,16 @@
       homeBarHtml('settings') +
       toastHtml(true);
     restoreScroll();
+    saveView(true);
   }
   // Back to the screen Settings was opened from.
   function leaveSettings() {
     var b = S.back || { view: 'start' };
     S.back = null;
-    if (b.view === 'quest' && S.q) { S.view = 'quest'; A.renderQuest(); return; }
-    if (b.view === 'area' && S.area) { S.view = 'area'; A.renderArea(false); return; }
-    renderStart();
+    if (b.view === 'quest' && S.q) { S.view = 'quest'; A.renderQuest(); }
+    else if (b.view === 'area' && S.area) { S.view = 'area'; A.renderArea(false); }
+    else renderStart();
+    saveView(true);
   }
   // A button of the bar at the bottom. From Settings, the button of the screen you came from takes you back to it.
   function goHome(h) {
