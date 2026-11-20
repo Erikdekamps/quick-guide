@@ -260,7 +260,7 @@ test.describe('the area list', () => {
     await expect(area(page, 'Ardougne', 'easy').locator('.q2')).toHaveText('23 tasks');
   });
 
-  test('a finished tier is green, and "Hide completed" hides it', async ({ page, wiki }) => {
+  test('a finished tier is green; without "Done quests and tiers" it is hidden', async ({ page, wiki }) => {
     withAreas(wiki);
     await openArea(page, 'Ardougne');
     const ids = await page.locator('li[data-task]').evaluateAll((l) => l.map((x) => x.getAttribute('data-task')));
@@ -273,14 +273,14 @@ test.describe('the area list', () => {
     const row = area(page, 'Ardougne', 'easy');
     await expect(row).toHaveClass(/\bdone\b/);
     await expect(row.locator('.qs')).toHaveText('✓ Done');
-    await toggle(page, 'Hide completed');
+    await toggle(page, 'Done quests and tiers');
     await expect(area(page, 'Ardougne', 'easy')).toHaveCount(0);
     await expect(area(page, 'Ardougne', 'medium')).toHaveCount(1);
-    await toggle(page, 'Hide completed');
+    await toggle(page, 'Done quests and tiers');
     await expect(area(page, 'Ardougne', 'easy')).toHaveCount(1);
   });
 
-  test('a tier you cannot do yet is grayed out and says Locked; "Hide locked" hides it', async ({ page, wiki }) => {
+  test('a tier you cannot do yet is grayed out and says Locked; without "Locked quests and tiers" it is hidden', async ({ page, wiki }) => {
     withAreas(wiki).setPlayer('Zezima', {}, { 18: 3 });   // Thieving 3; Ardougne Easy needs 16
     await openApp(page, expect);
     await lookUp(page, 'Zezima');
@@ -294,7 +294,7 @@ test.describe('the area list', () => {
     await expect(row.locator('.qs')).toHaveText('Locked');
     // tiers of an area you never opened: nothing is known yet
     await expect(area(page, 'Desert', 'easy')).not.toHaveClass(/\blocked\b/);
-    await toggle(page, 'Hide locked');
+    await toggle(page, 'Locked quests and tiers');
     await expect(area(page, 'Ardougne', 'easy')).toHaveCount(0);
     await expect(area(page, 'Desert', 'easy')).toHaveCount(1);
   });
@@ -711,7 +711,7 @@ test.describe('an area', () => {
     test('ticking all of them ticks the task; unticking one unticks it', async ({ page, wiki }) => {
       await open(page, wiki);
       await openSettings(page);
-      await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+      await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
       await closeSettings(page);
       for (const i of [1, 2, 3]) await task(page, '993:' + i).locator('.cb').click();
       await expect(task(page, '993')).not.toHaveClass(/\bdone\b/);
@@ -729,7 +729,7 @@ test.describe('an area', () => {
     test('ticking the task ticks all its steps', async ({ page, wiki }) => {
       await open(page, wiki);
       await openSettings(page);
-      await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+      await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
       await closeSettings(page);
       await task(page, '993').locator(':scope > .row > .cb').click();
       for (const i of [1, 2, 3, 4]) await expect(task(page, '993:' + i).locator('.cb')).toBeChecked();
@@ -753,9 +753,9 @@ test.describe('an area', () => {
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 23');
     await expect(task(page, '448')).toBeHidden();
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
-    // "Show done steps" shows them again, so you can untick one
+    // "Done steps and tasks" shows them again, so you can untick one
     await openSettings(page);
-    await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+    await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
     await closeSettings(page);
     await expect(task(page, '448')).toBeVisible();
     await task(page, '448').locator('.cb').click();

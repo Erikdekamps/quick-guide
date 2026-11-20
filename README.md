@@ -126,16 +126,20 @@ under its area, in the game's order.
 screen you came from (or Escape): a quest opens again at the tab and place you left it. Another button goes to its list.
 
 - **Player:** look up your character, update it, or forget it.
-- **Quest list:** sort, **Hide completed**, **Hide miniquests**, **Hide locked**. Hide completed and Hide locked work for area tiers too.
-- **Display:** **Theme** (Brown, like the game now, or Blue, like the game before), **Show done steps** (to untick one)
-  and **Text size** (12 to 40).
+- **Show:** what the lists and guides show. A tick means you see them.
+  - **Done quests and tiers**, **Miniquests** and **Locked quests and tiers**: in the quest list and Area tasks.
+    A search still finds them all.
+  - **Done steps and tasks**: ticked steps, items and tasks go away at first, so the next one is on top.
+    Tick it to see them again, to untick one.
+- **Lists:** how the quest list is sorted.
+- **Display:** **Theme** (Brown, like the game now, or Blue, like the game before) and **Text size** (12 to 40).
 - **Update quest list** reads the lists from the wiki again.
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
-the wiki, or resets its progress.
+the wiki, or resets its progress. In a quest it also jumps to the next step.
 
 ## Export and import
 

@@ -1041,8 +1041,8 @@ test.describe('goals that tick themselves', () => {
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await expect(page.locator('li[data-task="448"] > .row .cb')).toBeChecked();
-    // untick it there (done tasks show with "Show done steps"): open again on the list
-    await toggle(page, 'Show done steps');
+    // untick it there (done tasks show with "Done steps and tasks"): open again on the list
+    await toggle(page, 'Done steps and tasks');
     await page.locator('li[data-task="448"] > .row .cb').click();
     await page.getByRole('button', { name: 'All areas' }).click();
     await tab(page).click();
@@ -1109,7 +1109,7 @@ test.describe('goals that tick themselves', () => {
     // unticked in its area: open again here
     await yoink.locator('[data-smenu]').click();
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
-    await toggle(page, 'Show done steps');
+    await toggle(page, 'Done steps and tasks');
     await page.locator('li[data-task="448"] > .row .cb').click();
     await page.getByRole('button', { name: 'All areas' }).click();
     await tab(page).click();

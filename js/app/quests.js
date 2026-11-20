@@ -80,7 +80,7 @@
     }
   }
   // Returns the new next step. Opens the part of the next step.
-  // A finished part closes, unless "Show done steps" is on: then it stays as it was.
+  // A finished part closes, unless "Done steps and tasks" is ticked: then it stays as it was.
   function changeStep(id, val) {
     var before = current();
     var sb = before && S.idx.secOf[before], wasOpen = sb ? isOpen(S.idx.secs[sb], before) : false;
@@ -361,7 +361,7 @@
       .map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
         return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
       });
-    // "Hide completed" and "Hide locked": not while you search, so a search still finds everything.
+    // Done and locked quests stay out (when their switch in Settings is off), not while you search: a search finds everything.
     var hidden = 0, hiddenLocked = 0;
     if (S.set.hideDone && !v) {
       hidden = items.filter(function (x) { return x.done; }).length;
@@ -385,8 +385,8 @@
       (hiddenLocked ? ' \u00b7 ' + hiddenLocked + ' locked hidden' : '') +
       (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</span>' +
       '<span class="how"> \u00b7 ' + how.join(' \u00b7 ') + '</span></p>';
-    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide completed\u201d in the settings to see them.</p>';
-    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide completed\u201d or \u201cHide locked\u201d in the settings to see them.</p>';
+    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Tick \u201cDone quests and tiers\u201d in Settings to see them.</p>';
+    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Tick \u201cDone quests and tiers\u201d or \u201cLocked quests and tiers\u201d in Settings to see them.</p>';
     if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
     if (!items.length) return h + '<p class="empty">No quests here.</p>';
     var group = null, open = false;

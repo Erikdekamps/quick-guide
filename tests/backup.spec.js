@@ -41,7 +41,7 @@ async function someState(page, wiki) {
   await page.locator('#player-name').fill('Zezima');
   await page.getByRole('button', { name: 'Look up' }).click();
   await expect(page.locator('#settings #player')).toContainText('Zezima');
-  await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();
+  await page.getByRole('menuitemcheckbox', { name: 'Done quests and tiers' }).click();
   await closeSettings(page);
   await page.getByRole('button', { name: 'All quests' }).click();
   await page.locator('.bn[data-home="areas"]').click();
@@ -57,7 +57,7 @@ test.describe('the settings', () => {
   test('end with a Backup part: Export state and Import state', async ({ page }) => {
     await openApp(page, expect);
     await openSettings(page);
-    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Show', 'Lists', 'Display', 'Backup', 'Danger zone']);
     await expect(page.locator('#settings .mi').nth(-3)).toHaveText('Export state');
     await expect(page.locator('#settings .mi').nth(-2)).toHaveText('Import state');
   });
@@ -240,7 +240,7 @@ test.describe('import', () => {
     await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"] .qs')).toHaveText('2 / 23');
     await page.locator('.bn[data-home="quests"]').click();
     await openSettings(page);
-    await page.getByRole('menuitemcheckbox', { name: 'Hide completed' }).click();   // off, to see done quests
+    await page.getByRole('menuitemcheckbox', { name: 'Done quests and tiers' }).click();   // ticked again, to see done quests
     await closeSettings(page);
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).toHaveClass(/\bdone\b/);
     await expect(page.locator('.q[data-quest="Imp Catcher"] .qs')).toHaveText('✓ Done');
@@ -426,7 +426,7 @@ test.describe('danger zone', () => {
     await expect(page.locator('.bn[data-home="quests"]')).toHaveAttribute('aria-current', 'page');
     await openSettings(page);
     await expect(page.locator('#player-name')).toBeVisible();
-    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Done quests and tiers' })).toHaveAttribute('aria-checked', 'true');
     await closeSettings(page);
     await expect(page.locator('.q[data-quest="Imp Catcher"]')).not.toHaveClass(/\bdone\b/);
     expect(page.errors).toEqual([]);

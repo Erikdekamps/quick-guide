@@ -111,19 +111,19 @@ test.describe('optimal order', () => {
 test.describe('hide done quests', () => {
   const done = { meta: { "Cook's Assistant/Quick guide": { title: "Cook's Assistant", done: 4, total: 4, at: 2 }, [WGS]: { title: 'While Guthix Sleeps', done: 4, total: 12, at: 1 } } };
 
-  test('a setting in Settings, off at first', async ({ page }) => {
+  test('a switch in Settings, ticked at first: done quests show', async ({ page }) => {
     await seed(page, done);
     await openApp(page, expect);
     await page.locator('.bn[data-home="settings"]').click();
-    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'false');
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Done quests and tiers' })).toHaveAttribute('aria-checked', 'true');
     await closeSettings(page);
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toBeVisible();
   });
 
-  test('on: done quests leave the list, started ones stay; it is remembered', async ({ page }) => {
+  test('unticked: done quests leave the list, started ones stay; it is remembered', async ({ page }) => {
     await seed(page, done);
     await openApp(page, expect);
-    await setting(page, 'Hide completed');
+    await setting(page, 'Done quests and tiers');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
     await expect(page.locator('.q[data-quest="While Guthix Sleeps"]')).toBeVisible();
     await expect(page.locator('#qcount')).toHaveText('10 of 11 quests · 1 done hidden');
@@ -132,14 +132,14 @@ test.describe('hide done quests', () => {
     await page.reload();
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
     await page.locator('.bn[data-home="settings"]').click();
-    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide completed' })).toHaveAttribute('aria-checked', 'true');
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Done quests and tiers' })).toHaveAttribute('aria-checked', 'false');
   });
 
-  test('off again: they come back', async ({ page }) => {
+  test('ticked again: they come back', async ({ page }) => {
     await seed(page, Object.assign({ settings: { hideDone: true } }, done));
     await openApp(page, expect);
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toHaveCount(0);
-    await setting(page, 'Hide completed');
+    await setting(page, 'Done quests and tiers');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"]")).toBeVisible();
     await expect(page.locator('#qcount')).toHaveText('11 quests');
   });
@@ -165,7 +165,7 @@ test.describe('hide done quests', () => {
   test('when every quest is done and hidden, it says so', async ({ page }) => {
     await seed(page, { settings: { hideDone: true }, list: { at: Date.now(), quests: [{ t: "Cook's Assistant" }] }, meta: done.meta });
     await page.goto('/');
-    await expect(page.locator('#qarea .empty')).toHaveText('All quests are done. Turn off “Hide completed” in the settings to see them.');
+    await expect(page.locator('#qarea .empty')).toHaveText('All quests are done. Tick “Done quests and tiers” in Settings to see them.');
   });
 });
 

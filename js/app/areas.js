@@ -192,7 +192,7 @@
       if (!tiers.length && !res.tasks.length && !S.aidxBusy) h += '<p class="empty">Nothing matches “' + esc(v) + '”.</p>';
       return h;
     }
-    // "Hide completed" and "Hide locked" work here too.
+    // The same switches as for quests: done and locked tiers stay out when they are off.
     if (S.set.hideDone) tiers = tiers.filter(function (t) { return !t.full; });
     if (S.set.hideLocked) tiers = tiers.filter(function (t) { return !t.locked; });
     // Each tier stays in its own area, in the game's order; a started one has its progress bar right there.
@@ -200,7 +200,7 @@
       var rows = tiers.filter(function (t) { return t.area === a.name; });
       if (rows.length) h += groupHtml(a.name, a.name, rows.length, { html: rows.map(tierRow).join('') });
     });
-    if (!tiers.length) h += '<p class="empty">All tiers are done or locked. Turn off “Hide completed” or “Hide locked” in the settings to see them.</p>';
+    if (!tiers.length) h += '<p class="empty">All tiers are done or locked. Tick “Done quests and tiers” or “Locked quests and tiers” in Settings to see them.</p>';
     return h;
   }
   // Ticks a task from the search results, without opening its area.

@@ -133,7 +133,7 @@
       var id = t.getAttribute('data-icb');
       if (t.checked) S.prog.items[id] = 1; else delete S.prog.items[id];
       refresh();
-      // When everything in a "Bring" box is ticked, the box closes (not with "Show done steps" on).
+      // When everything in a "Bring" box is ticked, the box closes (not with "Done steps and tasks" ticked).
       var det = t.closest('details.bring');
       if (det && t.checked && !S.set.showDone && det.classList.contains('alldone')) { det.open = false; if (S.prog.acc) delete S.prog.acc[accKey(det)]; saveProg(); }
     }

@@ -418,14 +418,16 @@
   // sorted and filtered, how things look, backup, and the danger zone.
   function settingsHtml() {
     return '<p class="mh">Player</p><div id="parea">' + playerHtml() + '</div>' +
+      // what the lists and guides show: a tick means you see them
+      '<p class="mh">Show</p>' +
+      toggleHtml('show-done', I.check, 'Done quests and tiers', !S.set.hideDone) +
+      toggleHtml('show-mini', I.scroll, 'Miniquests', !S.set.hideMini) +
+      toggleHtml('show-locked', I.lock, 'Locked quests and tiers', !S.set.hideLocked) +
+      toggleHtml('show-steps', I.eye, 'Done steps and tasks', S.set.showDone) +
       '<p class="mh">Lists</p>' +
       selectHtml('sort', 'Sort by', SORTS, S.set.sort) +
-      toggleHtml('hidedone', I.check, 'Hide completed', S.set.hideDone) +
-      toggleHtml('hidemini', I.scroll, 'Hide miniquests', S.set.hideMini) +
-      toggleHtml('hidelocked', I.lock, 'Hide locked', S.set.hideLocked) +
       '<p class="mh">Display</p>' +
       selectHtml('theme', 'Theme', THEMES, S.set.theme) +
-      toggleHtml('showdone', I.eye, 'Show done steps', S.set.showDone) +
       '<div class="mi mrow" role="group" aria-label="Text size">' + I.type + '<span class="ml">Text size</span>' +
       '<button class="ib xs" type="button" data-act="font-down" aria-label="Smaller text" title="Smaller text"' + (S.set.fontSize <= FONT_MIN ? ' disabled' : '') + '>' + I.minus + '</button>' +
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
@@ -503,7 +505,8 @@
     var k = place();
     delete S.scroll[k];
     S.scroll[k] = ev.target.scrollTop;
-    saveView();
+    // Settings keeps its place while the app is open; a reload never opens it, so scrolling it saves nothing
+    if (k !== 'settings') saveView();
   }, true);
 
   // ---------- the window: the parts every screen has ----------
@@ -850,15 +853,16 @@
     if (down) down.disabled = S.set.fontSize <= FONT_MIN;
     if (up) up.disabled = S.set.fontSize >= FONT_MAX;
   }
-  // The on/off switches in the settings: which setting each one flips.
-  var SWITCHES = { showdone: 'showDone', hidedone: 'hideDone', hidemini: 'hideMini', hidelocked: 'hideLocked' };
-  // Flips a switch, and shows it: "Show done steps" shows or hides the done steps; the others redraw the list.
+  // The switches of the Show part of the settings, and the setting each one flips. A tick means you see them, so for the
+  // first three the setting is the other way round: "Done quests and tiers" is ticked when hideDone is off.
+  var SWITCHES = { 'show-done': 'hideDone', 'show-mini': 'hideMini', 'show-locked': 'hideLocked', 'show-steps': 'showDone' };
+  // Flips a switch, and shows it: "Done steps and tasks" shows or hides the done steps; the others redraw the list.
   function toggleSetting(act) {
     var key = SWITCHES[act];
     S.set[key] = !S.set[key];
     saveSettings();
     var mi = document.querySelector('.mi[data-act="' + act + '"]');
-    if (mi) mi.setAttribute('aria-checked', S.set[key] ? 'true' : 'false');
+    if (mi) mi.setAttribute('aria-checked', (key === 'showDone' ? S.set[key] : !S.set[key]) ? 'true' : 'false');
     if (key !== 'showDone') { A.drawList(); return; }
     var main = byId('main');
     if (main && (S.view === 'quest' || S.view === 'area')) main.classList.toggle('show-done', S.set.showDone);

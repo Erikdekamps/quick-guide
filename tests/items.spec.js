@@ -42,9 +42,9 @@ test('a click anywhere on the row ticks it, but a link still works as a link', a
   await expect(page.locator('#main .bh').nth(1)).toHaveText('Recommended 1 / 2');
 });
 
-test('with "Show done steps" on, ticked items stay, and can be unticked', async ({ page }) => {
+test('with "Done steps and tasks" ticked, ticked items stay, and can be unticked', async ({ page }) => {
   await page.locator('.bn[data-home="settings"]').click();
-  await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+  await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
   await page.keyboard.press('Escape');
   const lantern = item(page, 'sapphire lantern');
   await lantern.locator('.cb').click();

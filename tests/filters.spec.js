@@ -37,24 +37,24 @@ test.describe('miniquests', () => {
     expect(wiki.askedAll()).toEqual(['List of quests', 'Miniquests']);
   });
 
-  test('"Hide miniquests" leaves them out, and is remembered', async ({ page, wiki }) => {
+  test('without "Miniquests" they are left out, and it is remembered', async ({ page, wiki }) => {
     wiki.minis();
     await openApp(page, expect);
     await expect(page.locator('#kind')).toHaveCount(0);
-    await setting(page, 'Hide miniquests');
+    await setting(page, 'Miniquests');
     await expect(page.locator('#qcount')).toHaveText('11 of 15 quests');
     await expect(page.locator('.q[data-quest$="(miniquest)"]')).toHaveCount(0);
     expect((await stored(page, 'settings')).hideMini).toBe(true);
     await page.reload();
     await expect(page.locator('.q[data-quest$="(miniquest)"]')).toHaveCount(0);
     await openSettings(page);
-    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' })).toHaveAttribute('aria-checked', 'true');
-    await page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' }).click();
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Miniquests' })).toHaveAttribute('aria-checked', 'false');
+    await page.getByRole('menuitemcheckbox', { name: 'Miniquests' }).click();
     await closeSettings(page);
     await expect(page.locator('#qcount')).toHaveText('15 quests');
   });
 
-  test('an old "Quests only" setting becomes "Hide miniquests"', async ({ page, wiki }) => {
+  test('an old "Quests only" setting leaves the miniquests out', async ({ page, wiki }) => {
     wiki.minis();
     await seed(page, { settings: { kind: 'quest' } });
     await openApp(page, expect);
@@ -104,19 +104,19 @@ test.describe('locked quests', () => {
     await expect(page.locator('h1.qt')).toHaveText('Desert Treasure');
   });
 
-  test('"Hide locked" leaves them out, and says how many', async ({ page, wiki }) => {
+  test('without "Locked quests and tiers" they are left out, and it says how many', async ({ page, wiki }) => {
     player(wiki);
     await openApp(page, expect);
     await lookUpDone(page, 'Zezima');
-    await setting(page, 'Hide locked');
+    await setting(page, 'Locked quests and tiers');
     await expect(row(page, 'Desert Treasure')).toHaveCount(0);
     await expect(page.locator('#qcount')).toHaveText('9 of 11 quests · 2 locked hidden');
     expect((await stored(page, 'settings')).hideLocked).toBe(true);
-    // together with "Hide completed"
-    await setting(page, 'Hide completed');
+    // together with "Done quests and tiers"
+    await setting(page, 'Done quests and tiers');
     await expect(page.locator('#qcount')).toHaveText('8 of 11 quests · 1 done hidden · 2 locked hidden');
     // off again
-    await setting(page, 'Hide locked');
+    await setting(page, 'Locked quests and tiers');
     await expect(row(page, 'Desert Treasure')).toHaveCount(1);
   });
 
@@ -217,9 +217,9 @@ test.describe('Settings holds the player, sorting and filters', () => {
   test('the same settings are there inside a quest', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openSettings(page);
-    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Show', 'Lists', 'Display', 'Backup', 'Danger zone']);
     await expect(page.getByLabel('Sort by')).toBeVisible();
-    await expect(page.getByRole('menuitemcheckbox', { name: 'Hide miniquests' })).toBeVisible();
+    await expect(page.getByRole('menuitemcheckbox', { name: 'Miniquests' })).toBeVisible();
     // a sort picked in a quest is used by the list
     await page.locator('#sort').selectOption('dif');
     await closeSettings(page);
@@ -232,7 +232,7 @@ test.describe('Settings holds the player, sorting and filters', () => {
     await openApp(page, expect);
     await expect(page.locator('.qmeta')).toHaveText('11 quests · A to Z');
     await choose(page, '#sort', 'opt');
-    await setting(page, 'Hide miniquests');
+    await setting(page, 'Miniquests');
     await lookUpDone(page, 'Zezima');
     await expect(page.locator('#qcount')).toHaveText('11 quests');
     await expect(page.locator('.qmeta')).toHaveText('11 quests · Optimal order · Quests only · Zezima');

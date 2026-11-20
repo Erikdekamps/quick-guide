@@ -1,5 +1,5 @@
 // The Steps tab: parts, ticking, sub-steps, chat options, "Bring" boxes, boxes for pictures,
-// maps and tables, "Done, next step", and the "Show done steps" setting.
+// maps and tables, "Done, next step", and the "Done steps and tasks" switch.
 const { test, expect, stored, openQuest, openTab, step, item, part } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
@@ -9,7 +9,7 @@ const box = (scope, label) => scope.locator('details.acc').filter({ has: scope.p
 
 async function showDone(page) {
   await page.locator('.bn[data-home="settings"]').click();
-  await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+  await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
   await page.keyboard.press('Escape');
 }
 
@@ -110,7 +110,7 @@ test.describe('ticking', () => {
   });
 });
 
-test.describe('with "Show done steps" on', () => {
+test.describe('with "Done steps and tasks" ticked', () => {
   test('ticked steps stay, with a tick, and a finished part stays open', async ({ page }) => {
     await showDone(page);
     for (let i = 0; i < 3; i++) await page.locator('#next-btn').click();
@@ -248,7 +248,7 @@ test.describe('"Bring" box', () => {
     await expect(b.locator('[data-bcount]')).toHaveText('4 / 5');
   });
 
-  test('with "Show done steps" on, it stays open', async ({ page }) => {
+  test('with "Done steps and tasks" ticked, it stays open', async ({ page }) => {
     await showDone(page);
     for (const t of ['Any logs', 'Ring of charos (a) or', 'Mort myre', 'Watchtower', 'Ardougne Teleport (']) await item(page, t).locator('.cb').click();
     await expect(page.locator('details.bring')).toHaveAttribute('open', '');

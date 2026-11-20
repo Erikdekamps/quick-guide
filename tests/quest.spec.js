@@ -142,11 +142,11 @@ test.describe('menus', () => {
   });
 
   test('Settings: the same screen from a quest and from the start screen; Jump to next step is in the quest menu', async ({ page }) => {
-    const rows = [/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything'];
+    const rows = ['Done quests and tiers', 'Miniquests', 'Locked quests and tiers', 'Done steps and tasks', /^Sort by/, /^Theme/, /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything'];
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('.bn[data-home="settings"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Settings');
-    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Show', 'Lists', 'Display', 'Backup', 'Danger zone']);
     await expect(page.locator('#settings .mi')).toHaveText(rows);
     await expect(page.locator('#settings #player-name')).toBeVisible();
     await page.keyboard.press('Escape');
@@ -183,10 +183,10 @@ test.describe('menus', () => {
     await expect(page.locator('html')).toHaveCSS('font-size', '40px');
   });
 
-  test('show done steps: on and off, remembered', async ({ page }) => {
+  test('done steps and tasks: shown and hidden again, remembered', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('.bn[data-home="settings"]').click();
-    const t = page.getByRole('menuitemcheckbox', { name: 'Show done steps' });
+    const t = page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' });
     await expect(t).toHaveAttribute('aria-checked', 'false');
     await t.click();
     await expect(t).toHaveAttribute('aria-checked', 'true');
