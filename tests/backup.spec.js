@@ -89,6 +89,15 @@ test.describe('export', () => {
     expect(JSON.parse(text).app).toBe('Quick Guide');
   });
 
+  test('a done quest is just true, without its steps', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await someState(page, wiki);
+    await page.evaluate(() => window.QuickGuideApp.setMarked('While Guthix Sleeps', true));
+    const j = JSON.parse(await exportText(page));
+    expect(j.quests['While Guthix Sleeps']).toBe(true);
+  });
+
   test('lists every quest and every area task, done or not, so you can change them', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
