@@ -29,8 +29,12 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
 | `CapeMasterQuest.dc.html` | The master quest cape: a tab per category with its count, the cape and where to buy it, Needs with your levels (three too low) |
-| `CapeCompletionist.dc.html` | The completionist cape, Skills: a part per big subcategory (Slayer, Necromancy…), the next achievement lit |
+| `CapeCompletionist.dc.html` | The completionist cape, Skills: a part per big subcategory (Slayer, Necromancy…), the next achievement lit; a level too low has a red ✗ and + goal |
 | `CapeTrimmed.dc.html` | The trimmed completionist cape, Other: the other two capes tick their own lines, with Open it |
+| `CapeAchievements.dc.html` | A cape's achievements, like area tasks: what each needs (your levels ✓ or ✗, quests), the wiki's tip, and a ⋯ |
+| `CapeMenu.dc.html` | An achievement's ⋯ menu: Add to list…, Open on the wiki |
+| `CapeAddTo.dc.html` | The Add to list box for an achievement: "Advanced Sweeping · Master quest cape" |
+| `MyListCheevo.dc.html` | Achievements on My list: a goal's menu opens its cape, or its page on the wiki |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
 | `Settings.dc.html` | Settings (the last button of the bar): your player, Show (a tick means you see them), the sort, display, backup, the danger zone |
 | `SettingsEnd.dc.html` | Settings scrolled down, with Delete everything after the first click: "Click again to delete everything" |
