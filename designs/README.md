@@ -18,7 +18,9 @@ Every screen has the same frame:
 The screens are built from the real app (`style.css` and the app's own markup),
 so they match it.
 
-| File | What it shows |
+The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are in `screenshots/`.
+
+| File in `canvas/` | What it shows |
 | --- | --- |
 | `Start.dc.html` | Start screen: the search box, a line that says how the list is set up, quests in optimal order, started ones first |
 | `Areas.dc.html` | Area tasks: a row per tier (Ardougne Easy…) under its area, with a bar when started; done and locked tiers |

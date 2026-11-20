@@ -248,7 +248,7 @@ No other service is used.
 | `.github/workflows/tests.yml` | Runs the tests on GitHub |
 | `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
-| `designs/` | Design boards and screenshots of every screen |
+| `designs/` | Design boards (in `designs/canvas/`) and screenshots of every screen |
 
 When you change a file, also raise the `?v=1.40.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
 
