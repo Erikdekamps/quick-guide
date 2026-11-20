@@ -1,5 +1,5 @@
 // The quest screen: title band, progress, tabs, the two menus, text size, refresh and reset.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, parsedQuest } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, parsedQuest } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const toast = (page) => page.locator('#toast');
@@ -14,8 +14,8 @@ test.describe('title band, progress and tabs', () => {
   test('shows the quest name, the progress and three tabs', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await expect(page.locator('h1.qt')).toHaveAttribute('title', 'While Guthix Sleeps');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
-    await expect(tabs(page)).toHaveText(['Overview', 'Items', 'Steps']);
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
+    await expect(tabs(page).locator('.tl-l')).toHaveText(['Overview', 'Items', 'Steps']);
     await expect(page.getByRole('tab', { name: 'Overview' })).toHaveAttribute('aria-selected', 'true');
     await expect(page.getByRole('button', { name: 'All quests' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
@@ -25,17 +25,43 @@ test.describe('title band, progress and tabs', () => {
   test('progress counts ticked main steps', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await tickFirstPart(page);
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
     await expect(page.locator('#pg')).toHaveJSProperty('value', 3);
     await expect(page.locator('#pg')).toHaveJSProperty('max', 12);
   });
 
-  test('one step: "1 / 1 step"', async ({ page, wiki }) => {
+  test('one step: "1 / 1"; a guide with no items has no count on Items', async ({ page, wiki }) => {
     wiki.page('Imp Catcher/Quick guide', '<h2>Part</h2><ul><li>Do it.</li></ul>');
     await openQuest(page, expect, 'Imp Catcher');
     await openTab(page, 'steps');
     await page.locator('#next-btn').click();
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 1 step');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 1');
+    await expect(page.locator('.tab[data-tab="items"] .tcn')).toHaveCount(0);
+    await expect(page.locator('.tab[data-tab="items"]')).toHaveText('Items');
+  });
+
+  test('the counts under the tab names: the steps you did on Steps, the items you have on Items', async ({ page }) => {
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    const count = (t) => page.locator('.tab[data-tab="' + t + '"] .tcn');
+    await expect(count('overview')).toHaveCount(0);
+    await expect(count('items')).toHaveText('0 / 5');
+    await expect(count('steps')).toHaveText('0 / 12');
+    // all three tabs are as tall, with a count or not
+    const h = await Promise.all(['overview', 'items', 'steps'].map(async (t) => (await page.locator('.tab[data-tab="' + t + '"]').boundingBox()).height));
+    expect(new Set(h).size).toBe(1);
+    await tickFirstPart(page);
+    await expect(count('steps')).toHaveText('3 / 12');
+    // ticking an item changes the count at once, without drawing the tabs again
+    await openTab(page, 'items');
+    const before = await count('items').elementHandle();
+    await item(page, 'sapphire lantern').locator('.cb').click();
+    await expect(count('items')).toHaveText('1 / 5');
+    expect(await before.evaluate((e) => e.isConnected)).toBe(true);
+    await expect(count('steps')).toHaveText('3 / 12');
+    // and they are the same after a reload
+    await page.reload();
+    await expect(count('items')).toHaveText('1 / 5');
+    await expect(count('steps')).toHaveText('3 / 12');
   });
 
   test('tabs switch, and each quest remembers its tab', async ({ page }) => {
@@ -87,49 +113,55 @@ test.describe('title band, progress and tabs', () => {
 });
 
 test.describe('menus', () => {
-  test('one menu at a time; a click outside or Escape closes it', async ({ page }) => {
+  test('the quest menu: a click outside, Escape or its own button closes it; so does Settings', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    const cog = page.locator('#cog'), dots = page.locator('#menu');
-    // the quest's menu is in the bar under the title band; the cog, above it, opens over it
+    const dots = page.locator('#menu');
+    // the quest's menu is in the title band, next to the name; the cog is not there any more
+    await expect(page.locator('.hdr #menu-btn')).toBeVisible();
+    await expect(page.locator('.hdr [aria-label="Settings"]')).toHaveCount(0);
     await page.locator('#menu-btn').click();
     await expect(dots).toBeVisible();
-    await page.locator('#cog-btn').click();
-    await expect(cog).toBeVisible();
+    await expect(page.locator('#menu-btn')).toHaveAttribute('aria-expanded', 'true');
+    await page.locator('.hdr .qt').click();
     await expect(dots).toBeHidden();
-    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('#menu-btn')).toHaveAttribute('aria-expanded', 'false');
-    await page.locator('.hdr .qt').click();
-    await expect(cog).toBeHidden();
-    await expect(page.locator('#cog-btn')).toHaveAttribute('aria-expanded', 'false');
+    // Escape closes the menu, and the quest stays
     await page.locator('#menu-btn').click();
-    await expect(dots).toBeVisible();
-    await page.locator('.hdr .qt').click();
-    await expect(dots).toBeHidden();
-    await page.locator('#cog-btn').click();
     await page.keyboard.press('Escape');
-    await expect(cog).toBeHidden();
+    await expect(dots).toBeHidden();
+    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     // the same button closes it again
     await page.locator('#menu-btn').click();
     await page.locator('#menu-btn').click();
     await expect(dots).toBeHidden();
+    // Settings in the bar takes its place
+    await page.locator('#menu-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('#settings')).toBeVisible();
+    await expect(dots).toHaveCount(0);
   });
 
-  test('the settings menu: in a quest, and on the start screen', async ({ page }) => {
+  test('Settings: the same screen from a quest and from the start screen; Jump to next step is in the quest menu', async ({ page }) => {
+    const rows = ['Done quests and tiers', 'Miniquests', 'Locked quests and tiers', 'Done steps and tasks', /^Sort by/, /^Theme/, /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything'];
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mh')).toHaveText(['Player', 'Lists', 'Display', 'Backup', 'Danger zone']);
-    await expect(page.locator('#cog .mi')).toHaveText(['Jump to next step', /^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything']);
-    await expect(page.locator('#cog #player-name')).toBeVisible();
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('h1.qt')).toHaveText('Settings');
+    await expect(page.locator('#settings .mh')).toHaveText(['Player', 'Show', 'Lists', 'Display', 'Backup', 'Danger zone']);
+    await expect(page.locator('#settings .mi')).toHaveText(rows);
+    await expect(page.locator('#settings #player-name')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await page.locator('#menu-btn').click();
+    await expect(page.locator('#menu .mi')).toHaveText(['Jump to next step', 'Add to list…', 'Refresh from wiki', 'Open on wiki', 'Reset progress']);
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('#cog-btn').click();
-    await expect(page.locator('#cog .mi')).toHaveText([/^Sort by/, 'Hide completed', 'Hide miniquests', 'Hide locked', /^Theme/, 'Show done steps', /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything']);
-    await expect(page.locator('#cog')).not.toContainText('Compact');
+    await page.locator('.bn[data-home="settings"]').click();
+    await expect(page.locator('#settings .mi')).toHaveText(rows);
+    await expect(page.locator('#settings')).not.toContainText('Compact');
   });
 
   test('text size: bigger and smaller, 12 to 40, remembered', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     const up = page.getByRole('button', { name: 'Bigger text' }), down = page.getByRole('button', { name: 'Smaller text' });
     await up.click();
     await expect(page.locator('#fsv')).toHaveText('16');
@@ -151,28 +183,32 @@ test.describe('menus', () => {
     await expect(page.locator('html')).toHaveCSS('font-size', '40px');
   });
 
-  test('show done steps: on and off, remembered', async ({ page }) => {
+  test('done steps and tasks: shown and hidden again, remembered', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
-    const t = page.getByRole('menuitemcheckbox', { name: 'Show done steps' });
+    await page.locator('.bn[data-home="settings"]').click();
+    const t = page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' });
     await expect(t).toHaveAttribute('aria-checked', 'false');
     await t.click();
     await expect(t).toHaveAttribute('aria-checked', 'true');
-    await expect(page.locator('#main')).toHaveClass(/\bshow-done\b/);
     expect((await stored(page, 'settings')).showDone).toBe(true);
+    // back in the quest, it shows
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#main')).toHaveClass(/\bshow-done\b/);
+    await page.locator('.bn[data-home="settings"]').click();
     await t.click();
-    await expect(page.locator('#main')).not.toHaveClass(/\bshow-done\b/);
     expect((await stored(page, 'settings')).showDone).toBe(false);
+    await page.locator('.bn[data-home="quests"]').click();
+    await expect(page.locator('#main')).not.toHaveClass(/\bshow-done\b/);
   });
 
   test('jump to next step: goes to Steps and puts the next step at the top', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await tickFirstPart(page);
     await openTab(page, 'overview');
-    await page.locator('#cog-btn').click();
-    await page.getByRole('button', { name: 'Jump to next step' }).click();
+    await page.locator('#menu-btn').click();
+    await page.getByRole('menuitem', { name: 'Jump to next step' }).click();
     await expect(page.getByRole('tab', { name: 'Steps' })).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('#cog')).toBeHidden();
+    await expect(page.locator('#menu')).toBeHidden();
     const cur = page.locator('li.step.cur');
     await expect(cur).toContainText('Talk to the Hunting expert');
     await expect(cur).toBeInViewport();
@@ -180,12 +216,12 @@ test.describe('menus', () => {
 
   test('update quest list', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Quest list updated.');
     expect(wiki.asked().filter((x) => x === 'List of quests')).toHaveLength(2);
     wiki.fail('List of quests', 'network');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Could not update the quest list. Could not reach the wiki. Check your internet, then try again.');
   });
@@ -193,7 +229,7 @@ test.describe('menus', () => {
   test('update quest list shows a message while it works', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     wiki.fail('List of quests', 'slow');
-    await page.locator('#cog-btn').click();
+    await page.locator('.bn[data-home="settings"]').click();
     await page.getByRole('button', { name: 'Update quest list' }).click();
     await expect(toast(page)).toHaveText('Updating the quest list…');
   });
@@ -219,7 +255,7 @@ test.describe('the quest menu', () => {
     await page.locator('#menu-btn').click();
     await page.getByRole('menuitem', { name: 'Refresh from wiki' }).click();
     await expect(toast(page)).toHaveText('Updated from the wiki.');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 13 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 13');
     expect(wiki.asked().filter((x) => x === WGS)).toHaveLength(2);
   });
 
@@ -257,10 +293,10 @@ test.describe('the quest menu', () => {
     const reset = page.locator('[data-act="reset"]');
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
     await reset.click();
     await expect(toast(page)).toHaveText('Progress reset.');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
     expect((await stored(page, 'prog.' + WGS)).steps).toEqual({});
   });
 
@@ -275,7 +311,7 @@ test.describe('the quest menu', () => {
     await expect(reset).toHaveText('Reset progress');
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
   });
 
   test('a reset click runs out after 4 seconds', async ({ page }) => {
@@ -288,7 +324,7 @@ test.describe('the quest menu', () => {
     await page.clock.runFor(4500);
     await reset.click();
     await expect(reset).toHaveText('Click again to reset');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
   });
 });
 

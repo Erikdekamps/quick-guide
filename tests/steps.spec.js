@@ -1,5 +1,5 @@
 // The Steps tab: parts, ticking, sub-steps, chat options, "Bring" boxes, boxes for pictures,
-// maps and tables, "Done, next step", and the "Show done steps" setting.
+// maps and tables, "Done, next step", and the "Done steps and tasks" switch.
 const { test, expect, stored, openQuest, openTab, step, item, part } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
@@ -8,8 +8,8 @@ const head = (page, title) => part(page, title).locator('.sech');
 const box = (scope, label) => scope.locator('details.acc').filter({ has: scope.page().locator('summary .sl', { hasText: label }) }).first();
 
 async function showDone(page) {
-  await page.locator('#cog-btn').click();
-  await page.getByRole('menuitemcheckbox', { name: 'Show done steps' }).click();
+  await page.locator('.bn[data-home="settings"]').click();
+  await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
   await page.keyboard.press('Escape');
 }
 
@@ -36,7 +36,7 @@ test.describe('ticking', () => {
     await expect(step(page, 'In Taverley')).toBeHidden();
     await expect(page.locator('li.step.cur > .row .t')).toContainText('Go upstairs');
     await expect(head(page, 'Starting out').locator('.c')).toHaveText('1 / 3');
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
     const p = await stored(page, 'prog.' + WGS);
     expect(Object.keys(p.steps)).toEqual([expect.stringMatching(/^starting-out:/)]);
     expect((await stored(page, 'meta'))[WGS]).toMatchObject({ done: 1, total: 12 });
@@ -47,7 +47,7 @@ test.describe('ticking', () => {
     const row = step(page, 'Go upstairs').locator(':scope > .row');
     const b = await row.boundingBox();
     await row.click({ position: { x: b.width - 3, y: b.height / 2 } });
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
     await expect(step(page, 'Go upstairs')).toBeHidden();
   });
 
@@ -55,7 +55,7 @@ test.describe('ticking', () => {
     const popup = page.waitForEvent('popup');
     await step(page, 'Go upstairs').locator('a', { hasText: 'Thaerisk Cemphier' }).click();
     expect((await popup).url()).toBe('https://runescape.wiki/w/Thaerisk_Cemphier');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
   });
 
   test('selecting text in a step does not tick it', async ({ page }) => {
@@ -66,7 +66,7 @@ test.describe('ticking', () => {
     await page.mouse.move(b.x + b.width - 4, b.y + 6, { steps: 5 });
     await page.mouse.up();
     expect(await page.evaluate(() => String(window.getSelection()).length)).toBeGreaterThan(3);
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
   });
 
   test('the next step moves to the top, just under the part name', async ({ page }) => {
@@ -81,7 +81,7 @@ test.describe('ticking', () => {
 
   test('"Done, next step" ticks the next step', async ({ page }) => {
     await page.locator('#next-btn').click();
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
     await expect(page.locator('li.step.cur > .row .t')).toContainText('Go upstairs');
   });
 
@@ -104,13 +104,13 @@ test.describe('ticking', () => {
     await expect(page.locator('#next-btn')).toHaveText('All steps done');
     await expect(page.locator('#complete')).toBeVisible();
     await expect(page.locator('#complete')).toHaveText('Quest complete!All 4 steps done.');
-    await expect(page.locator('#pg-cnt')).toHaveText('4 / 4 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('4 / 4');
     await page.getByRole('button', { name: 'All quests' }).click();
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"] .qs")).toHaveText('✓ 4 / 4');
   });
 });
 
-test.describe('with "Show done steps" on', () => {
+test.describe('with "Done steps and tasks" ticked', () => {
   test('ticked steps stay, with a tick, and a finished part stays open', async ({ page }) => {
     await showDone(page);
     for (let i = 0; i < 3; i++) await page.locator('#next-btn').click();
@@ -129,7 +129,7 @@ test.describe('with "Show done steps" on', () => {
     await tick(page, 'Go upstairs');
     await expect(page.locator('li.step.cur > .row .t')).toContainText('Go upstairs');
     await expect(head(page, 'Starting out').locator('.c')).toHaveText('2 / 3');
-    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('3 / 12');
   });
 
   test('"Done, next step" opens the part of the next step, even if you closed it', async ({ page }) => {
@@ -192,18 +192,18 @@ test.describe('sub-steps', () => {
   test('ticking the main step ticks its sub-steps', async ({ page }) => {
     await tick(page, 'Cast NPC Contact');
     for (const s of ['Turael', 'Duradel', 'Mazchna']) await expect(step(page, s).locator(':scope > .row > .cb')).toBeChecked();
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
   });
 
   test('ticking every sub-step ticks the main step, which then folds them away', async ({ page }) => {
     for (const s of ['Turael', 'Duradel', 'Mazchna']) await tick(page, s);
     const main = step(page, 'Cast NPC Contact');
     await expect(main.locator(':scope > .row > .cb')).toBeChecked();
-    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
     await expect(step(page, 'Duradel')).toBeHidden();
     // unticking the main step unticks them all, and shows them again
     await tick(page, 'Cast NPC Contact');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
     for (const s of ['Turael', 'Duradel', 'Mazchna']) await expect(step(page, s).locator(':scope > .row > .cb')).not.toBeChecked();
   });
 
@@ -217,7 +217,7 @@ test.describe('sub-steps', () => {
 
   test('sub-steps count only as part of their main step', async ({ page }) => {
     await tick(page, 'Turael');
-    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12 steps');
+    await expect(page.locator('#pg-cnt')).toHaveText('0 / 12');
     await expect(step(page, 'Duradel').locator('.dlg li')).toHaveText(['1I need to talk to you about Lucien.']);
   });
 });
@@ -248,7 +248,7 @@ test.describe('"Bring" box', () => {
     await expect(b.locator('[data-bcount]')).toHaveText('4 / 5');
   });
 
-  test('with "Show done steps" on, it stays open', async ({ page }) => {
+  test('with "Done steps and tasks" ticked, it stays open', async ({ page }) => {
     await showDone(page);
     for (const t of ['Any logs', 'Ring of charos (a) or', 'Mort myre', 'Watchtower', 'Ardougne Teleport (']) await item(page, t).locator('.cb').click();
     await expect(page.locator('details.bring')).toHaveAttribute('open', '');

@@ -312,7 +312,9 @@
     closeBackup();
     S.error = '';
     S.input = '';
+    var fromSettings = S.view === 'settings';
     renderStart();
+    if (fromSettings) A.saveView(true);   // the new state shows on the start screen, after a reload too
     var parts = [];
     if (r.quests) parts.push(plural(r.quests, 'quest', 'quests'));
     if (r.areas) parts.push(plural(r.areas, 'area', 'areas'));

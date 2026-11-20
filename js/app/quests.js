@@ -6,15 +6,15 @@
   'use strict';
   if (!A) return;
   var restoreScroll = A.restoreScroll, savedScroll = A.savedScroll, acc = A.acc, app = A.app, arr = A.arr, byId = A.byId, D = A.D, dateText = A.dateText, DIF_ORDER = A.DIF_ORDER,
-    dotsHtml = A.dotsHtml, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeHtml = A.homeHtml,
+    dotsHtml = A.dotsHtml, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, homeHtml = A.homeHtml,
     I = A.I, imageAcc = A.imageAcc, imgHtml = A.imgHtml, LEN_ORDER = A.LEN_ORDER, liHtml = A.liHtml,
     loadProg = A.loadProg, mapAcc = A.mapAcc, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
     note = A.note, OV = A.OV, partHtml = A.partHtml, playerLevel = A.playerLevel, playerLocked = A.playerLocked,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset, subHtml = A.subHtml,
-    startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabHtml = A.tabHtml,
+    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
     upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
 
@@ -52,6 +52,11 @@
     S.idx.order.forEach(function (id) { if (done(id)) d++; });
     return { done: d, total: S.idx.order.length };
   }
+  // The items of the Items tab (required and recommended) you have.
+  function itemTotals() {
+    var all = S.q.requiredItems.items.concat(S.q.recommendedItems.items);
+    return { done: all.filter(function (it) { return S.prog.items[it.id]; }).length, total: all.length };
+  }
   function isOpen(sec, cur) {
     var v = S.prog.open[sec.id];
     if (v === true || v === false) return v;
@@ -75,7 +80,7 @@
     }
   }
   // Returns the new next step. Opens the part of the next step.
-  // A finished part closes, unless "Show done steps" is on: then it stays as it was.
+  // A finished part closes, unless "Done steps and tasks" is ticked: then it stays as it was.
   function changeStep(id, val) {
     var before = current();
     var sb = before && S.idx.secOf[before], wasOpen = sb ? isOpen(S.idx.secs[sb], before) : false;
@@ -356,7 +361,7 @@
       .map(function (q) { return questInfo(q, byTitle); }).filter(function (x) {
         return !v || x.q.t.toLowerCase().indexOf(v) >= 0;
       });
-    // "Hide completed" and "Hide locked": not while you search, so a search still finds everything.
+    // Done and locked quests stay out (when their switch in Settings is off), not while you search: a search finds everything.
     var hidden = 0, hiddenLocked = 0;
     if (S.set.hideDone && !v) {
       hidden = items.filter(function (x) { return x.done; }).length;
@@ -380,8 +385,8 @@
       (hiddenLocked ? ' \u00b7 ' + hiddenLocked + ' locked hidden' : '') +
       (S.listError ? ' \u00b7 <span class="err">' + esc(S.listError) + '</span>' : '') + '</span>' +
       '<span class="how"> \u00b7 ' + how.join(' \u00b7 ') + '</span></p>';
-    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Turn off \u201cHide completed\u201d in the settings to see them.</p>';
-    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Turn off \u201cHide completed\u201d or \u201cHide locked\u201d in the settings to see them.</p>';
+    if (!items.length && hidden && !hiddenLocked) return h + '<p class="empty">All quests are done. Tick \u201cDone quests and tiers\u201d in Settings to see them.</p>';
+    if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Tick \u201cDone quests and tiers\u201d or \u201cLocked quests and tiers\u201d in Settings to see them.</p>';
     if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
     if (!items.length) return h + '<p class="empty">No quests here.</p>';
     var group = null, open = false;
@@ -625,15 +630,22 @@
 
   // ---------- quest screen ----------
   function bodyHtml(tab) { return tab === 'steps' ? stepsHtml() : tab === 'items' ? itemsHtml() : overviewHtml(); }
+  // The count under a tab's name: the steps you did on Steps, the items you have on Items (none when there are no items).
+  function tabCount(tab) {
+    if (tab === 'steps') { var t = totals(); return tabCountHtml(t.done, t.total, ' id="pg-cnt"'); }
+    if (tab === 'items') { var n = itemTotals(); return n.total ? tabCountHtml(n.done, n.total, ' data-tcount="items"') : ''; }
+    return '';
+  }
   function renderQuest() {
     var q = S.q, tab = S.prog.tab;
     dropMaps();
     app.innerHTML =
-      headerHtml(true) + A.homeTabsHtml('quests') + subHtml(q.title, 'All quests', dotsHtml()) +
-      progHtml(0, 1, 'Quest progress', '') +
-      tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]]); })) +
+      headerHtml({ title: q.title, back: 'All quests', more: dotsHtml() }) +
+      progHtml(0, 1, 'Quest progress') +
+      tabsHtml('Guide parts', TABS.map(function (t) { return tabHtml('data-tab', t[0], tab === t[0], t[1], TAB_ICON[t[0]], tabCount(t[0])); }), 'two') +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + bodyHtml(tab) + '</main>' +
       (tab === 'steps' ? nextHtml('next', 'Done, next step') : '') +
+      homeBarHtml('quests') +
       toastHtml(tab !== 'steps');
     restoreScroll();
     restoreAcc();
@@ -644,9 +656,10 @@
   function refresh() {
     if (S.view !== 'quest') return;
     var t = totals(), cur = current(), main = byId('main');
-    var pg = byId('pg'), cnt = byId('pg-cnt');
+    var pg = byId('pg'), cnt = byId('pg-cnt'), ic = document.querySelector('[data-tcount="items"]');
     if (pg) { pg.max = Math.max(t.total, 1); pg.value = t.done; }
-    if (cnt) cnt.textContent = t.done + ' / ' + plural(t.total, 'step', 'steps');
+    if (cnt) cnt.textContent = t.done + ' / ' + t.total;
+    if (ic) { var n = itemTotals(); ic.textContent = n.done + ' / ' + n.total; }
     if (!main) return;
     arr(main.querySelectorAll('li[data-step]')).forEach(function (li) {
       var id = li.getAttribute('data-step'), d = done(id);

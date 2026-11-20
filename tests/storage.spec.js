@@ -1,5 +1,5 @@
 // What the app saves on your computer, and how it copes with old, broken, blocked or full storage.
-const { test, expect, seed, stored, storedKeys, openApp, openQuest, openTab, step, item, part, parsedQuest, openCog } = require('./support/app');
+const { test, expect, seed, stored, storedKeys, openApp, openQuest, openTab, step, item, part, parsedQuest, openSettings } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
@@ -23,7 +23,7 @@ test('what is saved while you use a quest', async ({ page }) => {
   expect(await stored(page, 'last')).toBe(WGS);
   // settings are saved once you change one, and only these
   expect(await stored(page, 'settings')).toBeNull();
-  await page.locator('#cog-btn').click();
+  await page.locator('.bn[data-home="settings"]').click();
   await page.getByRole('button', { name: 'Bigger text' }).click();
   expect(await stored(page, 'settings')).toEqual({ showDone: false, hideDone: false, hideLocked: false, hideMini: false, fontSize: 16, sort: 'name', home: 'quests', theme: 'brown' });
   // and where you are (the tab, how far it is scrolled), a moment after you scroll
@@ -54,7 +54,7 @@ test('a "Bring" line saved by the first version still shows', async ({ page }) =
 test('broken saved player data is ignored', async ({ page }) => {
   await seed(page, { player: { name: 'Zezima' } });   // no quests
   await openApp(page, expect);
-  await openCog(page);
+  await openSettings(page);
   await expect(page.locator('#player-name')).toBeVisible();
   expect(page.errors).toEqual([]);
 });
@@ -81,7 +81,7 @@ test('the app still works when the browser blocks storage', async ({ page }) => 
   await openQuest(page, expect, 'While Guthix Sleeps');
   await openTab(page, 'steps');
   await page.locator('#next-btn').click();
-  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12 steps');
+  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
   await page.getByRole('button', { name: 'All quests' }).click();
   await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .qs')).toHaveText('1 / 12');
   expect(page.errors).toEqual([]);

@@ -1,5 +1,5 @@
 // The window look: sizes, the title band, tabs, the bronze rim and the gold buttons.
-const { test, expect, openApp, openQuest, openTab, openCog, choose, seed, stored } = require('./support/app');
+const { test, expect, openApp, openQuest, openTab, openSettings, choose, seed, stored } = require('./support/app');
 
 for (const width of [280, 360, 640, 1000]) {
   test('fits a ' + width + ' px window with no sideways scrolling', async ({ page }) => {
@@ -25,9 +25,9 @@ test('the window is never wider than 640 px', async ({ page }) => {
 });
 
 // Like the game's Hero window (Hero > Achievements).
-test('like the game: under the title band, the quest\'s name on the left in gold capitals, after the back button', async ({ page }) => {
+test('like the game: in the title band, the quest\'s name on the left in gold capitals, after the back button', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
-  const back = await page.locator('.sbar [data-act="change"]').boundingBox();
+  const back = await page.locator('.hdr [data-act="change"]').boundingBox();
   const title = await page.locator('h1.qt').boundingBox();
   expect(title.x - (back.x + back.width)).toBeGreaterThanOrEqual(4);
   expect(title.x - (back.x + back.width)).toBeLessThanOrEqual(12);
@@ -48,7 +48,7 @@ test('like the game: the start screen has the app emblem on the left of its name
 
 test('like the game: square buttons with a bronze edge and a gold sign', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
-  const btn = page.locator('#cog-btn');
+  const btn = page.locator('#menu-btn');
   await expect(btn).toHaveCSS('width', '28px');
   await expect(btn).toHaveCSS('border-top-color', 'rgb(130, 118, 96)');
   await expect(btn).toHaveCSS('color', 'rgb(200, 176, 132)');
@@ -102,20 +102,20 @@ test.describe('theme', () => {
 
   test('brown at first; Blue turns the whole window blue, and it stays after a reload', async ({ page }) => {
     await openApp(page, expect);
-    await openCog(page);
+    await openSettings(page);
     await expect(page.locator('#theme')).toHaveValue('brown');
     await expect(page.locator('#theme option')).toHaveText(['Brown', 'Blue']);
     expect(cool(await shade(page, '#main', 'backgroundColor'))).toBe(false);
     await choose(page, '#theme', 'blue');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'blue');
-    for (const [sel, prop] of [['#main', 'backgroundColor'], ['.hdr', 'borderBottomColor'], ['#cog-btn', 'borderTopColor'], ['.tab[aria-selected="true"]', 'borderTopColor'], ['h1.qt', 'color']]) {
+    for (const [sel, prop] of [['#main', 'backgroundColor'], ['.hdr', 'borderBottomColor'], ['.bnav', 'borderTopColor'], ['.bn[aria-current="page"]', 'color'], ['h1.qt', 'color']]) {
       expect(cool(await shade(page, sel, prop)), sel + ' ' + prop).toBe(true);
     }
     // what the game shows in colour keeps its colour: done is green
     expect((await stored(page, 'settings')).theme).toBe('blue');
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'blue');
-    await openCog(page);
+    await openSettings(page);
     await expect(page.locator('#theme')).toHaveValue('blue');
     await choose(page, '#theme', 'brown');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
@@ -127,9 +127,10 @@ test.describe('theme', () => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openTab(page, 'steps');
     expect(cool(await shade(page, '.cb', 'borderTopColor'))).toBe(true);
-    expect(cool(await shade(page, '.btn', 'backgroundColor') === 'rgba(0, 0, 0, 0)' ? await shade(page, '.btn', 'borderTopColor') : await shade(page, '.btn', 'backgroundColor'))).toBe(true);
+    expect(cool(await shade(page, '.tab[aria-selected="true"]', 'borderTopColor'))).toBe(true);
+    expect(cool(await shade(page, '.next', 'borderTopColor'))).toBe(true);
     await page.getByRole('button', { name: 'All quests' }).click();
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     expect(cool(await shade(page, '.ghb', 'borderTopColor'))).toBe(true);
     await expect(page.locator('.mk.ok').first().or(page.locator('#main'))).toBeVisible();
   });

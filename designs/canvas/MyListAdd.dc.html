@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My list: add a goal – Quick Guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&amp;family=Fira+Mono:wght@500&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+/* Quick Guide - style.css
+   Looks like a RuneScape 3 window in the brown interface skin, like the game's Hero window: a bronze rim,
+   a dark title band with the name in gold capitals on the left, square bronze buttons, tabs on a bronze
+   line, warm dark grey panels, bronze tick boxes with a gold tick, gold buttons and a gold scrollbar.
+   Every colour of the window is a token in :root. The Blue theme (data-theme="blue" on <html>, from
+   Settings > Theme) sets them all again for the game's earlier blue interface skin. Green, red, yellow
+   and orange (done, too low, started, part names) are the same in both.
+   Text in the guide uses rem, so the text size setting (font size on <html>) scales it.
+   Window parts (title band, tabs, menus, footer, the bar at the bottom) use px so they always fit. */
+:root {
+  color-scheme: dark;
+  /* window */
+  --win: #1b1713;          /* window body, around the panels */
+  --deep: #25211e;         /* the scrolling panel */
+  --hover: #2e2925;        /* a row under the mouse */
+  --sel: #352e27;          /* the next step */
+  --rule: #342e28;         /* thin lines between rows */
+  --line: #6d5e4a;         /* the line the tabs sit on */
+  /* bronze rim and frames */
+  --rim-1: #67584a;
+  --rim-2: #8a7046;
+  --rim-3: #a08a59;
+  --rim-4: #6e5937;
+  --rim-5: #2f271d;
+  --bronze: #8a7046;
+  --bronze-dk: #4d3e29;
+  --bronze-lt: #b89a63;
+  /* title band */
+  --band-top: #1e1b18;
+  --band-bot: #302a24;
+  /* raised panels (bars, boxes, notes) */
+  --panel: #2c2722;
+  --panel-2: #24201b;
+  --panel-hi: #433b31;
+  --panel-lo: #100d0b;
+  /* insets (inputs, tick boxes, bars) */
+  --inset: #0e0b09;
+  /* text */
+  --text: #ece6da;
+  --soft: #d3c9b7;
+  --muted: #b8ac97;
+  --faint: #968b7b;
+  --title: #e8d4a2;
+  --hero: #e3c39b;         /* the window's name, like "HERO" in the game */
+  /* square buttons, like the game's "i" button */
+  --btn-edge: #827660;
+  --btn-top: #484035;
+  --btn-bot: #2d2619;
+  --btn-sign: #c8b084;
+  /* tick boxes */
+  --cb-edge: #6e604a;
+  --cb-in: #17110b;
+  --cb-tick: #dfbe89;
+  --gold: #f2c45e;
+  --orange: #ff981f;
+  --link: #f3c565;
+  --red: #ff5b49;
+  --green: #66d35c;
+  --yellow: #f5e15a;
+  /* gold button */
+  --gb-hi: #f8dc9c;
+  --gb-1: #f2c463;
+  --gb-2: #ecab2a;
+  --gb-3: #dd9b20;
+  --gb-lo: #a4730f;
+  --gb-edge: #6e4c09;
+  --gb-text: #2a1c05;
+  /* fine noise, so flat areas look like the game's textured panels */
+  --grain: none;  /* more of the look (each theme sets them all) */
+  --void: #0b0907;
+  --btn-hi-top: #574c3e;
+  --btn-hi-bot: #352d20;
+  --btn-edge-hi: #a8977a;
+  --btn-sign-hi: #ecd6a8;
+  --btn-press: #3b3326;
+  --menu: #17130f;
+  --menu-edge: #2d251b;
+  --menu-hover: #2e261e;
+  --bright: #fff4d6;
+  --edge-lo: #3a3025;
+  --bar-1: #ffe89c;
+  --bar-2: #f6c76c;
+  --bar-3: #c79856;
+  --bar-4: #80603a;
+  --tab-top: #30241f;
+  --tab-bot: #241a17;
+  --tab-edge: #4a4134;
+  --tab-text: #9b938f;
+  --tab-hover-text: #ddd5c9;
+  --tab-hover-top: #3b2d27;
+  --tab-hover-bot: #2b201c;
+  --tab-on-1: #615140;
+  --tab-on-2: #4b3627;
+  --tab-on-3: #382210;
+  --tab-on-edge: #8f7552;
+  --tab-on-text: #f0e8dc;
+  --track: #14130f;
+  --track-edge: #2b251f;
+  --thumb-1: #fae9bc;
+  --thumb-2: #fad69b;
+  --thumb-3: #c8a067;
+  --thumb-4: #82663e;
+  --thumb-5: #4d3d25;
+  --thumb-hover: #ffe9a6;
+  --arrow: #f5dbab;
+  --raise-top: #352f28;
+  --raise-hover-top: #3f372e;
+  --raise-hover-bot: #312b25;
+  --done-head: #d9b77a;
+  --edge: #3a3229;
+  --acc-hover: #2d2721;
+  --acc-body: #19150f;
+  --cur-edge: #6a5434;
+  --cur-hover: #30291f;
+  --done-text: #b19f7c;
+  --key-top: #3a3027;
+  --key-bot: #221c16;
+  --key-edge: #4a3d2b;
+  --key-hover-top: #4a3d2f;
+  --key-hover-bot: #2c241c;
+  --key-off-text: #6b5d4a;
+  --gb-rim: #1a1206;
+  --toast: #1d1813;
+  --sel-arrow: #e9be6c;
+  --void-rgb: 11, 9, 7;
+  --gb-shade-rgb: 80, 50, 0;
+  --gold-rgb: 242, 196, 94;
+  --hi-rgb: 255, 228, 175;
+}
+[data-theme="blue"] {
+  /* the blue interface skin: the same window in cool steel blues, with light blue text and buttons */
+  --win: #11181d;
+  --deep: #1b2228;
+  --hover: #212b32;
+  --sel: #222f3a;
+  --rule: #242f38;
+  --line: #405d77;
+  --rim-1: #415b70;
+  --rim-2: #506980;
+  --rim-3: #497db0;
+  --rim-4: #3f5366;
+  --rim-5: #182734;
+  --bronze: #506980;
+  --bronze-dk: #2e3c48;
+  --bronze-lt: #6f8fac;
+  --band-top: #161c20;
+  --band-bot: #202b34;
+  --panel: #1e2830;
+  --panel-2: #182027;
+  --panel-hi: #2b3b49;
+  --panel-lo: #0a0e11;
+  --inset: #080c0f;
+  --text: #dde3e9;
+  --soft: #b0c6da;
+  --muted: #8ea9c1;
+  --faint: #718aa0;
+  --title: #cfe0ee;
+  --hero: #d8e6f2;
+  --btn-edge: #55728d;
+  --btn-top: #2f404e;
+  --btn-bot: #142332;
+  --btn-sign: #a9c4da;
+  --cb-edge: #405d78;
+  --cb-in: #0d1115;
+  --cb-tick: #9fd2f2;
+  --gold: #7fc4ee;
+  --link: #8cc8f0;
+  --gb-hi: #c9e6fa;
+  --gb-1: #8ec8ec;
+  --gb-2: #4f97c9;
+  --gb-3: #3b82b6;
+  --gb-lo: #24577f;
+  --gb-edge: #13334c;
+  --gb-text: #06182a;
+  --void: #06090c;
+  --btn-hi-top: #364c5f;
+  --btn-hi-bot: #1b2b3a;
+  --btn-edge-hi: #6e93b4;
+  --btn-sign-hi: #d6e8f6;
+  --btn-press: #203141;
+  --menu: #0d1419;
+  --menu-edge: #172531;
+  --menu-hover: #1a2732;
+  --bright: #dceaf9;
+  --edge-lo: #20313f;
+  --bar-1: #aacdf1;
+  --bar-2: #7fb2e3;
+  --bar-3: #6691b7;
+  --bar-4: #445f76;
+  --tab-top: #1b2a34;
+  --tab-bot: #142027;
+  --tab-edge: #2d4051;
+  --tab-text: #8798a3;
+  --tab-hover-text: #c4d4e2;
+  --tab-hover-top: #223440;
+  --tab-hover-bot: #18262f;
+  --tab-on-1: #37536a;
+  --tab-on-2: #2c3b46;
+  --tab-on-3: #162632;
+  --tab-on-edge: #44749d;
+  --tab-on-text: #dfe6ed;
+  --track: #0d1116;
+  --track-edge: #1b262f;
+  --thumb-1: #c5dbf1;
+  --thumb-2: #a8cced;
+  --thumb-3: #759aba;
+  --thumb-4: #486278;
+  --thumb-5: #2b3a47;
+  --thumb-hover: #b2d2f3;
+  --arrow: #b5d1eb;
+  --raise-top: #242f39;
+  --raise-hover-top: #293844;
+  --raise-hover-bot: #212c35;
+  --done-head: #8fbbd9;
+  --edge: #24333f;
+  --acc-hover: #1d2831;
+  --acc-body: #0d141b;
+  --cur-edge: #3c5062;
+  --cur-hover: #1b2834;
+  --done-text: #6f98be;
+  --key-top: #22323f;
+  --key-bot: #131d25;
+  --key-edge: #243c51;
+  --key-hover-top: #283f51;
+  --key-hover-bot: #182530;
+  --key-off-text: #405c75;
+  --gb-rim: #091017;
+  --toast: #101920;
+  --sel-arrow: #8cc8f0;
+  --void-rgb: 6, 9, 12;
+  --gb-shade-rgb: 0, 30, 60;
+  --gold-rgb: 127, 196, 238;
+  --hi-rgb: 186, 216, 244;
+  --grain: none;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 14px; height: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--void);
+  color: var(--text);
+  font-family: "Fira Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .55);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- the window ---------- */
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5px 5px 6px;
+  overflow: hidden;
+  background: var(--grain), var(--win);
+}
+/* the bronze rim, drawn over the edge of everything */
+#app::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--rim-1),
+    inset 0 0 0 2px var(--rim-2),
+    inset 0 0 0 3px var(--rim-3),
+    inset 0 0 0 4px var(--rim-4),
+    inset 0 0 0 5px var(--rim-5);
+}
+
+.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+/* ---------- title band ---------- */
+.hdr {
+  position: relative;
+  z-index: 20;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin: -5px -5px 0;
+  padding: 9px 11px 5px;
+  background: var(--grain), linear-gradient(var(--band-top), var(--band-bot));
+  border-bottom: 1px solid var(--bronze-dk);
+  box-shadow: 0 1px 0 var(--void);
+}
+/* like the game's Hero window: the emblem (or the back button), the name on the left, the buttons on the right */
+.hs { flex: none; display: flex; align-items: center; gap: 3px; }
+.he { margin-left: auto; }
+.emb { flex: none; width: 26px; height: 26px; filter: drop-shadow(0 1px 0 #000); }
+.qt {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 16px/1.2 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .04em;
+  color: var(--hero);
+  text-align: left;
+  text-shadow: 0 1px 0 #000, 0 0 6px rgba(0, 0, 0, .7);
+  overflow-wrap: break-word;
+  /* long names stop after two lines; the full name is in the tooltip */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+/* on a quest or an area the band starts with the way back, then the name of what is open */
+.hdr > .ib:first-child { margin-right: 2px; }
+/* small square buttons, like the game's "i" button: a bronze edge, a dark olive face and a gold sign */
+.ib {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: linear-gradient(var(--btn-top), var(--btn-bot));
+  border: 1px solid var(--btn-edge);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--void), inset 0 1px 0 rgba(var(--hi-rgb), .12);
+  color: var(--btn-sign);
+  cursor: pointer;
+}
+.ib:hover { background: linear-gradient(var(--btn-hi-top), var(--btn-hi-bot)); border-color: var(--btn-edge-hi); color: var(--btn-sign-hi); }
+.ib:active { background: linear-gradient(var(--btn-bot), var(--btn-press)); }
+.ib[aria-expanded="true"] { border-color: var(--btn-edge-hi); color: var(--gold); background: linear-gradient(var(--btn-bot), var(--btn-press)); }
+.ib:disabled { opacity: .4; cursor: default; }
+.ib.xs { width: 24px; height: 24px; }
+.ib.xs .i { width: 14px; height: 14px; }
+
+/* ---------- menus: like the game's right-click menu ---------- */
+.menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 6px;
+  z-index: 1000;
+  width: 250px;
+  max-width: calc(100% - 12px);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 4px 0;
+  background: var(--grain), var(--menu);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px var(--menu-edge), 0 10px 24px rgba(0, 0, 0, .7);
+  font-size: 13px;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.mi:hover, a.mi:hover { background: var(--menu-hover); color: var(--bright); text-decoration: none; }
+.mi > .i { color: var(--bronze-lt); }
+.mi .ml { flex: 1; }
+.mi.danger, .mi.danger > .i { color: var(--red); }
+.mrow { cursor: default; gap: 8px; }
+.fsv { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; }
+.qmeta .how { color: var(--muted); }
+.mh { margin: 6px 12px 3px; font: 700 11px/1.2 "Cinzel", Georgia, serif; letter-spacing: .08em; color: var(--title); }
+.menu hr { margin: 4px 8px; border: 0; border-top: 1px solid var(--void); border-bottom: 1px solid var(--edge-lo); }
+/* an on/off setting: a tick box, like the game's ("Show Completed"): a bronze edge and a gold tick */
+.tg {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--void), inset 0 1px 3px #000;
+}
+.tg::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--cb-tick);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+[aria-checked="true"] > .tg::after { opacity: 1; }
+
+/* ---------- progress ---------- */
+/* the thin line under the title band, on a quest or an area; its count is in a tab */
+.pline {
+  flex: none;
+  display: block;
+  width: calc(100% + 10px);
+  height: 4px;
+  margin: 0 -5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 0;
+  border-bottom: 1px solid var(--bronze-dk);
+}
+.pline::-webkit-progress-bar { background: var(--inset); }
+.pline::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pline + .tabs { margin-top: 3px; }
+/* a bar in a row of the quest and area lists */
+.pg {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--inset);
+  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--bronze-dk);
+  overflow: hidden;
+}
+.pg::-webkit-progress-bar { background: var(--inset); }
+.pg::-webkit-progress-value { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+.pg::-moz-progress-bar { background: linear-gradient(var(--bar-1), var(--bar-2) 35%, var(--bar-3) 65%, var(--bar-4)); }
+
+/* ---------- tabs: the open tab joins the panel below it ---------- */
+.tabs {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  gap: 3px;
+  padding: 0 6px;
+  margin: 2px 0 -1px;
+}
+.tab {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 28px;
+  margin-top: 3px;
+  padding: 0 6px;
+  background: linear-gradient(var(--tab-top), var(--tab-bot));
+  border: 1px solid var(--tab-edge);
+  border-bottom-color: var(--line);
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px 0 rgba(var(--hi-rgb), .08);
+  color: var(--tab-text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab:hover { color: var(--tab-hover-text); background: linear-gradient(var(--tab-hover-top), var(--tab-hover-bot)); }
+/* the open tab: lit, in warm brown, on the line like the others (as in the game) */
+.tab[aria-selected="true"] {
+  background: linear-gradient(var(--tab-on-1), var(--tab-on-2) 45%, var(--tab-on-3));
+  border-color: var(--tab-on-edge);
+  border-bottom-color: var(--line);
+  box-shadow: inset 0 1px 0 rgba(var(--hi-rgb), .2);
+  color: var(--tab-on-text);
+  cursor: default;
+}
+.tab .i { display: none; width: 15px; height: 15px; }
+/* tabs with a count under the name ("Steps", "3 / 12"): all of the row is as tall */
+.tabs.two .tab { flex-direction: column; gap: 3px; height: 36px; }
+.tcn { font-size: 10.5px; font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] .tcn { color: var(--soft); }
+
+/* ---------- the scrolling panel ---------- */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  overflow-y: scroll;   /* always there, so nothing jumps when the content grows */
+  overflow-x: hidden;
+  padding-bottom: 18px;
+  overflow-wrap: anywhere;
+  background: var(--deep);
+  border: 1px solid var(--bronze);
+  border-top-color: var(--line);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000, 0 0 0 1px var(--void);
+}
+.tabs + .scroll { margin-top: 0; }
+/* the game's gold scrollbar */
+.scroll::-webkit-scrollbar { width: 12px; }
+.scroll::-webkit-scrollbar-track { background: var(--track); border-left: 1px solid var(--track-edge); }
+.scroll::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  background: linear-gradient(90deg, var(--thumb-1), var(--thumb-2) 25%, var(--thumb-3) 50%, var(--thumb-4) 75%, var(--thumb-5));
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+.scroll::-webkit-scrollbar-thumb:hover { background-color: var(--thumb-hover); }
+.scroll::-webkit-scrollbar-button:single-button { display: block; height: 12px; background-color: var(--track); border-left: 1px solid var(--track-edge); }
+.scroll::-webkit-scrollbar-button:single-button:vertical:decrement { background: linear-gradient(to bottom right, transparent 50%, var(--arrow) 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to bottom left, transparent 50%, var(--arrow) 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, var(--track); }
+.scroll::-webkit-scrollbar-button:single-button:vertical:increment { background: linear-gradient(to top right, transparent 50%, var(--arrow) 50%) calc(50% - 2px) 50% / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, var(--arrow) 50%) calc(50% + 2px) 50% / 4px 6px no-repeat, var(--track); }
+
+/* part headers: raised bars. They stay at the top while you scroll through their steps. */
+/* 1px up, so no sliver of the list shows above the header */
+.sh { position: sticky; top: -1px; z-index: 5; margin: 0; }
+/* room under the last step, so any step can reach the top */
+.tail { height: calc(100vh - 180px); }
+.sech {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px 7px 8px;
+  background: var(--grain), linear-gradient(var(--raise-top), var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  cursor: pointer;
+}
+.sech:hover { background: var(--grain), linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.sech .n { flex: 1; min-width: 0; }
+.sech .c { font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sech .i { color: var(--bronze-lt); transition: transform .15s; }
+.sech[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sech.done { color: var(--done-head); }
+.sech.done .c { color: var(--green); }
+.secb { padding-bottom: 6px; }
+
+/* headings inside a part, like "Feldip Hunter area" */
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 10px 4px;
+  font: 700 .857rem/1.2 "Cinzel", Georgia, serif;
+  letter-spacing: .06em;
+  color: var(--title);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--bronze-dk), transparent); }
+.sub.minor { margin-top: 10px; font: italic 600 .893rem/1.2 "Fira Sans", sans-serif; letter-spacing: .02em; color: var(--soft); }
+.sub.minor::after { display: none; }
+
+/* ---------- boxes that open and close ---------- */
+.blk { margin: 4px 10px; }
+.acc {
+  margin: 6px 0;
+  background: var(--panel-2);
+  border: 1px solid var(--edge);
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+}
+.acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 8px;
+  list-style: none;
+  cursor: pointer;
+  font-size: .893rem;
+  line-height: 1.3;
+  color: var(--soft);
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary .sl { flex: 1 1 0; min-width: 0; }
+.acc > summary:hover { background: var(--acc-hover); color: var(--text); }
+.acc > summary .i { width: 14px; height: 14px; color: var(--bronze-lt); }
+.acc > summary .chev { transition: transform .15s; }
+.acc[open] > summary .chev { transform: rotate(90deg); }
+.acc > summary .m { margin-left: auto; padding-left: 8px; color: var(--muted); font-size: .857rem; }
+.acc .body { padding: 8px; background: var(--acc-body); border-top: 1px solid #000; box-shadow: inset 0 1px 0 var(--track-edge); cursor: auto; }
+.acc .imgl { display: block; }
+.acc .imgl img { display: block; max-width: 100%; height: auto; margin: 0 auto; background: var(--inset); }
+.acc .imgl + .cap + .imgl, .acc .imgl + .imgl { margin-top: 8px; }
+.cap { margin: 6px 0 0; font-size: .857rem; font-style: italic; color: var(--muted); }
+
+/* bring box: two small tick lists */
+.bring .body { padding: 4px 0 6px; }
+.bl { display: flex; align-items: baseline; gap: 8px; margin: 6px 8px 2px; font-size: .786rem; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+.bl .c { margin-left: auto; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist .row { gap: 8px; padding: 4px 8px; font-size: .893rem; line-height: 1.4; }
+.blist .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.blist .cb::before { width: .357rem; height: .643rem; }
+
+/* ---------- steps and items ---------- */
+.steps { list-style: none; margin: 0; padding: 0 4px; }
+.blist { padding: 0; }
+.step { margin: 1px 0; border-radius: 2px; }
+/* A row is one tick target: click anywhere on it. */
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 8px 8px 6px; border-radius: 2px; cursor: pointer; }
+.row:hover { background: var(--hover); }
+/* Pointing at a picture, map or table box inside a row: the row does not light up (clicks there do not tick). */
+.row:has(.ext details:hover), .step.cur > .row:has(.ext details:hover) { background: transparent; }
+.rb { flex: 1; min-width: 0; }
+.t { display: block; overflow-wrap: anywhere; }
+.t i { font-style: italic; color: var(--bright); }
+.t b { font-weight: 600; color: var(--bright); }
+/* the next step: a selected row, like in the game's lists */
+/* its border is drawn above the row, so a row under the mouse never paints over it */
+.step.cur { position: relative; background: var(--sel); }
+.step.cur::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; border: 1px solid var(--cur-edge); border-radius: 2px; pointer-events: none; }
+.step.cur > .row:hover { background: var(--cur-hover); }
+.step.cur > .row > .cb { border-color: var(--gold); }
+.step.done > .row > .rb > .t { color: var(--faint); }
+.step.done > .row > .rb > .t a, .step.done > .row > .rb > .t i, .step.done > .row > .rb > .t b { color: var(--done-text); }
+.step.done > .row .ext, .step.done > .subs { display: none; }
+.ext { padding-top: 4px; }
+.ext .acc { margin: 6px 0 2px; }
+.ext .note { margin: 6px 0; }
+/* sub-steps: rows run the full width (click left or right of them); the indent is inside the row */
+.subs { padding: 0 0 2px; }
+.subs .row { gap: 8px; padding: 5px 8px 5px calc(16px + 1.286rem); }
+.subs .subs .row { padding-left: calc(24px + 2.357rem); }
+.subs .subs .subs .row { padding-left: calc(32px + 3.428rem); }
+.subs .step.cur { background: none; }
+.subs .step.cur::after { display: none; }
+/* Ticked rows go away. "Done steps and tasks" (Settings, Show) shows them again. */
+#main:not(.show-done) li.done[data-step], #main:not(.show-done) li.done[data-item], #main:not(.show-done) li.done[data-task] { display: none; }
+/* A "Bring" box with everything ticked keeps its rows, so you can untick one. */
+#main:not(.show-done) .bring.alldone li.done[data-item] { display: list-item; }
+.alt { display: block; margin-top: 2px; font-size: .893rem; color: var(--muted); }
+
+/* tick boxes, like the game's: a dark square with a bronze edge and a gold tick */
+.cb {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.286rem;
+  height: 1.286rem;
+  margin: 1px 0 0;
+  background: var(--cb-in);
+  border: 1px solid var(--cb-edge);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  cursor: pointer;
+}
+.cb::before {
+  content: "";
+  width: .429rem;
+  height: .786rem;
+  margin-top: -2px;
+  border: solid var(--cb-tick);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.cb:checked::before { opacity: 1; }
+.cb:hover { border-color: var(--bronze-lt); }
+.subs .cb { width: 1.071rem; height: 1.071rem; margin-top: 2px; }
+.subs .cb::before { width: .357rem; height: .643rem; }
+
+.code {
+  display: inline-block;
+  padding: 0 5px;
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  font-family: "Fira Mono", ui-monospace, Consolas, monospace;
+  font-size: .857rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  color: var(--gold);
+}
+.caution { font-weight: 600; color: var(--red); }
+
+/* chat options */
+.dlg { list-style: none; margin: 2px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.dlg li > span { min-width: 0; }
+.dlg li { display: flex; align-items: baseline; gap: 8px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+kbd {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.667em;
+  height: 1.667em;
+  padding: 0 .42em;
+  background: linear-gradient(var(--key-top), var(--key-bot));
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 0 rgba(var(--hi-rgb), .14);
+  font-family: "Fira Sans", sans-serif;
+  font-size: .857rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.why { margin: 10px 0 4px; font-size: .857rem; font-style: italic; color: var(--muted); }
+.vary { font-size: .857rem; color: var(--faint); }
+
+/* tables */
+.tblw { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .893rem; }
+.tbl th { padding: 5px 6px; text-align: left; font-weight: 600; color: var(--orange); border-bottom: 1px solid var(--bronze-dk); vertical-align: bottom; }
+.tbl td { padding: 5px 6px; vertical-align: top; color: var(--soft); border-bottom: 1px solid var(--rule); }
+.tbl tbody tr:nth-child(even) td { background: rgba(var(--hi-rgb), .035); }
+.tbl img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* maps */
+.map { position: relative; z-index: 0; isolation: isolate; height: 240px; background: var(--inset); border: 1px solid var(--bronze-dk); border-radius: 2px; }
+.leaflet-container { background: var(--inset); font: inherit; font-size: 12px; outline: 0; }
+.leaflet-bar { border: 1px solid var(--bronze) !important; border-radius: 2px !important; box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .5) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: linear-gradient(var(--key-top), var(--key-bot)); color: var(--title); border-bottom-color: var(--key-edge); }
+.leaflet-bar a:hover { background: linear-gradient(var(--key-hover-top), var(--key-hover-bot)); text-decoration: none; }
+.leaflet-bar a.leaflet-disabled { background: var(--win); color: var(--key-off-text); }
+.leaflet-control-attribution { background: rgba(var(--void-rgb), .85) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--link); }
+.leaflet-tooltip { background: var(--menu); border: 1px solid var(--bronze); border-radius: 2px; color: var(--text); box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+.leaflet-tooltip-top::before { border-top-color: var(--bronze); }
+
+/* notes and warnings: small raised panels */
+.note {
+  display: flex;
+  gap: 8px;
+  margin: 6px 10px;
+  padding: 8px 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--edge);
+  border-top-color: var(--panel-hi);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #000;
+  font-size: .929rem;
+  line-height: 1.4;
+  color: var(--soft);
+}
+.note .i { margin-top: 1px; color: var(--gold); }
+.note.warn { background: #2b1411; border-color: #6e2a21; border-top-color: #8a3a2c; color: #ffe0d8; }
+.note.warn .i { color: var(--red); }
+.note.warn .caution { color: #ff9c8c; }
+.warnli { list-style: none; }
+.warnli .note { margin: 4px 0; }
+.para { margin: 6px 10px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.empty { margin: 28px 16px; color: var(--muted); text-align: center; font-size: .929rem; }
+.x { color: var(--muted); }
+
+/* quest complete */
+.complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--grain), linear-gradient(var(--raise-top), var(--panel));
+  border-bottom: 1px solid #000;
+  box-shadow: inset 0 1px 0 var(--panel-hi);
+}
+.complete .i { width: 26px; height: 26px; color: var(--gold); }
+.complete b { display: block; font: 700 1.071rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .04em; color: var(--gold); }
+.complete span { font-size: .857rem; color: var(--soft); }
+
+/* footer: the big gold button */
+.ftr { flex: none; display: flex; gap: 6px; padding: 7px 1px 0; }
+
+/* the bar at the bottom of every screen: Quests, Area tasks, My list and Settings, the open one lit in gold */
+.bnav {
+  position: relative;
+  flex: none;
+  display: flex;
+  margin: 6px -5px -6px;
+  background: var(--grain), linear-gradient(var(--band-bot), var(--band-top));
+  border-top: 1px solid var(--bronze-dk);
+  box-shadow: 0 -1px 0 var(--void);
+}
+.bn {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 44px;
+  padding: 0 4px;
+  background: none;
+  border: 0;
+  color: var(--faint);
+  font: 500 11px/1 "Fira Sans", sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bn .i { width: 18px; height: 18px; }
+.bn:hover { color: var(--soft); }
+.bn[aria-current="page"] { color: var(--gold); }
+.bn[aria-current="page"]::before { content: ""; position: absolute; top: -1px; left: 28%; right: 28%; height: 2px; background: var(--gold); }
+.bn:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
+/* the settings: a screen of their own, from the bar at the bottom. A heading per part, rows on thin lines. */
+.setp { padding: 2px 0 10px; }
+.setp .mh { margin: 16px 12px 6px; font-size: 12px; }
+.setp > .mh:first-child { margin-top: 12px; }
+.setp .mi { min-height: 36px; border-bottom: 1px solid var(--rule); }
+.setp .mh + .mi { border-top: 1px solid var(--rule); }
+.setp .sel { width: 150px; margin-left: 0; }
+.setp .player { margin: 0 10px; }
+
+/* gold buttons, like the game's main action buttons */
+.btn, .next {
+  background: linear-gradient(var(--gb-hi), var(--gb-1) 9%, var(--gb-2) 42%, var(--gb-3) 74%, var(--gb-2) 88%, var(--gb-lo) 95%, var(--gb-edge));
+  border: 1px solid var(--gb-rim);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(var(--hi-rgb), .18);
+  color: var(--gb-text);
+  font: 700 13px/1 "Cinzel", "Trajan Pro", Georgia, serif;
+  letter-spacing: .06em;
+  text-shadow: 0 1px 0 rgba(var(--hi-rgb), .45);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover, .next:hover { filter: brightness(1.08) saturate(1.05); }
+.btn:active, .next:active { filter: brightness(.9); box-shadow: inset 0 2px 3px rgba(var(--gb-shade-rgb), .55); }
+.btn:disabled, .next:disabled { filter: grayscale(.8) brightness(.55); cursor: default; }
+.btn { flex: none; height: 34px; padding: 0 16px; }
+.next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+.next .i { color: var(--gb-text); stroke-width: 2.5; }
+
+/* toast */
+.toast {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 106px;   /* above the next step button and the bar at the bottom */
+  z-index: 1100;
+  padding: 8px 12px;
+  background: var(--grain), var(--toast);
+  border: 1px solid var(--bronze);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, 0 6px 16px rgba(0, 0, 0, .7);
+  font-size: 13px;
+  color: var(--text);
+  text-align: center;
+}
+.toast.low { bottom: 60px; }   /* no next step button: just above the bar */
+
+/* ---------- overview, items ---------- */
+.kv { display: grid; grid-template-columns: fit-content(40%) minmax(0, 1fr); gap: 8px 10px; margin: 12px 10px 4px; font-size: .929rem; line-height: 1.4; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.kv.wide { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.bh { display: flex; align-items: baseline; gap: 8px; margin: 16px 10px 8px; font-size: .929rem; font-weight: 600; line-height: 1.2; color: var(--orange); text-shadow: 0 1px 0 #000; }
+.bh .c { margin-left: auto; font-weight: 500; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.foes { list-style: none; margin: 0 10px; padding: 0; }
+.foes li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: .929rem; line-height: 1.35; }
+.foes li:last-child { border-bottom: 0; }
+.foes .nm { flex: 1; min-width: 0; }
+.lv { font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lv b { color: var(--gold); }
+.plain { margin: 0 10px; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.45; color: var(--soft); }
+.plain li { margin: 3px 0; }
+.plain li::marker { color: var(--bronze-lt); }
+.acc .plain { margin: 0; }
+.acc .para { margin: 8px 0 4px; }
+.tree { list-style: disc; margin: 0; padding: 0 0 0 18px; font-size: .929rem; line-height: 1.4; color: var(--soft); }
+.tree li { padding: 2px 0; }
+.xl { display: inline-flex; align-items: center; gap: 6px; margin: 16px 10px 0; font-size: .929rem; }
+.xl .i { width: 14px; height: 14px; }
+.foot { margin: 12px 10px 0; font-size: .821rem; line-height: 1.45; color: var(--faint); }
+
+/* ---------- start screen: all quests ---------- */
+.find { margin: 10px 10px 0; }
+.pad { margin-left: 10px; margin-right: 10px; }
+.row-f { display: flex; gap: 6px; }
+.inp, .sel {
+  background: var(--inset);
+  border: 1px solid var(--bronze-dk);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #000, inset 0 1px 3px #000;
+  color: var(--text);
+}
+.inp { flex: 1; min-width: 0; height: 34px; padding: 0 10px; font-size: 13px; }
+.inp::placeholder { color: var(--faint); }
+.inp:focus, .sel:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 1px #000, 0 0 0 3px rgba(var(--gold-rgb), .2), inset 0 1px 3px #000; }
+.inp.bad { border-color: var(--red); }
+.sel {
+  margin-left: auto;
+  height: 28px;
+  max-width: 100%;
+  padding: 0 24px 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to top right, transparent 50%, var(--sel-arrow) 50%) right 14px center / 4px 6px no-repeat, linear-gradient(to top left, transparent 50%, var(--sel-arrow) 50%) right 10px center / 4px 6px no-repeat, var(--inset);
+  font-size: 12px;
+  cursor: pointer;
+}
+.sel option { background: var(--menu); color: var(--text); }
+.qmeta { margin: 8px 10px 0; font-size: 12px; color: var(--faint); }
+.gh { position: sticky; top: 0; z-index: 1; margin: 10px 0 0; }
+.ghb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px 5px 8px;
+  background: var(--grain), linear-gradient(var(--raise-top), var(--panel));
+  border: 0;
+  border-top: 1px solid var(--panel-hi);
+  border-bottom: 1px solid var(--panel-lo);
+  color: var(--orange);
+  font-size: .786rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 0 #000;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.ghb:hover { background: var(--grain), linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.ghb .i { width: 14px; height: 14px; color: var(--bronze-lt); transition: transform .15s; }
+.ghb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.ghb .n { flex: 1; min-width: 0; }
+.ghb .c { font-weight: 500; letter-spacing: 0; color: var(--muted); }
+.ql { list-style: none; margin: 0; padding: 0; }
+.q { display: block; width: 100%; padding: 7px 10px; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--text); font-size: 1rem; line-height: 1.3; text-align: left; cursor: pointer; }
+.q:hover { background: var(--hover); }
+.q1 { display: flex; align-items: baseline; gap: 8px; }
+.q1 b { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.qs { font-size: .857rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs.ok { color: var(--green); }
+.q2 { display: block; margin-top: 1px; font-size: .821rem; color: var(--faint); }
+/* quest names in the game's colours: yellow when started, green when done */
+.q:has(.pg) .q1 b { color: var(--yellow); }
+.q.done .q1 b { color: var(--green); }
+.q .pg { display: block; height: 6px; margin-top: 6px; box-shadow: none; border-color: var(--edge-lo); }
+/* a quest the game says you started */
+.q.started .q1 b { color: var(--yellow); }
+/* player lookup */
+.player { margin: 8px 10px 0; }
+div.player { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; background: var(--panel-2); border: 1px solid var(--edge); border-top-color: var(--panel-hi); border-radius: 2px; box-shadow: 0 1px 0 #000; font-size: 13px; }
+.player .pn { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--soft); }
+.player .pn b { color: var(--title); font-weight: 600; }
+.pmsg { margin: 6px 0 0; font-size: .857rem; color: var(--muted); }
+/* a quest the game says you cannot start yet: grayed out */
+.q.locked { opacity: .55; }
+.q.locked .q1 b { color: var(--muted); }
+.qs.lk { display: inline-flex; align-items: center; gap: 3px; }
+.qs.lk .i { width: 11px; height: 11px; }
+/* a quest name that opens that quest here */
+.qlink { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(var(--gold-rgb), .35); text-underline-offset: 2px; }
+.qlink:hover { color: var(--gold); text-decoration-color: currentColor; }
+.qlink:focus-visible { outline: 1px solid var(--gold); outline-offset: 1px; }
+/* a League region */
+.reg { display: inline-block; margin: 1px 2px 1px 0; padding: 0 6px; border: 1px solid var(--bronze-dk); border-radius: 2px; background: var(--panel-2); color: var(--soft); font-size: .857rem; line-height: 1.5; white-space: nowrap; }
+
+.err { margin: 6px 0 0; font-size: .857rem; color: var(--red); }
+.state { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 16px 6px; text-align: center; font-size: .929rem; color: var(--muted); }
+.state .i { width: 22px; height: 22px; color: var(--gold); }
+
+/* ---------- Area Tasks ---------- */
+/* a finished tier in the area list */
+.q2 .ok { color: var(--green); }
+/* what a task needs: red when you do not have it yet */
+.need { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
+.step.done .need { display: none; }
+/* a finished tier's tasks, once you open them: shown, so you can untick one */
+#main:not(.show-done) .sec.alldone li.done[data-task] { display: list-item; }
+/* the wiki's tip for a task, under it */
+.howto { margin-top: 4px; font-size: .857rem; line-height: 1.45; color: var(--muted); }
+/* the quests a tier needs line up with the text */
+.tree.areq { margin: 0 16px 8px; padding-left: 18px; }
+
+/* the steps of an area task */
+.task > .subs { padding-bottom: 4px; }
+.subs .howto { margin-top: 2px; }
+/* "Done steps and tasks" also shows the steps of a done task, so you can untick one */
+#main.show-done .task.done > .subs { display: block; }
+
+/* a task found by a search: always shown, even when done, with the area and tier it belongs to */
+#main:not(.show-done) li.done[data-task].srch { display: list-item; }
+.srch > .row .ext, .srch.done > .row .ext { display: block; }
+.srch .where { font-size: .857rem; }
+.srch.done > .row > .rb > .t b { color: var(--done-text); }
+ul.steps.ql { padding: 0; }
+
+/* ---------- export and import: a box over the app ---------- */
+.dlgbg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1050; display: flex; align-items: center; justify-content: center; padding: 14px; background: rgba(var(--void-rgb), .72); }
+.dlg { display: flex; flex-direction: column; gap: 8px; width: 100%; max-height: 100%; padding: 12px; overflow-y: auto; background: var(--grain), var(--menu); border: 1px solid var(--bronze); border-radius: 2px; box-shadow: 0 0 0 1px #000, inset 0 0 0 1px var(--menu-edge), 0 10px 24px rgba(0, 0, 0, .7); }
+.dh { margin: 0; font: 700 14px/1.2 "Cinzel", Georgia, serif; letter-spacing: .06em; color: var(--title); }
+.dlg .para { margin: 0; }
+.dlg .tx { flex: 1; min-height: 180px; height: 260px; padding: 8px; resize: vertical; font: 500 11px/1.45 "Fira Mono", ui-monospace, monospace; color: var(--soft); white-space: pre; overflow: auto; }
+.dlg .err { margin: 0; }
+.dbtn { display: flex; flex-wrap: wrap; gap: 6px; }
+.dbtn .btn, .file { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.btn.alt { background: linear-gradient(var(--key-hover-top), var(--key-hover-bot)); border-color: var(--bronze); color: var(--text); text-shadow: none; box-shadow: 0 0 0 1px #000; }
+.file { align-self: flex-start; cursor: pointer; }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+.dlg .state { padding: 10px 0; }
+.dlg .note { margin: 0; }
+.dbtn a.btn[aria-disabled="true"] { filter: grayscale(.8) brightness(.55); pointer-events: none; }
+
+/* the danger zone in the settings */
+.mh.danger { color: var(--red); }
+
+/* small buttons */
+.btn.sm { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; font-size: 12px; }
+.btn.sm svg { width: 14px; height: 14px; }
+
+/* skill and quest requirements, like the wiki: "• 100 [icon] Mining ✓". The level and the name stay as they are;
+   a green tick follows when you have it, a red cross when you do not. */
+.skl-list { list-style: disc; margin: 0 16px 8px; padding-left: 18px; }
+.skl-list li { padding: 1px 0; line-height: 1.5; }
+.skl-list li::marker, .tree li::marker { color: var(--soft); }
+.skl { color: var(--text); }
+.skl .lv { font-size: inherit; color: var(--text); font-variant-numeric: tabular-nums; }
+.skl .sic { width: 20px; height: 20px; object-fit: contain; vertical-align: middle; }
+.skl .sn { color: var(--link); text-decoration: none; }
+.skl .sn:hover { text-decoration: underline; }
+.tree .qlink, .need .qlink { text-decoration: none; }
+.tree .qlink:hover, .need .qlink:hover { text-decoration: underline; }
+.mk { display: inline-block; line-height: 0; vertical-align: middle; }
+.mk .i { width: 16px; height: 16px; stroke-width: 3.4; }
+.mk.ok { color: var(--green); }
+.mk.no { color: var(--red); }
+.skl .bst { font-size: .72em; line-height: 0; vertical-align: super; color: var(--soft); text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }
+.skl .x { color: var(--faint); font-size: .9em; }
+.need .skl .sic { width: 16px; height: 16px; }
+.need .mk .i { width: 14px; height: 14px; }
+
+/* ---------- My list: your own lists of goals ---------- */
+/* the number of open goals, on My list in the bar at the bottom */
+.bn .tc { position: absolute; top: 4px; left: calc(50% + 6px); padding: 0 4px; min-width: 14px; border-radius: 7px; background: var(--inset); color: var(--gold); font-size: 10px; line-height: 14px; text-align: center; font-variant-numeric: tabular-nums; }
+/* the box at the end of a list, and under a goal for its sub tasks: type the next one, Enter adds it */
+.qadd .row-f { align-items: center; }
+.qadd .inp { height: 26px; padding: 0 8px; font-size: 12px; }
+.qadd .err { margin: 4px 0 0; }
+.todo > .addrow { padding: 5px 4px 6px 6px; }
+.gsubs > .addrow { padding: 3px 4px 4px 6px; }
+/* a list's bar: its name and done / all fold it; its menu is on the right */
+.gh.lh { display: flex; align-items: center; background: var(--grain), linear-gradient(var(--raise-top), var(--panel)); border-top: 1px solid var(--panel-hi); border-bottom: 1px solid var(--panel-lo); }
+.gh.lh .ghb { flex: 1; min-width: 0; background: none; border: 0; }
+.gh.lh .ghb:hover { background: linear-gradient(var(--raise-hover-top), var(--raise-hover-bot)); }
+.gh.lh > .ib { margin: 0 6px 0 2px; }
+/* a list's goals: flat rows, a tick box, what the goal says, and its menu */
+.todo { list-style: none; margin: 0; padding: 0 4px; }
+.todo > li { border-bottom: 1px solid var(--rule); }
+.todo > li:last-child { border-bottom: 0; }
+.todo .row { align-items: center; padding: 6px 4px 6px 6px; }
+.todo .none { padding: 10px 8px; font-size: .857rem; color: var(--faint); }
+.goal .rb { line-height: 1.4; }
+.goal .t { display: inline; font-weight: 600; color: var(--bright); }
+/* after the goal: "every day" (or when it is back), and its note */
+.goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
+/* a done goal, or sub task: struck through */
+.goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
+   tasks are a step further in. */
+.goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gsubs { list-style: none; margin: -4px 0 4px; padding: 0 0 0 24px; }
+.gsubs .gsubs { margin: 0; padding-left: 18px; }
+.gsub .row { padding: 3px 4px 3px 6px; }
+.gsub .cb { width: 1.071rem; height: 1.071rem; }
+.gsub .cb::before { width: .357rem; height: .643rem; }
+.gsub .t { font-weight: 400; color: var(--text); }
+.rowm { flex: none; }
+.newlist { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 10px 4px; }
+.para.mid { text-align: center; }
+.plain.start { margin: 14px 26px; }
+.plain .i, .para .i, .note span .i { width: 14px; height: 14px; vertical-align: -2px; }
+/* "+ goal" next to a level you do not have yet */
+.addgoal { display: inline-flex; align-items: center; gap: 2px; height: 18px; margin-left: 4px; padding: 0 5px 0 3px; vertical-align: 1px; background: none; border: 1px solid var(--bronze-dk); border-radius: 2px; color: var(--gold); font-size: 11px; line-height: 1; cursor: pointer; }
+.addgoal:hover { border-color: var(--gold); background: var(--hover); }
+.addgoal .i { width: 10px; height: 10px; }
+/* the ⋯ at the end of an area task's row */
+.row > .rowm { margin: -2px -2px 0 0; }
+/* the menu of a task, a goal or a list, next to its button */
+.menu.at { position: absolute; }
+.mi:disabled { opacity: .45; cursor: default; }
+button.mi:disabled:hover { background: none; color: var(--text); }
+/* the boxes: a new list, a goal, Add to list */
+.dlg.form { gap: 10px; }
+.dlg .what { margin: 0; font-size: .929rem; color: var(--soft); }
+.dlg .what b { color: var(--bright); font-weight: 600; }
+.fld { display: flex; flex-direction: column; gap: 4px; }
+.fld[hidden] { display: none; }
+.fld > label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.fld .inp, .fld .sel { flex: none; width: 100%; height: 32px; margin-left: 0; }
+/* the buttons in a message: "Undo" */
+.toast .tl { padding: 0; background: none; border: 0; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.toast .tl:hover { color: var(--gold); }
+.toast .sep { margin: 0 6px; color: var(--faint); }
+.toast b { color: var(--title); font-weight: 600; }
+/* a list as text: the box to paste a list in, or to copy it from */
+#tp-text { flex: none; height: 170px; min-height: 96px; font-size: 12px; }
+
+</style>
+</helmet>
+<div style="width: 360px; height: 720px">
+<div id="app"><header class="hdr"><img class="emb" src="https://erikdekamps.github.io/quick-guide/icon.svg" alt="" width="26" height="26"><h1 class="qt">Quick Guide</h1></header><main class="scroll" id="main"><div id="qarea"><p class="qmeta"><span>4 lists · 10 goals, 2 done</span><span class="how"> · Sir Example</span></p><h2 class="gh lh"><button class="ghb" type="button" data-group="l1" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Today</span><span class="c">2 / 4</span></button><button class="ib xs" type="button" data-lmenu="l1" data-menu="tmenu" aria-label="List menu: Today" aria-haspopup="true" aria-expanded="false" title="List menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></h2><ul class="todo" data-list="l1"><li class="goal" data-goal="g1"><div class="row"><input class="cb" type="checkbox" data-gcb="g1" aria-labelledby="gt-g1"><div class="rb"><span class="t" id="gt-g1">Yoink!</span></div><button class="ib xs rowm" type="button" data-gmenu="g1" data-menu="tmenu" aria-label="Goal menu: Yoink!" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="goal done" data-goal="g2"><div class="row"><input class="cb" type="checkbox" data-gcb="g2" aria-labelledby="gt-g2" checked="{{ true }}"><div class="rb"><span class="t" id="gt-g2">Vis wax</span></div><button class="ib xs rowm" type="button" data-gmenu="g2" data-menu="tmenu" aria-label="Goal menu: Vis wax" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="goal" data-goal="g3"><div class="row"><input class="cb" type="checkbox" data-gcb="g3" aria-labelledby="gt-g3"><div class="rb"><span class="t" id="gt-g3">Hatchet of bloom and blight</span><span class="sc">0 / 2</span></div><button class="ib xs rowm" type="button" data-gmenu="g3" data-menu="tmenu" aria-label="Goal menu: Hatchet of bloom and blight" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div><ul class="gsubs"><li class="gsub" data-sub="s1"><div class="row"><input class="cb" type="checkbox" data-subcb="s1" data-gid="g3" aria-labelledby="st-g3-s1"><div class="rb"><span class="t" id="st-g3-s1">Hatchet of ember and glade</span><span class="sc">1 / 2</span></div><button class="ib xs rowm" type="button" data-smenu="s1" data-gid="g3" data-menu="tmenu" aria-label="Sub task menu: Hatchet of ember and glade" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div><ul class="gsubs"><li class="gsub done" data-sub="s1a"><div class="row"><input class="cb" type="checkbox" data-subcb="s1a" data-gid="g3" aria-labelledby="st-g3-s1a" checked="{{ true }}"><div class="rb"><span class="t" id="st-g3-s1a">Crystal hatchet</span></div><button class="ib xs rowm" type="button" data-smenu="s1a" data-gid="g3" data-menu="tmenu" aria-label="Sub task menu: Crystal hatchet" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="gsub" data-sub="s1b"><div class="row"><input class="cb" type="checkbox" data-subcb="s1b" data-gid="g3" aria-labelledby="st-g3-s1b"><div class="rb"><span class="t" id="st-g3-s1b">Ember shard</span></div><button class="ib xs rowm" type="button" data-smenu="s1b" data-gid="g3" data-menu="tmenu" aria-label="Sub task menu: Ember shard" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li></ul></li><li class="gsub" data-sub="s2"><div class="row"><input class="cb" type="checkbox" data-subcb="s2" data-gid="g3" aria-labelledby="st-g3-s2"><div class="rb"><span class="t" id="st-g3-s2">Blight shard</span></div><button class="ib xs rowm" type="button" data-smenu="s2" data-gid="g3" data-menu="tmenu" aria-label="Sub task menu: Blight shard" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li></ul></li><li class="goal done" data-goal="g4"><div class="row"><input class="cb" type="checkbox" data-gcb="g4" aria-labelledby="gt-g4" checked="{{ true }}"><div class="rb"><span class="t" id="gt-g4">Cook's Assistant</span></div><button class="ib xs rowm" type="button" data-gmenu="g4" data-menu="tmenu" aria-label="Goal menu: Cook's Assistant" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="addrow"><form class="qadd" data-qadd="l1"><div class="row-f"><input class="inp" type="text" maxlength="80" aria-label="Add a goal to Today" placeholder="Add a goal"><button class="btn alt sm" type="submit">Add</button></div></form></li></ul><h2 class="gh lh"><button class="ghb" type="button" data-group="l2" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Skilling goals</span><span class="c">0 / 2</span></button><button class="ib xs" type="button" data-lmenu="l2" data-menu="tmenu" aria-label="List menu: Skilling goals" aria-haspopup="true" aria-expanded="false" title="List menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></h2><ul class="todo" data-list="l2"><li class="goal" data-goal="g5"><div class="row"><input class="cb" type="checkbox" data-gcb="g5" aria-labelledby="gt-g5"><div class="rb"><span class="t" id="gt-g5">82 Thieving</span><span class="gn">For the Ardougne Hard tasks</span></div><button class="ib xs rowm" type="button" data-gmenu="g5" data-menu="tmenu" aria-label="Goal menu: 82 Thieving" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="goal" data-goal="g6"><div class="row"><input class="cb" type="checkbox" data-gcb="g6" aria-labelledby="gt-g6"><div class="rb"><span class="t" id="gt-g6">96 Herblore</span></div><button class="ib xs rowm" type="button" data-gmenu="g6" data-menu="tmenu" aria-label="Goal menu: 96 Herblore" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="addrow"><form class="qadd" data-qadd="l2"><div class="row-f"><input class="inp" type="text" maxlength="80" aria-label="Add a goal to Skilling goals" placeholder="Add a goal"><button class="btn alt sm" type="submit">Add</button></div></form></li></ul><h2 class="gh lh"><button class="ghb" type="button" data-group="l3" aria-expanded="true"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Gathering</span><span class="c">0 / 2</span></button><button class="ib xs" type="button" data-lmenu="l3" data-menu="tmenu" aria-label="List menu: Gathering" aria-haspopup="true" aria-expanded="false" title="List menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></h2><ul class="todo" data-list="l3"><li class="goal" data-goal="g7"><div class="row"><input class="cb" type="checkbox" data-gcb="g7" aria-labelledby="gt-g7"><div class="rb"><span class="t" id="gt-g7">500 Magic logs</span></div><button class="ib xs rowm" type="button" data-gmenu="g7" data-menu="tmenu" aria-label="Goal menu: 500 Magic logs" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="goal" data-goal="g8"><div class="row"><input class="cb" type="checkbox" data-gcb="g8" aria-labelledby="gt-g8"><div class="rb"><span class="t" id="gt-g8">Penguin Hide and Seek</span></div><button class="ib xs rowm" type="button" data-gmenu="g8" data-menu="tmenu" aria-label="Goal menu: Penguin Hide and Seek" aria-haspopup="true" aria-expanded="false" title="More"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></div></li><li class="addrow"><form class="qadd" data-qadd="l3"><div class="row-f"><input class="inp" type="text" maxlength="80" aria-label="Add a goal to Gathering" placeholder="Add a goal"><button class="btn alt sm" type="submit">Add</button></div></form></li></ul><h2 class="gh lh"><button class="ghb" type="button" data-group="l4" aria-expanded="false"><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"></path></svg><span class="n">Ardougne diary</span><span class="c">0 / 2</span></button><button class="ib xs" type="button" data-lmenu="l4" data-menu="tmenu" aria-label="List menu: Ardougne diary" aria-haspopup="true" aria-expanded="false" title="List menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg></button></h2><div class="newlist"><button class="btn alt sm" type="button" data-act="tnew"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Create list</button><button class="btn alt sm" type="button" data-act="timport"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>Import list</button></div></div><p class="foot">Using Alt1? <a href="alt1://addapp/https://erikdekamps.github.io/quick-guide/appconfig.json">Add this app to Alt1</a>.</p><p class="foot">Quests and guide text come from the <a href="https://runescape.wiki/" target="_blank" rel="noopener">RuneScape Wiki</a> (CC BY-NC-SA 3.0).</p></main><nav class="bnav" aria-label="Lists"><button class="bn" type="button" data-home="quests"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></svg><span class="bnl">Quests</span></button><button class="bn" type="button" data-home="areas"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg><span class="bnl">Area tasks</span></button><button class="bn" type="button" data-home="todo" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path></svg><span class="bnl">My list</span><span class="tc" title="8 goals to do">8</span></button><button class="bn" type="button" data-home="settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg><span class="bnl">Settings</span></button></nav><div class="dlgbg" id="td"><form class="dlg form" id="td-form" role="dialog" aria-modal="true" aria-labelledby="td-h"><h2 class="dh" id="td-h">Add a goal</h2><div class="fld"><label for="tg-text">Goal</label><input class="inp" id="tg-text" type="text" maxlength="80" placeholder="Like 82 Thieving, or Buy a cape" value="82 thieving"></div><div class="fld"><label for="tg-list">List</label><select class="sel" id="tg-list"><option value="l1">Today</option><option value="l2" selected="{{ true }}">Skilling goals</option><option value="l3">Gathering</option><option value="l4">Ardougne diary</option></select></div><div class="fld"><label for="tg-parent">Parent</label><select class="sel" id="tg-parent"><option>None</option><option value="g:g5">82 Thieving</option><option value="g:g6">96 Herblore</option></select></div><div class="fld"><label for="tg-note">Note (optional)</label><input class="inp" id="tg-note" type="text" maxlength="120" value="For the Ardougne Hard tasks"></div><div class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span>A quest, an area task or a tier? Its <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg> menu has Add to list.</span></div><div class="dbtn"><button class="btn" type="submit">Add</button><button class="btn alt" type="button" data-tdx="">Cancel</button></div></form></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

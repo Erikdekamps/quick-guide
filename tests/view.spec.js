@@ -20,17 +20,17 @@ test.describe('a reload keeps the view', () => {
     withAllAreas(wiki);
     await openApp(page, expect);
     await scrollTo(page, 120);
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.ghb').first().click();
     await expect(page.locator('.ghb').first()).toHaveAttribute('aria-expanded', 'false');
     await scrollTo(page, 80);
     await saved(page);
     await reload(page);
-    await expect(page.locator('.tab[data-home="areas"]')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('.bn[data-home="areas"]')).toHaveAttribute('aria-current', 'page');
     await expect(page.locator('.ghb').first()).toHaveAttribute('aria-expanded', 'false');
     await expect.poll(() => scrolled(page)).toBe(80);
     // the other tab kept its own place
-    await page.locator('.tab[data-home="quests"]').click();
+    await page.locator('.bn[data-home="quests"]').click();
     await expect.poll(() => scrolled(page)).toBe(120);
     // the search text
     await page.locator('#quest-link').fill('guthix');
@@ -63,7 +63,7 @@ test.describe('a reload keeps the view', () => {
     await page.setViewportSize({ width: 360, height: 500 });
     withAllAreas(wiki);
     await openApp(page, expect);
-    await page.locator('.tab[data-home="areas"]').click();
+    await page.locator('.bn[data-home="areas"]').click();
     await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Ardougne');
     await scrollTo(page, 250);
