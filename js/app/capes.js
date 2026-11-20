@@ -9,6 +9,7 @@
   var alignTop = A.alignTop, app = A.app, byId = A.byId, D = A.D, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml,
     homeBarHtml = A.homeBarHtml, I = A.I, loadError = A.loadError, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
     partHtml = A.partHtml, playerLevel = A.playerLevel, playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG,
+    questBtn = A.questBtn, questMark = A.questMark,
     renderStart = A.renderStart, restoreScroll = A.restoreScroll, rowHtml = A.rowHtml, S = A.S, sget = A.sget, skillHtml = A.skillHtml,
     sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml;
 
@@ -25,6 +26,17 @@
   // On the cape's own page: the ticks in use; anywhere else: the saved ones (an import may have changed them).
   function progOf(key) { return S.view === 'cape' && key === S.capeKey && S.cprog ? S.cprog : loadCprog(key); }
   function saveCprog() { sset('cprog.' + S.capeKey, S.cprog); }
+  // Ticks or unticks an achievement in a cape: the one on screen, or a saved one.
+  function setTick(key, id, on) {
+    var here = S.view === 'cape' && key === S.capeKey && S.cprog, p = here ? S.cprog : loadCprog(key);
+    if (on) p.ticks[id] = 1; else delete p.ticks[id];
+    sset('cprog.' + key, p);
+  }
+  // An achievement that counts for two capes is one tick: it is ticked in both (also: the other capes, from the wiki).
+  function tickShared(key, x, on) {
+    setTick(key, x.id, on);
+    (x.also || []).forEach(function (k) { if (k !== key && capeInfo(k)) setTick(k, x.id, on); });
+  }
 
   // ---------- the achievements that tick themselves ----------
   // From your quests (Quest Cape), your levels (Master Skiller), or another cape (the two capes in the trimmed one).
@@ -201,10 +213,48 @@
     return '<h2 class="bh">Skill levels</h2><ul class="skl-list areq">' + shown.map(function (s) { return skillHtml(s, 'li'); }).join('') + '</ul>' +
       (rest ? '<p class="para">And ' + common + ' or more in every other skill (' + rest + ' more).</p>' : '');
   }
+  // The quests of the quest list and the miniquests, by name: the quest a "needs" line links to. The names are
+  // indexed once for each quest list.
+  var questIdx = null, questIdxOf = [];
+  function questNamed(name) {
+    if (!questIdx || questIdxOf[0] !== S.list || questIdxOf[1] !== S.minis) {
+      questIdx = {};
+      questIdxOf = [S.list, S.minis];
+      ((S.list && S.list.quests) || []).concat((S.minis && S.minis.quests) || []).forEach(function (q) {
+        var k = QG.normName(q.t);
+        if (!questIdx[k]) questIdx[k] = q.t;
+      });
+    }
+    return questIdx[QG.normName(name)] || '';
+  }
+  // What an achievement needs, like an area task: "Needs 93 [icon] Magic ✓, Swept Away ✓, Lunar Diplomacy (partial)".
+  // A level you do not have gets a red ✗ and "+ goal"; a quest opens here, with a ✓ when you have done it.
+  function needHtml(x) {
+    var bits = [], low = false;
+    (x.skills || []).forEach(function (s) {
+      var v = playerLevel(s.skill);
+      if (v != null && v < s.level) low = true;
+      bits.push(skillHtml(s, 'span'));
+    });
+    (x.links || []).forEach(function (l) {
+      var q = questNamed(l.name), part = l.partial ? ' (partial)' : '';
+      if (!q) { bits.push(esc(l.name) + part); return; }
+      if (S.player && playerStatus(q) !== 2 && !l.partial) low = true;
+      bits.push(questBtn(q) + part + questMark(q));
+    });
+    (x.other || []).forEach(function (o) { bits.push(esc(o)); });
+    return bits.length ? '<span class="need' + (low ? ' low' : '') + '">Needs ' + bits.join(', ') + '</span>' : '';
+  }
+  // An achievement: what to do, what it needs, how (the wiki's tip), the other cape it counts for, and its ⋯ menu.
+  // One that ticks itself says from what, instead of what it needs.
   function cheevoHtml(x, c, cur) {
     var a = autoOf(x, c), done = isDone(x, c, S.cprog);
-    var row = rowHtml('ccb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' — ' + esc(x.desc) : ''),
-      a ? '<div class="ext"><span class="self">' + selfText(a, c) + '</span></div>' : '');
+    var also = (x.also || []).filter(function (k) { return k !== c.key && capeInfo(k); }).map(function (k) { return 'the ' + esc(capeInfo(k).name.toLowerCase()); });
+    var ext = a ? '<span class="self">' + selfText(a, c) + '</span>' :
+      needHtml(x) + (x.tip ? '<div class="howto">' + esc(x.tip) + '</div>' : '');
+    if (also.length) ext += '<span class="also">Also counts for ' + also.join(' and ') + '</span>';
+    var row = rowHtml('ccb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' — ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
+      A.cheevoMenuHtml({ cape: c.key, cheevo: x.id, title: x.name, page: x.page || x.name }));
     if (a) row = row.replace('<input class="cb"', '<input class="cb" disabled');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + (a ? ' auto' : '') + '" data-cheevo="' + esc(x.id) + '">' + row + '</li>';
   }
@@ -262,12 +312,23 @@
   function tickCheevo(id, on) {
     var x = S.cape.cheevos.filter(function (y) { return y.id === id; })[0];
     if (!x || autoOf(x, S.cape)) return;
-    if (on) S.cprog.ticks[id] = 1; else delete S.cprog.ticks[id];
+    tickShared(S.capeKey, x, on);
     // A part you finish folds shut (the next time it is drawn), like an area's tasks.
     var g = partOfId(id);
     if (on && g && S.cprog.open && g.items.every(function (y) { return isDone(y, S.cape, S.cprog); })) delete S.cprog.open[g.key];
     saveCprog();
     renderCape(true);
+  }
+  // For My list: is this achievement of this cape done, and ticking it there. A cape that is not read yet keeps the tick
+  // for when it is; one that ticks itself cannot be ticked.
+  function cheevoIsDone(key, id) {
+    var c = savedCape(key), x = c && c.cheevos.filter(function (y) { return y.id === id; })[0];
+    return x ? isDone(x, c, progOf(key)) : !!progOf(key).ticks[id];
+  }
+  function tickCheevoIn(key, id, on) {
+    var c = savedCape(key), x = c && c.cheevos.filter(function (y) { return y.id === id; })[0];
+    if (x && autoOf(x, c)) return;
+    tickShared(key, x || { id: id }, on);
   }
   function nextCheevo() {
     var cur = document.querySelector('li[data-cheevo].cur');
@@ -328,7 +389,8 @@
     return !!c && isDone(x, c, progOf(key));
   }
 
-  A.share({ autoOf: autoOf, capeCardsHtml: capeCardsHtml, capeReset: capeReset, cheevoDone: cheevoDone, loadCprog: loadCprog,
+  A.share({ autoOf: autoOf, capeCardsHtml: capeCardsHtml, capeReset: capeReset, cheevoDone: cheevoDone, cheevoIsDone: cheevoIsDone, loadCprog: loadCprog,
+    tickCheevoIn: tickCheevoIn,
     nextCheevo: nextCheevo, openCape: openCape, refreshCape: refreshCape, renderCape: renderCape, savedCape: savedCape,
     switchCapeTab: switchCapeTab, tickCheevo: tickCheevo, toggleCapePart: toggleCapePart });
   A.loaded.capes = true;

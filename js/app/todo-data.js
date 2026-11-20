@@ -5,7 +5,8 @@
  * todo-view.js draws it and todo.js changes it; they find what is here on A.T.
  *
  * A goal is one row: a tick box, what it says, and its menu. You can tick any goal; skill levels, quests and tiers
- * also tick themselves; an area task shares its tick with its area, and a quest with the quest list. A goal can have sub
+ * also tick themselves; an area task shares its tick with its area, an achievement with its cape, and a quest with the
+ * quest list. A goal can have sub
  * tasks, and those their own (four deep): each is done when all of its own are.
  */
 (function (A) {
@@ -17,10 +18,11 @@
   var MAX_LISTS = 30, MAX_GOALS = 300, MAX_SUBS = 20, MAX_DEPTH = 4, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
   var FULL_GOALS = 'You have 300 goals. Remove some first.', FULL_LISTS = 'You have 30 lists. Delete one first.';
   // The kinds of goal. You tick any of them; a skill goal also ticks itself when your character has the level, a
-  // quest when the quest is done, a tier when all its tasks are. An area task is one tick with its area.
-  var KINDS = { skill: 1, task: 1, tier: 1, quest: 1, other: 1 };
-  // Goals that stand for a quest, a task or a tier: only their list and note can change.
-  var FIXED = { quest: 1, task: 1, tier: 1 };
+  // quest when the quest is done, a tier when all its tasks are. An area task is one tick with its area, and an
+  // achievement (cheevo) with its cape.
+  var KINDS = { skill: 1, task: 1, tier: 1, cheevo: 1, quest: 1, other: 1 };
+  // Goals that stand for a quest, a task, a tier or an achievement: only their list and note can change.
+  var FIXED = { quest: 1, task: 1, tier: 1, cheevo: 1 };
   var SKILLS = ['Attack', 'Defence', 'Strength', 'Constitution', 'Ranged', 'Prayer', 'Magic', 'Cooking', 'Woodcutting',
     'Fletching', 'Fishing', 'Firemaking', 'Crafting', 'Smithing', 'Mining', 'Herblore', 'Agility', 'Thieving', 'Slayer',
     'Farming', 'Runecrafting', 'Hunter', 'Construction', 'Summoning', 'Dungeoneering', 'Divination', 'Invention',
@@ -62,6 +64,13 @@
       a.tiers.forEach(function (t) { if (s === (a.name + ' ' + t).toLowerCase()) hit = { area: a.name, tier: t.toLowerCase(), tname: t }; });
     });
     return hit;
+  }
+  // A cape's name by its key: "Master quest cape".
+  function capeTitle(key) { var c = QG.CAPES.filter(function (x) { return x.key === key; })[0]; return c ? c.name : ''; }
+  // A cape by its name, as a file writes it: "Master quest cape".
+  function capeNamed(s) {
+    s = String(s).trim().toLowerCase();
+    return QG.CAPES.filter(function (c) { return c.name.toLowerCase() === s; })[0] || null;
   }
   var seq = 0;
   function newId(p) { seq += 1; return p + Date.now().toString(36) + seq.toString(36); }
@@ -111,6 +120,13 @@
         g.tname = line(x.tname, 20) || cap1(tier);
         g.title = title || 'Task ' + g.task;
       } else g.title = title || a.name + ' ' + cap1(tier);
+    } else if (x.kind === 'cheevo') {
+      // an achievement: its cape (mqc, comp or trim), its id, and its page on the wiki
+      g.cape = QG.CAPES.some(function (c) { return c.key === x.cape; }) ? x.cape : '';
+      g.cheevo = line(x.cheevo == null ? '' : String(x.cheevo), 20);
+      if (!g.cape || !g.cheevo) return null;
+      g.title = title || 'Achievement ' + g.cheevo;
+      if (line(x.page, 120)) g.page = line(x.page, 120);
     } else {
       if (!title) return null;
       g.title = title;
@@ -208,7 +224,7 @@
   function setSubs(p, on) {
     (p.subs || []).forEach(function (u) { mark(u, on); setSubs(u, on); });
   }
-  // Does a goal or sub task stand for a quest, a tier, an area task or a level?
+  // Does a goal or sub task stand for a quest, a tier, an area task, an achievement or a level?
   function isRef(x) { return !!KINDS[x.kind] && x.kind !== 'other'; }
   // Is a sub task done? One that stands for a quest, a tier, an area task or a level is done the way a goal of
   // that kind is.
@@ -239,9 +255,11 @@
     sset('aprog.' + g.area, p);
     if (ix) A.writeAmeta(g.area, ix, p);
   }
-  // A goal ticked or unticked. An area task is ticked in its area, and a quest in the quest list, too.
+  // A goal ticked or unticked. An area task is ticked in its area, an achievement in its cape, and a quest in the quest
+  // list, too.
   function setDone(g, on) {
     if (g.kind === 'task') tickTaskInArea(g, on);
+    if (g.kind === 'cheevo') A.tickCheevoIn(g.cape, g.cheevo, on);
     if (g.kind === 'quest') setMarked(g.title, on);
     if (on) g.done = Date.now(); else delete g.done;
   }
@@ -289,9 +307,11 @@
     }
     return false;
   }
-  // A goal is done when you ticked it or it is done by itself. An area task is done when it is ticked in its area.
+  // A goal is done when you ticked it or it is done by itself. An area task is done when it is ticked in its area, and
+  // an achievement when it is done in its cape.
   function goalState(g, c) {
     if (g.kind === 'task') return { done: !!c.tasks(g.area)[g.task], self: false };
+    if (g.kind === 'cheevo') return { done: A.cheevoIsDone(g.cape, g.cheevo), self: false };
     var self = selfDone(g, c);
     return { done: !!g.done || self, self: self };
   }
@@ -308,6 +328,7 @@
   // ---------- what you type, as a goal ----------
   // What you type, as a goal: "82 thieving" or "thieving 82" is a skill goal; anything else is a goal as you typed it.
   // The lines of an export read the same way: "Quest: …", "Tier: Ardougne Hard", "Task 448: Yoink! (Ardougne Easy)",
+  // "Achievement 2111: Advanced Sweeping (Master quest cape)",
   function parseGoal(text) {
     var s = String(text || '').slice(0, 300).replace(/\s+/g, ' ').trim();
     return s ? lineGoal(s) : null;
@@ -317,6 +338,7 @@
     if ((m = /^task (\d+) ?: ?(.+?) ?\(([^()]+)\)$/i.exec(s)) && (at = areaTier(m[3]))) {
       return { kind: 'task', task: m[1], title: m[2], area: at.area, tier: at.tier, tname: at.tname };
     }
+    if ((m = /^achievement (\d+) ?: ?(.+?) ?\(([^()]+)\)$/i.exec(s)) && (at = capeNamed(m[3]))) return { kind: 'cheevo', cape: at.key, cheevo: m[1], title: m[2] };
     if ((m = /^tier ?: ?(.+)$/i.exec(s)) && (at = areaTier(m[1]))) return { kind: 'tier', area: at.area, tier: at.tier, title: at.area + ' ' + at.tname };
     if ((m = /^quest ?: ?(.+)$/i.exec(s))) return { kind: 'quest', title: m[1] };
     if ((m = /^(\d{1,3}) ([a-z]+)$/i.exec(s)) && (sk = skillKey(m[2])) && +m[1] >= 2 && +m[1] <= 120) return { kind: 'skill', skill: sk, level: +m[1] };
@@ -366,11 +388,14 @@
     if (r.kind === 'quest') return { kind: 'quest', title: r.title };
     if (r.kind === 'skill') return { kind: 'skill', skill: skillKey(r.skill), level: r.level };
     if (r.kind === 'task') return { kind: 'task', area: r.area, tier: r.tier, tname: r.tname, task: r.task, title: r.title };
+    if (r.kind === 'cheevo') return { kind: 'cheevo', cape: r.cape, cheevo: r.cheevo, title: r.title, page: r.page };
     return { kind: 'tier', area: r.area, tier: r.tier, title: r.area + ' ' + r.tname };
   }
-  // A goal's quest, task or tier as a key: "q:<quest>", "t:<area>:<task>" or "r:<area>:<tier>".
+  // A goal's quest, task, tier or achievement as a key: "q:<quest>", "t:<area>:<task>", "r:<area>:<tier>" or "c:<id>"
+  // (an achievement in two capes is one).
   function refKey(kind, o) {
-    return kind === 'quest' ? 'q:' + QG.normName(o.title) : kind === 'task' ? 't:' + o.area + ':' + o.task : kind === 'tier' ? 'r:' + o.area + ':' + o.tier : '';
+    return kind === 'quest' ? 'q:' + QG.normName(o.title) : kind === 'task' ? 't:' + o.area + ':' + o.task : kind === 'tier' ? 'r:' + o.area + ':' + o.tier :
+      kind === 'cheevo' ? 'c:' + o.cheevo : '';
   }
   // The goals of a quest, task or tier, by refKey.
   function refIndex() {
@@ -455,6 +480,7 @@
   function goalLine(g) {
     if (g.kind === 'skill') return g.level + ' ' + skillName(g.skill);
     if (g.kind === 'task') return 'Task ' + g.task + ': ' + g.title + ' (' + g.area + ' ' + g.tname + ')';
+    if (g.kind === 'cheevo') return 'Achievement ' + g.cheevo + ': ' + g.title + ' (' + (capeTitle(g.cape) || g.cape) + ')';
     if (g.kind === 'tier') return 'Tier: ' + g.title;
     if (g.kind === 'quest') return 'Quest: ' + g.title;
     return g.title;
@@ -542,7 +568,7 @@
 
   // What todo-view.js and todo.js use.
   A.T = { MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
-    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED,
+    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, capeTitle: capeTitle,
     addGoal: addGoal, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
     findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
     line: line, listById: listById, listText: listText, parseOutline: parseOutline, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,

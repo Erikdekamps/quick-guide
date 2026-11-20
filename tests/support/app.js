@@ -26,6 +26,23 @@ class Wiki {
     this.titles = {};     // pages that exist for "is there a page called …": { title: the page it leads to }
     this.lookups = [];    // every "is there a page called …" call: the titles it asked for
     this.lookupFail = false;
+    this.cheevos = {};    // achievement pages: { title: { lead: wikitext of the first section, extract: its first paragraphs } }
+    this.detailCalls = [];   // every call for achievement pages: the titles it asked for
+    this.detailFail = false;
+  }
+  // Achievement pages, for a cape's needs and tips (see withCapes).
+  details(map) { Object.assign(this.cheevos, map); return this; }
+  // The wiki's answer to action=query&prop=revisions|extracts&titles=A|B: each page's first section and first paragraphs.
+  answerDetails(route, url) {
+    const asked = (url.searchParams.get('titles') || '').split('|');
+    this.detailCalls.push(asked);
+    if (this.detailFail) return route.fulfill({ status: 500, headers: CORS, body: 'oops' });
+    const pages = asked.map((t, i) => {
+      const d = this.cheevos[t];
+      if (!d) return { ns: 0, title: t, missing: true };
+      return { pageid: i + 1, ns: 0, title: t, revisions: [{ slots: { main: { contentmodel: 'wikitext', contentformat: 'text/x-wiki', content: d.lead } } }], extract: d.extract };
+    });
+    return route.fulfill({ headers: CORS, json: { batchcomplete: true, query: { pages } } });
   }
   // A page that exists when the app asks whether there is one (My list's wiki links). to: the page a redirect leads to.
   exists(title, to) { this.titles[title] = to || title; return this; }
@@ -76,7 +93,9 @@ class Wiki {
       if (url.pathname.startsWith('/cors/')) return this.answerPlayer(route, url);
       return route.fulfill({ status: 404, body: 'not found' });
     }
-    if (url.searchParams.get('action') === 'query') return this.answerLookup(route, url);
+    if (url.searchParams.get('action') === 'query') {
+      return /revisions|extracts/.test(url.searchParams.get('prop') || '') ? this.answerDetails(route, url) : this.answerLookup(route, url);
+    }
     const title = url.searchParams.get('page');
     this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
     const p = this.pages[title];
@@ -262,13 +281,15 @@ function withAllAreas(wiki) {
   });
   return wiki;
 }
-// The three capes on the fake wiki: their achievement pages (a piece of each), the master quest cape's levels and Master Skiller.
+// The three capes on the fake wiki: their achievement pages (a piece of each), the master quest cape's levels, Master Skiller,
+// and the pages of their achievements (what each needs, and a tip).
 function withCapes(wiki) {
   wiki.page('Master Quest Cape (achievement)', fixture('master-quest-cape-achievement.html'));
   wiki.page('Completionist Cape (achievement)', fixture('completionist-cape-achievement.html'));
   wiki.page('Trimmed Completionist Cape (achievement)', fixture('trimmed-completionist-cape-achievement.html'));
   wiki.page('Master quest cape', fixture('master-quest-cape.html'));
   wiki.page('Master Skiller', fixture('master-skiller.html'));
+  wiki.details(JSON.parse(fixture('cape-achievements.json')));
   return wiki;
 }
 // Opens a quest from the list, as a person would.

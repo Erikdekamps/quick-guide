@@ -64,10 +64,12 @@
     changed();
   }
 
-  // ---------- adding from elsewhere: a quest, a tier, an area task, a level ----------
+  // ---------- adding from elsewhere: a quest, a tier, an area task, an achievement, a level ----------
+  // The menu of an area task or an achievement: Add to list (or Remove from it); an achievement also has its wiki page.
   function itemMenu(btn) {
-    var r = refOf(btn);
-    openMenu(btn, 'item', refKey(r.kind, r), '<p class="mh">' + esc(r.title) + '</p>' + A.addToItemHtml(r.kind, r), 'Task menu');
+    var r = refOf(btn), cheevo = r.kind === 'cheevo';
+    openMenu(btn, 'item', refKey(r.kind, r), '<p class="mh">' + esc(r.title) + '</p>' + A.addToItemHtml(r.kind, r) + (cheevo ? wikiItem(r.page || r.title) : ''),
+      cheevo ? 'Achievement menu' : 'Task menu');
   }
   // The Add to list box: which list it goes in, or a new one.
   function addToDialog(r) {
@@ -206,9 +208,11 @@
       '<hr>' + mitem('gup', I.up, 'Move up', !canShift(rows, i, -1)) + mitem('gdown', I.down, 'Move down', !canShift(rows, i, 1)) +
       '<hr>' + mitem('gremove', I.x, 'Remove', false, 'danger'), 'Goal menu');
   }
-  // The way to what a goal or a sub task is about: its quest, its area, or its page on the wiki.
+  // The way to what a goal or a sub task is about: its quest, its area, its cape, or its page on the wiki.
   function openItem(g) {
     return g.kind === 'quest' ? '<button class="mi" type="button" role="menuitem" data-quest="' + esc(g.title) + '">' + I.ext + 'Open the quest</button>' :
+      g.kind === 'cheevo' ? '<button class="mi" type="button" role="menuitem" data-cape="' + esc(g.cape) + '">' + I.ext + 'Open ' + esc(T.capeTitle(g.cape)) + '</button>' +
+        wikiItem(g.page || g.title) :
       FIXED[g.kind] ? '<button class="mi" type="button" role="menuitem" data-area="' + esc(g.area) + '" data-atier="' + esc(g.tier) + '">' + I.ext + 'Open ' + esc(g.kind === 'task' ? g.area + ' ' + g.tname : g.title) + '</button>' :
         g.kind === 'skill' ? wikiItem(skillName(g.skill)) : g.wiki ? wikiItem(g.wiki) : '';
   }
@@ -403,12 +407,12 @@
   function goalFormHtml(st) {
     var d = st.d, fixed = !!st.g && FIXED[st.g.kind];
     var h = '<h2 class="dh" id="td-h">' + (st.sid ? 'Edit sub task' : st.edit ? 'Edit goal' : 'Add a goal') + '</h2>';
-    h += fixed ? '<p class="what">' + whatHtml({ kind: st.g.kind, title: st.g.title, area: st.g.area, tname: st.g.tname || '' }) + '</p>' :
+    h += fixed ? '<p class="what">' + whatHtml({ kind: st.g.kind, title: st.g.title, area: st.g.area, tname: st.g.tname || '', cape: st.g.cape }) + '</p>' :
       fieldHtml('tg-text', st.sid ? 'Sub task' : 'Goal', d.text, TEXT_MAX, 'Like 82 Thieving, or Buy a cape');
     h += '<div class="fld"><label for="tg-list">List</label><select class="sel" id="tg-list">' + pickerHtml(d.list) + '</select></div>';
     h += '<div class="fld"><label for="tg-parent">Parent</label><select class="sel" id="tg-parent">' + parentsHtml(listById(d.list), d.parent, st.g) + '</select></div>';
     h += fieldHtml('tg-note', 'Note (optional)', d.note, NOTE_MAX);
-    if (!st.edit) h += note('A quest, an area task or a tier? Its ' + I.dots + ' menu has Add to list.');
+    if (!st.edit) h += note('A quest, an area task, a tier or an achievement? Its ' + I.dots + ' menu has Add to list.');
     return h + errHtml() + buttonsHtml(st.edit ? 'Save' : 'Add');
   }
   function readDraft(d) {

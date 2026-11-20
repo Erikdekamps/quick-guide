@@ -19,3 +19,4 @@ The fake wiki in `tests/support/app.js` answers with these (see `Wiki.standard()
 | `master-quest-cape-achievement.html`, `completionist-cape-achievement.html`, `trimmed-completionist-cape-achievement.html` | Part of each cape's achievement list (see `withCapes()`) |
 | `master-quest-cape.html` | The master quest cape's item page: the levels it needs |
 | `master-skiller.html` | The Master Skiller achievement: the levels the completionist cape needs |
+| `cape-achievements.json` | The achievements' own pages, for those capes: each page's first section (wikitext) and first paragraphs |

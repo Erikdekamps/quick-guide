@@ -62,7 +62,10 @@ test.describe('reading a cape page', () => {
     const c = await parse(page, 'master-quest-cape-achievement.html', 'mqc');
     expect(c).toMatchObject({ key: 'mqc', name: MQC, page: 'Master Quest Cape (achievement)', source: W + 'Master_Quest_Cape_(achievement)', levels: [], skiller: [] });
     expect(c.cheevos).toHaveLength(23);
-    expect(c.cheevos[0]).toEqual({ id: '4949', name: 'A Sliver of Silver Helps the Sanguine Go Down', desc: 'Learn how to smith more durable havensilver.', members: true, cat: 'Lore', sub: 'Post-Quest' });
+    expect(c.cheevos[0]).toEqual({ id: '4949', name: 'A Sliver of Silver Helps the Sanguine Go Down', page: 'A Sliver of Silver Helps the Sanguine Go Down',
+      desc: 'Learn how to smith more durable havensilver.', members: true, cat: 'Lore', sub: 'Post-Quest' });
+    // the achievement's own page, for its needs and tip
+    expect(c.cheevos.find((x) => x.id === '3224')).toMatchObject({ name: "A Cultist's Journey", page: "A Cultist's Journey (achievement)" });
     expect(c.cheevos.find((x) => x.id === '2112')).toMatchObject({ name: "Aereck's Old Bones", members: false });
     // no subcategory: empty
     expect(c.cheevos.find((x) => x.id === '299')).toMatchObject({ name: 'Bridge over Fremmy Waters', cat: 'Lore', sub: '' });
@@ -90,6 +93,38 @@ test.describe('reading a cape page', () => {
   test('a page that is not an achievement list', async ({ page }) => {
     const r = await page.evaluate(() => { try { window.QuickGuide.parseCape('<div class="mw-parser-output"><p>Nothing.</p></div>', 'mqc'); return 'no error'; } catch (e) { return e.code; } });
     expect(r).toBe('format');
+  });
+
+  test("an achievement's page: what it needs, the capes it counts for, and a tip", async ({ page }) => {
+    const pages = JSON.parse(fixture('cape-achievements.json'));
+    const r = await page.evaluate((p) => {
+      const Q = window.QuickGuide, of = (t) => ({ needs: Q.cheevoNeeds(p[t].lead), capes: Q.cheevoCapes(p[t].lead), tip: Q.cheevoTip(p[t].extract) });
+      return { sweep: of('Advanced Sweeping'), heart: of("Conquered Everyone's Heart"), bane: of('Bane Tuner'), bug: of('A bug in the system') };
+    }, pages);
+    // levels (boostable or not), quests ("partial" when part of it is enough), and which capes
+    expect(r.sweep.needs).toEqual({ skills: [{ skill: 'Magic', level: 93, boost: true }], other: [],
+      links: [{ name: 'Swept Away', partial: false }, { name: 'Diamond in the Rough', partial: false }, { name: 'Lunar Diplomacy', partial: true }, { name: 'Underground Pass', partial: true }] });
+    expect(r.sweep.capes).toEqual(['mqc']);
+    // the tip: the first paragraph, without "… is an achievement that requires the player to"
+    expect(r.sweep.tip).toMatch(/^Fully enchant the broomstick by bringing it to various magic users around the world\./);
+    // one of several: a line of its own
+    expect(r.heart.needs).toEqual({ skills: [{ skill: 'Constitution', level: 70, boost: false }], links: [], other: ['60 Strength or 60 Agility'] });
+    expect(r.bane.capes).toEqual(['mqc', 'comp']);
+    expect(r.bug.needs).toEqual({ skills: [], links: [], other: [] });
+    // other forms the wiki uses: a template over more lines, groups of levels, plain words
+    const more = await page.evaluate(() => {
+      const Q = window.QuickGuide;
+      return [
+        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n{{Achievement requirement\n|or = y\n|{{Achievement requirement|Agility|90}}\n|{{Achievement requirement|Cooking|90}}\n}}\n|id = 409\n}}'),
+        Q.cheevoNeeds('{{Infobox Achievement\n|requirements = \n{{Achievement requirement\n|or = y\n|\n* {{Skillreq|Fishing|90}}\n* {{Skillreq|Slayer|90}}\n|\n* {{Skillreq|Prayer|90}}\n}}\n}}'),
+        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* Tier 10 [[Fort Forinthry|the fort]] in the [[Wilderness]].\n* None\n|mqc = yes\n}}'),
+        Q.cheevoTip('<p class="mw-empty-elt">\n</p><p><b>Port Life</b> is an achievement awarded for following the tutorial.</p><p>More.</p>')
+      ];
+    });
+    expect(more[0].other).toEqual(['90 Agility or 90 Cooking']);
+    expect(more[1].other).toEqual(['90 Fishing + 90 Slayer or 90 Prayer']);
+    expect(more[2]).toEqual({ skills: [], links: [], other: ['Tier 10 the fort in the Wilderness'] });
+    expect(more[3]).toBe('Port Life is an achievement awarded for following the tutorial.');
   });
 });
 
@@ -496,5 +531,168 @@ test.describe('export and import', () => {
     await expect(card(page, 'mqc').locator('.cn')).toHaveText('1 / 23 achievements');
     await card(page, 'mqc').click();
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
+  });
+});
+
+test.describe('more about each achievement', () => {
+  test('a cape is read with what each achievement needs and a tip: 20 pages at a time', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    expect(wiki.detailCalls.map((x) => x.length).sort((a, b) => b - a)).toEqual([20, 3]);
+    expect(wiki.detailCalls.flat()).toContain("A Cultist's Journey (achievement)");
+    const x = (await stored(page, 'cape.mqc')).cheevos.find((y) => y.id === '2111');
+    expect(x).toMatchObject({ page: 'Advanced Sweeping', skills: [{ skill: 'Magic', level: 93, boost: true }], also: [] });
+    expect(x.tip).toMatch(/^Fully enchant the broomstick/);
+    // read once: from storage after that
+    await page.reload();
+    await expect(page.locator('h1.qt')).toHaveText(MQC);
+    expect(wiki.detailCalls).toHaveLength(2);
+  });
+
+  test('like an area task: what it needs, with your levels, and the tip', async ({ page, wiki }) => {
+    withCapes(wiki).setPlayer('Zezima', {}, { 7: 80 });   // Magic 80
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('Zezima');
+    await closeSettings(page);
+    await openCape(page, 'mqc', MQC);
+    const sw = cheevo(page, '2111');
+    await expect(sw.locator('.need')).toHaveText('Needs 93 Magic (boostable) goal, Swept Away, Diamond in the Rough, Lunar Diplomacy (partial), Underground Pass (partial)');
+    await expect(sw.locator('.need')).toHaveClass(/\blow\b/);
+    await expect(sw.locator('.need .skl')).toHaveClass(/\blow\b/);
+    await expect(sw.locator('.need .mk.no')).toHaveAttribute('title', 'Too low: you have 80');
+    await expect(sw.locator('.need .addgoal')).toHaveAttribute('aria-label', 'Add 93 Magic to my list');
+    await expect(sw.locator('.howto')).toHaveText(/^Fully enchant the broomstick by bringing it to various magic users around the world\./);
+    // nothing it needs: no line
+    await expect(cheevo(page, '3612').locator('.need')).toHaveCount(0);
+    await expect(cheevo(page, '3612').locator('.howto')).toHaveText(/^Find and read the scruffy note in the Scabarite Cavern\./);
+    // one of several
+    await expect(cheevo(page, '299').locator('.need')).toContainText('71 Dungeoneering');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a quest it needs opens here, with a tick when you have done it', async ({ page, wiki }) => {
+    withCapes(wiki).setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, {});
+    const pages = JSON.parse(fixture('cape-achievements.json'));
+    const bones = pages["Aereck's Old Bones"];
+    wiki.details({ "Aereck's Old Bones": { lead: bones.lead.replace('* [[The Restless Ghost]]', "* [[Cook's Assistant]]\n* [[Rune Mysteries]] (partial)"), extract: bones.extract } });
+    await openApp(page, expect);
+    await lookUp(page, 'Zezima');
+    await expect(page.locator('#player')).toContainText('Zezima');
+    await closeSettings(page);
+    await openCape(page, 'mqc', MQC);
+    const need = cheevo(page, '2112').locator('.need');
+    await expect(need.locator('.qlink')).toHaveText(["Cook's Assistant", 'Rune Mysteries']);
+    await expect(need).toContainText('Rune Mysteries (partial)');
+    await expect(need.locator('.mk.ok')).toHaveCount(1);
+    await expect(need).not.toHaveClass(/\blow\b/);   // a partial quest is not counted as missing
+    await need.locator('.qlink', { hasText: "Cook's Assistant" }).click();
+    await expect(page.locator('h1.qt')).toHaveText("Cook's Assistant");
+  });
+
+  test('an achievement in two capes says so, and is one tick in both', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'comp', COMP);
+    await page.locator('.tab[data-ctab="other"]').click();
+    const a = cheevo(page, '2115');
+    await expect(a.locator('.also')).toHaveText('Also counts for the master quest cape');
+    await a.locator('.cb').click();
+    expect((await stored(page, 'cprog.comp')).ticks).toEqual({ 2115: 1 });
+    expect((await stored(page, 'cprog.mqc')).ticks).toEqual({ 2115: 1 });
+    // and back
+    await page.getByRole('button', { name: 'All achievements' }).click();
+    await openCape(page, 'mqc', MQC);
+    await page.locator('.tab[data-ctab="skills"]').click();
+    await expect(cheevo(page, '2543').locator('.also')).toHaveText('Also counts for the completionist cape');
+    await cheevo(page, '2543').locator('.cb').click();
+    expect((await stored(page, 'cprog.comp')).ticks).toEqual({ 2115: 1, 2543: 1 });
+    // one in only one cape stays there
+    await page.locator('.tab[data-ctab="lore"]').click();
+    await cheevo(page, '2111').locator('.cb').click();
+    expect((await stored(page, 'cprog.comp')).ticks).toEqual({ 2115: 1, 2543: 1 });
+  });
+
+  test('when the pages cannot be read, the cape still opens, without needs and tips', async ({ page, wiki }) => {
+    withCapes(wiki).detailFail = true;
+    await openCape(page, 'mqc', MQC);
+    await expect(page.locator('li[data-cheevo]').first()).toBeVisible();
+    await expect(page.locator('li[data-cheevo] .need')).toHaveCount(0);
+    await expect(page.locator('li[data-cheevo] .howto')).toHaveCount(0);
+    expect(page.errors).toEqual([]);
+  });
+
+  test("the ⋯ menu: Add to list, and the achievement's page on the wiki", async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    await cheevo(page, '3224').locator('.rowm').click();
+    await expect(page.locator('#tmenu')).toHaveAttribute('aria-label', 'Achievement menu');
+    await expect(page.locator('#tmenu .mh')).toHaveText("A Cultist's Journey");
+    await expect(page.locator('#tmenu .mi')).toHaveText(['Add to list…', 'Open on the wiki']);
+    await expect(page.locator('#tmenu a.mi')).toHaveAttribute('href', W + "A_Cultist's_Journey_(achievement)");
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await expect(page.locator('#td .what')).toHaveText("A Cultist's Journey · Master quest cape");
+    await page.locator('#td').getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#toast')).toContainText('Added to My list.');
+    const t = await stored(page, 'todo');
+    expect(t.lists[0].items[0]).toMatchObject({ kind: 'cheevo', cape: 'mqc', cheevo: '3224', title: "A Cultist's Journey", page: "A Cultist's Journey (achievement)" });
+    // on a list now: the menu can take it off
+    await cheevo(page, '3224').locator('.rowm').click();
+    await expect(page.locator('#tmenu .mi')).toHaveText(['Remove from My list', 'Open on the wiki']);
+    // the count on My list, right there
+    await expect(page.locator('.bn[data-home="todo"] .tc')).toHaveText('1');
+  });
+});
+
+test.describe('achievements on My list', () => {
+  async function onList(page, wiki) {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    await cheevo(page, '2111').locator('.rowm').click();
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await page.locator('#td').getByRole('button', { name: 'Add', exact: true }).click();
+    await page.locator('.bn[data-home="todo"]').click();
+  }
+  const goal = (page, title) => page.locator('li.goal').filter({ has: page.locator(':scope > .row .t', { hasText: title }) });
+
+  test('one tick with its cape, both ways', async ({ page, wiki }) => {
+    await onList(page, wiki);
+    await goal(page, 'Advanced Sweeping').locator(':scope > .row .cb').click();
+    await expect(goal(page, 'Advanced Sweeping')).toHaveClass(/\bdone\b/);
+    expect((await stored(page, 'cprog.mqc')).ticks).toEqual({ 2111: 1 });
+    // untick it in the cape: open again on the list
+    await page.locator('.bn[data-home="areas"]').click();
+    await card(page, 'mqc').click();
+    await openSettings(page);
+    await page.getByRole('menuitemcheckbox', { name: 'Done steps and tasks' }).click();
+    await closeSettings(page);
+    await cheevo(page, '2111').locator('.cb').click();
+    await page.locator('.bn[data-home="todo"]').click();
+    await expect(goal(page, 'Advanced Sweeping')).not.toHaveClass(/\bdone\b/);
+  });
+
+  test("its menu opens the cape, or the achievement's page on the wiki", async ({ page, wiki }) => {
+    await onList(page, wiki);
+    await goal(page, 'Advanced Sweeping').locator('[data-gmenu]').click();
+    await expect(page.locator('#tmenu .mi')).toContainText(['Edit', 'Add sub task', 'Open Master quest cape', 'Open on the wiki']);
+    await expect(page.locator('#tmenu a.mi', { hasText: 'Open on the wiki' })).toHaveAttribute('href', W + 'Advanced_Sweeping');
+    await page.locator('#tmenu .mi', { hasText: 'Open Master quest cape' }).click();
+    await expect(page.locator('h1.qt')).toHaveText(MQC);
+  });
+
+  test('in the export as "Achievement 2111: …", and an import makes it again', async ({ page, wiki }) => {
+    await onList(page, wiki);
+    await openSettings(page);
+    await page.getByRole('button', { name: 'Export state' }).click();
+    await expect(page.locator('#bk-text')).not.toHaveValue('');
+    const j = JSON.parse(await page.locator('#bk-text').inputValue());
+    expect(j.mylist['My list']).toEqual({ 'Achievement 2111: Advanced Sweeping (Master quest cape)': false });
+    await page.getByRole('button', { name: 'Close' }).click();
+    await page.getByRole('button', { name: 'Import state' }).click();
+    await page.locator('#bk-text').fill(JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Capes: { 'Achievement 2115: Annihilator (Completionist cape)': true } } }));
+    await page.getByRole('button', { name: 'Import', exact: true }).click();
+    const t = await stored(page, 'todo');
+    expect(t.lists.map((l) => l.name)).toEqual(['Capes']);
+    expect(t.lists[0].items[0]).toMatchObject({ kind: 'cheevo', cape: 'comp', cheevo: '2115', title: 'Annihilator' });
+    // (like an area task, its tick comes from "capes" in the file, not from the list)
   });
 });

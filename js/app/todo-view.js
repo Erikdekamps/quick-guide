@@ -1,8 +1,8 @@
 /*!
  * Quick Guide - js/app/todo-view.js
  * My list: what the tab shows (the lists, their goals and sub tasks, the box at the end of each list), the count on the
- * tab, the message with Undo, "Add to list" in the menus of a quest, a tier and an area task, and the menus and boxes
- * todo.js fills.
+ * tab, the message with Undo, "Add to list" in the menus of a quest, a tier, an area task and an achievement, and the
+ * menus and boxes todo.js fills.
  */
 (function (A) {
   'use strict';
@@ -135,6 +135,7 @@
   function refreshScreen() {
     if (S.view === 'quest') A.renderQuest();
     else if (S.view === 'area') A.renderArea(true);
+    else if (S.view === 'cape') A.renderCape(true);
     else drawTodo();
   }
   // A message with buttons, like "Added to Today. Undo".
@@ -164,16 +165,19 @@
     };
   }
 
-  // ---------- "Add to list" in the menus of a quest, a tier and an area task, and "+ goal" ----------
-  // What a menu item or a button stands for, in data attributes: data-ref="quest", "tier", "task" or "skill", and its parts.
+  // ---------- "Add to list" in the menus of a quest, a tier, an area task and an achievement, and "+ goal" ----------
+  // What a menu item or a button stands for, in data attributes: data-ref="quest", "tier", "task", "cheevo" or "skill",
+  // and its parts.
   function refAttrs(kind, o) {
     return ' data-ref="' + kind + '"' + (kind === 'quest' ? ' data-rtitle="' + esc(o.title) + '"' : kind === 'skill' ? ' data-rskill="' + esc(o.skill) + '" data-rlevel="' + esc(o.level) + '"' :
+      kind === 'cheevo' ? ' data-rcape="' + esc(o.cape) + '" data-rcheevo="' + esc(o.cheevo) + '" data-rtitle="' + esc(o.title) + '" data-rpage="' + esc(o.page || o.title) + '"' :
       ' data-rarea="' + esc(o.area) + '" data-rtier="' + esc(o.tier) + '" data-rtname="' + esc(o.tname) + '"' +
       (kind === 'task' ? ' data-rtask="' + esc(o.task) + '" data-rtitle="' + esc(o.title) + '"' : ''));
   }
   function refOf(b) {
     function a(n) { return b.getAttribute('data-' + n) || ''; }
-    return { kind: a('ref'), title: a('rtitle'), area: a('rarea'), tier: a('rtier'), tname: a('rtname'), task: a('rtask'), skill: a('rskill'), level: +a('rlevel') };
+    return { kind: a('ref'), title: a('rtitle'), area: a('rarea'), tier: a('rtier'), tname: a('rtname'), task: a('rtask'), skill: a('rskill'), level: +a('rlevel'),
+      cape: a('rcape'), cheevo: a('rcheevo'), page: a('rpage') };
   }
   // In a menu: "Add to list…", or "Remove from Today" when it is on a list already.
   function addToItemHtml(kind, o) {
@@ -185,10 +189,15 @@
   function taskMenuHtml(o) {
     return '<button class="ib xs rowm" type="button" data-imenu' + refAttrs('task', o) + ' data-menu="tmenu" aria-label="Task menu: ' + esc(o.title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>';
   }
-  // What is added, as the Add to list box says it: "Yoink! · Ardougne Easy".
+  // The ⋯ at the end of an achievement's row: "Add to list…" (or "Remove from …"), and its page on the wiki.
+  // o: { cape, cheevo (its id), title, page }
+  function cheevoMenuHtml(o) {
+    return '<button class="ib xs rowm" type="button" data-imenu' + refAttrs('cheevo', o) + ' data-menu="tmenu" aria-label="Achievement menu: ' + esc(o.title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>';
+  }
+  // What is added, as the Add to list box says it: "Yoink! · Ardougne Easy", "Advanced Sweeping · Master quest cape".
   function whatHtml(r) {
     return '<b>' + esc(r.kind === 'skill' ? r.level + ' ' + skillName(skillKey(r.skill)) : r.kind === 'tier' ? r.title || r.area + ' ' + r.tname : r.title) + '</b>' +
-      (r.kind === 'task' ? ' \u00b7 ' + esc(r.area + ' ' + r.tname) : '');
+      (r.kind === 'task' ? ' \u00b7 ' + esc(r.area + ' ' + r.tname) : r.kind === 'cheevo' && T.capeTitle(r.cape) ? ' \u00b7 ' + esc(T.capeTitle(r.cape)) : '');
   }
   // The "Add to list" items in menus and the "+ goal" buttons on screen, after a change.
   function updateRefs() {
@@ -246,7 +255,7 @@
       (hint ? ' placeholder="' + esc(hint) + '"' : '') + ' value="' + esc(v) + '"></div>';
   }
 
-  A.share({ addToItemHtml: addToItemHtml, closeTodoDialog: closeDialog, taskMenuHtml: taskMenuHtml,
+  A.share({ addToItemHtml: addToItemHtml, cheevoMenuHtml: cheevoMenuHtml, closeTodoDialog: closeDialog, taskMenuHtml: taskMenuHtml,
     toastAct: toastAct, todoCountHtml: countHtml, todoHtml: todoHtml, updateTodoCount: updateCount });
   T.buttonsHtml = buttonsHtml; T.changed = changed; T.closeDialog = closeDialog; T.dialogErr = dialogErr; T.drawTodo = drawTodo;
   T.errHtml = errHtml; T.fieldHtml = fieldHtml; T.mitem = mitem; T.openDialog = openDialog; T.openMenu = openMenu;

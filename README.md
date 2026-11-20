@@ -7,7 +7,7 @@ in the brown interface the game has now, or the blue one it had before (a settin
 - **Achievements:** the [master quest](https://runescape.wiki/w/Master_quest_cape), [completionist](https://runescape.wiki/w/Completionist_cape)
   and [trimmed completionist](https://runescape.wiki/w/Completionist_cape_(t)) capes, and every tier of the 13
   [Area Tasks](https://runescape.wiki/w/Area_Tasks_achievements), with what each one needs.
-- **My list:** your own lists of goals (levels, items, unlocks, quests, area tasks), to plan your day or week.
+- **My list:** your own lists of goals (levels, items, unlocks, quests, area tasks, achievements), to plan your day or week.
 
 ## Add it to Alt1
 
@@ -64,14 +64,19 @@ A card for each cape: the **master quest cape**, the **completionist cape** and 
 Before you open one, it says so. After, it shows how many achievements you did, a progress bar, and where to go on
 ("Next: Lore · Post-Quest, 4 left").
 
-- Click a card to open the cape. The app reads its achievement list from the wiki once.
-  The top shows the cape's picture, your count, and where to buy the cape.
+- Click a card to open the cape. The app reads its achievement list from the wiki once, with each achievement's
+  own page (20 at a time). The top shows the cape's picture, your count, and where to buy the cape.
 - A tab for each of the biggest categories (Lore, Skills, Exploration…), with its count. The smaller categories
   are together in **Other**.
 - In a tab, a subcategory with 3 or more achievements is a part of its own (**Post-Quest**, **Slayer**…).
   The rest are together ("More lore"). A part folds shut when you finish it.
-- Click an achievement to tick it. **Done, next achievement** ticks the next one. When a tab is done, the button
-  goes to the next tab with some left.
+- Each achievement shows what it needs and how to do it, like an area task: "Needs 93 [icon] Magic ✓, Swept Away",
+  with a red ✗ and **+ goal** for a level you do not have, and a ✓ after a quest you have done (click a quest to open it).
+  Under that is the wiki's tip, and "Also counts for the completionist cape" when it is in two capes.
+- Click an achievement to tick it. One that is in two capes is ticked in both. **Done, next achievement** ticks the
+  next one. When a tab is done, the button goes to the next tab with some left.
+- Its **⋯** menu: **Add to list…** (or **Remove from …**), and **Open on the wiki** (the achievement's own page).
+  On a list, it is one tick with its cape, and its menu opens the cape.
 - Some tick themselves: **Quest Cape** from your quests, **Master Skiller** from your levels (look up your character),
   and the **Master Quest Cape** and **Completionist Cape** lines of the trimmed cape from those capes (**Open it** opens them).
 - The master quest cape's first tab has **Needs**: the levels it needs, with yours. It lists the ones above the usual
@@ -103,16 +108,18 @@ under its area, in the game's order.
 - **Add a goal** in the box at the end of a list: type it, press Enter, and type the next one. It goes in as you
   typed it ("500 magic logs", "Buy a cape"). A skill level ("82 thieving" or "thieving 82") ticks itself once your
   character is looked up.
-- **A quest, an area task or a tier:** its **⋯** menu has **Add to list…** (an area task has its own ⋯; a quest's
-  and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
+- **A quest, an area task, a tier or an achievement:** its **⋯** menu has **Add to list…** (an area task and an
+  achievement have their own ⋯; a quest's and an area's menu is next to their name). A box asks which list, with a dropdown, or a new list, and its
   **parent**: none (it is a goal of the list), or a goal or a sub task of the list. Under a parent it is a sub
   task there and still the same task: one tick, here and in its area.
 - The bar at the bottom stays on every screen, so in a quest or an area you see the number on **My list** go up
   when you add something.
   The message says where it went, with **Undo**. Once it is on a list, the menu says **Remove from …** instead.
-- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's needs) opens the same box.
+- **+ goal** next to a level you do not have (in a quest's skills, an area's needs, a task's or an achievement's
+  needs) opens the same box.
 - You can tick any goal. Skill levels, quests and tiers also tick themselves. An area task is one tick, shown in
-  the list and in its area; a quest ticked here is done in the quest list too.
+  the list and in its area, and an achievement in the list and in its cape; a quest ticked here is done in the quest
+  list too.
 - **Paste a list** (in a list's ⋯): type or paste goals as plain text, one on each line. A line that is further in
   goes under the one above, as a sub task. Bullets (`-`, `*`, `•`), numbers (`1.`) and tick boxes (`[ ]`, `[x]` for
   done) are understood, and each line is read like a goal you type ("82 thieving", "Quest: Cook's Assistant"). The box says what it reads while you type. Pasting more than one line in the box at
@@ -181,7 +188,8 @@ Change it in any text editor, then **Import state**, **Choose a file**, **Import
 The achievements that tick themselves (Quest Cape, Master Skiller, and the two capes in the trimmed one) are only to read.
 
 In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
-`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`. A goal with a note or sub tasks is
+`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
+`"Achievement 2111: Advanced Sweeping (Master quest cape)"`. A goal with a note or sub tasks is
 `{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`; a sub task with its own is
 `{ "done": false, "subs": { … } }`. Add a list or a goal by hand and it comes in.
 
@@ -232,7 +240,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `qdone` | Quests marked done by an import |
 | `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
-| `cape.<key>`, `cprog.<key>` | A cape's achievements (`mqc`, `comp` or `trim`), and your ticks, tab and folded parts in it |
+| `cape.<key>`, `cprog.<key>` | A cape's achievements (`mqc`, `comp` or `trim`) with what each needs and its tip, and your ticks, tab and folded parts in it |
 | `settings`, `last` | Your settings (the theme too), and the quest, area or cape that was open last |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
 | `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
@@ -248,7 +256,10 @@ and read from the wiki again when you open them.
 - `js/wiki/parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
   the area pages (`<Area>_achievements`) and the capes' achievement lists (`Master_Quest_Cape_(achievement)`,
   `Completionist_Cape_(achievement)`, `Trimmed_Completionist_Cape_(achievement)`), and turns them into JSON. The levels
-  come from `Master_quest_cape` (its minimum skill levels) and `Master_Skiller`.
+  come from `Master_quest_cape` (its minimum skill levels) and `Master_Skiller`. What each achievement needs, the capes
+  it counts for and its tip come from its own page, 20 pages a time: the infobox of the first section, and the first
+  paragraph, for example
+  `https://runescape.wiki/api.php?action=query&prop=revisions|extracts&rvprop=content&rvsection=0&exintro=1&titles=Advanced_Sweeping|Annihilator&format=json&origin=*`.
 - Map pictures load from `maps.runescape.wiki`.
 - The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
   (quests, skill levels and quest points in one answer), through the wiki first, then at Jagex itself:
