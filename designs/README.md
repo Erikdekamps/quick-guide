@@ -9,11 +9,12 @@ panels, light blue buttons and ticks. The `…Blue` boards show it: every main s
 
 Every screen has the same frame:
 
-- **The title band** on top. On the start screen: the app's emblem, its name and the settings. In a quest or an
-  area: the back button, the name of what is open, its **⋯** menu and the settings.
+- **The title band** on top. On the start screen and in Settings: the app's emblem and the name. In a quest or an
+  area: the back button, the name of what is open and its **⋯** menu.
 - In a quest or an area, **a thin gold line** right under the band shows the progress, and **one row of tabs**
   has the counts under their names (Steps 10 / 118, Items 4 / 26, each tier its own tasks).
-- **The bar at the bottom**: Quests, Area tasks and My list, on every screen. The one you are in is lit in gold.
+- **The bar at the bottom**: Quests, Area tasks, My list and Settings, on every screen. The one you are in is lit in gold.
+  Settings is a screen of its own; the button of the screen you came from takes you back.
 
 The screens are built from the real app (`style.css` and the app's own markup),
 so they match it.
@@ -28,13 +29,13 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `Area.dc.html` | An area, Easy tier: what it needs (your levels, quests, items to bring) |
 | `AreaTasks.dc.html` | An area's tasks (Varrock Elite): tick boxes, the tip under each task, steps like a quest |
 | `Backup.dc.html` | Export state: every quest and task as true or false, Download file, Copy |
-| `Settings.dc.html` | The settings (cog), the same everywhere: your player, sort and filters, display, backup |
-| `SettingsEnd.dc.html` | The bottom of the settings: Backup, and the Danger zone with Delete everything (after the first click) |
+| `Settings.dc.html` | Settings (the last button of the bar): your player, sort and filters, display, backup, the danger zone |
+| `SettingsEnd.dc.html` | Settings with Delete everything after the first click: "Click again to delete everything" |
 | `Overview.dc.html` | Overview tab: all parts open, the quest tree ticked, your skill levels |
 | `Items.dc.html` | Items tab: Required and Recommended, with "Show done steps" on |
 | `Main.dc.html` | Steps tab: every part and box open |
 | `StartBlue.dc.html` | The start screen in the Blue theme |
-| `SettingsBlue.dc.html` | The settings in the Blue theme, with Theme set to Blue |
+| `SettingsBlue.dc.html` | Settings in the Blue theme, with Theme set to Blue |
 | `MainBlue.dc.html` | Steps tab in the Blue theme |
 | `OverviewBlue.dc.html` | Overview tab in the Blue theme |
 | `ItemsBlue.dc.html` | Items tab in the Blue theme |
@@ -55,10 +56,10 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
 | `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |
-| `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name in the title band: Add to list… first |
+| `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name in the title band: Jump to next step, then Add to list… |
 | `MyListEmpty.dc.html` | My list with no lists yet: how to start, with Create list and Import list |
 | `MyListBlue.dc.html` | My list in the Blue theme |
-| `Components.dc.html` | All parts, colors and type, the window, the two themes side by side, the bar at the bottom, tabs with a count, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
+| `Components.dc.html` | All parts, colors and type, the window, the two themes, the bar at the bottom, tabs with a count, the settings and the quest menu, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
 | `Data.dc.html` | The quest JSON shape, what is saved (My list too), and the export file |
 | `canvas.json` | Board layout on the canvas: the screens in rows of seven on the left (quests and settings, area tasks, My list twice, the Blue theme in two), Components and Data next to them |
 
