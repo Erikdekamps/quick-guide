@@ -1,8 +1,7 @@
 name: Tests
 
+# Runs on a pull request, not again on main: main only takes pull requests whose tests passed.
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
   schedule:
