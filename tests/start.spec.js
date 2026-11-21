@@ -1,8 +1,7 @@
 // The start screen: the list of all quests, search, sorting, groups, and opening a quest.
-const { test, expect, fixture, seed, stored, openApp, parsedQuest, choose, openSettings, closeSettings, lookUp, toggle, groups, names } = require('./support/app');
+const { test, expect, fixture, seed, stored, openApp, parsedQuest, choose, openSettings, closeSettings, groups, names } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
-const list = (page) => page.locator('#qarea');
 
 test.describe('the quest list', () => {
   test('is read from the wiki on first start, and saved', async ({ page, wiki }) => {

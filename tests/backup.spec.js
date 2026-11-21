@@ -1,6 +1,6 @@
 // Export and import: everything as a JSON file you can download, change by hand, and import again.
 const fs = require('fs');
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 

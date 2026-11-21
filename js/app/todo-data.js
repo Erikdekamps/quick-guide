@@ -432,7 +432,7 @@
     var out = [], t = title.replace(/\s*\([^()]*\)$/, '');
     function push(s) {
       s = s.trim();
-      if (s.length < 2 || /[|#<>\[\]{}]/.test(s)) return;
+      if (s.length < 2 || /[|#<>[\]{}]/.test(s)) return;
       [s, s.charAt(0) + s.slice(1).toLowerCase()].forEach(function (n) { if (out.indexOf(n) < 0) out.push(n); });
     }
     push(t);

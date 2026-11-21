@@ -1,12 +1,10 @@
 name: Tests
 
 # Runs on a pull request, not again on main: main only takes pull requests whose tests passed.
+# (The check against the real wiki is in live.yml.)
 on:
   pull_request:
   workflow_dispatch:
-  schedule:
-    # Every Monday: check that the real wiki still reads well.
-    - cron: '23 5 * * 1'
 
 permissions:
   contents: read
@@ -14,42 +12,32 @@ permissions:
 jobs:
   app:
     name: App tests
-    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
+        with:
+          # The version check compares with the branch the pull request goes into.
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The quick checks first: they fail in seconds, before the browser is installed.
+      - name: Code check
+        run: npm run lint
+      - name: Version check
+        env:
+          BASE: ${{ github.base_ref }}
+        run: npm run check:version -- "origin/${BASE:-main}"
       - run: npx playwright install --with-deps chromium
-      - run: npm test
+      # Every test, and which code they run: no new code that no test runs (tests/coverage.json).
+      - name: Tests and coverage
+        run: npm run coverage
       - uses: actions/upload-artifact@v7
         if: ${{ failure() }}
         with:
           name: playwright-report
-          path: playwright-report/
-          retention-days: 14
-
-  live:
-    name: Live wiki check
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:live
-      - uses: actions/upload-artifact@v7
-        if: ${{ failure() }}
-        with:
-          name: playwright-report-live
           path: playwright-report/
           retention-days: 14

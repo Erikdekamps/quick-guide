@@ -476,9 +476,7 @@
     var d = !!S.prog.items[it.id];
     return '<li class="step' + (d ? ' done' : '') + '" data-item="' + esc(it.id) + '">' + rowHtml('icb', it.id, d, it.html, extra) + '</li>';
   }
-  function bringHtml(b, sec, i) {
-    var next = null;
-    for (var k = i + 1; k < sec.blocks.length; k++) { if (sec.blocks[k].type === 'step') { next = sec.blocks[k]; break; } }
+  function bringHtml(b) {
     var all = (b.needed || []).concat(b.recommended || []);
     var allTicked = all.length > 0 && all.every(function (it) { return S.prog.items[it.id]; });
     // Open, until everything in it is ticked.
@@ -492,10 +490,10 @@
       '<span class="sl">Bring for this part</span><span class="m" data-bcount></span></summary>' +
       '<div class="body">' + list('Needed', b.needed) + list('Recommended', b.recommended) + '</div></details>';
   }
-  function blockHtml(b, sec, i) {
+  function blockHtml(b) {
     switch (b.type) {
       case 'heading': return b.level <= 3 ? '<h3 class="sub">' + esc(b.text) + '</h3>' : '<h4 class="sub minor">' + esc(b.text) + '</h4>';
-      case 'bring': return '<div class="blk">' + bringHtml(b, sec, i) + '</div>';
+      case 'bring': return '<div class="blk">' + bringHtml(b) + '</div>';
       case 'note': return note(b.html);
       case 'warning': return warn(b.html);
       case 'text': return '<p class="para">' + b.html + '</p>';
@@ -507,10 +505,10 @@
   }
   function sectionHtml(sec, cur) {
     var open = isOpen(sec, cur), body = '', run = '';
-    sec.blocks.forEach(function (b, i) {
+    sec.blocks.forEach(function (b) {
       if (b.type === 'step') { run += stepHtml(b); return; }
       if (run) { body += '<ul class="steps">' + run + '</ul>'; run = ''; }
-      body += blockHtml(b, sec, i);
+      body += blockHtml(b);
     });
     if (run) body += '<ul class="steps">' + run + '</ul>';
     return partHtml('data-sec', sec.id, esc(sec.title), '', body, open);

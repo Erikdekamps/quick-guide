@@ -318,7 +318,7 @@
   // Markers and shapes come from the page's map data (wgKartographerLiveData).
   function mapOf(a, caption) {
     function num(k, d) { var v = parseFloat(a.getAttribute('data-' + k)); return isFinite(v) ? v : d; }
-    var groups = [], features = [];
+    var groups, features = [];
     try { groups = JSON.parse(a.getAttribute('data-overlays') || '[]'); } catch (e) { groups = []; }
     function add(f) {
       if (!f || typeof f !== 'object') return;
@@ -329,7 +329,7 @@
       var list = CUR.live ? CUR.live[g] : null;
       (Array.isArray(list) ? list : list ? [list] : []).forEach(add);
     });
-    var st = /maps\.runescape\.wiki\/rs\/versions\/([^\/"')\s&]+)\//.exec(a.getAttribute('style') || '');
+    var st = /maps\.runescape\.wiki\/rs\/versions\/([^/"')\s&]+)\//.exec(a.getAttribute('style') || '');
     return {
       type: 'map', caption: caption || '',
       lat: num('lat', 3200), lon: num('lon', 3200), zoom: num('zoom', 2),
@@ -785,6 +785,8 @@
       n.parentNode.replaceChild(c.ownerDocument.createTextNode('\u0001' + name + '\u0002'), n);
     });
     return esc(clean(c.textContent))
+      // \u0001 and \u0002 mark where a name starts and ends (put in above)
+      // eslint-disable-next-line no-control-regex
       .replace(/\u0001([^\u0002]*)\u0002/g, '<span class="reg">$1</span>')
       .replace(/<\/span>\s*(&amp;|,)?\s*<span class="reg">/g, '</span> <span class="reg">')
       .replace(/\s+([.,;:!?])/g, '$1');
@@ -968,7 +970,7 @@
     info = info || {};
     var page = info.title || '';
     CUR = { page: page, live: info.live || {} };
-    var mv = /maps\.runescape\.wiki\/rs\/versions\/([^\/"')\s&]+)\//.exec(html);
+    var mv = /maps\.runescape\.wiki\/rs\/versions\/([^/"')\s&]+)\//.exec(html);
     var doc = new DOMParser().parseFromString('<!doctype html><html><body><div id="qg-root">' + html + '</div></body></html>', 'text/html');
     var rootEl = doc.querySelector('#qg-root .mw-parser-output') || doc.getElementById('qg-root');
     unwrapSections(rootEl);

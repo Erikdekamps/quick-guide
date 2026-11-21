@@ -1,9 +1,12 @@
-// Starting the app: missing files, the cache numbers in index.html, and a clean run.
+// Starting the app: missing files, the cache numbers in index.html, the version, and a clean run.
 const fs = require('fs');
 const path = require('path');
-const { test, expect, ROOT, openApp, openQuest, openTab, part, choose, openSettings, closeSettings, lookUp, toggle } = require('./support/app');
+const { test, expect, ROOT, openApp, openQuest, openTab, choose, openSettings } = require('./support/app');
 
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const { version } = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+// The files of the app, in the order index.html loads them.
+const appFiles = [...html.matchAll(/<script src="(js\/app\/[^"?]+)/g)].map((m) => m[1]);
 
 test.describe('a file that does not load', () => {
   for (const [file, message] of [
@@ -17,9 +20,8 @@ test.describe('a file that does not load', () => {
     });
   }
 
-  // The app is in ten files in js/app (core.js first, main.js last): any one missing, the page says which, and
-  // nothing half-works under it.
-  for (const file of ['js/app/core.js', 'js/app/quests.js', 'js/app/areas.js', 'js/app/capes.js', 'js/app/update.js', 'js/app/todo-data.js', 'js/app/todo-view.js', 'js/app/todo.js', 'js/app/backup.js', 'js/app/main.js']) {
+  // Any one file of the app missing (core.js first, main.js last), the page says which, and nothing half-works under it.
+  for (const file of appFiles) {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
       await page.goto('/');
@@ -52,6 +54,28 @@ test.describe('index.html', () => {
     expect(versions.every((v) => /^\d+\.\d+\.\d+$/.test(v))).toBe(true);
     expect(new Set(versions).size).toBe(1);
   });
+
+  test('the cache number is the version in package.json', () => {
+    expect([...new Set(html.match(/\?v=[^"]+/g))]).toEqual(['?v=' + version]);
+  });
+});
+
+test('Settings ends with the version, and a link to what changed', async ({ page }) => {
+  await openApp(page, expect);
+  await openSettings(page);
+  const ver = page.locator('#settings > :last-child');
+  await expect(ver).toHaveText('Quick Guide ' + version + ' \u00b7 What\u2019s new');
+  await expect(ver.getByRole('link', { name: 'What\u2019s new' })).toHaveAttribute('href', 'https://github.com/Erikdekamps/quick-guide/blob/main/CHANGELOG.md');
+  await expect(ver.getByRole('link')).toHaveAttribute('target', '_blank');
+});
+
+test('without a cache number on core.js, Settings shows no version', async ({ page }) => {
+  const plain = html.replace('js/app/core.js?v=', 'js/app/core.js?x=');
+  await page.route('http://quick-guide.test/', (r) => r.fulfill({ body: plain, contentType: 'text/html; charset=utf-8' }));
+  await openApp(page, expect);
+  await openSettings(page);
+  await expect(page.locator('#settings > :last-child')).toHaveText('Delete everything');
+  await expect(page.locator('#settings .ver')).toHaveCount(0);
 });
 
 test('a normal session has no errors', async ({ page }) => {

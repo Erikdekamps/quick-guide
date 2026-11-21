@@ -23,6 +23,7 @@
  *   prog.<page>     your ticks for that quest
  *   qdone           quests marked done by an import: { "<name, letters only>": 1 }
  *   settings, last  display settings, and the quest, area or cape that was open last
+ *   upd             when Update from the wiki last ran, and what it found
  *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
  *   area.<name>     the parsed "<name> achievements" page (Area Tasks)
  *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
@@ -46,6 +47,12 @@
   }
   // What the files share (see the top of this file). A file that did not load leaves its name out of A.loaded.
   var A = window.QuickGuideApp = { loaded: {}, share: function (o) { Object.keys(o).forEach(function (k) { A[k] = o[k]; }); } };
+  // The app's version: the ?v= cache number its files are loaded with (npm run bump raises it). Settings shows it.
+  var VERSION = (function () {
+    var m = document.currentScript && /[?&]v=(\d+\.\d+\.\d+)/.exec(document.currentScript.src);
+    return m ? m[1] : '';
+  })();
+  var CHANGES = 'https://github.com/Erikdekamps/quick-guide/blob/main/CHANGELOG.md';
   var PREFIX = 'qg1.';
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
@@ -131,7 +138,7 @@
     function fallback() {
       ta.focus();
       ta.select();
-      var ok = false;
+      var ok;
       try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
       toast(ok ? 'Copied.' : 'Select the text and copy it.');
     }
@@ -450,7 +457,8 @@
       '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
       '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
       '<p class="mh danger">Danger zone</p>' +
-      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>';
+      '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
+      (VERSION ? '<p class="foot ver">Quick Guide ' + esc(VERSION) + ' \u00b7 <a href="' + CHANGES + '" target="_blank" rel="noopener">What\u2019s new</a></p>' : '');
   }
   function dotsHtml() {
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +

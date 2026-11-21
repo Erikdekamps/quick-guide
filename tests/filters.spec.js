@@ -1,10 +1,8 @@
 // Miniquests, locked quests, search, quests you can open from a guide, and League rows.
 const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openSettings, closeSettings, lookUp, toggle, row, names } = require('./support/app');
 
-const WGS = 'While Guthix Sleeps/Quick guide';
 const details = (page) => page.locator('section[data-ov="details"] .secb');
 const rewards = (page) => page.locator('section[data-ov="rewards"] .secb');
-const MINIS = ['A Guild of Our Own', 'Bar Crawl', "Benedict's World Tour", 'Curse of the Empty Lord'];
 
 const setting = toggle;
 async function lookUpDone(page, name) {

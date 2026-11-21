@@ -1,6 +1,6 @@
 // Update from the wiki: everything the app keeps, at once. It asks when each page changed, reads again only what did,
 // keeps your ticks, and marks what is new. Once a week it runs by itself, quietly.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openSettings, closeSettings, withAllAreas, withCapes, areaPage, AREAS } = require('./support/app');
+const { test, expect, fixture, stored, openApp, openQuest, openSettings, closeSettings, withAllAreas, withCapes, areaPage } = require('./support/app');
 
 const MQC = 'Master Quest Cape (achievement)', WEEK = 7 * 24 * 3600 * 1000;
 const card = (page, key) => page.locator('.cape[data-cape="' + key + '"]');

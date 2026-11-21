@@ -8,7 +8,7 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var byId = A.byId, dateText = A.dateText, esc = A.esc, loadError = A.loadError, metaAll = A.metaAll, plural = A.plural,
+  var byId = A.byId, dateText = A.dateText, loadError = A.loadError, metaAll = A.metaAll, plural = A.plural,
     QG = A.QG, S = A.S, sget = A.sget, sset = A.sset, toast = A.toast;
   var UPDATE_MAX_AGE = 7 * 24 * 3600 * 1000, READ_PARALLEL = 3;
 
