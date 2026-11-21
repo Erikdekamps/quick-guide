@@ -1537,6 +1537,28 @@ test.describe('export and import', () => {
     expect(t.lists[0].items.map((x) => [x.done ? 1 : 0, x.repeat || ''])).toEqual([[0, ''], [0, ''], [1, ''], [0, ''], [0, ''], [0, '']]);
   });
 
+  test('an import that replaces your lists can be undone', async ({ page }) => {
+    await openList(page, lists({ Mine: [{ kind: 'other', title: 'Keep me' }] }));
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Week: { 'Vis wax': false } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 list. Undo lists');
+    expect(await saved(page)).toEqual({ Week: ['other:Vis wax'] });
+    await page.locator('#toast').getByRole('button', { name: 'Undo lists' }).click();
+    expect(await saved(page)).toEqual({ Mine: ['other:Keep me'] });
+    await page.locator('.bn[data-home="todo"]').click();
+    await expect(names(page)).toHaveText(['Mine']);
+  });
+
+  test('an import says what it left out: lists past 30, a name you had already, goals past 300', async ({ page }) => {
+    await openList(page, lists({ Mine: [{ kind: 'other', title: 'Keep me' }] }));
+    // the same name once it is cut to 30 letters
+    const mylist = { 'A very long name of a list that goes on': {}, 'A very long name of a list that goes on and on': {} };
+    for (let i = 1; i <= 31; i++) mylist['List ' + i] = {};
+    for (let i = 1; i <= 302; i++) mylist['List 1']['Goal ' + i] = false;
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, mylist }));
+    await expect(page.locator('#toast')).toContainText('Imported 30 lists. Left out: 2 lists (at most 30), 1 list with a name you had already, 2 goals (at most 300).');
+    expect((await stored(page, 'todo')).lists).toHaveLength(30);
+  });
+
   test('a file with a mistake in its lists says so, and your lists stay', async ({ page }) => {
     await openList(page, lists({ Mine: [{ kind: 'other', title: 'Keep me' }] }));
     await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Today: ['Vis wax'] } }));

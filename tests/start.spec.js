@@ -22,7 +22,7 @@ test.describe('the quest list', () => {
   test('shows an error and can try again', async ({ page, wiki }) => {
     wiki.fail('List of quests', 'http');
     await page.goto('/');
-    await expect(page.locator('#qarea .err')).toHaveText('Could not get the quest list. The server answered with an error (500). Try again in a moment.');
+    await expect(page.locator('#qarea .err')).toHaveText('Could not get the quest list. The wiki answered with error 500. Try again in a moment.');
     wiki.page('List of quests', fixture('list-of-quests.html'));
     await page.getByRole('button', { name: 'Try again' }).click();
     await expect(page.locator('#qcount')).toHaveText('11 quests');
@@ -170,6 +170,16 @@ test.describe('search', () => {
     await openApp(page, expect);
     await page.locator('#quest-link').fill('guthix');
     await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+  });
+
+  test('Enter right after typing opens the quest; the list waiting to be drawn is not drawn over it', async ({ page }) => {
+    await page.clock.install();
+    await openApp(page, expect);
+    await page.locator('#quest-link').pressSequentially('guthix');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+    await page.clock.runFor(500);
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   });
 

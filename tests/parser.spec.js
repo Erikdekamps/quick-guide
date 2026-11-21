@@ -1,10 +1,9 @@
-// The parser (parser.js) and the quest list reader (quests.js), tested in the browser.
-const { test, expect, fixture } = require('./support/app');
+// The wiki reader (js/wiki) and the quest list reader (quests.js), tested in the browser.
+const { addWiki, test, expect, fixture } = require('./support/app');
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
-  await page.addScriptTag({ url: '/js/wiki/quests.js' });
+  await addWiki(page);
 });
 
 // Parses a bit of wiki HTML. Steps need a part heading, so most snippets start with an <h2>.
@@ -390,12 +389,6 @@ test.describe('the quest list', () => {
     expect(list.filter((x) => x.t === 'Dragon Slayer')).toHaveLength(1);
   });
 
-  test('parser.js reads the wiki list too', async ({ page }) => {
-    const list = await page.evaluate((h) => window.QuickGuide.parseQuestList(h), fixture('list-of-quests.html'));
-    expect(list).toHaveLength(11);
-    expect(list[1]).toEqual({ name: "Cook's Assistant", page: "Cook's Assistant", members: false, length: 'Short', age: 'Fifth Age', difficulty: 'Novice', combat: '', qp: 1, series: '', release: '4 January 2001' });
-    expect(list.find((x) => x.name === "'Phite Club").page).toBe("'Phite Club");
-  });
 });
 
 test.describe('talking to the wiki', () => {
@@ -431,13 +424,6 @@ test.describe('talking to the wiki', () => {
     expect(await r).toBe('timeout');
   });
 
-  test('quest list from parser.js', async ({ page, wiki }) => {
-    const r = await page.evaluate(() => window.QuickGuide.loadQuestList());
-    expect(r.count).toBe(11);
-    wiki.page('List of quests', '<p>No table here.</p>');
-    const e = await page.evaluate(() => window.QuickGuide.loadQuestList().catch((x) => x.code));
-    expect(e).toBe('format');
-  });
 
   test('quest list from quests.js', async ({ page, wiki }) => {
     const r = await page.evaluate(() => window.QuickGuideData.loadList());

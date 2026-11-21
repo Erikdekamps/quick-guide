@@ -1,6 +1,6 @@
 // The quest list in the wiki's optimal order (Quests/Progression guide), hiding done quests,
 // and the border of the next step.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openSettings, closeSettings, lookUp, toggle, names, groups } = require('./support/app');
+const { addWiki, test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, choose, openSettings, closeSettings, lookUp, toggle, names, groups } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const GUIDE = 'Quests/Progression guide';
@@ -12,7 +12,7 @@ const setting = toggle;
 test.describe('optimal order', () => {
   test('quests.js reads the order from the wiki page', async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/js/wiki/quests.js' });
+    await addWiki(page);
     const order = await page.evaluate((h) => window.QuickGuideData.parseOrder(h), fixture('progression-guide.html'));
     expect(order).toEqual(["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'The Blood Pact', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps']);
   });

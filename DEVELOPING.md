@@ -80,6 +80,10 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `view` | Where you were: the search text, folded groups, lists and sub tasks, where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
 
+Your ticks in an area (`aprog`), in a cape (`cprog`) and My list (`todo`) say which shape they are saved in (`v`).
+A change to that shape raises `APROG_VERSION`, `CPROG_VERSION` or `TODO_VERSION`, and the app upgrades older ones when
+it reads them. Guides, areas and capes have their own version too: an older one is read from the wiki again.
+
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped, then the areas (your
 ticks stay), and read from the wiki again when you open them. When there is still no room, the app says that your last
 change is not saved: it is kept until you close the app, so **Export state** still has it.
@@ -91,9 +95,9 @@ wiki again when you open it; your ticks stay.
 
 - `js/wiki/quests.js` reads the quest lists and the optimal order through the wiki's API, for example
   `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
-- `js/wiki/parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
-  the area pages (`<Area>_achievements`) and the capes' achievement lists (`Master_Quest_Cape_(achievement)`,
-  `Completionist_Cape_(achievement)`, `Trimmed_Completionist_Cape_(achievement)`), and turns them into JSON. The levels
+- `js/wiki/guide.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide),
+  `js/wiki/areas.js` the area pages (`<Area>_achievements`) and the capes' achievement lists (`Master_Quest_Cape_(achievement)`,
+  `Completionist_Cape_(achievement)`, `Trimmed_Completionist_Cape_(achievement)`, in `js/wiki/capes.js`). Each turns its page into JSON. The levels
   come from `Master_quest_cape` (its minimum skill levels) and `Master_Skiller`. What each achievement needs, the capes
   it counts for and its tip come from its own page, 20 pages a time: the infobox of the first section, and the first
   paragraph, for example
@@ -114,9 +118,11 @@ wiki again when you open it; your ticks stay.
   `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
   Each saved guide, area and cape keeps the revision it was read from.
 
-- When the wiki says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, these questions
-  are asked once more: after as long as the wiki asks (at most 5 seconds), else after a second. What an update still
-  cannot read is kept as it was saved, and read again at the next update.
+- Every question goes through one helper, `askWiki` in `js/wiki/base.js`. It gives the wiki 25 seconds. When the wiki
+  says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, the question is asked once
+  more: after as long as the wiki asks (at most 5 seconds), else after a second. Any other error, also one inside a
+  normal answer, is said in the wiki's own words. When a query's answer comes in parts (the wiki says `continue`), the
+  rest is asked for too. What an update still cannot read is kept as it was saved, and read again at the next update.
 
 No other service is used. The fonts come with the app (`vendor/fonts/`).
 
@@ -128,6 +134,7 @@ No other service is used. The fonts come with the app (`vendor/fonts/`).
 | `index.html`, `style.css` | The page and its look (both themes: every colour is a token at the top of `style.css`) |
 | `js/app/core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
 | `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
+| `js/app/pages.js` | What an area and a cape share: they open, fold, reset, and are read again with what is new |
 | `js/app/areas.js` | Achievements: the list of tiers, search, and one area |
 | `js/app/capes.js` | Achievements: the cape cards, and one cape's page |
 | `js/app/update.js` | Update from the wiki: checks everything the app keeps, reads again only what changed, marks what is new |
@@ -136,7 +143,13 @@ No other service is used. The fonts come with the app (`vendor/fonts/`).
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |
 | `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
-| `js/wiki/parser.js` | Reads a quest guide, an area page or a cape's achievements from the wiki |
+| `js/wiki/base.js` | The wiki reader's shared parts: small helpers, links, and `askWiki`, the one way to ask the wiki |
+| `js/wiki/html.js` | The wiki's HTML made small and safe (only a few tags survive), and a page's maps and pictures |
+| `js/wiki/steps.js` | The parts of a guide: chat options, tables, text, "bring" boxes, steps and sub-steps |
+| `js/wiki/guide.js` | A quest guide as JSON: its details box, its parts, and the ids of steps and items |
+| `js/wiki/player.js` | A player's quests and levels, from Jagex |
+| `js/wiki/areas.js` | An area page: its tiers, tasks, needs and rewards |
+| `js/wiki/capes.js` | A cape's achievements, and what each one needs |
 | `js/wiki/quests.js` | Reads the quest lists and the optimal order |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `vendor/fonts/` | The fonts (Cinzel, Fira Sans, Fira Mono; SIL Open Font License), so the app needs no font service |

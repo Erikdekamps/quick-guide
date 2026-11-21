@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'capes', 'update', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'pages', 'areas', 'capes', 'update', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
   var accKey = A.accKey, addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, app = A.app,
     applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, capeReset = A.capeReset, closeBackup = A.closeBackup,
     closeMenus = A.closeMenus, closeSubAdd = A.closeSubAdd, closeTodoDialog = A.closeTodoDialog, copyBackup = A.copyBackup,

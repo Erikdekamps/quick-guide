@@ -46,14 +46,16 @@ test('wiki page addresses', () => {
   ]);
 });
 
-test('quest names match however they are written', () => {
+test('quest names match however they are written (one spelling for all of the app)', () => {
   expect([
-    D.norm('The Restless Ghost'),
-    D.norm('Recipe for Disaster: Freeing King Awowogei'),
-    D.norm('Rocking Out (miniquest)'),
-    D.norm('Ernest & the Chicken')
-  ]).toEqual(['restless ghost', 'recipe for disaster freeing king awowogei', 'rocking out', 'ernest and the chicken']);
+    QG.normName('The Restless Ghost'),
+    QG.normName('Recipe for Disaster: Freeing King Awowogei'),
+    QG.normName('Rocking Out (miniquest)'),
+    QG.normName('Ernest & the Chicken'),
+    QG.normName('Pokémon')
+  ]).toEqual(['therestlessghost', 'recipefordisasterfreeingkingawowogei', 'rockingout', 'ernestandthechicken', 'pokemon']);
   expect(QG.normName('Rune Mysteries')).toBe(QG.normName('rune mysteries!'));
+  expect(D.norm).toBeUndefined();
 });
 
 // Your ticks are saved by these ids. If one of these changes, ticks people have saved no longer match: change the
@@ -141,6 +143,52 @@ test.describe("an achievement's wiki text", () => {
 });
 
 test.describe('asking the wiki', () => {
+  test('an answer in parts (the wiki says "continue"): the rest is asked for, and the parts are one answer', async () => {
+    const fetch = fakeFetch((url) => (/rvcontinue=/.test(url) ?
+      { json: { batchcomplete: true, query: { pages: [{ title: 'A', touched: '2026-11-01T00:00:00Z', revisions: [{ revid: 5, timestamp: '2026-10-01T00:00:00Z' }] }, { title: 'B', lastrevid: 7 }] } } } :
+      { json: { continue: { rvcontinue: '12|x', continue: '||' }, query: { normalized: [{ from: 'a', to: 'A' }], pages: [{ title: 'A', lastrevid: 5 }] } } }));
+    const out = await load({ fetch }).QG.pageInfo(['a', 'B']);
+    expect(fetch.urls).toHaveLength(2);
+    expect(fetch.urls[1]).toContain('&rvcontinue=12%7Cx&continue=%7C%7C');
+    expect(out).toEqual({ a: { rev: 5, edited: '2026-10-01T00:00:00Z', touched: '2026-11-01T00:00:00Z' }, B: { rev: 7, edited: '', touched: '' } });
+  });
+
+  test('parts without a query, or with only some lists, are joined too', async () => {
+    let n = 0;
+    const fetch = fakeFetch(() => [
+      { json: { continue: { c: '1' } } },
+      { json: { continue: { c: '2' }, query: { redirects: [{ from: 'Old', to: 'New' }], pages: [{ title: 'New' }] } } },
+      { json: { batchcomplete: true } }
+    ][n++]);
+    expect(await load({ fetch }).QG.findPages(['Old'])).toEqual({ Old: 'New' });
+    expect(fetch.urls).toHaveLength(3);
+  });
+
+  test('an answer that never stops saying "continue" is asked for 20 times at most', async () => {
+    const fetch = fakeFetch(() => ({ json: { continue: { c: '1' }, query: { pages: [{ title: 'A', missing: true }] } } }));
+    expect(await load({ fetch }).QG.findPages(['A'])).toEqual({});
+    expect(fetch.urls).toHaveLength(20);
+  });
+
+  test('only a question (action=query) is asked again for the rest', async () => {
+    const fetch = fakeFetch(() => ({ json: { continue: { c: '1' }, parse: { title: 'X', text: '<p>x</p>' } } }));
+    const p = await load({ fetch }).window.QuickGuideWiki.fetchPage('X');
+    expect(p).toMatchObject({ title: 'X', html: '<p>x</p>', revid: 0 });
+    expect(fetch.urls).toHaveLength(1);
+  });
+
+  test('an answer that is no JSON is said plainly', async () => {
+    await expect(load({ fetch: fakeFetch(() => ({ json: null })) }).QG.findPages(['X'])).rejects.toMatchObject({ code: 'format', message: 'The wiki sent something unexpected.' });
+    await expect(load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).window.QuickGuideWiki.fetchPage('X')).rejects.toMatchObject({ code: 'format' });
+  });
+
+  test('the quest lists and the order: a page the wiki does not send says which', async () => {
+    const app = load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) });
+    await expect(app.D.loadList()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the quest list.' });
+    await expect(app.D.loadMinis()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the miniquest list.' });
+    await expect(app.D.loadOrder()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the quest order.' });
+  });
+
   test('a few at a time: every item gets its turn, at most that many at once', async () => {
     let open = 0, most = 0;
     const done = [];
@@ -198,7 +246,10 @@ test.describe('asking the wiki', () => {
 
   test('which names the wiki has: what goes wrong is said plainly', async () => {
     await expect(load({ fetch: fakeFetch(() => ({ status: 503, json: {} })) }).QG.findPages(['X'])).rejects.toThrow('The wiki answered with error 503.');
-    await expect(load({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
+    // an error inside a normal answer is said too, in the wiki's words
+    await expect(load({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki could not answer.');
+    await expect(load({ fetch: fakeFetch(() => ({ json: { error: { code: 'badtitle', info: 'Bad title "<".' } } })) }).QG.findPages(['<'])).rejects.toMatchObject({ code: 'badtitle', message: 'Bad title "<".' });
+    await expect(load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
   });
 
   // The app with a clock that does not wait; waits: how long it would have waited each time (not the 25 seconds a read gets).
@@ -264,7 +315,7 @@ test.describe('asking the wiki', () => {
 
   test('which names the wiki has: an answer that never ends is cut off', async () => {
     // (it ends with an error, so the lookups after it go on)
-    await expect(hasty().QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
+    await expect(hasty().QG.findPages(['X'])).rejects.toMatchObject({ code: 'timeout', message: 'The wiki took too long to answer.' });
   });
 
   test('the quest list: an answer that starts and never ends is cut off too', async () => {

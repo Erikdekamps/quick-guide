@@ -1,6 +1,6 @@
 // Capes, in Achievements: the master quest, completionist and trimmed completionist capes. Cards on top of the list,
 // and a page per cape: its achievements by category, with tick boxes, like an area.
-const { test, expect, fixture, seed, stored, openApp, openSettings, closeSettings, lookUp, withCapes } = require('./support/app');
+const { addWiki, test, expect, fixture, seed, stored, openApp, openSettings, closeSettings, lookUp, withCapes } = require('./support/app');
 
 const W = 'https://runescape.wiki/w/';
 const card = (page, key) => page.locator('.cape[data-cape="' + key + '"]');
@@ -26,7 +26,7 @@ const MQC = 'Master quest cape', COMP = 'Completionist cape', TRIM = 'Trimmed co
 // A cape, parsed by the app's own parser from its fixture, ready to put in storage.
 async function parsedCape(page, file, key) {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   return page.evaluate(([h, k]) => window.QuickGuide.parseCape('<div class="mw-parser-output">' + h + '</div>', k), [fixture(file), key]);
 }
 // Every quest of the list marked done, as if ticked by hand.
@@ -41,7 +41,7 @@ async function allQuestsDone(page) {
 test.describe('reading a cape page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/js/wiki/parser.js' });
+    await addWiki(page);
   });
   const parse = (page, file, key) => page.evaluate(([h, k]) => window.QuickGuide.parseCape('<div class="mw-parser-output">' + h + '</div>', k), [fixture(file), key]);
   const html = (file) => '<div class="mw-parser-output">' + fixture(file) + '</div>';

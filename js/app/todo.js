@@ -479,42 +479,54 @@
     if (sel.id === 'tg-list') st.d.parent = '';
     redrawGoal(st, '#' + sel.id);
   }
-  function submitGoal(st) {
+  // The goal the box says, or null (the box then says what is missing). A goal that stands for a quest, a task, a tier
+  // or an achievement stays that; only its note changes.
+  function goalOfBox(st) {
     var d = st.d, g, old = st.g;
     readDraft(d);
     if (old && FIXED[old.kind]) g = copy({}, old);
     else {
       g = parseGoal(d.text);
-      if (!g) { dialogErr(st.sid ? 'Type a sub task first.' : 'Type a goal first.'); return; }
+      if (!g) { dialogErr(st.sid ? 'Type a sub task first.' : 'Type a goal first.'); return null; }
     }
     delete g.note;
     if (line(d.note, NOTE_MAX)) g.note = line(d.note, NOTE_MAX);
-    var l = listById(d.list), par = parentOf(d.parent), snap = snapshot(), hit = st.edit ? goalById(st.edit) : null;
-    var sub = hit && st.sid ? findSub(hit.g, st.sid) : null;
-    closeDialog();
-    if (st.edit && (!hit || (st.sid && !sub))) return;
-    if (old) {
-      // It keeps its ticks when it is the same kind, its sub tasks always, and its wiki page when it says the same.
-      if (old.kind === g.kind || (!old.kind && g.kind === 'other')) g.done = old.done;
-      if (old.subs) g.subs = old.subs;
-      if (old.wiki !== undefined && g.kind === 'other' && g.title === old.title) g.wiki = old.wiki;
-      g.id = old.id;
-      g.at = old.at;
-    }
-    var stays = !!old && l === hit.l && d.parent === st.from;
-    if (!stays && !par && (!old || sub) && goalCount() >= MAX_GOALS) { toast(FULL_GOALS); return; }
-    if (!stays && par && subsFull(par.p)) { toast(subsFull(par.p)); return; }
-    if (stays && sub) {
-      // A sub task that stays where it is: the same place under its parent.
-      sub.p.subs[sub.i] = asSub(g, sub.depth);
-    } else if (stays) hit.l.items[hit.l.items.indexOf(old)] = cleanGoal(g);
+    return g;
+  }
+  // An edited goal keeps its ticks when it is the same kind, its sub tasks always, and its wiki page when it says the same.
+  function keepFrom(old, g) {
+    if (old.kind === g.kind || (!old.kind && g.kind === 'other')) g.done = old.done;
+    if (old.subs) g.subs = old.subs;
+    if (old.wiki !== undefined && g.kind === 'other' && g.title === old.title) g.wiki = old.wiki;
+    g.id = old.id;
+    g.at = old.at;
+  }
+  // Puts the goal where the box says. stays: an edited goal in the same list under the same parent keeps its place
+  // (hit: where it is; sub: where it is when it is a sub task). Otherwise it goes out of where it was, and to the end
+  // of where it goes: the list l, or under par.
+  function placeGoal(g, old, stays, hit, sub, l, par) {
+    if (stays && sub) sub.p.subs[sub.i] = asSub(g, sub.depth);
+    else if (stays) hit.l.items[hit.l.items.indexOf(old)] = cleanGoal(g);
     else {
-      // Out of where it was, and to the end of where it goes.
       if (sub) { sub.p.subs.splice(sub.i, 1); if (!sub.p.subs.length) delete sub.p.subs; }
       else if (old) hit.l.items.splice(hit.l.items.indexOf(old), 1);
       if (par) putUnder(g, par);
       else { l.items.push(cleanGoal(copy({ id: newId('g'), at: Date.now() }, g))); todo().last = l.id; }
     }
+  }
+  // Add a goal, or Edit: the box's goal, list, parent and note.
+  function submitGoal(st) {
+    var d = st.d, old = st.g, g = goalOfBox(st);
+    if (!g) return;
+    var l = listById(d.list), par = parentOf(d.parent), snap = snapshot(), hit = st.edit ? goalById(st.edit) : null;
+    var sub = hit && st.sid ? findSub(hit.g, st.sid) : null;
+    closeDialog();
+    if (st.edit && (!hit || (st.sid && !sub))) return;
+    if (old) keepFrom(old, g);
+    var stays = !!old && l === hit.l && d.parent === st.from;
+    if (!stays && !par && (!old || sub) && goalCount() >= MAX_GOALS) { toast(FULL_GOALS); return; }
+    if (!stays && par && subsFull(par.p)) { toast(subsFull(par.p)); return; }
+    placeGoal(g, old, stays, hit, sub, l, par);
     if (hit) settleGoal(hit.g);
     if (par) settleGoal(par.top);
     changed();

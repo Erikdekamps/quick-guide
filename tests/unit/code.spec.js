@@ -82,7 +82,7 @@ test.describe('the code check', () => {
 test.describe('the files', () => {
   test('index.html loads every file in js/: the wiki reader first, then core.js, and main.js last', () => {
     expect([...scripts].sort()).toEqual([...onDisk('js/wiki'), ...onDisk('js/app')].sort());
-    expect(scripts.slice(0, 2)).toEqual(['js/wiki/parser.js', 'js/wiki/quests.js']);
+    expect(scripts.slice(0, 8)).toEqual(['base', 'html', 'steps', 'guide', 'player', 'areas', 'capes', 'quests'].map((f) => 'js/wiki/' + f + '.js'));
     expect(appFiles[0]).toBe('js/app/core.js');
     expect(appFiles[appFiles.length - 1]).toBe('js/app/main.js');
   });
@@ -154,6 +154,21 @@ function sharing() {
   }
   return { shared, uses };
 }
+
+test.describe('the state the files share (S in core.js)', () => {
+  const block = core.slice(core.indexOf('  S = {'), core.indexOf('\n  };', core.indexOf('  S = {')));
+  const fields = [...block.matchAll(/^ {4}(\w+):/gm)].map((m) => m[1]);
+
+  test('every field of S a file uses is declared there', () => {
+    const used = new Set(appFiles.flatMap((f) => [...read(f).matchAll(/\bS\.(\w+)/g)].map((m) => m[1])));
+    expect([...used].filter((k) => !fields.includes(k)).sort()).toEqual([]);
+    expect(fields.filter((k) => !used.has(k))).toEqual([]);
+  });
+
+  test('every field of S says what it is', () => {
+    expect(block.split('\n').filter((l) => /^ {4}\w+:/.test(l) && !l.includes('//'))).toEqual([]);
+  });
+});
 
 test.describe('what the files share', () => {
   const { shared, uses } = sharing();

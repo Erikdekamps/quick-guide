@@ -1,7 +1,7 @@
 // Starting the app: missing files, the version, and a clean run. (What index.html loads: tests/unit/code.spec.js.)
 const fs = require('fs');
 const path = require('path');
-const { test, expect, ROOT, openApp, openQuest, openTab, choose, openSettings } = require('./support/app');
+const { test, expect, ROOT, WIKI_FILES, openApp, openQuest, openTab, choose, openSettings } = require('./support/app');
 
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const { version } = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -9,14 +9,12 @@ const { version } = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 
 const appFiles = [...html.matchAll(/<script src="(js\/app\/[^"?]+)/g)].map((m) => m[1]);
 
 test.describe('a file that does not load', () => {
-  for (const [file, message] of [
-    ['parser.js', 'The app could not start: parser.js is missing. Upload all the files again, then reload.'],
-    ['quests.js', 'The app could not start: quests.js is missing. Upload all the files again, then reload.']
-  ]) {
+  // Any one file of the wiki reader missing: the app says which, and does not start.
+  for (const file of WIKI_FILES.map((f) => f.split('/').pop())) {
     test(file + ': the app says so', async ({ page }) => {
       await page.route('**/js/wiki/' + file + '?*', (r) => r.abort());
       await page.goto('/');
-      await expect(page.locator('#app')).toHaveText(message);
+      await expect(page.locator('#app')).toHaveText('The app could not start: ' + file + ' is missing. Upload all the files again, then reload.');
     });
   }
 

@@ -263,6 +263,17 @@ test.describe('import', () => {
     expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1, 994: 1 });
   });
 
+  test('a file of the first format with only some parts: what it has comes in, the rest stays', async ({ page }) => {
+    await openApp(page, expect);
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 1, settings: { hideDone: true } }));
+    await expect(page.locator('#toast')).toHaveText('Imported.');
+    expect((await stored(page, 'settings')).hideDone).toBe(true);
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 1, areas: { Ardougne: { tasks: { 448: true } } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 area.');
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 1, quests: { 'While Guthix Sleeps': { steps: { x: 1 } } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 quest.');
+  });
+
   test('an import with many quests saves the quests marked done, and their progress, once', async ({ page }) => {
     await openApp(page, expect);
     const quests = { 'While Guthix Sleeps': { done: false, progress: '3 / 118', steps: { 'starting-out:19 In Taverley': true } } };

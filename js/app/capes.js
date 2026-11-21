@@ -6,22 +6,26 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var alignTop = A.alignTop, cssq = A.cssq, app = A.app, byId = A.byId, D = A.D, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml,
-    homeBarHtml = A.homeBarHtml, I = A.I, loadError = A.loadError, markedDone = A.markedDone, markHtml = A.markHtml, metaAll = A.metaAll, nextHtml = A.nextHtml,
-    partHtml = A.partHtml, playerLevel = A.playerLevel, playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG,
-    questBtn = A.questBtn, questMark = A.questMark,
-    renderStart = A.renderStart, restoreScroll = A.restoreScroll, rowHtml = A.rowHtml, S = A.S, sget = A.sget, skillHtml = A.skillHtml,
-    showSaved = A.showSaved, sset = A.sset, stillWanted = A.stillWanted, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml, toast = A.toast,
-    toastHtml = A.toastHtml, waitFor = A.waitFor;
+  var alignTop = A.alignTop, app = A.app, byId = A.byId, cssq = A.cssq, dropMaps = A.dropMaps, esc = A.esc,
+    headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, I = A.I, markedDone = A.markedDone, markHtml = A.markHtml,
+    metaAll = A.metaAll, nextHtml = A.nextHtml, partHtml = A.partHtml, playerLevel = A.playerLevel,
+    playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
+    questMark = A.questMark, restoreScroll = A.restoreScroll, rowHtml = A.rowHtml, S = A.S, sget = A.sget,
+    skillHtml = A.skillHtml, sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
+    toastHtml = A.toastHtml;
 
   // ---------- saved capes and your ticks ----------
   function capeInfo(key) { return QG.CAPES.filter(function (c) { return c.key === key; })[0]; }
   function savedCape(key) { var c = sget('cape.' + key); return c && Array.isArray(c.cheevos) && c.cheevos.length ? c : null; }
-  // Your ticks in a cape, the tab you looked at, and the parts you opened or closed: { ticks, tab, open }
+  // Your ticks in a cape, the tab you looked at, and the parts you opened or closed: { v, ticks, tab, open }
+  // v is the shape they are saved in: a change to it raises CPROG_VERSION, and loadCprog upgrades older ones (version 1
+  // is the first).
+  var CPROG_VERSION = 1;
   function loadCprog(key) {
     var p = sget('cprog.' + key);
     if (!p || typeof p !== 'object' || Array.isArray(p)) p = {};
     if (!p.ticks || typeof p.ticks !== 'object') p.ticks = {};
+    p.v = CPROG_VERSION;
     return p;
   }
   // On the cape's own page: the ticks in use; anywhere else: the saved ones (an import may have changed them).
@@ -52,9 +56,9 @@
   // The quests of the quest list you have done: by the game, or ticked here.
   function questsDone() {
     var m = metaAll(), byTitle = {}, all = (S.list && S.list.quests) || [];
-    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = m[k]; });
+    Object.keys(m).forEach(function (k) { byTitle[QG.normName(m[k].title)] = m[k]; });
     var done = all.filter(function (q) {
-      var me = byTitle[D.norm(q.t)];
+      var me = byTitle[QG.normName(q.t)];
       return (me && me.total > 0 && me.done >= me.total) || playerStatus(q.t) === 2 || markedDone(q.t);
     }).length;
     return { done: done, total: all.length };
@@ -185,36 +189,14 @@
   function openCape(key, c) {
     var info = capeInfo(key);
     if (!info) return;
-    S.error = '';
-    c = c || savedCape(key);
-    // A saved cape opens at once. One saved with another CAPE_VERSION is read again quietly; if that fails, the saved one stays.
-    if (c) {
-      if (showSaved('cape.' + key, function () { showCape(key, c); }) && c.version !== QG.CAPE_VERSION) refreshCape(true);
-      return;
-    }
-    var mine = waitFor(info.name);
-    renderStart();
-    QG.loadCape(key).then(function (nc) {
-      sset('cape.' + key, nc);
-      // You went on to another screen: the cape is saved, and opens at once when you ask for it again.
-      if (!stillWanted(mine)) return;
-      S.loading = false;
-      S.input = '';
-      showSaved('cape.' + key, function () { showCape(key, nc); });
-    }, function (e) {
-      if (!stillWanted(mine)) return;
-      S.loading = false;
-      S.error = loadError(e);
-      renderStart();
-    });
+    A.openPage({ key: 'cape.' + key, saved: c || savedCape(key), version: QG.CAPE_VERSION, label: info.name,
+      load: function () { return QG.loadCape(key); }, show: function (p) { showCape(key, p); }, refresh: refreshCape });
   }
   function showCape(key, c) {
-    S.view = 'cape';
+    A.enterPage('cape', 'cape:' + key);
     S.cape = c;
     S.capeKey = key;
     S.cprog = loadCprog(key);
-    S.resetArmed = 0;
-    sset('last', 'cape:' + key);
     renderCape(false);
   }
   function tabNow(tabs) { return tabs.filter(function (t) { return t.id === S.cprog.tab; })[0] || tabs[0]; }
@@ -299,8 +281,7 @@
     if (also.length) ext += '<span class="also">Also counts for ' + also.join(' and ') + '</span>';
     var row = rowHtml('ccb', x.id, done, '<b>' + esc(x.name) + '</b>' + (A.isNew(x.newAt) && !done ? A.newTagHtml() : '') + (x.desc ? ' — ' + esc(x.desc) : ''),
       ext ? '<div class="ext">' + ext + '</div>' : '',
-      A.cheevoMenuHtml({ cape: c.key, cheevo: x.id, title: x.name, page: x.page || x.name }));
-    if (a) row = row.replace('<input class="cb"', '<input class="cb" disabled');
+      A.cheevoMenuHtml({ cape: c.key, cheevo: x.id, title: x.name, page: x.page || x.name }), a ? ' disabled' : '');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + (a ? ' auto' : '') + '" data-cheevo="' + esc(x.id) + '">' + row + '</li>';
   }
   // A part that folds open and shut. A finished part starts shut; the app remembers the ones you open or close.
@@ -325,7 +306,7 @@
     }
     body += parts.map(function (g) {
       var d = g.items.filter(doneOf).length, full = d === g.items.length;
-      return capePart(g.key, esc(g.name), (full ? '✓ ' : '') + d + ' / ' + g.items.length,
+      return capePart(g.key, g.name, (full ? '✓ ' : '') + d + ' / ' + g.items.length,
         '<ul class="steps">' + g.items.map(function (x) { return cheevoHtml(x, c, x === cur); }).join('') + '</ul>', full);
     }).join('');
     body += '<p class="foot">Achievements: <a href="' + esc(c.source) + '" target="_blank" rel="noopener">RuneScape Wiki</a>, CC BY-NC-SA 3.0. Loaded ' +
@@ -341,7 +322,7 @@
       }), 'two') +
       '<main class="scroll' + (S.set.showDone ? ' show-done' : '') + '" id="main" role="tabpanel">' + body + '</main>' +
       // Nothing left to tick in this tab: the button goes to the next tab that has some.
-      (go ? nextHtml('cnext', 'Go to ' + esc(go.name)).replace(I.check, I.chev) :
+      (go ? nextHtml('cnext', 'Go to ' + esc(go.name), false, I.chev) :
         nextHtml('cnext', cur ? 'Done, next achievement' : done >= total ? 'All achievements done' : 'The rest tick themselves', !cur)) +
       homeBarHtml('areas') +
       toastHtml();
@@ -422,63 +403,19 @@
     saveCprog();
     renderCape(false);
   }
-  function toggleCapePart(key) {
-    var btn = document.querySelector('[data-cpart-btn="' + key + '"]');
-    var open = !(btn && btn.getAttribute('aria-expanded') === 'true');
-    S.cprog.open = S.cprog.open || {};
-    S.cprog.open[key] = open;
-    saveCprog();
-    if (btn) {
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      var b = btn.parentNode.nextElementSibling;
-      if (b) b.hidden = !open;
-    }
-  }
-  function capeReset(btn) {
-    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
-      S.cprog.ticks = {};
-      S.cprog.open = {};
-      S.resetArmed = 0;
-      saveCprog();
-      renderCape(false);
-      toast('Progress reset.');
-      return;
-    }
-    S.resetArmed = Date.now();
-    btn.querySelector('span').textContent = 'Click again to reset';
-  }
-  // A cape read again: its achievements that were not there before are New. Those that were keep when they were new.
-  // Gives how many are new.
-  function markNewCheevos(old, nc) {
-    var had = {}, n = 0, now = Date.now();
-    if (!old || !old.cheevos) return 0;
-    old.cheevos.forEach(function (x) { had[x.id] = x; });
-    nc.cheevos.forEach(function (x) {
-      var o = had[x.id];
-      if (!o) { x.newAt = now; n++; } else if (o.newAt) x.newAt = o.newAt;
-    });
-    return n;
-  }
+  function toggleCapePart(key) { A.togglePart(document.querySelector('[data-cpart-btn="' + cssq(key) + '"]'), S.cprog, key, saveCprog); }
+  function capeReset(btn) { A.resetTwice(btn, function () { S.cprog.ticks = {}; S.cprog.open = {}; saveCprog(); renderCape(false); }); }
   // Reads a saved cape again and keeps it: only new and edited achievement pages are read (info: what the wiki said
   // about them, when it was asked already). The cape on screen is drawn again. Gives how many achievements are new.
   function reloadCape(key, old, info) {
-    return QG.loadCape(key, old, info).then(function (nc) {
-      var added = markNewCheevos(old, nc);
-      sset('cape.' + key, nc);
-      // the cape that is open (on screen, or under Settings) gets the new one too
-      if (S.capeKey === key && S.cape) {
-        S.cape = nc;
-        A.redrawWhenFree(function () { if (S.view === 'cape' && S.cape === nc) renderCape(true); });
-      }
-      return added;
-    });
+    var nc = null;
+    return A.reloadPage({ key: 'cape.' + key, old: old, load: function () { return QG.loadCape(key, old, info).then(function (p) { nc = p; return p; }); },
+      items: function (c) { return c.cheevos; },
+      here: function () { return S.capeKey === key && !!S.cape; },
+      use: function (p) { S.cape = p; },
+      draw: function () { if (S.view === 'cape' && S.cape === nc) renderCape(true); } });
   }
-  function refreshCape(silent) {
-    if (!silent) toast('Reading the wiki…', 0);
-    reloadCape(S.capeKey, S.cape).then(function (n) {
-      if (!silent && S.view === 'cape') toast('Updated from the wiki' + (n ? ': ' + plural(n, 'new achievement', 'new achievements') : '') + '.');
-    }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
-  }
+  function refreshCape(silent) { A.refreshPage(silent, function () { return reloadCape(S.capeKey, S.cape); }, 'cape', 'new achievement', 'new achievements'); }
   // For the export: is this achievement of a saved cape done (ticked, or ticked by itself)? r: a capeReader (one for all).
   function cheevoDone(key, x, r) {
     var c = r.cape(key);
