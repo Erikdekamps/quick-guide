@@ -24,9 +24,11 @@ test.describe('a file that does not load', () => {
   for (const file of appFiles) {
     test(file + ': the page says so', async ({ page }) => {
       await page.route('**/' + file + '?*', (r) => r.abort());
+      await page.clock.install();
       await page.goto('/');
       await expect(page.locator('#app')).toHaveText(new RegExp('^The app could not start\\. This file did not load: http://quick-guide\\.test/' + file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\?v=[\\d.]+ Upload all the files again, then reload\\.$'));
-      await page.waitForTimeout(300);
+      // Later too: nothing the app set a timer for draws a screen.
+      await page.clock.runFor(5000);
       await expect(page.locator('#app .hdr')).toHaveCount(0);
     });
   }

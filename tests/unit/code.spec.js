@@ -15,6 +15,70 @@ const scripts = [...html.matchAll(/<script src="(js\/[^"?]+)/g)].map((m) => m[1]
 const appFiles = scripts.filter((f) => f.startsWith('js/app/'));
 const onDisk = (dir) => fs.readdirSync(path.join(ROOT, dir)).filter((f) => f.endsWith('.js')).map((f) => dir + '/' + f);
 
+test.describe('the test setup', () => {
+  // playwright.config.js, read again as GitHub (CI) or your own computer would, for a run with these arguments.
+  function flakyFails(args, ci) {
+    const file = require.resolve('../../playwright.config.js'), argv = process.argv, was = process.env.CI;
+    process.argv = ['node', 'playwright', 'test', ...args];
+    if (ci) process.env.CI = '1'; else delete process.env.CI;
+    delete require.cache[file];
+    try { return require(file).failOnFlakyTests; } finally {
+      process.argv = argv;
+      if (was === undefined) delete process.env.CI; else process.env.CI = was;
+      delete require.cache[file];
+    }
+  }
+
+  test('on GitHub a test that passes only on its second try fails the run, but not in a run of the live tests', () => {
+    expect(flakyFails(['--project=app'], true)).toBe(true);
+    expect(flakyFails([], true)).toBe(true);
+    expect(flakyFails(['--project=live'], true)).toBe(false);
+    expect(flakyFails(['--project', 'live', '-g', 'quest'], true)).toBe(false);
+    // "live" in another word is not the live project
+    expect(flakyFails(['--project=lively'], true)).toBe(true);
+    expect(flakyFails(['--project=app'], false)).toBe(false);
+  });
+
+  test('every test with "live.spec.js" in its name is in the live project, and no other', () => {
+    const config = require('../../playwright.config.js');
+    const live = config.projects.find((p) => p.name === 'live'), app = config.projects.find((p) => p.name === 'app');
+    for (const f of fs.readdirSync(path.join(ROOT, 'tests')).filter((n) => n.endsWith('.spec.js'))) {
+      const isLive = /live\.spec\.js$/.test(f);
+      expect(live.testMatch.test(f), f).toBe(isLive);
+      expect(app.testIgnore.some((re) => re.test(f)), f).toBe(isLive);
+    }
+  });
+
+  test('no test waits a fixed time, or checks how long something took', () => {
+    const files = fs.readdirSync(path.join(ROOT, 'tests'), { recursive: true }).map(String).filter((f) => f.endsWith('.js') && !f.endsWith('code.spec.js'));
+    for (const f of files) {
+      const text = read('tests/' + f);
+      expect(/waitForTimeout\s*\(/.test(text), f + ' uses waitForTimeout').toBe(false);
+      expect(/\bms\b[^\n]*toBeLessThan|performance\.now\(\)/.test(text), f + ' checks how long something took').toBe(false);
+    }
+  });
+});
+
+test.describe('the code check', () => {
+  // How eslint.config.js finds the scripts written in an HTML file itself.
+  const { preprocess } = require('../../eslint.config.js').find((c) => c.processor).processor;
+
+  test('it checks the script in an HTML file, on its own lines, in any case; not one it loads with src', () => {
+    const html = '<p>a</p>\n<script>\nvar a = 1;\n</script>\n<SCRIPT type="text/javascript">b();</SCRIPT >\n' +
+      '<script src="x.js"></script>\n<Script SRC="y.js"></Script>\n<script>  </script>\n';
+    expect(preprocess(html)).toEqual([
+      { text: '\n\nvar a = 1;\n', filename: '0.js' },
+      { text: '\n\n\n\nb();', filename: '1.js' }
+    ]);
+  });
+
+  test('index.html has one script of its own, and it is checked', () => {
+    const found = preprocess(html);
+    expect(found).toHaveLength(1);
+    expect(found[0].text).toContain("window.addEventListener('error'");
+  });
+});
+
 test.describe('the files', () => {
   test('index.html loads every file in js/: the wiki reader first, then core.js, and main.js last', () => {
     expect([...scripts].sort()).toEqual([...onDisk('js/wiki'), ...onDisk('js/app')].sort());

@@ -6,7 +6,8 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 - Run `npm run lint` and `npm test` (the unit tests run first); everything must pass.
 - When the app changed, run `npm run check:version -- origin/main`.
-- Never commit local changes to playwright.config.js (like a Chromium path).
+- Never commit local changes to playwright.config.js (like a Chromium path). When the installed Chromium is another version than Playwright wants, link it under the name Playwright looks for instead.
+- A change to code or tools also passes `npm run coverage` and, when it touches the designs, `npm run designs` (nothing new when the app did not change).
 
 ## Git and pull requests
 
@@ -18,8 +19,10 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Versions
 
-- A change to the app (index.html, style.css, js/, vendor/) gets a new version in the same PR: a line under "## [Unreleased]" in CHANGELOG.md, then `npm run bump -- patch|minor|major`.
+- A change to the app (index.html, style.css, appconfig.json, icon.svg, icon.png, js/, vendor/) gets a new version in the same PR: a line under "## [Unreleased]" in CHANGELOG.md, then `npm run bump -- patch|minor|major`.
 - Never change the version or a ?v= number by hand; `npm run bump` changes them all together.
+- "The app" is the list APP_FILES in tools/version.js: what goes on GitHub Pages and what needs a version. When it changes, change the same list in this file, the README and the PR template (tests/unit/version.spec.js checks it).
+- A fix the code check finds in index.html is a change to the app too: it needs a version.
 - MAJOR: saved data or the export file changes so old ones no longer work as before. MINOR: something new to see or do. PATCH: a fix, or a change you cannot see.
 
 ## Files
@@ -35,6 +38,7 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 ## Wiki and safety
 
 - Never strip markup with a single regex replace: repeat it until nothing changes, or use DOMParser.
+- A regex that finds HTML tags (also in tools and tests) matches any case, and an end tag with more after its name: `/<script\b[^>]*>…<\/script\b[^>]*>/gi`. GitHub's code scan flags it otherwise.
 - Text from the wiki goes through esc() before it becomes HTML, unless the parser already cleaned it.
 - When the app reads a new kind of wiki page, add a check for it to tests/live.spec.js.
 
@@ -45,9 +49,12 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 - Any error the page throws fails the test; a test that means to cause one lists it with `test.use({ pageErrors: [/text/] })`.
 - New code comes with tests: `npm run coverage` fails when it finds new code that no test runs. Only when that is right, run `npm run coverage -- --update` and say why in the PR.
 - Only change what a test expects when the new behaviour is wanted, and say so in the commit.
+- No fixed waits (`waitForTimeout`) and no checks on how long something took: to prove nothing happened, move the page's clock (`page.clock`) or count calls (`caughtUp()` in tests/support/app.js). tests/unit/code.spec.js checks it.
+- Node files (tools, unit tests) get Node's names only. Code a browser test runs in `page.evaluate()` may use a browser name only when it is in `inPage` in eslint.config.js.
 
 ## Docs and designs
 
 - Every visible change updates README.md, designs/ (boards and screenshots) and the design canvas in the same PR.
-- Build design boards from the app's own markup and the current style.css, not by hand.
+- Build design boards from the app's own markup and the current style.css, not by hand: `npm run designs` (a board without a recipe gets one in tools/designs/boards.spec.js).
+- A board recipe starts the app with a fixed clock and fixed ids, so the same app gives the same board. Look at the new pictures before you commit them.
 - Write UI text, comments, commits and PR text in short, plain sentences, like the README.

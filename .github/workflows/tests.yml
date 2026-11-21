@@ -1,8 +1,10 @@
 name: Tests
 
-# Every pull request, one step after the other. A step starts only when the one before it passed, so a mistake stops
-# everything after it:
-#   Code check → Security check → Unit tests → App tests → Live wiki check (only when the wiki reader changed)
+# Every pull request:
+#   Code check + Security check (side by side) → App tests → Live wiki check (only when the wiki reader changed)
+# The tests start only when both checks passed, and the live check only when the tests did, so a mistake stops
+# everything after it. The unit tests run once, at the start of App tests: they need no browser and take seconds, and
+# when one fails the browser tests do not start.
 # Not again on main: main only takes pull requests whose tests passed. Every Monday, security.yml and live.yml run the
 # security check and the live wiki check by themselves, because new problems show up without a change here.
 on:
@@ -29,11 +31,7 @@ jobs:
         with:
           # The version check compares with the branch the pull request goes into.
           fetch-depth: 0
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
+      - uses: ./.github/actions/setup
       - name: Code check
         run: npm run lint
       - name: Version check
@@ -46,7 +44,7 @@ jobs:
           BASE: ${{ github.base_ref }}
         run: |
           files="$(git diff --name-only "origin/${BASE:-main}...HEAD")"
-          if grep -qE '^(js/wiki/|tests/live\.spec\.js|tests/player\.live\.spec\.js|tests/support/|\.github/workflows/(tests|live)\.yml)' <<< "$files"; then
+          if grep -qE '^(js/wiki/|tests/live\.spec\.js|tests/player\.live\.spec\.js|tests/support/|\.github/actions/|\.github/workflows/(tests|live)\.yml)' <<< "$files"; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -54,7 +52,6 @@ jobs:
 
   security:
     name: Security check
-    needs: checks
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -66,45 +63,27 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run security
 
-  unit:
-    name: Unit tests
-    needs: security
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      # The app's files in Node, no browser needed: seconds.
-      - run: npm run test:unit
-
   app:
     name: App tests
-    needs: [checks, security, unit]
-    # It also starts when a step before it failed, only to fail at once: GitHub counts a skipped job as passed, so a
-    # pull request with a failed step could still look ready to merge.
+    needs: [checks, security]
+    # It also starts when a check before it failed, only to fail at once: GitHub counts a skipped job as passed, so a
+    # pull request with a failed check could still look ready to merge.
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Stop when a step before this one did not pass
-        if: ${{ needs.checks.result != 'success' || needs.security.result != 'success' || needs.unit.result != 'success' }}
+      - name: Stop when a check before this one did not pass
+        if: ${{ needs.checks.result != 'success' || needs.security.result != 'success' }}
         env:
-          RESULTS: 'Code check: ${{ needs.checks.result }}, Security check: ${{ needs.security.result }}, Unit tests: ${{ needs.unit.result }}'
+          RESULTS: 'Code check: ${{ needs.checks.result }}, Security check: ${{ needs.security.result }}'
         run: |
-          echo "::error::A step before this one did not pass ($RESULTS)."
+          echo "::error::A check before this one did not pass ($RESULTS)."
           exit 1
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: ./.github/actions/setup
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      # Every test (the unit tests again, then the app in the browser), and which code they run: no new code that no
+          browser: true
+      # Every test (the unit tests first, then the app in the browser), and which code they run: no new code that no
       # test runs (tests/coverage.json).
       - name: Tests and coverage
         run: npm run coverage
@@ -124,12 +103,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: ./.github/actions/setup
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
+          browser: true
       - run: npm run test:live
       - uses: actions/upload-artifact@v7
         if: ${{ failure() }}

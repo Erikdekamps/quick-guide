@@ -19,6 +19,24 @@ Every screen has the same frame:
 The screens are built from the real app (`style.css` and the app's own markup),
 so they match it.
 
+## Building them
+
+`npm run designs` builds boards and their pictures again (it needs `npm ci`, Chromium, and the internet for the
+pictures). `npm run designs -- -g MyListFold` builds one.
+
+- `tools/designs/boards.spec.js` has a recipe for each board: what is saved before the app starts, and the clicks
+  that lead to the screen. The app runs with the fake wiki of the tests, so a board comes out the same every time.
+- The board is the app's own markup, as the page has it, with the current `style.css` in it
+  (`tools/designs/board.js`). Nothing in a board is written by hand.
+- The picture is made from the board file, at 2× size, with the real fonts and the wiki's pictures.
+- On the Components sheet, a part with a recipe gets its markup from the app too; the words under it are in the recipe.
+- It builds the My list boards and the My list part of Components. The other boards have no recipe yet: give a board
+  one when its screen changes.
+
+Every board has a full copy of `style.css`: the canvas shows a board by itself, so it cannot share one file. The tool
+writes that copy, so it is never changed by hand. The boards load `support.js`, the canvas's own script. It belongs to
+the canvas and is not in this repo; the pictures are made without it.
+
 The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are in `screenshots/`.
 
 | File in `canvas/` | What it shows |
@@ -64,11 +82,11 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `MyListMenu.dc.html` | A goal's menu: edit, add a sub task, make it a list, open on the wiki, move to another list (or a new one), move up or down, remove |
 | `MyListFrom.dc.html` | An area task's ⋯ menu: Add to list… |
 | `MyListAddTo.dc.html` | The Add to list box: which list, with a dropdown (or a new list), and its parent: none, or a goal or a sub task of the list |
-| `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name in the title band: Jump to next step, then Add to list… |
+| `MyListQuest.dc.html` | A quest's ⋯ menu, next to its name in the title band: Jump to next step, then Add to list… (the short guide of the tests, so it has fewer steps than the Steps board) |
 | `MyListEmpty.dc.html` | My list with no lists yet: how to start, with Create list and Import list |
 | `MyListBlue.dc.html` | My list in the Blue theme |
 | `CapeMasterQuestBlue.dc.html` | The master quest cape in the Blue theme, with Needs folded: its achievements |
-| `Components.dc.html` | All parts, colors and type, the window, the two themes, the bar at the bottom, tabs with a count, the settings and the quest menu, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
+| `Components.dc.html` | All parts, colors and type, the window, the two themes, the bar at the bottom, tabs with a count, the settings and the quest menu, the app icon on both, skill and quest requirements like the wiki, the parts of My list (with the count that folds sub tasks), and Add to list |
 | `Data.dc.html` | The quest JSON shape, what is saved (the capes and My list too), and the export file |
 | `canvas.json` | Board layout on the canvas: the screens in rows of seven on the left (quests and settings, achievements, the capes, My list twice, the Blue theme in two), Components and Data next to them |
 

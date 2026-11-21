@@ -5,7 +5,7 @@
 // Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
 // Every list ends with a box to type the next goal in. A goal can have sub tasks, and those their own; a goal you
 // wrote yourself can become a list, and gets a link to its wiki page when there is one.
-const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle, deleteEverything } = require('./support/app');
+const { test, expect, seed, stored, caughtUp, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle, deleteEverything } = require('./support/app');
 
 const tab = (page) => page.locator('.bn[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
@@ -1012,7 +1012,7 @@ test.describe('a link to the wiki', () => {
     expect(n).toBeGreaterThan(0);
     await page.reload();
     await expect(goal(page, 'Crystal Hatchet')).toBeVisible();
-    await page.waitForTimeout(200);
+    await caughtUp(page);
     expect(wiki.lookups.length).toBe(n);
     // a new goal is looked up; a goal with a new name is looked up again
     wiki.exists('Bones', 'Bones (item)');

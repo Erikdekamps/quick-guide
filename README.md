@@ -332,14 +332,18 @@ No other service is used.
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
-| `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)) |
+| `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)). It also has the list of the app's files, and copies them for GitHub Pages |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
+| `tests/support/` | What the tests share: `app.js` (the fake wiki and the helpers of the browser tests) and `coverage.js` (which code no test runs) |
+| `tests/fixtures/` | Pages of the wiki, saved, for the fake wiki (`tests/fixtures/wiki/`) |
 | `tests/coverage.json` | The code no test runs yet (see [Tests](#tests)) |
+| `tools/designs/` | Builds the design boards and their pictures from the app: `npm run designs` (see [designs/README.md](designs/README.md)) |
 | `eslint.config.js` | The code check: `npm run lint` |
-| `.github/workflows/tests.yml` | Every pull request, one check after the other: code check, security check, unit tests, app tests, live wiki check |
+| `.github/workflows/tests.yml` | Every pull request: code check and security check, then the tests, then the live wiki check |
+| `.github/actions/setup/` | What the jobs on GitHub start with: Node, the npm packages, and Chromium (kept between runs) |
 | `.github/workflows/live.yml` | Checks the app against the real wiki every Monday |
-| `.github/workflows/deploy.yml` | Puts `main` on GitHub Pages, and makes a release of each new version |
+| `.github/workflows/deploy.yml` | Puts the app from `main` on GitHub Pages (only the app's files), and makes a release of each new version |
 | `.github/pull_request_template.md` | The checklist of a pull request |
 | `CLAUDE.md` | The rules Claude follows when it works on the app |
 | `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
@@ -355,13 +359,16 @@ changed in each version. The three numbers are MAJOR.MINOR.PATCH ([semantic vers
 - **MINOR** goes up for something new you can see or do.
 - **PATCH** goes up for a fix, or a change you do not see.
 
-Every change to the app (`index.html`, `style.css`, `js/`, `vendor/`) gets a new version, in the same pull request:
+The app is what GitHub Pages serves: `index.html`, `style.css`, `appconfig.json`, `icon.svg`, `icon.png`, `js/`, `vendor/`. Nothing else goes on the site.
+Every change to the app gets a new version, in the same pull request:
 
 1. Write what changed under `## [Unreleased]` in `CHANGELOG.md`.
 2. Run `npm run bump -- minor` (or `patch`, or `major`). It raises the number in `package.json` and in every `?v=`
    in `index.html` (Alt1 keeps old copies of files otherwise), and puts your notes under the new number.
 
 GitHub checks this on every pull request (`npm run check:version -- origin/main` does the same on your computer).
+It compares with the version `main` had when your branch left it, so a branch that only changes the docs still passes
+after `main` got a new version.
 Once `main` is on GitHub Pages, GitHub makes a release of the new version, with a tag like `v1.43.0`
 (**Releases**, on the repo's page).
 
@@ -375,13 +382,14 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
   type, wiki text, ids, how the app asks the wiki, what Update from the wiki reads again. Code that needs a page
   says so ("needs a browser"), and is tested in the browser.
 - The other tests open the app in the browser.
-- On GitHub, every pull request runs its checks one after the other (`.github/workflows/tests.yml`). Each one starts
-  only when the one before it passed, so a mistake stops everything after it:
-  1. **Code check**: `npm run lint`, and the version check.
-  2. **Security check**: `npm run security` (see below).
-  3. **Unit tests**: `npm run test:unit`.
-  4. **App tests**: the browser tests, and the coverage check.
-  5. **Live wiki check**: only when the pull request changes how the app reads the wiki.
+- On GitHub, every pull request runs its checks in three steps (`.github/workflows/tests.yml`). A step starts only
+  when the one before it passed, so a mistake stops everything after it:
+  1. **Code check** (`npm run lint`, and the version check) and **Security check** (`npm run security`, see below),
+     side by side.
+  2. **App tests**: `npm run coverage`. The unit tests run first, once; then the browser tests, and the coverage check.
+  3. **Live wiki check**: only when the pull request changes how the app reads the wiki.
+
+  Chromium is kept between runs, so it is not downloaded every time.
 
   `main` only takes pull requests whose checks passed, and is then put on GitHub Pages. (CodeQL, GitHub's own code
   scan, runs next to them: GitHub starts it by itself.)
@@ -389,7 +397,12 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - An error in the page that nobody catches fails the test, in every test.
 - New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
   that no test runs (a part of an `if`, a fallback, a function), in the unit tests or in the browser.
-  `tests/coverage.json` lists the code no test runs yet.
+  `tests/coverage.json` lists the code no test runs yet. The pieces of code themselves are compared, not how many
+  there are: new code without a test fails, also when other code without a test went away.
+- A test that passes only on its second try fails the run. The live wiki check is the exception: the real wiki is
+  slow now and then.
+- No test waits a fixed time or looks at the clock on the wall: a test that checks nothing happens moves the page's
+  own clock, or counts what the app asked the wiki.
 - `tests/unit/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
   file takes from another one is shared, and every saved key is in the table above.
 - GitHub checks the app against the real wiki once a week, and on a pull request that changes how the app reads
@@ -404,20 +417,22 @@ npm test
 ```
 
 - `npm run test:unit` runs only the unit tests: a few seconds, no browser needed.
-- `npm run lint` is the code check: names that are not defined or not used, and other mistakes.
+- `npm run lint` is the code check: names that are not defined or not used, and other mistakes. The app's files may
+  use what a browser has, the tests and tools what Node has. The script in `index.html` is checked too.
 - `npm run test:live` checks against the real wiki (needs the internet).
 - `npm run coverage` runs the tests and shows how much of each file they run. It fails when there is code no test runs
-  that `tests/coverage.json` does not list. When a file has less of it, `npm run coverage -- --update` saves that.
+  that `tests/coverage.json` does not list. When code in that list is gone, `npm run coverage -- --update` saves that.
 - `npm run bump -- patch|minor|major` and `npm run check:version` (see [Versions](#versions)).
 - `npm run security` checks for known security problems and newer versions (see below).
 - `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
+- `npm run designs` builds the design boards and their pictures again from the app (see [designs/README.md](designs/README.md)).
 
 ## Security and updates
 
 The app itself has no npm packages: it runs as plain files in the browser. It uses Leaflet (a copy in
 `vendor/leaflet/`), and the tests use Playwright (an npm package).
 
-- **Security check**: on every pull request (after the code check, see [Tests](#tests)), and every Monday
+- **Security check**: on every pull request (next to the code check, see [Tests](#tests)), and every Monday
   (`.github/workflows/security.yml`). It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
   you update. Lower-rated problems and newer versions show as notes on the run and in its summary.
   Run it yourself with `npm run security`.

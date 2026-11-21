@@ -10,6 +10,7 @@
 //   npm run check:version                  checks that package.json, index.html and CHANGELOG.md agree
 //   npm run check:version -- origin/main   also checks that a change to the app raised the version one step
 //   node tools/version.js notes [x.y.z]    prints what CHANGELOG.md says about a version (the release text)
+//   node tools/version.js site <folder>    copies the app, and only the app, to a folder (what GitHub Pages gets)
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -17,8 +18,9 @@ const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const LEVELS = ['patch', 'minor', 'major'];
-// The files GitHub Pages serves as the app. A change to one of them is a new version.
-const APP = /^(index\.html|style\.css|appconfig\.json|icon\.(svg|png)|js\/|vendor\/)/;
+// The app: the files GitHub Pages serves (.github/workflows/deploy.yml copies these, and nothing else). A change to
+// one of them is a new version. CLAUDE.md, the README and the pull request template name the same list.
+const APP_FILES = ['index.html', 'style.css', 'appconfig.json', 'icon.svg', 'icon.png', 'js/', 'vendor/'];
 // "## [1.2.3] - 2026-11-21" or "## [Unreleased]"
 const HEADING = /^## \[([^\]]+)\](?: - (\S+))?[ \t]*$/gm;
 
@@ -42,7 +44,7 @@ function compare(a, b) {
 }
 // True when "to" is one step up from "from": the next patch, minor or major.
 function isStep(from, to) { return LEVELS.some((l) => next(from, l) === to); }
-function isApp(file) { return APP.test(file); }
+function isApp(file) { return APP_FILES.some((f) => (f.endsWith('/') ? file.startsWith(f) : file === f)); }
 
 // ---------- the files ----------
 function read(root, f) { return fs.readFileSync(path.join(root, f), 'utf8'); }
@@ -114,18 +116,24 @@ function versionAt(root, ref) {
   return cacheNumbers(git(root, ['show', ref + ':index.html']))[0];
 }
 // Compared with a base branch: a change to the app must raise the version one step.
+// "From" is the version where this branch left the base, not the base as it is now: a branch that only changes the
+// docs still passes after the base got a new version. (On GitHub a pull request is checked merged into the base, so
+// there the two are the same.)
 function stepProblems(root, base) {
   root = root || ROOT;
   if (!/^[\w./-]+$/.test(base) || base.startsWith('-')) return ['Not a branch name: ' + base];
-  const from = versionAt(root, base), to = JSON.parse(read(root, 'package.json')).version;
+  const left = git(root, ['merge-base', base, 'HEAD']).trim();
+  const from = versionAt(root, left), now = versionAt(root, base), to = JSON.parse(read(root, 'package.json')).version;
   // What this branch changed since it left the base (with what is not committed yet).
-  const changed = git(root, ['diff', '--name-only', git(root, ['merge-base', base, 'HEAD']).trim()]).split('\n').filter(Boolean);
+  const changed = git(root, ['diff', '--name-only', left]).split('\n').filter(Boolean);
   const app = changed.filter(isApp);
   if (to === from) {
     return app.length ? ['The app changed (' + app.slice(0, 5).join(', ') + (app.length > 5 ? ', …' : '') + ') but the version is ' + to +
       ', like ' + base + '. Run: npm run bump -- patch (a fix), minor (something new) or major (saved data changes)'] : [];
   }
   if (!isStep(from, to)) return ['The version goes from ' + from + ' to ' + to + '; one step up is ' + LEVELS.map((l) => next(from, l)).join(', ')];
+  // The base got a new version after this branch left it: this one must be a step up from that too.
+  if (now !== from && !isStep(now, to)) return [base + ' is at ' + now + ' now, this branch at ' + to + '. Merge ' + base + ', then run npm run bump again'];
   return [];
 }
 
@@ -156,7 +164,20 @@ function bump(root, level, date) {
   return { from, to, files: numbers.length };
 }
 
-module.exports = { parse, next, compare, isStep, isApp, cacheNumbers, localFiles, headings, notes, problems, stepProblems, bump };
+// ---------- the site ----------
+// Copies the app's files to a folder (made new, or emptied first): what goes on GitHub Pages. Not the designs, the
+// tests, the tools or the docs. Returns what it copied.
+function site(root, out) {
+  root = root || ROOT;
+  const to = path.resolve(root, out);
+  if (to === root || root.startsWith(to + path.sep)) throw new Error('Not a folder for the site: ' + out);
+  fs.rmSync(to, { recursive: true, force: true });
+  fs.mkdirSync(to, { recursive: true });
+  for (const f of APP_FILES) fs.cpSync(path.join(root, f), path.join(to, f), { recursive: true });
+  return APP_FILES.slice();
+}
+
+module.exports = { site, APP_FILES, parse, next, compare, isStep, isApp, cacheNumbers, localFiles, headings, notes, problems, stepProblems, bump };
 
 if (require.main === module) {
   const [cmd, arg] = process.argv.slice(2);
@@ -169,12 +190,15 @@ if (require.main === module) {
       if (out.length) { console.error(out.map((p) => '✗ ' + p).join('\n')); process.exit(1); }
       console.log('✓ Version ' + JSON.parse(read(ROOT, 'package.json')).version + ': package.json, index.html and CHANGELOG.md agree' +
         (arg ? ', and it is right compared with ' + arg : '') + '.');
+    } else if (cmd === 'site') {
+      if (!arg) throw new Error('Say which folder: node tools/version.js site _site');
+      console.log('The app is in ' + arg + ': ' + site(ROOT, arg).join(', ') + '.');
     } else if (cmd === 'notes') {
       const v = arg || JSON.parse(read(ROOT, 'package.json')).version, n = notes(read(ROOT, 'CHANGELOG.md'), v);
       if (n === null) throw new Error('CHANGELOG.md has no ' + v);
       console.log(n);
     } else {
-      console.error('Use: node tools/version.js bump patch|minor|major, check [base branch], or notes [version]');
+      console.error('Use: node tools/version.js bump patch|minor|major, check [base branch], notes [version], or site <folder>');
       process.exit(2);
     }
   } catch (e) {

@@ -10,6 +10,13 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.44.1] - 2026-11-21
+
+### Changed
+
+- The site on GitHub Pages has only the app's files now. The designs, the tests and the tools are no longer on it.
+- A tidy-up in the part of the page that says a file did not load. Nothing you see changes.
+
 ## [1.44.0] - 2026-11-21
 
 ### Added

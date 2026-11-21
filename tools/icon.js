@@ -3,7 +3,7 @@
 // It draws the picture in Chromium, the browser the tests and Alt1 use, so the two files look the same.
 const fs = require('fs');
 const path = require('path');
-const { chromium } = require('playwright');
+const { chromium } = require('@playwright/test');
 
 const root = path.join(__dirname, '..');
 const svg = 'data:image/svg+xml;base64,' + fs.readFileSync(path.join(root, 'icon.svg')).toString('base64');
