@@ -5,14 +5,18 @@
 // internet. They start when the unit tests passed. "live" tests read the real RuneScape Wiki.
 const { defineConfig } = require('@playwright/test');
 
+// True for "playwright test --project=live" (npm run test:live): only the tests that read the real wiki run.
+const LIVE_RUN = /--project[= ]live(\s|$)/.test(process.argv.slice(2).join(' '));
+
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   // A test that only passes on its second try still fails the run: a retry must not hide a problem.
-  // (The retry still runs, so its trace shows what went wrong.)
-  failOnFlakyTests: !!process.env.CI,
+  // (The retry still runs, so its trace shows what went wrong.) Not in a run of the live tests: the real wiki is slow
+  // now and then, so a live test that passes on its second try passes.
+  failOnFlakyTests: !!process.env.CI && !LIVE_RUN,
   // One worker per processor: the tests mostly wait on the browser, so this is about twice as fast as the default (half).
   workers: '100%',
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
@@ -29,6 +33,8 @@ module.exports = defineConfig({
   projects: [
     { name: 'unit', testDir: './tests/unit' },
     { name: 'app', testIgnore: [/live\.spec\.js$/, /[\\/]unit[\\/]/], dependencies: ['unit'] },
-    { name: 'live', testMatch: /live\.spec\.js$/, timeout: 90000, expect: { timeout: 30000 } }
+    { name: 'live', testMatch: /live\.spec\.js$/, timeout: 90000, expect: { timeout: 30000 } },
+    // Not tests: npm run designs builds the design boards and their pictures (tools/designs/boards.spec.js).
+    { name: 'designs', testDir: './tools/designs', testMatch: /boards\.spec\.js$/, retries: 0, timeout: 90000 }
   ]
 });

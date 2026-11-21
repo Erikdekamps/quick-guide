@@ -1,5 +1,7 @@
 // The version tool (tools/version.js): raising the version, and checking that package.json, index.html and
-// CHANGELOG.md agree. It runs on copies of the files in a temporary folder; the last test checks the real ones.
+// CHANGELOG.md agree, checking a branch against main, and copying the app for the site. It runs on copies of the
+// files in a temporary folder (with git, for the branches); the last tests check the real ones.
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -8,6 +10,9 @@ const V = require('../../tools/version');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const LOG = '# Changelog\n\nIntro.\n\n## [Unreleased]\n\n### Fixed\n\n- A fix.\n\n## [1.4.2] - 2026-01-02\n\n### Added\n\n- Something.\n';
+
+const read = (dir, f) => fs.readFileSync(path.join(dir, f), 'utf8');
+const write = (dir, f, s) => { fs.mkdirSync(path.dirname(path.join(dir, f)), { recursive: true }); fs.writeFileSync(path.join(dir, f), s); };
 
 // A small copy of the project: package.json, package-lock.json, index.html and CHANGELOG.md.
 function project(files) {
@@ -18,10 +23,33 @@ function project(files) {
     'index.html': '<link rel="stylesheet" href="style.css?v=1.4.2">\n<script src="https://example.com/x.js"></script>\n<script src="js/a.js?v=1.4.2"></script>\n<script src="js/b.js?v=1.4.2"></script>\n',
     'CHANGELOG.md': LOG
   }, files);
-  for (const [f, s] of Object.entries(all)) if (s !== null) fs.writeFileSync(path.join(dir, f), s);
+  for (const [f, s] of Object.entries(all)) if (s !== null) write(dir, f, s);
   return dir;
 }
-const read = (dir, f) => fs.readFileSync(path.join(dir, f), 'utf8');
+
+// Git in a copy of the project, with its own name and no signing, whatever this computer is set to.
+function git(dir, ...args) {
+  return execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', '-c', 'commit.gpgsign=false', ...args],
+    { cwd: dir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+}
+function commit(dir, message) { git(dir, 'add', '-A'); git(dir, 'commit', '-q', '-m', message); }
+// A copy of the project in git: "main" at 1.4.2 with an app, and a branch "work" cut from it (checked out).
+function repo() {
+  const dir = project({ 'style.css': 'body { color: red; }\n', 'js/a.js': '// a\n', 'README.md': '# X\n' });
+  git(dir, 'init', '-q', '-b', 'main');
+  commit(dir, 'Start');
+  git(dir, 'checkout', '-q', '-b', 'work');
+  return dir;
+}
+// Main gets a new version (and a change to the app) while the branch is out. The branch stays checked out.
+function mainMovesOn(dir, level) {
+  git(dir, 'checkout', '-q', 'main');
+  write(dir, 'js/a.js', '// a, on main\n');
+  write(dir, 'CHANGELOG.md', read(dir, 'CHANGELOG.md').replace('- A fix.', '- A fix on main.'));
+  V.bump(dir, level, '2026-11-21');
+  commit(dir, 'Main moves on');
+  git(dir, 'checkout', '-q', 'work');
+}
 
 test.describe('the next version', () => {
   test('patch, minor and major', () => {
@@ -48,7 +76,7 @@ test.describe('the next version', () => {
 
   test('a change to what GitHub Pages serves is a change to the app; docs, tests and tools are not', () => {
     for (const f of ['index.html', 'style.css', 'js/app/core.js', 'js/wiki/parser.js', 'vendor/leaflet/leaflet.js', 'appconfig.json', 'icon.svg', 'icon.png']) expect(V.isApp(f), f).toBe(true);
-    for (const f of ['README.md', 'CHANGELOG.md', 'CLAUDE.md', 'tests/code.spec.js', 'tools/version.js', 'designs/canvas/Main.dc.html', 'package.json', '.github/workflows/tests.yml']) expect(V.isApp(f), f).toBe(false);
+    for (const f of ['README.md', 'CHANGELOG.md', 'CLAUDE.md', 'tests/unit/code.spec.js', 'tests/support/app.js', 'tools/version.js', 'index.html.old', 'icons/x.svg', 'designs/canvas/Main.dc.html', 'package.json', '.github/workflows/tests.yml']) expect(V.isApp(f), f).toBe(false);
   });
 });
 
@@ -116,9 +144,97 @@ test.describe('npm run check:version', () => {
     expect(V.notes(LOG, '9.9.9')).toBeNull();
   });
 
+  test('the app changed and the version did not: it says so, and how to raise it', () => {
+    const dir = repo();
+    write(dir, 'style.css', 'body { color: blue; }\n');
+    // not committed yet: it counts already
+    expect(V.stepProblems(dir, 'main')).toEqual(['The app changed (style.css) but the version is 1.4.2, like main. ' +
+      'Run: npm run bump -- patch (a fix), minor (something new) or major (saved data changes)']);
+    write(dir, 'js/new.js', '// new\n');
+    commit(dir, 'Change the app');
+    expect(V.stepProblems(dir, 'main')[0]).toContain('The app changed (js/new.js, style.css) but the version is 1.4.2');
+    // more than five files: the first five, then "…"
+    for (const n of [1, 2, 3, 4, 5]) write(dir, 'vendor/x/' + n + '.js', '// ' + n + '\n');
+    commit(dir, 'More');
+    expect(V.stepProblems(dir, 'main')[0]).toContain('(js/new.js, style.css, vendor/x/1.js, vendor/x/2.js, vendor/x/3.js, …)');
+  });
+
+  test('the app changed and the version went one step up: fine. Two steps is not', () => {
+    const dir = repo();
+    write(dir, 'style.css', 'body { color: blue; }\n');
+    V.bump(dir, 'patch', '2026-11-21');
+    commit(dir, 'A fix');
+    expect(V.stepProblems(dir, 'main')).toEqual([]);
+    write(dir, 'CHANGELOG.md', read(dir, 'CHANGELOG.md').replace('## [Unreleased]\n', '## [Unreleased]\n\n- More.\n'));
+    V.bump(dir, 'patch', '2026-11-21');
+    expect(V.stepProblems(dir, 'main')).toEqual(['The version goes from 1.4.2 to 1.4.4; one step up is 1.4.3, 1.5.0, 2.0.0']);
+  });
+
+  test('only the docs, tests or tools changed: no new version is needed', () => {
+    const dir = repo();
+    write(dir, 'README.md', '# X\n\nMore.\n');
+    write(dir, 'tests/a.spec.js', '// a test\n');
+    write(dir, 'tools/a.js', '// a tool\n');
+    commit(dir, 'Docs');
+    expect(V.stepProblems(dir, 'main')).toEqual([]);
+  });
+
+  test('only the docs changed, and main got a new version since the branch left it: still fine', () => {
+    const dir = repo();
+    write(dir, 'README.md', '# X\n\nMore.\n');
+    commit(dir, 'Docs');
+    mainMovesOn(dir, 'minor');
+    expect(read(dir, 'package.json')).toContain('"version": "1.4.2"');
+    expect(V.stepProblems(dir, 'main')).toEqual([]);
+    // main's change to the app is not this branch's change
+    write(dir, 'style.css', 'body { color: blue; }\n');
+    expect(V.stepProblems(dir, 'main')[0]).toContain('The app changed (style.css) but the version is 1.4.2');
+  });
+
+  test('the app changed with a new version, and main got that version too: merge main, then bump again', () => {
+    const dir = repo();
+    write(dir, 'style.css', 'body { color: blue; }\n');
+    V.bump(dir, 'patch', '2026-11-21');
+    commit(dir, 'A fix');
+    mainMovesOn(dir, 'patch');
+    expect(V.stepProblems(dir, 'main')).toEqual(['main is at 1.4.3 now, this branch at 1.4.3. Merge main, then run npm run bump again']);
+    // main merged, and one step up from there: fine again
+    git(dir, 'merge', '-q', '-X', 'ours', '--no-edit', 'main');
+    write(dir, 'CHANGELOG.md', read(dir, 'CHANGELOG.md').replace('## [Unreleased]\n', '## [Unreleased]\n\n- The fix, again.\n'));
+    V.bump(dir, 'patch', '2026-11-21');
+    expect(V.stepProblems(dir, 'main')).toEqual([]);
+  });
+
   test('a base branch name that could be read as an option is refused', () => {
     expect(V.stepProblems(ROOT, '--output=x')).toEqual(['Not a branch name: --output=x']);
     expect(V.stepProblems(ROOT, 'main;rm')).toEqual(['Not a branch name: main;rm']);
+  });
+
+  test('the site is the app and nothing else', () => {
+    const dir = project({ 'style.css': 'body {}\n', 'appconfig.json': '{}\n', 'icon.svg': '<svg/>', 'icon.png': 'png', 'README.md': '# X\n' });
+    for (const f of ['js/app/a.js', 'vendor/x/x.js', 'tests/a.spec.js', 'tools/a.js', 'designs/a.html', '_site/old.txt']) write(dir, f, '// ' + f + '\n');
+    expect(V.site(dir, '_site')).toEqual(V.APP_FILES);
+    const found = fs.readdirSync(path.join(dir, '_site'), { recursive: true }).map((f) => f.split(path.sep).join('/'))
+      .filter((f) => fs.statSync(path.join(dir, '_site', f)).isFile()).sort();
+    expect(found).toEqual(['appconfig.json', 'icon.png', 'icon.svg', 'index.html', 'js/app/a.js', 'style.css', 'vendor/x/x.js']);
+    for (const f of found) expect(V.isApp(f), f).toBe(true);
+    // never over the project itself, or a folder around it
+    expect(() => V.site(dir, '.')).toThrow('Not a folder for the site: .');
+    expect(() => V.site(dir, '..')).toThrow('Not a folder for the site: ..');
+  });
+
+  test('this project: every file index.html loads is part of the app that goes on the site', () => {
+    const html = read(ROOT, 'index.html');
+    for (const f of V.localFiles(html)) expect(V.isApp(f.replace(/\?.*$/, '')), f).toBe(true);
+    for (const m of html.matchAll(/<link rel="[^"]*icon[^"]*" href="([^"]+)"/g)) expect(V.isApp(m[1]), m[1]).toBe(true);
+  });
+
+  test('this project: CLAUDE.md, the README and the pull request template name the same files as the app', () => {
+    const list = V.APP_FILES.join(', ');
+    expect(list).toBe('index.html, style.css, appconfig.json, icon.svg, icon.png, js/, vendor/');
+    for (const f of ['CLAUDE.md', 'README.md', '.github/pull_request_template.md']) expect(read(ROOT, f).replace(/`/g, ''), f).toContain(list);
+    // and the site gets them through the tool, not a list of its own
+    expect(read(ROOT, '.github/workflows/deploy.yml')).toContain('node tools/version.js site _site');
   });
 
   test('this project: package.json, package-lock.json, index.html and CHANGELOG.md agree', () => {

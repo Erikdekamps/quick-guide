@@ -1,6 +1,6 @@
 // Update from the wiki: everything the app keeps, at once. It asks when each page changed, reads again only what did,
 // keeps your ticks, and marks what is new. Once a week it runs by itself, quietly.
-const { test, expect, fixture, stored, openApp, openQuest, openSettings, closeSettings, withAllAreas, withCapes, areaPage } = require('./support/app');
+const { test, expect, fixture, stored, caughtUp, openApp, openQuest, openSettings, closeSettings, withAllAreas, withCapes, areaPage } = require('./support/app');
 
 const MQC = 'Master Quest Cape (achievement)', WEEK = 7 * 24 * 3600 * 1000;
 const card = (page, key) => page.locator('.cape[data-cape="' + key + '"]');
@@ -224,7 +224,7 @@ test.describe('Update from the wiki', () => {
     await page.evaluate(() => localStorage.setItem('qg1.upd', JSON.stringify({ at: Date.now() - 24 * 3600 * 1000, found: {} })));
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Master quest cape');
-    await page.waitForTimeout(300);
+    await caughtUp(page);
     expect(wiki.infoCalls).toHaveLength(0);
     // a week ago: it checks, and reads the cape again
     newCheevo(wiki);
@@ -238,7 +238,7 @@ test.describe('Update from the wiki', () => {
 
   test('nothing kept yet: no weekly check', async ({ page, wiki }) => {
     await openApp(page, expect);
-    await page.waitForTimeout(300);
+    await caughtUp(page);
     expect(wiki.infoCalls).toHaveLength(0);
     expect(await stored(page, 'upd')).toBeNull();
   });

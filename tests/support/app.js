@@ -291,6 +291,11 @@ async function deleteEverything(page) {
   await page.keepRan();
   await page.locator('[data-act="wipe"]').click();
 }
+// To check that the app did not ask the wiki for something: the page asks for one more thing and waits for the
+// answer. The fake wiki gets requests in the order the page made them, so every request from before is in its lists.
+async function caughtUp(page) {
+  await page.evaluate(() => fetch('https://runescape.wiki/caught-up', { mode: 'no-cors' }).then(null, () => null));
+}
 // Reads one value from the app's storage (key without "qg1.").
 function stored(page, key) {
   return page.evaluate((k) => { const v = localStorage.getItem('qg1.' + k); return v == null ? null : JSON.parse(v); }, key);
@@ -405,4 +410,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain, deleteEverything };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, caughtUp, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain, deleteEverything };

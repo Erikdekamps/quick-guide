@@ -18,7 +18,7 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Versions
 
-- A change to the app (index.html, style.css, js/, vendor/) gets a new version in the same PR: a line under "## [Unreleased]" in CHANGELOG.md, then `npm run bump -- patch|minor|major`.
+- A change to the app (index.html, style.css, appconfig.json, icon.svg, icon.png, js/, vendor/) gets a new version in the same PR: a line under "## [Unreleased]" in CHANGELOG.md, then `npm run bump -- patch|minor|major`.
 - Never change the version or a ?v= number by hand; `npm run bump` changes them all together.
 - MAJOR: saved data or the export file changes so old ones no longer work as before. MINOR: something new to see or do. PATCH: a fix, or a change you cannot see.
 
@@ -49,5 +49,5 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 ## Docs and designs
 
 - Every visible change updates README.md, designs/ (boards and screenshots) and the design canvas in the same PR.
-- Build design boards from the app's own markup and the current style.css, not by hand.
+- Build design boards from the app's own markup and the current style.css, not by hand: `npm run designs` (a board without a recipe gets one in tools/designs/boards.spec.js).
 - Write UI text, comments, commits and PR text in short, plain sentences, like the README.

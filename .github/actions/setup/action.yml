@@ -1,0 +1,28 @@
+name: Set up
+description: Node and the npm packages. With "browser", also the Chromium the tests use, kept from the run before.
+
+inputs:
+  browser:
+    description: '"true" for the jobs that run tests in the browser.'
+    default: 'false'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v7
+      with:
+        node-version: 22
+        cache: npm
+    - run: npm ci
+      shell: bash
+    # Chromium is a big download. It is kept between runs, until the packages change (a new Playwright has its own).
+    - if: ${{ inputs.browser == 'true' }}
+      id: chromium
+      uses: actions/cache@v5
+      with:
+        path: ~/.cache/ms-playwright
+        key: chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+    # Only the headless one: the tests never open a window.
+    - if: ${{ inputs.browser == 'true' && steps.chromium.outputs.cache-hit != 'true' }}
+      run: npx playwright install --only-shell chromium
+      shell: bash
