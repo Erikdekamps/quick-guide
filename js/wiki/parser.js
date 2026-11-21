@@ -1624,6 +1624,11 @@
     pageInfo: pageInfo,
     inTurns: inTurns,
     normName: normName,
+    // for the unit tests: the ids of steps, items and tasks (your ticks are saved by them), and the cleaners
+    hash: hash,
+    slug: slug,
+    noComments: noComments,
+    trimBreaks: trimBreaks,
     MAP_VERSION: MAP_VERSION,
     WIKI: WIKI,
     titleFromInput: titleFromInput,

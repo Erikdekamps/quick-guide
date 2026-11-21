@@ -4,7 +4,7 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Before every push
 
-- Run `npm run lint` and `npm test`; everything must pass.
+- Run `npm run lint` and `npm test` (the unit tests run first); everything must pass.
 - When the app changed, run `npm run check:version -- origin/main`.
 - Never commit local changes to playwright.config.js (like a Chromium path).
 
@@ -40,7 +40,8 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Tests
 
-- Tests use the fake wiki in tests/support/app.js; only the *live.spec.js files go online.
+- Test logic with a unit test in tests/unit/ (Node, no browser, milliseconds); use a browser test only for what needs a page.
+- Browser tests use the fake wiki in tests/support/app.js; only the *live.spec.js files go online.
 - Any error the page throws fails the test; a test that means to cause one lists it with `test.use({ pageErrors: [/text/] })`.
 - New code comes with tests: `npm run coverage` fails when it finds new code that no test runs. Only when that is right, run `npm run coverage -- --update` and say why in the PR.
 - Only change what a test expects when the new behaviour is wanted, and say so in the commit.

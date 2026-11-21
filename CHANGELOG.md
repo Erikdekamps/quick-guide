@@ -14,13 +14,14 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ### Added
 
-- Settings shows the app's version at the bottom, with a link to this list.
+- Settings shows the app's version at the bottom.
 
 ### Changed
 
 - For people who work on the app: one version number for everything (`npm run bump`), this list, and a release on
-  GitHub for each version. Every pull request now also runs a code check, a version check and a coverage check, and
-  any error in the page fails a test. A change to how the app reads the wiki is checked against the real wiki.
+  GitHub for each version. Every pull request now also runs a code check, unit tests (seconds, no browser, before
+  the browser tests), a version check and a coverage check, and any error in the page fails a test. A change to how
+  the app reads the wiki is checked against the real wiki.
 
 ### Fixed
 

@@ -27,12 +27,16 @@ jobs:
       # The quick checks first: they fail in seconds, before the browser is installed.
       - name: Code check
         run: npm run lint
+      # The app's files in Node, no browser needed: seconds.
+      - name: Unit tests
+        run: npm run test:unit
       - name: Version check
         env:
           BASE: ${{ github.base_ref }}
         run: npm run check:version -- "origin/${BASE:-main}"
       - run: npx playwright install --with-deps chromium
-      # Every test, and which code they run: no new code that no test runs (tests/coverage.json).
+      # Every test (the unit tests again, then the app in the browser), and which code they run: no new code that no
+      # test runs (tests/coverage.json).
       - name: Tests and coverage
         run: npm run coverage
       - uses: actions/upload-artifact@v7

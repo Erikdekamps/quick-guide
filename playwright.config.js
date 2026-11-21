@@ -1,6 +1,8 @@
 // @ts-check
-// Tests for Quick Guide. The app runs in Chromium (like the Alt1 browser) at the Alt1 window size.
-// "app" tests use a fake wiki and need no internet. "live" tests read the real RuneScape Wiki.
+// Tests for Quick Guide.
+// "unit" tests run the app's files in Node, without a browser: they take seconds, and run first (npm run test:unit).
+// "app" tests run the app in Chromium (like the Alt1 browser) at the Alt1 window size, with a fake wiki and no
+// internet. They start when the unit tests passed. "live" tests read the real RuneScape Wiki.
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
@@ -25,7 +27,8 @@ module.exports = defineConfig({
     reducedMotion: 'reduce'
   },
   projects: [
-    { name: 'app', testIgnore: /live\.spec\.js$/ },
+    { name: 'unit', testDir: './tests/unit' },
+    { name: 'app', testIgnore: [/live\.spec\.js$/, /[\\/]unit[\\/]/], dependencies: ['unit'] },
     { name: 'live', testMatch: /live\.spec\.js$/, timeout: 90000, expect: { timeout: 30000 } }
   ]
 });

@@ -4,9 +4,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { test, expect } = require('@playwright/test');
-const V = require('../tools/version');
+const V = require('../../tools/version');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '..', '..');
 const LOG = '# Changelog\n\nIntro.\n\n## [Unreleased]\n\n### Fixed\n\n- A fix.\n\n## [1.4.2] - 2026-01-02\n\n### Added\n\n- Something.\n';
 
 // A small copy of the project: package.json, package-lock.json, index.html and CHANGELOG.md.

@@ -133,6 +133,6 @@
     updateAll(true);
   }
 
-  A.share({ autoUpdate: autoUpdate, updateAll: updateAll, updateText: updateText });
+  A.share({ autoUpdate: autoUpdate, foundText: foundText, pageChanged: changed, updateAll: updateAll, updateText: updateText });
   A.loaded.update = true;
 })(window.QuickGuideApp);

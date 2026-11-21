@@ -173,7 +173,7 @@ button goes to its list.
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (near the bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
-- At the very bottom: the app's version, and **What's new** ([CHANGELOG.md](CHANGELOG.md), see [Versions](#versions)).
+- At the very bottom: the app's version (see [Versions](#versions)).
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
 the wiki, or resets its progress. In a quest it also jumps to the next step. In a cape it refreshes, opens the wiki, or resets.
@@ -320,6 +320,7 @@ No other service is used.
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
 | `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)) |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
+| `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
 | `tests/coverage.json` | The code no test runs yet (see [Tests](#tests)) |
 | `eslint.config.js` | The code check: `npm run lint` |
 | `.github/workflows/tests.yml` | Runs the code check, the version check and the tests on every pull request |
@@ -333,9 +334,8 @@ No other service is used.
 
 ## Versions
 
-The app has one version number, like `1.43.0`. Settings shows it at the bottom, with a link to
-[CHANGELOG.md](CHANGELOG.md): what changed in each version. The three numbers are MAJOR.MINOR.PATCH
-([semantic versioning](https://semver.org/)):
+The app has one version number, like `1.43.0`. Settings shows it at the bottom. [CHANGELOG.md](CHANGELOG.md) says what
+changed in each version. The three numbers are MAJOR.MINOR.PATCH ([semantic versioning](https://semver.org/)):
 
 - **MAJOR** goes up when saved data or the export file changes so that old ones no longer work as before.
 - **MINOR** goes up for something new you can see or do.
@@ -356,13 +356,20 @@ Once `main` is on GitHub Pages, GitHub makes a release of the new version, with 
 The tests use [Playwright](https://playwright.dev/) with Chromium, the browser Alt1 is built on. They open the app
 in a 360 × 720 window, like Alt1, and click through it like a person would.
 
-- They run on GitHub for every pull request (the **Actions** tab), after the code check (`npm run lint`) and the
-  version check. `main` only takes pull requests whose tests passed, and is then put on GitHub Pages.
+- **Unit tests** (`tests/unit/`) run the app's own files in Node, without a browser. All of them take a few
+  seconds, and they run first: the browser tests only start when they pass. They test what needs no page: what you
+  type, wiki text, ids, how the app asks the wiki, what Update from the wiki reads again. Code that needs a page
+  says so ("needs a browser"), and is tested in the browser.
+- The other tests open the app in the browser.
+- They run on GitHub for every pull request (the **Actions** tab), in this order: the code check (`npm run lint`),
+  the unit tests, the version check, then the browser tests. `main` only takes pull requests whose tests passed,
+  and is then put on GitHub Pages.
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - An error in the page that nobody catches fails the test, in every test.
 - New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
-  that no test runs (a part of an `if`, a fallback, a function). `tests/coverage.json` lists the code no test runs yet.
-- `tests/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
+  that no test runs (a part of an `if`, a fallback, a function), in the unit tests or in the browser.
+  `tests/coverage.json` lists the code no test runs yet.
+- `tests/unit/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
   file takes from another one is shared, and every saved key is in the table above.
 - GitHub checks the app against the real wiki once a week, and on a pull request that changes how the app reads
   the wiki (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
@@ -375,6 +382,7 @@ npx playwright install chromium
 npm test
 ```
 
+- `npm run test:unit` runs only the unit tests: a few seconds, no browser needed.
 - `npm run lint` is the code check: names that are not defined or not used, and other mistakes.
 - `npm run test:live` checks against the real wiki (needs the internet).
 - `npm run coverage` runs the tests and shows how much of each file they run. It fails when there is code no test runs

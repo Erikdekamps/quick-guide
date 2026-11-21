@@ -1,4 +1,4 @@
-// Starting the app: missing files, the cache numbers in index.html, the version, and a clean run.
+// Starting the app: missing files, the version, and a clean run. (What index.html loads: tests/unit/code.spec.js.)
 const fs = require('fs');
 const path = require('path');
 const { test, expect, ROOT, openApp, openQuest, openTab, choose, openSettings } = require('./support/app');
@@ -40,33 +40,10 @@ test.describe('a file that does not load', () => {
   });
 });
 
-test.describe('index.html', () => {
-  const local = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]).filter((u) => !/^(https?:)?\/\//.test(u));
-
-  test('every file it names exists', () => {
-    expect(local.length).toBeGreaterThanOrEqual(6);
-    for (const u of local) expect(fs.existsSync(path.join(ROOT, u.split('?')[0])), u).toBe(true);
-  });
-
-  test('scripts and styles share one cache number, so Alt1 loads new copies together', () => {
-    const versions = local.filter((u) => /\.(js|css)(\?|$)/.test(u)).map((u) => (u.split('?v=')[1] || ''));
-    expect(versions.length).toBeGreaterThanOrEqual(5);
-    expect(versions.every((v) => /^\d+\.\d+\.\d+$/.test(v))).toBe(true);
-    expect(new Set(versions).size).toBe(1);
-  });
-
-  test('the cache number is the version in package.json', () => {
-    expect([...new Set(html.match(/\?v=[^"]+/g))]).toEqual(['?v=' + version]);
-  });
-});
-
-test('Settings ends with the version, and a link to what changed', async ({ page }) => {
+test('Settings ends with the version', async ({ page }) => {
   await openApp(page, expect);
   await openSettings(page);
-  const ver = page.locator('#settings > :last-child');
-  await expect(ver).toHaveText('Quick Guide ' + version + ' \u00b7 What\u2019s new');
-  await expect(ver.getByRole('link', { name: 'What\u2019s new' })).toHaveAttribute('href', 'https://github.com/Erikdekamps/quick-guide/blob/main/CHANGELOG.md');
-  await expect(ver.getByRole('link')).toHaveAttribute('target', '_blank');
+  await expect(page.locator('#settings > :last-child')).toHaveText('Quick Guide ' + version);
 });
 
 test('without a cache number on core.js, Settings shows no version', async ({ page }) => {

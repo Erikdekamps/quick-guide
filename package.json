@@ -6,6 +6,7 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "test": "playwright test --project=app",
+    "test:unit": "playwright test --project=unit",
     "test:live": "playwright test --project=live",
     "lint": "eslint .",
     "check:version": "node tools/version.js check",

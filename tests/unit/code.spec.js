@@ -6,9 +6,10 @@ const path = require('path');
 const espree = require('espree');
 const { test, expect } = require('@playwright/test');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '..', '..');
 const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const html = read('index.html'), readme = read('README.md'), core = read('js/app/core.js');
+const { version } = JSON.parse(read('package.json'));
 // The scripts of the app, in the order index.html loads them.
 const scripts = [...html.matchAll(/<script src="(js\/[^"?]+)/g)].map((m) => m[1]);
 const appFiles = scripts.filter((f) => f.startsWith('js/app/'));
@@ -36,6 +37,26 @@ test.describe('the files', () => {
   test('the README and the top of core.js name every file', () => {
     for (const f of scripts) expect(readme, 'README.md, Files').toContain('| `' + f + '` |');
     for (const f of appFiles) expect(core, 'the top of core.js').toMatch(new RegExp('^ \\* {3}' + path.basename(f).replace('.', '\\.') + ' ', 'm'));
+  });
+});
+
+test.describe('index.html', () => {
+  const local = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1]).filter((u) => !/^(https?:)?\/\//.test(u));
+
+  test('every file it names exists', () => {
+    expect(local.length).toBeGreaterThanOrEqual(6);
+    for (const u of local) expect(fs.existsSync(path.join(ROOT, u.split('?')[0])), u).toBe(true);
+  });
+
+  test('scripts and styles share one cache number, so Alt1 loads new copies together', () => {
+    const versions = local.filter((u) => /\.(js|css)(\?|$)/.test(u)).map((u) => (u.split('?v=')[1] || ''));
+    expect(versions.length).toBeGreaterThanOrEqual(5);
+    expect(versions.every((v) => /^\d+\.\d+\.\d+$/.test(v))).toBe(true);
+    expect(new Set(versions).size).toBe(1);
+  });
+
+  test('the cache number is the version in package.json', () => {
+    expect([...new Set(html.match(/\?v=[^"]+/g))]).toEqual(['?v=' + version]);
   });
 });
 

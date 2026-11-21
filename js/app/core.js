@@ -52,7 +52,6 @@
     var m = document.currentScript && /[?&]v=(\d+\.\d+\.\d+)/.exec(document.currentScript.src);
     return m ? m[1] : '';
   })();
-  var CHANGES = 'https://github.com/Erikdekamps/quick-guide/blob/main/CHANGELOG.md';
   var PREFIX = 'qg1.';
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
@@ -458,7 +457,7 @@
       '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
       '<p class="mh danger">Danger zone</p>' +
       '<button class="mi danger" type="button" data-act="wipe">' + I.reset + '<span>Delete everything</span></button>' +
-      (VERSION ? '<p class="foot ver">Quick Guide ' + esc(VERSION) + ' \u00b7 <a href="' + CHANGES + '" target="_blank" rel="noopener">What\u2019s new</a></p>' : '');
+      (VERSION ? '<p class="foot ver">Quick Guide ' + esc(VERSION) + '</p>' : '');
   }
   function dotsHtml() {
     return '<button class="ib" type="button" data-menu="menu" id="menu-btn" aria-label="Quest menu" aria-haspopup="true" aria-expanded="false" aria-controls="menu" title="Quest menu">' + I.dots + '</button>' +

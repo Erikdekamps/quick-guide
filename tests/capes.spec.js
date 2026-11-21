@@ -95,51 +95,16 @@ test.describe('reading a cape page', () => {
     expect(r).toBe('format');
   });
 
-  test("an achievement's page: what it needs, the capes it counts for, and a tip", async ({ page }) => {
+  // What an achievement needs and the capes it counts for: tests/unit/wiki.spec.js (no browser needed).
+  test("an achievement's page: its tip", async ({ page }) => {
     const pages = JSON.parse(fixture('cape-achievements.json'));
-    const r = await page.evaluate((p) => {
-      const Q = window.QuickGuide, of = (t) => ({ needs: Q.cheevoNeeds(p[t].lead), capes: Q.cheevoCapes(p[t].lead), tip: Q.cheevoTip(p[t].extract) });
-      return { sweep: of('Advanced Sweeping'), heart: of("Conquered Everyone's Heart"), bane: of('Bane Tuner'), bug: of('A bug in the system') };
-    }, pages);
-    // levels (boostable or not), quests ("partial" when part of it is enough), and which capes
-    expect(r.sweep.needs).toEqual({ skills: [{ skill: 'Magic', level: 93, boost: true }], oneOf: [], other: [],
-      links: [{ name: 'Swept Away', partial: false }, { name: 'Diamond in the Rough', partial: false }, { name: 'Lunar Diplomacy', partial: true }, { name: 'Underground Pass', partial: true }] });
-    expect(r.sweep.capes).toEqual(['mqc']);
-    // the tip: the first paragraph, without "… is an achievement that requires the player to"
-    expect(r.sweep.tip).toMatch(/^Fully enchant the broomstick by bringing it to various magic users around the world\./);
-    // one of several levels: the app can tell if you have one
-    expect(r.heart.needs).toEqual({ skills: [{ skill: 'Constitution', level: 70, boost: false }], links: [], other: [],
-      oneOf: [{ text: '60 Strength or 60 Agility', any: [[{ skill: 'Strength', level: 60 }], [{ skill: 'Agility', level: 60 }]] }] });
-    expect(r.bane.capes).toEqual(['mqc', 'comp']);
-    expect(r.bug.needs).toEqual({ skills: [], links: [], oneOf: [], other: [] });
-    // other forms the wiki uses: a template over more lines, groups of levels, plain words
-    const more = await page.evaluate(() => {
-      const Q = window.QuickGuide;
-      return [
-        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n{{Achievement requirement\n|or = y\n|{{Achievement requirement|Agility|90}}\n|{{Achievement requirement|Cooking|90}}\n}}\n|id = 409\n}}'),
-        Q.cheevoNeeds('{{Infobox Achievement\n|requirements = \n{{Achievement requirement\n|or = y\n|\n* {{Skillreq|Fishing|90}}\n* {{Skillreq|Slayer|90}}\n|\n* {{Skillreq|Prayer|90}}\n}}\n}}'),
-        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* Tier 10 [[Fort Forinthry|the fort]] in the [[Wilderness]].\n* None\n|mqc = yes\n}}'),
-        Q.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* {{Achievement requirement|or = y|80 Attack|80 [[Strength]]}}\n* {{Achievement requirement|or = y|81 Woodcutting|find an idol}}\n}}'),
-        Q.cheevoTip('<p class="mw-empty-elt">\n</p><p><b>Port Life</b> is an achievement awarded for following the tutorial.</p><p>More.</p>')
-      ];
-    });
-    expect(more[0].oneOf).toEqual([{ text: '90 Agility or 90 Cooking', any: [[{ skill: 'Agility', level: 90 }], [{ skill: 'Cooking', level: 90 }]] }]);
-    expect(more[1].oneOf).toEqual([{ text: '90 Fishing + 90 Slayer or 90 Prayer',
-      any: [[{ skill: 'Fishing', level: 90 }, { skill: 'Slayer', level: 90 }], [{ skill: 'Prayer', level: 90 }]] }]);
-    expect(more[2]).toEqual({ skills: [], links: [], oneOf: [], other: ['Tier 10 the fort in the Wilderness'] });
-    // levels in words count too; with something that is not a level, it stays words
-    expect(more[3].oneOf).toEqual([{ text: '80 Attack or 80 Strength', any: [[{ skill: 'Attack', level: 80 }], [{ skill: 'Strength', level: 80 }]] }]);
-    expect(more[3].other).toEqual(['81 Woodcutting or find an idol']);
-    expect(more[4]).toBe('Port Life is an achievement awarded for following the tutorial.');
-    // comments are left out, also one that takes another out to make itself ("<!<!-- -->--"), and one that is not
-    // closed hides the rest, like on the wiki
-    const noted = await page.evaluate(() => [
-      window.QuickGuide.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* {{Skillreq|Magic|50}} <!-- a note -->\n* [[Swept Away]]<!<!-- x -->--\n* [[Diamond in the Rough]]\n}}'),
-      window.QuickGuide.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* [[Swept Away]]\n* [[Ode of the Devourer]] <!-- not closed\n* [[Diamond in the Rough]]\n}}')
-    ]);
-    expect(noted[0]).toEqual({ skills: [{ skill: 'Magic', level: 50, boost: false }], links: [{ name: 'Swept Away', partial: false }], oneOf: [], other: [] });
-    expect(JSON.stringify(noted)).not.toContain('<!--');
-    expect(noted[1].links.map((l) => l.name)).toEqual(['Swept Away', 'Ode of the Devourer']);
+    const tips = await page.evaluate((p) => [
+      window.QuickGuide.cheevoTip(p['Advanced Sweeping'].extract),
+      window.QuickGuide.cheevoTip('<p class="mw-empty-elt">\n</p><p><b>Port Life</b> is an achievement awarded for following the tutorial.</p><p>More.</p>')
+    ], pages);
+    // the first paragraph, without "… is an achievement that requires the player to"
+    expect(tips[0]).toMatch(/^Fully enchant the broomstick by bringing it to various magic users around the world\./);
+    expect(tips[1]).toBe('Port Life is an achievement awarded for following the tutorial.');
   });
 });
 
