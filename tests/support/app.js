@@ -103,6 +103,7 @@ class Wiki {
   fail(title, how) { this.pages[title] = { fail: how }; return this; }
   // A page that has another name now: asking for the old name gives the page under its new name (a redirect).
   moved(from, to) { this.pages[from] = Object.assign({}, this.pages[from], { to }); return this; }
+  holdPlayer() { let go; this.playerWait = new Promise((done) => { go = done; }); return () => { this.playerWait = null; go(); }; }
   // A slow wiki: the page (one that is there already) only answers when you call what this gives.
   hold(title) {
     let go;
@@ -183,6 +184,8 @@ class Wiki {
   }
   async answerPlayer(route, url) {
     this.playerCalls.push(url.href);
+    // A slow game: holdPlayer() makes every answer wait until you call what it gives.
+    if (this.playerWait) await this.playerWait;
     for (const key of Object.keys(this.player)) {
       if (url.href.indexOf(key) >= 0) {
         const a = this.player[key];
@@ -242,6 +245,12 @@ const test = base.test.extend({
         };
       }
     }
+    // The app starts itself again after Delete everything: deleteEverything() keeps what ran before that.
+    page.keepRan = async () => {
+      if (!cov) return;
+      ran.push(...await page.coverage.stopJSCoverage());
+      await page.coverage.startJSCoverage({ resetOnNavigation: false });
+    };
     await use(page);
     if (cov) {
       ran.push(...await page.coverage.stopJSCoverage());
@@ -275,6 +284,12 @@ async function seed(page, data) {
     localStorage.clear();
     for (const k of Object.keys(d)) localStorage.setItem('qg1.' + k, JSON.stringify(d[k]));
   }, data);
+}
+// Settings is open: both clicks of Delete everything. The app then starts again.
+async function deleteEverything(page) {
+  await page.locator('[data-act="wipe"]').click();
+  await page.keepRan();
+  await page.locator('[data-act="wipe"]').click();
 }
 // Reads one value from the app's storage (key without "qg1.").
 function stored(page, key) {
@@ -390,4 +405,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain, deleteEverything };

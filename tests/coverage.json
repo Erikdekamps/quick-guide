@@ -200,7 +200,8 @@
   "|| ''",
   "function () { map.scrollWheelZoom.enable(); }",
   "main.classList.toggle('show-done', S.set.showDone);",
-  "catch (e) { /* blocked: only memory to clear */ }"
+  "S.wipeArmed = 0; closeMenus(); A.closeBackup(); A.closeTodoDialog(); try { var l",
+  "catch (e) { /* not important */ }"
  ],
  "js/app/main.js": [
   "fetchOrder(true);",

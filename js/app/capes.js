@@ -415,7 +415,7 @@
       // the cape that is open (on screen, or under Settings) gets the new one too
       if (S.capeKey === key && S.cape) {
         S.cape = nc;
-        if (S.view === 'cape') renderCape(true);
+        A.redrawWhenFree(function () { if (S.view === 'cape' && S.cape === nc) renderCape(true); });
       }
       return added;
     });

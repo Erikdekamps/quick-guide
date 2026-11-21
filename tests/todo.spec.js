@@ -5,7 +5,7 @@
 // Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
 // Every list ends with a box to type the next goal in. A goal can have sub tasks, and those their own; a goal you
 // wrote yourself can become a list, and gets a link to its wiki page when there is one.
-const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle, deleteEverything } = require('./support/app');
 
 const tab = (page) => page.locator('.bn[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
@@ -1181,8 +1181,7 @@ test.describe('limits, storage and the look', () => {
     await expect(goals(page, 'Fine').locator('.t')).toHaveText(['Kept', '500 Magic logs', 'Unlock Soul Split']);
     expect(page.errors).toEqual([]);
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     expect(await stored(page, 'todo')).toBeNull();
     await page.locator('.bn[data-home="todo"]').click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');

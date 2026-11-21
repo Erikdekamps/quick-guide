@@ -10,6 +10,15 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.43.2] - 2026-11-21
+
+### Fixed
+
+- A link in a guide to a wiki page called "WARNING", or one with "()" in its name, keeps its address. A warning in a list of things to bring is marked once, not twice.
+- A guide, an area or a cape that is read again while the Add to list box or a My list menu is open waits with drawing until you close it, so what you typed stays.
+- Forget this player while the character is looked up: it stays forgotten. Before, the answer brought it back.
+- Delete everything starts the app again, so nothing of before is left and an answer that was still on its way is not saved after all.
+
 ## [1.43.1] - 2026-11-21
 
 ### Fixed

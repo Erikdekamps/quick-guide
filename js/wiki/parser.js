@@ -273,18 +273,26 @@
     do { prev = s; s = s.replace(/^\s*<br>|<br>\s*$/g, ''); } while (s !== prev);
     return s;
   }
+  // Changes the words of a piece of the app's own HTML, and leaves its tags alone: a link to a page called "WARNING"
+  // or "Foo ()" keeps its address. fn(words, the tag right before them) gives the new words.
+  function onWords(html, fn) {
+    return html.split(/(<[^>]*>)/).map(function (bit, i, all) { return i % 2 ? bit : fn(bit, all[i - 1] || ''); }).join('');
+  }
+  var CAUTION_OPEN = '<span class="caution">';
   // Tidy spacing and punctuation left behind after pulling bits out.
   function tidy(html) {
     var s = trimBreaks(String(html || '')
       .replace(/\s*\[UK\]\s*/g, ' (UK) / ').replace(/\s*\[US\]/g, ' (US)')
       .replace(/[ \t\r\n\u00a0]+/g, ' ')
-      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'))
-      .replace(/\(\s*\)/g, '')
+      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'));
+    s = onWords(s, function (w) { return w.replace(/\(\s*\)/g, ''); })
       .replace(/\s+([.,;:!?])(?=\s|$|<)/g, '$1')
       .replace(/\(\s+/g, '(').replace(/\s+\)/g, ')')
-      .replace(/^[,;]\s*/, '')
-      .replace(/\b(CAUTION|WARNING|IMPORTANT)\b:?/g, '<span class="caution">$&</span>')
-      .trim();
+      .replace(/^[,;]\s*/, '');
+    // (text that is tidied twice is marked once)
+    s = onWords(s, function (w, tag) {
+      return tag === CAUTION_OPEN ? w : w.replace(/\b(CAUTION|WARNING|IMPORTANT)\b:?/g, CAUTION_OPEN + '$&</span>');
+    }).trim();
     return fixParens(s);
   }
 

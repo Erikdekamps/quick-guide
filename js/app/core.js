@@ -268,6 +268,7 @@
     capeKey: '',
     cprog: null,
     playerBusy: false,
+    playerAsk: 0,     // the number of the last lookup: an older one's answer is not used
     playerMsg: '',
     playerInput: '',
     closed: obj(savedView.closed),   // groups in the lists that are folded shut
@@ -419,9 +420,12 @@
     if (!name) { S.playerMsg = 'Type your character name first.'; drawPlayer(); return; }
     if (S.playerBusy) return;
     S.playerBusy = true;
+    var mine = ++S.playerAsk;
     S.playerMsg = 'Looking up ' + name + '\u2026';
     drawPlayer();
     QG.loadPlayer(name).then(function (p) {
+      // You forgot the character while it was looked up: it stays forgotten.
+      if (mine !== S.playerAsk) return;
       S.playerBusy = false;
       S.playerMsg = '';
       S.playerInput = '';
@@ -429,6 +433,7 @@
       sset('player', p);
       playerChanged();
     }, function (e) {
+      if (mine !== S.playerAsk) return;
       S.playerBusy = false;
       S.playerMsg = had ? '' : playerError(e, name);
       drawPlayer();
@@ -436,6 +441,8 @@
     });
   }
   function forgetPlayer() {
+    S.playerAsk++;
+    S.playerBusy = false;
     S.player = null;
     S.playerMsg = '';
     S.playerInput = '';
@@ -692,6 +699,12 @@
       renderStart();
       return false;
     }
+  }
+  // A screen that draws itself again (its page was read again from the wiki) waits while a box or a menu of My list is
+  // open: what you typed there would be gone. draw checks itself if the screen is still the one to draw.
+  function redrawWhenFree(draw) {
+    if (byId('td') || byId('tmenu')) { setTimeout(function () { redrawWhenFree(draw); }, 300); return; }
+    draw();
   }
   // A button of the bar at the bottom. From Settings, the button of the screen you came from takes you back to it.
   function goHome(h) {
@@ -962,18 +975,16 @@
       for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && k.indexOf(PREFIX) === 0) keys.push(k); }
       keys.forEach(function (k) { ls.removeItem(k); });
     } catch (e) { /* blocked: only memory to clear */ }
-    Object.keys(memory).forEach(function (k) { delete memory[k]; });
-    unsaved = {};
-    S.set = readSettings();
-    S.player = null; S.playerMsg = ''; S.playerInput = '';
-    S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
-    S.listError = ''; S.orderError = ''; S.aidxFail = [];
-    S.q = null; S.key = ''; S.prog = null; S.area = null; S.areaKey = ''; S.aprog = null; S.cape = null; S.capeKey = ''; S.cprog = null;
-    S.todo = null; S.todoIdx = null; S.subAdd = null;
+    // The app starts again, so nothing of before is left: what it had in memory, and questions to the wiki that are
+    // still on their way (their answers would be saved again). The address tells the new start to say so.
     clearTimeout(viewTimer);
-    S.closed = {}; S.input = ''; S.error = ''; S.loading = false; S.scroll = {};
-    applySettings();
-    renderStart();
+    try { window.history.replaceState(null, '', '#deleted'); } catch (e) { /* it starts again all the same */ }
+    window.location.reload();
+  }
+  // At the start: was everything just deleted?
+  function saidDeleted() {
+    if (window.location.hash !== '#deleted') return;
+    try { window.history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { /* not important */ }
     toast('Everything is deleted.');
   }
 
@@ -986,7 +997,7 @@
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
     questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,
-    showSaved: showSaved, stillWanted: stillWanted, stopWaiting: stopWaiting, waitFor: waitFor, resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
+    redrawWhenFree: redrawWhenFree, saidDeleted: saidDeleted, showSaved: showSaved, stillWanted: stillWanted, stopWaiting: stopWaiting, waitFor: waitFor, resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
     saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,
     textOf: textOf, toast: toast,

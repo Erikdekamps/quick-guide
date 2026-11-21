@@ -174,7 +174,7 @@ button goes to its list.
 - **Update from the wiki** (see below) brings in what is new: quests, tasks and achievements.
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (near the bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
-  It takes two clicks, the second within 4 seconds.
+  It takes two clicks, the second within 4 seconds. The app then starts again.
 - At the very bottom: the app's version (see [Versions](#versions)).
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on

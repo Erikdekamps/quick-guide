@@ -1,6 +1,6 @@
 // Export and import: everything as a JSON file you can download, change by hand, and import again.
 const fs = require('fs');
-const { test, expect, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS, deleteEverything } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
@@ -416,8 +416,7 @@ test.describe('danger zone', () => {
     await openApp(page, expect);
     await expect(page.locator('html')).toHaveCSS('font-size', '18px');
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
     // the app starts again: the quest list is read again from the wiki, and nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');
@@ -436,8 +435,7 @@ test.describe('danger zone', () => {
   test('works inside a quest too: you are back at the start', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
     // the quest list is read again from the wiki: wait for it, then nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');

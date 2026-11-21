@@ -440,7 +440,7 @@
       // the area that is open (on screen, or under Settings) gets the new one too
       if (S.areaKey === name && S.area) {
         S.area = na;
-        if (S.view === 'area') renderArea(true);
+        A.redrawWhenFree(function () { if (S.view === 'area' && S.area === na) renderArea(true); });
       }
       return added;
     });
