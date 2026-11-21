@@ -114,3 +114,22 @@ test('when storage is full, the guide opened longest ago is dropped, but not its
   expect(keys).toEqual(expect.arrayContaining(['quest.B/Quick guide', 'quest.C/Quick guide', 'prog.A/Quick guide']));
   expect((await stored(page, 'meta'))['A/Quick guide']).toMatchObject({ done: 1 });
 });
+
+test('when storage is full and nothing is left to drop, the app says the change is not saved, and keeps it while it is open', async ({ page }) => {
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  await openTab(page, 'steps');
+  // From here on, nothing more fits.
+  await page.evaluate(() => {
+    Storage.prototype.setItem = function () { throw new DOMException('Full', 'QuotaExceededError'); };
+  });
+  await page.locator('#next-btn').click();
+  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
+  await expect(page.locator('#toast')).toHaveText('The storage is full: your last change is not saved. Use Export state in Settings to keep it.');
+  expect(Object.keys((await stored(page, 'prog.' + WGS)).steps)).toEqual([]);
+  // the tick is still there when you come back to the quest: what did not fit wins from what the storage holds
+  await page.getByRole('button', { name: 'All quests' }).click();
+  await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .qs')).toHaveText('1 / 12');
+  await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
+  await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
+  expect(page.errors).toEqual([]);
+});

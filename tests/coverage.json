@@ -122,11 +122,10 @@
   "function (e) { if (!silent) toast('Could not update. ' + loadError(e)); }"
  ],
  "js/app/core.js": [
-  "continue;",
   "|| 0",
   "continue;",
   "|| 0",
-  "return false;",
+  "function () { fullTold = false; }",
   "|| []",
   ": 'smooth'",
   "catch (e) { ok = false; }",
@@ -200,7 +199,6 @@
   "|| p.description",
   "|| ''",
   "function () { map.scrollWheelZoom.enable(); }",
-  "return;",
   "main.classList.toggle('show-done', S.set.showDone);",
   "catch (e) { /* blocked: only memory to clear */ }"
  ],
@@ -267,7 +265,6 @@
   "return h + '<p class=\"empty\">No quests here.</p>';",
   "? 'false'",
   "? ' hidden'",
-  "? ''",
   "|| '\\u2022'",
   "? 'The number varies'",
   "? 'Any option'",
@@ -320,7 +317,6 @@
   "return null;",
   "o.note = line(u.note, NOTE_MAX);",
   ": ''",
-  "|| newId('g')",
   "return null;",
   "return null;",
   "? ''",

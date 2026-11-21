@@ -33,7 +33,8 @@
  *   cprog.<key>     your ticks in that cape: { ticks: {id: 1}, tab, open }
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
- * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
+ * When the storage is full, the guides that were opened longest ago are dropped, then the areas (ticks and lists
+ * are kept). When there is still no room, the app says that the change is not saved.
  */
 (function () {
   'use strict';
@@ -70,10 +71,14 @@
 
   // ---------- storage (falls back to memory if the browser blocks it) ----------
   var memory = {};
+  // Keys whose last write did not fit, and if the app said so a moment ago.
+  var unsaved = {}, fullTold = false;
+  var FULL_STORAGE = 'The storage is full: your last change is not saved. Use Export state in Settings to keep it.';
   var S = null;
   function sget(k) {
     try {
-      var v = window.localStorage.getItem(PREFIX + k);
+      // What could not be written (storage is full) is newer than what the storage still holds.
+      var v = unsaved[k] ? null : window.localStorage.getItem(PREFIX + k);
       if (v != null) return JSON.parse(v);
     } catch (e) { /* blocked or broken */ }
     return Object.prototype.hasOwnProperty.call(memory, k) ? memory[k] : null;
@@ -108,15 +113,32 @@
       return true;
     } catch (e) { return false; }
   }
+  // Saves a value. When the storage is full it drops old guides to make room. False when it still did not fit: the
+  // value is then only kept until the app closes, and the app says so.
   function sset(k, v) {
     memory[k] = v;
-    var s = JSON.stringify(v);
+    var s = JSON.stringify(v), full = false;
     for (var tries = 0; tries < 40; tries++) {
-      try { window.localStorage.setItem(PREFIX + k, s); return; } catch (e) { if (!evict(k)) return; }
+      try { window.localStorage.setItem(PREFIX + k, s); delete unsaved[k]; return true; } catch (e) {
+        full = isFull(e);
+        if (!evict(k)) break;
+      }
     }
+    // Blocked storage (not full) is not said: nothing is ever kept then.
+    if (full) { unsaved[k] = 1; tellFull(); }
+    return false;
+  }
+  function isFull(e) { return !!e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22); }
+  // Says that the last change was not saved: after the screen is drawn, and not again for every tick.
+  function tellFull() {
+    if (fullTold) return;
+    fullTold = true;
+    setTimeout(function () { toast(FULL_STORAGE, 8000); }, 0);
+    setTimeout(function () { fullTold = false; }, 8000);
   }
   function sdel(k) {
     delete memory[k];
+    delete unsaved[k];
     try { window.localStorage.removeItem(PREFIX + k); } catch (e) { /* ignore */ }
   }
 
@@ -918,6 +940,7 @@
       keys.forEach(function (k) { ls.removeItem(k); });
     } catch (e) { /* blocked: only memory to clear */ }
     Object.keys(memory).forEach(function (k) { delete memory[k]; });
+    unsaved = {};
     S.set = readSettings();
     S.player = null; S.playerMsg = ''; S.playerInput = '';
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;

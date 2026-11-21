@@ -189,7 +189,8 @@
     if (!sub) return;
     mark(sub.u, on);
     setSubs(sub.u, on);
-    settleGoal(g, true);
+    // (only a tick finishes what is above it; an untick opens it again)
+    settleGoal(g, on);
     changed();
   }
 

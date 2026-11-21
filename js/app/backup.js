@@ -141,6 +141,9 @@
     try { j = JSON.parse(text); } catch (e) { return { error: 'That is not valid JSON. ' + (e && e.message ? e.message : '') }; }
     if (!isMap(j) || j.app !== 'Quick Guide') return { error: 'That is not a Quick Guide export.' };
     if (+j.format > FORMAT) return { error: 'This export is from a newer version of the app.' };
+    // The lists are checked before anything changes: they replace yours, so a mistake there must not empty them.
+    var te = j.mylist == null ? '' : A.todoFileError(j.mylist);
+    if (te) return { error: 'There is a mistake in the lists. ' + te };
     var nq = 0, na = 0;
     var st = j.settings;
     if (isMap(st)) {

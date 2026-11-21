@@ -10,6 +10,15 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.43.1] - 2026-11-21
+
+### Fixed
+
+- When the storage is full and nothing is left to drop, the app says that your change is not saved, and keeps it until you close the app. Before, it was lost without a word.
+- A task, an achievement or a quest on a list, ticked in its own screen, is no longer unticked there when it has a sub task that is still open.
+- A list called "Constructor" is no longer lost after a reload, and "82 constructor" is a goal like any other.
+- An import with a mistake in its lists says what is wrong and leaves your lists. Before, it could empty them.
+
 ## [1.43.0] - 2026-11-21
 
 ### Added
