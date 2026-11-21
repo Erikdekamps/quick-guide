@@ -844,6 +844,9 @@ kbd {
 .setp .mh + .mi { border-top: 1px solid var(--rule); }
 .setp .sel { width: 150px; margin-left: 0; }
 .setp .player { margin: 0 10px; }
+/* Update from the wiki, with what it found (or how far it is) under it */
+.setp .mi.upd { border-bottom: 0; }
+.setp .mx { margin: -6px 0 0; padding: 0 12px 8px 38px; font-size: 12px; line-height: 1.4; color: var(--muted); border-bottom: 1px solid var(--rule); }
 
 /* gold buttons, like the game's main action buttons */
 .btn, .next {
@@ -1164,6 +1167,10 @@ button.mi:disabled:hover { background: none; color: var(--text); }
 /* an achievement the app ticks itself: from your quests, your levels, or another cape */
 .task.auto > .row > .cb, .task.auto > .row > .cb:hover { border-style: dashed; border-color: var(--cb-edge); opacity: .7; cursor: default; }
 .self { font-size: .857rem; color: var(--muted); }
+/* "New": an achievement, a task or a quest that came out since the app last read its page */
+.newtag { display: inline-block; margin-left: 4px; padding: 1px 4px 0; border-radius: 2px; background: var(--gold); color: #1b1713;
+  font: 700 10px/14px "Fira Sans", system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; vertical-align: 2px; }
+.cape .nw { color: var(--gold); }
 /* "Also counts for the completionist cape": an achievement in two capes is one tick */
 .task .also { display: block; margin-top: 3px; font-size: .857rem; color: var(--muted); }
 .self b { color: var(--soft); font-weight: 600; font-variant-numeric: tabular-nums; }
