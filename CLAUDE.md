@@ -13,7 +13,7 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 - Before pushing, check the branch's pull request is still open; if it was merged, start a new branch from main and open a new PR.
 - Never force-push or rewrite pushed history; fix things in new commits on top.
 - Look at main with git fetch and git log/diff; never check out origin/main itself.
-- End commits with only the Co-Authored-By line: no Claude session links.
+- No Claude session links in commits or pull request text; commits end with only the Co-Authored-By line.
 - Fill in the pull request template (.github/pull_request_template.md).
 
 ## Versions
@@ -24,7 +24,7 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Files
 
-- A new file in js/app goes into index.html (before main.js), main.js's loaded list, the top of core.js and the README files table; tests/code.spec.js checks it.
+- A new file in js/app goes into index.html (before main.js), main.js's loaded list, the top of core.js and the README files table; tests/unit/code.spec.js checks it.
 - Files share names only through A.share(); a name a file takes when it loads must come from a file loaded before it.
 
 ## Saved data
