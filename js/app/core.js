@@ -846,7 +846,8 @@
       S.prog.items = {};
       S.prog.open = {};
       S.prog.acc = {};
-      S.scroll = {};
+      // only this quest's places: the other quests, areas and capes keep where you were
+      Object.keys(S.scroll).forEach(function (k) { if (k.indexOf('quest:' + S.key + ':') === 0) delete S.scroll[k]; });
       S.resetArmed = 0;
       A.renderQuest();
       toast('Progress reset.');

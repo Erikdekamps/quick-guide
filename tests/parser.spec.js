@@ -268,6 +268,13 @@ test.describe('wiki markup details', () => {
     expect(steps(q).map((s) => s.text)).toEqual(['Read the sign now.', 'See Foo.']);
   });
 
+  test('parts that are no steps ("Credits", "External links") are left out; a drawing in a step too', async ({ page }) => {
+    const q = await parse(page, '<h2>Part</h2><ul><li>Talk to Bob <svg><title>arrow</title><text>x</text></svg><math><mi>m</mi></math>now.</li></ul>' +
+      '<h2>Credits</h2><ul><li>Mod Alice</li></ul><h2>Development team</h2><ul><li>Mod Bob</li></ul><h2>External links</h2><ul><li>A site</li></ul>');
+    expect(q.sections.map((s) => s.title)).toEqual(['Part']);
+    expect(steps(q).map((s) => s.text)).toEqual(['Talk to Bob now.']);
+  });
+
   test('a "Bring" line is tidied twice, and a warning in it is marked once', async ({ page }) => {
     const q = await parse(page, '<h2>Part</h2><p><b>Needed:</b> IMPORTANT: an antipoison, a rope</p>');
     const html = q.sections[0].blocks[0].needed.map((x) => x.html).join(' | ');

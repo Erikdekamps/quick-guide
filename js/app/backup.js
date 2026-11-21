@@ -17,7 +17,7 @@
 
   // ---------- export and import ----------
   // Everything you ticked, your settings, your player and My list, as text. Guides and quest lists are not in it: the app reads them from the wiki.
-  var FORMAT = 2;
+  var FORMAT = 2, MAX_FILE = 3000000;
   var BOOL_SETTINGS = ['showDone', 'hideDone', 'hideLocked', 'hideMini'];
   function storageKeys(prefix) {
     var out = {};
@@ -137,6 +137,8 @@
   function importState(text) {
     text = String(text || '').trim();
     if (!text) return { error: 'Paste an export first.' };
+    // (an export of everything is far smaller: this is something else, or would not fit in the storage)
+    if (text.length > MAX_FILE) return { error: 'That file is too big to be a Quick Guide export.' };
     var j;
     try { j = JSON.parse(text); } catch (e) { return { error: 'That is not valid JSON. ' + (e && e.message ? e.message : '') }; }
     if (!isMap(j) || j.app !== 'Quick Guide') return { error: 'That is not a Quick Guide export.' };
@@ -337,9 +339,28 @@
     if (!ta) return;
     A.copyText(ta);
   }
-  function runImport() {
+  // Does this file tick area tasks? (Only then the areas must be known first.)
+  function fileHasAreas(text) {
+    try { var j = JSON.parse(text); return isMap(j) && +j.format >= 2 && isMap(j.areas) && Object.keys(j.areas).length > 0; } catch (e) { return false; }
+  }
+  // waited: the areas were read for this import (the ones the wiki could not give are left as they are).
+  function runImport(waited) {
     var ta = byId('bk-text'), err = byId('bk-err');
     if (!ta || !err) return;
+    // A task in the file is found by its number or its name, so the app must know the tasks of every area first:
+    // it reads the areas it does not know yet, then imports.
+    if (waited !== true && String(ta.value).length <= MAX_FILE && fileHasAreas(ta.value) && missingAreas().length) {
+      var btn = document.querySelector('[data-act="bk-import"]');
+      if (btn) btn.disabled = true;
+      err.textContent = 'Reading the areas first, so their tasks are found\u2026';
+      err.hidden = false;
+      S.aidxFail = [];
+      whenAreasRead(function () {
+        if (btn) btn.disabled = false;
+        if (byId('bk-text')) runImport(true);
+      });
+      return;
+    }
     var r = importState(ta.value);
     if (r.error) { err.textContent = r.error; err.hidden = false; return; }
     closeBackup();

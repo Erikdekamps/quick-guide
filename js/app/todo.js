@@ -17,7 +17,7 @@
     order = T.order, parseGoal = T.parseGoal, parseOutline = T.parseOutline, pickerHtml = T.pickerHtml, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     refOf = T.refOf, setDone = T.setDone, setSubs = T.setSubs, settleGoal = T.settleGoal,
     skillKey = T.skillKey, skillName = T.skillName, snapshot = T.snapshot, tell = T.tell, TEXT_MAX = T.TEXT_MAX,
-    todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
+    subCount = T.subCount, subsFull = T.subsFull, todo = T.todo, undoer = T.undoer, whatHtml = T.whatHtml;
 
   var FULL_SUBS = 'A goal has at most 20 sub tasks.';
 
@@ -55,7 +55,8 @@
     var sub = g && pid ? findSub(g, pid) : null, p = pid ? sub && sub.u : g, inp = form.querySelector('input'), text = line(inp.value);
     if (!p) { closeSubAdd(); return; }
     if (!text) { formErr(form, 'Type a sub task first.'); return; }
-    if ((p.subs || []).length >= MAX_SUBS) { closeSubAdd(); toast(FULL_SUBS); return; }
+    var full = subsFull(p);
+    if (full) { closeSubAdd(); toast(full); return; }
     // A level ("82 thieving") ticks itself, like in a list; anything else is a sub task as you typed it.
     var typed = parseGoal(text);
     (p.subs = p.subs || []).push(typed.kind === 'skill' ? copy({ id: newId('s') }, typed) : { id: newId('s'), title: cap1(text) });
@@ -121,11 +122,12 @@
     if (u.kind === 'other') delete u.kind;
     return u;
   }
-  // Puts it under a parent, at the end. False when the parent is full.
+  // Puts it under a parent, at the end. Gives what to say when it does not fit there, or ''.
   function putUnder(x, par) {
-    if ((par.p.subs || []).length >= MAX_SUBS) return false;
+    var full = subsFull(par.p);
+    if (full) return full;
     (par.p.subs = par.p.subs || []).push(asSub(x, par.depth + 1));
-    return true;
+    return '';
   }
   // "New list…" picked in the box: the name field shows.
   function addToPick(sel) {
@@ -149,7 +151,7 @@
     var par = sel.value === '+' ? null : parentOf(byId('ta-parent').value);
     closeDialog();
     // Under a parent it is a sub task there, and still the quest, tier, task or level it stands for.
-    if (par) { if (!putUnder(goalOfRef(st.ref), par)) { toast(FULL_SUBS); return; } settleGoal(par.top); }
+    if (par) { var full = putUnder(goalOfRef(st.ref), par); if (full) { toast(full); return; } settleGoal(par.top); }
     else addGoal(goalOfRef(st.ref), l);
     changed();
     tell('Added to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
@@ -261,7 +263,7 @@
     var g = hit.g, l = hit.l, snap = snapshot();
     if (act === 'gedit') { goalDialog({ edit: id }); return; }
     if (act === 'gsub') {
-      if ((g.subs || []).length >= MAX_SUBS) { closeMenus(); toast(FULL_SUBS); } else openSubAdd(id, '');
+      if (subsFull(g)) { closeMenus(); toast(subsFull(g)); } else openSubAdd(id, '');
       return;
     }
     if (act === 'gmovenew') { listDialog('new', '', id); return; }
@@ -296,6 +298,8 @@
   function goalToList(g, l) {
     var t = todo(), snap = snapshot();
     if (t.lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; }
+    // its sub tasks become goals: they must fit (the goal itself goes away)
+    if (goalCount() - 1 + (g.subs || []).length > MAX_GOALS) { toast(FULL_GOALS); return; }
     var nl = { id: newId('l'), name: freeName(line(goalTitle(g), NAME_MAX)), items: [] };
     (g.subs || []).forEach(function (u) {
       var c = cleanGoal(copy({ kind: 'other' }, u));
@@ -457,7 +461,7 @@
     }
     var stays = !!old && l === hit.l && d.parent === st.from;
     if (!stays && !par && (!old || sub) && goalCount() >= MAX_GOALS) { toast(FULL_GOALS); return; }
-    if (!stays && par && (par.p.subs || []).length >= MAX_SUBS) { toast(FULL_SUBS); return; }
+    if (!stays && par && subsFull(par.p)) { toast(subsFull(par.p)); return; }
     if (stays && sub) {
       // A sub task that stays where it is: the same place under its parent.
       sub.p.subs[sub.i] = asSub(g, sub.depth);
@@ -483,7 +487,7 @@
     return (r.goals.length ? plural(r.goals.length, 'goal', 'goals') + (r.subs ? ' and ' + plural(r.subs, 'sub task', 'sub tasks') : '') + '.' : '') +
       (r.left ? ' ' + (r.left === 1 ? '1 line does not fit and is' : r.left + ' lines do not fit and are') + ' left out.' : '');
   }
-  function readPaste() { return parseOutline(byId('tp-text').value, MAX_GOALS - goalCount()); }
+  function readPaste() { return parseOutline(byId('tp-text').value, MAX_GOALS - goalCount(), T.MAX_ALL_SUBS - subCount()); }
   // "Paste a list…" in a list's menu (and more than one line pasted in the box at the end of a list): a box for
   // the text, which says what it reads while you type.
   // "Import list" (no id): the same box, with a name for the new list the goals go in.
@@ -516,12 +520,22 @@
     closeDialog();
     if (!st.list) { if (todo().lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; } l = makeList(name); }
     if (!l) return;
+    // A pasted line that is done ("[x] Task 448: …") ticks its task, achievement or quest. Undo unticks those again.
+    var open = [], c = ctx();
+    (function walk(list) {
+      (list || []).forEach(function (x) { if (FIXED[x.kind] && x.kind !== 'tier' && !goalState(x, c).done) open.push(copy({}, x)); walk(x.subs); });
+    })(r.goals);
     r.goals.forEach(function (g) {
       if (g.done) g.done = now;
       settleGoal(addGoal(g, l), true);
     });
     changed();
-    tell('Added ' + plural(r.goals.length, 'goal', 'goals') + ' to <b>' + esc(l.name) + '</b>.', [['Undo', undoer(snap)]]);
+    var back = undoer(snap);
+    tell('Added ' + plural(r.goals.length, 'goal', 'goals') + ' to <b>' + esc(l.name) + '</b>.', [['Undo', function () {
+      var c2 = ctx();
+      open.forEach(function (x) { if (goalState(x, c2).done) setDone(x, false); });
+      back();
+    }]]);
   }
   // "Copy as text…" in a list's menu: the list the way "Paste a list" reads it, to copy.
   function copyDialog(l) {

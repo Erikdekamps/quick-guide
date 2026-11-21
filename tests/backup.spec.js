@@ -271,6 +271,27 @@ test.describe('import', () => {
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1, 449: 1 });
   });
 
+  test('a file with area tasks, in an app that did not read the areas yet: it reads them first, then finds the tasks', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, areas: { Ardougne: { Easy: { 'Yoink!': true, '449 Silky Smooth': true, '447 The Essence of Magic': { done: true } } } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 area.');
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1, 448: 1, 449: 1 });
+    // the area list has its count at once
+    await page.locator('.bn[data-home="areas"]').click();
+    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('3 / 23');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a file that is far too big is refused', async ({ page }) => {
+    await openApp(page, expect);
+    await openSettings(page);
+    await page.getByRole('button', { name: 'Import state' }).click();
+    await page.locator('#bk-text').evaluate((t) => { t.value = '{"app":"Quick Guide","format":2,"x":"' + 'a'.repeat(3000000) + '"}'; });
+    await page.getByRole('button', { name: 'Import', exact: true }).click();
+    await expect(page.locator('#bk-err')).toHaveText('That file is too big to be a Quick Guide export.');
+  });
+
   test('a fresh start: everything comes back', async ({ page, wiki, context }) => {
     withAllAreas(wiki);
     await openApp(page, expect);

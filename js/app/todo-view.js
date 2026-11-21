@@ -127,6 +127,9 @@
   }
   // After a change: the tab, the count on it, and the "Add to list" items and "+ goal" buttons on screen.
   function changed() {
+    // An Undo that is still offered is for the lists as they were before this change: it goes away, so it cannot
+    // take this change back with it. (What made this change offers its own Undo right after.)
+    if ((S.toastActs || []).length) { S.toastActs = []; var t = byId('toast'); if (t) t.hidden = true; }
     saveTodo();
     if (S.view === 'start' && S.set.home === 'todo') drawTodo(); else updateCount();
     updateRefs();
