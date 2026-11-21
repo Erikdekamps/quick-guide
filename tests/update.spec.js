@@ -151,6 +151,60 @@ test.describe('Update from the wiki', () => {
     await expect(page.locator('#main')).toContainText('Talk to the Lumbridge Cook');
   });
 
+  test('a quest guide whose page has another name now: your ticks go with it, and it is not kept twice', async ({ page, wiki }) => {
+    const OLD = "Cook's Assistant/Quick guide", NEW = "Cook's Assistant (quest)/Quick guide";
+    await openApp(page, expect);
+    await openQuest(page, expect, "Cook's Assistant");
+    await page.locator('.tab[data-tab="steps"]').click();
+    await page.locator('#next-btn').click();
+    const ticks = (await stored(page, 'prog.' + OLD)).steps;
+    expect(Object.keys(ticks)).toHaveLength(1);
+    wiki.page(NEW, fixture('cooks-assistant.html'));
+    wiki.edit(OLD).moved(OLD, NEW);
+    await update(page, 'Updated: 1 quest guide changed.');
+    expect(Object.keys(await stored(page, 'meta'))).toEqual([NEW]);
+    expect(await stored(page, 'quest.' + OLD)).toBeNull();
+    expect(await stored(page, 'prog.' + OLD)).toBeNull();
+    expect((await stored(page, 'prog.' + NEW)).steps).toEqual(ticks);
+    expect(await stored(page, 'last')).toBe(NEW);
+    // the next check finds nothing: the guide is kept once, under its new name
+    await update(page, 'Everything is up to date.');
+    // and the quest opens from the list with your tick
+    await page.locator('.bn[data-home="quests"]').click();
+    await page.locator('.bn[data-home="quests"]').click();
+    await page.locator('.q[data-quest="Cook\'s Assistant"]').click();
+    await expect(page.locator('.tab[data-tab="steps"] .tcn')).toContainText('1 /');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a cape keeps what the wiki could not give this time: its levels, and what an achievement needs', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openApp(page, expect);
+    await openCape(page, 'mqc', 'Master quest cape');
+    const before = await stored(page, 'cape.mqc');
+    expect(before.levels.length).toBeGreaterThan(0);
+    expect(before.partial).toBeUndefined();
+    // the levels page fails, and so do the achievements' pages; one of them was edited
+    wiki.fail('Master quest cape', 'http');
+    wiki.edit('Advanced Sweeping');
+    wiki.detailFail = true;
+    await update(page, 'Everything is up to date.');
+    let c = await stored(page, 'cape.mqc');
+    expect(c.levels).toEqual(before.levels);
+    expect(c.partial).toBe(true);
+    const was = before.cheevos.find((x) => x.page === 'Advanced Sweeping'), is = c.cheevos.find((x) => x.page === 'Advanced Sweeping');
+    expect(is).toEqual(was);
+    // the wiki is back: the next update reads both again
+    wiki.page('Master quest cape', fixture('master-quest-cape.html'));
+    wiki.detailFail = false;
+    const details = wiki.detailCalls.length;
+    await update(page, 'Everything is up to date.');
+    c = await stored(page, 'cape.mqc');
+    expect(c.partial).toBeUndefined();
+    expect(wiki.detailCalls.slice(details)).toEqual([['Advanced Sweeping']]);
+    expect(c.cheevos.find((x) => x.page === 'Advanced Sweeping').rev).toBe(2);
+  });
+
   test('a new quest in the quest list says New', async ({ page, wiki }) => {
     await openApp(page, expect);
     const list = fixture('list-of-quests.html'), imp = /<tr>\s*<td><a href="\/w\/Imp_Catcher"[\s\S]*?<\/tr>/.exec(list)[0];

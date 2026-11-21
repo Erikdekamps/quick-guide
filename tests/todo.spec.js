@@ -890,7 +890,10 @@ test.describe('a link to the wiki', () => {
     wiki.exists('Crystal hatchet');
     wiki.lookupFail = true;
     await openList(page, lists({ Gear: [{ kind: 'other', title: 'Crystal hatchet' }] }));
-    await expect.poll(() => wiki.lookups.length).toBe(1);
+    // it asks once more, a second later, and then leaves it
+    await expect.poll(() => wiki.lookups.length).toBe(2);
+    await page.evaluate(() => new Promise((done) => { setTimeout(done, 50); }));
+    expect(wiki.lookups.length).toBe(2);
     await goalMenu(page, 'Crystal hatchet');
     await expect(link(page)).toHaveCount(0);
     await page.keyboard.press('Escape');

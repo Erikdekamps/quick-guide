@@ -195,6 +195,13 @@ test.describe('Update from the wiki: what to read again', () => {
     expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { missing: true } })).toBe(false);
   });
 
+  test('a cape whose levels page could not be read last time is read again', () => {
+    const cape = { kind: 'cape', title: 'C', old: { fetchedAt: '2026-11-20T10:00:00Z', partial: true, cheevos: [] } };
+    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(true);
+    delete cape.old.partial;
+    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(false);
+  });
+
   test('the wiki did not say: read it; the page is gone: keep what we have', () => {
     expect(A.pageChanged(area, {})).toBe(true);
     expect(A.pageChanged(area, { 'Ardougne achievements': { missing: true } })).toBe(false);

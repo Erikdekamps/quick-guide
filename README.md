@@ -301,6 +301,10 @@ wiki again when you open it; your ticks stay.
   `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
   Each saved guide, area and cape keeps the revision it was read from.
 
+- When the wiki says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, these questions
+  are asked once more: after as long as the wiki asks (at most 5 seconds), else after a second. What an update still
+  cannot read is kept as it was saved, and read again at the next update.
+
 No other service is used.
 
 ## Files

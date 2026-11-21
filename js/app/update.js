@@ -41,6 +41,8 @@
     if (i.missing) return false;
     if (p.kind === 'quest') return p.old.revid ? i.rev !== p.old.revid : newer(i.edited, p.old.fetchedAt);
     if (newer(i.touched, p.old.fetchedAt)) return true;
+    // a cape whose levels page could not be read last time
+    if (p.old.partial) return true;
     return p.kind === 'cape' && p.old.cheevos.some(function (x) { var j = info[x.page]; return !j || (!j.missing && j.rev !== x.rev); });
   }
 

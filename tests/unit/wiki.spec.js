@@ -187,6 +187,60 @@ test.describe('asking the wiki', () => {
     await expect(load({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
   });
 
+  // The app with a clock that does not wait; waits: how long it would have waited each time (not the 25 seconds a read gets).
+  const quick = (fetch) => {
+    const app = load({ fetch });
+    app.waits = [];
+    app.window.setTimeout = (f, ms) => { if (ms !== 25000) app.waits.push(ms); return setTimeout(f, ms === 25000 ? ms : 0); };
+    app.window.clearTimeout = clearTimeout;
+    return app;
+  };
+  const ok = (url) => ({ json: { query: { pages: titlesOf(url).map((t) => ({ title: t, lastrevid: 1 })) } } });
+  // The first answer is what the test says, the next ones are fine.
+  const firstThen = (first) => { let n = 0; return fakeFetch((url) => (n++ ? ok(url) : first(url))); };
+
+  test('a busy wiki is asked once more, after a second: error 429, error 503, "maxlag" and "ratelimited"', async () => {
+    for (const first of [{ status: 429, json: {} }, { status: 503, json: {} }, { json: { error: { code: 'maxlag' } } }, { json: { error: { code: 'ratelimited' } } }]) {
+      const fetch = firstThen(() => first), app = quick(fetch);
+      expect(Object.keys(await app.QG.pageInfo(['A', 'B']))).toEqual(['A', 'B']);
+      expect(fetch.urls).toHaveLength(2);
+      expect(app.waits).toEqual([1000]);
+    }
+  });
+
+  test('it waits as long as the wiki asks, at most 5 seconds', async () => {
+    for (const [asks, waits] of [['2', 2000], ['60', 5000], ['soon', 1000]]) {
+      let n = 0;
+      const fetch = (url) => Promise.resolve(n++ ? { ok: true, status: 200, json: () => Promise.resolve(ok(url).json) } :
+        { ok: false, status: 429, headers: { get: (h) => (h === 'Retry-After' ? asks : null) }, json: () => Promise.resolve({}) });
+      const app = quick(fetch);
+      expect(Object.keys(await app.QG.pageInfo(['A']))).toEqual(['A']);
+      expect(app.waits).toEqual([waits]);
+    }
+  });
+
+  test('a connection that drops is tried once more; a second failure is the end', async () => {
+    const fetch = firstThen(() => { throw new TypeError('Failed to fetch'); }), app = quick(fetch);
+    expect(await app.QG.findPages(['A'])).toEqual({ A: 'A' });
+    expect(fetch.urls).toHaveLength(2);
+    const never = fakeFetch(() => { throw new TypeError('Failed to fetch'); });
+    await expect(quick(never).QG.findPages(['A'])).rejects.toThrow('Failed to fetch');
+    expect(never.urls).toHaveLength(2);
+  });
+
+  test('not asked again: an answer that takes too long, and a mistake in the question', async () => {
+    let asked = 0;
+    const slow = (url, opts) => { asked++; return new Promise((done, fail) => { opts.signal.addEventListener('abort', () => fail(Object.assign(new Error('Cut off'), { name: 'AbortError' }))); }); };
+    const app = load({ fetch: slow });
+    app.window.setTimeout = (f) => setTimeout(f, 5);
+    expect(await app.QG.pageInfo(['A'])).toEqual({});
+    expect(asked).toBe(1);
+    const wrong = fakeFetch(() => ({ json: { error: { code: 'toomanyvalues' } } })), app2 = quick(wrong);
+    expect(await app2.QG.pageInfo(['A'])).toEqual({});
+    expect(wrong.urls).toHaveLength(1);
+    expect(app2.waits).toEqual([]);
+  });
+
   // An answer that starts and never ends: its first part is there, the rest only stops when the read is cut off.
   const stalled = (url, opts) => Promise.resolve({ ok: true, status: 200, json: () => new Promise((done, fail) => {
     opts.signal.addEventListener('abort', () => fail(Object.assign(new Error('Cut off'), { name: 'AbortError' })));

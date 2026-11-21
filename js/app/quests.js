@@ -196,10 +196,22 @@
   }
   // Reads a saved quest's guide again and keeps it, with its ticks (under the new name when the page moved). The quest
   // on screen is drawn again. Gives the new guide.
+  function forgetQuest(key) {
+    var m = metaAll();
+    delete m[key];
+    sset('meta', m);
+    A.sdel('quest.' + key);
+    A.sdel('prog.' + key);
+  }
   function reloadQuest(key, q) {
     var t = q.notQuickGuide ? { title: q.page, base: q.page } : { title: q.page, base: q.title };
     return QG.load(t).then(function (nq) {
-      if (nq.page !== key) sset('prog.' + nq.page, sget('prog.' + key) || (S.key === key && S.prog) || {});
+      // The page has another name now: your ticks go with it (unless the new name has ticks already), and what was
+      // kept under the old name goes away, so the quest is not there twice.
+      if (nq.page !== key) {
+        if (!sget('prog.' + nq.page)) sset('prog.' + nq.page, sget('prog.' + key) || (S.key === key && S.prog) || {});
+        forgetQuest(key);
+      }
       storeQuest(nq);
       // the quest that is open (on screen, or under Settings) gets the new guide too
       if (S.key === key && S.q) {
