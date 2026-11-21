@@ -8,7 +8,7 @@ const { test, expect } = require('@playwright/test');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
-const html = read('index.html'), readme = read('README.md'), core = read('js/app/core.js');
+const html = read('index.html'), dev = read('DEVELOPING.md'), core = read('js/app/core.js');
 const { version } = JSON.parse(read('package.json'));
 // The scripts of the app, in the order index.html loads them.
 const scripts = [...html.matchAll(/<script src="(js\/[^"?]+)/g)].map((m) => m[1]);
@@ -98,8 +98,8 @@ test.describe('the files', () => {
     expect(wait[1].split(',').map((s) => s.trim().replace(/'/g, ''))).toEqual(names);
   });
 
-  test('the README and the top of core.js name every file', () => {
-    for (const f of scripts) expect(readme, 'README.md, Files').toContain('| `' + f + '` |');
+  test('DEVELOPING.md and the top of core.js name every file', () => {
+    for (const f of scripts) expect(dev, 'DEVELOPING.md, Files').toContain('| `' + f + '` |');
     for (const f of appFiles) expect(core, 'the top of core.js').toMatch(new RegExp('^ \\* {3}' + path.basename(f).replace('.', '\\.') + ' ', 'm'));
   });
 });
@@ -182,8 +182,8 @@ test.describe('what is saved', () => {
   const OLD = ['recent'];
   const first = (k) => k.split(/[.<]/)[0];
 
-  test('every key is in the README\'s "What is saved" table, and every key there is still used', () => {
-    const part = readme.slice(readme.indexOf('## What is saved'), readme.indexOf('\n## ', readme.indexOf('## What is saved') + 1));
+  test('every key is in the "What is saved" table of DEVELOPING.md, and every key there is still used', () => {
+    const part = dev.slice(dev.indexOf('## What is saved'), dev.indexOf('\n## ', dev.indexOf('## What is saved') + 1));
     const listed = new Set();
     for (const row of part.split('\n').filter((l) => /^\| `/.test(l))) for (const m of row.split(' | ')[0].matchAll(/`([^`]+)`/g)) listed.add(first(m[1]));
     expect([...used].filter((k) => !OLD.includes(k) && !listed.has(k)).sort()).toEqual([]);

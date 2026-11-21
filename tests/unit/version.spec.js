@@ -229,10 +229,10 @@ test.describe('npm run check:version', () => {
     for (const m of html.matchAll(/<link rel="[^"]*icon[^"]*" href="([^"]+)"/g)) expect(V.isApp(m[1]), m[1]).toBe(true);
   });
 
-  test('this project: CLAUDE.md, the README and the pull request template name the same files as the app', () => {
+  test('this project: CLAUDE.md, DEVELOPING.md and the pull request template name the same files as the app', () => {
     const list = V.APP_FILES.join(', ');
     expect(list).toBe('index.html, style.css, appconfig.json, icon.svg, icon.png, js/, vendor/');
-    for (const f of ['CLAUDE.md', 'README.md', '.github/pull_request_template.md']) expect(read(ROOT, f).replace(/`/g, ''), f).toContain(list);
+    for (const f of ['CLAUDE.md', 'DEVELOPING.md', '.github/pull_request_template.md']) expect(read(ROOT, f).replace(/`/g, ''), f).toContain(list);
     // and the site gets them through the tool, not a list of its own
     expect(read(ROOT, '.github/workflows/deploy.yml')).toContain('node tools/version.js site _site');
   });
