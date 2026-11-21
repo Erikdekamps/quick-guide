@@ -7,18 +7,22 @@
   if (!A) return;
   var cssq = A.cssq, restoreScroll = A.restoreScroll, acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
     dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, HOMES = A.HOMES, I = A.I, liHtml = A.liHtml,
-    loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
+    nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questMark = A.questMark, renderStart = A.renderStart, rowHtml = A.rowHtml, S = A.S, saveSettings = A.saveSettings,
     sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
-    showSaved = A.showSaved, stillWanted = A.stillWanted, textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml, waitFor = A.waitFor;
+    textOf = A.textOf, toastHtml = A.toastHtml;
 
   // ---------- Area Tasks: saved areas and the task index ----------
   function ametaAll() { A.flushLater(); var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
+  // Your ticks in an area: { v, tasks: { id: 1 }, tier (the tab), open (parts you folded) }. v is the shape they are
+  // saved in: a change to it raises APROG_VERSION, and loadAprog upgrades older ones (version 1 is the first).
+  var APROG_VERSION = 1;
   function loadAprog(name) {
     var p = sget('aprog.' + name);
     if (!p || typeof p !== 'object') p = {};
     if (!p.tasks || typeof p.tasks !== 'object') p.tasks = {};
+    p.v = APROG_VERSION;
     return p;
   }
   // Your ticks are saved at once; the area list's counts a moment later (writeLater in core.js).
@@ -60,20 +64,6 @@
       sset('aidx', ix);
     }
     writeAmeta(name, a, loadAprog(name));
-  }
-  // An area read again: its tasks that were not there before are New. Those that were keep when they were new.
-  // Gives how many are new.
-  function markNewTasks(old, na) {
-    var had = {}, n = 0, now = Date.now();
-    if (!old || !old.tiers) return 0;
-    old.tiers.forEach(function (t) { t.tasks.forEach(function (x) { had[x.id] = x; }); });
-    na.tiers.forEach(function (t) {
-      t.tasks.forEach(function (x) {
-        var o = had[x.id];
-        if (!o) { x.newAt = now; n++; } else if (o.newAt) x.newAt = o.newAt;
-      });
-    });
-    return n;
   }
   // Needs you do not meet yet (only known with a player): [skills too low, quests not done]
   function unmet(n) {
@@ -145,7 +135,7 @@
       running++;
       // An area that cannot be read, or cannot be kept (what was saved of it is broken), counts as failed: the
       // others go on, and the reading always ends.
-      QG.loadArea(name).then(function (na) { markNewTasks(sget('area.' + name), na); sset('area.' + name, na); indexArea(name, na); })
+      QG.loadArea(name).then(function (na) { var old = sget('area.' + name); A.markNew(old && taskList(old), taskList(na)); sset('area.' + name, na); indexArea(name, na); })
         .then(null, function () { S.aidxFail.push(name); }).then(function () { running--; pump(); drawList(); });
     }
     pump();
@@ -187,9 +177,8 @@
   function taskResult(r, ticks) {
     var done = !!ticks[r.task.id];
     var where = '<div class="ext"><button class="qlink where" type="button" data-area="' + esc(r.area) + '" data-atier="' + esc(r.tier.id) + '">' + esc(r.area + ' ' + r.tier.name) + '</button></div>';
-    var li = '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where,
-      A.taskMenuHtml({ area: r.area, tier: r.tier.id, tname: r.tier.name, task: r.task.id, title: r.task.name })) + '</li>';
-    return li.replace('data-acb=', 'data-aarea="' + esc(r.area) + '" data-acb=');
+    return '<li class="step task srch' + (done ? ' done' : '') + '" data-task="' + esc(r.task.id) + '">' + rowHtml('acb', r.task.id, done, '<b>' + esc(r.task.name) + '</b>', where,
+      A.taskMenuHtml({ area: r.area, tier: r.tier.id, tname: r.tier.name, task: r.task.id, title: r.task.name }), ' data-aarea="' + esc(r.area) + '"') + '</li>';
   }
   function groupHtml(key, title, count, inner) {
     var shut = !!S.closed['areas:' + key];
@@ -261,38 +250,17 @@
   // Opens an area (at a tier): from storage if it is saved, else from the wiki.
   // a: the saved area, when the caller read it already.
   function openArea(name, tier, a) {
-    S.error = '';
     a = a || sget('area.' + name);
-    // A saved area opens at once. One saved with another AREA_VERSION is read again quietly; if that fails, the saved one stays.
-    if (a && Array.isArray(a.tiers) && a.tiers.length) {
-      if (showSaved('area.' + name, function () { showArea(name, a, tier); }) && a.version !== QG.AREA_VERSION) refreshArea(true);
-      return;
-    }
-    var mine = waitFor(name);
-    renderStart();
-    QG.loadArea(name).then(function (na) {
-      sset('area.' + name, na);
-      // You went on to another screen: the area is saved, and opens at once when you ask for it again.
-      if (!stillWanted(mine)) return;
-      S.loading = false;
-      S.input = '';
-      showSaved('area.' + name, function () { showArea(name, na, tier); });
-    }, function (e) {
-      if (!stillWanted(mine)) return;
-      S.loading = false;
-      S.error = loadError(e);
-      renderStart();
-    });
+    A.openPage({ key: 'area.' + name, saved: a && Array.isArray(a.tiers) && a.tiers.length ? a : null, version: QG.AREA_VERSION, label: name,
+      load: function () { return QG.loadArea(name); }, show: function (p) { showArea(name, p, tier); }, refresh: refreshArea });
   }
   function showArea(name, a, tier) {
-    S.view = 'area';
+    A.enterPage('area', 'area:' + name);
     S.area = a;
     S.areaKey = name;
     indexArea(name, a);
     S.aprog = loadAprog(name);
     if (tier && a.tiers.some(function (t) { return t.id === tier; }) && S.aprog.tier !== tier) { S.aprog.tier = tier; sset('aprog.' + name, S.aprog); }
-    S.resetArmed = 0;
-    sset('last', 'area:' + name);
     renderArea(false);
   }
   function tierNow() {
@@ -362,18 +330,7 @@
     var open = v === true || v === false ? v : !done;
     return partHtml('data-asec', id, name, count, body, open, { key: key, done: done });
   }
-  function toggleAreaSec(key) {
-    var btn = document.querySelector('[data-asec-btn="' + key + '"]');
-    var open = !(btn && btn.getAttribute('aria-expanded') === 'true');
-    S.aprog.open = S.aprog.open || {};
-    S.aprog.open[key] = open;
-    saveAprog();
-    if (btn) {
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      var body = btn.parentNode.nextElementSibling;
-      if (body) body.hidden = !open;
-    }
-  }
+  function toggleAreaSec(key) { A.togglePart(document.querySelector('[data-asec-btn="' + cssq(key) + '"]'), S.aprog, key, saveAprog); }
   function renderArea(keepScroll) {
     var main = byId('main'), top = keepScroll && main ? main.scrollTop : 0;
     var a = S.area, t = tierNow();
@@ -450,39 +407,21 @@
     saveAprog();
     renderArea(false);
   }
-  function areaReset(btn) {
-    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
-      S.aprog.tasks = {};
-      S.resetArmed = 0;
-      saveAprog();
-      renderArea(false);
-      toast('Progress reset.');
-      return;
-    }
-    S.resetArmed = Date.now();
-    btn.querySelector('span').textContent = 'Click again to reset';
-  }
+  // Every task of an area, in all its tiers.
+  function taskList(a) { return [].concat.apply([], a.tiers.map(function (t) { return t.tasks; })); }
+  function areaReset(btn) { A.resetTwice(btn, function () { S.aprog.tasks = {}; saveAprog(); renderArea(false); }); }
   // Reads a saved area again and keeps it; tasks that are new say so. The area on screen is drawn again.
   // Gives how many tasks are new.
   function reloadArea(name, old) {
-    return QG.loadArea(name).then(function (na) {
-      var added = markNewTasks(old, na);
-      sset('area.' + name, na);
-      indexArea(name, na);
-      // the area that is open (on screen, or under Settings) gets the new one too
-      if (S.areaKey === name && S.area) {
-        S.area = na;
-        A.redrawWhenFree(function () { if (S.view === 'area' && S.area === na) renderArea(true); });
-      }
-      return added;
-    });
+    var na = null;
+    return A.reloadPage({ key: 'area.' + name, old: old, load: function () { return QG.loadArea(name).then(function (p) { na = p; return p; }); },
+      items: taskList,
+      kept: function (p) { indexArea(name, p); },
+      here: function () { return S.areaKey === name && !!S.area; },
+      use: function (p) { S.area = p; },
+      draw: function () { if (S.view === 'area' && S.area === na) renderArea(true); } });
   }
-  function refreshArea(silent) {
-    if (!silent) toast('Reading the wiki\u2026', 0);
-    reloadArea(S.areaKey, S.area).then(function (n) {
-      if (!silent && S.view === 'area') toast('Updated from the wiki' + (n ? ': ' + plural(n, 'new task', 'new tasks') : '') + '.');
-    }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
-  }
+  function refreshArea(silent) { A.refreshPage(silent, function () { return reloadArea(S.areaKey, S.area); }, 'area', 'new task', 'new tasks'); }
 
   A.share({ aidxAll: aidxAll, ametaAll: ametaAll, areaListHtml: areaListHtml, areaMatches: areaMatches,
     areaReset: areaReset, loadAllAreas: loadAllAreas, loadAprog: loadAprog, missingAreas: missingAreas,

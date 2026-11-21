@@ -10,6 +10,22 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.45.0] - 2026-11-21
+
+### Added
+
+- Import state: when the file replaces your lists, the message has Undo lists. It also says what it left out: lists
+  past 30, a list whose name you had already, goals past 300.
+
+### Changed
+
+- When the storage is full and no guides or areas are left to drop, the cape read longest ago goes too. Your ticks
+  in it stay, and it is read again when you open it.
+- The app asks the wiki in one way for everything: an error inside a normal answer is said, and an answer that comes
+  in parts is read to the end. The quest list says "The wiki answered with error 500." like the rest.
+- Inside: the wiki reader is in smaller files, areas and capes share their code, and your saved ticks say which
+  shape they are in.
+
 ## [1.44.2] - 2026-11-21
 
 ### Changed

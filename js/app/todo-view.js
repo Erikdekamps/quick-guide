@@ -173,7 +173,7 @@
   function changed() {
     // An Undo that is still offered is for the lists as they were before this change: it goes away, so it cannot
     // take this change back with it. (What made this change offers its own Undo right after.)
-    if ((S.toastActs || []).length) { S.toastActs = []; var t = byId('toast'); if (t) t.hidden = true; }
+    if (S.toastActs.length) { S.toastActs = []; var t = byId('toast'); if (t) t.hidden = true; }
     saveTodo();
     if (S.view === 'start' && S.set.home === 'todo') drawTodo(); else updateCount();
     updateRefs();
@@ -198,7 +198,7 @@
     S.toastTimer = setTimeout(function () { el.hidden = true; }, S.toastActs.length ? 6000 : 2600);
   }
   function toastAct(i) {
-    var a = (S.toastActs || [])[i], el = byId('toast');
+    var a = S.toastActs[i], el = byId('toast');
     S.toastActs = [];
     if (el) el.hidden = true;
     if (a) a[1]();

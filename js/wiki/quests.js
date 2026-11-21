@@ -2,21 +2,16 @@
  * Quick Guide - js/wiki/quests.js
  * The list of all quests, from the wiki's "List of quests" page, and the miniquests from "Miniquests".
  */
-(function () {
+(function (W) {
   'use strict';
-
-  var API = 'https://runescape.wiki/api.php';
+  if (!W) return;
+  var API = W.API, askWiki = W.askWiki;
   var LIST_PAGE = 'List of quests';
   var ORDER_PAGE = 'Quests/Progression guide';
   var MINI_PAGE = 'Miniquests';
 
-  function err(code, message) { var e = new Error(message || code); e.code = code; return e; }
+  function err(code, message) { var e = new Error(message); e.code = code; return e; }
   function clean(s) { return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
-  // One spelling for a quest name, so names from the game and from the wiki match.
-  function norm(s) {
-    return clean(s).toLowerCase().replace(/&/g, ' and ').replace(/\((quest|miniquest|saga)\)/g, ' ')
-      .replace(/[^a-z0-9]+/g, ' ').replace(/^the /, '').trim();
-  }
 
   // ---------- the quest list ----------
   function colOf(th) {
@@ -74,28 +69,13 @@
     });
     return out;
   }
-  function getJson(url, ms) {
-    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    var timer = ctl ? setTimeout(function () { ctl.abort(); }, ms || 20000) : 0;
-    // The time runs until the whole answer is read: an answer that starts and then stops is cut off too.
-    return fetch(url, ctl ? { signal: ctl.signal } : undefined).then(function (res) {
-      if (!res.ok) throw err('http', 'The server answered with an error (' + res.status + ').');
-      return res.json();
-    }).then(function (j) {
-      clearTimeout(timer);
-      return j;
-    }, function (e) {
-      clearTimeout(timer);
-      throw (e && e.name === 'AbortError') ? err('timeout') : e;
-    });
-  }
   function pageApi(page) {
     return API + '?action=parse&format=json&formatversion=2&prop=text&redirects=1&disableeditsection=1' +
       '&disablelimitreport=1&origin=*&page=' + encodeURIComponent(page);
   }
   function loadList() {
-    return getJson(pageApi(LIST_PAGE)).then(function (d) {
-      if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the quest list.');
+    return askWiki(pageApi(LIST_PAGE)).then(function (d) {
+      if (!d.parse) throw err('format', 'The wiki did not send the quest list.');
       var text = d.parse.text;
       if (text && typeof text === 'object') text = text['*'];
       var quests = parseList(String(text || ''));
@@ -106,8 +86,8 @@
 
   function parseMinis(html) { return parseList(html, true); }
   function loadMinis() {
-    return getJson(pageApi(MINI_PAGE)).then(function (d) {
-      if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the miniquest list.');
+    return askWiki(pageApi(MINI_PAGE)).then(function (d) {
+      if (!d.parse) throw err('format', 'The wiki did not send the miniquest list.');
       var text = d.parse.text;
       if (text && typeof text === 'object') text = text['*'];
       var quests = parseMinis(String(text || ''));
@@ -139,8 +119,8 @@
     return out;
   }
   function loadOrder() {
-    return getJson(pageApi(ORDER_PAGE)).then(function (d) {
-      if (!d || d.error || !d.parse) throw err((d && d.error && d.error.code) || 'format', 'The wiki did not send the quest order.');
+    return askWiki(pageApi(ORDER_PAGE)).then(function (d) {
+      if (!d.parse) throw err('format', 'The wiki did not send the quest order.');
       var text = d.parse.text;
       if (text && typeof text === 'object') text = text['*'];
       var order = parseOrder(String(text || ''));
@@ -150,7 +130,8 @@
   }
 
   window.QuickGuideData = {
-    LIST_PAGE: LIST_PAGE, ORDER_PAGE: ORDER_PAGE, MINI_PAGE: MINI_PAGE, norm: norm,
+    LIST_PAGE: LIST_PAGE, ORDER_PAGE: ORDER_PAGE, MINI_PAGE: MINI_PAGE,
     parseList: parseList, loadList: loadList, parseMinis: parseMinis, loadMinis: loadMinis, parseOrder: parseOrder, loadOrder: loadOrder
   };
-})();
+  W.loaded.quests = true;
+})(window.QuickGuideWiki);

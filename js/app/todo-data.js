@@ -12,9 +12,11 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var D = A.D, markedDone = A.markedDone, metaAll = A.metaAll, playerLevel = A.playerLevel, playerStatus = A.playerStatus,
-    QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset;
+  var markedDone = A.markedDone, metaAll = A.metaAll, playerLevel = A.playerLevel, playerStatus = A.playerStatus,
+    plural = A.plural, QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset;
 
+  // The shape of the saved lists ("v" in what is saved). A change to it raises this, and cleanTodo upgrades older ones.
+  var TODO_VERSION = 1;
   var MAX_LISTS = 30, MAX_GOALS = 300, MAX_SUBS = 20, MAX_DEPTH = 4, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
   // Sub tasks in all lists together: so the lists always fit in the storage.
   var MAX_ALL_SUBS = 3000;
@@ -152,9 +154,14 @@
     return g;
   }
   // The lists, from what was saved: anything broken is left out, names are unique, and the limits hold.
+  // Saved lists of an older shape, made like the ones of now. (Version 1 is the first: nothing to do yet. A newer one
+  // is read as far as this version knows it.)
+  function upgradeTodo(t) {
+    return t;
+  }
   function cleanTodo(t) {
-    var out = { v: 1, last: '', lists: [] }, names = bare(), ids = bare(), n = 0, count = { n: 0 };
-    t = isMap(t) ? t : {};
+    var out = { v: TODO_VERSION, last: '', lists: [] }, names = bare(), ids = bare(), n = 0, count = { n: 0 };
+    t = upgradeTodo(isMap(t) ? t : {});
     (Array.isArray(t.lists) ? t.lists : []).forEach(function (l) {
       var name = isMap(l) ? line(l.name, NAME_MAX) : '';
       if (!name || names[name.toLowerCase()] || out.lists.length >= MAX_LISTS) return;
@@ -329,7 +336,7 @@
         return ((ix[area] && ix[area].tiers) || []).filter(function (t) { return t.id === id; })[0] || null;
       },
       meta: function () {
-        if (!meta) { meta = {}; var m = metaAll(); Object.keys(m).forEach(function (k) { meta[D.norm(m[k].title)] = m[k]; }); }
+        if (!meta) { meta = {}; var m = metaAll(); Object.keys(m).forEach(function (k) { meta[QG.normName(m[k].title)] = m[k]; }); }
         return meta;
       }
     };
@@ -342,7 +349,7 @@
       return !!t && t.tasks.length > 0 && t.tasks.every(function (x) { return ticks[x.id]; });
     }
     if (g.kind === 'quest') {
-      var m = c.meta()[D.norm(g.title)];
+      var m = c.meta()[QG.normName(g.title)];
       return (!!m && m.total > 0 && m.done >= m.total) || playerStatus(g.title) === 2 || markedDone(g.title);
     }
     return false;
@@ -603,15 +610,20 @@
       return Object.keys(e).map(function (k) { return entryError(e[k], where + ' \u2192 "' + k + '"'); }).filter(Boolean)[0] || '';
     }).filter(Boolean)[0] || '';
   }
+  // The file's lists replace yours. Gives { lists: how many came in, left: what did not fit, by why: { lists (past 30),
+  // twice (a name that was there already, after the cut to 30 letters), goals (past 300) } }.
   function importTodo(m) {
-    var lists = [], names = bare(), n = 0, now = Date.now();
+    var lists = [], names = bare(), n = 0, now = Date.now(), left = { lists: 0, twice: 0, goals: 0 };
     Object.keys(m).forEach(function (name) {
       var nm = line(name, NAME_MAX), e = m[name];
-      if (!nm || names[nm.toLowerCase()] || !isMap(e) || lists.length >= MAX_LISTS) return;
+      if (!nm || !isMap(e)) return;
+      if (names[nm.toLowerCase()]) { left.twice++; return; }
+      if (lists.length >= MAX_LISTS) { left.lists++; return; }
       names[nm.toLowerCase()] = 1;
       var l = { id: newId('l'), name: nm, items: [] };
       Object.keys(e).forEach(function (k) {
-        var g = n < MAX_GOALS ? parseGoal(plainName(k, e)) : null, v = e[k];
+        if (n >= MAX_GOALS) { left.goals++; return; }
+        var g = parseGoal(plainName(k, e)), v = e[k];
         if (!g) return;
         if (isMap(v)) {
           if (typeof v.note === 'string') g.note = v.note;
@@ -627,13 +639,21 @@
       });
       lists.push(l);
     });
-    S.todo = { v: 1, last: lists.length ? lists[0].id : '', lists: lists };
+    S.todo = { v: TODO_VERSION, last: lists.length ? lists[0].id : '', lists: lists };
     saveTodo();
-    return lists.length;
+    return { lists: lists.length, left: left };
+  }
+  // What an import of lists left out, in words ('' when nothing).
+  function leftText(left) {
+    var bits = [];
+    if (left.lists) bits.push(plural(left.lists, 'list', 'lists') + ' (at most ' + MAX_LISTS + ')');
+    if (left.twice) bits.push(plural(left.twice, 'list', 'lists') + ' with a name you had already');
+    if (left.goals) bits.push(plural(left.goals, 'goal', 'goals') + ' (at most ' + MAX_GOALS + ')');
+    return bits.length ? 'Left out: ' + bits.join(', ') + '.' : '';
   }
 
   // What todo-view.js and todo.js use.
-  A.T = { MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
+  A.T = { TODO_VERSION: TODO_VERSION, MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
     NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, capeTitle: capeTitle, MAX_ALL_SUBS: MAX_ALL_SUBS,
     subCount: subCount, subsFull: subsFull,
     addGoal: addGoal, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
@@ -642,6 +662,6 @@
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
     saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
     skillName: skillName, snapshot: snapshot, todo: todo };
-  A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo, todoFileError: todoFileError });
+  A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo, todoLeftText: leftText, todoFileError: todoFileError });
   A.loaded.todoData = true;
 })(window.QuickGuideApp);

@@ -6,7 +6,7 @@
   'use strict';
   if (!A) return;
   var aidxAll = A.aidxAll, allQuests = A.allQuests, ametaAll = A.ametaAll, app = A.app,
-    applySettings = A.applySettings, byId = A.byId, clampFont = A.clampFont, closeMenus = A.closeMenus, D = A.D,
+    applySettings = A.applySettings, byId = A.byId, clampFont = A.clampFont, closeMenus = A.closeMenus,  esc = A.esc,
     HOMES = A.HOMES, I = A.I, loadAprog = A.loadAprog, loadProg = A.loadProg, markedDone = A.markedDone,
     memory = A.memory, metaAll = A.metaAll, missingAreas = A.missingAreas, pick = A.pick,
     playerStatus = A.playerStatus, plural = A.plural, PREFIX = A.PREFIX, QG = A.QG, remember = A.remember,
@@ -52,9 +52,11 @@
   }
   // The file: every quest and every area task, each true (done) or false, and your lists of goals, so you can change them
   // by hand and import it again.
-  function buildExport() {
-    var m = metaAll(), byTitle = {}, progs = {}, quests = {}, areas = {}, titles = [];
-    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
+  // Every quest of the quest list (and the ones only the game knows, and the ones you opened that are in neither),
+  // true or false, or with its steps and items when you ticked some.
+  function exportQuests() {
+    var m = metaAll(), byTitle = {}, progs = {}, quests = {}, titles = [];
+    Object.keys(m).forEach(function (k) { byTitle[QG.normName(m[k].title)] = k; });
     storageKeys('prog.').forEach(function (k) { progs[k] = 1; });
     allQuests().forEach(function (q) { titles.push(q.t); });
     // Quests the game knows that the wiki's list does not have (parts of a bigger quest, like Recipe for Disaster):
@@ -62,10 +64,10 @@
     var known = {}, pt = (S.player && S.player.titles) || {};
     titles.forEach(function (t) { known[QG.normName(t)] = 1; });
     Object.keys(pt).forEach(function (k) { if (!known[k] && S.player.quests[k] != null) { titles.push(pt[k]); known[k] = 1; } });
-    Object.keys(m).forEach(function (k) { if (progs[k] && titles.every(function (t) { return D.norm(t) !== D.norm(m[k].title); })) titles.push(m[k].title); });
+    Object.keys(m).forEach(function (k) { if (progs[k] && titles.every(function (t) { return QG.normName(t) !== QG.normName(m[k].title); })) titles.push(m[k].title); });
     titles.sort(function (a, b) { return sortKey(a) < sortKey(b) ? -1 : sortKey(a) > sortKey(b) ? 1 : 0; });
     titles.forEach(function (title) {
-      var key = byTitle[D.norm(title)] || title + '/Quick guide', me = m[key];
+      var key = byTitle[QG.normName(title)] || title + '/Quick guide', me = m[key];
       var done = (!!me && me.total > 0 && me.done >= me.total) || playerStatus(title) === 2 || markedDone(title);
       var q = sget('quest.' + key), p = progs[key] ? loadProg(key) : null;
       var ticks = p ? Object.keys(ticked(p.steps)).length + Object.keys(ticked(p.items)).length : 0;
@@ -88,6 +90,11 @@
       e.items = it;
       quests[title] = e;
     });
+    return quests;
+  }
+  // Every area the app knows: each task true or false (with its steps), by tier. counts: each tier's "7 / 12".
+  function exportAreas() {
+    var areas = {};
     var ix = aidxAll(), counts = {};
     QG.AREAS.forEach(function (a) {
       var x = ix[a.name];
@@ -109,7 +116,10 @@
       });
       areas[a.name] = out;
     });
-    // The capes you read: each achievement, by category, true (done) or false. Some tick themselves: their value is only to read.
+    return { areas: areas, counts: counts };
+  }
+  // The capes you read: each achievement, by category, true (done) or false. Some tick themselves: their value is only to read.
+  function exportCapes() {
     var capes = {}, r = A.capeReader();
     QG.CAPES.forEach(function (info) {
       var c = r.cape(info.key);
@@ -118,23 +128,31 @@
       c.cheevos.forEach(function (x) { (out[x.cat] = out[x.cat] || {})[x.id + ' ' + x.name] = A.cheevoDone(info.key, x, r); });
       capes[info.name] = out;
     });
+    return capes;
+  }
+  // What the top of the file says about how to change it.
+  var HELP = 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
+    'A done quest is just true, without its steps. ' +
+    'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
+    '"tiers" is each tier\'s count, to read at a glance: an import does not use it. ' +
+    '"capes" is every achievement of the capes you opened. Quest Cape, Master Skiller and the two capes in the trimmed one tick themselves, ' +
+    'so their true or false is only to read. ' +
+    '"mylist" is your lists of goals: add a goal by typing it the way you would in the add box, like "82 Thieving" or "500 Magic logs". ' +
+    'Skill, quest, task and tier goals tick themselves, so their true or false is only to read.';
+  // Everything you ticked, your settings, your player and My list, as one object (the export file).
+  function buildExport() {
+    var a = exportAreas();
     return {
-      app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(),
-      help: 'Set a quest, task or step to true to mark it done, or to false to undo it, then import this file. ' +
-        'A done quest is just true, without its steps. ' +
-        'Keep the code at the start of a step or task: the app finds it by that code. A task can also be written by its name alone. ' +
-        '"tiers" is each tier\'s count, to read at a glance: an import does not use it. ' +
-        '"capes" is every achievement of the capes you opened. Quest Cape, Master Skiller and the two capes in the trimmed one tick themselves, ' +
-        'so their true or false is only to read. ' +
-        '"mylist" is your lists of goals: add a goal by typing it the way you would in the add box, like "82 Thieving" or "500 Magic logs". ' +
-        'Skill, quest, task and tier goals tick themselves, so their true or false is only to read.',
-      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: quests, tiers: counts, areas: areas, capes: capes, mylist: A.exportTodo()
+      app: 'Quick Guide', format: FORMAT, exportedAt: new Date().toISOString(), help: HELP,
+      settings: JSON.parse(JSON.stringify(S.set)), player: S.player || null, quests: exportQuests(), tiers: a.counts, areas: a.areas,
+      capes: exportCapes(), mylist: A.exportTodo()
     };
   }
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
   function cap1(x) { x = String(x); return x.charAt(0).toUpperCase() + x.slice(1); }
   // Puts an export back. Returns { error } and changes nothing when the text is not right, else what was imported.
-  function importState(text) {
+  // The file as JSON, checked before anything changes: { j } or { error }.
+  function readFile(text) {
     text = String(text || '').trim();
     if (!text) return { error: 'Paste an export first.' };
     // (an export of everything is far smaller: this is something else, or would not fit in the storage)
@@ -146,77 +164,86 @@
     // The lists are checked before anything changes: they replace yours, so a mistake there must not empty them.
     var te = j.mylist == null ? '' : A.todoFileError(j.mylist);
     if (te) return { error: 'There is a mistake in the lists. ' + te };
-    var nq = 0, na = 0;
-    var st = j.settings;
-    if (isMap(st)) {
-      BOOL_SETTINGS.forEach(function (k) { if (typeof st[k] === 'boolean') S.set[k] = st[k]; });
-      if (st.fontSize != null && isFinite(+st.fontSize)) S.set.fontSize = clampFont(st.fontSize);
-      S.set.sort = pick(SORTS, st.sort, S.set.sort);
-      S.set.home = pick(HOMES, st.home, S.set.home);
-      S.set.theme = pick(THEMES, st.theme, S.set.theme);
-      applySettings();
-      saveSettings();
-    }
-    var pl = j.player;
-    if (isMap(pl) && typeof pl.name === 'string' && pl.name && isMap(pl.quests)) {
-      var qs = {};
-      Object.keys(pl.quests).forEach(function (k) { var v = +pl.quests[k]; if (v === 0 || v === 1 || v === 2) qs[k] = v; });
-      var tl = {};
-      if (isMap(pl.titles)) Object.keys(pl.titles).forEach(function (k) { if (qs[k] != null && typeof pl.titles[k] === 'string') tl[k] = pl.titles[k]; });
-      S.player = { name: pl.name, source: pl.source || 'RuneMetrics', at: pl.at || new Date().toISOString(), quests: qs, titles: tl,
-        levels: isMap(pl.levels) ? pl.levels : {}, locked: isMap(pl.locked) ? pl.locked : {}, done: +pl.done || 0, started: +pl.started || 0 };
-      if (isFinite(+pl.qp) && pl.qp != null) S.player.qp = +pl.qp;
-      if (isFinite(+pl.qpMax) && pl.qpMax != null) S.player.qpMax = +pl.qpMax;
-      sset('player', S.player);
-    }
-    var nc = 0;
-    if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; nc = r2.capes; }
-    else if (isMap(j.quests)) {
-      var meta = metaAll();
-      Object.keys(j.quests).forEach(function (title) {
-        var e = j.quests[title];
-        if (!isMap(e)) return;
-        var key = typeof e.page === 'string' && e.page ? e.page : title + '/Quick guide';
-        var v = isMap(e.view) ? e.view : {}, steps = {}, items = {};
-        Object.keys(isMap(e.steps) ? e.steps : {}).forEach(function (id) { steps[id] = 1; });
-        Object.keys(isMap(e.items) ? e.items : {}).forEach(function (id) { items[id] = 1; });
-        sset('prog.' + key, { steps: steps, items: items, tab: validTab(v.tab), open: isMap(v.open) ? v.open : {}, acc: isMap(v.acc) ? v.acc : {} });
-        var pr = isMap(e.progress) ? e.progress : {};
-        remember(key, title, Math.max(0, +pr.done || 0), Math.max(0, +pr.total || 0), meta);
-        nq++;
-      });
-      if (nq) sset('meta', meta);
-    }
-    if (+j.format < 2 && isMap(j.areas)) {
-      var am = ametaAll();
-      QG.AREAS.forEach(function (a) {
-        var e = j.areas[a.name];
-        if (!isMap(e)) return;
-        var tasks = {};
-        Object.keys(isMap(e.tasks) ? e.tasks : {}).forEach(function (id) { tasks[id] = 1; });
-        var p = { tasks: tasks };
-        if (typeof e.tier === 'string' && e.tier) p.tier = e.tier;
-        sset('aprog.' + a.name, p);
-        if (isMap(e.tiers)) {
-          var old = (am[a.name] && am[a.name].tiers) || [];
-          am[a.name] = { at: Date.now(), tiers: Object.keys(e.tiers).map(function (id) {
-            var t = isMap(e.tiers[id]) ? e.tiers[id] : {}, o = old.filter(function (x) { return x.id === id; })[0] || {};
-            return { id: id, name: o.name || cap1(id), total: Math.max(0, +t.total || 0), done: Math.max(0, +t.done || 0), needs: o.needs };
-          }) };
-          sset('ameta', am);
-        }
-        na++;
-      });
-    }
+    return { j: j };
+  }
+  function importSettings(st) {
+    if (!isMap(st)) return;
+    BOOL_SETTINGS.forEach(function (k) { if (typeof st[k] === 'boolean') S.set[k] = st[k]; });
+    if (st.fontSize != null && isFinite(+st.fontSize)) S.set.fontSize = clampFont(st.fontSize);
+    S.set.sort = pick(SORTS, st.sort, S.set.sort);
+    S.set.home = pick(HOMES, st.home, S.set.home);
+    S.set.theme = pick(THEMES, st.theme, S.set.theme);
+    applySettings();
+    saveSettings();
+  }
+  function importPlayer(pl) {
+    if (!(isMap(pl) && typeof pl.name === 'string' && pl.name && isMap(pl.quests))) return;
+    var qs = {};
+    Object.keys(pl.quests).forEach(function (k) { var v = +pl.quests[k]; if (v === 0 || v === 1 || v === 2) qs[k] = v; });
+    var tl = {};
+    if (isMap(pl.titles)) Object.keys(pl.titles).forEach(function (k) { if (qs[k] != null && typeof pl.titles[k] === 'string') tl[k] = pl.titles[k]; });
+    S.player = { name: pl.name, source: pl.source || 'RuneMetrics', at: pl.at || new Date().toISOString(), quests: qs, titles: tl,
+      levels: isMap(pl.levels) ? pl.levels : {}, locked: isMap(pl.locked) ? pl.locked : {}, done: +pl.done || 0, started: +pl.started || 0 };
+    if (isFinite(+pl.qp) && pl.qp != null) S.player.qp = +pl.qp;
+    if (isFinite(+pl.qpMax) && pl.qpMax != null) S.player.qpMax = +pl.qpMax;
+    sset('player', S.player);
+  }
+  // Format 1: the quests you opened, with the ids of what you ticked. Gives how many.
+  function importV1Quests(quests) {
+    var meta = metaAll(), n = 0;
+    Object.keys(quests).forEach(function (title) {
+      var e = quests[title];
+      if (!isMap(e)) return;
+      var key = typeof e.page === 'string' && e.page ? e.page : title + '/Quick guide';
+      var v = isMap(e.view) ? e.view : {}, steps = {}, items = {};
+      Object.keys(isMap(e.steps) ? e.steps : {}).forEach(function (id) { steps[id] = 1; });
+      Object.keys(isMap(e.items) ? e.items : {}).forEach(function (id) { items[id] = 1; });
+      sset('prog.' + key, { steps: steps, items: items, tab: validTab(v.tab), open: isMap(v.open) ? v.open : {}, acc: isMap(v.acc) ? v.acc : {} });
+      var pr = isMap(e.progress) ? e.progress : {};
+      remember(key, title, Math.max(0, +pr.done || 0), Math.max(0, +pr.total || 0), meta);
+      n++;
+    });
+    if (n) sset('meta', meta);
+    return n;
+  }
+  // Format 1: your ticks in each area, and its counts. Gives how many areas.
+  function importV1Areas(areas) {
+    var am = ametaAll(), n = 0;
+    QG.AREAS.forEach(function (a) {
+      var e = areas[a.name];
+      if (!isMap(e)) return;
+      var tasks = {};
+      Object.keys(isMap(e.tasks) ? e.tasks : {}).forEach(function (id) { tasks[id] = 1; });
+      var p = { tasks: tasks };
+      if (typeof e.tier === 'string' && e.tier) p.tier = e.tier;
+      sset('aprog.' + a.name, p);
+      if (isMap(e.tiers)) {
+        var old = (am[a.name] && am[a.name].tiers) || [];
+        am[a.name] = { at: Date.now(), tiers: Object.keys(e.tiers).map(function (id) {
+          var t = isMap(e.tiers[id]) ? e.tiers[id] : {}, o = old.filter(function (x) { return x.id === id; })[0] || {};
+          return { id: id, name: o.name || cap1(id), total: Math.max(0, +t.total || 0), done: Math.max(0, +t.done || 0), needs: o.needs };
+        }) };
+        sset('ameta', am);
+      }
+      n++;
+    });
+    return n;
+  }
+  function importState(text) {
+    var f = readFile(text), j = f.j;
+    if (f.error) return f;
+    importSettings(j.settings);
+    importPlayer(j.player);
+    var r = +j.format >= 2 ? importV2(j) : { quests: isMap(j.quests) ? importV1Quests(j.quests) : 0, areas: isMap(j.areas) ? importV1Areas(j.areas) : 0, capes: 0 };
     // My list: the file's lists replace yours. A file without them leaves yours alone.
-    var nl = isMap(j.mylist) ? A.importTodo(j.mylist) : 0;
-    return { quests: nq, areas: na, capes: nc, lists: nl };
+    var lists = isMap(j.mylist) ? A.importTodo(j.mylist) : null;
+    return { quests: r.quests, areas: r.areas, capes: r.capes, lists: lists ? lists.lists : 0, todo: lists };
   }
   // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
   function importV2(j) {
     // The quests' progress and what is marked done are saved once, at the end, not once for every quest.
     var nq = 0, na = 0, m = metaAll(), byTitle = {}, marks = [], metaChanged = false;
-    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
+    Object.keys(m).forEach(function (k) { byTitle[QG.normName(m[k].title)] = k; });
     function code(k) { return String(k).trim().split(/\s+/)[0]; }
     if (isMap(j.quests)) {
       Object.keys(j.quests).forEach(function (title) {
@@ -225,7 +252,7 @@
         if (!isMap(v)) return;
         if (typeof v.done === 'boolean') marks.push({ title: title, on: v.done });
         if (isMap(v.steps) || isMap(v.items)) {
-          var key = typeof v.page === 'string' && v.page ? v.page : byTitle[D.norm(title)] || title + '/Quick guide';
+          var key = typeof v.page === 'string' && v.page ? v.page : byTitle[QG.normName(title)] || title + '/Quick guide';
           var old = loadProg(key), steps = {}, items = {};
           Object.keys(isMap(v.steps) ? v.steps : {}).forEach(function (k) { if (v.steps[k] === true) steps[code(k)] = 1; });
           Object.keys(isMap(v.items) ? v.items : {}).forEach(function (k) { if (v.items[k] === true) items[code(k)] = 1; });
@@ -367,7 +394,8 @@
       });
       return;
     }
-    var r = importState(ta.value);
+    // your lists as they were: a file with lists replaces them, and Undo brings them back
+    var snap = A.T.snapshot(), r = importState(ta.value);
     if (r.error) { err.textContent = r.error; err.hidden = false; return; }
     closeBackup();
     S.error = '';
@@ -381,8 +409,11 @@
     if (r.capes) parts.push(plural(r.capes, 'cape', 'capes'));
     if (r.lists) parts.push(plural(r.lists, 'list', 'lists'));
     // "1 quest", "1 quest and 2 areas", "1 quest, 2 areas and 3 lists"
-    var last = parts.pop();
-    toast(last ? 'Imported ' + (parts.length ? parts.join(', ') + ' and ' : '') + last + '.' : 'Imported.');
+    var last = parts.pop(), said = last ? 'Imported ' + (parts.length ? parts.join(', ') + ' and ' : '') + last + '.' : 'Imported.';
+    var left = r.todo ? A.todoLeftText(r.todo.left) : '';
+    if (left) said += ' ' + left;
+    // Undo only when your lists changed
+    if (r.todo && A.T.snapshot() !== snap) A.T.tell(esc(said), [['Undo lists', A.T.undoer(snap)]]); else toast(said);
   }
 
   A.share({ closeBackup: closeBackup, copyBackup: copyBackup, openBackup: openBackup, runImport: runImport });

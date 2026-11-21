@@ -2,9 +2,10 @@
  * Quick Guide - js/app/core.js
  * A tick list for RuneScape Wiki quest quick guides, capes and Area Tasks, made for the Alt1 browser.
  *
- * The app is in ten files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
+ * The app is in eleven files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
  *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   quests.js      the quest list and the quest screen
+ *   pages.js       what an area and a cape share: open, fold, reset, read again with what is new
  *   areas.js       Achievements: Area Tasks, and the list of tiers
  *   capes.js       Achievements: the cape cards, and one cape
  *   update.js      Update from the wiki: everything the app keeps, reading again only what changed
@@ -13,7 +14,7 @@
  *   todo.js        My list: adding, ticking, and what the menus do
  *   backup.js      export and import
  *   main.js        the clicks and keys of every screen, and the start
- * js/wiki reads the wiki (parser.js the pages, quests.js the quest lists).
+ * js/wiki reads the wiki (base.js first: what the others share; quests.js last: the quest lists).
  *
  * What is kept in localStorage (all keys start with "qg1."):
  *   list, minis     every quest and miniquest from the wiki's lists: { at, quests: [...] }
@@ -26,11 +27,11 @@
  *   upd             when Update from the wiki last ran, and what it found
  *   player          the character you looked up: { name, at, quests, levels, locked, done, started }
  *   area.<name>     the parsed "<name> achievements" page (Area Tasks)
- *   aprog.<name>    your ticks for that area: { tasks: {id: 1}, tier }
+ *   aprog.<name>    your ticks for that area: { v, tasks: {id: 1}, tier, open }
  *   ameta           one small entry per opened area, for the area list: { "<name>": { tiers: [...], needs } }
  *   aidx            every task of every area, for search: { "<name>": { tiers: [...] } }
  *   cape.<key>      a cape's parsed achievement list (mqc, comp or trim)
- *   cprog.<key>     your ticks in that cape: { ticks: {id: 1}, tab, open }
+ *   cprog.<key>     your ticks in that cape: { v, ticks: {id: 1}, tab, open }
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
  * When the storage is full, the guides that were opened longest ago are dropped, then the areas (ticks and lists
@@ -42,8 +43,12 @@
   var QG = window.QuickGuide;
   var D = window.QuickGuideData;
   var app = document.getElementById('app');
-  if (!QG || !D || !app) {
-    if (app) app.textContent = 'The app could not start: ' + (!QG ? 'parser.js' : 'quests.js') + ' is missing. Upload all the files again, then reload.';
+  // The files of the wiki reader (js/wiki), in the order index.html loads them. Each says it loaded.
+  var WIKI_FILES = ['base', 'html', 'steps', 'guide', 'player', 'areas', 'capes', 'quests'];
+  var loaded = (window.QuickGuideWiki || { loaded: {} }).loaded;
+  var gone = WIKI_FILES.filter(function (f) { return !loaded[f]; })[0];
+  if (gone || !app) {
+    if (app) app.textContent = 'The app could not start: ' + gone + '.js is missing. Upload all the files again, then reload.';
     return;
   }
   // What the files share (see the top of this file). A file that did not load leaves its name out of A.loaded.
@@ -109,6 +114,17 @@
           if ('area.' + key === keep || (S && key === S.areaKey)) continue;
           at = (am[key] && am[key].at) || 0;
           if (!best || at < best.at) best = { k: k, at: at, mem: 'area.' + key };
+        }
+      }
+      // No areas left either: drop the cape read longest ago (not the one on screen). It is read again when opened; your ticks in it stay.
+      if (!best) {
+        for (i = 0; i < ls.length; i++) {
+          k = ls.key(i);
+          if (!k || k.indexOf(PREFIX + 'cape.') !== 0) continue;
+          key = k.slice((PREFIX + 'cape.').length);
+          if ('cape.' + key === keep || (S && key === S.capeKey)) continue;
+          at = Date.parse(sget('cape.' + key).fetchedAt);
+          if (!best || at < best.at) best = { k: k, at: at, mem: 'cape.' + key };
         }
       }
       if (!best) return false;
@@ -263,20 +279,20 @@
   var savedPlayer = sget('player');
   if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || !savedPlayer.quests || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
-    view: 'start',
+    view: 'start',   // which screen is on: 'start', 'quest', 'area', 'cape' or 'settings'
     q: null,          // the quest JSON
     key: '',          // the wiki page it came from
     prog: null,       // { steps: {id: 1}, items: {id: 1}, tab, open: {partId: bool} }
     idx: null,        // quick lookups for steps
-    set: readSettings(saved),
-    list: savedList && Array.isArray(savedList.quests) ? savedList : null,
-    listBusy: false,
-    listError: '',
+    set: readSettings(saved),   // your settings (Settings)
+    list: savedList && Array.isArray(savedList.quests) ? savedList : null,   // every quest from the wiki's list: { at, quests }
+    listBusy: false,   // the quest list is being read
+    listError: '',   // what went wrong reading it
     minis: savedMinis && Array.isArray(savedMinis.quests) ? savedMinis : null,   // the miniquests
-    minisBusy: false,
+    minisBusy: false,   // the miniquests are being read
     order: savedOrder && Array.isArray(savedOrder.order) ? savedOrder : null,   // the wiki's optimal order
-    orderBusy: false,
-    orderError: '',
+    orderBusy: false,   // the optimal order is being read
+    orderError: '',   // what went wrong reading it
     ranks: null,      // quest name -> its place in the optimal order
     player: savedPlayer,   // the character you looked up, or null
     aidxBusy: false,  // reading all areas so their tasks can be searched
@@ -284,31 +300,44 @@
     aidxWait: [],     // what to do when all areas are read
     qdone: null,      // quests marked done by hand (in an imported file): { normName: 1 }
     area: null,       // the area that is open (Area Tasks), its name, and your ticks
-    areaKey: '',
-    aprog: null,
+    areaKey: '',   // (the area's name)
+    aprog: null,   // (your ticks in it)
     cape: null,       // the cape that is open (Achievements), its key, and your ticks
-    capeKey: '',
-    cprog: null,
-    playerBusy: false,
+    capeKey: '',   // (the cape's key)
+    cprog: null,   // (your ticks in it)
+    playerBusy: false,   // a lookup is running
     playerAsk: 0,     // the number of the last lookup: an older one's answer is not used
-    playerMsg: '',
-    playerInput: '',
+    playerMsg: '',   // what the lookup says (Looking up, or what went wrong)
+    playerInput: '',   // the name typed in Settings
     closed: obj(savedView.closed),   // groups in the lists that are folded shut
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
     mapWatch: null,   // waits for maps to scroll into view (startMaps)
     searchTimer: 0,   // the search draws the list when you stop typing (main.js)
     todoDrawn: null,  // My list: each list's markup as it was last drawn (todo-view.js)
-    loading: false,
+    loading: false,   // a page is being read for a screen (the start screen waits)
     wanted: 0,        // the number of the read that may open a screen when it is done (see waitFor)
-    error: '',
+    error: '',   // what went wrong opening a screen (the start screen says it)
     input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
     scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
     reopenSettings: savedView.settings === true,   // Settings was open: the app opens it again at the start
-    resetArmed: 0,
-    toastTimer: 0,
-    todo: null,       // My list (app-todo.js): read from storage when it is first needed
-    subAdd: null      // My list: where the box for a new sub task is open, { gid, pid }
+    resetArmed: 0,    // when Reset progress was clicked once (it takes a second click within 4 seconds)
+    wipeArmed: 0,     // the same for Delete everything, in Settings
+    toastTimer: 0,   // hides the message at the bottom
+    back: null,       // Settings: the screen it was opened from, { view, home }, to go back to
+    listAsk: null,    // the quest list, the miniquests and the optimal order being read: the promise, so a second
+    minisAsk: null,   //   ask waits for the same answer
+    orderAsk: null,   //   (the optimal order)
+    upd: null,        // Update from the wiki while it runs: { step: 'check' | 'read', done, total }
+    bkUrl: '',        // Export state: the address of the file to download, given back when the box closes
+    todo: null,       // My list (todo-data.js): read from storage when it is first needed
+    todoIdx: null,    // My list: where each goal is, by id (made again after a change)
+    todoFocus: '',    // My list: what gets the focus after the next draw (a selector)
+    subAdd: null,     // My list: where the box for a new sub task is open, { gid, pid }
+    tmenu: null,      // My list: the menu that is open, { kind, id, gid, sid }
+    tdlg: null,       // My list: the box that is open (Add a goal, Paste a list…) and what it is for
+    delArmed: 0,      // My list: when Delete list was clicked once
+    toastActs: []     // the buttons of the message at the bottom (Undo): [label, what it does]
   };
   function applySettings() {
     document.documentElement.style.fontSize = S.set.fontSize + 'px';
@@ -409,9 +438,9 @@
   function setMarkedMany(marks, meta) {
     if (!marks.length) return;
     var d = qdoneAll(), m = meta || metaAll(), byTitle = {};
-    Object.keys(m).forEach(function (k) { var t = D.norm(m[k].title); if (!byTitle[t]) byTitle[t] = m[k]; });
+    Object.keys(m).forEach(function (k) { var t = QG.normName(m[k].title); if (!byTitle[t]) byTitle[t] = m[k]; });
     marks.forEach(function (x) {
-      var me = byTitle[D.norm(x.title)], other = playerStatus(x.title) === 2 || (!!me && me.total > 0 && me.done >= me.total);
+      var me = byTitle[QG.normName(x.title)], other = playerStatus(x.title) === 2 || (!!me && me.total > 0 && me.done >= me.total);
       if (x.on && !other) d[QG.normName(x.title)] = 1; else delete d[QG.normName(x.title)];
     });
     sset('qdone', d);
@@ -592,6 +621,8 @@
     var m = byId('main'), v = savedScroll();
     if (!m || v == null) return false;
     m.scrollTop = v;
+    // The fonts may still come in and make the text a little shorter or longer: then the place is set again.
+    if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(function () { if (byId('main') === m) m.scrollTop = v; });
     return true;
   }
   var VIEW_PLACES = 80, viewTimer = 0;
@@ -651,19 +682,19 @@
         HOME_ICON[h[0]] + '<span class="bnl">' + h[1] + '</span>' + (h[0] === 'todo' ? A.todoCountHtml() : '') + '</button>';
     }).join('') + '</nav>';
   }
-  // The big button at the bottom ("Done, next step").
-  function nextHtml(act, label, off) {
+  // The big button at the bottom ("Done, next step"). icon: another icon than the tick.
+  function nextHtml(act, label, off, icon) {
     return '<footer class="ftr"><button class="next" type="button" id="next-btn" data-act="' + act + '"' + (off ? ' disabled' : '') + '>' +
-      I.check + '<span>' + label + '</span></button></footer>';
+      (icon || I.check) + '<span>' + label + '</span></button></footer>';
   }
   // A part of a screen that folds open and shut: a bar with its name and a count, and what is in it. attr names the
   // part for the click handler (data-sec: a quest's part, data-ov: an Overview part, data-asec: a part of an area);
-  // its button has attr + "-btn" with key (or id). done: everything in it is done.
+  // its button has attr + "-btn" with key (or id). done: everything in it is done. name and count are text (like acc).
   function partHtml(attr, id, name, count, body, open, o) {
     o = o || {};
     return '<section class="sec' + (o.done ? ' alldone' : '') + '" ' + attr + '="' + esc(id) + '"><h2 class="sh">' +
       '<button class="sech' + (o.done ? ' done' : '') + '" type="button" ' + attr + '-btn="' + esc(o.key || id) + '" aria-expanded="' + open + '">' +
-      I.chev + '<span class="n">' + name + '</span><span class="c"' + (o.countAttr || '') + '>' + count + '</span></button></h2>' +
+      I.chev + '<span class="n">' + esc(name) + '</span><span class="c"' + (o.countAttr || '') + '>' + esc(count) + '</span></button></h2>' +
       '<div class="secb"' + (open ? '' : ' hidden') + '>' + body + '</div></section>';
   }
   function toastHtml(low) { return '<div class="toast' + (low ? ' low' : '') + '" id="toast" role="status" aria-live="polite" hidden></div>'; }
@@ -811,9 +842,10 @@
     return acc(I.table, t.label || 'Table', plural(t.rows.length, 'row', 'rows'), body);
   }
   // One clickable row with a tick box. kind: "scb" for steps, "icb" for items, "acb" for area tasks. tail: a button at its end.
-  function rowHtml(kind, id, checked, textHtml, extraHtml, tail) {
+  // boxAttrs: more attributes for the tick box, made safe by the caller (like ' disabled').
+  function rowHtml(kind, id, checked, textHtml, extraHtml, tail, boxAttrs) {
     var tid = nextId();
-    return '<div class="row"><input class="cb" type="checkbox" data-' + kind + '="' + esc(id) + '" aria-labelledby="' + tid + '"' + (checked ? ' checked' : '') + '>' +
+    return '<div class="row"><input class="cb" type="checkbox" data-' + kind + '="' + esc(id) + '" aria-labelledby="' + tid + '"' + (checked ? ' checked' : '') + (boxAttrs || '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + textHtml + '</span>' + (extraHtml || '') + '</div>' + (tail || '') + '</div>';
   }
   function liHtml(h) { return '<li>' + h + '</li>'; }
@@ -895,22 +927,18 @@
     var s = document.querySelector('[data-act="reset"] span');
     if (s) s.textContent = 'Reset progress';
   }
+  // Reset progress of the quest on screen (two clicks: resetTwice in pages.js).
   function resetClick(btn) {
-    if (S.resetArmed && Date.now() - S.resetArmed < 4000) {
+    A.resetTwice(btn, function () {
       S.prog.steps = {};
       S.prog.items = {};
       S.prog.open = {};
       S.prog.acc = {};
       // only this quest's places: the other quests, areas and capes keep where you were
       Object.keys(S.scroll).forEach(function (k) { if (k.indexOf('quest:' + S.key + ':') === 0) delete S.scroll[k]; });
-      S.resetArmed = 0;
       A.renderQuest();
-      toast('Progress reset.');
       if (S.prog.tab === 'steps') A.jumpTo(A.current(), false);
-      return;
-    }
-    S.resetArmed = Date.now();
-    btn.querySelector('span').textContent = 'Click again to reset';
+    });
   }
 
   // ---------- maps (Leaflet with the wiki's map tiles) ----------

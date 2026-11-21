@@ -169,8 +169,8 @@
   }
   // Opens a quest from the list: from storage if it is saved, else from the wiki.
   function openTitle(title) {
-    var m = metaAll(), want = D.norm(title), key = '';
-    Object.keys(m).forEach(function (k) { if (!key && D.norm(m[k].title) === want) key = k; });
+    var m = metaAll(), want = QG.normName(title), key = '';
+    Object.keys(m).forEach(function (k) { if (!key && QG.normName(m[k].title) === want) key = k; });
     S.error = '';
     var q = key && sget('quest.' + key);
     if (q) { showSaved('quest.' + key, function () { openQuest(key, q); }); return; }
@@ -246,9 +246,9 @@
   function markNewQuests(old, fresh) {
     var had = {}, n = 0, now = Date.now();
     if (!old || !old.length) return 0;
-    old.forEach(function (q) { had[D.norm(q.t)] = q; });
+    old.forEach(function (q) { had[QG.normName(q.t)] = q; });
     fresh.forEach(function (q) {
-      var o = had[D.norm(q.t)];
+      var o = had[QG.normName(q.t)];
       if (!o) { q.newAt = now; n++; } else if (o.newAt) q.newAt = o.newAt;
     });
     return n;
@@ -298,8 +298,8 @@
   // Quests and miniquests together. A miniquest that is also in the quest list shows once.
   function allQuests() {
     var out = ((S.list && S.list.quests) || []).slice(), seen = {};
-    out.forEach(function (q) { seen[D.norm(q.t)] = 1; });
-    ((S.minis && S.minis.quests) || []).forEach(function (q) { if (!seen[D.norm(q.t)]) { seen[D.norm(q.t)] = 1; out.push(q); } });
+    out.forEach(function (q) { seen[QG.normName(q.t)] = 1; });
+    ((S.minis && S.minis.quests) || []).forEach(function (q) { if (!seen[QG.normName(q.t)]) { seen[QG.normName(q.t)] = 1; out.push(q); } });
     return out;
   }
   function shortName(t) { return String(t).replace(/\s*\(miniquest\)\s*$/i, ''); }
@@ -325,18 +325,18 @@
   function orderRanks() {
     if (S.ranks) return S.ranks;
     var pos = {}, r = {};
-    ((S.order && S.order.order) || []).forEach(function (t, i) { var k = D.norm(t); if (pos[k] == null) pos[k] = i; });
-    ((S.list && S.list.quests) || []).filter(function (q) { return pos[D.norm(q.t)] != null; })
-      .sort(function (a, b) { return pos[D.norm(a.t)] - pos[D.norm(b.t)]; })
-      .forEach(function (q, i) { r[D.norm(q.t)] = i + 1; });
+    ((S.order && S.order.order) || []).forEach(function (t, i) { var k = QG.normName(t); if (pos[k] == null) pos[k] = i; });
+    ((S.list && S.list.quests) || []).filter(function (q) { return pos[QG.normName(q.t)] != null; })
+      .sort(function (a, b) { return pos[QG.normName(a.t)] - pos[QG.normName(b.t)]; })
+      .forEach(function (q, i) { r[QG.normName(q.t)] = i + 1; });
     S.ranks = r;
     return r;
   }
-  function orderRank(q) { return orderRanks()[D.norm(q.t)] || 0; }
+  function orderRank(q) { return orderRanks()[QG.normName(q.t)] || 0; }
   // ---------- the quest list (the start screen's Quests tab) ----------
   // Everything the list needs to know about one quest.
   function questInfo(q, byTitle) {
-    var m = byTitle[D.norm(q.t)] || null, ps = playerStatus(q.t);
+    var m = byTitle[QG.normName(q.t)] || null, ps = playerStatus(q.t);
     // Done when you ticked every step, when the game says so, or when you marked it done in an imported file.
     var isDone = (!!m && m.total > 0 && m.done >= m.total) || ps === 2 || markedDone(q.t);
     var started = !isDone && ((!!m && m.done > 0) || ps === 1);
@@ -399,7 +399,7 @@
         '<p class="pad"><button class="btn" type="button" data-act="list-refresh">Try again</button></p>';
     }
     var m = metaAll(), byTitle = {};
-    Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = m[k]; });
+    Object.keys(m).forEach(function (k) { byTitle[QG.normName(m[k].title)] = m[k]; });
     var v = S.input.toLowerCase().trim();
     var sort = S.set.sort;
     if (sort === 'opt' && !S.order) {
@@ -529,7 +529,7 @@
       body += blockHtml(b);
     });
     if (run) body += '<ul class="steps">' + run + '</ul>';
-    return partHtml('data-sec', sec.id, esc(sec.title), '', body, open);
+    return partHtml('data-sec', sec.id, sec.title, '', body, open);
   }
   function stepsHtml() {
     var q = S.q;

@@ -1,5 +1,5 @@
 // Miniquests, locked quests, search, quests you can open from a guide, and League rows.
-const { test, expect, fixture, seed, stored, openApp, openQuest, choose, openSettings, closeSettings, lookUp, toggle, row, names } = require('./support/app');
+const { addWiki, test, expect, fixture, seed, stored, openApp, openQuest, choose, openSettings, closeSettings, lookUp, toggle, row, names } = require('./support/app');
 
 const details = (page) => page.locator('section[data-ov="details"] .secb');
 const rewards = (page) => page.locator('section[data-ov="rewards"] .secb');
@@ -14,7 +14,7 @@ async function lookUpDone(page, name) {
 test.describe('miniquests', () => {
   test('quests.js reads only the main table of the Miniquests page', async ({ page }) => {
     await page.goto('/__blank');
-    await page.addScriptTag({ url: '/js/wiki/quests.js' });
+    await addWiki(page);
     const l = await page.evaluate((h) => window.QuickGuideData.parseMinis(h), fixture('miniquests.html'));
     expect(l.map((q) => q.t)).toEqual(['A Guild of Our Own (miniquest)', 'Bar Crawl (miniquest)', "Benedict's World Tour (miniquest)", 'Curse of the Empty Lord (miniquest)']);
     expect(l[0]).toEqual({ t: 'A Guild of Our Own (miniquest)', mini: true, m: true, len: 'Short to Medium', age: 'Ambiguous', dif: 'Master', cb: 'None', qp: 0, ser: "Thieves' Guild", rel: '28 April 2010' });

@@ -2,7 +2,7 @@
 // They need the internet. Run them with: npm run test:live
 // (GitHub runs them once a week. The normal tests use a fake wiki and never go online.)
 const base = require('@playwright/test');
-const { ORIGIN, serveFile, watchErrors } = require('./support/app');
+const { addWiki, ORIGIN, serveFile, watchErrors } = require('./support/app');
 
 const test = base.test.extend({
   context: async ({ context }, use) => {
@@ -83,7 +83,7 @@ test('the optimal order is read from the wiki and matches the quest list', async
 
 test('miniquests are read from the wiki, from the main table only', async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/quests.js' });
+  await addWiki(page);
   const l = await page.evaluate(() => window.QuickGuideData.loadMinis());
   expect(l.quests.length).toBeGreaterThan(40);
   expect(l.quests.length).toBeLessThan(80);
@@ -96,7 +96,7 @@ test('miniquests are read from the wiki, from the main table only', async ({ pag
 
 test('the wiki says which pages it has, after its own capitals and redirects (My list\'s wiki links)', async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const found = await page.evaluate(() => window.QuickGuide.findPages(['Crystal hatchet', 'crystal hatchet', 'Soul Split', 'No such page at all 12345']));
   expect(found['Crystal hatchet']).toBe('Crystal hatchet');
   expect(found['crystal hatchet']).toBe('Crystal hatchet');
@@ -106,7 +106,7 @@ test('the wiki says which pages it has, after its own capitals and redirects (My
 
 test('League rows show region names', async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const q = await page.evaluate(() => window.QuickGuide.load({ title: 'While Guthix Sleeps/Quick guide', base: 'While Guthix Sleeps' }));
   const row = q.overview.extra.find((x) => /league region/i.test(x.label));
   // If the wiki drops the League rows, there is nothing to check.
@@ -118,7 +118,7 @@ test('League rows show region names', async ({ page }) => {
 test('every area page reads into its tiers, with tasks', async ({ page }) => {
   test.setTimeout(120000);
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const out = await page.evaluate(async () => {
     const res = [];
     for (const a of window.QuickGuide.AREAS) {
@@ -140,7 +140,7 @@ test('every area page reads into its tiers, with tasks', async ({ page }) => {
 
 test('the wiki still lists the same 13 areas', async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const names = await page.evaluate(async () => {
     const r = await fetch('https://runescape.wiki/api.php?action=parse&format=json&formatversion=2&prop=links&origin=*&page=Area_Tasks_achievements');
     const d = await r.json();
@@ -152,7 +152,7 @@ test('the wiki still lists the same 13 areas', async ({ page }) => {
 
 test('an area task with steps: Red, Red Pies of Summer has its 4 steps', async ({ page }) => {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const t = await page.evaluate(async () => {
     const a = await window.QuickGuide.loadArea('Varrock');
     return a.tiers.flatMap((x) => x.tasks).find((x) => x.name === 'Red, Red Pies of Summer');
@@ -166,7 +166,7 @@ test('an area task with steps: Red, Red Pies of Summer has its 4 steps', async (
 test('area tasks: the steps of a task are found on every area page', async ({ page }) => {
   test.setTimeout(120000);
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const n = await page.evaluate(async () => {
     let withSteps = 0, tasks = 0;
     for (const a of window.QuickGuide.AREAS) {
@@ -192,7 +192,7 @@ test('an area page as the wiki sends it to a phone reads into its tiers and task
   console.log('phone answer: sections', (body.match(/<section/g) || []).length, 'start', body.slice(0, 200).replace(/\s+/g, ' '));
   const d = JSON.parse(body);
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   const t = await page.evaluate((h) => window.QuickGuide.parseArea(h, 'Ardougne').tiers.map((x) => [x.name, x.tasks.length]), d.parse.text);
   expect(t.map((x) => x[0])).toEqual(['Easy', 'Medium', 'Hard', 'Elite']);
   for (const x of t) expect(x[1]).toBeGreaterThan(0);

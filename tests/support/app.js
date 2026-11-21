@@ -391,10 +391,15 @@ function item(page, text) {
 function part(page, title) {
   return page.locator('section.sec').filter({ has: page.locator('.sech .n', { hasText: title }) }).first();
 }
+// The wiki reader on a page of its own (window.QuickGuide): the files of js/wiki, in the order index.html loads them.
+const WIKI_FILES = [...fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').matchAll(/<script src="(js\/wiki\/[^"?]+)/g)].map((m) => m[1]);
+async function addWiki(page) {
+  for (const f of WIKI_FILES) await page.addScriptTag({ url: '/' + f });
+}
 // A quest, parsed by the app's own parser from a fixture, ready to put in storage.
 async function parsedQuest(page, file, title, live) {
   await page.goto('/__blank');
-  await page.addScriptTag({ url: '/js/wiki/parser.js' });
+  await addWiki(page);
   return page.evaluate(([h, t, l]) => window.QuickGuide.parse('<div class="mw-parser-output">' + h + '</div>',
     { title: t, base: t.replace(/\/Quick guide$/, ''), live: l || {} }), [fixture(file), title, live]);
 }
@@ -409,4 +414,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, caughtUp, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain, deleteEverything };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, WIKI_FILES, addWiki, fixture, serveFile, watchErrors, seed, stored, caughtUp, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain, deleteEverything };

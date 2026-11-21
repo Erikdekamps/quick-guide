@@ -69,7 +69,7 @@ test.describe('My list: names that every object has ("constructor", "__proto__")
     expect(file.__proto__).toEqual({ 'Buy a cape': false });
     // and it comes back
     expect(app.A.todoFileError(file)).toBe('');
-    expect(app.A.importTodo(file)).toBe(2);
+    expect(app.A.importTodo(file)).toEqual({ lists: 2, left: { lists: 0, twice: 0, goals: 0 } });
     expect(app.storage.saved('todo').lists.map((l) => l.name)).toEqual(['Constructor', '__proto__']);
   });
 });
@@ -182,6 +182,31 @@ test.describe('storage that is full', () => {
     expect(app.A.sset('note', { n: 4 })).toBe(true);
     expect(app.storage.saved('note')).toEqual({ n: 4 });
     expect(app.A.sget('note')).toEqual({ n: 4 });
+  });
+
+  test('with no guides or areas left to drop, the cape read longest ago goes; its ticks stay', () => {
+    const app = load({ storage: {
+      'cape.mqc': { key: 'mqc', fetchedAt: '2026-11-01T00:00:00Z', cheevos: [{ id: '1' }] },
+      'cape.comp': { key: 'comp', fetchedAt: '2026-10-01T00:00:00Z', cheevos: [{ id: '2' }] },
+      'cprog.comp': { ticks: { 2: 1 } }
+    } });
+    const set = app.storage.setItem;
+    // full while the older cape is there
+    app.storage.setItem = (k, v) => {
+      if (k === 'qg1.note' && app.storage.getItem('qg1.cape.comp') != null) throw Object.assign(new Error('Full'), { name: 'QuotaExceededError' });
+      set(k, v);
+    };
+    expect(app.A.sset('note', { n: 1 })).toBe(true);
+    expect(app.storage.saved('cape.comp')).toBeNull();
+    expect(app.storage.saved('cape.mqc')).not.toBeNull();
+    expect(app.storage.saved('cprog.comp')).toEqual({ ticks: { 2: 1 } });
+    // a cape that is being saved is not dropped to make room for itself
+    app.storage.setItem = (k, v) => {
+      if (k === 'qg1.cape.mqc' && app.storage.getItem('qg1.note') != null) throw Object.assign(new Error('Full'), { name: 'QuotaExceededError' });
+      set(k, v);
+    };
+    expect(app.A.sset('cape.mqc', { key: 'mqc', fetchedAt: '2026-11-02T00:00:00Z', cheevos: [] })).toBe(false);
+    expect(app.storage.saved('cape.mqc')).toMatchObject({ fetchedAt: '2026-11-01T00:00:00Z' });
   });
 
   test('only what could not be saved is kept in memory', () => {
@@ -308,6 +333,16 @@ test.describe('a cape is read once', () => {
     const out = app.A.exportTodo();
     expect(Object.values(out.Cape).filter(Boolean)).toHaveLength(2);
     expect(app.reads).toBe(1);
+  });
+});
+
+test.describe('the shape your ticks are saved in', () => {
+  test('ticks saved before they had a version are read as version 1, and saved with it', () => {
+    const app = load({ storage: { 'aprog.Ardougne': { tasks: { 448: 1 } }, 'cprog.mqc': { ticks: { 2: 1 } }, todo: { lists: [] } } });
+    expect(app.A.loadAprog('Ardougne')).toEqual({ v: 1, tasks: { 448: 1 } });
+    expect(app.A.loadCprog('mqc')).toEqual({ v: 1, ticks: { 2: 1 } });
+    expect(app.A.T.todo().v).toBe(app.A.T.TODO_VERSION);
+    expect(app.A.T.TODO_VERSION).toBe(1);
   });
 });
 
