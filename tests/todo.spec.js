@@ -252,6 +252,18 @@ test.describe('adding goals', () => {
 });
 
 test.describe('ticking and planning', () => {
+  test('a tick draws only its own list again: the others, and what you typed in them, stay', async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }], Gathering: [{ kind: 'other', title: '500 Magic logs' }] }));
+    await addBox(page, 'Gathering').fill('half typed');
+    await page.locator('ul.todo[data-list="l2"]').evaluate((ul) => { ul.dataset.kept = 'yes'; });
+    await goal(page, 'Vis wax').locator('.cb').click();
+    await expect(goal(page, 'Vis wax')).toHaveClass(/\bdone\b/);
+    await expect(page.locator('.qmeta')).toContainText('2 goals, 1 done');
+    await expect(page.locator('ul.todo[data-list="l2"]')).toHaveAttribute('data-kept', 'yes');
+    await expect(addBox(page, 'Gathering')).toHaveValue('half typed');
+    expect((await stored(page, 'todo')).lists[0].items[0].done).toBeGreaterThan(0);
+  });
+
   test('tick a goal: it stays where it is, struck through; Clear done goals removes it, Undo brings it back', async ({ page }) => {
     await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Buy a cape' }] }));
     await goal(page, 'Vis wax').locator('.t').click();

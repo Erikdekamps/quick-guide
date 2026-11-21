@@ -48,7 +48,7 @@ const browser = { ecmaVersion: 2017, sourceType: 'script', globals: { ...globals
 // The tests and tools run in Node.
 const node = { ecmaVersion: 2022, sourceType: 'commonjs', globals: globals.node };
 // What a browser test uses of the page: the code it hands to page.evaluate() runs in the browser.
-const inPage = Object.fromEntries(['window', 'document', 'localStorage', 'getComputedStyle', 'innerWidth', 'Image', 'DataTransfer', 'ClipboardEvent']
+const inPage = Object.fromEntries(['window', 'document', 'localStorage', 'getComputedStyle', 'innerWidth', 'Image', 'DataTransfer', 'ClipboardEvent', 'MutationObserver', 'Storage']
   .map((name) => [name, 'readonly']));
 const nodeRules = {
   ...rules,

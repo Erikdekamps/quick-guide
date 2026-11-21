@@ -118,7 +118,7 @@ wiki again when you open it; your ticks stay.
   are asked once more: after as long as the wiki asks (at most 5 seconds), else after a second. What an update still
   cannot read is kept as it was saved, and read again at the next update.
 
-No other service is used.
+No other service is used. The fonts come with the app (`vendor/fonts/`).
 
 ## Files
 
@@ -139,6 +139,7 @@ No other service is used.
 | `js/wiki/parser.js` | Reads a quest guide, an area page or a cape's achievements from the wiki |
 | `js/wiki/quests.js` | Reads the quest lists and the optimal order |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
+| `vendor/fonts/` | The fonts (Cinzel, Fira Sans, Fira Mono; SIL Open Font License), so the app needs no font service |
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |

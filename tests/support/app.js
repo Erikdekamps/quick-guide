@@ -1,7 +1,7 @@
 // Shared test setup for Quick Guide.
 // - The app's files are served from this folder at http://quick-guide.test (no web server needed).
 // - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures/wiki).
-// - Fonts, map tiles and wiki pictures are stubbed, and anything else on the internet is blocked.
+// - Map tiles and wiki pictures are stubbed, and anything else on the internet is blocked. (The fonts are the app's own.)
 const base = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
@@ -219,7 +219,6 @@ const test = base.test.extend({
     const checkErrors = watchErrors(context);
     // Routes run newest first, so this catch-all only gets what nothing else handles.
     await context.route(/^https?:\/\//, (route) => route.abort('blockedbyclient'));
-    await context.route(/^https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) => route.fulfill({ body: '', contentType: 'text/css' }));
     await context.route(/^https:\/\/maps\.runescape\.wiki\//, (route) => { tiles.push(route.request().url()); return route.fulfill({ body: PNG, contentType: 'image/png' }); });
     await context.route(/^https:\/\/runescape\.wiki\//, (route) => wiki.handle(route));
     await context.route(/^https:\/\/sync\.runescape\.wiki\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
@@ -270,7 +269,7 @@ function serveFile(route) {
   const file = path.join(ROOT, path.normalize(rel));
   if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) return route.fulfill({ status: 404, body: 'not found' });
   // Like GitHub Pages: text files say they are UTF-8.
-  const types = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.json': 'application/json', '.md': 'text/markdown' };
+  const types = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.json': 'application/json', '.md': 'text/markdown', '.woff2': 'font/woff2' };
   const type = types[path.extname(file).toLowerCase()];
   return route.fulfill(type ? { path: file, contentType: type + '; charset=utf-8' } : { path: file });
 }

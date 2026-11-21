@@ -507,6 +507,24 @@ test.describe('an area', () => {
     expect(page.errors).toEqual([]);
   });
 
+  test('an older area whose tasks were saved without steps can be ticked', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await page.goto('/__blank');
+    await page.addScriptTag({ url: '/js/wiki/parser.js' });
+    const old = await page.evaluate((h) => {
+      const a = window.QuickGuide.parseArea('<div class="mw-parser-output">' + h + '</div>', 'Ardougne');
+      a.tiers.forEach((t) => t.tasks.forEach((x) => { delete x.subs; }));
+      return a;
+    }, fixture('ardougne-achievements.html'));
+    await seed(page, { 'area.Ardougne': old, settings: { home: 'areas' } });
+    await openApp(page, expect);
+    await area(page, 'Ardougne', 'easy').click();
+    await page.locator('#next-btn').click();
+    await page.locator('#next-btn').click();
+    await expect(page.locator('#pg-cnt')).toHaveText('2 / 23');
+    expect(page.errors).toEqual([]);
+  });
+
   test('when the quiet read works, the area is updated', async ({ page, wiki }) => {
     withAreas(wiki);
     await page.goto('/__blank');
@@ -534,6 +552,45 @@ test.describe('an area', () => {
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 23');
     expect((await stored(page, 'area.Ardougne')).version).toBe(1);
     expect(page.errors).toEqual([]);
+  });
+
+  test('a tick writes your ticks, changes only its own rows, and the area list count follows a moment later', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await page.clock.install();
+    await openArea(page, 'Ardougne');
+    await page.clock.runFor(2000);
+    const rows = page.locator('#main li[data-task]');
+    await rows.nth(5).evaluate((li) => { li.dataset.kept = 'yes'; });
+    await page.evaluate(() => {
+      const set = Storage.prototype.setItem;
+      window.writes = [];
+      Storage.prototype.setItem = function (k, v) { window.writes.push(k); return set.call(this, k, v); };
+    });
+    await page.locator('#next-btn').click();
+    await expect(page.locator('#pg-cnt')).toHaveText('1 / 23');
+    await expect(page.locator('[data-asec="tasks"] .sech .c')).toHaveText('1 / 23');
+    await expect(rows.first()).toHaveClass(/\bdone\b/);
+    await expect(rows.nth(1)).toHaveClass(/\bcur\b/);
+    await expect(rows.nth(5)).toHaveAttribute('data-kept', 'yes');
+    expect(await page.evaluate(() => window.writes)).toEqual(['qg1.aprog.Ardougne']);
+    await page.clock.runFor(1600);
+    expect(await page.evaluate(() => window.writes.filter((k) => k !== 'qg1.view'))).toEqual(['qg1.aprog.Ardougne', 'qg1.ameta']);
+    expect((await stored(page, 'ameta')).Ardougne.tiers[0]).toMatchObject({ done: 1, total: 23 });
+  });
+
+  test('opening an area again does not write the index of all tasks again', async ({ page, wiki }) => {
+    withAreas(wiki);
+    await openArea(page, 'Ardougne');
+    expect((await stored(page, 'aidx')).Ardougne.tiers).toHaveLength(4);
+    await page.getByRole('button', { name: 'All achievements' }).click();
+    await page.evaluate(() => {
+      const set = Storage.prototype.setItem;
+      window.writes = [];
+      Storage.prototype.setItem = function (k, v) { window.writes.push(k); return set.call(this, k, v); };
+    });
+    await area(page, 'Ardougne').first().click();
+    await expect(page.locator('h1.qt')).toHaveText('Ardougne');
+    expect(await page.evaluate(() => window.writes)).not.toContain('qg1.aidx');
   });
 
   test('says when the wiki fails', async ({ page, wiki }) => {
@@ -750,7 +807,8 @@ test.describe('an area', () => {
       await page.locator('#next-btn').click();
       expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1 });
       await expect(page.locator('#pg-cnt')).toHaveText('1 / 2');
-      expect((await stored(page, 'ameta')).Varrock.tiers.find((t) => t.id === 'elite')).toMatchObject({ done: 1, total: 2 });
+      // the area list's count is saved a moment later
+      await expect.poll(async () => (await stored(page, 'ameta')).Varrock.tiers.find((t) => t.id === 'elite')).toMatchObject({ done: 1, total: 2 });
     });
   });
 

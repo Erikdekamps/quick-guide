@@ -3,6 +3,61 @@ const { test, expect, seed, stored, storedKeys, openApp, openQuest, openTab, ste
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
+test('a tick in a quest writes one key: your ticks; the quest list count follows a moment later', async ({ page }) => {
+  await page.clock.install();
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  await openTab(page, 'steps');
+  await page.clock.runFor(2000);
+  await page.evaluate(() => {
+    const set = Storage.prototype.setItem;
+    window.writes = [];
+    Storage.prototype.setItem = function (k, v) { window.writes.push(k); return set.call(this, k, v); };
+  });
+  await step(page, 'In Taverley').locator('.cb').first().click();
+  await expect(step(page, 'In Taverley')).toHaveClass(/\bdone\b/);
+  expect(await page.evaluate(() => window.writes)).toEqual(['qg1.prog.' + WGS]);
+  await page.clock.runFor(1600);
+  expect(await page.evaluate(() => window.writes.filter((k) => k !== 'qg1.view'))).toEqual(['qg1.prog.' + WGS, 'qg1.meta']);
+  expect((await stored(page, 'meta'))[WGS]).toMatchObject({ done: 1, total: 12 });
+});
+
+test('the count is saved at once when the quest list is shown, or the page goes away', async ({ page }) => {
+  await page.clock.install();
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  await openTab(page, 'steps');
+  await step(page, 'In Taverley').locator('.cb').first().click();
+  await page.getByRole('button', { name: 'All quests' }).click();
+  await expect(page.locator('.q[data-quest="While Guthix Sleeps"]')).toContainText('1 / 12');
+  await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
+  await step(page, 'Go upstairs').locator('.cb').first().click();
+  await page.evaluate(() => window.dispatchEvent(new Event('pagehide')));
+  expect((await stored(page, 'meta'))[WGS]).toMatchObject({ done: 2, total: 12 });
+});
+
+test('opening a saved quest, from the list or at the start, reads its guide once', async ({ page }) => {
+  await openQuest(page, expect, 'While Guthix Sleeps');
+  const count = () => page.evaluate(() => {
+    const get = Storage.prototype.getItem;
+    window.reads = 0;
+    Storage.prototype.getItem = function (k) { if (k === 'qg1.quest.While Guthix Sleeps/Quick guide') window.reads++; return get.call(this, k); };
+  });
+  await page.getByRole('button', { name: 'All quests' }).click();
+  await count();
+  await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
+  await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+  expect(await page.evaluate(() => window.reads)).toBe(1);
+  // (the weekly check of what the app keeps ran a moment ago: it would read every guide)
+  await page.evaluate(() => localStorage.setItem('qg1.upd', JSON.stringify({ at: Date.now(), found: {} })));
+  await page.addInitScript(() => {
+    const get = Storage.prototype.getItem;
+    window.reads = 0;
+    Storage.prototype.getItem = function (k) { if (k === 'qg1.quest.While Guthix Sleeps/Quick guide') window.reads++; return get.call(this, k); };
+  });
+  await page.reload();
+  await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
+  expect(await page.evaluate(() => window.reads)).toBe(1);
+});
+
 test('what is saved while you use a quest', async ({ page }) => {
   await openQuest(page, expect, 'While Guthix Sleeps');
   await page.locator('[data-ov-btn="enemies"]').click();
@@ -19,7 +74,8 @@ test('what is saved while you use a quest', async ({ page }) => {
     open: { 'ov:enemies': false, 'catching-lucien-s-spy': false },
     acc: {}
   });
-  expect((await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 1, total: 12 });
+  // the quest list's count is saved a moment after the tick
+  await expect.poll(async () => (await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 1, total: 12 });
   expect(await stored(page, 'last')).toBe(WGS);
   // settings are saved once you change one, and only these
   expect(await stored(page, 'settings')).toBeNull();
@@ -84,6 +140,12 @@ test('the app still works when the browser blocks storage', async ({ page }) => 
   await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
   await page.getByRole('button', { name: 'All quests' }).click();
   await expect(page.locator('.q[data-quest="While Guthix Sleeps"] .qs')).toHaveText('1 / 12');
+  // the export has what is only in memory
+  await openSettings(page);
+  await page.getByRole('button', { name: 'Export state' }).click();
+  await expect(page.locator('#bk-text')).not.toHaveValue('');
+  const j = JSON.parse(await page.locator('#bk-text').inputValue());
+  expect(j.quests['While Guthix Sleeps']).toMatchObject({ done: false, progress: '1 / 12' });
   expect(page.errors).toEqual([]);
   // nothing was kept: after a reload it starts fresh
   await page.reload();

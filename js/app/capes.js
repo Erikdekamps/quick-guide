@@ -6,7 +6,7 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var alignTop = A.alignTop, app = A.app, byId = A.byId, D = A.D, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml,
+  var alignTop = A.alignTop, cssq = A.cssq, app = A.app, byId = A.byId, D = A.D, dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml,
     homeBarHtml = A.homeBarHtml, I = A.I, loadError = A.loadError, markedDone = A.markedDone, markHtml = A.markHtml, metaAll = A.metaAll, nextHtml = A.nextHtml,
     partHtml = A.partHtml, playerLevel = A.playerLevel, playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG,
     questBtn = A.questBtn, questMark = A.questMark,
@@ -27,15 +27,16 @@
   // On the cape's own page: the ticks in use; anywhere else: the saved ones (an import may have changed them).
   function progOf(key) { return S.view === 'cape' && key === S.capeKey && S.cprog ? S.cprog : loadCprog(key); }
   function saveCprog() { sset('cprog.' + S.capeKey, S.cprog); }
-  // Ticks or unticks an achievement in a cape: the one on screen, or a saved one.
-  function setTick(key, id, on) {
+  // Ticks or unticks an achievement in a cape: the one on screen, or a saved one. later: the caller saves it.
+  function setTick(key, id, on, later) {
     var here = S.view === 'cape' && key === S.capeKey && S.cprog, p = here ? S.cprog : loadCprog(key);
     if (on) p.ticks[id] = 1; else delete p.ticks[id];
-    sset('cprog.' + key, p);
+    if (!later) sset('cprog.' + key, p);
   }
   // An achievement that counts for two capes is one tick: it is ticked in both (also: the other capes, from the wiki).
-  function tickShared(key, x, on) {
-    setTick(key, x.id, on);
+  // later: the caller saves the cape it is in.
+  function tickShared(key, x, on, later) {
+    setTick(key, x.id, on, later);
     (x.also || []).forEach(function (k) { if (k !== key && capeInfo(k)) setTick(k, x.id, on); });
   }
 
@@ -62,21 +63,42 @@
     var reqs = c.skiller || [];
     return { done: reqs.filter(function (r) { var v = playerLevel(r.skill); return v != null && v >= r.level; }).length, total: reqs.length };
   }
+  // Reads the saved capes and your ticks in them once, for one draw or one export: a cape is big, so it is not parsed
+  // again for every achievement that is asked about. Make a new one when something was ticked.
+  function capeReader() {
+    var capes = {}, progs = {}, ids = {}, quests = null;
+    var r = {
+      cape: function (k) { if (!(k in capes)) capes[k] = savedCape(k); return capes[k]; },
+      prog: function (k) { if (!(k in progs)) progs[k] = progOf(k); return progs[k]; },
+      // An achievement of a saved cape by its id, or null.
+      cheevo: function (k, id) {
+        if (!(k in ids)) {
+          var c = r.cape(k), m = {};
+          if (c) c.cheevos.forEach(function (x) { m[x.id] = x; });
+          ids[k] = m;
+        }
+        return Object.prototype.hasOwnProperty.call(ids[k], id) ? ids[k][id] : null;
+      },
+      quests: function () { return quests || (quests = questsDone()); }
+    };
+    return r;
+  }
   // { done, total } of a cape, or null when it is not read yet. seen: the capes counted already (no loops).
-  function capeCount(key, seen) {
-    var c = savedCape(key);
+  function capeCount(key, seen, r) {
+    r = r || capeReader();
+    var c = r.cape(key);
     if (!c) return null;
     seen = seen || {};
     if (seen[key]) return { done: 0, total: c.cheevos.length };
     seen[key] = 1;
-    var p = progOf(key);
-    return { done: c.cheevos.filter(function (x) { return isDone(x, c, p, seen); }).length, total: c.cheevos.length };
+    var p = r.prog(key);
+    return { done: c.cheevos.filter(function (x) { return isDone(x, c, p, seen, r); }).length, total: c.cheevos.length };
   }
-  function isDone(x, c, p, seen) {
+  function isDone(x, c, p, seen, r) {
     var a = autoOf(x, c);
-    if (a === 'quests') { var q = questsDone(); return q.total > 0 && q.done >= q.total; }
+    if (a === 'quests') { var q = r ? r.quests() : questsDone(); return q.total > 0 && q.done >= q.total; }
     if (a === 'skills') { var s = skillsMet(c); return s.total > 0 && s.done >= s.total; }
-    if (a) { var n = capeCount(a.slice(5), Object.assign({}, seen || {})); return !!n && n.done >= n.total; }
+    if (a) { var n = capeCount(a.slice(5), Object.assign({}, seen || {}), r); return !!n && n.done >= n.total; }
     return !!p.ticks[x.id];
   }
   function selfText(a, c) {
@@ -159,11 +181,12 @@
 
   // ---------- a cape's page ----------
   // Opens a cape: from storage if it is saved, else from the wiki.
-  function openCape(key) {
+  // c: the saved cape, when the caller read it already.
+  function openCape(key, c) {
     var info = capeInfo(key);
     if (!info) return;
     S.error = '';
-    var c = savedCape(key);
+    c = c || savedCape(key);
     // A saved cape opens at once. One saved with another CAPE_VERSION is read again quietly; if that fails, the saved one stays.
     if (c) {
       if (showSaved('cape.' + key, function () { showCape(key, c); }) && c.version !== QG.CAPE_VERSION) refreshCape(true);
@@ -334,18 +357,48 @@
   function tickCheevo(id, on) {
     var x = S.cape.cheevos.filter(function (y) { return y.id === id; })[0];
     if (!x || autoOf(x, S.cape)) return;
-    tickShared(S.capeKey, x, on);
+    tickShared(S.capeKey, x, on, true);
     // A part you finish folds shut (the next time it is drawn), like an area's tasks.
     var g = partOfId(id);
     if (on && g && S.cprog.open && g.items.every(function (y) { return isDone(y, S.cape, S.cprog); })) delete S.cprog.open[g.key];
     saveCprog();
-    renderCape(true);
+    if (!updateCape()) renderCape(true);
+  }
+  // After a tick: the counts, and the rows that changed, without drawing the screen again. False when a part was done
+  // or is now (it folds), or the tab is done (the button changes): then the screen is drawn again.
+  function updateCape() {
+    var main = byId('main'), c = S.cape, p = S.cprog, tabs = capeTabs(c), t = tabNow(tabs), parts = capeParts(c, t), r = capeReader(), cur = null;
+    var doneOf = function (x) { return isDone(x, c, p, null, r); };
+    parts.some(function (g) { cur = g.items.filter(function (x) { return !autoOf(x, c) && !doneOf(x); })[0] || null; return !!cur; });
+    if (!cur || byId('next-btn').disabled) return false;
+    var counts = parts.map(function (g) {
+      var d = g.items.filter(doneOf).length, sec = main.querySelector('section[data-cpart="' + cssq(g.key) + '"]');
+      return { g: g, d: d, sec: sec, full: d === g.items.length };
+    });
+    if (counts.some(function (x) { return !x.sec || x.sec.classList.contains('alldone') !== x.full; })) return false;
+    var done = c.cheevos.filter(doneOf).length, total = c.cheevos.length, pg = byId('pg'), cn = main.querySelector('.capehd .cn');
+    if (pg) pg.value = done;
+    if (cn) cn.textContent = done + ' / ' + plural(total, 'achievement', 'achievements');
+    tabs.forEach(function (x) {
+      var n = document.querySelector('.tab[data-ctab="' + cssq(x.id) + '"] .tcn');
+      var items = c.cheevos.filter(function (y) { return x.cats.indexOf(y.cat) >= 0; });
+      if (n) n.textContent = items.filter(doneOf).length + ' / ' + items.length;
+    });
+    counts.forEach(function (x) {
+      var cnt = x.sec.querySelector(':scope > .sh .c');
+      if (cnt) cnt.textContent = x.d + ' / ' + x.g.items.length;
+      x.g.items.forEach(function (y) {
+        var li = x.sec.querySelector('li[data-cheevo="' + cssq(y.id) + '"]');
+        if (li && (li.classList.contains('done') !== doneOf(y) || li.classList.contains('cur') !== (y === cur))) li.outerHTML = cheevoHtml(y, c, y === cur);
+      });
+    });
+    return true;
   }
   // For My list: is this achievement of this cape done, and ticking it there. A cape that is not read yet keeps the tick
-  // for when it is; one that ticks itself cannot be ticked.
-  function cheevoIsDone(key, id) {
-    var c = savedCape(key), x = c && c.cheevos.filter(function (y) { return y.id === id; })[0];
-    return x ? isDone(x, c, progOf(key)) : !!progOf(key).ticks[id];
+  // for when it is; one that ticks itself cannot be ticked. r: a capeReader (one for many questions).
+  function cheevoIsDone(key, id, r) {
+    var x = r.cheevo(key, id);
+    return x ? isDone(x, r.cape(key), r.prog(key), null, r) : !!r.prog(key).ticks[id];
   }
   function tickCheevoIn(key, id, on) {
     var c = savedCape(key), x = c && c.cheevos.filter(function (y) { return y.id === id; })[0];
@@ -426,13 +479,13 @@
       if (!silent && S.view === 'cape') toast('Updated from the wiki' + (n ? ': ' + plural(n, 'new achievement', 'new achievements') : '') + '.');
     }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
-  // For the export: is this achievement of a saved cape done (ticked, or ticked by itself)?
-  function cheevoDone(key, x) {
-    var c = savedCape(key);
-    return !!c && isDone(x, c, progOf(key));
+  // For the export: is this achievement of a saved cape done (ticked, or ticked by itself)? r: a capeReader (one for all).
+  function cheevoDone(key, x, r) {
+    var c = r.cape(key);
+    return !!c && isDone(x, c, r.prog(key), null, r);
   }
 
-  A.share({ autoOf: autoOf, capeCardsHtml: capeCardsHtml, capeReset: capeReset, cheevoDone: cheevoDone, cheevoIsDone: cheevoIsDone, loadCprog: loadCprog,
+  A.share({ autoOf: autoOf, capeCardsHtml: capeCardsHtml, capeReader: capeReader, capeReset: capeReset, cheevoDone: cheevoDone, cheevoIsDone: cheevoIsDone, loadCprog: loadCprog,
     reloadCape: reloadCape, tickCheevoIn: tickCheevoIn,
     nextCheevo: nextCheevo, openCape: openCape, refreshCape: refreshCape, renderCape: renderCape, savedCape: savedCape,
     switchCapeTab: switchCapeTab, tickCheevo: tickCheevo, toggleCapePart: toggleCapePart });

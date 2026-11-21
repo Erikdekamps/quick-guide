@@ -57,6 +57,8 @@
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
   var PLAYER_MAX_AGE = 24 * 3600 * 1000;
+  // How long after a tick the counts the lists show are saved (ms; see writeLater).
+  var LATER_WAIT = 1500;
   // What came out on the wiki since the app last read it (an achievement, a task, a quest) says "New" this long.
   var NEW_FOR = 30 * 24 * 3600 * 1000;
   var TABS = [['overview', 'Overview'], ['items', 'Items'], ['steps', 'Steps']];
@@ -73,6 +75,8 @@
   var memory = {};
   // Keys whose last write did not fit, and if the app said so a moment ago.
   var unsaved = {}, fullTold = false;
+  // Goes up with every write: what was read before a write may be out of date (see forNow).
+  var gen = 0;
   var FULL_STORAGE = 'The storage is full: your last change is not saved. Use Export state in Settings to keep it.';
   var S = null;
   function sget(k) {
@@ -115,15 +119,17 @@
   }
   // Saves a value. When the storage is full it drops old guides to make room. False when it still did not fit: the
   // value is then only kept until the app closes, and the app says so.
+  // Only a value that could not be saved stays in memory (the storage holds the rest).
   function sset(k, v) {
-    memory[k] = v;
+    gen++;
     var s = JSON.stringify(v), full = false;
     for (var tries = 0; tries < 40; tries++) {
-      try { window.localStorage.setItem(PREFIX + k, s); delete unsaved[k]; return true; } catch (e) {
+      try { window.localStorage.setItem(PREFIX + k, s); delete unsaved[k]; delete memory[k]; return true; } catch (e) {
         full = isFull(e);
         if (!evict(k)) break;
       }
     }
+    memory[k] = v;
     // Blocked storage (not full) is not said: nothing is ever kept then.
     if (full) { unsaved[k] = 1; tellFull(); }
     return false;
@@ -137,12 +143,28 @@
     setTimeout(function () { fullTold = false; }, 8000);
   }
   function sdel(k) {
+    gen++;
     delete memory[k];
     delete unsaved[k];
     try { window.localStorage.removeItem(PREFIX + k); } catch (e) { /* ignore */ }
   }
 
+  // For code that reads big values for one draw: keeps what make() gives while nothing was written to the storage and
+  // the app is still on the same task, then makes it again.
+  function forNow(make) {
+    var kept = null, at = -1;
+    return function () {
+      if (kept && at === gen) return kept;
+      kept = make();
+      at = gen;
+      Promise.resolve().then(function () { kept = null; });
+      return kept;
+    };
+  }
+
   // ---------- helpers ----------
+  // A value made safe to put in a CSS selector, like [data-task="…"].
+  function cssq(s) { return CSS.escape(String(s)); }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : c === '"' ? '&quot;' : '&#39;';
@@ -274,6 +296,9 @@
     closed: obj(savedView.closed),   // groups in the lists that are folded shut
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
+    mapWatch: null,   // waits for maps to scroll into view (startMaps)
+    searchTimer: 0,   // the search draws the list when you stop typing (main.js)
+    todoDrawn: null,  // My list: each list's markup as it was last drawn (todo-view.js)
     loading: false,
     wanted: 0,        // the number of the read that may open a screen when it is done (see waitFor)
     error: '',
@@ -300,6 +325,7 @@
     return out;
   }
   function metaAll() {
+    flushLater('meta');
     var m = sget('meta');
     if (m && typeof m === 'object' && !Array.isArray(m)) return m;
     // No meta yet: it is made from a saved "recent" list, if there is one.
@@ -312,15 +338,41 @@
     }
     return m;
   }
-  function remember(key, title, doneCount, total) {
-    var m = metaAll(), old = m[key] || {};
+  // Keeps how far you are in a quest. into: a meta that the caller saves itself, for many quests at once.
+  function remember(key, title, doneCount, total, into) {
+    var m = into || metaAll(), old = m[key] || {};
     m[key] = {
       title: title || old.title || key,
       done: doneCount != null ? doneCount : (old.done || 0),
       total: total != null ? total : (old.total || 0),
       at: Date.now()
     };
-    sset('meta', m);
+    if (!into) sset('meta', m);
+  }
+  // Writes that wait a moment: after a tick, only your ticks are written at once. The counts the lists show (meta,
+  // ameta) follow a moment later, once for many ticks. Reading them (flushLater), or leaving the page, writes them first.
+  var pending = {}, pendingTimer = 0;
+  function writeLater(key, write) {
+    pending[key] = write;
+    clearTimeout(pendingTimer);
+    pendingTimer = setTimeout(flushAll, LATER_WAIT);
+  }
+  // Writes what waits under key now (all of it, without a key).
+  function flushLater(key) {
+    if (key === undefined) { flushAll(); return; }
+    var write = pending[key];
+    if (!write) return;
+    delete pending[key];
+    write();
+  }
+  function flushAll() {
+    clearTimeout(pendingTimer);
+    Object.keys(pending).forEach(flushLater);
+  }
+  window.addEventListener('pagehide', flushAll);
+  // How far you are in the quest on screen, for the quest list.
+  function rememberSoon(key, title, doneCount, total) {
+    writeLater('meta', function () { remember(key, title, doneCount, total); });
   }
   function storeQuest(q) {
     var ids = topSteps(q), p = sget('prog.' + q.page) || {}, steps = p.steps || {};
@@ -351,14 +403,17 @@
     return S.qdone;
   }
   function markedDone(title) { return !!qdoneAll()[QG.normName(title)]; }
-  function setMarked(title, on) {
-    var d = qdoneAll(), n = QG.normName(title);
-    // Only kept when nothing else says the quest is done.
-    var other = playerStatus(title) === 2 || (function () {
-      var m = metaAll(), k = Object.keys(m).filter(function (x) { return D.norm(m[x].title) === D.norm(title); })[0];
-      return !!k && m[k].total > 0 && m[k].done >= m[k].total;
-    })();
-    if (on && !other) d[n] = 1; else delete d[n];
+  function setMarked(title, on) { setMarkedMany([{ title: title, on: on }]); }
+  // Marks many quests done or not at once ([{ title, on }]), and saves that once. meta: the quests' progress, when the
+  // caller has it already. A mark is only kept when nothing else says the quest is done.
+  function setMarkedMany(marks, meta) {
+    if (!marks.length) return;
+    var d = qdoneAll(), m = meta || metaAll(), byTitle = {};
+    Object.keys(m).forEach(function (k) { var t = D.norm(m[k].title); if (!byTitle[t]) byTitle[t] = m[k]; });
+    marks.forEach(function (x) {
+      var me = byTitle[D.norm(x.title)], other = playerStatus(x.title) === 2 || (!!me && me.total > 0 && me.done >= me.total);
+      if (x.on && !other) d[QG.normName(x.title)] = 1; else delete d[QG.normName(x.title)];
+    });
     sset('qdone', d);
   }
 
@@ -868,22 +923,50 @@
     S.live.forEach(function (map) { try { map.remove(); } catch (e) { /* already gone */ } });
     S.live = [];
     S.maps = [];
+    if (S.mapWatch) { S.mapWatch.disconnect(); S.mapWatch = null; }
   }
   function resizeMaps() { S.live.forEach(function (map) { map.invalidateSize(); }); }
-  // Starts every map that is in an open box and on screen (not inside a folded part).
+  // Maps start when they scroll into view: a guide with 20 maps only starts the ones you see. A map waits in an open
+  // box that is not inside a folded part.
   function startMaps() {
     var main = byId('main');
     if (!main || S.view !== 'quest') return;
-    arr(main.querySelectorAll('details[open] > .body > .map')).forEach(function (el) {
-      if (!el.getAttribute('data-ready') && el.offsetParent !== null) initMap(el);
+    var wait = arr(main.querySelectorAll('details[open] > .body > .map:not([data-ready]):not([data-watch])'))
+      .filter(function (el) { return el.offsetParent !== null; });
+    if (!wait.length) return;
+    // A browser without IntersectionObserver starts them all.
+    if (!window.IntersectionObserver) { wait.forEach(initMap); return; }
+    if (!S.mapWatch) {
+      S.mapWatch = new window.IntersectionObserver(function (seen) {
+        seen.forEach(function (e) {
+          if (!e.isIntersecting || !S.mapWatch) return;
+          S.mapWatch.unobserve(e.target);
+          e.target.removeAttribute('data-watch');
+          if (e.target.offsetParent !== null) initMap(e.target);
+        });
+      }, { root: main, rootMargin: '200px 0px' });
+    }
+    wait.forEach(function (el) { el.setAttribute('data-watch', '1'); S.mapWatch.observe(el); });
+  }
+  // A box you fold stops its maps; they start again when you open it.
+  function stopMapsIn(box) {
+    S.live = S.live.filter(function (map) {
+      var el = map.getContainer();
+      if (!box.contains(el)) return true;
+      map.remove();
+      // A new, empty box for the map: Leaflet leaves its marks on the old one.
+      var fresh = document.createElement('div');
+      ['class', 'data-map', 'role', 'aria-label'].forEach(function (a) { if (el.hasAttribute(a)) fresh.setAttribute(a, el.getAttribute(a)); });
+      fresh.className = 'map';
+      el.parentNode.replaceChild(fresh, el);
+      return false;
     });
+    if (S.mapWatch) arr(box.querySelectorAll('.map[data-watch]')).forEach(function (el) { S.mapWatch.unobserve(el); el.removeAttribute('data-watch'); });
   }
   function initMap(el) {
     el.setAttribute('data-ready', '1');
-    var m = S.maps[+el.getAttribute('data-map')];
-    if (!m) return;
-    var L = window.L;
-    if (!L) { el.innerHTML = '<p class="para">The map could not load. Use the wiki link below.</p>'; return; }
+    var m = S.maps[+el.getAttribute('data-map')], L = window.L;
+    if (!m || !L) { el.innerHTML = '<p class="para">The map could not load. Use the wiki link below.</p>'; return; }
     var version = m.version || (S.q && S.q.mapVersion) || QG.MAP_VERSION;
     var map = L.map(el, { crs: L.CRS.Simple, minZoom: 0, maxZoom: 4, zoomSnap: 1, scrollWheelZoom: false, attributionControl: true });
     S.live.push(map);
@@ -979,6 +1062,8 @@
     // The app starts again, so nothing of before is left: what it had in memory, and questions to the wiki that are
     // still on their way (their answers would be saved again). The address tells the new start to say so.
     clearTimeout(viewTimer);
+    pending = {};
+    clearTimeout(pendingTimer);
     try { window.history.replaceState(null, '', '#deleted'); } catch (e) { /* it starts again all the same */ }
     window.location.reload();
   }
@@ -989,17 +1074,17 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, isNew: isNew, markHtml: markHtml, newTagHtml: newTagHtml, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, cssq: cssq, D: D, forNow: forNow, isNew: isNew, markHtml: markHtml, newTagHtml: newTagHtml, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,
-    dotsHtml: dotsHtml, dropMaps: dropMaps, esc: esc, forgetPlayer: forgetPlayer, homeHtml: homeHtml,
+    dotsHtml: dotsHtml, dropMaps: dropMaps, stopMapsIn: stopMapsIn, esc: esc, forgetPlayer: forgetPlayer, homeHtml: homeHtml,
     imageAcc: imageAcc, imgHtml: imgHtml, liHtml: liHtml, loadProg: loadProg, lookUpPlayer: lookUpPlayer,
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
-    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,
+    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, rememberSoon: rememberSoon, flushLater: flushLater, writeLater: writeLater, renderStart: renderStart,
     redrawWhenFree: redrawWhenFree, saidDeleted: saidDeleted, showSaved: showSaved, stillWanted: stillWanted, stopWaiting: stopWaiting, waitFor: waitFor, resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
-    saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
+    saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, setMarkedMany: setMarkedMany, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,
     textOf: textOf, toast: toast,
     toggleMenu: toggleMenu, SWITCHES: SWITCHES, toggleSetting: toggleSetting, topSteps: topSteps,

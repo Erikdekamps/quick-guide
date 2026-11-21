@@ -72,6 +72,9 @@
     timport: function () { A.importListDialog(); }
   };
 
+  // How long the search waits after the last key before it draws the list (ms).
+  var SEARCH_WAIT = 120;
+
   // ---------- events ----------
   app.addEventListener('submit', function (ev) {
     ev.preventDefault();
@@ -108,7 +111,9 @@
       if (e) e.hidden = true;
       ev.target.classList.remove('bad');
     }
-    drawList();
+    // The list is drawn once you stop typing for a moment, not for every key.
+    clearTimeout(S.searchTimer);
+    S.searchTimer = setTimeout(drawList, SEARCH_WAIT);
   });
   app.addEventListener('change', function (ev) {
     var t = ev.target;
@@ -210,10 +215,11 @@
     cb.checked = !cb.checked;
     cb.dispatchEvent(new Event('change', { bubbles: true }));
   });
-  // Maps start when their box is first opened ("toggle" does not bubble, so listen while capturing).
+  // Maps start when their box is opened, and stop when it is folded ("toggle" does not bubble, so listen while capturing).
   app.addEventListener('toggle', function (ev) {
+    // (only a details box sends it here)
     var d = ev.target;
-    if (d && d.tagName === 'DETAILS' && d.open) startMaps();
+    if (d.open) startMaps(); else A.stopMapsIn(d);
   }, true);
   document.addEventListener('click', function (ev) {
     // Look at where the click was, not where the target is now: a button in a menu may be redrawn by the click.
@@ -255,9 +261,11 @@
   }
   var last = sget('last');
   var lastArea = /^area:/.test(last || '') ? last.slice(5) : '', lastCape = /^cape:/.test(last || '') ? last.slice(5) : '';
-  if (lastArea && sget('area.' + lastArea)) openArea(lastArea);
-  else if (lastCape && A.savedCape(lastCape)) openCape(lastCape);
-  else if (last && !lastArea && !lastCape && sget('quest.' + last)) A.showSaved('quest.' + last, function () { openQuest(last); });
+  // What was open last opens again; its saved page is read once.
+  var lastPage = lastArea ? sget('area.' + lastArea) : lastCape ? A.savedCape(lastCape) : last ? sget('quest.' + last) : null;
+  if (lastArea && lastPage) openArea(lastArea, undefined, lastPage);
+  else if (lastCape && lastPage) openCape(lastCape, lastPage);
+  else if (last && !lastArea && !lastCape && lastPage) A.showSaved('quest.' + last, function () { openQuest(last, lastPage); });
   else renderStart();
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);

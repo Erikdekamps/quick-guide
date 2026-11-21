@@ -183,6 +183,16 @@ test.describe('storage that is full', () => {
     expect(app.storage.saved('note')).toEqual({ n: 4 });
     expect(app.A.sget('note')).toEqual({ n: 4 });
   });
+
+  test('only what could not be saved is kept in memory', () => {
+    const app = load();
+    const set = app.storage.setItem;
+    app.storage.setItem = (k, v) => { if (k === 'qg1.big') throw Object.assign(new Error('Full'), { name: 'QuotaExceededError' }); set(k, v); };
+    app.A.sset('small', { n: 1 });
+    app.A.sset('big', { n: 2 });
+    expect(Object.keys(app.A.memory)).toEqual(['big']);
+    expect(app.A.sget('small')).toEqual({ n: 1 });
+  });
 });
 
 test.describe('My list: a pasted list', () => {
@@ -262,5 +272,41 @@ test.describe('Update from the wiki: what to read again', () => {
     expect(load().A.updateText()).toBe('Reads again what changed: the quest lists, the guides you opened, the areas and the capes. It checks by itself once a week.');
     expect(load({ storage: { upd: { at, found: { tasks: 1 } } } }).A.updateText()).toMatch(/^Checked .*2026: 1 new task\. It checks by itself once a week\.$/);
     expect(load({ storage: { upd: { at, found: {}, failed: 2 } } }).A.updateText()).toMatch(/: nothing new\. Could not read 2 pages\. It checks by itself once a week\.$/);
+  });
+});
+
+test.describe('a cape is read once', () => {
+  // A cape with 40 achievements, and a list with all of them on it.
+  const cheevos = Array.from({ length: 40 }, (_, i) => ({ id: String(100 + i), name: 'Cheevo ' + i, cat: 'Lore' }));
+  const start = () => {
+    const app = load({ storage: {
+      'cape.mqc': { key: 'mqc', cheevos }, 'cprog.mqc': { ticks: { 100: 1, 101: 1 } },
+      todo: { v: 1, lists: [{ id: 'l1', name: 'Cape', items: cheevos.map((x, i) => ({ id: 'g' + i, at: i, kind: 'cheevo', cape: 'mqc', cheevo: x.id, title: x.name })) }] }
+    } });
+    const get = app.storage.getItem;
+    app.reads = 0;
+    app.storage.getItem = (k) => { if (k === 'qg1.cape.mqc') app.reads++; return get(k); };
+    return app;
+  };
+
+  test('for all the goals of My list at once', () => {
+    const app = start();
+    expect(app.A.T.openCount()).toBe(38);
+    expect(app.reads).toBe(1);
+  });
+
+  test('again after a tick: what was read before a write is not used', () => {
+    const app = start();
+    expect(app.A.T.openCount()).toBe(38);
+    app.A.tickCheevoIn('mqc', '102', true);
+    expect(app.A.T.openCount()).toBe(37);
+    expect(app.reads).toBe(3);
+  });
+
+  test('for the goals in an export of the lists', () => {
+    const app = start();
+    const out = app.A.exportTodo();
+    expect(Object.values(out.Cape).filter(Boolean)).toHaveLength(2);
+    expect(app.reads).toBe(1);
   });
 });

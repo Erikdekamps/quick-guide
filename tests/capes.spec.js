@@ -496,6 +496,40 @@ test.describe('export and import', () => {
     expect(j.help).toContain('"capes"');
   });
 
+  test('a tick writes your ticks and changes only its own rows', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    const rows = page.locator('#main li[data-cheevo]');
+    await rows.last().evaluate((li) => { li.dataset.kept = 'yes'; });
+    const was = await page.locator('#pg-cnt').textContent();
+    await page.evaluate(() => {
+      const set = Storage.prototype.setItem;
+      window.writes = [];
+      Storage.prototype.setItem = function (k, v) { window.writes.push(k); return set.call(this, k, v); };
+    });
+    const first = await page.locator('li[data-cheevo].cur').getAttribute('data-cheevo');
+    await page.locator('#next-btn').click();
+    await expect(cheevo(page, first)).toHaveClass(/\bdone\b/);
+    await expect(page.locator('#pg-cnt')).not.toHaveText(was);
+    await expect(page.locator('li[data-cheevo].cur')).toHaveCount(1);
+    expect(await page.evaluate(() => window.writes.filter((k) => k !== 'qg1.view'))).toEqual(['qg1.cprog.mqc']);
+    // a row the tick did not change is the same element
+    await expect(rows.last()).toHaveAttribute('data-kept', 'yes');
+  });
+
+  test('an export reads each cape from the storage once', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    await page.evaluate(() => {
+      const get = Storage.prototype.getItem;
+      window.capeReads = 0;
+      Storage.prototype.getItem = function (k) { if (k === 'qg1.cape.mqc') window.capeReads++; return get.call(this, k); };
+    });
+    const j = await exportJson(page);
+    expect(Object.keys(j.capes[MQC].Lore).length).toBeGreaterThan(5);
+    expect(await page.evaluate(() => window.capeReads)).toBe(1);
+  });
+
   test('an import sets your ticks by their code; the ones that tick themselves are left alone', async ({ page, wiki }) => {
     withCapes(wiki);
     await openCape(page, 'mqc', MQC);
