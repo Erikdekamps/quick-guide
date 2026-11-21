@@ -36,7 +36,7 @@ jobs:
         with:
           path: _site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   # Once a version is on Pages: a tag (v1.43.0) and a GitHub release with what CHANGELOG.md says about it.
   # Only the first time: a deploy of the same version again (a change to the docs) skips it.
