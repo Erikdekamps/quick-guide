@@ -323,8 +323,8 @@ No other service is used.
 | `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
 | `tests/coverage.json` | The code no test runs yet (see [Tests](#tests)) |
 | `eslint.config.js` | The code check: `npm run lint` |
-| `.github/workflows/tests.yml` | Runs the code check, the version check and the tests on every pull request |
-| `.github/workflows/live.yml` | Checks the app against the real wiki |
+| `.github/workflows/tests.yml` | Every pull request, one check after the other: code check, security check, unit tests, app tests, live wiki check |
+| `.github/workflows/live.yml` | Checks the app against the real wiki every Monday |
 | `.github/workflows/deploy.yml` | Puts `main` on GitHub Pages, and makes a release of each new version |
 | `.github/pull_request_template.md` | The checklist of a pull request |
 | `CLAUDE.md` | The rules Claude follows when it works on the app |
@@ -361,9 +361,16 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
   type, wiki text, ids, how the app asks the wiki, what Update from the wiki reads again. Code that needs a page
   says so ("needs a browser"), and is tested in the browser.
 - The other tests open the app in the browser.
-- They run on GitHub for every pull request (the **Actions** tab), in this order: the code check (`npm run lint`),
-  the unit tests, the version check, then the browser tests. `main` only takes pull requests whose tests passed,
-  and is then put on GitHub Pages.
+- On GitHub, every pull request runs its checks one after the other (`.github/workflows/tests.yml`). Each one starts
+  only when the one before it passed, so a mistake stops everything after it:
+  1. **Code check**: `npm run lint`, and the version check.
+  2. **Security check**: `npm run security` (see below).
+  3. **Unit tests**: `npm run test:unit`.
+  4. **App tests**: the browser tests, and the coverage check.
+  5. **Live wiki check**: only when the pull request changes how the app reads the wiki.
+
+  `main` only takes pull requests whose checks passed, and is then put on GitHub Pages. (CodeQL, GitHub's own code
+  scan, runs next to them: GitHub starts it by itself.)
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - An error in the page that nobody catches fails the test, in every test.
 - New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
@@ -396,8 +403,8 @@ npm test
 The app itself has no npm packages: it runs as plain files in the browser. It uses Leaflet (a copy in
 `vendor/leaflet/`), and the tests use Playwright (an npm package).
 
-- **Security check** (`.github/workflows/security.yml`): on every pull request, every push to `main`, and every
-  Monday. It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
+- **Security check**: on every pull request (after the code check, see [Tests](#tests)), and every Monday
+  (`.github/workflows/security.yml`). It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
   you update. Lower-rated problems and newer versions show as notes on the run and in its summary.
   Run it yourself with `npm run security`.
 - **Dependabot** (`.github/dependabot.yml`): every Monday it opens a pull request for a newer Playwright or a newer

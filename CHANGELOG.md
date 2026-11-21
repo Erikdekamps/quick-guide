@@ -19,9 +19,9 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 ### Changed
 
 - For people who work on the app: one version number for everything (`npm run bump`), this list, and a release on
-  GitHub for each version. Every pull request now also runs a code check, unit tests (seconds, no browser, before
-  the browser tests), a version check and a coverage check, and any error in the page fails a test. A change to how
-  the app reads the wiki is checked against the real wiki.
+  GitHub for each version. Every pull request runs its checks one after the other, and a failed one stops the rest:
+  code check, security check, unit tests (seconds, no browser), the app in the browser with a coverage check, and
+  the real wiki when the reader changed. Any error in the page fails a test.
 
 ### Fixed
 

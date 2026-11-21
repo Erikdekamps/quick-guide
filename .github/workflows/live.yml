@@ -1,18 +1,12 @@
 name: Live wiki check
 
-# The app against the real RuneScape Wiki: every Monday, by hand (Actions → Live wiki check → Run workflow), and on a
-# pull request that changes how the app reads the wiki. When it fails, the wiki changed, or the reader did.
+# The app against the real RuneScape Wiki: every Monday, and by hand (Actions → Live wiki check → Run workflow).
+# On a pull request that changes how the app reads the wiki, it runs in tests.yml, after the app tests.
+# When it fails, the wiki changed, or the reader did.
 on:
   schedule:
     - cron: '23 5 * * 1'
   workflow_dispatch:
-  pull_request:
-    paths:
-      - 'js/wiki/**'
-      - 'tests/live.spec.js'
-      - 'tests/player.live.spec.js'
-      - 'tests/support/**'
-      - '.github/workflows/live.yml'
 
 permissions:
   contents: read
