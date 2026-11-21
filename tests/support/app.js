@@ -29,6 +29,37 @@ class Wiki {
     this.cheevos = {};    // achievement pages: { title: { lead: wikitext of the first section, extract: its first paragraphs } }
     this.detailCalls = [];   // every call for achievement pages: the titles it asked for
     this.detailFail = false;
+    this.revs = {};       // { title: { rev, edited, touched } } when a page changed; every other page is revision 1 of long ago
+    this.infoCalls = [];  // every "when did these pages change" call: the titles it asked for
+    this.infoFail = false;
+  }
+  // The revision of a page, and when it changed.
+  rev(title) { return Object.assign({ rev: 1, edited: '2000-01-01T00:00:00Z', touched: '2000-01-01T00:00:00Z' }, this.revs[title]); }
+  // A page that was edited just now: a new revision (html: its new text, for a page; for an achievement page, { lead, extract }).
+  edit(title, html) {
+    const now = new Date(Date.now() + 1000).toISOString(), r = this.rev(title);
+    this.revs[title] = { rev: r.rev + 1, edited: now, touched: now };
+    if (html != null) { if (this.cheevos[title] && typeof html === 'object') this.cheevos[title] = html; else this.pages[title] = Object.assign({}, this.pages[title], { html }); }
+    return this;
+  }
+  // A page whose lists changed (a template or the data behind it), without an edit of its own.
+  touch(title, html) {
+    this.revs[title] = Object.assign(this.rev(title), { touched: new Date(Date.now() + 1000).toISOString() });
+    if (html != null) this.pages[title] = Object.assign({}, this.pages[title], { html });
+    return this;
+  }
+  // The wiki's answer to action=query&prop=info|revisions&titles=A|B: when each page last changed.
+  answerInfo(route, url) {
+    const asked = (url.searchParams.get('titles') || '').split('|');
+    this.infoCalls.push(asked);
+    if (this.infoFail) return route.abort('failed');
+    const pages = asked.map((t, i) => {
+      const p = this.pages[t];
+      if ((!p || p.error) && !this.cheevos[t]) return { ns: 0, title: t, missing: true };
+      const r = this.rev(t);
+      return { pageid: i + 1, ns: 0, title: t, touched: r.touched, lastrevid: r.rev, revisions: [{ revid: r.rev, parentid: r.rev - 1, timestamp: r.edited }] };
+    });
+    return route.fulfill({ headers: CORS, json: { batchcomplete: true, query: { pages } } });
   }
   // Achievement pages, for a cape's needs and tips (see withCapes).
   details(map) { Object.assign(this.cheevos, map); return this; }
@@ -40,7 +71,7 @@ class Wiki {
     const pages = asked.map((t, i) => {
       const d = this.cheevos[t];
       if (!d) return { ns: 0, title: t, missing: true };
-      return { pageid: i + 1, ns: 0, title: t, revisions: [{ slots: { main: { contentmodel: 'wikitext', contentformat: 'text/x-wiki', content: d.lead } } }], extract: d.extract };
+      return { pageid: i + 1, ns: 0, title: t, revisions: [{ revid: this.rev(t).rev, slots: { main: { contentmodel: 'wikitext', contentformat: 'text/x-wiki', content: d.lead } } }], extract: d.extract };
     });
     return route.fulfill({ headers: CORS, json: { batchcomplete: true, query: { pages } } });
   }
@@ -94,7 +125,9 @@ class Wiki {
       return route.fulfill({ status: 404, body: 'not found' });
     }
     if (url.searchParams.get('action') === 'query') {
-      return /revisions|extracts/.test(url.searchParams.get('prop') || '') ? this.answerDetails(route, url) : this.answerLookup(route, url);
+      const prop = url.searchParams.get('prop') || '';
+      if (/\binfo\b/.test(prop)) return this.answerInfo(route, url);
+      return /revisions|extracts/.test(prop) ? this.answerDetails(route, url) : this.answerLookup(route, url);
     }
     const title = url.searchParams.get('page');
     this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
@@ -107,7 +140,7 @@ class Wiki {
     if (p.fail === 'slow') return; // never answers
     return route.fulfill({
       headers: CORS,
-      json: { parse: { title, pageid: 1, text: '<div class="mw-parser-output">' + p.html + '</div>', jsconfigvars: { wgKartographerLiveData: p.live } } }
+      json: { parse: { title, pageid: 1, revid: this.rev(title).rev, text: '<div class="mw-parser-output">' + p.html + '</div>', jsconfigvars: { wgKartographerLiveData: p.live } } }
     });
   }
   // Player data for one name, the way the wiki passes it on from Jagex.

@@ -134,9 +134,15 @@
   }
 
   // ---------- the cards, on top of Achievements ----------
+  // How many achievements of a saved cape are new and not done yet.
+  function freshCount(c) {
+    var p = progOf(c.key);
+    return c.cheevos.filter(function (x) { return A.isNew(x.newAt) && !isDone(x, c, p); }).length;
+  }
   function cardHtml(info) {
-    var c = savedCape(info.key), n = c ? capeCount(info.key) : null, full = !!n && n.done >= n.total;
-    var body = n ? '<span class="cn">' + (full ? '✓ ' : '') + n.done + ' / ' + plural(n.total, 'achievement', 'achievements') + '</span>' +
+    var c = savedCape(info.key), n = c ? capeCount(info.key) : null, full = !!n && n.done >= n.total, fresh = c ? freshCount(c) : 0;
+    var body = n ? '<span class="cn">' + (full ? '✓ ' : '') + n.done + ' / ' + plural(n.total, 'achievement', 'achievements') +
+        (fresh ? '<span class="nw"> \u00b7 ' + fresh + ' new</span>' : '') + '</span>' +
         '<progress class="pg" value="' + n.done + '" max="' + n.total + '" aria-hidden="true"></progress><span class="cx">' + esc(nextText(c)) + '</span>' :
       '<span class="cx">Open it to read its achievements from the wiki.</span>';
     return '<button class="cape' + (full ? ' done' : '') + '" type="button" data-cape="' + info.key + '"><img src="' + esc(info.image) + '" alt="" width="48" height="48">' +
@@ -265,7 +271,8 @@
     var ext = a ? '<span class="self">' + selfText(a, c) + '</span>' :
       needHtml(x) + (x.tip ? '<div class="howto">' + esc(x.tip) + '</div>' : '');
     if (also.length) ext += '<span class="also">Also counts for ' + also.join(' and ') + '</span>';
-    var row = rowHtml('ccb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' — ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
+    var row = rowHtml('ccb', x.id, done, '<b>' + esc(x.name) + '</b>' + (A.isNew(x.newAt) && !done ? A.newTagHtml() : '') + (x.desc ? ' — ' + esc(x.desc) : ''),
+      ext ? '<div class="ext">' + ext + '</div>' : '',
       A.cheevoMenuHtml({ cape: c.key, cheevo: x.id, title: x.name, page: x.page || x.name }));
     if (a) row = row.replace('<input class="cb"', '<input class="cb" disabled');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + (a ? ' auto' : '') + '" data-cheevo="' + esc(x.id) + '">' + row + '</li>';
@@ -384,15 +391,36 @@
     S.resetArmed = Date.now();
     btn.querySelector('span').textContent = 'Click again to reset';
   }
-  function refreshCape(silent) {
-    var key = S.capeKey;
-    if (!silent) toast('Reading the wiki…', 0);
-    QG.loadCape(key).then(function (nc) {
+  // A cape read again: its achievements that were not there before are New. Those that were keep when they were new.
+  // Gives how many are new.
+  function markNewCheevos(old, nc) {
+    var had = {}, n = 0, now = Date.now();
+    if (!old || !old.cheevos) return 0;
+    old.cheevos.forEach(function (x) { had[x.id] = x; });
+    nc.cheevos.forEach(function (x) {
+      var o = had[x.id];
+      if (!o) { x.newAt = now; n++; } else if (o.newAt) x.newAt = o.newAt;
+    });
+    return n;
+  }
+  // Reads a saved cape again and keeps it: only new and edited achievement pages are read (info: what the wiki said
+  // about them, when it was asked already). The cape on screen is drawn again. Gives how many achievements are new.
+  function reloadCape(key, old, info) {
+    return QG.loadCape(key, old, info).then(function (nc) {
+      var added = markNewCheevos(old, nc);
       sset('cape.' + key, nc);
-      if (S.view !== 'cape' || S.capeKey !== key) return;
-      S.cape = nc;
-      renderCape(true);
-      if (!silent) toast('Updated from the wiki.');
+      // the cape that is open (on screen, or under Settings) gets the new one too
+      if (S.capeKey === key && S.cape) {
+        S.cape = nc;
+        if (S.view === 'cape') renderCape(true);
+      }
+      return added;
+    });
+  }
+  function refreshCape(silent) {
+    if (!silent) toast('Reading the wiki…', 0);
+    reloadCape(S.capeKey, S.cape).then(function (n) {
+      if (!silent && S.view === 'cape') toast('Updated from the wiki' + (n ? ': ' + plural(n, 'new achievement', 'new achievements') : '') + '.');
     }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
   // For the export: is this achievement of a saved cape done (ticked, or ticked by itself)?
@@ -402,7 +430,7 @@
   }
 
   A.share({ autoOf: autoOf, capeCardsHtml: capeCardsHtml, capeReset: capeReset, cheevoDone: cheevoDone, cheevoIsDone: cheevoIsDone, loadCprog: loadCprog,
-    tickCheevoIn: tickCheevoIn,
+    reloadCape: reloadCape, tickCheevoIn: tickCheevoIn,
     nextCheevo: nextCheevo, openCape: openCape, refreshCape: refreshCape, renderCape: renderCape, savedCape: savedCape,
     switchCapeTab: switchCapeTab, tickCheevo: tickCheevo, toggleCapePart: toggleCapePart });
   A.loaded.capes = true;

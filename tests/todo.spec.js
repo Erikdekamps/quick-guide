@@ -1234,6 +1234,8 @@ test.describe('the window', () => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('.tab[data-tab="steps"]').click();
     await page.locator('#main').evaluate((m) => { m.scrollTop = 300; m.dispatchEvent(new Event('scroll')); });
+    // (checked with the wiki today, so the weekly check does not change the line under Update from the wiki on the reload)
+    await page.evaluate(() => localStorage.setItem('qg1.upd', JSON.stringify({ at: Date.now(), found: {}, failed: 0 })));
     await settings.click();
     await expect(page.locator('h1.qt')).toHaveText('Settings');
     await expect(lit).toHaveText('Settings');

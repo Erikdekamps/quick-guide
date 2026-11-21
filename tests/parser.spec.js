@@ -427,7 +427,7 @@ test.describe('talking to the wiki', () => {
     const r = await load(page, { title: 'While Guthix Sleeps/Quick guide', base: 'While Guthix Sleeps' });
     expect(r.ok.sections).toHaveLength(3);
     expect(r.ok.overview.startMap.features).toHaveLength(1);
-    expect(wiki.calls[0].prop).toBe('text|jsconfigvars');
+    expect(wiki.calls[0].prop).toBe('text|jsconfigvars|revid');
   });
 
   test('falls back to the quest page when there is no quick guide', async ({ page, wiki }) => {

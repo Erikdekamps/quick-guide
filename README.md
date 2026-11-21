@@ -169,13 +169,27 @@ button goes to its list.
     Tick it to see them again, to untick one.
 - **Lists:** how the quest list is sorted.
 - **Display:** **Theme** (Brown, like the game now, or Blue, like the game before) and **Text size** (12 to 40).
-- **Update quest list** reads the lists from the wiki again.
+- **Update from the wiki** (see below) brings in what is new: quests, tasks and achievements.
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
 the wiki, or resets its progress. In a quest it also jumps to the next step. In a cape it refreshes, opens the wiki, or resets.
+
+## New on the wiki
+
+When a quest, an area task or an achievement comes out, the wiki adds it. **Update from the wiki** (in Settings)
+brings it into the app, all at once:
+
+- The quest lists are read again.
+- For everything else the app keeps (the quest guides you opened, the areas and the capes), it first asks the wiki
+  when each page last changed: 50 pages in one request. Only the pages that changed are read again. In a cape, only
+  the achievements that are new, or whose page was edited, are read again.
+- Your ticks stay. What is new says **New** for a month, until you tick it: a quest in the list, a task, an
+  achievement. A tier row says how many are new ("23 tasks · 2 new"), and so does a cape's card.
+- The line under the button says when it last checked and what it found.
+- Once a week the app does this by itself, quietly, and says what is new.
 
 ## Export and import
 
@@ -245,6 +259,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
 | `cape.<key>`, `cprog.<key>` | A cape's achievements (`mqc`, `comp` or `trim`) with what each needs and its tip, and your ticks, tab and folded parts in it |
 | `settings`, `last` | Your settings (the theme too), and the quest, area or cape that was open last |
+| `upd` | When Update from the wiki last ran, and what it found |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
 | `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
@@ -275,6 +290,10 @@ and read from the wiki again when you open them.
 - My list asks the wiki whether it has a page for a goal you wrote yourself (for **Open on the wiki**), for example
   `https://runescape.wiki/api.php?action=query&titles=Crystal%20hatchet&redirects=1&format=json&origin=*`.
 
+- Update from the wiki asks when pages last changed, 50 at a time, without reading them, for example
+  `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
+  Each saved guide, area and cape keeps the revision it was read from.
+
 No other service is used.
 
 ## Files
@@ -286,6 +305,7 @@ No other service is used.
 | `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
 | `js/app/areas.js` | Achievements: the list of tiers, search, and one area |
 | `js/app/capes.js` | Achievements: the cape cards, and one cape's page |
+| `js/app/update.js` | Update from the wiki: checks everything the app keeps, reads again only what changed, marks what is new |
 | `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
 | `js/app/todo-view.js` | My list: what it shows, its count in the bar at the bottom, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
@@ -310,7 +330,8 @@ When you change a file, also raise the `?v=1.41.0` numbers in `index.html`. Alt1
 The tests use [Playwright](https://playwright.dev/) with Chromium, the browser Alt1 is built on. They open the app
 in a 360 × 720 window, like Alt1, and click through it like a person would.
 
-- They run on GitHub for every pull request and every push to `main` (the **Actions** tab).
+- They run on GitHub for every pull request (the **Actions** tab). `main` only takes pull requests whose tests passed,
+  and is then put on GitHub Pages.
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
 - Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
 

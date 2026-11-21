@@ -191,58 +191,92 @@
     if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
     if (q.version !== QG.VERSION) refreshQuest(true);
   }
-  function refreshQuest(silent) {
-    var key = S.key, q = S.q;
-    if (!silent) toast('Reading the wiki\u2026', 0);
+  // Reads a saved quest's guide again and keeps it, with its ticks (under the new name when the page moved). The quest
+  // on screen is drawn again. Gives the new guide.
+  function reloadQuest(key, q) {
     var t = q.notQuickGuide ? { title: q.page, base: q.page } : { title: q.page, base: q.title };
-    QG.load(t).then(function (nq) {
-      if (nq.page !== key) sset('prog.' + nq.page, sget('prog.' + key) || S.prog);
+    return QG.load(t).then(function (nq) {
+      if (nq.page !== key) sset('prog.' + nq.page, sget('prog.' + key) || (S.key === key && S.prog) || {});
       storeQuest(nq);
-      if (S.view !== 'quest' || S.key !== key) return;
-      if (nq.page !== key) { openQuest(nq.page, nq); return; }
-      S.q = nq;
-      buildIndex();
-      renderQuest();
-      if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
-      if (!silent) toast('Updated from the wiki.');
+      // the quest that is open (on screen, or under Settings) gets the new guide too
+      if (S.key === key && S.q) {
+        if (nq.page !== key && S.view === 'quest') openQuest(nq.page, nq);
+        else {
+          if (nq.page !== key) { S.key = nq.page; S.prog = loadProg(nq.page); sset('last', nq.page); }
+          S.q = nq;
+          buildIndex();
+          if (S.view === 'quest') {
+            renderQuest();
+            if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
+          }
+        }
+      }
+      return nq;
+    });
+  }
+  function refreshQuest(silent) {
+    if (!silent) toast('Reading the wiki\u2026', 0);
+    reloadQuest(S.key, S.q).then(function () {
+      if (!silent && S.view === 'quest') toast('Updated from the wiki.');
     }, function (e) {
       if (!silent) toast('Could not update. ' + loadError(e));
     });
   }
 
   // ---------- the quest list and the optimal order, from the wiki ----------
+  // A list read again: the quests that were not in it before are New (when there was a list before). Those that were
+  // keep when they were new. Gives how many are new.
+  function markNewQuests(old, fresh) {
+    var had = {}, n = 0, now = Date.now();
+    if (!old || !old.length) return 0;
+    old.forEach(function (q) { had[D.norm(q.t)] = q; });
+    fresh.forEach(function (q) {
+      var o = had[D.norm(q.t)];
+      if (!o) { q.newAt = now; n++; } else if (o.newAt) q.newAt = o.newAt;
+    });
+    return n;
+  }
+  // Reads the quest list (and the miniquests). Gives a promise of { added: new quests } or { error }.
   function fetchList(silent, say) {
-    if (S.listBusy) return;
+    if (S.listBusy) return S.listAsk || Promise.resolve({});
     S.listBusy = true;
     S.listError = '';
     if (!silent) drawList();
     if (say) toast('Updating the quest list\u2026', 0);
     var asked = D.loadList();
     fetchMinis();
-    asked.then(function (l) {
+    S.listAsk = asked.then(function (l) {
       S.listBusy = false;
+      var added = markNewQuests(S.list && S.list.quests, l.quests);
       S.list = l;
       S.ranks = null;
       sset('list', l);
       drawList();
       if (say) toast('Quest list updated.');
+      return { added: added };
     }, function (e) {
       S.listBusy = false;
       if (!silent || !S.list) S.listError = 'Could not get the quest list. ' + loadError(e);
       drawList();
       if (say) toast('Could not update the quest list. ' + loadError(e), 5000);
+      return { error: e };
     });
+    return S.listAsk;
   }
   // The miniquests. A failure says nothing: the quests still show, and the app asks again next time.
+  // Gives a promise of { added: new miniquests }.
   function fetchMinis() {
-    if (S.minisBusy) return;
+    if (S.minisBusy) return S.minisAsk || Promise.resolve({});
     S.minisBusy = true;
-    D.loadMinis().then(function (l) {
+    S.minisAsk = D.loadMinis().then(function (l) {
       S.minisBusy = false;
+      var added = markNewQuests(S.minis && S.minis.quests, l.quests);
       S.minis = l;
       sset('minis', l);
       drawList();
-    }, function () { S.minisBusy = false; });
+      return { added: added };
+    }, function () { S.minisBusy = false; return {}; });
+    return S.minisAsk;
   }
   // Quests and miniquests together. A miniquest that is also in the quest list shows once.
   function allQuests() {
@@ -254,10 +288,10 @@
   function shortName(t) { return String(t).replace(/\s*\(miniquest\)\s*$/i, ''); }
   // The wiki's optimal quest order. With silent, a failure keeps what we have and says nothing.
   function fetchOrder(silent) {
-    if (S.orderBusy) return;
+    if (S.orderBusy) return S.orderAsk || Promise.resolve();
     S.orderBusy = true;
     S.orderError = '';
-    D.loadOrder().then(function (o) {
+    S.orderAsk = D.loadOrder().then(function (o) {
       S.orderBusy = false;
       S.order = o;
       S.ranks = null;
@@ -268,6 +302,7 @@
       if (!silent || !S.order) S.orderError = 'Could not get the optimal order. ' + loadError(e);
       drawList();
     });
+    return S.orderAsk;
   }
   // Each quest's place in the optimal order, counting only quests that are in the list: 1, 2, 3...
   function orderRanks() {
@@ -330,7 +365,7 @@
       '<progress class="pg" value="' + x.m.done + '" max="' + x.m.total + '" aria-hidden="true"></progress>' : '';
     return '<li><button class="q' + (x.done ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-quest="' + esc(q.t) + '"' +
       (x.locked ? ' title="You do not have what this quest needs yet"' : '') + '>' +
-      '<span class="q1"><b>' + esc(shortName(q.t)) + '</b>' + status + '</span>' +
+      '<span class="q1"><b>' + esc(shortName(q.t)) + '</b>' + (A.isNew(q.newAt) && !x.done && !x.started ? A.newTagHtml() : '') + status + '</span>' +
       (bits.length ? '<span class="q2">' + bits.join(' \u00b7 ') + '</span>' : '') + bar + '</button></li>';
   }
   function matchQuests(v) {
@@ -733,7 +768,7 @@
   A.share({ alignTop: alignTop, allQuests: allQuests, current: current, drawList: drawList, fetchList: fetchList,
     fetchMinis: fetchMinis, fetchOrder: fetchOrder, jumpTo: jumpTo, listHtml: listHtml, loadError: loadError,
     matchQuests: matchQuests, nextStep: nextStep, openQuest: openQuest, openTitle: openTitle, refresh: refresh,
-    refreshQuest: refreshQuest, renderQuest: renderQuest, switchTab: switchTab, tickStep: tickStep,
+    refreshQuest: refreshQuest, reloadQuest: reloadQuest, renderQuest: renderQuest, switchTab: switchTab, tickStep: tickStep,
     toggleOv: toggleOv, toggleSection: toggleSection });
   A.loaded.quests = true;
 })(window.QuickGuideApp);
