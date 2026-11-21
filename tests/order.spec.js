@@ -87,14 +87,14 @@ test.describe('optimal order', () => {
     await expect(names(page)).toHaveText(['Demon Slayer', 'Dragon Slayer']);
   });
 
-  test('"Update quest list" updates the order too', async ({ page, wiki }) => {
+  test('"Update from the wiki" updates the order too', async ({ page, wiki }) => {
     await openApp(page, expect);
     await choose(page, '#sort', 'opt');
     await expect(names(page).first()).toHaveText("Cook's Assistant");
     wiki.page(GUIDE, fixture('progression-guide.html').replace('data-rowid="Cook\'s Assistant"', 'data-rowid="Nothing"').replace('</tbody>', '<tr data-rowid="Cook\'s Assistant"><td>Cook\'s Assistant</td></tr></tbody>'));
     await page.locator('.bn[data-home="settings"]').click();
-    await page.getByRole('button', { name: 'Update quest list' }).click();
-    await expect(page.locator('#toast')).toHaveText('Quest list updated.');
+    await page.getByRole('button', { name: 'Update from the wiki' }).click();
+    await expect(page.locator('#toast')).toHaveText('Everything is up to date.');
     await closeSettings(page);
     await expect(names(page).first()).toHaveText('Imp Catcher');
     await expect(page.locator(".q[data-quest=\"Cook's Assistant\"] .q2")).toContainText('#8');

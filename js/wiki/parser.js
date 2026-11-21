@@ -123,8 +123,45 @@
       return out;
     });
   }
+  // A page, rendered: { title, html, live (its map data), revid (the revision it is, to see later if it changed) }.
+  // Runs fn(item) for each item, a few at a time (parallel). Resolves when all are done; fn handles its own failures.
+  function inTurns(items, fn, parallel) {
+    var next = 0, ws = [];
+    function worker() { return next < items.length ? Promise.resolve(fn(items[next++])).then(worker) : Promise.resolve(); }
+    for (var w = 0; w < Math.min(parallel, items.length); w++) ws.push(worker());
+    return Promise.all(ws);
+  }
+  // The page a title leads to in a query's answer: after the wiki's own capitals, then a redirect.
+  function landed(q, t) {
+    var to = {};
+    (q.normalized || []).concat(q.redirects || []).forEach(function (x) { to[x.from] = x.to; });
+    var a = to[t] || t;
+    return to[a] || a;
+  }
+  // When pages last changed, 50 at a time, without reading them: { "<title>": { rev (its latest revision), edited (when
+  // that was saved), touched (when the page last changed, with its lists and templates) } or { missing: true } }.
+  // A batch that fails is left out, so its pages count as unknown.
+  var INFO_BATCH = 50;
+  function pageInfo(titles) {
+    var out = {}, batches = [];
+    for (var i = 0; i < titles.length; i += INFO_BATCH) batches.push(titles.slice(i, i + INFO_BATCH));
+    return inTurns(batches, function (b) {
+      var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&prop=info%7Crevisions&rvprop=ids%7Ctimestamp&titles=' +
+        encodeURIComponent(b.join('|'));
+      return getJson(url).then(function (r) {
+        var q = r.ok && r.json && r.json.query, byTitle = {};
+        if (!q || !Array.isArray(q.pages)) return;
+        q.pages.forEach(function (p) { byTitle[p.title] = p; });
+        b.forEach(function (t) {
+          var p = byTitle[landed(q, t)], rv = p && p.revisions && p.revisions[0];
+          if (!p) return;
+          out[t] = p.missing ? { missing: true } : { rev: p.lastrevid || (rv && rv.revid) || 0, edited: (rv && rv.timestamp) || '', touched: p.touched || '' };
+        });
+      }, function () { /* unknown: read again */ });
+    }, 2).then(function () { return out; });
+  }
   function fetchPage(title) {
-    var q = 'action=parse&format=json&formatversion=2&prop=text%7Cjsconfigvars&redirects=1' +
+    var q = 'action=parse&format=json&formatversion=2&prop=text%7Cjsconfigvars%7Crevid&redirects=1' +
       '&disableeditsection=1&disablelimitreport=1&origin=*&page=' + encodeURIComponent(title);
     var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 25000) : 0;
@@ -140,7 +177,7 @@
           var e2 = new Error('The wiki sent something unexpected.'); e2.code = 'format'; throw e2;
         }
         var cfg = d.parse.jsconfigvars || {};
-        return { title: d.parse.title, html: d.parse.text, live: cfg.wgKartographerLiveData || {} };
+        return { title: d.parse.title, html: d.parse.text, live: cfg.wgKartographerLiveData || {}, revid: d.parse.revid || 0 };
       }, function (err) {
         clearTimeout(timer);
         if (err && err.name === 'AbortError') { var e = new Error('The wiki took too long to answer.'); e.code = 'timeout'; throw e; }
@@ -156,7 +193,7 @@
       }
       throw e;
     }).then(function (p) {
-      return parse(p.html, { title: p.title, base: t.base, notQuick: !!p.notQuick, live: p.live });
+      return parse(p.html, { title: p.title, base: t.base, notQuick: !!p.notQuick, live: p.live, revid: p.revid });
     });
   }
 
@@ -229,13 +266,19 @@
       (w ? ' width="' + w + '"' : '') + (h ? ' height="' + h + '"' : '') + ' loading="lazy" decoding="async">';
   }
 
+  // Takes the line breaks off both ends of a bit of HTML, until none is left there (in one pass, taking some out could
+  // leave others behind).
+  function trimBreaks(s) {
+    var prev;
+    do { prev = s; s = s.replace(/^\s*<br>|<br>\s*$/g, ''); } while (s !== prev);
+    return s;
+  }
   // Tidy spacing and punctuation left behind after pulling bits out.
   function tidy(html) {
-    var s = String(html || '')
+    var s = trimBreaks(String(html || '')
       .replace(/\s*\[UK\]\s*/g, ' (UK) / ').replace(/\s*\[US\]/g, ' (US)')
       .replace(/[ \t\r\n\u00a0]+/g, ' ')
-      .replace(/(?:\s*<br>\s*){2,}/g, '<br>')
-      .replace(/^(?:\s*<br>)+|(?:<br>\s*)+$/g, '')
+      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'))
       .replace(/\(\s*\)/g, '')
       .replace(/\s+([.,;:!?])(?=\s|$|<)/g, '$1')
       .replace(/\(\s+/g, '(').replace(/\s+\)/g, ')')
@@ -939,6 +982,7 @@
       title: info.base || page.replace(/\/\s*quick guide$/i, ''),
       source: pageUrl(page),
       fetchedAt: new Date().toISOString(),
+      revid: info.revid || 0,
       notQuickGuide: !!info.notQuick,
       mapVersion: mv ? mv[1] : MAP_VERSION,
       overview: {
@@ -1301,7 +1345,7 @@
     return { version: AREA_VERSION, name: name, page: page, source: pageUrl(page), fetchedAt: new Date().toISOString(), tiers: tiers };
   }
   function loadArea(name) {
-    return fetchPage(name + ' achievements').then(function (p) { return parseArea(p.html, name); });
+    return fetchPage(name + ' achievements').then(function (p) { var a = parseArea(p.html, name); a.revid = p.revid; return a; });
   }
 
   // ---------- Capes: the master quest, completionist and trimmed completionist capes ----------
@@ -1420,12 +1464,20 @@
     }
     return out;
   }
+  // Wikitext without its comments ("<!-- … -->"). They are taken out until none is left, so "<!<!-- -->--" does not
+  // leave a "<!--" behind; one that is not closed runs to the end.
+  function noComments(s) {
+    var prev;
+    do { prev = s; s = s.replace(/<!--[\s\S]*?-->/g, ''); } while (s !== prev);
+    var open = s.indexOf('<!--');
+    return open < 0 ? s : s.slice(0, open);
+  }
   function cheevoNeeds(wt) {
     var req = infoboxParam(wt, 'requirements'), out = { skills: [], links: [], oneOf: [], other: [] };
     if (!req.trim()) return out;
     // one item per "*" line; a template that goes on over more lines stays one item
     var items = [], depth = 0;
-    req.replace(/<!--[\s\S]*?-->/g, '').split('\n').forEach(function (line) {
+    noComments(req).split('\n').forEach(function (line) {
       var t = line.trim();
       if (!t) return;
       if (depth === 0 && (t.charAt(0) === '*' || !items.length)) items.push(t.replace(/^\*\s*/, ''));
@@ -1489,55 +1541,63 @@
     var batches = [], out = {};
     for (var i = 0; i < pages.length; i += DETAIL_BATCH) batches.push(pages.slice(i, i + DETAIL_BATCH));
     function one(titles) {
-      var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&prop=revisions%7Cextracts&rvprop=content&rvslots=main' +
+      var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&prop=revisions%7Cextracts&rvprop=content%7Cids&rvslots=main' +
         '&rvsection=0&exintro=1&exlimit=' + DETAIL_BATCH + '&titles=' + encodeURIComponent(titles.join('|'));
       return getJson(url).then(function (r) {
-        var q = r.ok && r.json && r.json.query, to = {}, byTitle = {};
+        var q = r.ok && r.json && r.json.query, byTitle = {};
         if (!q || !Array.isArray(q.pages)) return;
-        (q.normalized || []).concat(q.redirects || []).forEach(function (x) { to[x.from] = x.to; });
         q.pages.forEach(function (p) { byTitle[p.title] = p; });
         titles.forEach(function (t) {
-          var p = byTitle[to[to[t] || t] || to[t] || t], rev = p && p.revisions && p.revisions[0];
+          var p = byTitle[landed(q, t)], rev = p && p.revisions && p.revisions[0];
           var wt = rev ? (rev.slots && rev.slots.main ? rev.slots.main.content : rev.content) || '' : '';
           if (!p || (!wt && !p.extract)) return;
           var d = cheevoNeeds(wt);
           d.also = cheevoCapes(wt);
           d.tip = cheevoTip(p.extract);
+          d.rev = (rev && rev.revid) || 0;
           out[t] = d;
         });
       }, function () { /* this batch has no details */ });
     }
-    // a few batches at a time
-    var next = 0;
-    function worker() { return next < batches.length ? one(batches[next++]).then(worker) : Promise.resolve(); }
-    var ws = [];
-    for (var w = 0; w < Math.min(DETAIL_PARALLEL, batches.length); w++) ws.push(worker());
-    return Promise.all(ws).then(function () { return out; });
+    return inTurns(batches, one, DETAIL_PARALLEL).then(function () { return out; });
   }
-  // Each achievement with its details: skills, links, oneOf, other, also (the other capes it counts for) and tip.
+  // Each achievement with its details: skills, links, oneOf, other, also (the other capes it counts for), tip, and rev
+  // (the revision of its page they come from).
   function addDetails(cape, details) {
     cape.cheevos.forEach(function (x) {
       var d = details[x.page];
       if (!d) return;
-      x.skills = d.skills; x.links = d.links; x.oneOf = d.oneOf; x.other = d.other; x.tip = d.tip;
+      x.skills = d.skills; x.links = d.links; x.oneOf = d.oneOf; x.other = d.other; x.tip = d.tip; x.rev = d.rev;
       x.also = d.also.filter(function (k) { return k !== cape.key; });
     });
     return cape;
   }
   // Reads a cape: its achievements, the page with its levels when it has one, and each achievement's details.
-  // Without the levels page or the details it still works.
-  function loadCape(key) {
+  // Without the levels page or the details it still works. old: the cape as it was saved; an achievement whose page was
+  // not edited since keeps its details, so only new and edited pages are read again. info: what pageInfo said about
+  // those pages, when it was asked already.
+  function loadCape(key, old, info) {
     var c = capeOf(key);
     if (!c) { var e = new Error('There is no such cape.'); e.code = 'format'; return Promise.reject(e); }
     var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return {}; }) :
       c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return {}; }) : Promise.resolve({});
     return Promise.all([fetchPage(c.page), more]).then(function (r) {
-      var cape = parseCape(r[0].html, key);
+      var cape = parseCape(r[0].html, key), had = {}, pages = [];
+      cape.revid = r[0].revid;
       if (r[1].levels) cape.levels = r[1].levels;
       if (r[1].skiller) cape.skiller = r[1].skiller;
-      var pages = [];
+      ((old && old.cheevos) || []).forEach(function (x) { if (x.rev && x.tip != null) had[x.page] = x; });
       cape.cheevos.forEach(function (x) { if (pages.indexOf(x.page) < 0) pages.push(x.page); });
-      return loadDetails(pages).then(function (d) { return addDetails(cape, d); });
+      var known = pages.filter(function (p) { return had[p]; });
+      return (info ? Promise.resolve(info) : pageInfo(known)).then(function (info) {
+        var d = {}, read = pages.filter(function (p) {
+          var x = had[p], i = info[p];
+          if (!x || !i || !i.rev || i.rev !== x.rev) return true;
+          d[p] = { skills: x.skills, links: x.links, oneOf: x.oneOf, other: x.other, tip: x.tip, rev: x.rev, also: (x.also || []).concat([key]) };
+          return false;
+        });
+        return loadDetails(read).then(function (nd) { Object.keys(nd).forEach(function (p) { d[p] = nd[p]; }); return addDetails(cape, d); });
+      });
     });
   }
 
@@ -1559,6 +1619,8 @@
     cheevoCapes: cheevoCapes,
     cheevoTip: cheevoTip,
     loadCape: loadCape,
+    pageInfo: pageInfo,
+    inTurns: inTurns,
     normName: normName,
     MAP_VERSION: MAP_VERSION,
     WIKI: WIKI,

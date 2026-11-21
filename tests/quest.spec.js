@@ -142,7 +142,7 @@ test.describe('menus', () => {
   });
 
   test('Settings: the same screen from a quest and from the start screen; Jump to next step is in the quest menu', async ({ page }) => {
-    const rows = ['Done quests and tiers', 'Miniquests', 'Locked quests and tiers', 'Done steps and tasks', /^Sort by/, /^Theme/, /Text size\s*14/, 'Update quest list', 'Export state', 'Import state', 'Delete everything'];
+    const rows = ['Done quests and tiers', 'Miniquests', 'Locked quests and tiers', 'Done steps and tasks', /^Sort by/, /^Theme/, /Text size\s*14/, 'Update from the wiki', 'Export state', 'Import state', 'Delete everything'];
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('.bn[data-home="settings"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Settings');
@@ -214,24 +214,24 @@ test.describe('menus', () => {
     await expect(cur).toBeInViewport();
   });
 
-  test('update quest list', async ({ page, wiki }) => {
+  test('update from the wiki reads the quest list again', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.locator('.bn[data-home="settings"]').click();
-    await page.getByRole('button', { name: 'Update quest list' }).click();
-    await expect(toast(page)).toHaveText('Quest list updated.');
+    await page.getByRole('button', { name: 'Update from the wiki' }).click();
+    await expect(toast(page)).toHaveText('Everything is up to date.');
     expect(wiki.asked().filter((x) => x === 'List of quests')).toHaveLength(2);
     wiki.fail('List of quests', 'network');
-    await page.locator('.bn[data-home="settings"]').click();
-    await page.getByRole('button', { name: 'Update quest list' }).click();
+    await page.getByRole('button', { name: 'Update from the wiki' }).click();
     await expect(toast(page)).toHaveText('Could not update the quest list. Could not reach the wiki. Check your internet, then try again.');
   });
 
-  test('update quest list shows a message while it works', async ({ page, wiki }) => {
+  test('update from the wiki shows a message while it works', async ({ page, wiki }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     wiki.fail('List of quests', 'slow');
     await page.locator('.bn[data-home="settings"]').click();
-    await page.getByRole('button', { name: 'Update quest list' }).click();
-    await expect(toast(page)).toHaveText('Updating the quest list…');
+    await page.getByRole('button', { name: 'Update from the wiki' }).click();
+    await expect(toast(page)).toHaveText('Checking the wiki…');
+    await expect(page.getByRole('button', { name: 'Update from the wiki' })).toBeDisabled();
   });
 });
 

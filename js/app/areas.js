@@ -22,7 +22,8 @@
     return p;
   }
   function saveAprog() { sset('aprog.' + S.areaKey, S.aprog); saveAmeta(); }
-  // What the area list needs to know, per tier: how many tasks, how many are done, and what the tier needs.
+  // What the area list needs to know, per tier: how many tasks, how many are done, how many are new and not done yet,
+  // and what the tier needs.
   function writeAmeta(name, a, p) {
     var m = ametaAll(), old = (m[name] && m[name].tiers) || [];
     m[name] = {
@@ -31,6 +32,7 @@
         var o = old.filter(function (x) { return x.id === t.id; })[0] || {};
         return {
           id: t.id, name: t.name, total: t.tasks.length, done: t.tasks.filter(function (x) { return p.tasks[x.id]; }).length,
+          fresh: t.tasks.filter(function (x) { return A.isNew(x.newAt) && !p.tasks[x.id]; }).length,
           needs: t.skills ? { skills: t.skills, quests: t.quests } : o.needs
         };
       })
@@ -43,10 +45,28 @@
   function indexArea(name, a) {
     var ix = aidxAll();
     ix[name] = { v: a.version, tiers: a.tiers.map(function (t) {
-      return { id: t.id, name: t.name, tasks: t.tasks.map(function (x) { return { id: x.id, name: x.name, subs: (x.subs || []).map(function (u) { return u.id; }) }; }) };
+      return { id: t.id, name: t.name, tasks: t.tasks.map(function (x) {
+        var o = { id: x.id, name: x.name, subs: (x.subs || []).map(function (u) { return u.id; }) };
+        if (x.newAt) o.newAt = x.newAt;
+        return o;
+      }) };
     }) };
     sset('aidx', ix);
     writeAmeta(name, a, loadAprog(name));
+  }
+  // An area read again: its tasks that were not there before are New. Those that were keep when they were new.
+  // Gives how many are new.
+  function markNewTasks(old, na) {
+    var had = {}, n = 0, now = Date.now();
+    if (!old || !old.tiers) return 0;
+    old.tiers.forEach(function (t) { t.tasks.forEach(function (x) { had[x.id] = x; }); });
+    na.tiers.forEach(function (t) {
+      t.tasks.forEach(function (x) {
+        var o = had[x.id];
+        if (!o) { x.newAt = now; n++; } else if (o.newAt) x.newAt = o.newAt;
+      });
+    });
+    return n;
   }
   // Needs you do not meet yet (only known with a player): [skills too low, quests not done]
   function unmet(n) {
@@ -66,7 +86,7 @@
         var total = mt ? mt.total : t.tasks ? t.tasks.length : 0, done = mt ? mt.done : 0;
         var u = unmet(mt && mt.needs);
         var full = total > 0 && done >= total, started = done > 0 && !full;
-        out.push({ area: a.name, id: t.id, name: t.name, total: total, done: done, full: full, started: started,
+        out.push({ area: a.name, id: t.id, name: t.name, total: total, done: done, full: full, started: started, fresh: (mt && mt.fresh) || 0,
           locked: !full && !started && u.skills.length + u.quests.length > 0 });
       });
     });
@@ -116,7 +136,7 @@
     }
     function start(name) {
       running++;
-      QG.loadArea(name).then(function (na) { sset('area.' + name, na); indexArea(name, na); },
+      QG.loadArea(name).then(function (na) { markNewTasks(sget('area.' + name), na); sset('area.' + name, na); indexArea(name, na); },
         function () { S.aidxFail.push(name); }).then(function () { running--; drawList(); pump(); });
     }
     pump();
@@ -139,7 +159,8 @@
     else if (x.locked) status = '<span class="qs lk">' + I.lock + 'Locked</span>';
     return '<li><button class="q' + (x.full ? ' done' : x.started ? ' started' : x.locked ? ' locked' : '') + '" type="button" data-area="' + esc(x.area) + '" data-atier="' + esc(x.id) + '"' +
       (x.locked ? ' title="You do not have what this tier needs yet"' : '') + '>' +
-      '<span class="q1"><b>' + esc(x.area + ' ' + x.name) + '</b>' + status + '</span>' + (x.total ? '<span class="q2">' + plural(x.total, 'task', 'tasks') + '</span>' : '') + bar + '</button></li>';
+      '<span class="q1"><b>' + esc(x.area + ' ' + x.name) + '</b>' + status + '</span>' +
+      (x.total ? '<span class="q2">' + plural(x.total, 'task', 'tasks') + (x.fresh ? ' \u00b7 ' + x.fresh + ' new' : '') + '</span>' : '') + bar + '</button></li>';
   }
   // What a search finds: tiers by "area tier" name, tasks by their own name.
   function areaMatches(v) {
@@ -318,7 +339,7 @@
         rowHtml('acb', u.id, d, u.html, u.notes && u.notes.length ? '<div class="ext"><div class="howto">' + u.notes.join('<br>') + '</div></div>' : '') + '</li>';
     }).join('');
     return '<li class="step task' + (done ? ' done' : '') + (cur ? ' cur' : '') + '" data-task="' + esc(x.id) + '">' +
-      rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
+      rowHtml('acb', x.id, done, '<b>' + esc(x.name) + '</b>' + (A.isNew(x.newAt) && !done ? A.newTagHtml() : '') + (x.desc ? ' \u2014 ' + esc(x.desc) : ''), ext ? '<div class="ext">' + ext + '</div>' : '',
         A.taskMenuHtml({ area: S.areaKey, tier: t.id, tname: t.name, task: x.id, title: x.name })) +
       (subs ? '<ul class="steps subs">' + subs + '</ul>' : '') + '</li>';
   }
@@ -407,23 +428,31 @@
     S.resetArmed = Date.now();
     btn.querySelector('span').textContent = 'Click again to reset';
   }
-  function refreshArea(silent) {
-    var name = S.areaKey;
-    if (!silent) toast('Reading the wiki\u2026', 0);
-    QG.loadArea(name).then(function (na) {
+  // Reads a saved area again and keeps it; tasks that are new say so. The area on screen is drawn again.
+  // Gives how many tasks are new.
+  function reloadArea(name, old) {
+    return QG.loadArea(name).then(function (na) {
+      var added = markNewTasks(old, na);
       sset('area.' + name, na);
       indexArea(name, na);
-      if (S.view !== 'area' || S.areaKey !== name) return;
-      S.area = na;
-      saveAmeta();
-      renderArea(true);
-      if (!silent) toast('Updated from the wiki.');
+      // the area that is open (on screen, or under Settings) gets the new one too
+      if (S.areaKey === name && S.area) {
+        S.area = na;
+        if (S.view === 'area') renderArea(true);
+      }
+      return added;
+    });
+  }
+  function refreshArea(silent) {
+    if (!silent) toast('Reading the wiki\u2026', 0);
+    reloadArea(S.areaKey, S.area).then(function (n) {
+      if (!silent && S.view === 'area') toast('Updated from the wiki' + (n ? ': ' + plural(n, 'new task', 'new tasks') : '') + '.');
     }, function (e) { if (!silent) toast('Could not update. ' + loadError(e)); });
   }
 
   A.share({ aidxAll: aidxAll, ametaAll: ametaAll, areaListHtml: areaListHtml, areaMatches: areaMatches,
     areaReset: areaReset, loadAllAreas: loadAllAreas, loadAprog: loadAprog, missingAreas: missingAreas,
-    nextTask: nextTask, openArea: openArea, refreshArea: refreshArea, renderArea: renderArea,     setHome: setHome, setTick: setTick, subId: subId, switchTier: switchTier, taskIndex: taskIndex,
+    nextTask: nextTask, openArea: openArea, refreshArea: refreshArea, reloadArea: reloadArea, renderArea: renderArea,     setHome: setHome, setTick: setTick, subId: subId, switchTier: switchTier, taskIndex: taskIndex,
     tickInArea: tickInArea, tickTask: tickTask, toggleAreaSec: toggleAreaSec, whenAreasRead: whenAreasRead,
     writeAmeta: writeAmeta });
   A.loaded.areas = true;

@@ -2,11 +2,12 @@
  * Quick Guide - js/app/core.js
  * A tick list for RuneScape Wiki quest quick guides, capes and Area Tasks, made for the Alt1 browser.
  *
- * The app is in nine files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
+ * The app is in ten files in js/app, loaded in this order. Each puts what the others need on window.QuickGuideApp (A):
  *   core.js        storage, helpers, state, saved progress, the player, menus, shared pieces, maps, settings
  *   quests.js      the quest list and the quest screen
  *   areas.js       Achievements: Area Tasks, and the list of tiers
  *   capes.js       Achievements: the cape cards, and one cape
+ *   update.js      Update from the wiki: everything the app keeps, reading again only what changed
  *   todo-data.js   My list: the saved lists, goals and sub tasks, wiki links, export and import
  *   todo-view.js   My list: what the tab shows, its menus and boxes
  *   todo.js        My list: adding, ticking, and what the menus do
@@ -49,6 +50,8 @@
   var FONT_MIN = 12, FONT_MAX = 40, FONT_STEP = 2, FONT_DEFAULT = 14;
   var LIST_MAX_AGE = 7 * 24 * 3600 * 1000;
   var PLAYER_MAX_AGE = 24 * 3600 * 1000;
+  // What came out on the wiki since the app last read it (an achievement, a task, a quest) says "New" this long.
+  var NEW_FOR = 30 * 24 * 3600 * 1000;
   var TABS = [['overview', 'Overview'], ['items', 'Items'], ['steps', 'Steps']];
   // The foldable parts of the Overview tab. They start open.
   var OV = [['details', 'Details'], ['skills', 'Skills'], ['enemies', 'Enemies'], ['rewards', 'Rewards']];
@@ -440,7 +443,9 @@
       '<span class="fsv" id="fsv" aria-live="polite">' + S.set.fontSize + '</span>' +
       '<button class="ib xs" type="button" data-act="font-up" aria-label="Bigger text" title="Bigger text"' + (S.set.fontSize >= FONT_MAX ? ' disabled' : '') + '>' + I.plus + '</button>' +
       '</div>' +
-      '<button class="mi" type="button" data-act="list-refresh">' + I.refresh + 'Update quest list</button>' +
+      // everything the app keeps, from the wiki again: only what changed is read
+      '<button class="mi upd" type="button" data-act="update-all"' + (S.upd ? ' disabled' : '') + '>' + I.refresh + 'Update from the wiki</button>' +
+      '<p class="mx" id="upd-msg" role="status">' + esc(A.updateText ? A.updateText() : '') + '</p>' +
       '<p class="mh">Backup</p>' +
       '<button class="mi" type="button" data-act="export">' + I.ext + 'Export state</button>' +
       '<button class="mi" type="button" data-act="import">' + I.plus + 'Import state</button>' +
@@ -734,6 +739,9 @@
       (st === 'low' && !A.hasSkillGoal(s.skill, s.level) ? ' <button class="addgoal" type="button" data-addgoal="' + esc(String(s.skill).toLowerCase()) + '" data-level="' + esc(s.level) + '"' +
         ' aria-label="Add ' + esc(s.level + ' ' + s.skill) + ' to my list" title="Add this level to my list">' + I.plus + 'goal</button>' : '') + '</' + tag + '>';
   }
+  // "New": a thing that came out on the wiki since the app last read that page (at: when the app found it).
+  function isNew(at) { return +at > 0 && Date.now() - at < NEW_FOR; }
+  function newTagHtml() { return ' <span class="newtag">New</span>'; }
   // After a quest's name, once your character is looked up: a green tick when you have done it, a red cross when you
   // have not. partial: part of the quest is enough, so a quest you started gets neither.
   function questMark(q, partial) {
@@ -916,7 +924,7 @@
     toast('Everything is deleted.');
   }
 
-  A.share({ copyText: copyText, D: D, markHtml: markHtml, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
+  A.share({ copyText: copyText, D: D, isNew: isNew, markHtml: markHtml, newTagHtml: newTagHtml, place: place, savedScroll: savedScroll, restoreScroll: restoreScroll, saveView: saveView, partHtml: partHtml, headerHtml: headerHtml, homeBarHtml: homeBarHtml, goHome: goHome, leaveSettings: leaveSettings, openSettings: openSettings, progHtml: progHtml, tabCountHtml: tabCountHtml, tabHtml: tabHtml, tabsHtml: tabsHtml, nextHtml: nextHtml, toastHtml: toastHtml, THEMES: THEMES, DIF_ORDER: DIF_ORDER, FONT_STEP: FONT_STEP, HOMES: HOMES, I: I, LEN_ORDER: LEN_ORDER,
     LIST_MAX_AGE: LIST_MAX_AGE, OV: OV, PLAYER_MAX_AGE: PLAYER_MAX_AGE, PREFIX: PREFIX, QG: QG, S: S, SORTS: SORTS,
     TABS: TABS, TAB_ICON: TAB_ICON, acc: acc, accKey: accKey, app: app, applySettings: applySettings, arr: arr,
     byId: byId, clampFont: clampFont, closeMenus: closeMenus, dateText: dateText,

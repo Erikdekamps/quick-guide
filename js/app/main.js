@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   // A file that did not load: the page already says which (index.html). Do not start half an app.
-  if (!A || ['core', 'quests', 'areas', 'capes', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
+  if (!A || ['core', 'quests', 'areas', 'capes', 'update', 'todoData', 'todoView', 'todo', 'backup'].some(function (k) { return !A.loaded[k]; })) return;
   var accKey = A.accKey, addFromButton = A.addFromButton, addSkillGoal = A.addSkillGoal, addToPick = A.addToPick, app = A.app,
     applySettings = A.applySettings, areaMatches = A.areaMatches, areaReset = A.areaReset, byId = A.byId, capeReset = A.capeReset, closeBackup = A.closeBackup,
     closeMenus = A.closeMenus, closeSubAdd = A.closeSubAdd, closeTodoDialog = A.closeTodoDialog, copyBackup = A.copyBackup,
@@ -65,6 +65,7 @@
     'font-down': function () { setFont(-FONT_STEP); },
     'font-up': function () { setFont(FONT_STEP); },
     'list-refresh': function () { closeMenus(); fetchList(false, true); if (S.order || S.set.sort === 'opt') fetchOrder(true); },
+    'update-all': function () { closeMenus(); A.updateAll(false); },
     'player-refresh': function () { if (S.player) lookUpPlayer(S.player.name); },
     'player-clear': function () { forgetPlayer(); },
     tnew: function () { newListDialog(); },
@@ -256,6 +257,8 @@
   // Keep the player fresh too: quietly, once a day.
   // (Data from before the app kept the quests' names is fetched again too: the export needs them.)
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);
+  // New quests, tasks and achievements: once a week the app checks what it keeps against the wiki, quietly.
+  A.autoUpdate();
   // Settings was open: open it again, over the screen it was opened from (its button in the bar goes back there).
   if (S.reopenSettings) A.openSettings();
 
