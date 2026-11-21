@@ -1,6 +1,6 @@
 # Rules for Claude
 
-Quick Guide is plain files in the browser: no build step, and no npm packages in the app. README.md says how it works.
+Quick Guide is plain files in the browser: no build step, and no npm packages in the app. README.md says what it does; DEVELOPING.md says how it works.
 
 ## Before every push
 
@@ -21,19 +21,19 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 - A change to the app (index.html, style.css, appconfig.json, icon.svg, icon.png, js/, vendor/) gets a new version in the same PR: a line under "## [Unreleased]" in CHANGELOG.md, then `npm run bump -- patch|minor|major`.
 - Never change the version or a ?v= number by hand; `npm run bump` changes them all together.
-- "The app" is the list APP_FILES in tools/version.js: what goes on GitHub Pages and what needs a version. When it changes, change the same list in this file, the README and the PR template (tests/unit/version.spec.js checks it).
+- "The app" is the list APP_FILES in tools/version.js: what goes on GitHub Pages and what needs a version. When it changes, change the same list in this file, DEVELOPING.md and the PR template (tests/unit/version.spec.js checks it).
 - A fix the code check finds in index.html is a change to the app too: it needs a version.
 - MAJOR: saved data or the export file changes so old ones no longer work as before. MINOR: something new to see or do. PATCH: a fix, or a change you cannot see.
 
 ## Files
 
-- A new file in js/app goes into index.html (before main.js), main.js's loaded list, the top of core.js and the README files table; tests/unit/code.spec.js checks it.
+- A new file in js/app goes into index.html (before main.js), main.js's loaded list, the top of core.js and the Files table in DEVELOPING.md; tests/unit/code.spec.js checks it.
 - Files share names only through A.share(); a name a file takes when it loads must come from a file loaded before it.
 
 ## Saved data
 
 - Keep old saved data working: raise the matching *_VERSION when a saved shape changes, and key ticks by the wiki's stable ids.
-- Every localStorage key goes through sget/sset (they add qg1.) and is listed in the README's "What is saved" table and at the top of core.js.
+- Every localStorage key goes through sget/sset (they add qg1.) and is listed in the "What is saved" table in DEVELOPING.md and at the top of core.js.
 
 ## Wiki and safety
 
@@ -54,7 +54,8 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 
 ## Docs and designs
 
-- Every visible change updates README.md, designs/ (boards and screenshots) and the design canvas in the same PR.
+- Every visible change updates designs/ (boards and screenshots) and the design canvas in the same PR, and README.md when it says something that changed.
+- Keep README.md to the bare essentials for players: what the app does, how to add it, and their data. Everything else goes in DEVELOPING.md.
 - Build design boards from the app's own markup and the current style.css, not by hand: `npm run designs` (a board without a recipe gets one in tools/designs/boards.spec.js).
 - A board recipe starts the app with a fixed clock and fixed ids, so the same app gives the same board. Look at the new pictures before you commit them.
-- Write UI text, comments, commits and PR text in short, plain sentences, like the README.
+- Write UI text, comments, commits and PR text in short, plain sentences, like the README and DEVELOPING.md.

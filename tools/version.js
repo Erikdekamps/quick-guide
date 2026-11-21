@@ -19,7 +19,7 @@ const { execFileSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const LEVELS = ['patch', 'minor', 'major'];
 // The app: the files GitHub Pages serves (.github/workflows/deploy.yml copies these, and nothing else). A change to
-// one of them is a new version. CLAUDE.md, the README and the pull request template name the same list.
+// one of them is a new version. CLAUDE.md, DEVELOPING.md and the pull request template name the same list.
 const APP_FILES = ['index.html', 'style.css', 'appconfig.json', 'icon.svg', 'icon.png', 'js/', 'vendor/'];
 // "## [1.2.3] - 2026-11-21" or "## [Unreleased]"
 const HEADING = /^## \[([^\]]+)\](?: - (\S+))?[ \t]*$/gm;

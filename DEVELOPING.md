@@ -1,0 +1,253 @@
+# Developing Quick Guide
+
+How the app works inside, what it saves, and how it is built, tested and released. The [README](README.md) says what
+the app does.
+
+The app is plain files in the browser: no build step, and no npm packages in the app. Node.js 22 and `npm ci` give you
+the tools to test it.
+
+## The export file
+
+**Export state** (in Settings) gives a JSON file with **every quest and every area task**, each `true` (done) or `false` (not done),
+**the capes you opened** (each achievement, by category) and **your lists**.
+It also lists the quests the game knows that the wiki's quest list does not have (parts of a bigger quest, like
+Recipe for Disaster), so its done quests add up to what the game says. `tiers` is each tier's count ("7 / 12"),
+to read at a glance; an import does not use it. Steps say all they say, nothing is cut off.
+**Download file** saves it; **Copy** puts the text on the clipboard (use Copy inside Alt1 if the download does not work).
+
+Change it in any text editor, then **Import state**, **Choose a file**, **Import**. The number at the start of a task
+(`447 …`), a step (`993:1 …`) or an achievement (`4949 …`) is how the app finds it; a task can also be written by its name alone.
+The achievements that tick themselves (Quest Cape, Master Skiller, and the two capes in the trimmed one) are only to read.
+
+In `mylist`, each goal is a line, written the way you type it in the add box: `"82 Thieving"`,
+`"500 Magic logs"`, `"Quest: While Guthix Sleeps"`, `"Task 448: Yoink! (Ardougne Easy)"`,
+`"Achievement 2111: Advanced Sweeping (Master quest cape)"`. A goal with a note or sub tasks is
+`{ "done": false, "note": "…", "subs": { "Buy a rope": true } }`; a sub task with its own is
+`{ "done": false, "subs": { … } }`. Add a list or a goal by hand and it comes in.
+
+```json
+{
+  "app": "Quick Guide",
+  "format": 2,
+  "settings": { "hideDone": false, "fontSize": 14, "sort": "name", "home": "areas" },
+  "player": { "name": "Zezima", "quests": { "cooksassistant": 2 }, "levels": { "magic": 80 } },
+  "quests": {
+    "Cook's Assistant": true,
+    "While Guthix Sleeps": {
+      "done": false,
+      "progress": "10 / 118",
+      "steps": { "starting-out:19 In Taverley, talk to Ivy Sophista…": true },
+      "items": { "req:1x3k9a Ring of charos (a)": false }
+    }
+  },
+  "tiers": { "Ardougne": { "Easy": "1 / 23" } },
+  "areas": {
+    "Ardougne": { "Easy": { "447 The Essence of Magic": true, "448 Yoink!": false } }
+  },
+  "capes": {
+    "Master quest cape": { "Lore": { "4949 A Sliver of Silver Helps the Sanguine Go Down": true }, "Completionist": { "1 Quest Cape": false } }
+  },
+  "mylist": {
+    "Today": { "Task 448: Yoink! (Ardougne Easy)": false, "Vis wax": true },
+    "Gathering": { "500 Magic logs": false }
+  }
+}
+```
+
+- Steps are only listed for quests you opened; the others are one line.
+- Import replaces the ticks of the quests, areas and capes in the file and leaves the others alone.
+  A file with `mylist` replaces your lists; a file without it leaves them alone.
+  If a file has a mistake (in its lists too), it says what is wrong and changes nothing. Files from the first version still import.
+- A file with area tasks: the app first reads the areas it does not know yet, so every task is found.
+
+## What is saved
+
+Everything is in the browser's local storage, on your computer. All keys start with `qg1.`:
+
+| Key | What |
+| --- | --- |
+| `list`, `minis` | Every quest and miniquest from the wiki's lists |
+| `order` | The wiki's optimal quest order |
+| `quest.<page>`, `prog.<page>` | A quest's guide, and your ticks for it |
+| `meta` | One small entry per quest you opened (steps done, total, last opened) |
+| `qdone` | Quests marked done by an import |
+| `area.<name>`, `aprog.<name>` | An area's page, and your ticks for it |
+| `ameta`, `aidx` | Counts for the area list, and every task of every area (for search) |
+| `cape.<key>`, `cprog.<key>` | A cape's achievements (`mqc`, `comp` or `trim`) with what each needs and its tip, and your ticks, tab and folded parts in it |
+| `settings`, `last` | Your settings (the theme too), and the quest, area or cape that was open last |
+| `upd` | When Update from the wiki last ran, and what it found |
+| `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
+| `view` | Where you were: the search text, folded groups, lists and sub tasks, where each list, tab and tier is scrolled, and if Settings is open |
+| `todo` | My list: your lists and their goals (never dropped to make room) |
+
+Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped, then the areas (your
+ticks stay), and read from the wiki again when you open them. When there is still no room, the app says that your last
+change is not saved: it is kept until you close the app, so **Export state** still has it.
+
+A saved guide, area or cape that cannot be shown (it is broken) is dropped, and the list says so. It is read from the
+wiki again when you open it; your ticks stay.
+
+## How it reads the wiki
+
+- `js/wiki/quests.js` reads the quest lists and the optimal order through the wiki's API, for example
+  `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
+- `js/wiki/parser.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide)
+  the area pages (`<Area>_achievements`) and the capes' achievement lists (`Master_Quest_Cape_(achievement)`,
+  `Completionist_Cape_(achievement)`, `Trimmed_Completionist_Cape_(achievement)`), and turns them into JSON. The levels
+  come from `Master_quest_cape` (its minimum skill levels) and `Master_Skiller`. What each achievement needs, the capes
+  it counts for and its tip come from its own page, 20 pages a time: the infobox of the first section, and the first
+  paragraph, for example
+  `https://runescape.wiki/api.php?action=query&prop=revisions|extracts&rvprop=content&rvsection=0&exintro=1&titles=Advanced_Sweeping|Annihilator&format=json&origin=*`.
+- Map pictures load from `maps.runescape.wiki`.
+- The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
+  (quests, skill levels and quest points in one answer), through the wiki first, then at Jagex itself:
+  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerData/<name>?includeQuests=true&includeSkills=true`, then
+  `https://secure.runescape.com/m=adventurers-log/api/v1/playerData/<name>?…`.
+  If neither answers, the older lookup is used, both passed on by the wiki:
+  `https://runescape.wiki/cors/m=adventurers-log/api/v1/playerQuests/<name>` and
+  `https://runescape.wiki/cors/m=hiscore/index_lite.json?player=<name>`.
+
+- My list asks the wiki whether it has a page for a goal you wrote yourself (for **Open on the wiki**), for example
+  `https://runescape.wiki/api.php?action=query&titles=Crystal%20hatchet&redirects=1&format=json&origin=*`.
+
+- Update from the wiki asks when pages last changed, 50 at a time, without reading them, for example
+  `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
+  Each saved guide, area and cape keeps the revision it was read from.
+
+- When the wiki says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, these questions
+  are asked once more: after as long as the wiki asks (at most 5 seconds), else after a second. What an update still
+  cannot read is kept as it was saved, and read again at the next update.
+
+No other service is used.
+
+## Files
+
+| File | What it is |
+| --- | --- |
+| `README.md`, `DEVELOPING.md` | What the app does; how it works inside (this file) |
+| `index.html`, `style.css` | The page and its look (both themes: every colour is a token at the top of `style.css`) |
+| `js/app/core.js` | What every screen shares: storage, settings, the player, menus, the window's parts, maps |
+| `js/app/quests.js` | The quest list and the quest screen (Overview, Items, Steps) |
+| `js/app/areas.js` | Achievements: the list of tiers, search, and one area |
+| `js/app/capes.js` | Achievements: the cape cards, and one cape's page |
+| `js/app/update.js` | Update from the wiki: checks everything the app keeps, reads again only what changed, marks what is new |
+| `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
+| `js/app/todo-view.js` | My list: what it shows, its count in the bar at the bottom, Add to list in the ⋯ menus, the menus and boxes |
+| `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
+| `js/app/backup.js` | Export and import |
+| `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
+| `js/wiki/parser.js` | Reads a quest guide, an area page or a cape's achievements from the wiki |
+| `js/wiki/quests.js` | Reads the quest lists and the optimal order |
+| `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
+| `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
+| `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
+| `tools/icon.js` | Makes `icon.png` from `icon.svg` |
+| `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)). It also has the list of the app's files, and copies them for GitHub Pages |
+| `tests/`, `playwright.config.js`, `package.json` | The tests |
+| `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
+| `tests/support/` | What the tests share: `app.js` (the fake wiki and the helpers of the browser tests) and `coverage.js` (which code no test runs) |
+| `tests/fixtures/` | Pages of the wiki, saved, for the fake wiki (`tests/fixtures/wiki/`) |
+| `tests/coverage.json` | The code no test runs yet (see [Tests](#tests)) |
+| `tools/designs/` | Builds the design boards and their pictures from the app: `npm run designs` (see [designs/README.md](designs/README.md)) |
+| `eslint.config.js` | The code check: `npm run lint` |
+| `.github/workflows/tests.yml` | Every pull request: code check and security check, then the tests, then the live wiki check |
+| `.github/actions/setup/` | What the jobs on GitHub start with: Node, the npm packages, and Chromium (kept between runs) |
+| `.github/workflows/live.yml` | Checks the app against the real wiki every Monday |
+| `.github/workflows/deploy.yml` | Puts the app from `main` on GitHub Pages (only the app's files), and makes a release of each new version |
+| `.github/pull_request_template.md` | The checklist of a pull request |
+| `CLAUDE.md` | The rules Claude follows when it works on the app |
+| `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
+| `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
+| `designs/` | Design boards (in `designs/canvas/`) and screenshots of every screen |
+
+## Versions
+
+The app has one version number, like `1.43.0`. Settings shows it at the bottom. [CHANGELOG.md](CHANGELOG.md) says what
+changed in each version. The three numbers are MAJOR.MINOR.PATCH ([semantic versioning](https://semver.org/)):
+
+- **MAJOR** goes up when saved data or the export file changes so that old ones no longer work as before.
+- **MINOR** goes up for something new you can see or do.
+- **PATCH** goes up for a fix, or a change you do not see.
+
+The app is what GitHub Pages serves: `index.html`, `style.css`, `appconfig.json`, `icon.svg`, `icon.png`, `js/`, `vendor/`. Nothing else goes on the site.
+Every change to the app gets a new version, in the same pull request:
+
+1. Write what changed under `## [Unreleased]` in `CHANGELOG.md`.
+2. Run `npm run bump -- minor` (or `patch`, or `major`). It raises the number in `package.json` and in every `?v=`
+   in `index.html` (Alt1 keeps old copies of files otherwise), and puts your notes under the new number.
+
+GitHub checks this on every pull request (`npm run check:version -- origin/main` does the same on your computer).
+It compares with the version `main` had when your branch left it, so a branch that only changes the docs still passes
+after `main` got a new version.
+Once `main` is on GitHub Pages, GitHub makes a release of the new version, with a tag like `v1.43.0`
+(**Releases**, on the repo's page).
+
+## Tests
+
+The tests use [Playwright](https://playwright.dev/) with Chromium, the browser Alt1 is built on. They open the app
+in a 360 × 720 window, like Alt1, and click through it like a person would.
+
+- **Unit tests** (`tests/unit/`) run the app's own files in Node, without a browser. All of them take a few
+  seconds, and they run first: the browser tests only start when they pass. They test what needs no page: what you
+  type, wiki text, ids, how the app asks the wiki, what Update from the wiki reads again. Code that needs a page
+  says so ("needs a browser"), and is tested in the browser.
+- The other tests open the app in the browser.
+- On GitHub, every pull request runs its checks in three steps (`.github/workflows/tests.yml`). A step starts only
+  when the one before it passed, so a mistake stops everything after it:
+  1. **Code check** (`npm run lint`, and the version check) and **Security check** (`npm run security`, see below),
+     side by side.
+  2. **App tests**: `npm run coverage`. The unit tests run first, once; then the browser tests, and the coverage check.
+  3. **Live wiki check**: only when the pull request changes how the app reads the wiki.
+
+  Chromium is kept between runs, so it is not downloaded every time.
+
+  `main` only takes pull requests whose checks passed, and is then put on GitHub Pages. (CodeQL, GitHub's own code
+  scan, runs next to them: GitHub starts it by itself.)
+- They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
+- An error in the page that nobody catches fails the test, in every test.
+- New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
+  that no test runs (a part of an `if`, a fallback, a function), in the unit tests or in the browser.
+  `tests/coverage.json` lists the code no test runs yet. The pieces of code themselves are compared, not how many
+  there are: new code without a test fails, also when other code without a test went away.
+- A test that passes only on its second try fails the run. The live wiki check is the exception: the real wiki is
+  slow now and then.
+- No test waits a fixed time or looks at the clock on the wall: a test that checks nothing happens moves the page's
+  own clock, or counts what the app asked the wiki.
+- `tests/unit/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
+  file takes from another one is shared, and every saved key is in the table above.
+- GitHub checks the app against the real wiki once a week, and on a pull request that changes how the app reads
+  the wiki (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
+
+To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
+
+```
+npm ci
+npx playwright install chromium
+npm test
+```
+
+- `npm run test:unit` runs only the unit tests: a few seconds, no browser needed.
+- `npm run lint` is the code check: names that are not defined or not used, and other mistakes. The app's files may
+  use what a browser has, the tests and tools what Node has. The script in `index.html` is checked too.
+- `npm run test:live` checks against the real wiki (needs the internet).
+- `npm run coverage` runs the tests and shows how much of each file they run. It fails when there is code no test runs
+  that `tests/coverage.json` does not list. When code in that list is gone, `npm run coverage -- --update` saves that.
+- `npm run bump -- patch|minor|major` and `npm run check:version` (see [Versions](#versions)).
+- `npm run security` checks for known security problems and newer versions (see below).
+- `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
+- `npm run designs` builds the design boards and their pictures again from the app (see [designs/README.md](designs/README.md)).
+
+## Security and updates
+
+The app itself has no npm packages: it runs as plain files in the browser. It uses Leaflet (a copy in
+`vendor/leaflet/`), and the tests use Playwright (an npm package).
+
+- **Security check**: on every pull request (next to the code check, see [Tests](#tests)), and every Monday
+  (`.github/workflows/security.yml`). It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
+  you update. Lower-rated problems and newer versions show as notes on the run and in its summary.
+  Run it yourself with `npm run security`.
+- **Dependabot** (`.github/dependabot.yml`): every Monday it opens a pull request for a newer Playwright or a newer
+  GitHub Action, so the tests run on it before you merge. It cannot see the Leaflet copy; the security check
+  says when a newer Leaflet is out.
+- To also get a pull request for a security fix as soon as one is out, turn on **Dependabot security updates** on
+  GitHub: Settings → Code security → Dependabot.
