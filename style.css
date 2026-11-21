@@ -1109,6 +1109,11 @@ ul.steps.ql { padding: 0; }
 /* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
    tasks are a step further in. */
 .goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* on a goal or sub task with sub tasks, that count folds them: a small arrow before it */
+.sc.fold { display: inline-flex; align-items: center; gap: 2px; padding: 1px 5px 1px 2px; vertical-align: 1px; background: none; border: 1px solid transparent; border-radius: 3px; font-family: inherit; line-height: 1.2; cursor: pointer; }
+.sc.fold:hover { color: var(--bright); border-color: var(--rule); }
+.sc.fold .i { width: 12px; height: 12px; color: var(--bronze-lt); transition: transform .15s; }
+.sc.fold[aria-expanded="true"] .chev { transform: rotate(90deg); }
 .gsubs { list-style: none; margin: -4px 0 4px; padding: 0 0 0 24px; }
 .gsubs .gsubs { margin: 0; padding-left: 18px; }
 .gsub .row { padding: 3px 4px 3px 6px; }

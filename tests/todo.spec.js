@@ -561,6 +561,48 @@ test.describe('sub tasks', () => {
     expect(page.errors).toEqual([]);
   });
 
+  test('a goal and a sub task fold their sub tasks: the count after them is the button; a reload keeps it; adding a sub task opens it', async ({ page }) => {
+    await openList(page, lists({ Gear: [{ kind: 'other', title: 'Hatchet', subs: [{ id: 'a', title: 'Ember', subs: [{ id: 'a1', title: 'Crystal', done: 1 }, { id: 'a2', title: 'Shard' }] }, { id: 'b', title: 'Blight' }] }, { kind: 'other', title: 'Rope' }] }));
+    const fold = (row) => row.locator(':scope > .row .sc.fold');
+    const hatchet = goal(page, 'Hatchet'), ember = page.locator('li.gsub[data-sub="a"]');
+    // open at first; a goal without sub tasks has no button
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'true');
+    await expect(fold(hatchet)).toHaveText('0 / 2');
+    await expect(fold(goal(page, 'Rope'))).toHaveCount(0);
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeVisible();
+    // the sub task folds its own
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('aria-expanded', 'false');
+    await expect(fold(ember)).toHaveText('1 / 2');
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeHidden();
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeVisible();
+    // and opens them again
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('title', 'Hide the sub tasks');
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeVisible();
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('title', 'Show the sub tasks');
+    // the goal folds all under it
+    await fold(hatchet).click();
+    await expect(page.locator('li.gsub .t', { hasText: /^(Ember|Blight)$/ })).toHaveCount(2);
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeHidden();
+    // kept after a reload
+    await expect.poll(async () => ((await stored(page, 'view')) || {}).closed).toMatchObject({ 'todosub:g1': true, 'todosub:g1:a': true });
+    await page.reload();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeHidden();
+    // a tick keeps it folded
+    await goal(page, 'Rope').locator('.cb').click();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    // Add sub task opens it, so you see what you add
+    await goalMenu(page, 'Hatchet');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await expect(subBox(page)).toBeVisible();
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeVisible();
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeHidden();
+    expect(page.errors).toEqual([]);
+  });
+
   test('at most 20 sub tasks; a goal saved as one that repeats is a plain goal now, and stays ticked', async ({ page }) => {
     await page.clock.install({ time: new Date('2026-11-16T21:00:00Z') });
     const many = Array.from({ length: 20 }, (_, i) => ({ id: 's' + i, title: 'Step ' + (i + 1) }));

@@ -15,6 +15,7 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 ### Added
 
 - My list keeps what you finished: a goal that is done with all its sub tasks moves to **Done** at the end of its list, one row with the day you did it. Done is folded until you click it. The message says where the goal went, with Undo; untick it there and it is back in the list.
+- My list: the count after a goal or a sub task with sub tasks ("1 / 2") folds its sub tasks. The app remembers it after a reload, and adding a sub task opens it again.
 
 ## [1.43.2] - 2026-11-21
 

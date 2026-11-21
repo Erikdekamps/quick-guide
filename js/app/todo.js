@@ -42,6 +42,8 @@
   function openSubAdd(gid, pid) {
     closeMenus();
     S.subAdd = { gid: gid, pid: pid || '' };
+    // a folded goal or sub task opens, so you see what you add
+    delete S.closed['todosub:' + gid + (pid ? ':' + pid : '')];
     S.todoFocus = 'form.sadd input';
     drawTodo();
   }

@@ -151,7 +151,7 @@
       TODO_CLICKS.filter(function (c) { return g.hasAttribute(c[0]); })[0][1](g);
       return;
     }
-    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-dn], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-dn], [data-fold], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
@@ -165,6 +165,17 @@
         S.closed[gk] = !S.closed[gk];
         t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
         if (ul) ul.hidden = !!S.closed[gk];
+        saveView();
+        return;
+      }
+      if (t.hasAttribute('data-fold')) {
+        // The sub tasks of a goal or a sub task: folded in place, kept in the view.
+        var fk = t.getAttribute('data-fold'), sl = t.closest('li').querySelector(':scope > ul.gsubs');
+        S.closed[fk] = !S.closed[fk];
+        if (!S.closed[fk]) delete S.closed[fk];
+        t.setAttribute('aria-expanded', S.closed[fk] ? 'false' : 'true');
+        t.title = (S.closed[fk] ? 'Show' : 'Hide') + ' the sub tasks';
+        if (sl) sl.hidden = !!S.closed[fk];
         saveView();
         return;
       }

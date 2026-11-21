@@ -13,7 +13,17 @@
     saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
 
   // ---------- the My list tab ----------
-  function doneCount(p) { return '<span class="sc">' + p.subs.filter(isDone).length + ' / ' + p.subs.length + '</span>'; }
+  // How many of the sub tasks under p are done ("1 / 2"). On a goal or sub task in the list it is a button that folds
+  // them: key is where that is kept (S.closed['todosub:<goal>'] or 'todosub:<goal>:<sub task>', true when shut).
+  function doneCount(p, key) {
+    var n = p.subs.filter(isDone).length + ' / ' + p.subs.length;
+    if (!key) return '<span class="sc">' + n + '</span>';
+    var shut = !!S.closed[key];
+    return '<button class="sc fold" type="button" data-fold="' + esc(key) + '" aria-expanded="' + (shut ? 'false' : 'true') + '" title="' +
+      (shut ? 'Show' : 'Hide') + ' the sub tasks">' + I.chev + n + '</button>';
+  }
+  // Where the fold of a goal (g) or one of its sub tasks (u) is kept.
+  function foldKey(g, u) { return 'todosub:' + g.id + (u ? ':' + u.id : ''); }
   // One goal: its tick box, what it says (with how many sub tasks are done, and its note),
   // its menu, and its sub tasks under it.
   // was: a finished goal in the list's Done part. It is one row: its sub tasks are not shown, and the day it was
@@ -25,7 +35,7 @@
     return '<li class="goal' + (s.done ? ' done' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
-      (g.subs ? doneCount(g) : '') +
+      (g.subs ? doneCount(g, was ? '' : foldKey(g)) : '') +
       (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') +
       (day ? '<span class="gd">' + esc(day) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
@@ -35,7 +45,9 @@
   function subsHtml(g, p) {
     var add = !!S.subAdd && S.subAdd.gid === g.id && S.subAdd.pid === (p === g ? '' : p.id);
     if (!p.subs && !add) return '';
-    return '<ul class="gsubs">' + (p.subs || []).map(function (u) { return subHtml(g, u); }).join('') +
+    // folded shut (the box for a new sub task opens it: openSubAdd)
+    var shut = !add && !!S.closed[foldKey(g, p === g ? null : p)];
+    return '<ul class="gsubs"' + (shut ? ' hidden' : '') + '>' + (p.subs || []).map(function (u) { return subHtml(g, u); }).join('') +
       (add ? '<li class="addrow">' + addFormHtml(' data-sadd="' + esc(g.id) + '" data-pid="' + esc(S.subAdd.pid) + '"',
         'Add a sub task to ' + goalTitle(p), 'Add a sub task', true) + '</li>' : '') + '</ul>';
   }
@@ -44,7 +56,7 @@
     var tid = esc('st-' + g.id + '-' + u.id), done = isDone(u), title = goalTitle(u);
     return '<li class="gsub' + (done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (done ? ' checked' : '') + '>' +
-      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u) : '') +
+      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u, foldKey(g, u)) : '') +
       (u.note ? '<span class="gn">' + esc(u.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-smenu="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" data-menu="tmenu" aria-label="Sub task menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
       '</div>' + subsHtml(g, u) + '</li>';
