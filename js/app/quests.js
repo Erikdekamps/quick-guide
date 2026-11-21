@@ -220,10 +220,11 @@
           if (nq.page !== key) { S.key = nq.page; S.prog = loadProg(nq.page); sset('last', nq.page); }
           S.q = nq;
           buildIndex();
-          if (S.view === 'quest') {
+          A.redrawWhenFree(function () {
+            if (S.view !== 'quest' || S.q !== nq) return;
             renderQuest();
             if (S.prog.tab === 'steps' && savedScroll() == null) jumpTo(current(), false);
-          }
+          });
         }
       }
       return nq;

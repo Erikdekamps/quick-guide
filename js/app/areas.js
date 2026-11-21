@@ -136,8 +136,10 @@
     }
     function start(name) {
       running++;
-      QG.loadArea(name).then(function (na) { markNewTasks(sget('area.' + name), na); sset('area.' + name, na); indexArea(name, na); },
-        function () { S.aidxFail.push(name); }).then(function () { running--; drawList(); pump(); });
+      // An area that cannot be read, or cannot be kept (what was saved of it is broken), counts as failed: the
+      // others go on, and the reading always ends.
+      QG.loadArea(name).then(function (na) { markNewTasks(sget('area.' + name), na); sset('area.' + name, na); indexArea(name, na); })
+        .then(null, function () { S.aidxFail.push(name); }).then(function () { running--; pump(); drawList(); });
     }
     pump();
   }
@@ -440,7 +442,7 @@
       // the area that is open (on screen, or under Settings) gets the new one too
       if (S.areaKey === name && S.area) {
         S.area = na;
-        if (S.view === 'area') renderArea(true);
+        A.redrawWhenFree(function () { if (S.view === 'area' && S.area === na) renderArea(true); });
       }
       return added;
     });

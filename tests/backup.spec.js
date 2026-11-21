@@ -1,6 +1,6 @@
 // Export and import: everything as a JSON file you can download, change by hand, and import again.
 const fs = require('fs');
-const { test, expect, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openTab, step, item, openSettings, closeSettings, withAllAreas, AREAS, deleteEverything } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 
@@ -271,6 +271,27 @@ test.describe('import', () => {
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1, 449: 1 });
   });
 
+  test('a file with area tasks, in an app that did not read the areas yet: it reads them first, then finds the tasks', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await openApp(page, expect);
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, areas: { Ardougne: { Easy: { 'Yoink!': true, '449 Silky Smooth': true, '447 The Essence of Magic': { done: true } } } } }));
+    await expect(page.locator('#toast')).toHaveText('Imported 1 area.');
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 447: 1, 448: 1, 449: 1 });
+    // the area list has its count at once
+    await page.locator('.bn[data-home="areas"]').click();
+    await expect(page.locator('.q[data-area="Ardougne"][data-atier="easy"]')).toContainText('3 / 23');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a file that is far too big is refused', async ({ page }) => {
+    await openApp(page, expect);
+    await openSettings(page);
+    await page.getByRole('button', { name: 'Import state' }).click();
+    await page.locator('#bk-text').evaluate((t) => { t.value = '{"app":"Quick Guide","format":2,"x":"' + 'a'.repeat(3000000) + '"}'; });
+    await page.getByRole('button', { name: 'Import', exact: true }).click();
+    await expect(page.locator('#bk-err')).toHaveText('That file is too big to be a Quick Guide export.');
+  });
+
   test('a fresh start: everything comes back', async ({ page, wiki, context }) => {
     withAllAreas(wiki);
     await openApp(page, expect);
@@ -416,8 +437,7 @@ test.describe('danger zone', () => {
     await openApp(page, expect);
     await expect(page.locator('html')).toHaveCSS('font-size', '18px');
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
     // the app starts again: the quest list is read again from the wiki, and nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');
@@ -436,8 +456,7 @@ test.describe('danger zone', () => {
   test('works inside a quest too: you are back at the start', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
     // the quest list is read again from the wiki: wait for it, then nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');

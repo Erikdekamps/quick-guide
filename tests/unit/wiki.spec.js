@@ -85,6 +85,20 @@ test.describe("an achievement's wiki text", () => {
   const lead = (t) => pages[t].lead;
   const box = (req) => '{{Infobox Achievement\n|requirements =\n' + req + '\n}}';
 
+  test('what an achievement needs: wikitext that is written another way', () => {
+    const box = (req) => '{{Infobox Achievement\n|name = X\n|requirements = ' + req + '\n|id = 1\n}}';
+    // no text at all
+    expect(QG.cheevoNeeds()).toEqual({ skills: [], links: [], oneOf: [], other: [] });
+    // a "|" inside a comment is not the end of the requirements
+    expect(QG.cheevoNeeds(box('<!-- a | b -->\n* [[Swept Away]]')).links).toEqual([{ name: 'Swept Away', partial: false }]);
+    // a level written another way is kept as words; one written the usual way is still a level
+    expect(QG.cheevoNeeds(box('\n* {{Skillreq|Magic|level=93}}\n* {{Skillreq|Combat}}\n* {{Skillreq|Mining|50}}')))
+      .toEqual({ skills: [{ skill: 'Mining', level: 50, boost: false }], links: [], oneOf: [], other: ['93 Magic', 'Combat'] });
+    // a template in a template, a footnote, a line break and a picture leave no pieces behind
+    expect(QG.cheevoNeeds(box('\n* Own a {{plink|Rune bar|txt={{fact}} bar}} first\n* Kill 5 dragons<ref>See [[x]]</ref><br />twice<ref name="a" />\n* [[File:Coins 1.png|20px|link=Coins]] 5 coins')).other)
+      .toEqual(['Own a first', 'Kill 5 dragons twice', '5 coins']);
+  });
+
   test('what it needs, and the capes it counts for (real pages)', () => {
     // levels (boostable or not), quests ("partial" when part of it is enough), and which capes
     expect(QG.cheevoNeeds(lead('Advanced Sweeping'))).toEqual({ skills: [{ skill: 'Magic', level: 93, boost: true }], oneOf: [], other: [],

@@ -5,7 +5,7 @@
 // Quests, tiers, tasks and levels you miss go on a list from their ⋯ menu (or "+ goal"), in a box where you pick the list.
 // Every list ends with a box to type the next goal in. A goal can have sub tasks, and those their own; a goal you
 // wrote yourself can become a list, and gets a link to its wiki page when there is one.
-const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, openSettings, closeSettings, lookUp, withAllAreas, toggle, deleteEverything } = require('./support/app');
 
 const tab = (page) => page.locator('.bn[data-home="todo"]');
 const listBar = (page, name) => page.locator('h2.gh.lh').filter({ has: page.locator('.ghb .n', { hasText: new RegExp('^' + name + '$') }) });
@@ -793,6 +793,59 @@ test.describe('a list as text', () => {
 });
 
 test.describe('a goal becomes a list', () => {
+  test('"Make it a list" when its sub tasks would be more than 300 goals: it says so, and nothing changes', async ({ page }) => {
+    const many = Array.from({ length: 298 }, (_, i) => ({ kind: 'other', title: 'Goal ' + i }));
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Hatchet', subs: [{ id: 'a', title: 'One' }, { id: 'b', title: 'Two' }, { id: 'c', title: 'Three' }, { id: 'd', title: 'Four' }] }], Big: many }));
+    await goalMenu(page, 'Hatchet');
+    await page.locator('#tmenu .mi', { hasText: 'Make it a list' }).click();
+    await expect(page.locator('#toast')).toHaveText('You have 300 goals. Remove some first.');
+    expect((await stored(page, 'todo')).lists.map((l) => l.name)).toEqual(['Today', 'Big']);
+  });
+
+  test('Undo is only for the last change: another change takes the offer away', async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Buy a cape' }] }));
+    await goalMenu(page, 'Vis wax');
+    await page.locator('#tmenu .mi', { hasText: 'Remove' }).click();
+    await expect(page.locator('#toast')).toContainText('Undo');
+    await goal(page, 'Buy a cape').locator('.cb').click();
+    await expect(page.locator('#toast')).toBeHidden();
+    expect(await saved(page)).toEqual({ Today: ['other:Buy a cape'] });
+    expect((await stored(page, 'todo')).lists[0].items[0].done).toBeGreaterThan(0);
+  });
+
+  test('a pasted list that ticks a task in its area: Undo unticks it there again', async ({ page }) => {
+    await openList(page, lists({ Today: [] }));
+    await listMenu(page, 'Today');
+    await page.locator('#tmenu .mi', { hasText: 'Paste a list' }).click();
+    await page.locator('#tp-text').fill('- Task 448: Yoink! (Ardougne Easy)\n  - [x] Buy a lockpick');
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#toast')).toContainText('Added 1 goal to Today.');
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
+    await page.locator('#toast .tl', { hasText: 'Undo' }).click();
+    expect(await saved(page)).toEqual({ Today: [] });
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({});
+  });
+
+  test('in an area: a task that My list unticks is unticked on the screen too, and the next tick does not bring it back', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, { todo: lists({ Diary: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }] }), 'aprog.Ardougne': { tasks: { 448: 1 } } });
+    await openApp(page, expect);
+    await page.locator('.bn[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
+    await toggle(page, 'Done steps and tasks');
+    await expect(page.locator('li[data-task="448"] > .row .cb')).toBeChecked();
+    // another task goes under it on the list: the goal is open again, so its task is unticked
+    await taskMenu(page, '447');
+    await page.locator('#tmenu .mi', { hasText: 'Add to list…' }).click();
+    await page.locator('#ta-parent').selectOption({ label: 'Yoink!' });
+    await dialog(page).getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('li[data-task="448"] > .row .cb')).not.toBeChecked();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({});
+    await page.locator('li[data-task="449"] > .row .cb').click();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 449: 1 });
+    expect(page.errors).toEqual([]);
+  });
+
   test('"Make it a list": its sub tasks are the goals of a new list with its name', async ({ page }) => {
     await openList(page, lists({
       Today: [{ kind: 'other', title: 'Hatchet of bloom and blight', subs: [{ id: 'a', title: 'Hatchet of ember and glade', done: 1, subs: [{ id: 'a1', title: 'Crystal hatchet', done: 1 }] }, { id: 'b', title: 'Blight shard' }] },
@@ -1181,8 +1234,7 @@ test.describe('limits, storage and the look', () => {
     await expect(goals(page, 'Fine').locator('.t')).toHaveText(['Kept', '500 Magic logs', 'Unlock Soul Split']);
     expect(page.errors).toEqual([]);
     await openSettings(page);
-    await page.locator('[data-act="wipe"]').click();
-    await page.locator('[data-act="wipe"]').click();
+    await deleteEverything(page);
     expect(await stored(page, 'todo')).toBeNull();
     await page.locator('.bn[data-home="todo"]').click();
     await expect(page.locator('.empty')).toHaveText('Nothing on your list yet.');

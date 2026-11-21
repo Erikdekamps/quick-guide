@@ -83,6 +83,23 @@ test.describe('a reload keeps the view', () => {
     expect(await scrolled(page)).toBe(250);
   });
 
+  test('Reset progress of a quest forgets its own places, not those of the other quests', async ({ page }) => {
+    await openQuest(page, expect, "Cook's Assistant");
+    await openTab(page, 'steps');
+    await scrollTo(page, 40);
+    await page.getByRole('button', { name: 'All quests' }).click();
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openTab(page, 'steps');
+    await scrollTo(page, 120);
+    await page.locator('#menu-btn').click();
+    await page.locator('[data-act="reset"]').click();
+    await page.locator('[data-act="reset"]').click();
+    await scrollTo(page, 0);
+    await saved(page);
+    const places = Object.keys((await stored(page, 'view')).scroll);
+    expect(places).toContain("quest:Cook's Assistant/Quick guide:steps");
+  });
+
   test('back on the list, a reload stays on the list', async ({ page }) => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await page.getByRole('button', { name: 'All quests' }).click();

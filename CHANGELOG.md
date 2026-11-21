@@ -10,6 +10,25 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.43.2] - 2026-11-21
+
+### Fixed
+
+- A link in a guide to a wiki page called "WARNING", or one with "()" in its name, keeps its address. A warning in a list of things to bring is marked once, not twice.
+- A guide, an area or a cape that is read again while the Add to list box or a My list menu is open waits with drawing until you close it, so what you typed stays.
+- Forget this player while the character is looked up: it stays forgotten. Before, the answer brought it back.
+- Delete everything starts the app again, so nothing of before is left and an answer that was still on its way is not saved after all.
+- Reading all areas (for search and for an export) always ends, also when what was saved of an area is broken.
+- "Make it a list" says so when its sub tasks would be more than 300 goals. Before, the goals past 300 were gone after a reload.
+- Undo is only for the last change: another change takes the offer away, so Undo cannot take that change back too. Undo of a pasted list also unticks the task it ticked in its area.
+- In an area, a task that My list unticks is unticked on the screen too. Before, the next tick there brought it back.
+- A goal called "Floor #2" keeps its name after an export and import.
+- An import with area tasks reads the areas first when the app does not know them yet, so a task written by its name is found.
+- At most 3,000 sub tasks in all lists together, and a file to import of at most 3 million letters, so the lists always fit in the storage.
+- An achievement's needs: a "|" in a hidden comment no longer cuts them off, a level written another way is kept as words, and footnotes and pictures leave no pieces behind.
+- A guide's "Credits", "Development team", "Cultural references" and "External links" are no steps any more, and a drawing in a step leaves no stray letters.
+- Reset progress of a quest forgets where that quest was scrolled, not where every other screen was.
+
 ## [1.43.1] - 2026-11-21
 
 ### Fixed

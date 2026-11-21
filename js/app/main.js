@@ -259,6 +259,7 @@
   if (S.player && (Date.now() - (Date.parse(S.player.at) || 0) > PLAYER_MAX_AGE || !S.player.titles)) lookUpPlayer(S.player.name, true);
   // New quests, tasks and achievements: once a week the app checks what it keeps against the wiki, quietly.
   A.autoUpdate();
+  A.saidDeleted();
   // Settings was open: open it again, over the screen it was opened from (its button in the bar goes back there).
   if (S.reopenSettings) A.openSettings();
 

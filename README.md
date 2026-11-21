@@ -140,7 +140,7 @@ under its area, in the game's order.
 - A list's **⋯**: add a goal (with every field: the goal, the list, its parent, a note), rename, move the list up or
   down, clear done goals, delete the list (two clicks when it has goals).
 - A goal's **⋯**: edit, add a sub task, open it (its quest or area, or the wiki), move it to another list or a new
-  one, move it up or down, remove it. Removing, clearing and deleting can be undone.
+  one, move it up or down, remove it. Removing, clearing and deleting can be undone, until you change something else.
 - **Make it a list** (in the ⋯ of a goal you wrote yourself) turns the goal into a list with its name. Its sub
   tasks are the goals of that list.
 - **Open on the wiki:** a goal or sub task you wrote yourself gets this in its ⋯ when the wiki has a page for it
@@ -155,7 +155,7 @@ under its area, in the game's order.
   move it under, or None to make it a goal of the list. A sub task can have a note too.
 - A sub task's **⋯**: edit, add a sub task, move it up or down, move it out a level (at the top: make it a goal),
   delete it (two clicks, and Undo).
-- At most 30 lists and 300 goals.
+- At most 30 lists, 300 goals, and 3,000 sub tasks in all lists together.
 
 ## Settings
 
@@ -174,7 +174,7 @@ button goes to its list.
 - **Update from the wiki** (see below) brings in what is new: quests, tasks and achievements.
 - **Backup:** **Export state** and **Import state** (below).
 - **Delete everything** (near the bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
-  It takes two clicks, the second within 4 seconds.
+  It takes two clicks, the second within 4 seconds. The app then starts again.
 - At the very bottom: the app's version (see [Versions](#versions)).
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
@@ -246,6 +246,7 @@ In `mylist`, each goal is a line, written the way you type it in the add box: `"
 - Import replaces the ticks of the quests, areas and capes in the file and leaves the others alone.
   A file with `mylist` replaces your lists; a file without it leaves them alone.
   If a file has a mistake (in its lists too), it says what is wrong and changes nothing. Files from the first version still import.
+- A file with area tasks: the app first reads the areas it does not know yet, so every task is found.
 
 ## What is saved
 

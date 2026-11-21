@@ -1,7 +1,7 @@
 // A slow wiki, and saved pages that are broken.
 // A quest, an area or a cape that is read from the wiki opens when the answer is there, but only when you still wait
 // for it. A saved page that cannot be drawn does not stop the app: it is dropped, and read again when you open it.
-const { test, expect, seed, stored, storedKeys, openApp, withAllAreas, withCapes } = require('./support/app');
+const { test, expect, fixture, seed, stored, storedKeys, openApp, lookUp, withAllAreas, withCapes, deleteEverything } = require('./support/app');
 
 const bar = (page, home) => page.locator('.bn[data-home="' + home + '"]');
 const WGS = 'While Guthix Sleeps/Quick guide';
@@ -116,6 +116,75 @@ test.describe('a saved page that is broken', () => {
     await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     expect(wiki.asked()).toContain(WGS);
+  });
+});
+
+test.describe('things that happen while an answer is on its way', () => {
+  const COOK = "Cook's Assistant/Quick guide";
+
+  test('a guide that is read again waits with drawing while the Add to list box is open', async ({ page, wiki }) => {
+    await openApp(page, expect);
+    await page.locator('.q[data-quest="Cook\'s Assistant"]').click();
+    await page.locator('.tab[data-tab="steps"]').click();
+    await expect(page.locator('#main')).toContainText('Talk to the Cook');
+    wiki.edit(COOK, fixture('cooks-assistant.html').replace('Talk to the Cook', 'Talk to the Lumbridge Cook'));
+    const go = wiki.hold(COOK);
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Refresh from wiki' }).click();
+    await page.locator('#menu-btn').click();
+    await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
+    await page.locator('#ta-name').fill('Cooking');
+    await answered(page, COOK, go);
+    // the box and what you typed are still there, over the guide as it was
+    await expect(page.locator('#ta-name')).toHaveValue('Cooking');
+    await expect(page.locator('#main')).toContainText('Talk to the Cook');
+    await expect(page.locator('#main')).not.toContainText('Talk to the Lumbridge Cook');
+    // the box closes: now the new guide shows
+    await page.locator('#td').getByRole('button', { name: 'Add', exact: true }).click();
+    await expect(page.locator('#main')).toContainText('Talk to the Lumbridge Cook');
+    expect((await stored(page, 'todo')).lists.map((l) => l.name)).toEqual(['Cooking']);
+    expect(page.errors).toEqual([]);
+  });
+
+  for (const fails of [false, true]) {
+    test('Forget while the character is looked up' + (fails ? ' (and the lookup fails)' : '') + ': it stays forgotten', async ({ page, wiki }) => {
+      wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, { 7: 80 });
+      await openApp(page, expect);
+      await lookUp(page, 'Zezima');
+      await expect(page.locator('#player')).toContainText('1 quest done');
+      const go = wiki.holdPlayer();
+      if (fails) Object.keys(wiki.player).forEach((k) => { wiki.player[k] = 'network'; });
+      await page.getByRole('button', { name: 'Update player' }).click();
+      await page.getByRole('button', { name: 'Forget this player' }).click();
+      await expect(page.locator('#player-name')).toBeEnabled();
+      const calls = wiki.playerCalls.length;
+      go();
+      await page.evaluate(() => new Promise((done) => { setTimeout(done, 300); }));
+      expect(wiki.playerCalls.length).toBeGreaterThanOrEqual(calls);
+      await expect(page.locator('#player-name')).toBeEnabled();
+      await expect(page.locator('#toast')).toBeHidden();
+      expect(await stored(page, 'player')).toBeNull();
+      // and a new lookup works
+      wiki.setPlayer('Zezima', { "Cook's Assistant": 'COMPLETED' }, { 7: 80 });
+      await lookUp(page, 'Zezima');
+      await expect(page.locator('#player')).toContainText('1 quest done');
+      expect(page.errors).toEqual([]);
+    });
+  }
+
+  test('Delete everything while a guide is read: its answer is not saved after all', async ({ page, wiki }) => {
+    const go = wiki.hold(WGS);
+    await startReading(page, KINDS[0]);
+    await bar(page, 'settings').click();
+    await deleteEverything(page);
+    await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
+    await expect(page.locator('#qcount')).toHaveText('11 quests');
+    go();
+    await page.evaluate(() => new Promise((done) => { setTimeout(done, 300); }));
+    expect(await storedKeys(page)).toEqual(['list']);
+    // the address is clean again, so a reload does not say it twice
+    expect(new URL(page.url()).hash).toBe('');
+    expect(page.errors).toEqual([]);
   });
 });
 

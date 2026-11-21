@@ -464,6 +464,16 @@ test.describe('searching the area tasks', () => {
     await expect(taskRows(page)).toHaveCount(1);
   });
 
+  test('an area whose saved page is broken counts as not read: the reading still ends, and the others can be searched', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    await seed(page, { 'area.Desert': { name: 'Desert', tiers: 5 }, settings: { home: 'areas' } });
+    await openApp(page, expect);
+    await search(page, 'yoink');
+    await expect(page.locator('#qarea .err')).toContainText('Could not read 1 area (Desert)');
+    await expect(page.locator('#qarea .state')).toHaveCount(0);
+    await expect(taskRows(page)).toHaveCount(1);
+  });
+
   test('shows how far the reading is', async ({ page, wiki }) => {
     withAllAreas(wiki).fail('Desert achievements', 'slow');
     await areasTab(page);

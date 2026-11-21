@@ -116,6 +116,39 @@ test.describe('Import: the lists of a file are checked before anything changes',
   });
 });
 
+test.describe('My list: limits, and names with a number', () => {
+  test('at most 3,000 sub tasks in all lists together: what was saved past that is left out', () => {
+    const subs = (n) => Array.from({ length: n }, (_, i) => ({ title: 'Sub ' + i }));
+    const lists = [{ id: 'l1', name: 'Big', items: Array.from({ length: 200 }, (_, i) => ({ kind: 'other', title: 'Goal ' + i, subs: subs(20) })) }];
+    const t = A.T.cleanTodo({ lists });
+    expect(t.lists[0].items).toHaveLength(200);
+    expect(t.lists[0].items.reduce((n, g) => n + (g.subs || []).length, 0)).toBe(3000);
+    expect(t.lists[0].items[150].subs).toBeUndefined();
+  });
+  test('one more sub task: not under a goal that has 20, and not past 3,000 in all', () => {
+    const full = { subs: Array.from({ length: 20 }, () => ({})) };
+    expect(A.T.subsFull(full)).toBe('A goal has at most 20 sub tasks.');
+    const subs = () => Array.from({ length: 20 }, (_, i) => ({ id: 's' + i, title: 'Sub ' + i }));
+    const items = Array.from({ length: 150 }, (_, i) => ({ id: 'g' + i, at: 1, kind: 'other', title: 'Goal ' + i, subs: subs() }));
+    const app = load({ storage: { todo: { v: 1, lists: [{ id: 'l1', name: 'Big', items: items.concat([{ id: 'x', at: 1, kind: 'other', title: 'Free' }]) }] } } });
+    expect(app.A.T.subCount()).toBe(3000);
+    expect(app.A.T.subsFull(app.A.T.todo().lists[0].items[150])).toBe('You have 3,000 sub tasks. Remove some first.');
+    expect(A.T.subsFull({})).toBe('');
+  });
+  test('a pasted list: sub tasks that do not fit in all are left out, and counted', () => {
+    const r = A.T.parseOutline('- A\n  - one\n  - two\n  - three\n- B', 10, 2);
+    expect([r.goals.length, r.subs, r.left]).toEqual([2, 2, 1]);
+    expect(A.T.parseOutline('- A\n  - one\n  - two\n  - three', 10).subs).toBe(3);
+  });
+  test('a goal you called "Floor #2" keeps its name in a file; only the number an export added goes', () => {
+    const app = load({ storage: { todo: { v: 1, lists: [] } } });
+    app.A.importTodo({ Today: { 'Floor #2': false, 'Vis wax': true, 'Vis wax #2': false, Hatchet: { done: false, subs: { 'Step #3': false, Rope: true, 'Rope #2': false } } } });
+    const l = app.storage.saved('todo').lists[0];
+    expect(l.items.map((g) => g.title)).toEqual(['Floor #2', 'Vis wax', 'Vis wax', 'Hatchet']);
+    expect(l.items[3].subs.map((u) => u.title)).toEqual(['Step #3', 'Rope', 'Rope']);
+  });
+});
+
 test.describe('storage that is full', () => {
   test('a change that does not fit is kept until the app closes, and sset says it did not fit', () => {
     const app = load({ storage: { todo: { v: 1, lists: [] } } });

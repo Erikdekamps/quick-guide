@@ -22,7 +22,8 @@
   var SKILL_RE = new RegExp('^(\\d{1,3})\\s*(' + SKILLS.join('|') + ')\\b\\s*(.*)$', 'i');
   var FAIRY_RE = /^[A-D][I-L][P-S]$/;
   var BLOCK_RE = /^(P|DIV|DD|DT|DL|UL|OL|FIGURE|BLOCKQUOTE|CENTER|SECTION|H[1-6]|TABLE|TBODY|THEAD|TR|TD|TH|CAPTION)$/;
-  var DROP_RE = /^(STYLE|SCRIPT|LINK|META|NOSCRIPT|TEMPLATE|BUTTON|INPUT|SELECT|TEXTAREA|SVG|AUDIO|VIDEO|IFRAME|OBJECT)$/;
+  // (not only capitals: the tags of a drawing, <svg> and <math>, keep the small letters they are written in)
+  var DROP_RE = /^(STYLE|SCRIPT|LINK|META|NOSCRIPT|TEMPLATE|BUTTON|INPUT|SELECT|TEXTAREA|SVG|MATH|AUDIO|VIDEO|IFRAME|OBJECT)$/i;
   var INLINE_RE = /^(A|B|STRONG|I|EM|SPAN|SMALL|BIG|SUP|SUB|BR|ABBR|CODE|KBD|U|S|FONT|IMG|BDI|BDO|Q|TIME|MARK|WBR)$/;
 
   // A document with no window: images put in it never load.
@@ -273,18 +274,26 @@
     do { prev = s; s = s.replace(/^\s*<br>|<br>\s*$/g, ''); } while (s !== prev);
     return s;
   }
+  // Changes the words of a piece of the app's own HTML, and leaves its tags alone: a link to a page called "WARNING"
+  // or "Foo ()" keeps its address. fn(words, the tag right before them) gives the new words.
+  function onWords(html, fn) {
+    return html.split(/(<[^>]*>)/).map(function (bit, i, all) { return i % 2 ? bit : fn(bit, all[i - 1] || ''); }).join('');
+  }
+  var CAUTION_OPEN = '<span class="caution">';
   // Tidy spacing and punctuation left behind after pulling bits out.
   function tidy(html) {
     var s = trimBreaks(String(html || '')
       .replace(/\s*\[UK\]\s*/g, ' (UK) / ').replace(/\s*\[US\]/g, ' (US)')
       .replace(/[ \t\r\n\u00a0]+/g, ' ')
-      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'))
-      .replace(/\(\s*\)/g, '')
+      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'));
+    s = onWords(s, function (w) { return w.replace(/\(\s*\)/g, ''); })
       .replace(/\s+([.,;:!?])(?=\s|$|<)/g, '$1')
       .replace(/\(\s+/g, '(').replace(/\s+\)/g, ')')
-      .replace(/^[,;]\s*/, '')
-      .replace(/\b(CAUTION|WARNING|IMPORTANT)\b:?/g, '<span class="caution">$&</span>')
-      .trim();
+      .replace(/^[,;]\s*/, '');
+    // (text that is tidied twice is marked once)
+    s = onWords(s, function (w, tag) {
+      return tag === CAUTION_OPEN ? w : w.replace(/\b(CAUTION|WARNING|IMPORTANT)\b:?/g, CAUTION_OPEN + '$&</span>');
+    }).trim();
     return fixParens(s);
   }
 
@@ -843,7 +852,7 @@
     if (/^achievements?\b/.test(t)) return 'achievements';
     if (/^required for/.test(t)) return 'requiredFor';
     if (/^music\b/.test(t)) return 'music';
-    if (/^(trivia|see also|references|navigation|transcript|gallery|update history|changes)$/.test(t)) return 'skip';
+    if (/^(trivia|see also|references|navigation|transcript|gallery|update history|changes|credits|development team|cultural references|external links)$/.test(t)) return 'skip';
     return 'steps';
   }
 
@@ -1451,12 +1460,24 @@
     return out.map(function (x) { return x.trim(); }).filter(Boolean);
   }
   // Wikitext as plain words: "{{Skillreq|Magic|93}}" is "93 Magic", "[[A|B]]" is "B", other templates go.
+  // Takes out everything a pattern finds, again and again until nothing is left of it (what is inside another one
+  // only shows once the outer one is gone).
+  function without(s, re, to) {
+    var prev;
+    do { prev = s; s = s.replace(re, to || ''); } while (s !== prev);
+    return s;
+  }
   function wikiWords(s) {
+    // footnotes, line breaks and pictures are no words
+    s = without(s, /<ref\b[^>]*\/>|<ref\b[^>]*>[\s\S]*?<\/ref>/gi);
+    s = without(s, /<br\s*\/?>/gi, ' ');
+    s = without(s, /\[\[\s*(?:file|image)\s*:[^[\]]*\]\]/gi);
     s = s.replace(/\{\{\s*(?:skillreq|achievement requirement)\s*\|([^|}=]+)\|(\d+)[^}]*\}\}/gi, function (m, k, n) { return n + ' ' + k.trim(); })
       .replace(/\{\{\s*s?cl\s*\|([^|}]*)\|?([^}]*)\}\}/gi, function (m, a, b) { return a || b; })
       .replace(/\{\{\s*sl\s*\|\|?([^|}]*)[^}]*\}\}/gi, '$1')
-      .replace(/\{\{\s*boostable\s*\}\}/gi, '(boostable)')
-      .replace(/\{\{[^{}]*\}\}/g, '')
+      .replace(/\{\{\s*boostable\s*\}\}/gi, '(boostable)');
+    // any other template, also one inside another
+    s = without(s, /\{\{[^{}]*\}\}/g)
       .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, '$1')
       .replace(/'''?/g, '');
     return clean(s).replace(/[\s.]+$/, '');
@@ -1490,7 +1511,8 @@
     return open < 0 ? s : s.slice(0, open);
   }
   function cheevoNeeds(wt) {
-    var req = infoboxParam(wt, 'requirements'), out = { skills: [], links: [], oneOf: [], other: [] };
+    // (comments go first: a "|" inside one is not the end of the requirements)
+    var req = infoboxParam(noComments(wt || ''), 'requirements'), out = { skills: [], links: [], oneOf: [], other: [] };
     if (!req.trim()) return out;
     // one item per "*" line; a template that goes on over more lines stays one item
     var items = [], depth = 0;
@@ -1529,6 +1551,13 @@
       if (/^(\{\{\s*skillreq\s*\|[^}]*\}\}\s*)+(\{\{\s*boostable\s*(\|[^}]*)?\}\}\s*)?$/i.test(t)) {
         var boost = /\{\{\s*boostable\s*\}\}/i.test(t), re = /\{\{\s*skillreq\s*\|([^|}]+)\|(\d+)[^}]*\}\}/gi, s2;
         while ((s2 = re.exec(t))) out.skills.push({ skill: s2[1].trim(), level: +s2[2], boost: boost });
+        // One written another way ("{{Skillreq|Magic|level=93}}", "{{Skillreq|Combat}}") is kept as words.
+        t.match(/\{\{\s*skillreq\s*\|[^}]*\}\}/gi).forEach(function (one) {
+          if (/^\{\{\s*skillreq\s*\|[^|}]+\|\d+/i.test(one)) return;
+          var bits = one.replace(/^\{\{\s*skillreq\s*\|/i, '').replace(/\}\}$/, '').split('|').map(function (b) { return clean(b.replace(/^[^=]*=/, '')); }).filter(Boolean);
+          var num = bits.filter(function (b) { return /^\d+$/.test(b); })[0], name = bits.filter(function (b) { return !/^\d+$/.test(b); })[0];
+          if (name) out.other.push((num ? num + ' ' : '') + name);
+        });
         return;
       }
       var link = /^\[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*(\(partial\))?\.?$/i.exec(t);

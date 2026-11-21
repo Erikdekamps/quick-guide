@@ -16,7 +16,10 @@
     QG = A.QG, S = A.S, setMarked = A.setMarked, sget = A.sget, sset = A.sset;
 
   var MAX_LISTS = 30, MAX_GOALS = 300, MAX_SUBS = 20, MAX_DEPTH = 4, NAME_MAX = 30, TEXT_MAX = 80, NOTE_MAX = 120;
+  // Sub tasks in all lists together: so the lists always fit in the storage.
+  var MAX_ALL_SUBS = 3000;
   var FULL_GOALS = 'You have 300 goals. Remove some first.', FULL_LISTS = 'You have 30 lists. Delete one first.';
+  var FULL_ALL_SUBS = 'You have 3,000 sub tasks. Remove some first.';
   // The kinds of goal. You tick any of them; a skill goal also ticks itself when your character has the level, a
   // quest when the quest is done, a tier when all its tasks are. An area task is one tick with its area, and an
   // achievement (cheevo) with its cape.
@@ -82,12 +85,15 @@
 
   // ---------- the saved lists ----------
   // Sub tasks from saved data or a file: each has what it says, and may have its own (MAX_DEPTH deep).
-  function cleanSubs(list, depth) {
+  // count: { n } counts the sub tasks of all lists (cleanTodo); past MAX_ALL_SUBS they are left out.
+  function cleanSubs(list, depth, count) {
     if (!Array.isArray(list) || depth > MAX_DEPTH) return [];
     return list.map(function (u) {
       // A sub task that stands for a quest, a tier, an area task or a level is kept like a goal of that kind.
+      if (count && count.n >= MAX_ALL_SUBS) return null;
+      if (count) count.n++;
       if (isMap(u) && isRef(u)) {
-        var r = cleanGoal(copy(copy({}, u), { id: line(u.id, 40) || newId('s') }), depth);
+        var r = cleanGoal(copy(copy({}, u), { id: line(u.id, 40) || newId('s') }), depth, count);
         if (r) delete r.at;
         return r;
       }
@@ -97,14 +103,14 @@
       if (+u.done > 0) o.done = +u.done;
       if (typeof u.wiki === 'string') o.wiki = line(u.wiki, 120);
       if (line(u.note, NOTE_MAX)) o.note = line(u.note, NOTE_MAX);
-      var kids = cleanSubs(u.subs, depth + 1);
+      var kids = cleanSubs(u.subs, depth + 1, count);
       if (kids.length) o.subs = kids;
       return o;
     }).filter(Boolean).slice(0, MAX_SUBS);
   }
   // One goal from saved data, a file or a form, with only what its kind has. Null when it is not a goal.
   // Goals of an older kind (an item with a count, an unlock) become plain goals that say the same.
-  function cleanGoal(x, depth) {
+  function cleanGoal(x, depth, count) {
     if (isMap(x) && x.kind === 'item') x = copy(copy({}, x), { kind: 'other', title: (+x.want > 0 ? fmt(Math.round(+x.want)) + ' ' : '') + line(x.title) });
     if (isMap(x) && x.kind === 'unlock') x = copy(copy({}, x), { kind: 'other', title: 'Unlock ' + line(x.title) });
     if (!isMap(x) || !has(KINDS, x.kind)) return null;
@@ -140,14 +146,14 @@
     ['at', 'done'].forEach(function (k) { if (+x[k] > 0) g[k] = +x[k]; });
     // The wiki page of a goal you wrote yourself: a name, '' when there is none, nothing when it was not looked up yet.
     if (g.kind === 'other' && typeof x.wiki === 'string') g.wiki = line(x.wiki, 120);
-    var subs = cleanSubs(x.subs, (depth || 0) + 1);
+    var subs = cleanSubs(x.subs, (depth || 0) + 1, count);
     if (subs.length) g.subs = subs;
     if (!g.at) g.at = Date.now();
     return g;
   }
   // The lists, from what was saved: anything broken is left out, names are unique, and the limits hold.
   function cleanTodo(t) {
-    var out = { v: 1, last: '', lists: [] }, names = bare(), ids = bare(), n = 0;
+    var out = { v: 1, last: '', lists: [] }, names = bare(), ids = bare(), n = 0, count = { n: 0 };
     t = isMap(t) ? t : {};
     (Array.isArray(t.lists) ? t.lists : []).forEach(function (l) {
       var name = isMap(l) ? line(l.name, NAME_MAX) : '';
@@ -158,7 +164,7 @@
       ids[id] = 1;
       var items = [];
       (Array.isArray(l.items) ? l.items : []).forEach(function (x) {
-        var g = n < MAX_GOALS ? cleanGoal(x) : null;
+        var g = n < MAX_GOALS ? cleanGoal(x, 0, count) : null;
         if (!g) return;
         if (ids[g.id]) g.id = newId('g');
         ids[g.id] = 1;
@@ -183,6 +189,18 @@
     return hit;
   }
   function goalCount() { return todo().lists.reduce(function (n, l) { return n + l.items.length; }, 0); }
+  // How many sub tasks all lists have together.
+  function subCount() {
+    var n = 0;
+    (function walk(list) { (list || []).forEach(function (x) { n += (x.subs || []).length; walk(x.subs); }); })(
+      todo().lists.reduce(function (all, l) { return all.concat(l.items); }, []));
+    return n;
+  }
+  // Why p (a goal or a sub task) cannot get one more sub task, or '' when it can.
+  function subsFull(p) {
+    if ((p.subs || []).length >= MAX_SUBS) return 'A goal has at most 20 sub tasks.';
+    return subCount() >= MAX_ALL_SUBS ? FULL_ALL_SUBS : '';
+  }
   // The list a new goal goes in when none is named: the one you used last, else the first.
   function pickId() {
     var t = todo();
@@ -255,11 +273,14 @@
     return all;
   }
   // An area task on a list and in its area is one tick.
+  // (On the area's own screen: the ticks in use there, so its next tick does not bring an old one back.)
   function tickTaskInArea(g, on) {
-    var ix = A.aidxAll()[g.area], p = A.loadAprog(g.area);
+    var here = S.view === 'area' && S.areaKey === g.area && S.aprog;
+    var ix = A.aidxAll()[g.area], p = here ? S.aprog : A.loadAprog(g.area);
     A.setTick(p.tasks, ix ? A.taskIndex(ix) : {}, g.task, on);
     sset('aprog.' + g.area, p);
     if (ix) A.writeAmeta(g.area, ix, p);
+    if (here) A.redrawWhenFree(function () { if (S.view === 'area' && S.aprog === p) A.renderArea(true); });
   }
   // A goal ticked or unticked. An area task is ticked in its area, an achievement in its cape, and a quest in the quest
   // list, too.
@@ -358,7 +379,8 @@
   // Reads a pasted list. A line may start with a bullet (-, *, +, \u2022) or a number ("1."), then a tick box ("[ ]",
   // "[x]" for done); what follows is read like a goal you type. room: how many goals still fit.
   // Returns { goals (each with its subs), subs (how many sub tasks), left (lines that do not fit) }.
-  function parseOutline(text, room) {
+  // room: how many goals still fit; subRoom: how many sub tasks (all of them when it is not given).
+  function parseOutline(text, room, subRoom) {
     var out = { goals: [], subs: 0, left: 0 }, stack = [];
     String(text || '').slice(0, 60000).split(/\r?\n/).forEach(function (raw) {
       var m = /^([ \t]*)(.*)$/.exec(raw), indent = m[1].replace(/\t/g, '    ').length;
@@ -371,7 +393,7 @@
       while (stack.length > MAX_DEPTH) stack.pop();
       var par = stack.length ? stack[stack.length - 1].node : null, fits;
       if (!stack.length) fits = out.goals.length < room;
-      else fits = !!par && (par.subs || []).length < MAX_SUBS;
+      else fits = !!par && (par.subs || []).length < MAX_SUBS && (subRoom == null || out.subs < subRoom);
       // (What is under a line that does not fit does not fit either.)
       stack.push({ indent: indent, node: fits ? g : null });
       if (!fits) { out.left++; return; }
@@ -509,10 +531,16 @@
     });
     return o;
   }
+  // A name in a file without the " #2" the export gave it: only when the file also has that name without it, so a
+  // goal you called "Floor #2" keeps its name.
+  function plainName(k, map) {
+    var base = String(k).replace(/ #\d+$/, '');
+    return base !== k && has(map, base) ? base : String(k);
+  }
   function subsIn(m) {
     return Object.keys(m).map(function (t) {
       // "Task 448: Yoink! (Ardougne Easy)", "Quest: …", "Tier: …" and "82 Thieving" are read like a goal's line.
-      var v = m[t], name = t.replace(/ #\d+$/, ''), g = parseGoal(name), o = g && g.kind !== 'other' ? g : { title: name };
+      var v = m[t], name = plainName(t, m), g = parseGoal(name), o = g && g.kind !== 'other' ? g : { title: name };
       if (isMap(v)) {
         if (isMap(v.subs)) o.subs = subsIn(v.subs);
         if (typeof v.note === 'string') o.note = v.note;
@@ -572,7 +600,7 @@
       names[nm.toLowerCase()] = 1;
       var l = { id: newId('l'), name: nm, items: [] };
       Object.keys(e).forEach(function (k) {
-        var g = n < MAX_GOALS ? parseGoal(String(k).replace(/ #\d+$/, '')) : null, v = e[k];
+        var g = n < MAX_GOALS ? parseGoal(plainName(k, e)) : null, v = e[k];
         if (!g) return;
         if (isMap(v)) {
           if (typeof v.note === 'string') g.note = v.note;
@@ -595,7 +623,8 @@
 
   // What todo-view.js and todo.js use.
   A.T = { MAX_LISTS: MAX_LISTS, MAX_GOALS: MAX_GOALS, MAX_SUBS: MAX_SUBS, MAX_DEPTH: MAX_DEPTH, NAME_MAX: NAME_MAX, TEXT_MAX: TEXT_MAX,
-    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, capeTitle: capeTitle,
+    NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, capeTitle: capeTitle, MAX_ALL_SUBS: MAX_ALL_SUBS,
+    subCount: subCount, subsFull: subsFull,
     addGoal: addGoal, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
     findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
     line: line, listById: listById, listText: listText, parseOutline: parseOutline, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
