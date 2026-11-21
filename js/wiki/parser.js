@@ -266,13 +266,19 @@
       (w ? ' width="' + w + '"' : '') + (h ? ' height="' + h + '"' : '') + ' loading="lazy" decoding="async">';
   }
 
+  // Takes the line breaks off both ends of a bit of HTML, until none is left there (in one pass, taking some out could
+  // leave others behind).
+  function trimBreaks(s) {
+    var prev;
+    do { prev = s; s = s.replace(/^\s*<br>|<br>\s*$/g, ''); } while (s !== prev);
+    return s;
+  }
   // Tidy spacing and punctuation left behind after pulling bits out.
   function tidy(html) {
-    var s = String(html || '')
+    var s = trimBreaks(String(html || '')
       .replace(/\s*\[UK\]\s*/g, ' (UK) / ').replace(/\s*\[US\]/g, ' (US)')
       .replace(/[ \t\r\n\u00a0]+/g, ' ')
-      .replace(/(?:\s*<br>\s*){2,}/g, '<br>')
-      .replace(/^(?:\s*<br>)+|(?:<br>\s*)+$/g, '')
+      .replace(/(?:\s*<br>\s*){2,}/g, '<br>'))
       .replace(/\(\s*\)/g, '')
       .replace(/\s+([.,;:!?])(?=\s|$|<)/g, '$1')
       .replace(/\(\s+/g, '(').replace(/\s+\)/g, ')')
@@ -1458,12 +1464,20 @@
     }
     return out;
   }
+  // Wikitext without its comments ("<!-- … -->"). They are taken out until none is left, so "<!<!-- -->--" does not
+  // leave a "<!--" behind; one that is not closed runs to the end.
+  function noComments(s) {
+    var prev;
+    do { prev = s; s = s.replace(/<!--[\s\S]*?-->/g, ''); } while (s !== prev);
+    var open = s.indexOf('<!--');
+    return open < 0 ? s : s.slice(0, open);
+  }
   function cheevoNeeds(wt) {
     var req = infoboxParam(wt, 'requirements'), out = { skills: [], links: [], oneOf: [], other: [] };
     if (!req.trim()) return out;
     // one item per "*" line; a template that goes on over more lines stays one item
     var items = [], depth = 0;
-    req.replace(/<!--[\s\S]*?-->/g, '').split('\n').forEach(function (line) {
+    noComments(req).split('\n').forEach(function (line) {
       var t = line.trim();
       if (!t) return;
       if (depth === 0 && (t.charAt(0) === '*' || !items.length)) items.push(t.replace(/^\*\s*/, ''));

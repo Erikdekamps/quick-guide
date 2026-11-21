@@ -131,6 +131,15 @@ test.describe('reading a cape page', () => {
     expect(more[3].oneOf).toEqual([{ text: '80 Attack or 80 Strength', any: [[{ skill: 'Attack', level: 80 }], [{ skill: 'Strength', level: 80 }]] }]);
     expect(more[3].other).toEqual(['81 Woodcutting or find an idol']);
     expect(more[4]).toBe('Port Life is an achievement awarded for following the tutorial.');
+    // comments are left out, also one that takes another out to make itself ("<!<!-- -->--"), and one that is not
+    // closed hides the rest, like on the wiki
+    const noted = await page.evaluate(() => [
+      window.QuickGuide.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* {{Skillreq|Magic|50}} <!-- a note -->\n* [[Swept Away]]<!<!-- x -->--\n* [[Diamond in the Rough]]\n}}'),
+      window.QuickGuide.cheevoNeeds('{{Infobox Achievement\n|requirements =\n* [[Swept Away]]\n* [[Ode of the Devourer]] <!-- not closed\n* [[Diamond in the Rough]]\n}}')
+    ]);
+    expect(noted[0]).toEqual({ skills: [{ skill: 'Magic', level: 50, boost: false }], links: [{ name: 'Swept Away', partial: false }], oneOf: [], other: [] });
+    expect(JSON.stringify(noted)).not.toContain('<!--');
+    expect(noted[1].links.map((l) => l.name)).toEqual(['Swept Away', 'Ode of the Devourer']);
   });
 });
 

@@ -292,6 +292,11 @@ test.describe('wiki markup details', () => {
     expect(s[3].html).toBe('Talk to Jo');
   });
 
+  test('line breaks at the ends of a step go, however many', async ({ page }) => {
+    const q = await parse(page, '<h2>Part</h2><ul><li><br> <br>Talk to Bob.<br> <br><br></li><li>Then <br>go home.</li></ul>');
+    expect(steps(q).map((s) => s.html)).toEqual(['Talk to Bob.', 'Then <br>go home.']);
+  });
+
   test('a "Bring" line is split into items', async ({ page }) => {
     const q = await parse(page, '<h2>Part</h2><p><b>Needed:</b> logs, ring of charos (a) or 5,000 coins, food, but more is better, runes: air, mind, and a tinderbox.<br>' +
       '<b>Recommended:</b> <a href="/w/Games_necklace">games necklace</a></p>');
