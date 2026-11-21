@@ -18,6 +18,9 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 - A task, an achievement or a quest on a list, ticked in its own screen, is no longer unticked there when it has a sub task that is still open.
 - A list called "Constructor" is no longer lost after a reload, and "82 constructor" is a goal like any other.
 - An import with a mistake in its lists says what is wrong and leaves your lists. Before, it could empty them.
+- A quest, an area or a cape that is still being read no longer opens over the screen you went to. It is saved, and opens at once when you click it again.
+- A saved guide, area or cape that is broken no longer stops the app at every start. It is dropped and read from the wiki again; your ticks stay.
+- A read from the wiki that starts and never ends is cut off after its time, so it cannot block the ones after it.
 
 ## [1.43.0] - 2026-11-21
 

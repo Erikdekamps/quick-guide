@@ -239,7 +239,7 @@
   var savedOrder = sget('order');
   var savedMinis = sget('minis');
   var savedPlayer = sget('player');
-  if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || typeof savedPlayer.quests !== 'object') savedPlayer = null;
+  if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || !savedPlayer.quests || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
     view: 'start',
     q: null,          // the quest JSON
@@ -274,6 +274,7 @@
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
     loading: false,
+    wanted: 0,        // the number of the read that may open a screen when it is done (see waitFor)
     error: '',
     input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
     scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
@@ -671,8 +672,30 @@
     else renderStart();
     saveView(true);
   }
+  // ---------- a read that opens a screen, and a saved page that cannot be shown ----------
+  // A quest, an area or a cape that is read from the wiki opens when the answer is there. Only when you still wait
+  // for it: a button of the bar at the bottom means you went on, and the answer is then only saved.
+  // waitFor gives the read its number; stillWanted says if its answer may open the screen.
+  function waitFor(name) { S.loading = name; return ++S.wanted; }
+  function stillWanted(n) { return S.wanted === n; }
+  function stopWaiting() { S.wanted++; S.loading = false; }
+  // Shows a saved guide, area or cape. When it cannot be drawn (what was saved is broken), the saved page is dropped
+  // and the list says so: it is read from the wiki again when you open it, and your ticks stay. False when it failed.
+  function showSaved(key, draw) {
+    try { draw(); return true; } catch (e) {
+      // The mistake still shows in the browser's console (and fails a test that did not expect it).
+      setTimeout(function () { throw e; }, 0);
+      sdel(key);
+      sdel('last');
+      S.loading = false;
+      S.error = 'What was saved of that page could not be shown. Open it again: it is read from the wiki.';
+      renderStart();
+      return false;
+    }
+  }
   // A button of the bar at the bottom. From Settings, the button of the screen you came from takes you back to it.
   function goHome(h) {
+    stopWaiting();
     if (h === 'settings') { if (S.view !== 'settings') openSettings(); return; }
     if (S.view === 'settings' && S.back && S.back.home === h) { leaveSettings(); return; }
     A.setHome(h);
@@ -962,7 +985,8 @@
     imageAcc: imageAcc, imgHtml: imgHtml, liHtml: liHtml, loadProg: loadProg, lookUpPlayer: lookUpPlayer,
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
-    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,     resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
+    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,
+    showSaved: showSaved, stillWanted: stillWanted, stopWaiting: stopWaiting, waitFor: waitFor, resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
     saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,
     textOf: textOf, toast: toast,

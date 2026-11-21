@@ -247,7 +247,7 @@
   var lastArea = /^area:/.test(last || '') ? last.slice(5) : '', lastCape = /^cape:/.test(last || '') ? last.slice(5) : '';
   if (lastArea && sget('area.' + lastArea)) openArea(lastArea);
   else if (lastCape && A.savedCape(lastCape)) openCape(lastCape);
-  else if (last && !lastArea && !lastCape && sget('quest.' + last)) openQuest(last);
+  else if (last && !lastArea && !lastCape && sget('quest.' + last)) A.showSaved('quest.' + last, function () { openQuest(last); });
   else renderStart();
   // Keep the quest list fresh, quietly.
   if (S.view === 'quest' && !S.list) fetchList(true);

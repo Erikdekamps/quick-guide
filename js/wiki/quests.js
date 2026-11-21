@@ -77,10 +77,13 @@
   function getJson(url, ms) {
     var ctl = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = ctl ? setTimeout(function () { ctl.abort(); }, ms || 20000) : 0;
+    // The time runs until the whole answer is read: an answer that starts and then stops is cut off too.
     return fetch(url, ctl ? { signal: ctl.signal } : undefined).then(function (res) {
-      clearTimeout(timer);
       if (!res.ok) throw err('http', 'The server answered with an error (' + res.status + ').');
       return res.json();
+    }).then(function (j) {
+      clearTimeout(timer);
+      return j;
     }, function (e) {
       clearTimeout(timer);
       throw (e && e.name === 'AbortError') ? err('timeout') : e;

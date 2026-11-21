@@ -186,4 +186,20 @@ test.describe('asking the wiki', () => {
     await expect(load({ fetch: fakeFetch(() => ({ status: 503, json: {} })) }).QG.findPages(['X'])).rejects.toThrow('The wiki answered with error 503.');
     await expect(load({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
   });
+
+  // An answer that starts and never ends: its first part is there, the rest only stops when the read is cut off.
+  const stalled = (url, opts) => Promise.resolve({ ok: true, status: 200, json: () => new Promise((done, fail) => {
+    opts.signal.addEventListener('abort', () => fail(Object.assign(new Error('Cut off'), { name: 'AbortError' })));
+  }) });
+  // The app, with a clock where the wiki's time is up at once.
+  const hasty = () => { const app = load({ fetch: stalled }); app.window.setTimeout = (f) => setTimeout(f, 5); return app; };
+
+  test('which names the wiki has: an answer that never ends is cut off', async () => {
+    // (it ends with an error, so the lookups after it go on)
+    await expect(hasty().QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
+  });
+
+  test('the quest list: an answer that starts and never ends is cut off too', async () => {
+    await expect(hasty().D.loadList()).rejects.toMatchObject({ code: 'timeout' });
+  });
 });

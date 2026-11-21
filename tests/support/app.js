@@ -101,6 +101,12 @@ class Wiki {
   missing(title) { this.pages[title] = { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } }; return this; }
   // A page that fails: 'http' (500), 'network', 'format' (no parse), 'slow' (never answers).
   fail(title, how) { this.pages[title] = { fail: how }; return this; }
+  // A slow wiki: the page (one that is there already) only answers when you call what this gives.
+  hold(title) {
+    let go;
+    this.pages[title] = Object.assign({}, this.pages[title], { wait: new Promise((done) => { go = done; }) });
+    return go;
+  }
   // The standard set: the quest list and the guides in tests/fixtures/wiki.
   standard() {
     this.page('List of quests', fixture('list-of-quests.html'));
@@ -133,6 +139,7 @@ class Wiki {
     this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
     const p = this.pages[title];
     if (!p) return route.fulfill({ headers: CORS, json: { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } } });
+    if (p.wait) await p.wait;
     if (p.error) return route.fulfill({ headers: CORS, json: { error: p.error } });
     if (p.fail === 'http') return route.fulfill({ status: 500, headers: CORS, body: 'oops' });
     if (p.fail === 'network') return route.abort('failed');

@@ -106,10 +106,10 @@
   // Which of these page names the wiki has: { "<name>": the page it leads to }. Names it does not have are left out.
   function findPages(names) {
     var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&titles=' + encodeURIComponent(names.join('|'));
-    return fetch(url, { credentials: 'omit' }).then(function (r) {
+    // Like every read, the wiki gets 25 seconds (getJson): one answer that never comes cannot stop the ones after it.
+    return getJson(url).then(function (r) {
       if (!r.ok) throw new Error('The wiki answered with error ' + r.status + '.');
-      return r.json();
-    }).then(function (d) {
+      var d = r.json;
       var q = d && d.query, to = {}, has = {}, out = {};
       if (!q || !Array.isArray(q.pages)) throw new Error('The wiki sent something unexpected.');
       // The wiki gives a name its first capital, then follows a redirect.

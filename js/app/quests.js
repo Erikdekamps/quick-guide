@@ -13,10 +13,10 @@
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    sget = A.sget, showSaved = A.showSaved, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
     startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
-    upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
+    stillWanted = A.stillWanted, upgrade = A.upgrade, validTab = A.validTab, waitFor = A.waitFor, warn = A.warn;
 
   // ---------- step logic ----------
   function buildIndex() {
@@ -150,15 +150,18 @@
     return (e && e.message) || 'Something went wrong. Try again.';
   }
   function loadGuide(t, label) {
-    S.loading = label || t.base;
+    var mine = waitFor(label || t.base);
     S.error = '';
     renderStart();
     QG.load(t).then(function (q) {
+      storeQuest(q);
+      // You went on to another screen: the guide is saved, and opens at once when you ask for it again.
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.input = '';
-      storeQuest(q);
-      openQuest(q.page, q);
+      showSaved('quest.' + q.page, function () { openQuest(q.page, q); });
     }, function (e) {
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.error = loadError(e);
       renderStart();
@@ -169,7 +172,7 @@
     var m = metaAll(), want = D.norm(title), key = '';
     Object.keys(m).forEach(function (k) { if (!key && D.norm(m[k].title) === want) key = k; });
     S.error = '';
-    if (key && sget('quest.' + key)) { openQuest(key); return; }
+    if (key && sget('quest.' + key)) { showSaved('quest.' + key, function () { openQuest(key); }); return; }
     loadGuide({ base: title, title: title + '/Quick guide' }, title);
   }
   function openQuest(key, q) {

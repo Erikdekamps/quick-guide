@@ -29,7 +29,8 @@ Wiki links open in your normal browser, so the app stays on the guide.
   Type to search; **Enter** opens the best match.
 - Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
   difficulty, length, series or newest. Click a group name to fold it.
-- Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band on top holds the
+- Click a quest. Its guide is read from the wiki once, then kept on your computer. (While it is read, a button of
+  the bar at the bottom takes you on: the guide is still saved, and opens at once the next time.) The title band on top holds the
   back button (to all quests), the quest's name and its **⋯** menu (with **Jump to next step**). A thin gold line
   under it shows how far you are. It has three tabs, each with its count under the name:
   - **Overview:** details, the quest tree, skills, enemies and rewards.
@@ -269,6 +270,9 @@ Everything is in the browser's local storage, on your computer. All keys start w
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped, then the areas (your
 ticks stay), and read from the wiki again when you open them. When there is still no room, the app says that your last
 change is not saved: it is kept until you close the app, so **Export state** still has it.
+
+A saved guide, area or cape that cannot be shown (it is broken) is dropped, and the list says so. It is read from the
+wiki again when you open it; your ticks stay.
 
 ## How it reads the wiki
 
