@@ -40,4 +40,5 @@ Built by **Claude**, Anthropic's AI, working in [Claude Code](https://claude.com
 the game and the screenshots came from the repository owner.
 
 Guide text, pictures and map tiles come from the [RuneScape Wiki](https://runescape.wiki/) (CC BY-NC-SA 3.0).
-Maps use [Leaflet](https://leafletjs.com/) (BSD-2 licence, see `vendor/leaflet/LICENSE`).
+Maps use [Leaflet](https://leafletjs.com/) (BSD-2 licence, see `vendor/leaflet/LICENSE`). The fonts are Cinzel, Fira Sans
+and Fira Mono (SIL Open Font License, see `vendor/fonts/`); they come with the app.

@@ -7,7 +7,7 @@
 (function (A) {
   'use strict';
   if (!A || !A.T) return;
-  var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
+  var app = A.app, arr = A.arr, cssq = A.cssq, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
   var cleanTodo = T.cleanTodo, ctx = T.ctx, finished = T.finished, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
     openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
@@ -92,16 +92,46 @@
       '<div class="newlist"><button class="btn" type="button" data-act="tnew">Create list</button><button class="btn alt" type="button" data-act="timport">Import list</button></div>';
   }
   // What the tab shows.
+  // S.todoDrawn keeps each list's markup as it was last drawn, so a change only draws the lists that changed (patchTodo).
   function todoHtml() {
     var t = todo(), c = ctx(), tally = { goals: 0, done: 0 };
     settleAll();
     lookUpWiki();
+    S.todoDrawn = {};
     if (!t.lists.length) return emptyHtml();
-    var lists = t.lists.map(function (l) { return listHtml(l, c, tally); }).join('');
-    return '<p class="qmeta"><span>' + plural(t.lists.length, 'list', 'lists') + ' \u00b7 ' + plural(tally.goals, 'goal', 'goals') +
-      (tally.done ? ', ' + tally.done + ' done' : '') + '</span>' + (S.player ? '<span class="how"> \u00b7 ' + esc(S.player.name) + '</span>' : '') + '</p>' +
-      lists + '<div class="newlist"><button class="btn alt sm" type="button" data-act="tnew">' + I.plus + 'Create list</button>' +
+    var lists = t.lists.map(function (l) { return (S.todoDrawn[l.id] = listHtml(l, c, tally)); }).join('');
+    return metaHtml(t, tally) + lists + '<div class="newlist"><button class="btn alt sm" type="button" data-act="tnew">' + I.plus + 'Create list</button>' +
       '<button class="btn alt sm" type="button" data-act="timport">' + I.paste + 'Import list</button></div>';
+  }
+  // The line above the lists: how many lists and goals, and your character.
+  function metaHtml(t, tally) {
+    return '<p class="qmeta"><span>' + plural(t.lists.length, 'list', 'lists') + ' \u00b7 ' + plural(tally.goals, 'goal', 'goals') +
+      (tally.done ? ', ' + tally.done + ' done' : '') + '</span>' + (S.player ? '<span class="how"> \u00b7 ' + esc(S.player.name) + '</span>' : '') + '</p>';
+  }
+  // Draws again only the lists whose markup changed, and the line above them. The list of the box or tick box you
+  // are in is always drawn (a tick the app did not take must show as it was). False when the screen does not show the
+  // same lists in the same order: then everything is drawn.
+  function patchTodo(force) {
+    var area = byId('qarea'), t = todo(), meta = area && area.querySelector(':scope > .qmeta');
+    if (!meta || !S.todoDrawn || S.view !== 'start' || S.set.home !== 'todo' || !t.lists.length) return false;
+    var uls = arr(area.querySelectorAll(':scope > ul.todo[data-list]'));
+    if (uls.length !== t.lists.length || uls.some(function (u, i) { return u.getAttribute('data-list') !== t.lists[i].id; })) return false;
+    settleAll();
+    lookUpWiki();
+    var c = ctx(), tally = { goals: 0, done: 0 };
+    t.lists.forEach(function (l, i) {
+      var h = listHtml(l, c, tally);
+      if (S.todoDrawn[l.id] === h && l.id !== force) return;
+      S.todoDrawn[l.id] = h;
+      var ul = uls[i], bar = ul.previousElementSibling, tmp = document.createElement('div');
+      tmp.innerHTML = h;
+      while (tmp.firstChild) area.insertBefore(tmp.firstChild, bar);
+      area.removeChild(bar);
+      area.removeChild(ul);
+    });
+    meta.outerHTML = metaHtml(t, tally);
+    updateCount();
+    return true;
   }
   // The lists as options of a select. more: an option after them ("New list…").
   function pickerHtml(sel, more) {
@@ -121,7 +151,6 @@
     if (old) old.parentNode.removeChild(old);
     tab.insertAdjacentHTML('beforeend', countHtml());
   }
-  function cssq(s) { return window.CSS && CSS.escape ? CSS.escape(s) : String(s).replace(/["\\]/g, '\\$&'); }
   // Redraws the lists. The tick box or the box you were typing in keeps the focus (and what you typed); S.todoFocus
   // names what gets the focus instead.
   function drawTodo() {
@@ -133,7 +162,8 @@
       else if (a.hasAttribute('data-subcb')) sel = '[data-subcb="' + cssq(a.getAttribute('data-subcb')) + '"][data-gid="' + cssq(a.getAttribute('data-gid')) + '"]';
       else if (f && a.tagName === 'INPUT') { sel = (f.hasAttribute('data-sadd') ? 'form.sadd' : 'form[data-qadd="' + cssq(f.getAttribute('data-qadd')) + '"]') + ' input'; val = a.value; }
     }
-    A.drawList();
+    var ul = a.closest('ul.todo[data-list]');
+    if (!patchTodo(ul ? ul.getAttribute('data-list') : '')) A.drawList();
     var n = sel && document.querySelector(sel);
     if (!n) return;
     if (val) n.value = val;

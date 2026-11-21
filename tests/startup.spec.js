@@ -38,6 +38,7 @@ test.describe('a file that does not load', () => {
     await openQuest(page, expect, 'While Guthix Sleeps');
     await openTab(page, 'steps');
     const box = page.locator('details.acc', { hasText: 'Map: Location of the Khazard launderer' });
+    await box.locator('.map').scrollIntoViewIfNeeded();
     await expect(box.locator('.map')).toHaveText('The map could not load. Use the wiki link below.');
   });
 });
@@ -67,4 +68,15 @@ test('a normal session has no errors', async ({ page }) => {
   await page.getByRole('button', { name: 'All quests' }).click();
   expect(page.errors).toEqual([]);
   expect(problems).toEqual([]);
+});
+
+test("the fonts are the app's own: it draws with no font service, and uses them", async ({ page }) => {
+  const asked = [];
+  page.on('request', (r) => { if (!r.url().startsWith('http://quick-guide.test/') && /font/.test(r.url())) asked.push(r.url()); });
+  await openApp(page, expect);
+  await page.evaluate(() => document.fonts.ready);
+  expect(asked).toEqual([]);
+  const loaded = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family.replace(/["']/g, '') + ' ' + f.weight));
+  expect(loaded).toEqual(expect.arrayContaining(['Cinzel 700', 'Fira Sans 400']));
+  expect(await page.locator('h1.qt').evaluate((h) => getComputedStyle(h).fontFamily)).toMatch(/^"?Cinzel/);
 });

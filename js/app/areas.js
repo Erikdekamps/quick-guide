@@ -5,7 +5,7 @@
 (function (A) {
   'use strict';
   if (!A) return;
-  var restoreScroll = A.restoreScroll, acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
+  var cssq = A.cssq, restoreScroll = A.restoreScroll, acc = A.acc, alignTop = A.alignTop, app = A.app, byId = A.byId, dateText = A.dateText, drawList = A.drawList,
     dropMaps = A.dropMaps, esc = A.esc, headerHtml = A.headerHtml, homeBarHtml = A.homeBarHtml, HOMES = A.HOMES, I = A.I, liHtml = A.liHtml,
     loadError = A.loadError, nextHtml = A.nextHtml, partHtml = A.partHtml, pick = A.pick, playerLevel = A.playerLevel,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
@@ -14,14 +14,19 @@
     showSaved = A.showSaved, stillWanted = A.stillWanted, textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml, waitFor = A.waitFor;
 
   // ---------- Area Tasks: saved areas and the task index ----------
-  function ametaAll() { var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
+  function ametaAll() { A.flushLater(); var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
   function loadAprog(name) {
     var p = sget('aprog.' + name);
     if (!p || typeof p !== 'object') p = {};
     if (!p.tasks || typeof p.tasks !== 'object') p.tasks = {};
     return p;
   }
-  function saveAprog() { sset('aprog.' + S.areaKey, S.aprog); saveAmeta(); }
+  // Your ticks are saved at once; the area list's counts a moment later (writeLater in core.js).
+  function saveAprog() {
+    var name = S.areaKey, a = S.area, p = S.aprog;
+    sset('aprog.' + name, p);
+    A.writeLater('ameta.' + name, function () { writeAmeta(name, a, p); });
+  }
   // What the area list needs to know, per tier: how many tasks, how many are done, how many are new and not done yet,
   // and what the tier needs.
   function writeAmeta(name, a, p) {
@@ -39,19 +44,21 @@
     };
     sset('ameta', m);
   }
-  function saveAmeta() { writeAmeta(S.areaKey, S.area, S.aprog); }
   // The index of every task, kept small so all 13 areas can be searched: { "<area>": { v, tiers: [{ id, name, tasks: [{ id, name, subs: [ids] }] }] } }
   function aidxAll() { var m = sget('aidx'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
+  // Puts an area in the index. It is only written when the area's entry changed: the index holds every area.
   function indexArea(name, a) {
-    var ix = aidxAll();
-    ix[name] = { v: a.version, tiers: a.tiers.map(function (t) {
+    var ix = aidxAll(), entry = { v: a.version, tiers: a.tiers.map(function (t) {
       return { id: t.id, name: t.name, tasks: t.tasks.map(function (x) {
         var o = { id: x.id, name: x.name, subs: (x.subs || []).map(function (u) { return u.id; }) };
         if (x.newAt) o.newAt = x.newAt;
         return o;
       }) };
     }) };
-    sset('aidx', ix);
+    if (!ix[name] || JSON.stringify(ix[name]) !== JSON.stringify(entry)) {
+      ix[name] = entry;
+      sset('aidx', ix);
+    }
     writeAmeta(name, a, loadAprog(name));
   }
   // An area read again: its tasks that were not there before are New. Those that were keep when they were new.
@@ -252,9 +259,10 @@
 
   // ---------- Area Tasks: one area ----------
   // Opens an area (at a tier): from storage if it is saved, else from the wiki.
-  function openArea(name, tier) {
+  // a: the saved area, when the caller read it already.
+  function openArea(name, tier, a) {
     S.error = '';
-    var a = sget('area.' + name);
+    a = a || sget('area.' + name);
     // A saved area opens at once. One saved with another AREA_VERSION is read again quietly; if that fails, the saved one stays.
     if (a && Array.isArray(a.tiers) && a.tiers.length) {
       if (showSaved('area.' + name, function () { showArea(name, a, tier); }) && a.version !== QG.AREA_VERSION) refreshArea(true);
@@ -406,7 +414,29 @@
     var t = tierNow();
     if (on && S.aprog.open && t.tasks.every(function (x) { return S.aprog.tasks[x.id]; })) delete S.aprog.open[t.id + ':tasks'];
     saveAprog();
-    renderArea(true);
+    if (!updateArea()) renderArea(true);
+  }
+  // After a tick: the counts, and the task rows that changed, without drawing the screen again. False when the tier
+  // was done, or is now (the part folds, the button changes): then the screen is drawn again.
+  function updateArea() {
+    var main = byId('main'), t = tierNow();
+    var cur = t.tasks.filter(function (x) { return !S.aprog.tasks[x.id]; })[0];
+    if (!cur || byId('next-btn').disabled) return false;
+    var done = t.tasks.length - t.tasks.filter(function (x) { return !S.aprog.tasks[x.id]; }).length;
+    var pg = byId('pg'), cnt = byId('pg-cnt'), sc = main.querySelector('[data-asec="tasks"] .sech .c');
+    if (pg) pg.value = done;
+    if (cnt) cnt.textContent = done + ' / ' + t.tasks.length;
+    if (sc) sc.textContent = done + ' / ' + t.tasks.length;
+    t.tasks.forEach(function (x) {
+      var li = main.querySelector('li[data-task="' + cssq(x.id) + '"]:not(.subs li)');
+      var same = li.classList.contains('done') === !!S.aprog.tasks[x.id] && li.classList.contains('cur') === (x === cur) &&
+        (x.subs || []).every(function (u) {
+          var s = li.querySelector('li[data-task="' + cssq(u.id) + '"]');
+          return !s || s.classList.contains('done') === !!S.aprog.tasks[u.id];
+        });
+      if (!same) li.outerHTML = areaTaskHtml(x, x === cur, t);
+    });
+    return true;
   }
   function nextTask() {
     var t = tierNow(), cur = t.tasks.filter(function (x) { return !S.aprog.tasks[x.id]; })[0];

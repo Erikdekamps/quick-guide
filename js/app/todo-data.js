@@ -256,8 +256,11 @@
   // A goal is finished when it is done with everything under it: its sub tasks then fold by themselves.
   // (A task ticked in its area with a sub task still open is done, but not finished.)
   function finished(g, s) { return !!s.done && allDone(g); }
+  // How many times something was ticked or unticked: settleAll saves the lists only when this went up.
+  var marks = 0;
   // Ticks or unticks one sub task (an area task in its area, a quest in the quest list, too).
   function mark(u, on) {
+    marks++;
     if (isRef(u)) setDone(u, on); else if (on) u.done = u.done || 1; else delete u.done;
   }
   // After a change: a sub task with its own sub tasks is done when all of them are, and open when one is not. One
@@ -290,6 +293,7 @@
   // A goal ticked or unticked. An area task is ticked in its area, an achievement in its cape, and a quest in the quest
   // list, too.
   function setDone(g, on) {
+    marks++;
     if (g.kind === 'task') tickTaskInArea(g, on);
     if (g.kind === 'cheevo') A.tickCheevoIn(g.cape, g.cheevo, on);
     if (g.kind === 'quest') setMarked(g.title, on);
@@ -300,9 +304,9 @@
   // tasks is settled again before the lists are shown or go into a file. That only changes the lists: it never
   // ticks or unticks a task in its area, an achievement in its cape or a quest (look).
   function settleAll() {
-    var before = snapshot();
+    var before = marks;
     todo().lists.forEach(function (l) { l.items.forEach(function (g) { if (g.subs) settleGoal(g, false, true); }); });
-    if (snapshot() !== before) saveTodo();
+    if (marks !== before) saveTodo();
   }
   // finish: you just ticked something under g. look: nothing was changed by hand (see settle).
   function settleGoal(g, finish, look) {
@@ -314,9 +318,11 @@
 
   // ---------- how a goal stands ----------
   // What a render needs from storage, read once: an area's ticks, a tier's tasks, the opened quests.
-  function ctx() {
-    var ticks = {}, ix = null, meta = null;
+  // What the goals are checked against, read from the storage once while nothing changes (see forNow in core.js).
+  var ctx = A.forNow(function () {
+    var ticks = {}, ix = null, meta = null, capes = null;
     return {
+      cheevo: function (key, id) { capes = capes || A.capeReader(); return A.cheevoIsDone(key, id, capes); },
       tasks: function (area) { if (!ticks[area]) ticks[area] = A.loadAprog(area).tasks; return ticks[area]; },
       tier: function (area, id) {
         ix = ix || A.aidxAll();
@@ -327,7 +333,7 @@
         return meta;
       }
     };
-  }
+  });
   // Is a goal done by itself? A skill level your character has, a quest that is done, a tier with all its tasks ticked.
   function selfDone(g, c) {
     if (g.kind === 'skill') { var lv = playerLevel(g.skill); return lv != null && lv >= g.level; }
@@ -345,7 +351,7 @@
   // an achievement when it is done in its cape.
   function goalState(g, c) {
     if (g.kind === 'task') return { done: !!c.tasks(g.area)[g.task], self: false };
-    if (g.kind === 'cheevo') return { done: A.cheevoIsDone(g.cape, g.cheevo), self: false };
+    if (g.kind === 'cheevo') return { done: c.cheevo(g.cape, g.cheevo), self: false };
     var self = selfDone(g, c);
     return { done: !!g.done || self, self: self };
   }

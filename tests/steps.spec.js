@@ -39,7 +39,8 @@ test.describe('ticking', () => {
     await expect(page.locator('#pg-cnt')).toHaveText('1 / 12');
     const p = await stored(page, 'prog.' + WGS);
     expect(Object.keys(p.steps)).toEqual([expect.stringMatching(/^starting-out:/)]);
-    expect((await stored(page, 'meta'))[WGS]).toMatchObject({ done: 1, total: 12 });
+    // the quest list's count of it is saved a moment later
+    await expect.poll(async () => (await stored(page, 'meta'))[WGS]).toMatchObject({ done: 1, total: 12 });
   });
 
   test('a click anywhere on the row works too', async ({ page }) => {
@@ -279,8 +280,9 @@ test.describe('boxes for pictures, maps and tables', () => {
     for (const d of await p.locator('details.acc:not(.bring)').all()) expect(await d.getAttribute('open')).toBe('');
   });
 
-  test('a map starts by itself, with markers and the wiki map tiles', async ({ page, tiles }) => {
+  test('a map starts by itself when you scroll to it, with markers and the wiki map tiles', async ({ page, tiles }) => {
     const m = box(part(page, "Finding Movario's base"), 'Map: Location of the Khazard launderer');
+    await m.locator('.map').scrollIntoViewIfNeeded();
     await expect(m.locator('.leaflet-container')).toBeVisible();
     await expect(m.locator('.leaflet-overlay-pane path')).toHaveCount(2);
     await expect(m.locator('.leaflet-control-zoom-in')).toBeVisible();

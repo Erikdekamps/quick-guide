@@ -60,7 +60,8 @@ test('wiki map tiles load', async ({ page }) => {
   await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
   await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   const map = page.locator('[data-ov="details"] details.acc', { hasText: 'Map' }).first();
-  // boxes start open, so the map starts by itself
+  // boxes start open, so the map starts by itself when it is on screen
+  await map.locator('.map').scrollIntoViewIfNeeded();
   await expect(map.locator('.leaflet-container')).toBeVisible();
   await expect.poll(() => ok.length, { timeout: 30000 }).toBeGreaterThan(0);
 });

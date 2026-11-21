@@ -10,6 +10,16 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.44.2] - 2026-11-21
+
+### Changed
+
+- The app starts without waiting for a font service: its fonts come with it, and it works without that service.
+- Faster: a guide starts a map when you scroll to it, and stops it when you fold its box. The quest search draws the
+  list once you stop typing. A tick only draws again the rows it changed, and saves your ticks at once and the counts
+  of the lists a moment later. An import saves the quests it marks done once. Capes and guides are read once for each
+  draw or export.
+
 ## [1.44.1] - 2026-11-21
 
 ### Changed

@@ -263,6 +263,26 @@ test.describe('import', () => {
     expect((await stored(page, 'aprog.Varrock')).tasks).toEqual({ '993:1': 1, '993:2': 1, '993:3': 1, '993:4': 1, 993: 1, 994: 1 });
   });
 
+  test('an import with many quests saves the quests marked done, and their progress, once', async ({ page }) => {
+    await openApp(page, expect);
+    const quests = { 'While Guthix Sleeps': { done: false, progress: '3 / 118', steps: { 'starting-out:19 In Taverley': true } } };
+    for (let i = 0; i < 50; i++) quests['Quest number ' + i] = i % 2 === 0;
+    await page.evaluate(() => {
+      const set = Storage.prototype.setItem;
+      window.writes = {};
+      Storage.prototype.setItem = function (k, v) { window.writes[k] = (window.writes[k] || 0) + 1; return set.call(this, k, v); };
+    });
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, quests }));
+    await expect(page.locator('#toast')).toHaveText('Imported 51 quests.');
+    const writes = await page.evaluate(() => window.writes);
+    expect(writes['qg1.qdone']).toBe(1);
+    expect(writes['qg1.meta']).toBe(1);
+    const done = await stored(page, 'qdone');
+    expect(Object.keys(done)).toHaveLength(25);
+    expect(done.questnumber0).toBe(1);
+    expect((await stored(page, 'meta'))[WGS]).toMatchObject({ title: 'While Guthix Sleeps', done: 3, total: 118 });
+  });
+
   test('a task can be named without its code', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await openApp(page, expect);

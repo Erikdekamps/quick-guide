@@ -11,7 +11,7 @@
     loadProg = A.loadProg, mapAcc = A.mapAcc, markedDone = A.markedDone, metaAll = A.metaAll, nextHtml = A.nextHtml,
     note = A.note, OV = A.OV, partHtml = A.partHtml, playerLevel = A.playerLevel, playerLocked = A.playerLocked,
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
-    questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
+    questLinks = A.questLinks, questMark = A.questMark, rememberSoon = A.rememberSoon, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
     sget = A.sget, showSaved = A.showSaved, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
     startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml,
@@ -172,11 +172,12 @@
     var m = metaAll(), want = D.norm(title), key = '';
     Object.keys(m).forEach(function (k) { if (!key && D.norm(m[k].title) === want) key = k; });
     S.error = '';
-    if (key && sget('quest.' + key)) { showSaved('quest.' + key, function () { openQuest(key); }); return; }
+    var q = key && sget('quest.' + key);
+    if (q) { showSaved('quest.' + key, function () { openQuest(key, q); }); return; }
     loadGuide({ base: title, title: title + '/Quick guide' }, title);
   }
+  // q: the saved guide (the caller read it).
   function openQuest(key, q) {
-    q = q || sget('quest.' + key);
     if (!q || !q.sections) {
       S.error = 'That quest is not saved any more. Load it again.';
       renderStart();
@@ -440,14 +441,15 @@
     if (!items.length && (hidden || hiddenLocked)) return h + '<p class="empty">All quests here are done or locked. Tick \u201cDone quests and tiers\u201d or \u201cLocked quests and tiers\u201d in Settings to see them.</p>';
     if (!items.length && v) return h + '<p class="empty">No quests match \u201c' + esc(S.input.trim()) + '\u201d.</p>';
     if (!items.length) return h + '<p class="empty">No quests here.</p>';
-    var group = null, open = false;
+    var group = null, open = false, sizes = {};
+    items.forEach(function (x) { var g = gOf(x); sizes[g] = (sizes[g] || 0) + 1; });
     items.forEach(function (x) {
       var g = gOf(x);
       if (g !== group) {
         if (open) h += '</ul>';
         group = g;
         open = true;
-        var n = items.filter(function (y) { return gOf(y) === g; }).length;
+        var n = sizes[g];
         var shut = !!S.closed[sort + ':' + g];
         h += '<h2 class="gh"><button class="ghb" type="button" data-group="' + esc(g) + '" aria-expanded="' + (shut ? 'false' : 'true') + '">' +
           I.chev + '<span class="n">' + esc(g) + '</span><span class="c">' + n + '</span></button></h2><ul class="ql"' + (shut ? ' hidden' : '') + '>';
@@ -758,7 +760,7 @@
       if (c) c.textContent = p[1].filter(function (it) { return S.prog.items[it.id]; }).length + ' / ' + p[1].length;
     });
     saveProg();
-    remember(S.key, S.q.title, t.done, t.total);
+    rememberSoon(S.key, S.q.title, t.done, t.total);
     startMaps();
   }
   function switchTab(tab) {

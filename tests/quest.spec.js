@@ -340,3 +340,65 @@ test.describe('saved guides from older versions', () => {
     await expect(toast(page)).toBeHidden();
   });
 });
+
+test.describe('maps', () => {
+  // A guide with 20 maps, each under its own heading with a step.
+  function manyMaps(wiki) {
+    let html = '<h2><span class="mw-headline" id="Walkthrough">Walkthrough</span></h2>';
+    const live = {};
+    for (let i = 1; i <= 20; i++) {
+      live['m' + i] = [{ type: 'Feature', geometry: { type: 'Point', coordinates: [2600 + i, 3200] }, properties: { title: 'Spot ' + i } }];
+      html += '<h3><span class="mw-headline" id="Place_' + i + '">Place ' + i + '</span></h3>' +
+        '<div class="mw-kartographer-container"><a class="mw-kartographer-map" data-zoom="2" data-lat="3200" data-lon="' + (2600 + i) +
+        '" data-plane="0" data-mapid="28" data-overlays="[&quot;m' + i + '&quot;]"></a><div class="thumbcaption">Map of place ' + i + '</div></div>' +
+        '<ul><li>Walk to place ' + i + '.</li></ul>';
+    }
+    wiki.page(WGS, html, live);
+  }
+  const maps = (page) => page.locator('#main .map');
+  const running = (page) => page.locator('#main .map.leaflet-container');
+
+  test('a guide with 20 maps starts only the ones on screen; the others start when you scroll to them', async ({ page, wiki }) => {
+    manyMaps(wiki);
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openTab(page, 'steps');
+    await expect(maps(page)).toHaveCount(20);
+    await expect(running(page).first()).toBeVisible();
+    const first = await running(page).count();
+    expect(first).toBeGreaterThan(0);
+    expect(first).toBeLessThan(6);
+    await expect(maps(page).last()).not.toHaveClass(/leaflet-container/);
+    await maps(page).last().scrollIntoViewIfNeeded();
+    await expect(maps(page).last()).toHaveClass(/leaflet-container/);
+    expect(await running(page).count()).toBeLessThan(20);
+  });
+
+  test('folding a box stops its map; opening it starts it again', async ({ page, wiki }) => {
+    manyMaps(wiki);
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openTab(page, 'steps');
+    const box = page.locator('details.acc').filter({ hasText: 'Map of place 1' }).first();
+    await expect(box.locator('.map')).toHaveClass(/leaflet-container/);
+    await box.locator('summary').click();
+    await expect(box.locator('.map')).not.toHaveClass(/leaflet-container/);
+    expect(await page.evaluate(() => window.QuickGuideApp.S.live.length)).toBeLessThan(6);
+    await box.locator('summary').click();
+    await expect(box.locator('.map .leaflet-overlay-pane path')).toHaveCount(1);
+    // a map further down waits to be seen; folding its box stops the wait, opening it waits again
+    const far = page.locator('details.acc').last();
+    await expect(far.locator('.map')).toHaveAttribute('data-watch', '1');
+    await far.evaluate((d) => { d.open = false; });
+    await expect(far.locator('.map')).not.toHaveAttribute('data-watch', '1');
+    await far.evaluate((d) => { d.open = true; });
+    await expect(far.locator('.map')).toHaveAttribute('data-watch', '1');
+    await expect(far.locator('.map')).not.toHaveClass(/leaflet-container/);
+  });
+
+  test('a browser without IntersectionObserver starts them all at once', async ({ page, wiki }) => {
+    manyMaps(wiki);
+    await page.addInitScript(() => { delete window.IntersectionObserver; });
+    await openQuest(page, expect, 'While Guthix Sleeps');
+    await openTab(page, 'steps');
+    await expect(running(page)).toHaveCount(20);
+  });
+});

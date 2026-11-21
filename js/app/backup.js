@@ -10,7 +10,7 @@
     HOMES = A.HOMES, I = A.I, loadAprog = A.loadAprog, loadProg = A.loadProg, markedDone = A.markedDone,
     memory = A.memory, metaAll = A.metaAll, missingAreas = A.missingAreas, pick = A.pick,
     playerStatus = A.playerStatus, plural = A.plural, PREFIX = A.PREFIX, QG = A.QG, remember = A.remember,
-    renderStart = A.renderStart, S = A.S, saveSettings = A.saveSettings, setMarked = A.setMarked, setTick = A.setTick,
+    renderStart = A.renderStart, S = A.S, saveSettings = A.saveSettings, setMarkedMany = A.setMarkedMany, setTick = A.setTick,
     sget = A.sget, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset, subId = A.subId, taskIndex = A.taskIndex,
     textOf = A.textOf, THEMES = A.THEMES, toast = A.toast, topSteps = A.topSteps, validTab = A.validTab,
     whenAreasRead = A.whenAreasRead, writeAmeta = A.writeAmeta;
@@ -94,7 +94,7 @@
       if (!x) return;
       var pc = loadAprog(a.name), c = counts[a.name] = {};
       x.tiers.forEach(function (t) { c[t.name] = t.tasks.filter(function (tk) { return pc.tasks[tk.id]; }).length + ' / ' + t.tasks.length; });
-      var full = sget('area.' + a.name), subs = {}, p = loadAprog(a.name), out = {};
+      var full = sget('area.' + a.name), subs = {}, p = pc, out = {};
       ((full && full.tiers) || []).forEach(function (t) { t.tasks.forEach(function (tk) { (tk.subs || []).forEach(function (u) { subs[u.id] = textOf(u.html); }); }); });
       x.tiers.forEach(function (t) {
         var tier = {};
@@ -110,12 +110,12 @@
       areas[a.name] = out;
     });
     // The capes you read: each achievement, by category, true (done) or false. Some tick themselves: their value is only to read.
-    var capes = {};
+    var capes = {}, r = A.capeReader();
     QG.CAPES.forEach(function (info) {
-      var c = A.savedCape(info.key);
+      var c = r.cape(info.key);
       if (!c) return;
       var out = {};
-      c.cheevos.forEach(function (x) { (out[x.cat] = out[x.cat] || {})[x.id + ' ' + x.name] = A.cheevoDone(info.key, x); });
+      c.cheevos.forEach(function (x) { (out[x.cat] = out[x.cat] || {})[x.id + ' ' + x.name] = A.cheevoDone(info.key, x, r); });
       capes[info.name] = out;
     });
     return {
@@ -172,6 +172,7 @@
     var nc = 0;
     if (+j.format >= 2) { var r2 = importV2(j); nq = r2.quests; na = r2.areas; nc = r2.capes; }
     else if (isMap(j.quests)) {
+      var meta = metaAll();
       Object.keys(j.quests).forEach(function (title) {
         var e = j.quests[title];
         if (!isMap(e)) return;
@@ -181,9 +182,10 @@
         Object.keys(isMap(e.items) ? e.items : {}).forEach(function (id) { items[id] = 1; });
         sset('prog.' + key, { steps: steps, items: items, tab: validTab(v.tab), open: isMap(v.open) ? v.open : {}, acc: isMap(v.acc) ? v.acc : {} });
         var pr = isMap(e.progress) ? e.progress : {};
-        remember(key, title, Math.max(0, +pr.done || 0), Math.max(0, +pr.total || 0));
+        remember(key, title, Math.max(0, +pr.done || 0), Math.max(0, +pr.total || 0), meta);
         nq++;
       });
+      if (nq) sset('meta', meta);
     }
     if (+j.format < 2 && isMap(j.areas)) {
       var am = ametaAll();
@@ -212,15 +214,16 @@
   }
   // Format 2: everything listed, each true or false. Steps and tasks are found by the code at the start of their line.
   function importV2(j) {
-    var nq = 0, na = 0, m = metaAll(), byTitle = {};
+    // The quests' progress and what is marked done are saved once, at the end, not once for every quest.
+    var nq = 0, na = 0, m = metaAll(), byTitle = {}, marks = [], metaChanged = false;
     Object.keys(m).forEach(function (k) { byTitle[D.norm(m[k].title)] = k; });
     function code(k) { return String(k).trim().split(/\s+/)[0]; }
     if (isMap(j.quests)) {
       Object.keys(j.quests).forEach(function (title) {
         var v = j.quests[title];
-        if (typeof v === 'boolean') { setMarked(title, v); nq++; return; }
+        if (typeof v === 'boolean') { marks.push({ title: title, on: v }); nq++; return; }
         if (!isMap(v)) return;
-        if (typeof v.done === 'boolean') setMarked(title, v.done);
+        if (typeof v.done === 'boolean') marks.push({ title: title, on: v.done });
         if (isMap(v.steps) || isMap(v.items)) {
           var key = typeof v.page === 'string' && v.page ? v.page : byTitle[D.norm(title)] || title + '/Quick guide';
           var old = loadProg(key), steps = {}, items = {};
@@ -228,12 +231,15 @@
           Object.keys(isMap(v.items) ? v.items : {}).forEach(function (k) { if (v.items[k] === true) items[code(k)] = 1; });
           sset('prog.' + key, { steps: steps, items: items, tab: old.tab, open: old.open, acc: old.acc });
           var g = sget('quest.' + key), pm = /^(\d+)\s*\/\s*(\d+)$/.exec(String(v.progress || '').trim());
-          if (g) { var ids = topSteps(g); remember(key, title, ids.filter(function (id) { return steps[id]; }).length, ids.length); }
-          else remember(key, title, pm ? +pm[1] : Object.keys(steps).length, pm ? +pm[2] : 0);
-          if (typeof v.done === 'boolean') setMarked(title, v.done);
+          if (g) { var ids = topSteps(g); remember(key, title, ids.filter(function (id) { return steps[id]; }).length, ids.length, m); }
+          else remember(key, title, pm ? +pm[1] : Object.keys(steps).length, pm ? +pm[2] : 0, m);
+          metaChanged = true;
         }
         nq++;
       });
+      if (metaChanged) sset('meta', m);
+      // after the progress: a quest whose steps are all done needs no mark
+      setMarkedMany(marks, m);
     }
     if (isMap(j.areas)) {
       QG.AREAS.forEach(function (a) {

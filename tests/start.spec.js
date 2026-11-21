@@ -173,6 +173,22 @@ test.describe('search', () => {
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   });
 
+  test('typing fast draws the list once, a moment after the last key', async ({ page }) => {
+    await page.clock.install();
+    await openApp(page, expect);
+    await page.evaluate(() => {
+      window.draws = 0;
+      new MutationObserver((rs) => { window.draws += rs.filter((r) => r.target.id === 'qarea').length; })
+        .observe(document.getElementById('qarea'), { childList: true });
+    });
+    await page.locator('#quest-link').pressSequentially('slayer');
+    await page.clock.runFor(100);
+    expect(await page.evaluate(() => window.draws)).toBe(0);
+    await page.clock.runFor(50);
+    await expect(names(page)).toHaveText(['Demon Slayer', 'Dragon Slayer']);
+    expect(await page.evaluate(() => window.draws)).toBe(1);
+  });
+
 });
 
 test.describe('opening a quest', () => {

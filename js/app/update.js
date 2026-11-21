@@ -83,10 +83,11 @@
     return A.reloadCape(p.key, p.old, info).then(function (n) { found.cheevos += n; });
   }
   // quiet: the weekly run (no messages unless something is new; the quest lists keep their own schedule).
-  function updateAll(quiet) {
+  // pages: what the app keeps, when the caller read it already (keptPages).
+  function updateAll(quiet, pages) {
     if (S.upd) return Promise.resolve();
-    var found = { quests: 0, tasks: 0, cheevos: 0, guides: 0 }, failed = 0, listErr = null;
-    var pages = keptPages(), titles = [];
+    var found = { quests: 0, tasks: 0, cheevos: 0, guides: 0 }, failed = 0, listErr = null, titles = [];
+    pages = pages || keptPages();
     pages.forEach(function (p) {
       if (titles.indexOf(p.title) < 0) titles.push(p.title);
       if (p.kind === 'cape') p.old.cheevos.forEach(function (x) { if (x.page && titles.indexOf(x.page) < 0) titles.push(x.page); });
@@ -131,8 +132,9 @@
   function autoUpdate() {
     var l = lastUpdate();
     if (l && Date.now() - l.at < UPDATE_MAX_AGE) return;
-    if (!keptPages().length) return;
-    updateAll(true);
+    var pages = keptPages();
+    if (!pages.length) return;
+    updateAll(true, pages);
   }
 
   A.share({ autoUpdate: autoUpdate, foundText: foundText, pageChanged: changed, updateAll: updateAll, updateText: updateText });
