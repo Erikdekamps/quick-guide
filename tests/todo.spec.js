@@ -355,12 +355,18 @@ test.describe('sub tasks', () => {
     await subs(page, 'Ardougne Hard').nth(1).locator('.t').click();
     await expect(goal(page, 'Ardougne Hard')).toHaveClass(/\bdone\b/);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('1 / 2');
-    // unticking the goal unticks them all; ticking it ticks them all
+    // done with all under it: it stays where it is, and its sub tasks fold shut
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Ardougne Hard', 'Vis wax']);
+    await expect(goal(page, 'Ardougne Hard').locator('.row .sc.fold').first()).toHaveAttribute('aria-expanded', 'false');
+    await expect(subs(page, 'Ardougne Hard').first()).toBeHidden();
+    // unticking the goal unticks them all, and they show again; ticking it ticks them all
     await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
     await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(0);
+    await expect(subs(page, 'Ardougne Hard').first()).toBeVisible();
     await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
     await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(2);
-    // a sub task unticked: the goal is open again
+    // a sub task unticked (open it first): the goal is open again
+    await goal(page, 'Ardougne Hard').locator('.row .sc.fold').first().click();
     await subs(page, 'Ardougne Hard').nth(0).locator('.cb').click();
     await expect(goal(page, 'Ardougne Hard')).not.toHaveClass(/\bdone\b/);
     // kept after a reload
@@ -456,6 +462,11 @@ test.describe('sub tasks', () => {
     await expect(goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc')).toHaveText('1 / 2');
     await sub(page, 'Blight shard').locator('.cb').click();
     await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
+    // all done: the goal folds its sub tasks; open it to untick one
+    await expect(mid).toBeHidden();
+    await goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc.fold').click();
+    await expect(mid.locator(':scope > .row .sc.fold')).toHaveAttribute('aria-expanded', 'false');
+    await mid.locator(':scope > .row .sc.fold').click();
     // one inner one unticked: everything above it is open again
     await sub(page, 'Ember shard').locator('.cb').click();
     await expect(mid).not.toHaveClass(/\bdone\b/);
@@ -464,6 +475,9 @@ test.describe('sub tasks', () => {
     await mid.locator(':scope > .row > .cb').click();
     await expect(mid.locator('li.gsub .cb:checked')).toHaveCount(2);
     await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
+    // (all done again: both folded; open them)
+    await goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc.fold').click();
+    await mid.locator(':scope > .row .sc.fold').click();
     // a new sub task under a done one opens it again
     await subMenu(page, 'Crystal hatchet');
     await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
@@ -487,6 +501,81 @@ test.describe('sub tasks', () => {
     await expect(sub(page, 'Hatchet of ember and glade').locator('li.gsub .t')).toHaveText(['Crystal hatchet', 'Crystal tool seed', 'Sing it', 'Ember shard']);
     const g = (await stored(page, 'todo')).lists[0].items[0];
     expect(g.subs[0].subs[0].subs[0].title).toBe('Crystal tool seed');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a goal and a sub task fold their sub tasks: the count after them is the button; a reload keeps it; adding a sub task opens it', async ({ page }) => {
+    await openList(page, lists({ Gear: [{ kind: 'other', title: 'Hatchet', subs: [{ id: 'a', title: 'Ember', subs: [{ id: 'a1', title: 'Crystal', done: 1 }, { id: 'a2', title: 'Shard' }] }, { id: 'b', title: 'Blight' }] }, { kind: 'other', title: 'Rope' }] }));
+    const fold = (row) => row.locator(':scope > .row .sc.fold');
+    const hatchet = goal(page, 'Hatchet'), ember = page.locator('li.gsub[data-sub="a"]');
+    // open at first; a goal without sub tasks has no button
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'true');
+    await expect(fold(hatchet)).toHaveText('0 / 2');
+    await expect(fold(goal(page, 'Rope'))).toHaveCount(0);
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeVisible();
+    // the sub task folds its own
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('aria-expanded', 'false');
+    await expect(fold(ember)).toHaveText('1 / 2');
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeHidden();
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeVisible();
+    // and opens them again
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('title', 'Hide the sub tasks');
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeVisible();
+    await fold(ember).click();
+    await expect(fold(ember)).toHaveAttribute('title', 'Show the sub tasks');
+    // the goal folds all under it
+    await fold(hatchet).click();
+    await expect(page.locator('li.gsub .t', { hasText: /^(Ember|Blight)$/ })).toHaveCount(2);
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeHidden();
+    // kept after a reload
+    await expect.poll(async () => ((await stored(page, 'view')) || {}).closed).toMatchObject({ 'todosub:g1': true, 'todosub:g1:a': true });
+    await page.reload();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeHidden();
+    // a tick keeps it folded
+    await goal(page, 'Rope').locator('.cb').click();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    // Add sub task opens it, so you see what you add
+    await goalMenu(page, 'Hatchet');
+    await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
+    await expect(subBox(page)).toBeVisible();
+    await expect(page.locator('li.gsub .t', { hasText: 'Blight' })).toBeVisible();
+    await expect(page.locator('li.gsub .t', { hasText: 'Crystal' })).toBeHidden();
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a goal that is done with all its sub tasks folds them by itself, where it is; it opens again when something under it is not done', async ({ page }) => {
+    await openList(page, lists({ Today: [{ kind: 'other', title: 'Hatchet', subs: [{ id: 'a', title: 'Ember', subs: [{ id: 'a1', title: 'Crystal', done: 1 }, { id: 'a2', title: 'Shard' }] }, { id: 'b', title: 'Blight', done: 1 }] }, { kind: 'other', title: 'Rope' }] }));
+    const fold = (row) => row.locator(':scope > .row .sc.fold');
+    const hatchet = goal(page, 'Hatchet'), ember = page.locator('li.gsub[data-sub="a"]');
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'true');
+    // the last one under Ember: Ember folds, then the goal is done and folds too. It stays where it is; no date
+    await sub(page, 'Shard').locator('.cb').click();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    await expect(fold(ember)).toHaveAttribute('aria-expanded', 'false');
+    await expect(fold(hatchet)).toHaveText('2 / 2');
+    await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Hatchet', 'Rope']);
+    await expect(page.locator('#toast')).toBeHidden();
+    // it stays folded after a reload
+    await page.reload();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    // you can open it, and it stays open
+    await fold(hatchet).click();
+    await expect(ember).toBeVisible();
+    await expect.poll(async () => (((await stored(page, 'view')) || {}).closed || {})['todosub:g1']).toBe(false);
+    await page.reload();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'true');
+    // untick Blight: the goal is not done any more, and open
+    await sub(page, 'Blight').locator('.cb').click();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'true');
+    // tick it again: done, and folded again (what you opened by hand is forgotten)
+    await sub(page, 'Blight').locator('.cb').click();
+    await expect(fold(hatchet)).toHaveAttribute('aria-expanded', 'false');
+    // a goal ticked by hand ticks all under it, and folds
+    await goal(page, 'Rope').locator('.cb').click();
+    await expect(goal(page, 'Rope').locator('.sc')).toHaveCount(0);
     expect(page.errors).toEqual([]);
   });
 
@@ -1162,6 +1251,9 @@ test.describe('goals that tick themselves', () => {
     await expect(yoink).toHaveClass(/\bdone\b/);
     await expect(easy).toHaveClass(/\bdone\b/);
     await expect(goal(page, /^Ardougne$/)).toHaveClass(/\bdone\b/);
+    // (all done now: it folded; open it again)
+    await goal(page, /^Ardougne$/).locator(':scope > .row .sc.fold').click();
+    await easy.locator(':scope > .row .sc.fold').click();
     // unticked in its area: open again here
     await yoink.locator('[data-smenu]').click();
     await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();

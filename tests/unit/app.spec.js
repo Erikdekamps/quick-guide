@@ -116,6 +116,16 @@ test.describe('Import: the lists of a file are checked before anything changes',
   });
 });
 
+test.describe('My list: a finished goal (it folds by itself)', () => {
+  const fin = (g) => A.T.finished(g, { done: !!g.done });
+  test('done, with everything under it done, however deep', () => {
+    expect(fin({ title: 'A', done: 1 })).toBe(true);
+    expect(fin({ title: 'A' })).toBe(false);
+    expect(fin({ title: 'A', done: 1, subs: [{ title: 'b', done: 1, subs: [{ title: 'c', done: 1 }] }] })).toBe(true);
+    expect(fin({ title: 'A', done: 1, subs: [{ title: 'b', done: 1, subs: [{ title: 'c' }] }] })).toBe(false);
+  });
+});
+
 test.describe('My list: limits, and names with a number', () => {
   test('at most 3,000 sub tasks in all lists together: what was saved past that is left out', () => {
     const subs = (n) => Array.from({ length: n }, (_, i) => ({ title: 'Sub ' + i }));

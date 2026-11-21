@@ -251,6 +251,11 @@
   // Is a sub task done? One that stands for a quest, a tier, an area task or a level is done the way a goal of
   // that kind is.
   function isDone(u) { return isRef(u) ? goalState(u, ctx()).done : !!u.done; }
+  // Is everything under a goal or a sub task done, however deep?
+  function allDone(p) { return (p.subs || []).every(function (u) { return isDone(u) && allDone(u); }); }
+  // A goal is finished when it is done with everything under it: its sub tasks then fold by themselves.
+  // (A task ticked in its area with a sub task still open is done, but not finished.)
+  function finished(g, s) { return !!s.done && allDone(g); }
   // Ticks or unticks one sub task (an area task in its area, a quest in the quest list, too).
   function mark(u, on) {
     if (isRef(u)) setDone(u, on); else if (on) u.done = u.done || 1; else delete u.done;
@@ -626,7 +631,7 @@
     NOTE_MAX: NOTE_MAX, FULL_GOALS: FULL_GOALS, FULL_LISTS: FULL_LISTS, FIXED: FIXED, capeTitle: capeTitle, MAX_ALL_SUBS: MAX_ALL_SUBS,
     subCount: subCount, subsFull: subsFull,
     addGoal: addGoal, cap1: cap1, cleanGoal: cleanGoal, cleanTodo: cleanTodo, copy: copy, ctx: ctx,
-    findSub: findSub, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
+    findSub: findSub, finished: finished, isDone: isDone, isRef: isRef, mark: mark, goalById: goalById, goalCount: goalCount, goalOfRef: goalOfRef, goalState: goalState, goalTitle: goalTitle,
     line: line, listById: listById, listText: listText, parseOutline: parseOutline, lookUpWiki: lookUpWiki, makeList: makeList, moveTo: moveTo, nameError: nameError,
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
     saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,

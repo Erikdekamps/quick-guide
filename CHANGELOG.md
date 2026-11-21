@@ -10,6 +10,12 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.44.0] - 2026-11-21
+
+### Added
+
+- My list: the count after a goal or a sub task with sub tasks ("1 / 2") folds its sub tasks. A goal or sub task that is done with everything under it folds by itself, where it is, and opens again when something under it is not done. The app remembers what you fold, and adding a sub task opens it.
+
 ## [1.43.2] - 2026-11-21
 
 ### Fixed

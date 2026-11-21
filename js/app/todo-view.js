@@ -8,41 +8,55 @@
   'use strict';
   if (!A || !A.T) return;
   var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
-  var cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
+  var cleanTodo = T.cleanTodo, ctx = T.ctx, finished = T.finished, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
     openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
 
   // ---------- the My list tab ----------
-  function doneCount(p) { return '<span class="sc">' + p.subs.filter(isDone).length + ' / ' + p.subs.length + '</span>'; }
+  // Are the sub tasks under a goal or a sub task folded? As you folded them (S.closed[key]: true shut, false open),
+  // else shut when it is done with everything under it, and open when it is not. A tick that finishes it, or opens
+  // it again, forgets what you folded (forgetFolds in todo.js), so it folds or opens by itself.
+  function folded(key, fin) { return typeof S.closed[key] === 'boolean' ? S.closed[key] : fin; }
+  // How many of the sub tasks under p are done ("1 / 2"), as a button that folds them. key: where the fold is kept
+  // ('todosub:<goal>' or 'todosub:<goal>:<sub task>'); shut: folded now.
+  function doneCount(p, key, shut) {
+    var n = p.subs.filter(isDone).length + ' / ' + p.subs.length;
+    return '<button class="sc fold" type="button" data-fold="' + esc(key) + '" aria-expanded="' + (shut ? 'false' : 'true') + '" title="' +
+      (shut ? 'Show' : 'Hide') + ' the sub tasks">' + I.chev + n + '</button>';
+  }
+  // Where the fold of a goal (g) or one of its sub tasks (u) is kept.
+  function foldKey(g, u) { return 'todosub:' + g.id + (u ? ':' + u.id : ''); }
   // One goal: its tick box, what it says (with how many sub tasks are done, and its note),
   // its menu, and its sub tasks under it.
   function goalHtml(g, s) {
-    var title = goalTitle(g), tid = esc('gt-' + g.id);
+    var title = goalTitle(g), tid = esc('gt-' + g.id), shut = !!g.subs && folded(foldKey(g), finished(g, s));
     return '<li class="goal' + (s.done ? ' done' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
-      (g.subs ? doneCount(g) : '') +
+      (g.subs ? doneCount(g, foldKey(g), shut) : '') +
       (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
-      '</div>' + subsHtml(g, g) + '</li>';
+      '</div>' + subsHtml(g, g, shut) + '</li>';
   }
   // The sub tasks under a goal or a sub task (p), and the box to type the next one in when it is open there.
-  function subsHtml(g, p) {
+  // shut: folded (the box for a new sub task opens it).
+  function subsHtml(g, p, shut) {
     var add = !!S.subAdd && S.subAdd.gid === g.id && S.subAdd.pid === (p === g ? '' : p.id);
     if (!p.subs && !add) return '';
-    return '<ul class="gsubs">' + (p.subs || []).map(function (u) { return subHtml(g, u); }).join('') +
+    shut = shut && !add;
+    return '<ul class="gsubs"' + (shut ? ' hidden' : '') + '>' + (p.subs || []).map(function (u) { return subHtml(g, u); }).join('') +
       (add ? '<li class="addrow">' + addFormHtml(' data-sadd="' + esc(g.id) + '" data-pid="' + esc(S.subAdd.pid) + '"',
         'Add a sub task to ' + goalTitle(p), 'Add a sub task', true) + '</li>' : '') + '</ul>';
   }
   // A sub task: its tick box, what it says, its menu, and its own sub tasks.
   function subHtml(g, u) {
-    var tid = esc('st-' + g.id + '-' + u.id), done = isDone(u), title = goalTitle(u);
+    var tid = esc('st-' + g.id + '-' + u.id), done = isDone(u), title = goalTitle(u), shut = !!u.subs && folded(foldKey(g, u), finished(u, { done: done }));
     return '<li class="gsub' + (done ? ' done' : '') + '" data-sub="' + esc(u.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-subcb="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (done ? ' checked' : '') + '>' +
-      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u) : '') +
+      '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' + (u.subs ? doneCount(u, foldKey(g, u), shut) : '') +
       (u.note ? '<span class="gn">' + esc(u.note) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-smenu="' + esc(u.id) + '" data-gid="' + esc(g.id) + '" data-menu="tmenu" aria-label="Sub task menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
-      '</div>' + subsHtml(g, u) + '</li>';
+      '</div>' + subsHtml(g, u, shut) + '</li>';
   }
   // A box to type the next goal or sub task in: Enter adds it, and the box stays for another. close: with a button
   // that takes the box away (the one for sub tasks).
