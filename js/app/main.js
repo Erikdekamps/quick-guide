@@ -151,7 +151,7 @@
       TODO_CLICKS.filter(function (c) { return g.hasAttribute(c[0]); })[0][1](g);
       return;
     }
-    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-dn], [data-fold], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-fold], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
@@ -169,22 +169,12 @@
         return;
       }
       if (t.hasAttribute('data-fold')) {
-        // The sub tasks of a goal or a sub task: folded in place, kept in the view.
+        // The sub tasks of a goal or a sub task: folded in place. What you fold is kept (true shut, false open).
         var fk = t.getAttribute('data-fold'), sl = t.closest('li').querySelector(':scope > ul.gsubs');
-        S.closed[fk] = !S.closed[fk];
-        if (!S.closed[fk]) delete S.closed[fk];
+        S.closed[fk] = t.getAttribute('aria-expanded') === 'true';
         t.setAttribute('aria-expanded', S.closed[fk] ? 'false' : 'true');
         t.title = (S.closed[fk] ? 'Show' : 'Hide') + ' the sub tasks';
         if (sl) sl.hidden = !!S.closed[fk];
-        saveView();
-        return;
-      }
-      if (t.hasAttribute('data-dn')) {
-        // A list's Done part: shut until you open it (so here true means open).
-        var dk = 'tododone:' + t.getAttribute('data-dn'), dl = t.nextElementSibling;
-        S.closed[dk] = !S.closed[dk];
-        t.setAttribute('aria-expanded', S.closed[dk] ? 'true' : 'false');
-        if (dl) dl.hidden = !S.closed[dk];
         saveView();
         return;
       }

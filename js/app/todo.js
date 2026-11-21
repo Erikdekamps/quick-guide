@@ -10,7 +10,7 @@
   var byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, note = A.note, plural = A.plural, QG = A.QG, S = A.S, T = A.T, toast = A.toast;
   var addGoal = T.addGoal, buttonsHtml = T.buttonsHtml, cap1 = T.cap1, changed = T.changed, cleanGoal = T.cleanGoal, closeDialog = T.closeDialog,
     copy = T.copy, ctx = T.ctx, dialogErr = T.dialogErr, drawTodo = T.drawTodo, errHtml = T.errHtml, fieldHtml = T.fieldHtml,
-    findSub = T.findSub, finished = T.finished, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
+    findSub = T.findSub, finished = T.finished, isDone = T.isDone, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
     goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, listText = T.listText, makeList = T.makeList,
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
@@ -43,7 +43,8 @@
     closeMenus();
     S.subAdd = { gid: gid, pid: pid || '' };
     // a folded goal or sub task opens, so you see what you add
-    delete S.closed['todosub:' + gid + (pid ? ':' + pid : '')];
+    S.closed['todosub:' + gid + (pid ? ':' + pid : '')] = false;
+    A.saveView();
     S.todoFocus = 'form.sadd input';
     drawTodo();
   }
@@ -196,32 +197,45 @@
       back();
     };
   }
-  // A goal that just got finished (done, with all under it) goes to its list's Done part: the message says so, with Undo.
-  function saidFinished(g, was, snap, open) {
-    if (was || !finished(g, goalState(g, ctx()))) return;
-    tell('<b>' + esc(goalTitle(g)) + '</b> is done. It is under <b>Done</b>.', [['Undo', undoWith(snap, open)]]);
+  // Which of a goal and its sub tasks (the ones with sub tasks) are done with everything under them: { fold key: true }.
+  function finishedNow(g) {
+    var out = {}, c = ctx();
+    if (g.subs && finished(g, goalState(g, c))) out['todosub:' + g.id] = true;
+    (function walk(list) {
+      (list || []).forEach(function (u) { if (u.subs && finished(u, { done: isDone(u) })) out['todosub:' + g.id + ':' + u.id] = true; walk(u.subs); });
+    })(g.subs);
+    return out;
+  }
+  // After a tick: a goal or sub task that got finished folds its sub tasks, and one that is open again unfolds them.
+  // (What you folded by hand there is forgotten: see folded() in todo-view.js.)
+  function forgetFolds(before, g) {
+    var after = finishedNow(g), any = false;
+    Object.keys(before).concat(Object.keys(after)).forEach(function (k) {
+      if (!before[k] !== !after[k] && k in S.closed) { delete S.closed[k]; any = true; }
+    });
+    if (any) A.saveView();
   }
   // A goal ticked by hand: its sub tasks go with it.
   function tickGoal(id, on) {
     var hit = goalById(id);
     if (!hit) return;
-    var snap = snapshot(), open = openRefs([hit.g]), was = finished(hit.g, goalState(hit.g, ctx()));
+    var before = finishedNow(hit.g);
     setDone(hit.g, on);
     setSubs(hit.g, on);
+    forgetFolds(before, hit.g);
     changed();
-    saidFinished(hit.g, was, snap, open);
   }
   // A sub task ticked: what is under it goes with it, and what is above it is done when all under it are.
   function tickSub(gid, sid, on) {
     var hit = goalById(gid), g = hit && hit.g, sub = g && findSub(g, sid);
     if (!sub) return;
-    var snap = snapshot(), open = openRefs([g]), was = finished(g, goalState(g, ctx()));
+    var before = finishedNow(g);
     mark(sub.u, on);
     setSubs(sub.u, on);
     // (only a tick finishes what is above it; an untick opens it again)
     settleGoal(g, on);
+    forgetFolds(before, g);
     changed();
-    saidFinished(g, was, snap, open);
   }
 
   // ---------- the menus of a goal, a sub task and a list ----------

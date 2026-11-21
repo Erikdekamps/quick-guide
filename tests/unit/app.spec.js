@@ -116,7 +116,7 @@ test.describe('Import: the lists of a file are checked before anything changes',
   });
 });
 
-test.describe('My list: a finished goal (it goes to Done)', () => {
+test.describe('My list: a finished goal (it folds by itself)', () => {
   const fin = (g) => A.T.finished(g, { done: !!g.done });
   test('done, with everything under it done, however deep', () => {
     expect(fin({ title: 'A', done: 1 })).toBe(true);

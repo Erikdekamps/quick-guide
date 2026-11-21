@@ -49,9 +49,8 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `AreasBlue.dc.html` | Achievements in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
 | `AreaTasksBlue.dc.html` | An area's tasks (Varrock Elite) in the Blue theme |
-| `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal, and Today with Done (2), folded |
-| `MyListDone.dc.html` | The Done part of a list, open: the goals you finished, one row each, struck through, with the day |
-| `MyListFold.dc.html` | A sub task with its own sub tasks folded shut: the arrow before its count (1 / 2) points right |
+| `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
+| `MyListFold.dc.html` | Folded sub tasks: a sub task folded by hand (the arrow before 1 / 2 points right), and a goal done with all its sub tasks, folded by itself |
 | `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
 | `MyListNew.dc.html` | Create list: type a name |
 | `MyListImport.dc.html` | Import list: a name, and the goals as plain text; it makes a new list from them |
@@ -71,7 +70,7 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `CapeMasterQuestBlue.dc.html` | The master quest cape in the Blue theme, with Needs folded: its achievements |
 | `Components.dc.html` | All parts, colors and type, the window, the two themes, the bar at the bottom, tabs with a count, the settings and the quest menu, the app icon on both, skill and quest requirements like the wiki, the parts of My list, and Add to list |
 | `Data.dc.html` | The quest JSON shape, what is saved (the capes and My list too), and the export file |
-| `canvas.json` | Board layout on the canvas: the screens in rows of seven on the left (quests and settings, achievements, the capes, My list twice, the Blue theme in two, and one more of My list), Components and Data next to them |
+| `canvas.json` | Board layout on the canvas: the screens in rows of seven on the left (quests and settings, achievements, the capes, My list twice, the Blue theme in two), Components and Data next to them |
 
 These files are made for the design canvas. Opened on their own in a browser, they may not look right.
 

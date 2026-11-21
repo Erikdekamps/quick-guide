@@ -253,7 +253,7 @@
   function isDone(u) { return isRef(u) ? goalState(u, ctx()).done : !!u.done; }
   // Is everything under a goal or a sub task done, however deep?
   function allDone(p) { return (p.subs || []).every(function (u) { return isDone(u) && allDone(u); }); }
-  // A goal is finished when it is done with everything under it: it then goes to the list's Done part.
+  // A goal is finished when it is done with everything under it: its sub tasks then fold by themselves.
   // (A task ticked in its area with a sub task still open is done, but not finished.)
   function finished(g, s) { return !!s.done && allDone(g); }
   // Ticks or unticks one sub task (an area task in its area, a quest in the quest list, too).
