@@ -1,22 +1,76 @@
 name: Tests
 
-# Runs on a pull request, not again on main: main only takes pull requests whose tests passed.
+# Every pull request, one step after the other. A step starts only when the one before it passed, so a mistake stops
+# everything after it:
+#   Code check → Security check → Unit tests → App tests → Live wiki check (only when the wiki reader changed)
+# Not again on main: main only takes pull requests whose tests passed. Every Monday, security.yml and live.yml run the
+# security check and the live wiki check by themselves, because new problems show up without a change here.
 on:
   pull_request:
   workflow_dispatch:
-  schedule:
-    # Every Monday: check that the real wiki still reads well.
-    - cron: '23 5 * * 1'
 
 permissions:
   contents: read
 
+# A new push stops the run for the push before it.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  app:
-    name: App tests
-    if: github.event_name != 'schedule'
+  checks:
+    name: Code check
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
+    outputs:
+      reader: ${{ steps.reader.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The version check compares with the branch the pull request goes into.
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Code check
+        run: npm run lint
+      - name: Version check
+        env:
+          BASE: ${{ github.base_ref }}
+        run: npm run check:version -- "origin/${BASE:-main}"
+      - name: Did the wiki reader change?
+        id: reader
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          files="$(git diff --name-only "origin/${BASE:-main}...HEAD")"
+          if grep -qE '^(js/wiki/|tests/live\.spec\.js|tests/player\.live\.spec\.js|tests/support/|\.github/workflows/(tests|live)\.yml)' <<< "$files"; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  security:
+    name: Security check
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run security
+
+  unit:
+    name: Unit tests
+    needs: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -24,8 +78,36 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The app's files in Node, no browser needed: seconds.
+      - run: npm run test:unit
+
+  app:
+    name: App tests
+    needs: [checks, security, unit]
+    # It also starts when a step before it failed, only to fail at once: GitHub counts a skipped job as passed, so a
+    # pull request with a failed step could still look ready to merge.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Stop when a step before this one did not pass
+        if: ${{ needs.checks.result != 'success' || needs.security.result != 'success' || needs.unit.result != 'success' }}
+        env:
+          RESULTS: 'Code check: ${{ needs.checks.result }}, Security check: ${{ needs.security.result }}, Unit tests: ${{ needs.unit.result }}'
+        run: |
+          echo "::error::A step before this one did not pass ($RESULTS)."
+          exit 1
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: npm test
+      # Every test (the unit tests again, then the app in the browser), and which code they run: no new code that no
+      # test runs (tests/coverage.json).
+      - name: Tests and coverage
+        run: npm run coverage
       - uses: actions/upload-artifact@v7
         if: ${{ failure() }}
         with:
@@ -35,7 +117,9 @@ jobs:
 
   live:
     name: Live wiki check
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: [checks, app]
+    # Only when the pull request changes how the app reads the wiki.
+    if: ${{ needs.app.result == 'success' && needs.checks.outputs.reader == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

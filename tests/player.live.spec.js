@@ -2,12 +2,14 @@
 // The wiki passes on Jagex's quest and level data, and lets any web page read it.
 // Jagex's own servers may not answer a page on GitHub Pages: the app asks them after the wiki.
 const base = require('@playwright/test');
-const { ORIGIN, serveFile } = require('./support/app');
+const { ORIGIN, serveFile, watchErrors } = require('./support/app');
 
 const test = base.test.extend({
   context: async ({ context }, use) => {
+    const checkErrors = watchErrors(context);
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
     await use(context);
+    checkErrors();
   }
 });
 const { expect } = base;

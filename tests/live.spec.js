@@ -2,12 +2,14 @@
 // They need the internet. Run them with: npm run test:live
 // (GitHub runs them once a week. The normal tests use a fake wiki and never go online.)
 const base = require('@playwright/test');
-const { ORIGIN, serveFile } = require('./support/app');
+const { ORIGIN, serveFile, watchErrors } = require('./support/app');
 
 const test = base.test.extend({
   context: async ({ context }, use) => {
+    const checkErrors = watchErrors(context);
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
     await use(context);
+    checkErrors();
   }
 });
 const { expect } = base;
@@ -173,8 +175,9 @@ test('area tasks: the steps of a task are found on every area page', async ({ pa
     return { withSteps, tasks };
   });
   expect(n.tasks).toBeGreaterThan(500);
-  // numbered lists (about 20) and long tips (more than 250 letters) become steps; most tasks stay one line
-  expect(n.withSteps).toBeGreaterThan(20);
+  // A numbered list of two or more lines becomes the steps of a task (11 tasks in November 2026). A tip stays a tip,
+  // however long (since 1.29.0). Most tasks are one line.
+  expect(n.withSteps).toBeGreaterThan(5);
   expect(n.withSteps).toBeLessThan(n.tasks / 2);
 });
 

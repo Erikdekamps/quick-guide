@@ -33,30 +33,7 @@ test('a quest guide in the form a phone gets (parts wrapped in sections) reads t
   expect(phone).toEqual(desk);
 });
 
-test.describe('reading what you type', () => {
-  const cases = [
-    ['', { error: 'empty' }],
-    ['   ', { error: 'empty' }],
-    ["cook's assistant", { base: "Cook's assistant", title: "Cook's assistant/Quick guide" }],
-    ['While_Guthix_Sleeps', { base: 'While Guthix Sleeps', title: 'While Guthix Sleeps/Quick guide' }],
-    ['https://runescape.wiki/w/While_Guthix_Sleeps', { base: 'While Guthix Sleeps' }],
-    ['https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide', { base: 'While Guthix Sleeps', title: 'While Guthix Sleeps/Quick guide' }],
-    ['https://runescape.wiki/w/Cook%27s_Assistant', { base: "Cook's Assistant" }],
-    ['runescape.wiki/w/Dragon_Slayer', { base: 'Dragon Slayer' }],
-    ['www.runescape.wiki/w/Dragon_Slayer#Walkthrough', { base: 'Dragon Slayer' }],
-    ['https://runescape.wiki/index.php?title=Dragon_Slayer&action=view', { base: 'Dragon Slayer' }],
-    ['https://oldschool.runescape.wiki/w/Dragon_Slayer_I', { error: 'osrs' }],
-    ['https://example.com/w/Dragon_Slayer', { error: 'not-wiki' }],
-    ['https://runescape.wiki/', { error: 'no-page' }],
-    ['http://', { error: 'bad-link' }]
-  ];
-  for (const [input, want] of cases) {
-    test('"' + input + '"', async ({ page }) => {
-      const got = await page.evaluate((s) => window.QuickGuide.titleFromInput(s), input);
-      expect(got).toMatchObject(want);
-    });
-  }
-});
+// What you type, page addresses and names: tests/unit/wiki.spec.js (no browser needed).
 
 // A link with nothing to read in it is left out; a link whose text sits in other tags is kept.
 // (Tags are never taken out of HTML text with a pattern: the browser reads the HTML, so "<<b>b>" cannot slip through.)
@@ -69,21 +46,6 @@ test('links with no text are left out, links with text in tags are kept', async 
   // text that looks like tags is text: kept, and still escaped
   expect(h).toContain('&lt;&lt;b&gt;b&gt;</a>');
   expect(h).not.toContain('<<b>');
-});
-
-test('wiki page addresses', async ({ page }) => {
-  const urls = await page.evaluate(() => [
-    window.QuickGuide.pageUrl("Cook's Assistant"),
-    window.QuickGuide.pageUrl('While Guthix Sleeps/Quick guide'),
-    window.QuickGuide.pageUrl('Recipe for Disaster: Freeing King Awowogei'),
-    window.QuickGuide.pageUrl('Dragon Slayer', 'Part 1')
-  ]);
-  expect(urls).toEqual([
-    W + "Cook's_Assistant",
-    W + 'While_Guthix_Sleeps/Quick_guide',
-    W + 'Recipe_for_Disaster:_Freeing_King_Awowogei',
-    W + 'Dragon_Slayer#Part%201'
-  ]);
 });
 
 test.describe('a full quick guide', () => {
@@ -411,17 +373,6 @@ test.describe('the quest list', () => {
     expect(list).toHaveLength(11);
     expect(list[1]).toEqual({ name: "Cook's Assistant", page: "Cook's Assistant", members: false, length: 'Short', age: 'Fifth Age', difficulty: 'Novice', combat: '', qp: 1, series: '', release: '4 January 2001' });
     expect(list.find((x) => x.name === "'Phite Club").page).toBe("'Phite Club");
-  });
-
-  test('names match however they are written', async ({ page }) => {
-    const r = await page.evaluate(() => [
-      window.QuickGuideData.norm('The Restless Ghost'),
-      window.QuickGuideData.norm('Recipe for Disaster: Freeing King Awowogei'),
-      window.QuickGuideData.norm('Rocking Out (miniquest)'),
-      window.QuickGuideData.norm('Ernest & the Chicken'),
-      window.QuickGuide.normName('Rune Mysteries') === window.QuickGuide.normName('rune mysteries!')
-    ]);
-    expect(r).toEqual(['restless ghost', 'recipe for disaster freeing king awowogei', 'rocking out', 'ernest and the chicken', true]);
   });
 });
 

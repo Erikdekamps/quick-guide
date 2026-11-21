@@ -171,8 +171,9 @@ button goes to its list.
 - **Display:** **Theme** (Brown, like the game now, or Blue, like the game before) and **Text size** (12 to 40).
 - **Update from the wiki** (see below) brings in what is new: quests, tasks and achievements.
 - **Backup:** **Export state** and **Import state** (below).
-- **Delete everything** (at the very bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
+- **Delete everything** (near the bottom) deletes all your ticks, guides, areas, capes, lists, settings and your character.
   It takes two clicks, the second within 4 seconds.
+- At the very bottom: the app's version (see [Versions](#versions)).
 
 The **⋯** button in a quest or area puts it (or the tier) on one of your lists, refreshes it from the wiki, opens it on
 the wiki, or resets its progress. In a quest it also jumps to the next step. In a cape it refreshes, opens the wiki, or resets.
@@ -317,23 +318,68 @@ No other service is used.
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
+| `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)) |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
-| `.github/workflows/tests.yml` | Runs the tests on GitHub |
+| `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
+| `tests/coverage.json` | The code no test runs yet (see [Tests](#tests)) |
+| `eslint.config.js` | The code check: `npm run lint` |
+| `.github/workflows/tests.yml` | Every pull request, one check after the other: code check, security check, unit tests, app tests, live wiki check |
+| `.github/workflows/live.yml` | Checks the app against the real wiki every Monday |
+| `.github/workflows/deploy.yml` | Puts `main` on GitHub Pages, and makes a release of each new version |
+| `.github/pull_request_template.md` | The checklist of a pull request |
+| `CLAUDE.md` | The rules Claude follows when it works on the app |
 | `.github/workflows/security.yml`, `tools/security.js` | Checks for known security problems and newer versions |
 | `.github/dependabot.yml` | Asks Dependabot for a pull request when a newer version is out |
 | `designs/` | Design boards (in `designs/canvas/`) and screenshots of every screen |
 
-When you change a file, also raise the `?v=1.42.0` numbers in `index.html`. Alt1 keeps old copies of files otherwise.
+## Versions
+
+The app has one version number, like `1.43.0`. Settings shows it at the bottom. [CHANGELOG.md](CHANGELOG.md) says what
+changed in each version. The three numbers are MAJOR.MINOR.PATCH ([semantic versioning](https://semver.org/)):
+
+- **MAJOR** goes up when saved data or the export file changes so that old ones no longer work as before.
+- **MINOR** goes up for something new you can see or do.
+- **PATCH** goes up for a fix, or a change you do not see.
+
+Every change to the app (`index.html`, `style.css`, `js/`, `vendor/`) gets a new version, in the same pull request:
+
+1. Write what changed under `## [Unreleased]` in `CHANGELOG.md`.
+2. Run `npm run bump -- minor` (or `patch`, or `major`). It raises the number in `package.json` and in every `?v=`
+   in `index.html` (Alt1 keeps old copies of files otherwise), and puts your notes under the new number.
+
+GitHub checks this on every pull request (`npm run check:version -- origin/main` does the same on your computer).
+Once `main` is on GitHub Pages, GitHub makes a release of the new version, with a tag like `v1.43.0`
+(**Releases**, on the repo's page).
 
 ## Tests
 
 The tests use [Playwright](https://playwright.dev/) with Chromium, the browser Alt1 is built on. They open the app
 in a 360 × 720 window, like Alt1, and click through it like a person would.
 
-- They run on GitHub for every pull request (the **Actions** tab). `main` only takes pull requests whose tests passed,
-  and is then put on GitHub Pages.
+- **Unit tests** (`tests/unit/`) run the app's own files in Node, without a browser. All of them take a few
+  seconds, and they run first: the browser tests only start when they pass. They test what needs no page: what you
+  type, wiki text, ids, how the app asks the wiki, what Update from the wiki reads again. Code that needs a page
+  says so ("needs a browser"), and is tested in the browser.
+- The other tests open the app in the browser.
+- On GitHub, every pull request runs its checks one after the other (`.github/workflows/tests.yml`). Each one starts
+  only when the one before it passed, so a mistake stops everything after it:
+  1. **Code check**: `npm run lint`, and the version check.
+  2. **Security check**: `npm run security` (see below).
+  3. **Unit tests**: `npm run test:unit`.
+  4. **App tests**: the browser tests, and the coverage check.
+  5. **Live wiki check**: only when the pull request changes how the app reads the wiki.
+
+  `main` only takes pull requests whose checks passed, and is then put on GitHub Pages. (CodeQL, GitHub's own code
+  scan, runs next to them: GitHub starts it by itself.)
 - They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
-- Once a week, GitHub also checks the app against the real wiki (**Actions → Tests → Run workflow** starts it by hand).
+- An error in the page that nobody catches fails the test, in every test.
+- New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
+  that no test runs (a part of an `if`, a fallback, a function), in the unit tests or in the browser.
+  `tests/coverage.json` lists the code no test runs yet.
+- `tests/unit/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
+  file takes from another one is shared, and every saved key is in the table above.
+- GitHub checks the app against the real wiki once a week, and on a pull request that changes how the app reads
+  the wiki (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 
@@ -343,8 +389,12 @@ npx playwright install chromium
 npm test
 ```
 
+- `npm run test:unit` runs only the unit tests: a few seconds, no browser needed.
+- `npm run lint` is the code check: names that are not defined or not used, and other mistakes.
 - `npm run test:live` checks against the real wiki (needs the internet).
-- `npm run coverage` runs the tests and shows how much of each file they run.
+- `npm run coverage` runs the tests and shows how much of each file they run. It fails when there is code no test runs
+  that `tests/coverage.json` does not list. When a file has less of it, `npm run coverage -- --update` saves that.
+- `npm run bump -- patch|minor|major` and `npm run check:version` (see [Versions](#versions)).
 - `npm run security` checks for known security problems and newer versions (see below).
 - `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
 
@@ -353,8 +403,8 @@ npm test
 The app itself has no npm packages: it runs as plain files in the browser. It uses Leaflet (a copy in
 `vendor/leaflet/`), and the tests use Playwright (an npm package).
 
-- **Security check** (`.github/workflows/security.yml`): on every pull request, every push to `main`, and every
-  Monday. It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
+- **Security check**: on every pull request (after the code check, see [Tests](#tests)), and every Monday
+  (`.github/workflows/security.yml`). It fails when a known high or critical security problem affects Playwright or the Leaflet copy, and then
   you update. Lower-rated problems and newer versions show as notes on the run and in its summary.
   Run it yourself with `npm run security`.
 - **Dependabot** (`.github/dependabot.yml`): every Monday it opens a pull request for a newer Playwright or a newer

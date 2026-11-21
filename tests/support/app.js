@@ -185,11 +185,26 @@ class Wiki {
   }
 }
 
+// Every error the app throws in a browser context that nobody catches (also a promise that fails and nobody handles).
+// The function it returns fails the test with them, except the ones a test allows.
+function watchErrors(context) {
+  const thrown = [];
+  context.on('weberror', (e) => thrown.push(e.error().message));
+  return (allowed = []) => {
+    const left = thrown.filter((m) => !allowed.some((re) => re.test(m)));
+    if (left.length) throw new Error('The app threw an error nobody caught:\n  ' + left.join('\n  '));
+  };
+}
+
 const test = base.test.extend({
   wiki: async ({}, use) => { await use(new Wiki().standard()); },
   // Map tile requests, so a test can check them.
   tiles: async ({}, use) => { await use([]); },
-  context: async ({ context, wiki, tiles }, use) => {
+  // Errors the app may throw in a test: none. An error nobody catches (or a promise that fails and nobody handles)
+  // fails the test, in every test, on every page. A test that wants one says which: test.use({ pageErrors: [/text/] }).
+  pageErrors: [[], { option: true }],
+  context: async ({ context, wiki, tiles, pageErrors }, use) => {
+    const checkErrors = watchErrors(context);
     // Routes run newest first, so this catch-all only gets what nothing else handles.
     await context.route(/^https?:\/\//, (route) => route.abort('blockedbyclient'));
     await context.route(/^https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) => route.fulfill({ body: '', contentType: 'text/css' }));
@@ -199,6 +214,7 @@ const test = base.test.extend({
     await context.route(/^https:\/\/secure\.runescape\.com\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
     await use(context);
+    checkErrors(pageErrors);
   },
   page: async ({ page }, use, info) => {
     page.errors = [];
@@ -365,4 +381,4 @@ const row = (page, name) => page.locator('.q[data-quest="' + name + '"]');
 const names = (page) => page.locator('.q .q1 b');
 const groups = (page) => page.locator('.ghb .n');
 
-module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain };
+module.exports = { test, expect: base.expect, ORIGIN, ROOT, fixture, serveFile, watchErrors, seed, stored, storedKeys, openApp, openQuest, openTab, openSettings, closeSettings, choose, toggle, lookUp, areaPage, withAllAreas, withCapes, AREAS, step, item, part, row, names, groups, parsedQuest, plain };

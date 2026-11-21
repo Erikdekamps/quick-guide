@@ -1,6 +1,6 @@
 // Player lookup: type your character name, and the app marks the quests you have done
 // and shows which skill levels you still miss. The data comes through the RuneScape Wiki.
-const { test, expect, seed, stored, openApp, openQuest, part, lookUp, openSettings, closeSettings, row } = require('./support/app');
+const { test, expect, seed, stored, openApp, openQuest, lookUp, openSettings, closeSettings, row } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const ov = (page, id) => page.locator('section[data-ov="' + id + '"] .secb');

@@ -1,16 +1,25 @@
 {
   "name": "quick-guide",
   "private": true,
+  "version": "1.43.0",
   "description": "RuneScape Wiki quest quick guides, capes and Area Tasks as a tick list, made for the Alt1 browser.",
   "license": "GPL-3.0-only",
   "scripts": {
     "test": "playwright test --project=app",
+    "test:unit": "playwright test --project=unit",
     "test:live": "playwright test --project=live",
-    "coverage": "QG_COVERAGE=coverage playwright test --project=app && node tests/support/coverage.js coverage",
+    "lint": "eslint .",
+    "check:version": "node tools/version.js check",
+    "coverage": "rm -rf coverage && QG_COVERAGE=coverage playwright test --project=app && node tests/support/coverage.js coverage",
     "icon": "node tools/icon.js",
-    "security": "node tools/security.js"
+    "security": "node tools/security.js",
+    "bump": "node tools/version.js bump"
   },
   "devDependencies": {
-    "@playwright/test": "1.65.0"
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.0",
+    "eslint": "10.15.0",
+    "espree": "11.2.0",
+    "globals": "17.14.0"
   }
 }

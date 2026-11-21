@@ -1,0 +1,33 @@
+name: Live wiki check
+
+# The app against the real RuneScape Wiki: every Monday, and by hand (Actions → Live wiki check → Run workflow).
+# On a pull request that changes how the app reads the wiki, it runs in tests.yml, after the app tests.
+# When it fails, the wiki changed, or the reader did.
+on:
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    name: Live wiki check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:live
+      - uses: actions/upload-artifact@v7
+        if: ${{ failure() }}
+        with:
+          name: playwright-report-live
+          path: playwright-report/
+          retention-days: 14

@@ -1,6 +1,7 @@
 name: Deploy
 
-# Puts main on GitHub Pages. The tests ran on the pull request already, so they do not run again here.
+# Puts main on GitHub Pages, then makes a release of a new version. The tests ran on the pull request already, so
+# they do not run again here.
 # In the repo settings, Pages must use "GitHub Actions" as its source.
 on:
   push:
@@ -33,3 +34,24 @@ jobs:
           path: .
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Once a version is on Pages: a tag (v1.43.0) and a GitHub release with what CHANGELOG.md says about it.
+  # Only the first time: a deploy of the same version again (a change to the docs) skips it.
+  release:
+    name: Release
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - name: Tag and release the version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          v="$(node -p "require('./package.json').version")"
+          if gh release view "v$v" > /dev/null 2>&1; then echo "v$v is out already."; exit 0; fi
+          node tools/version.js notes "$v" > "$RUNNER_TEMP/notes.md"
+          gh release create "v$v" --target "$GITHUB_SHA" --title "Quick Guide $v" --notes-file "$RUNNER_TEMP/notes.md"

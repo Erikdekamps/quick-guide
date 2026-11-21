@@ -1,5 +1,5 @@
 // The quest screen: title band, progress, tabs, the two menus, text size, refresh and reset.
-const { test, expect, fixture, seed, stored, openApp, openQuest, openTab, step, item, parsedQuest } = require('./support/app');
+const { test, expect, fixture, seed, stored, openQuest, openTab, step, item, parsedQuest } = require('./support/app');
 
 const WGS = 'While Guthix Sleeps/Quick guide';
 const toast = (page) => page.locator('#toast');
