@@ -59,6 +59,26 @@ test.describe('the test setup', () => {
   });
 });
 
+test.describe('the code check', () => {
+  // How eslint.config.js finds the scripts written in an HTML file itself.
+  const { preprocess } = require('../../eslint.config.js').find((c) => c.processor).processor;
+
+  test('it checks the script in an HTML file, on its own lines, in any case; not one it loads with src', () => {
+    const html = '<p>a</p>\n<script>\nvar a = 1;\n</script>\n<SCRIPT type="text/javascript">b();</SCRIPT >\n' +
+      '<script src="x.js"></script>\n<Script SRC="y.js"></Script>\n<script>  </script>\n';
+    expect(preprocess(html)).toEqual([
+      { text: '\n\nvar a = 1;\n', filename: '0.js' },
+      { text: '\n\n\n\nb();', filename: '1.js' }
+    ]);
+  });
+
+  test('index.html has one script of its own, and it is checked', () => {
+    const found = preprocess(html);
+    expect(found).toHaveLength(1);
+    expect(found[0].text).toContain("window.addEventListener('error'");
+  });
+});
+
 test.describe('the files', () => {
   test('index.html loads every file in js/: the wiki reader first, then core.js, and main.js last', () => {
     expect([...scripts].sort()).toEqual([...onDisk('js/wiki'), ...onDisk('js/app')].sort());

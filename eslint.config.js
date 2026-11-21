@@ -32,8 +32,9 @@ const rules = {
 const inlineScripts = {
   preprocess(text) {
     const out = [];
-    for (const m of text.matchAll(/<script(\s[^>]*)?>([\s\S]*?)<\/script>/g)) {
-      if (/\ssrc\s*=/.test(m[1] || '') || !m[2].trim()) continue;
+    // <script> and </script> in any case, and an end tag with spaces or more after its name (</script >).
+    for (const m of text.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi)) {
+      if (/\ssrc\s*=/i.test(m[1]) || !m[2].trim()) continue;
       const before = text.slice(0, m.index + m[0].indexOf('>') + 1);
       out.push({ text: before.replace(/[^\n]/g, '') + m[2], filename: out.length + '.js' });
     }
