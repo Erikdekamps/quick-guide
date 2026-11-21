@@ -310,3 +310,14 @@ test.describe('a cape is read once', () => {
     expect(app.reads).toBe(1);
   });
 });
+
+test.describe('My list: a link to the wiki', () => {
+  test('a goal with no name the wiki could have ("#1", "x") is not asked about, and has no link', () => {
+    const app = load({
+      fetch: () => { throw new Error('asked the wiki'); },
+      storage: { todo: { v: 1, lists: [{ id: 'l1', name: 'Today', items: [{ id: 'g1', at: 1, kind: 'other', title: '#1' }, { id: 'g2', at: 2, kind: 'other', title: 'x' }] }] } }
+    });
+    app.A.T.lookUpWiki();
+    expect(app.storage.saved('todo').lists[0].items.map((g) => g.wiki)).toEqual(['', '']);
+  });
+});
