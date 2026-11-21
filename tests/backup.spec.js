@@ -353,7 +353,8 @@ test.describe('import', () => {
     ['{ nope', 'That is not valid JSON'],
     ['[1, 2]', 'That is not a Quick Guide export.'],
     ['{"a": 1}', 'That is not a Quick Guide export.'],
-    ['{"app": "Quick Guide", "format": 3}', 'This export is from a newer version of the app.']
+    ['{"app": "Quick Guide", "format": 3}', 'This export is from a newer version of the app.'],
+    ['{"app":"Quick Guide","format":2,"settings":{"fontSize":20},"mylist":{"Today":["Vis wax"]}}', 'There is a mistake in the lists. mylist \u2192 "Today" must look like { "a goal": true }.']
   ];
   for (const [text, message] of bad) {
     test('says what is wrong with "' + text.slice(0, 20) + '", and changes nothing', async ({ page }) => {

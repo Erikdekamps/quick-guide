@@ -11,7 +11,7 @@
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questMark = A.questMark, renderStart = A.renderStart, rowHtml = A.rowHtml, S = A.S, saveSettings = A.saveSettings,
     sget = A.sget, skillHtml = A.skillHtml, sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml,
-    textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml;
+    showSaved = A.showSaved, stillWanted = A.stillWanted, textOf = A.textOf, toast = A.toast, toastHtml = A.toastHtml, waitFor = A.waitFor;
 
   // ---------- Area Tasks: saved areas and the task index ----------
   function ametaAll() { var m = sget('ameta'); return m && typeof m === 'object' && !Array.isArray(m) ? m : {}; }
@@ -255,18 +255,20 @@
     var a = sget('area.' + name);
     // A saved area opens at once. One saved with another AREA_VERSION is read again quietly; if that fails, the saved one stays.
     if (a && Array.isArray(a.tiers) && a.tiers.length) {
-      showArea(name, a, tier);
-      if (a.version !== QG.AREA_VERSION) refreshArea(true);
+      if (showSaved('area.' + name, function () { showArea(name, a, tier); }) && a.version !== QG.AREA_VERSION) refreshArea(true);
       return;
     }
-    S.loading = name;
+    var mine = waitFor(name);
     renderStart();
     QG.loadArea(name).then(function (na) {
+      sset('area.' + name, na);
+      // You went on to another screen: the area is saved, and opens at once when you ask for it again.
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.input = '';
-      sset('area.' + name, na);
-      showArea(name, na, tier);
+      showSaved('area.' + name, function () { showArea(name, na, tier); });
     }, function (e) {
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.error = loadError(e);
       renderStart();

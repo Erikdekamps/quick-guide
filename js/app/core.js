@@ -33,7 +33,8 @@
  *   cprog.<key>     your ticks in that cape: { ticks: {id: 1}, tab, open }
  *   view            what is on screen, kept across a reload: { input, closed, scroll } (see "the view")
  *   todo            My list: { v, last, lists: [{ id, name, items: [goals] }] } (see todo-data.js)
- * When the storage is full, the guides that were opened longest ago are dropped (ticks and lists are kept).
+ * When the storage is full, the guides that were opened longest ago are dropped, then the areas (ticks and lists
+ * are kept). When there is still no room, the app says that the change is not saved.
  */
 (function () {
   'use strict';
@@ -70,10 +71,14 @@
 
   // ---------- storage (falls back to memory if the browser blocks it) ----------
   var memory = {};
+  // Keys whose last write did not fit, and if the app said so a moment ago.
+  var unsaved = {}, fullTold = false;
+  var FULL_STORAGE = 'The storage is full: your last change is not saved. Use Export state in Settings to keep it.';
   var S = null;
   function sget(k) {
     try {
-      var v = window.localStorage.getItem(PREFIX + k);
+      // What could not be written (storage is full) is newer than what the storage still holds.
+      var v = unsaved[k] ? null : window.localStorage.getItem(PREFIX + k);
       if (v != null) return JSON.parse(v);
     } catch (e) { /* blocked or broken */ }
     return Object.prototype.hasOwnProperty.call(memory, k) ? memory[k] : null;
@@ -108,15 +113,32 @@
       return true;
     } catch (e) { return false; }
   }
+  // Saves a value. When the storage is full it drops old guides to make room. False when it still did not fit: the
+  // value is then only kept until the app closes, and the app says so.
   function sset(k, v) {
     memory[k] = v;
-    var s = JSON.stringify(v);
+    var s = JSON.stringify(v), full = false;
     for (var tries = 0; tries < 40; tries++) {
-      try { window.localStorage.setItem(PREFIX + k, s); return; } catch (e) { if (!evict(k)) return; }
+      try { window.localStorage.setItem(PREFIX + k, s); delete unsaved[k]; return true; } catch (e) {
+        full = isFull(e);
+        if (!evict(k)) break;
+      }
     }
+    // Blocked storage (not full) is not said: nothing is ever kept then.
+    if (full) { unsaved[k] = 1; tellFull(); }
+    return false;
+  }
+  function isFull(e) { return !!e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22); }
+  // Says that the last change was not saved: after the screen is drawn, and not again for every tick.
+  function tellFull() {
+    if (fullTold) return;
+    fullTold = true;
+    setTimeout(function () { toast(FULL_STORAGE, 8000); }, 0);
+    setTimeout(function () { fullTold = false; }, 8000);
   }
   function sdel(k) {
     delete memory[k];
+    delete unsaved[k];
     try { window.localStorage.removeItem(PREFIX + k); } catch (e) { /* ignore */ }
   }
 
@@ -217,7 +239,7 @@
   var savedOrder = sget('order');
   var savedMinis = sget('minis');
   var savedPlayer = sget('player');
-  if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || typeof savedPlayer.quests !== 'object') savedPlayer = null;
+  if (!savedPlayer || typeof savedPlayer !== 'object' || !savedPlayer.name || !savedPlayer.quests || typeof savedPlayer.quests !== 'object') savedPlayer = null;
   S = {
     view: 'start',
     q: null,          // the quest JSON
@@ -252,6 +274,7 @@
     maps: [],         // map data for the map boxes on screen
     live: [],         // Leaflet maps that are running
     loading: false,
+    wanted: 0,        // the number of the read that may open a screen when it is done (see waitFor)
     error: '',
     input: typeof savedView.input === 'string' ? savedView.input : '',   // the search text on the start screen
     scroll: obj(savedView.scroll),   // where #main is scrolled, per place (see place())
@@ -649,8 +672,30 @@
     else renderStart();
     saveView(true);
   }
+  // ---------- a read that opens a screen, and a saved page that cannot be shown ----------
+  // A quest, an area or a cape that is read from the wiki opens when the answer is there. Only when you still wait
+  // for it: a button of the bar at the bottom means you went on, and the answer is then only saved.
+  // waitFor gives the read its number; stillWanted says if its answer may open the screen.
+  function waitFor(name) { S.loading = name; return ++S.wanted; }
+  function stillWanted(n) { return S.wanted === n; }
+  function stopWaiting() { S.wanted++; S.loading = false; }
+  // Shows a saved guide, area or cape. When it cannot be drawn (what was saved is broken), the saved page is dropped
+  // and the list says so: it is read from the wiki again when you open it, and your ticks stay. False when it failed.
+  function showSaved(key, draw) {
+    try { draw(); return true; } catch (e) {
+      // The mistake still shows in the browser's console (and fails a test that did not expect it).
+      setTimeout(function () { throw e; }, 0);
+      sdel(key);
+      sdel('last');
+      S.loading = false;
+      S.error = 'What was saved of that page could not be shown. Open it again: it is read from the wiki.';
+      renderStart();
+      return false;
+    }
+  }
   // A button of the bar at the bottom. From Settings, the button of the screen you came from takes you back to it.
   function goHome(h) {
+    stopWaiting();
     if (h === 'settings') { if (S.view !== 'settings') openSettings(); return; }
     if (S.view === 'settings' && S.back && S.back.home === h) { leaveSettings(); return; }
     A.setHome(h);
@@ -918,6 +963,7 @@
       keys.forEach(function (k) { ls.removeItem(k); });
     } catch (e) { /* blocked: only memory to clear */ }
     Object.keys(memory).forEach(function (k) { delete memory[k]; });
+    unsaved = {};
     S.set = readSettings();
     S.player = null; S.playerMsg = ''; S.playerInput = '';
     S.list = null; S.minis = null; S.order = null; S.ranks = null; S.qdone = null;
@@ -939,7 +985,8 @@
     imageAcc: imageAcc, imgHtml: imgHtml, liHtml: liHtml, loadProg: loadProg, lookUpPlayer: lookUpPlayer,
     mapAcc: mapAcc, markedDone: markedDone, memory: memory, metaAll: metaAll, note: note, pick: pick,
     playerLevel: playerLevel, playerLocked: playerLocked, playerStatus: playerStatus, plural: plural,
-    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,     resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
+    questBtn: questBtn, questLinks: questLinks, questMark: questMark, remember: remember, renderStart: renderStart,
+    showSaved: showSaved, stillWanted: stillWanted, stopWaiting: stopWaiting, waitFor: waitFor, resetClick: resetClick, resizeMaps: resizeMaps, restoreAcc: restoreAcc, rowHtml: rowHtml, saveProg: saveProg,
     saveSettings: saveSettings, sdel: sdel, setFont: setFont, setMarked: setMarked, sget: sget, skillHtml: skillHtml,
     smooth: smooth, sortKey: sortKey, sset: sset, startMaps: startMaps, storeQuest: storeQuest, tableAcc: tableAcc,
     textOf: textOf, toast: toast,

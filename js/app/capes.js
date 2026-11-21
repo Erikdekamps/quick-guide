@@ -11,7 +11,8 @@
     partHtml = A.partHtml, playerLevel = A.playerLevel, playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG,
     questBtn = A.questBtn, questMark = A.questMark,
     renderStart = A.renderStart, restoreScroll = A.restoreScroll, rowHtml = A.rowHtml, S = A.S, sget = A.sget, skillHtml = A.skillHtml,
-    sset = A.sset, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml;
+    showSaved = A.showSaved, sset = A.sset, stillWanted = A.stillWanted, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml, tabsHtml = A.tabsHtml, toast = A.toast,
+    toastHtml = A.toastHtml, waitFor = A.waitFor;
 
   // ---------- saved capes and your ticks ----------
   function capeInfo(key) { return QG.CAPES.filter(function (c) { return c.key === key; })[0]; }
@@ -165,18 +166,20 @@
     var c = savedCape(key);
     // A saved cape opens at once. One saved with another CAPE_VERSION is read again quietly; if that fails, the saved one stays.
     if (c) {
-      showCape(key, c);
-      if (c.version !== QG.CAPE_VERSION) refreshCape(true);
+      if (showSaved('cape.' + key, function () { showCape(key, c); }) && c.version !== QG.CAPE_VERSION) refreshCape(true);
       return;
     }
-    S.loading = info.name;
+    var mine = waitFor(info.name);
     renderStart();
     QG.loadCape(key).then(function (nc) {
+      sset('cape.' + key, nc);
+      // You went on to another screen: the cape is saved, and opens at once when you ask for it again.
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.input = '';
-      sset('cape.' + key, nc);
-      showCape(key, nc);
+      showSaved('cape.' + key, function () { showCape(key, nc); });
     }, function (e) {
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.error = loadError(e);
       renderStart();

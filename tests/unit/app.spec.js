@@ -53,6 +53,95 @@ test.describe('My list: what you type', () => {
   });
 });
 
+test.describe('My list: names that every object has ("constructor", "__proto__")', () => {
+  test('they are no skill: "82 constructor" is a goal as you typed it', () => {
+    expect(A.T.skillKey('constructor')).toBe('');
+    expect(A.T.parseGoal('82 constructor')).toEqual({ kind: 'other', title: '82 constructor' });
+    expect(A.T.parseGoal('constructor 5')).toEqual({ kind: 'other', title: 'Constructor 5' });
+    expect(A.T.cleanGoal({ kind: 'constructor', title: 'x' })).toBeNull();
+  });
+  test('a list may have such a name: it is kept, and it is in the file', () => {
+    const lists = [{ id: 'l1', name: 'Constructor', items: [{ kind: 'other', title: 'Vis wax' }] }, { id: 'l2', name: '__proto__', items: [{ kind: 'other', title: 'Buy a cape' }] }];
+    expect(A.T.cleanTodo({ lists }).lists.map((l) => l.name)).toEqual(['Constructor', '__proto__']);
+    const app = load({ storage: { todo: { v: 1, lists } } });
+    const file = JSON.parse(JSON.stringify(app.A.exportTodo()));
+    expect(Object.keys(file)).toEqual(['Constructor', '__proto__']);
+    expect(file.__proto__).toEqual({ 'Buy a cape': false });
+    // and it comes back
+    expect(app.A.todoFileError(file)).toBe('');
+    expect(app.A.importTodo(file)).toBe(2);
+    expect(app.storage.saved('todo').lists.map((l) => l.name)).toEqual(['Constructor', '__proto__']);
+  });
+});
+
+test.describe('My list: a task that is ticked in its area', () => {
+  const task = () => ({ id: 'g1', at: 1, kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!', subs: [{ id: 's1', title: 'Buy a lockpick' }] });
+  const start = (goal) => load({ storage: { todo: { v: 1, lists: [{ id: 'l1', name: 'Today', items: [goal] }] }, 'aprog.Ardougne': { tasks: { 448: 1 } } } });
+  test('showing the lists, or an export, leaves it ticked there, with a sub task still open', () => {
+    const app = start(task());
+    app.A.T.settleAll();
+    expect(app.storage.saved('aprog.Ardougne').tasks).toEqual({ 448: 1 });
+    expect(app.A.exportTodo()).toEqual({ Today: { 'Task 448: Yoink! (Ardougne Easy)': { done: true, subs: { 'Buy a lockpick': false } } } });
+    expect(app.storage.saved('aprog.Ardougne').tasks).toEqual({ 448: 1 });
+  });
+  test('so does ticking one of its sub tasks; opening one unticks it', () => {
+    const app = start(Object.assign(task(), { subs: [{ id: 's1', title: 'Buy a lockpick', done: 1 }, { id: 's2', title: 'Go to Ardougne' }] }));
+    const g = app.A.T.todo().lists[0].items[0];
+    app.A.T.settleGoal(g, true);
+    expect(app.storage.saved('aprog.Ardougne').tasks).toEqual({ 448: 1 });
+    delete g.subs[0].done;
+    app.A.T.settleGoal(g, false);
+    expect(app.storage.saved('aprog.Ardougne').tasks).toEqual({});
+  });
+  test('the same deeper down: a task under a goal, with its own sub task open', () => {
+    const app = start({ id: 'g1', at: 1, kind: 'other', title: 'Diary', subs: [Object.assign(task(), { id: 's0' })] });
+    app.A.T.settleAll();
+    expect(app.storage.saved('aprog.Ardougne').tasks).toEqual({ 448: 1 });
+  });
+});
+
+test.describe('Import: the lists of a file are checked before anything changes', () => {
+  const bad = [
+    [['Vis wax'], '"mylist" must look like { "a list": { "a goal": true } }.'],
+    [{ Today: ['Vis wax'] }, 'mylist \u2192 "Today" must look like { "a goal": true }.'],
+    [{ Today: { 'Vis wax': ['x'] } }, 'mylist \u2192 "Today" \u2192 "Vis wax" must be true or false, or { "done": true, "subs": { \u2026 } }.'],
+    [{ Today: { 'Vis wax': { subs: ['x'] } } }, 'mylist \u2192 "Today" \u2192 "Vis wax": its "subs" must look like { "a sub task": true }.'],
+    [{ Today: { 'Vis wax': { subs: { Buy: { subs: { Sell: [] } } } } } }, 'mylist \u2192 "Today" \u2192 "Vis wax" \u2192 "Buy" \u2192 "Sell" must be true or false, or { "done": true, "subs": { \u2026 } }.']
+  ];
+  for (const [lists, says] of bad) {
+    test(JSON.stringify(lists), () => { expect(A.todoFileError(lists)).toBe(says); });
+  }
+  test('what the app writes itself is fine', () => {
+    expect(A.todoFileError({ Today: { 'Vis wax': true, '500 Magic logs': '320 / 500', Old: null, Hatchet: { done: false, note: 'n', subs: { Crystal: true, Deep: { done: false, subs: { Deeper: false } } } } }, Empty: {} })).toBe('');
+  });
+});
+
+test.describe('storage that is full', () => {
+  test('a change that does not fit is kept until the app closes, and sset says it did not fit', () => {
+    const app = load({ storage: { todo: { v: 1, lists: [] } } });
+    const set = app.storage.setItem;
+    let full = true;
+    app.storage.setItem = (k, v) => {
+      if (full && k === 'qg1.note') throw Object.assign(new Error('Full'), { name: 'QuotaExceededError' });
+      set(k, v);
+    };
+    expect(app.A.sset('note', { n: 1 })).toBe(false);
+    expect(app.A.sget('note')).toEqual({ n: 1 });
+    // an older value in the storage does not win from the one that did not fit
+    full = false;
+    expect(app.A.sset('note', { n: 2 })).toBe(true);
+    full = true;
+    expect(app.A.sset('note', { n: 3 })).toBe(false);
+    expect(app.storage.saved('note')).toEqual({ n: 2 });
+    expect(app.A.sget('note')).toEqual({ n: 3 });
+    // room again: it is saved, and read from the storage again
+    full = false;
+    expect(app.A.sset('note', { n: 4 })).toBe(true);
+    expect(app.storage.saved('note')).toEqual({ n: 4 });
+    expect(app.A.sget('note')).toEqual({ n: 4 });
+  });
+});
+
 test.describe('My list: a pasted list', () => {
   test('bullets, numbers, tick boxes, and a line further in is under the one above', () => {
     const r = A.T.parseOutline('1. 82 thieving\n- [x] Quest: Cook\'s Assistant\n  * Buy an egg\n    + [ ] Find a cow\n• thieving 90\n\n', 10);
@@ -104,6 +193,13 @@ test.describe('Update from the wiki: what to read again', () => {
     expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { rev: 6 } })).toBe(true);
     expect(A.pageChanged(cape, { 'Master quest cape': page })).toBe(true);
     expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { missing: true } })).toBe(false);
+  });
+
+  test('a cape whose levels page could not be read last time is read again', () => {
+    const cape = { kind: 'cape', title: 'C', old: { fetchedAt: '2026-11-20T10:00:00Z', partial: true, cheevos: [] } };
+    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(true);
+    delete cape.old.partial;
+    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(false);
   });
 
   test('the wiki did not say: read it; the page is gone: keep what we have', () => {

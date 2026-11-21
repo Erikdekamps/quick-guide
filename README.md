@@ -29,7 +29,8 @@ Wiki links open in your normal browser, so the app stays on the guide.
   Type to search; **Enter** opens the best match.
 - Sort by name, **optimal order** (the wiki's [progression guide](https://runescape.wiki/w/Quests/Progression_guide)),
   difficulty, length, series or newest. Click a group name to fold it.
-- Click a quest. Its guide is read from the wiki once, then kept on your computer. The title band on top holds the
+- Click a quest. Its guide is read from the wiki once, then kept on your computer. (While it is read, a button of
+  the bar at the bottom takes you on: the guide is still saved, and opens at once the next time.) The title band on top holds the
   back button (to all quests), the quest's name and its **⋯** menu (with **Jump to next step**). A thin gold line
   under it shows how far you are. It has three tabs, each with its count under the name:
   - **Overview:** details, the quest tree, skills, enemies and rewards.
@@ -148,7 +149,8 @@ under its area, in the game's order.
 - **Sub tasks:** a goal's ⋯ → **Add sub task** opens a box under it: type one, press Enter, and type the next
   (Esc or × closes the box). A sub task can have its own sub tasks, four deep, at most 20 in one place: "Hatchet
   of bloom and blight" needs a "Hatchet of ember and glade", which needs a "Crystal hatchet".
-  Each is done when all under it are; ticking one ticks all under it.
+  Each is done when all under it are; ticking one ticks all under it. A quest, a task or an achievement you ticked
+  in its own screen stays ticked, also with a sub task still open; opening a sub task again opens it too.
 - **Edit** (of a goal or a sub task) also has its **list** and its **parent**: pick another goal or sub task to
   move it under, or None to make it a goal of the list. A sub task can have a note too.
 - A sub task's **⋯**: edit, add a sub task, move it up or down, move it out a level (at the top: make it a goal),
@@ -243,7 +245,7 @@ In `mylist`, each goal is a line, written the way you type it in the add box: `"
 - Steps are only listed for quests you opened; the others are one line.
 - Import replaces the ticks of the quests, areas and capes in the file and leaves the others alone.
   A file with `mylist` replaces your lists; a file without it leaves them alone.
-  If a file has a mistake, it says what is wrong and changes nothing. Files from the first version still import.
+  If a file has a mistake (in its lists too), it says what is wrong and changes nothing. Files from the first version still import.
 
 ## What is saved
 
@@ -265,8 +267,12 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
 
-Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped (your ticks stay)
-and read from the wiki again when you open them.
+Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped, then the areas (your
+ticks stay), and read from the wiki again when you open them. When there is still no room, the app says that your last
+change is not saved: it is kept until you close the app, so **Export state** still has it.
+
+A saved guide, area or cape that cannot be shown (it is broken) is dropped, and the list says so. It is read from the
+wiki again when you open it; your ticks stay.
 
 ## How it reads the wiki
 
@@ -294,6 +300,10 @@ and read from the wiki again when you open them.
 - Update from the wiki asks when pages last changed, 50 at a time, without reading them, for example
   `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
   Each saved guide, area and cape keeps the revision it was read from.
+
+- When the wiki says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, these questions
+  are asked once more: after as long as the wiki asks (at most 5 seconds), else after a second. What an update still
+  cannot read is kept as it was saved, and read again at the next update.
 
 No other service is used.
 

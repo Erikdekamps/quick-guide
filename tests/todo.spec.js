@@ -890,7 +890,10 @@ test.describe('a link to the wiki', () => {
     wiki.exists('Crystal hatchet');
     wiki.lookupFail = true;
     await openList(page, lists({ Gear: [{ kind: 'other', title: 'Crystal hatchet' }] }));
-    await expect.poll(() => wiki.lookups.length).toBe(1);
+    // it asks once more, a second later, and then leaves it
+    await expect.poll(() => wiki.lookups.length).toBe(2);
+    await page.evaluate(() => new Promise((done) => { setTimeout(done, 50); }));
+    expect(wiki.lookups.length).toBe(2);
     await goalMenu(page, 'Crystal hatchet');
     await expect(link(page)).toHaveCount(0);
     await page.keyboard.press('Escape');
@@ -1376,5 +1379,20 @@ test.describe('export and import', () => {
     expect(await saved(page)).toEqual({ Week: ['skill:96 herblore', 'other:1,000 yew logs', 'other:Unlock: overloads', 'other:Do the dishes', 'other:Penguins (every week)', 'other:Bank (monthly)'] });
     const t = await stored(page, 'todo');
     expect(t.lists[0].items.map((x) => [x.done ? 1 : 0, x.repeat || ''])).toEqual([[0, ''], [0, ''], [1, ''], [0, ''], [0, ''], [0, '']]);
+  });
+
+  test('a file with a mistake in its lists says so, and your lists stay', async ({ page }) => {
+    await openList(page, lists({ Mine: [{ kind: 'other', title: 'Keep me' }] }));
+    await importText(page, JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Today: ['Vis wax'] } }));
+    await expect(page.locator('#bk-err')).toHaveText('There is a mistake in the lists. mylist \u2192 "Today" must look like { "a goal": true }.');
+    expect(await saved(page)).toEqual({ Mine: ['other:Keep me'] });
+    // a list or a goal with a name every object has is a name like any other
+    await page.locator('#bk-text').fill(JSON.stringify({ app: 'Quick Guide', format: 2, mylist: { Constructor: { '82 constructor': false } } }));
+    await page.getByRole('button', { name: 'Import', exact: true }).click();
+    await page.locator('.bn[data-home="todo"]').click();
+    await page.reload();
+    await expect(names(page)).toHaveText(['Constructor']);
+    await expect(goals(page, 'Constructor').locator('.t')).toHaveText(['82 constructor']);
+    expect(page.errors).toEqual([]);
   });
 });

@@ -37,6 +37,10 @@
 
   // ---------- helpers ----------
   function isMap(v) { return !!v && typeof v === 'object' && !Array.isArray(v); }
+  // Is k a name of o's own? ("constructor" and "__proto__" are names of every object, but not its own.)
+  function has(o, k) { return Object.prototype.hasOwnProperty.call(o, k); }
+  // A map that only has the names you give it, so any name can be looked up in it.
+  function bare() { return Object.create(null); }
   function copy(to, from) { Object.keys(from).forEach(function (k) { to[k] = from[k]; }); return to; }
   // A text from saved data or a form: one line, at most max letters.
   function line(v, max) { return typeof v === 'string' ? v.replace(/\s+/g, ' ').trim().slice(0, max || TEXT_MAX) : ''; }
@@ -51,7 +55,7 @@
   // "thieving", "Thieving" or "thiev" -> "thieving"; not a skill -> "".
   function skillKey(w) {
     w = String(w || '').toLowerCase();
-    if (SHORT[w]) return SHORT[w];
+    if (has(SHORT, w)) return SHORT[w];
     return SKILLS.some(function (s) { return s.toLowerCase() === w; }) ? w : '';
   }
   function skillName(k) { return SKILLS.filter(function (s) { return s.toLowerCase() === k; })[0] || cap1(k); }
@@ -103,7 +107,7 @@
   function cleanGoal(x, depth) {
     if (isMap(x) && x.kind === 'item') x = copy(copy({}, x), { kind: 'other', title: (+x.want > 0 ? fmt(Math.round(+x.want)) + ' ' : '') + line(x.title) });
     if (isMap(x) && x.kind === 'unlock') x = copy(copy({}, x), { kind: 'other', title: 'Unlock ' + line(x.title) });
-    if (!isMap(x) || !KINDS[x.kind]) return null;
+    if (!isMap(x) || !has(KINDS, x.kind)) return null;
     var g = { id: line(x.id, 40) || newId('g'), kind: x.kind }, title = line(x.title);
     if (x.kind === 'skill') {
       g.skill = skillKey(x.skill);
@@ -143,7 +147,7 @@
   }
   // The lists, from what was saved: anything broken is left out, names are unique, and the limits hold.
   function cleanTodo(t) {
-    var out = { v: 1, last: '', lists: [] }, names = {}, ids = {}, n = 0;
+    var out = { v: 1, last: '', lists: [] }, names = bare(), ids = bare(), n = 0;
     t = isMap(t) ? t : {};
     (Array.isArray(t.lists) ? t.lists : []).forEach(function (l) {
       var name = isMap(l) ? line(l.name, NAME_MAX) : '';
@@ -225,7 +229,7 @@
     (p.subs || []).forEach(function (u) { mark(u, on); setSubs(u, on); });
   }
   // Does a goal or sub task stand for a quest, a tier, an area task, an achievement or a level?
-  function isRef(x) { return !!KINDS[x.kind] && x.kind !== 'other'; }
+  function isRef(x) { return has(KINDS, x.kind) && x.kind !== 'other'; }
   // Is a sub task done? One that stands for a quest, a tier, an area task or a level is done the way a goal of
   // that kind is.
   function isDone(u) { return isRef(u) ? goalState(u, ctx()).done : !!u.done; }
@@ -234,15 +238,17 @@
     if (isRef(u)) setDone(u, on); else if (on) u.done = u.done || 1; else delete u.done;
   }
   // After a change: a sub task with its own sub tasks is done when all of them are, and open when one is not. One
-  // that stands for a task or a quest is only ticked for that when you just ticked the last one under it (finish).
+  // that stands for a task or a quest is only ticked for that when you just ticked the last one under it (finish),
+  // and only unticked for that when you just opened or added something under it: not when you ticked one (finish),
+  // and not when the lists are only shown (look). So a task you ticked in its area stays ticked there.
   // True when all under p are done.
-  function settle(p, finish) {
+  function settle(p, finish, look) {
     var all = true;
     (p.subs || []).forEach(function (u) {
       if (u.subs) {
-        var kids = settle(u, finish);
+        var kids = settle(u, finish, look);
         if (kids && (finish || !isRef(u)) && !isDone(u)) mark(u, true);
-        else if (!kids && isDone(u)) mark(u, false);
+        else if (!kids && isDone(u) && !((finish || look) && isRef(u))) mark(u, false);
       }
       if (!isDone(u)) all = false;
     });
@@ -265,17 +271,19 @@
   }
   // After its sub tasks changed: the goal is done when all of them are, and open again when one is not.
   // A task ticked in its area, or a quest that got done, changes what is above it on a list: every goal with sub
-  // tasks is settled again before the lists are shown or go into a file.
+  // tasks is settled again before the lists are shown or go into a file. That only changes the lists: it never
+  // ticks or unticks a task in its area, an achievement in its cape or a quest (look).
   function settleAll() {
     var before = snapshot();
-    todo().lists.forEach(function (l) { l.items.forEach(function (g) { if (g.subs) settleGoal(g); }); });
+    todo().lists.forEach(function (l) { l.items.forEach(function (g) { if (g.subs) settleGoal(g, false, true); }); });
     if (snapshot() !== before) saveTodo();
   }
-  function settleGoal(g, finish) {
-    var all = settle(g, finish);
+  // finish: you just ticked something under g. look: nothing was changed by hand (see settle).
+  function settleGoal(g, finish, look) {
+    var all = settle(g, finish, look);
     if (!g.subs) return;
     if (finish && all && !goalState(g, ctx()).done) setDone(g, true);
-    else if (!all && goalState(g, ctx()).done) setDone(g, false);
+    else if (!all && goalState(g, ctx()).done && !((finish || look) && isRef(g))) setDone(g, false);
   }
 
   // ---------- how a goal stands ----------
@@ -531,14 +539,33 @@
         while (Object.prototype.hasOwnProperty.call(o, key)) key = k + ' #' + n++;
         o[key] = v;
       });
-      out[l.name] = o;
+      // (a list may be called "__proto__": only this way it becomes a name of the file like any other)
+      Object.defineProperty(out, l.name, { value: o, enumerable: true, writable: true, configurable: true });
     });
     return out;
   }
   // Replaces your lists with the file's. Lines are read like the add box reads them. Returns how many lists came in.
   // A goal is done when it says true (or "320 / 500" with the first number as big as the second).
+  // What is wrong with the lists of a file, or '' when they can be read. Checked before anything changes.
+  function todoFileError(m) {
+    function subsError(o, where) {
+      if (!isMap(o)) return where + ': its "subs" must look like { "a sub task": true }.';
+      return Object.keys(o).map(function (k) { return entryError(o[k], where + ' \u2192 "' + k + '"'); }).filter(Boolean)[0] || '';
+    }
+    function entryError(v, where) {
+      if (isMap(v)) return v.subs === undefined ? '' : subsError(v.subs, where);
+      return typeof v === 'boolean' || typeof v === 'string' || typeof v === 'number' || v === null ? '' :
+        where + ' must be true or false, or { "done": true, "subs": { \u2026 } }.';
+    }
+    if (!isMap(m)) return '"mylist" must look like { "a list": { "a goal": true } }.';
+    return Object.keys(m).map(function (name) {
+      var e = m[name], where = 'mylist \u2192 "' + name + '"';
+      if (!isMap(e)) return where + ' must look like { "a goal": true }.';
+      return Object.keys(e).map(function (k) { return entryError(e[k], where + ' \u2192 "' + k + '"'); }).filter(Boolean)[0] || '';
+    }).filter(Boolean)[0] || '';
+  }
   function importTodo(m) {
-    var lists = [], names = {}, n = 0, now = Date.now();
+    var lists = [], names = bare(), n = 0, now = Date.now();
     Object.keys(m).forEach(function (name) {
       var nm = line(name, NAME_MAX), e = m[name];
       if (!nm || names[nm.toLowerCase()] || !isMap(e) || lists.length >= MAX_LISTS) return;
@@ -575,6 +602,6 @@
     newId: newId, openCount: openCount, order: order, parseGoal: parseGoal, pickId: pickId, refIndex: refIndex, refKey: refKey,
     saveTodo: saveTodo, setDone: setDone, setSubs: setSubs, settleAll: settleAll, settleGoal: settleGoal, skillKey: skillKey,
     skillName: skillName, snapshot: snapshot, todo: todo };
-  A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo });
+  A.share({ exportTodo: exportTodo, hasSkillGoal: hasSkillGoal, importTodo: importTodo, todoFileError: todoFileError });
   A.loaded.todoData = true;
 })(window.QuickGuideApp);

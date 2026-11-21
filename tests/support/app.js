@@ -101,6 +101,14 @@ class Wiki {
   missing(title) { this.pages[title] = { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } }; return this; }
   // A page that fails: 'http' (500), 'network', 'format' (no parse), 'slow' (never answers).
   fail(title, how) { this.pages[title] = { fail: how }; return this; }
+  // A page that has another name now: asking for the old name gives the page under its new name (a redirect).
+  moved(from, to) { this.pages[from] = Object.assign({}, this.pages[from], { to }); return this; }
+  // A slow wiki: the page (one that is there already) only answers when you call what this gives.
+  hold(title) {
+    let go;
+    this.pages[title] = Object.assign({}, this.pages[title], { wait: new Promise((done) => { go = done; }) });
+    return go;
+  }
   // The standard set: the quest list and the guides in tests/fixtures/wiki.
   standard() {
     this.page('List of quests', fixture('list-of-quests.html'));
@@ -133,6 +141,7 @@ class Wiki {
     this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
     const p = this.pages[title];
     if (!p) return route.fulfill({ headers: CORS, json: { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } } });
+    if (p.wait) await p.wait;
     if (p.error) return route.fulfill({ headers: CORS, json: { error: p.error } });
     if (p.fail === 'http') return route.fulfill({ status: 500, headers: CORS, body: 'oops' });
     if (p.fail === 'network') return route.abort('failed');
@@ -140,7 +149,7 @@ class Wiki {
     if (p.fail === 'slow') return; // never answers
     return route.fulfill({
       headers: CORS,
-      json: { parse: { title, pageid: 1, revid: this.rev(title).rev, text: '<div class="mw-parser-output">' + p.html + '</div>', jsconfigvars: { wgKartographerLiveData: p.live } } }
+      json: { parse: { title: p.to || title, pageid: 1, revid: this.rev(p.to || title).rev, text: '<div class="mw-parser-output">' + p.html + '</div>', jsconfigvars: { wgKartographerLiveData: p.live } } }
     });
   }
   // Player data for one name, the way the wiki passes it on from Jagex.

@@ -13,10 +13,10 @@
     playerStatus = A.playerStatus, plural = A.plural, progHtml = A.progHtml, QG = A.QG, questBtn = A.questBtn,
     questLinks = A.questLinks, questMark = A.questMark, remember = A.remember, renderStart = A.renderStart,
     resizeMaps = A.resizeMaps, restoreAcc = A.restoreAcc, rowHtml = A.rowHtml, S = A.S, saveProg = A.saveProg,
-    sget = A.sget, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
+    sget = A.sget, showSaved = A.showSaved, skillHtml = A.skillHtml, smooth = A.smooth, sortKey = A.sortKey, SORTS = A.SORTS, sset = A.sset,
     startMaps = A.startMaps, storeQuest = A.storeQuest, TAB_ICON = A.TAB_ICON, tabCountHtml = A.tabCountHtml, tabHtml = A.tabHtml,
     tableAcc = A.tableAcc, TABS = A.TABS, tabsHtml = A.tabsHtml, toast = A.toast, toastHtml = A.toastHtml,
-    upgrade = A.upgrade, validTab = A.validTab, warn = A.warn;
+    stillWanted = A.stillWanted, upgrade = A.upgrade, validTab = A.validTab, waitFor = A.waitFor, warn = A.warn;
 
   // ---------- step logic ----------
   function buildIndex() {
@@ -150,15 +150,18 @@
     return (e && e.message) || 'Something went wrong. Try again.';
   }
   function loadGuide(t, label) {
-    S.loading = label || t.base;
+    var mine = waitFor(label || t.base);
     S.error = '';
     renderStart();
     QG.load(t).then(function (q) {
+      storeQuest(q);
+      // You went on to another screen: the guide is saved, and opens at once when you ask for it again.
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.input = '';
-      storeQuest(q);
-      openQuest(q.page, q);
+      showSaved('quest.' + q.page, function () { openQuest(q.page, q); });
     }, function (e) {
+      if (!stillWanted(mine)) return;
       S.loading = false;
       S.error = loadError(e);
       renderStart();
@@ -169,7 +172,7 @@
     var m = metaAll(), want = D.norm(title), key = '';
     Object.keys(m).forEach(function (k) { if (!key && D.norm(m[k].title) === want) key = k; });
     S.error = '';
-    if (key && sget('quest.' + key)) { openQuest(key); return; }
+    if (key && sget('quest.' + key)) { showSaved('quest.' + key, function () { openQuest(key); }); return; }
     loadGuide({ base: title, title: title + '/Quick guide' }, title);
   }
   function openQuest(key, q) {
@@ -193,10 +196,22 @@
   }
   // Reads a saved quest's guide again and keeps it, with its ticks (under the new name when the page moved). The quest
   // on screen is drawn again. Gives the new guide.
+  function forgetQuest(key) {
+    var m = metaAll();
+    delete m[key];
+    sset('meta', m);
+    A.sdel('quest.' + key);
+    A.sdel('prog.' + key);
+  }
   function reloadQuest(key, q) {
     var t = q.notQuickGuide ? { title: q.page, base: q.page } : { title: q.page, base: q.title };
     return QG.load(t).then(function (nq) {
-      if (nq.page !== key) sset('prog.' + nq.page, sget('prog.' + key) || (S.key === key && S.prog) || {});
+      // The page has another name now: your ticks go with it (unless the new name has ticks already), and what was
+      // kept under the old name goes away, so the quest is not there twice.
+      if (nq.page !== key) {
+        if (!sget('prog.' + nq.page)) sset('prog.' + nq.page, sget('prog.' + key) || (S.key === key && S.prog) || {});
+        forgetQuest(key);
+      }
       storeQuest(nq);
       // the quest that is open (on screen, or under Settings) gets the new guide too
       if (S.key === key && S.q) {

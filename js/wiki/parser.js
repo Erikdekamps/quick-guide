@@ -106,10 +106,10 @@
   // Which of these page names the wiki has: { "<name>": the page it leads to }. Names it does not have are left out.
   function findPages(names) {
     var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&titles=' + encodeURIComponent(names.join('|'));
-    return fetch(url, { credentials: 'omit' }).then(function (r) {
+    // Like every read, the wiki gets 25 seconds (getJson): one answer that never comes cannot stop the ones after it.
+    return askWiki(url).then(function (r) {
       if (!r.ok) throw new Error('The wiki answered with error ' + r.status + '.');
-      return r.json();
-    }).then(function (d) {
+      var d = r.json;
       var q = d && d.query, to = {}, has = {}, out = {};
       if (!q || !Array.isArray(q.pages)) throw new Error('The wiki sent something unexpected.');
       // The wiki gives a name its first capital, then follows a redirect.
@@ -148,7 +148,7 @@
     return inTurns(batches, function (b) {
       var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&prop=info%7Crevisions&rvprop=ids%7Ctimestamp&titles=' +
         encodeURIComponent(b.join('|'));
-      return getJson(url).then(function (r) {
+      return askWiki(url).then(function (r) {
         var q = r.ok && r.json && r.json.query, byTitle = {};
         if (!q || !Array.isArray(q.pages)) return;
         q.pages.forEach(function (p) { byTitle[p.title] = p; });
@@ -1015,12 +1015,27 @@
     return fetch(url, { signal: ctrl ? ctrl.signal : undefined, credentials: 'omit' }).then(function (r) {
       return r.json().then(function (j) { return j; }, function () { return null; }).then(function (j) {
         clearTimeout(timer);
-        return { ok: r.ok, status: r.status, json: j };
+        // retryAfter: how many seconds the wiki asks to wait, when it says so
+        return { ok: r.ok, status: r.status, json: j, retryAfter: r.headers && r.headers.get ? r.headers.get('Retry-After') : null };
       });
     }, function (err) {
       clearTimeout(timer);
       if (err && err.name === 'AbortError') { var e = new Error('The wiki took too long to answer.'); e.code = 'timeout'; throw e; }
       throw err;
+    });
+  }
+  // A question to the wiki, asked once more when the wiki is busy or the connection drops: it says "busy" with an
+  // error 429 or 5xx, or with an answer that only holds an error ("maxlag", "ratelimited"). It waits first: as long as
+  // the wiki asks (at most 5 seconds), else a second. An answer that takes too long is not asked again.
+  function askWiki(url) {
+    function later(s) { return new Promise(function (go) { setTimeout(go, Math.min(Math.max(+s || 1, 1), 5) * 1000); }); }
+    return getJson(url).then(function (r) {
+      var code = r.json && r.json.error && r.json.error.code;
+      if (r.status !== 429 && r.status < 500 && code !== 'maxlag' && code !== 'ratelimited') return r;
+      return later(r.retryAfter).then(function () { return getJson(url); });
+    }, function (e) {
+      if (e && e.code === 'timeout') throw e;
+      return later(1).then(function () { return getJson(url); });
     });
   }
   function colKey(t) {
@@ -1545,7 +1560,7 @@
     function one(titles) {
       var url = API + '?action=query&format=json&formatversion=2&redirects=1&origin=*&prop=revisions%7Cextracts&rvprop=content%7Cids&rvslots=main' +
         '&rvsection=0&exintro=1&exlimit=' + DETAIL_BATCH + '&titles=' + encodeURIComponent(titles.join('|'));
-      return getJson(url).then(function (r) {
+      return askWiki(url).then(function (r) {
         var q = r.ok && r.json && r.json.query, byTitle = {};
         if (!q || !Array.isArray(q.pages)) return;
         q.pages.forEach(function (p) { byTitle[p.title] = p; });
@@ -1578,16 +1593,20 @@
   // Without the levels page or the details it still works. old: the cape as it was saved; an achievement whose page was
   // not edited since keeps its details, so only new and edited pages are read again. info: what pageInfo said about
   // those pages, when it was asked already.
+  // What could not be read this time is kept from old: the levels, and the details of an achievement. A cape that
+  // misses its levels page says so (partial), so the next update reads it again.
   function loadCape(key, old, info) {
     var c = capeOf(key);
     if (!c) { var e = new Error('There is no such cape.'); e.code = 'format'; return Promise.reject(e); }
-    var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return {}; }) :
-      c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return {}; }) : Promise.resolve({});
+    var kept = old || {};
+    var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return { levels: kept.levels, partial: true }; }) :
+      c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return { skiller: kept.skiller, partial: true }; }) : Promise.resolve({});
     return Promise.all([fetchPage(c.page), more]).then(function (r) {
       var cape = parseCape(r[0].html, key), had = {}, pages = [];
       cape.revid = r[0].revid;
       if (r[1].levels) cape.levels = r[1].levels;
       if (r[1].skiller) cape.skiller = r[1].skiller;
+      if (r[1].partial) cape.partial = true;
       ((old && old.cheevos) || []).forEach(function (x) { if (x.rev && x.tip != null) had[x.page] = x; });
       cape.cheevos.forEach(function (x) { if (pages.indexOf(x.page) < 0) pages.push(x.page); });
       var known = pages.filter(function (p) { return had[p]; });
@@ -1598,7 +1617,15 @@
           d[p] = { skills: x.skills, links: x.links, oneOf: x.oneOf, other: x.other, tip: x.tip, rev: x.rev, also: (x.also || []).concat([key]) };
           return false;
         });
-        return loadDetails(read).then(function (nd) { Object.keys(nd).forEach(function (p) { d[p] = nd[p]; }); return addDetails(cape, d); });
+        return loadDetails(read).then(function (nd) {
+          read.forEach(function (p) {
+            var x = had[p];
+            // Not read this time: what was saved stays (with its old revision, so the next update asks again).
+            if (nd[p]) d[p] = nd[p];
+            else if (x) d[p] = { skills: x.skills, links: x.links, oneOf: x.oneOf, other: x.other, tip: x.tip, rev: x.rev, also: (x.also || []).concat([key]) };
+          });
+          return addDetails(cape, d);
+        });
       });
     });
   }
