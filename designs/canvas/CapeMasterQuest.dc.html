@@ -1107,6 +1107,17 @@ ul.steps.ql { padding: 0; }
 .goal .gn { margin-left: 6px; font-size: .857rem; color: var(--muted); }
 /* a done goal, or sub task: struck through */
 .goal.done > .row .t, .gsub.done > .row .t { color: var(--done-text); text-decoration: line-through; text-decoration-color: var(--faint); }
+/* a list's Done part, under the box for the next goal: its finished goals, folded until you open it. Each is one
+   row (its sub tasks are not shown), with the day it was done after it */
+.todo > .dn { padding: 0; }
+.dnb { display: flex; align-items: center; gap: 6px; width: 100%; padding: 6px 8px; background: none; border: 0; font: inherit; font-size: .857rem; font-weight: 600; color: var(--muted); text-align: left; cursor: pointer; }
+.dnb:hover { color: var(--bright); }
+.dnb .i { width: 12px; height: 12px; color: var(--bronze-lt); transition: transform .15s; }
+.dnb[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.dnb .c { font-weight: 500; color: var(--faint); font-variant-numeric: tabular-nums; }
+.dnl { list-style: none; margin: 0; padding: 0; }
+.dnl > li { border-top: 1px solid var(--rule); }
+.goal .gd { margin-left: 6px; font-size: .857rem; color: var(--faint); white-space: nowrap; }
 /* a goal's sub tasks: its own small checklist, under it; how many are done after the goal. A sub task's own sub
    tasks are a step further in. */
 .goal .sc { margin-left: 6px; font-size: .857rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }

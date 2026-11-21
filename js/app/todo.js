@@ -10,7 +10,7 @@
   var byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, note = A.note, plural = A.plural, QG = A.QG, S = A.S, T = A.T, toast = A.toast;
   var addGoal = T.addGoal, buttonsHtml = T.buttonsHtml, cap1 = T.cap1, changed = T.changed, cleanGoal = T.cleanGoal, closeDialog = T.closeDialog,
     copy = T.copy, ctx = T.ctx, dialogErr = T.dialogErr, drawTodo = T.drawTodo, errHtml = T.errHtml, fieldHtml = T.fieldHtml,
-    findSub = T.findSub, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
+    findSub = T.findSub, finished = T.finished, mark = T.mark, FIXED = T.FIXED, FULL_GOALS = T.FULL_GOALS, FULL_LISTS = T.FULL_LISTS, goalById = T.goalById, goalCount = T.goalCount,
     goalOfRef = T.goalOfRef, goalState = T.goalState, goalTitle = T.goalTitle, line = T.line, listById = T.listById, listText = T.listText, makeList = T.makeList,
     MAX_DEPTH = T.MAX_DEPTH, MAX_GOALS = T.MAX_GOALS, MAX_LISTS = T.MAX_LISTS, MAX_SUBS = T.MAX_SUBS, mitem = T.mitem, moveTo = T.moveTo,
     NAME_MAX = T.NAME_MAX, nameError = T.nameError, newId = T.newId, NOTE_MAX = T.NOTE_MAX, openDialog = T.openDialog, openMenu = T.openMenu,
@@ -177,23 +177,49 @@
   }
 
   // ---------- ticking ----------
+  // What a change may tick outside the lists: the tasks, achievements and quests among these goals and what is under
+  // them that are not done yet. An Undo of that change unticks the ones it ticked (undoWith).
+  function openRefs(list) {
+    var open = [], c = ctx();
+    (function walk(l) {
+      (l || []).forEach(function (x) { if (FIXED[x.kind] && x.kind !== 'tier' && !goalState(x, c).done) open.push(copy({}, x)); walk(x.subs); });
+    })(list);
+    return open;
+  }
+  function undoWith(snap, open) {
+    var back = undoer(snap);
+    return function () {
+      var c = ctx();
+      open.forEach(function (x) { if (goalState(x, c).done) setDone(x, false); });
+      back();
+    };
+  }
+  // A goal that just got finished (done, with all under it) goes to its list's Done part: the message says so, with Undo.
+  function saidFinished(g, was, snap, open) {
+    if (was || !finished(g, goalState(g, ctx()))) return;
+    tell('<b>' + esc(goalTitle(g)) + '</b> is done. It is under <b>Done</b>.', [['Undo', undoWith(snap, open)]]);
+  }
   // A goal ticked by hand: its sub tasks go with it.
   function tickGoal(id, on) {
     var hit = goalById(id);
     if (!hit) return;
+    var snap = snapshot(), open = openRefs([hit.g]), was = finished(hit.g, goalState(hit.g, ctx()));
     setDone(hit.g, on);
     setSubs(hit.g, on);
     changed();
+    saidFinished(hit.g, was, snap, open);
   }
   // A sub task ticked: what is under it goes with it, and what is above it is done when all under it are.
   function tickSub(gid, sid, on) {
     var hit = goalById(gid), g = hit && hit.g, sub = g && findSub(g, sid);
     if (!sub) return;
+    var snap = snapshot(), open = openRefs([g]), was = finished(g, goalState(g, ctx()));
     mark(sub.u, on);
     setSubs(sub.u, on);
     // (only a tick finishes what is above it; an untick opens it again)
     settleGoal(g, on);
     changed();
+    saidFinished(g, was, snap, open);
   }
 
   // ---------- the menus of a goal, a sub task and a list ----------
@@ -521,21 +547,13 @@
     if (!st.list) { if (todo().lists.length >= MAX_LISTS) { toast(FULL_LISTS); return; } l = makeList(name); }
     if (!l) return;
     // A pasted line that is done ("[x] Task 448: …") ticks its task, achievement or quest. Undo unticks those again.
-    var open = [], c = ctx();
-    (function walk(list) {
-      (list || []).forEach(function (x) { if (FIXED[x.kind] && x.kind !== 'tier' && !goalState(x, c).done) open.push(copy({}, x)); walk(x.subs); });
-    })(r.goals);
+    var open = openRefs(r.goals);
     r.goals.forEach(function (g) {
       if (g.done) g.done = now;
       settleGoal(addGoal(g, l), true);
     });
     changed();
-    var back = undoer(snap);
-    tell('Added ' + plural(r.goals.length, 'goal', 'goals') + ' to <b>' + esc(l.name) + '</b>.', [['Undo', function () {
-      var c2 = ctx();
-      open.forEach(function (x) { if (goalState(x, c2).done) setDone(x, false); });
-      back();
-    }]]);
+    tell('Added ' + plural(r.goals.length, 'goal', 'goals') + ' to <b>' + esc(l.name) + '</b>.', [['Undo', undoWith(snap, open)]]);
   }
   // "Copy as text…" in a list's menu: the list the way "Paste a list" reads it, to copy.
   function copyDialog(l) {

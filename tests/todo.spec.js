@@ -26,8 +26,16 @@ function lists(o) {
   let n = 0;
   return { v: 1, lists: Object.keys(o).map((name, i) => ({ id: 'l' + (i + 1), name, items: o[name].map((g) => Object.assign({ id: 'g' + (++n), at: n }, g)) })) };
 }
+// The Done part of a list (under its box for the next goal): its button, and the finished goals in it.
+const doneBtn = (page, list) => listBar(page, list).locator('xpath=following-sibling::ul[1]').locator('.dnb');
+const doneGoals = (page, list) => listBar(page, list).locator('xpath=following-sibling::ul[1]').locator('.dnl > li.goal');
+// The goals of a list that are not finished yet.
+const openGoals = (page, list) => listBar(page, list).locator('xpath=following-sibling::ul[1]').locator(':scope > li.goal');
+// The saved view with the Done part of these lists open. Most tests start like this, so a finished goal can be
+// clicked right away; "it goes to the Done part" tests the part folded, as the app starts.
+const doneOpen = (data) => ({ closed: Object.fromEntries(data.lists.map((l) => ['tododone:' + l.id, true])) });
 async function openList(page, data) {
-  if (data) await seed(page, { todo: data, settings: { home: 'todo' } });
+  if (data) await seed(page, { todo: data, view: doneOpen(data), settings: { home: 'todo' } });
   else await seed(page, { settings: { home: 'todo' } });
   await page.goto('/');
   await expect(tab(page)).toHaveAttribute('aria-current', 'page');
@@ -252,29 +260,82 @@ test.describe('adding goals', () => {
 });
 
 test.describe('ticking and planning', () => {
-  test('tick a goal: it stays where it is, struck through; Clear done goals removes it, Undo brings it back', async ({ page }) => {
-    await openList(page, lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Buy a cape' }] }));
+  test('tick a goal: it goes to the Done part of its list, one row with the day; Undo or an untick brings it back; Clear done goals removes it', async ({ page }) => {
+    await seed(page, { todo: lists({ Today: [{ kind: 'other', title: 'Vis wax' }, { kind: 'other', title: 'Unlock Soul Split' }, { kind: 'other', title: 'Buy a cape', subs: [{ id: 'a', title: 'Coins' }] }] }), settings: { home: 'todo' } });
+    await page.goto('/');
+    await expect(doneBtn(page, 'Today')).toHaveCount(0);
     await goal(page, 'Vis wax').locator('.t').click();
-    await expect(goal(page, 'Vis wax')).toHaveClass(/\bdone\b/);
-    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Unlock Soul Split', 'Buy a cape']);
-    // the next one is still under the mouse: tick two in a row
-    await goal(page, 'Unlock Soul Split').locator('.t').click();
-    await expect(page.locator('li.goal.done .t')).toHaveText(['Vis wax', 'Unlock Soul Split']);
-    await goal(page, 'Unlock Soul Split').locator('.cb').click();
-    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Vis wax', 'Unlock Soul Split', 'Buy a cape']);
+    await expect(page.locator('#toast')).toHaveText('Vis wax is done. It is under Done. Undo');
+    await expect(openGoals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Unlock Soul Split', 'Buy a cape']);
+    // the Done part: under the box for the next goal, folded, with how many
+    await expect(doneBtn(page, 'Today')).toHaveText('Done1');
+    await expect(doneBtn(page, 'Today')).toHaveAttribute('aria-expanded', 'false');
+    await expect(doneGoals(page, 'Today').first()).toBeHidden();
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('1 / 3');
     await expect(tab(page).locator('.tc')).toHaveText('2');
+    // Undo: back where it was
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(openGoals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Vis wax', 'Unlock Soul Split', 'Buy a cape']);
+    await expect(doneBtn(page, 'Today')).toHaveCount(0);
+    // two in a row, and one with a sub task: the last one done is on top, each is one row with its day
+    await goal(page, 'Vis wax').locator('.cb').click();
+    await goal(page, 'Buy a cape').locator(':scope > .row > .cb').click();
+    await expect(openGoals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Unlock Soul Split']);
+    await doneBtn(page, 'Today').click();
+    await expect(doneBtn(page, 'Today')).toHaveAttribute('aria-expanded', 'true');
+    await expect(doneGoals(page, 'Today').locator('.t')).toHaveText(['Buy a cape', 'Vis wax']);
+    await expect(doneGoals(page, 'Today').locator('.gd')).toHaveText([/^\w{3} \d{1,2}, \d{4}$/, /^\w{3} \d{1,2}, \d{4}$/]);
+    await expect(doneGoals(page, 'Today').locator('.sc')).toHaveText(['1 / 1']);
+    await expect(doneGoals(page, 'Today').locator('li.gsub')).toHaveCount(0);
+    // the part stays open after a reload
+    await expect.poll(async () => ((await stored(page, 'view')) || {}).closed).toEqual({ 'tododone:l1': true });
     await page.reload();
-    await expect(goal(page, 'Vis wax').locator('.cb')).toBeChecked();
+    await expect(doneGoals(page, 'Today').first()).toBeVisible();
+    // untick one there: it is back with the open goals, where it was, with its sub task open again
+    await doneGoals(page, 'Today').first().locator('.cb').click();
+    await expect(openGoals(page, 'Today').locator(':scope > .row .t')).toHaveText(['Unlock Soul Split', 'Buy a cape']);
+    await expect(goal(page, 'Buy a cape').locator('li.gsub .cb:checked')).toHaveCount(0);
+    await expect(doneBtn(page, 'Today')).toHaveText('Done1');
+    // Clear done goals takes them out of the Done part; Undo brings them back
     await listMenu(page, 'Today');
     await page.locator('#tmenu .mi', { hasText: 'Clear done goals (1)' }).click();
-    await expect(goals(page, 'Today').locator('.t')).toHaveText(['Unlock Soul Split', 'Buy a cape']);
+    await expect(doneBtn(page, 'Today')).toHaveCount(0);
     await expect(page.locator('#toast')).toContainText('Cleared 1 done goal.');
     await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
     await expect(goals(page, 'Today')).toHaveCount(3);
-    // untick: back with the open goals
-    await goal(page, 'Vis wax').locator('.cb').click();
-    await expect(goal(page, 'Vis wax')).not.toHaveClass(/\bdone\b/);
+    // fold it again
+    await doneBtn(page, 'Today').click();
+    await expect(doneGoals(page, 'Today').first()).toBeHidden();
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a list with only finished goals says so; a task that is ticked in its area with a sub task still open is not finished', async ({ page }) => {
+    const data = lists({ Today: [{ kind: 'other', title: 'Vis wax', done: 1 }], Diary: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!', subs: [{ id: 'a', title: 'Buy a lockpick' }] }] });
+    await seed(page, { todo: data, 'aprog.Ardougne': { tasks: { 448: 1 } }, settings: { home: 'todo' } });
+    await page.goto('/');
+    await expect(listBar(page, 'Today').locator('xpath=following-sibling::ul[1]').locator('.none')).toHaveText('Everything here is done.');
+    // (a goal that came in done, without a day, has none)
+    await doneBtn(page, 'Today').click();
+    await expect(doneGoals(page, 'Today').locator('.gd')).toHaveCount(0);
+    // done, but not all under it: it stays in the list
+    await expect(openGoals(page, 'Diary').locator(':scope > .row .t')).toHaveText(['Yoink!']);
+    await expect(doneBtn(page, 'Diary')).toHaveCount(0);
+    // its last sub task ticked: finished. Undo unticks the sub task, and leaves the task ticked in its area
+    await goal(page, 'Yoink!').locator('li.gsub .cb').click();
+    await expect(page.locator('#toast')).toHaveText('Yoink! is done. It is under Done. Undo');
+    await expect(doneBtn(page, 'Diary')).toHaveText('Done1');
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(openGoals(page, 'Diary')).toHaveCount(1);
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
+  });
+
+  test('a task ticked on a list goes to Done and is ticked in its area; Undo unticks it there too', async ({ page }) => {
+    await openList(page, lists({ Diary: [{ kind: 'task', area: 'Ardougne', tier: 'easy', tname: 'Easy', task: '448', title: 'Yoink!' }] }));
+    await goal(page, 'Yoink!').locator('.cb').click();
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
+    await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
+    await expect(openGoals(page, 'Diary')).toHaveCount(1);
+    expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({});
   });
 
   test("a goal's menu: move to another list or a new one, up and down, open it, remove it", async ({ page }) => {
@@ -355,13 +416,18 @@ test.describe('sub tasks', () => {
     await subs(page, 'Ardougne Hard').nth(1).locator('.t').click();
     await expect(goal(page, 'Ardougne Hard')).toHaveClass(/\bdone\b/);
     await expect(listBar(page, 'Today').locator('.c')).toHaveText('1 / 2');
-    // unticking the goal unticks them all; ticking it ticks them all
+    // done with all under it: it is in the Done part, as one row
+    await expect(doneGoals(page, 'Today').locator('.t')).toHaveText(['Ardougne Hard']);
+    await expect(doneGoals(page, 'Today').locator('.sc')).toHaveText(['2 / 2']);
+    await expect(doneGoals(page, 'Today').locator('li.gsub')).toHaveCount(0);
+    // unticking the goal unticks them all, and it is back in the list; ticking it ticks them all
     await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
     await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(0);
     await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
-    await expect(subs(page, 'Ardougne Hard').locator('.cb:checked')).toHaveCount(2);
-    // a sub task unticked: the goal is open again
-    await subs(page, 'Ardougne Hard').nth(0).locator('.cb').click();
+    expect((await stored(page, 'todo')).lists[0].items[0].subs.every((u) => u.done)).toBe(true);
+    await goal(page, 'Ardougne Hard').locator('.row > .cb').first().click();
+    // one sub task ticked: the goal is still open
+    await subs(page, 'Ardougne Hard').nth(1).locator('.cb').click();
     await expect(goal(page, 'Ardougne Hard')).not.toHaveClass(/\bdone\b/);
     // kept after a reload
     await page.reload();
@@ -456,14 +522,19 @@ test.describe('sub tasks', () => {
     await expect(goal(page, 'Hatchet of bloom and blight').locator(':scope > .row .sc')).toHaveText('1 / 2');
     await sub(page, 'Blight shard').locator('.cb').click();
     await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
-    // one inner one unticked: everything above it is open again
-    await sub(page, 'Ember shard').locator('.cb').click();
-    await expect(mid).not.toHaveClass(/\bdone\b/);
-    await expect(goal(page, 'Hatchet of bloom and blight')).not.toHaveClass(/\bdone\b/);
+    // finished: it is one row in the Done part. Unticked there, it is back with nothing ticked
+    await expect(doneGoals(page, 'Gear').locator('li.gsub')).toHaveCount(0);
+    await doneGoals(page, 'Gear').locator('.cb').click();
+    await expect(goal(page, 'Hatchet of bloom and blight').locator('li.gsub .cb:checked')).toHaveCount(0);
     // ticking the middle one ticks what is under it
     await mid.locator(':scope > .row > .cb').click();
     await expect(mid.locator('li.gsub .cb:checked')).toHaveCount(2);
-    await expect(goal(page, 'Hatchet of bloom and blight')).toHaveClass(/\bdone\b/);
+    // one inner one unticked: what is above it is open again
+    await sub(page, 'Ember shard').locator('.cb').click();
+    await expect(mid).not.toHaveClass(/\bdone\b/);
+    await sub(page, 'Ember shard').locator('.cb').click();
+    await expect(mid).toHaveClass(/\bdone\b/);
+    await expect(goal(page, 'Hatchet of bloom and blight')).not.toHaveClass(/\bdone\b/);
     // a new sub task under a done one opens it again
     await subMenu(page, 'Crystal hatchet');
     await page.locator('#tmenu .mi', { hasText: 'Add sub task' }).click();
@@ -499,14 +570,15 @@ test.describe('sub tasks', () => {
     await expect(page.locator('#toast')).toHaveText('A goal has at most 20 sub tasks.');
     await expect(subBox(page)).toHaveCount(0);
     await goal(page, 'Dailies').locator('.row > .cb').first().click();
-    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(3);
+    const allDone = async () => { const d = (await stored(page, 'todo')).lists[0].items[1]; return [d.subs[0].done, d.subs[0].subs[0].done, d.subs[1].done].every(Boolean); };
+    expect(await allDone()).toBe(true);
     await expect(page.locator('li.goal .rp')).toHaveCount(0);
     expect((await stored(page, 'todo')).lists[0].items[1].repeat).toBeUndefined();
     // past the game's daily reset, and after a reload: still ticked
     await page.clock.fastForward('04:00:00');
     await page.reload();
     await expect(goal(page, 'Dailies')).toHaveClass(/\bdone\b/);
-    await expect(goal(page, 'Dailies').locator('li.gsub .cb:checked')).toHaveCount(3);
+    expect(await allDone()).toBe(true);
   });
 });
 
@@ -807,10 +879,9 @@ test.describe('a goal becomes a list', () => {
     await goalMenu(page, 'Vis wax');
     await page.locator('#tmenu .mi', { hasText: 'Remove' }).click();
     await expect(page.locator('#toast')).toContainText('Undo');
-    await goal(page, 'Buy a cape').locator('.cb').click();
+    await add(page, 'Herb run');
     await expect(page.locator('#toast')).toBeHidden();
-    expect(await saved(page)).toEqual({ Today: ['other:Buy a cape'] });
-    expect((await stored(page, 'todo')).lists[0].items[0].done).toBeGreaterThan(0);
+    expect(await saved(page)).toEqual({ Today: ['other:Buy a cape', 'other:Herb run'] });
   });
 
   test('a pasted list that ticks a task in its area: Undo unticks it there again', async ({ page }) => {
@@ -861,9 +932,10 @@ test.describe('a goal becomes a list', () => {
     // the new list comes right after the one the goal was in
     await expect(names(page)).toHaveText(['Today', 'Hatchet of bloom and blight', 'Later']);
     await expect(goals(page, 'Today').locator(':scope > .row .t')).toHaveText(['82 Thieving', 'Today', 'A goal with a name that is far too long for a list']);
-    await expect(goals(page, 'Hatchet of bloom and blight').locator(':scope > .row .t')).toHaveText(['Hatchet of ember and glade', 'Blight shard']);
-    await expect(goal(page, 'Hatchet of ember and glade')).toHaveClass(/\bdone\b/);
-    await expect(goal(page, 'Hatchet of ember and glade').locator('li.gsub .t')).toHaveText(['Crystal hatchet']);
+    // (the one that was done with all under it is finished: it is in the new list's Done part)
+    await expect(openGoals(page, 'Hatchet of bloom and blight').locator(':scope > .row .t')).toHaveText(['Blight shard']);
+    await expect(doneGoals(page, 'Hatchet of bloom and blight').locator('.t')).toHaveText(['Hatchet of ember and glade']);
+    expect((await stored(page, 'todo')).lists[1].items[0].subs.map((u) => u.title)).toEqual(['Crystal hatchet']);
     await expect(page.locator('#toast')).toContainText('Made the list Hatchet of bloom and blight.');
     // Undo
     await page.locator('#toast').getByRole('button', { name: 'Undo' }).click();
@@ -1036,6 +1108,7 @@ test.describe('goals that tick themselves', () => {
     await page.locator('.bn[data-home="quests"]').click();
     await expect(page.locator('.q[data-quest="While Guthix Sleeps"]')).toHaveClass(/\bdone\b/);
     await tab(page).click();
+    await doneBtn(page, 'My list').click();
     await goal(page, 'While Guthix Sleeps').locator('.cb').click();
     await expect(goal(page, 'While Guthix Sleeps')).not.toHaveClass(/\bdone\b/);
     // open the quest from the goal's menu
@@ -1062,7 +1135,8 @@ test.describe('goals that tick themselves', () => {
 
   test('area tasks from their ⋯ menu, a tier from the area\'s menu; one tick, shown in two places', async ({ page, wiki }) => {
     withAllAreas(wiki);
-    await seed(page, { todo: lists({ Today: [], Diary: [] }) });
+    const two = lists({ Today: [], Diary: [] });
+    await seed(page, { todo: two, view: doneOpen(two) });
     await openApp(page, expect);
     await page.locator('.bn[data-home="areas"]').click();
     await expect(page.locator('button.star')).toHaveCount(0);
@@ -1159,12 +1233,12 @@ test.describe('goals that tick themselves', () => {
     // one tick: ticked here, it is ticked in its area, and what it is under is done
     await yoink.locator('.cb').click();
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({ 448: 1 });
-    await expect(yoink).toHaveClass(/\bdone\b/);
-    await expect(easy).toHaveClass(/\bdone\b/);
+    // (all under the goal is done now, so it is finished: one row in the Done part)
     await expect(goal(page, /^Ardougne$/)).toHaveClass(/\bdone\b/);
+    await expect(doneGoals(page, 'Diary').locator('.sc')).toHaveText(['1 / 1']);
     // unticked in its area: open again here
-    await yoink.locator('[data-smenu]').click();
-    await page.locator('#tmenu .mi', { hasText: 'Open Ardougne Easy' }).click();
+    await page.locator('.bn[data-home="areas"]').click();
+    await page.locator('.q[data-area="Ardougne"][data-atier="easy"]').click();
     await toggle(page, 'Done steps and tasks');
     await page.locator('li[data-task="448"] > .row .cb').click();
     await page.getByRole('button', { name: 'All achievements' }).click();

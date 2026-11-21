@@ -151,7 +151,7 @@
       TODO_CLICKS.filter(function (c) { return g.hasAttribute(c[0]); })[0][1](g);
       return;
     }
-    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
+    var t = ev.target.closest('[data-quest], [data-area], [data-cape], [data-home], [data-tier], [data-ctab], [data-group], [data-dn], [data-tab], [data-act], [data-sec-btn], [data-asec-btn], [data-cpart-btn], [data-ov-btn], [data-menu]');
     if (t) {
       if (t.hasAttribute('data-menu')) { toggleMenu(t.getAttribute('data-menu')); return; }
       if (t.hasAttribute('data-quest')) { openTitle(t.getAttribute('data-quest')); return; }
@@ -165,6 +165,15 @@
         S.closed[gk] = !S.closed[gk];
         t.setAttribute('aria-expanded', S.closed[gk] ? 'false' : 'true');
         if (ul) ul.hidden = !!S.closed[gk];
+        saveView();
+        return;
+      }
+      if (t.hasAttribute('data-dn')) {
+        // A list's Done part: shut until you open it (so here true means open).
+        var dk = 'tododone:' + t.getAttribute('data-dn'), dl = t.nextElementSibling;
+        S.closed[dk] = !S.closed[dk];
+        t.setAttribute('aria-expanded', S.closed[dk] ? 'true' : 'false');
+        if (dl) dl.hidden = !S.closed[dk];
         saveView();
         return;
       }

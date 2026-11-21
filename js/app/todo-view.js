@@ -7,8 +7,8 @@
 (function (A) {
   'use strict';
   if (!A || !A.T) return;
-  var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
-  var cleanTodo = T.cleanTodo, ctx = T.ctx, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
+  var app = A.app, arr = A.arr, byId = A.byId, closeMenus = A.closeMenus, dateText = A.dateText, esc = A.esc, I = A.I, plural = A.plural, S = A.S, T = A.T;
+  var cleanTodo = T.cleanTodo, ctx = T.ctx, finished = T.finished, goalTitle = T.goalTitle, isDone = T.isDone, lookUpWiki = T.lookUpWiki,
     openCount = T.openCount, order = T.order, pickId = T.pickId, refIndex = T.refIndex, refKey = T.refKey,
     saveTodo = T.saveTodo, settleAll = T.settleAll, skillKey = T.skillKey, skillName = T.skillName, TEXT_MAX = T.TEXT_MAX, todo = T.todo;
 
@@ -16,15 +16,20 @@
   function doneCount(p) { return '<span class="sc">' + p.subs.filter(isDone).length + ' / ' + p.subs.length + '</span>'; }
   // One goal: its tick box, what it says (with how many sub tasks are done, and its note),
   // its menu, and its sub tasks under it.
-  function goalHtml(g, s) {
+  // was: a finished goal in the list's Done part. It is one row: its sub tasks are not shown, and the day it was
+  // done follows it.
+  function goalHtml(g, s, was) {
     var title = goalTitle(g), tid = esc('gt-' + g.id);
+    // (a goal from a file, or one that ticked itself, has no day)
+    var day = was && g.done > 1e11 ? dateText(new Date(g.done).toISOString()) : '';
     return '<li class="goal' + (s.done ? ' done' : '') + '" data-goal="' + esc(g.id) + '"><div class="row">' +
       '<input class="cb" type="checkbox" data-gcb="' + esc(g.id) + '" aria-labelledby="' + tid + '"' + (s.done ? ' checked' : '') + '>' +
       '<div class="rb"><span class="t" id="' + tid + '">' + esc(title) + '</span>' +
       (g.subs ? doneCount(g) : '') +
-      (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') + '</div>' +
+      (g.note ? '<span class="gn">' + esc(g.note) + '</span>' : '') +
+      (day ? '<span class="gd">' + esc(day) + '</span>' : '') + '</div>' +
       '<button class="ib xs rowm" type="button" data-gmenu="' + esc(g.id) + '" data-menu="tmenu" aria-label="Goal menu: ' + esc(title) + '" aria-haspopup="true" aria-expanded="false" title="More">' + I.dots + '</button>' +
-      '</div>' + subsHtml(g, g) + '</li>';
+      '</div>' + (was ? '' : subsHtml(g, g)) + '</li>';
   }
   // The sub tasks under a goal or a sub task (p), and the box to type the next one in when it is open there.
   function subsHtml(g, p) {
@@ -53,10 +58,21 @@
       (close ? '<button class="ib xs" type="button" data-saddx aria-label="Close" title="Close">' + I.x + '</button>' : '') +
       '</div><p class="err" role="alert" hidden></p></form>';
   }
-  // One list: its bar (the name, done / all, the list menu), its goals, and the box for the next one. tally counts
-  // what the line above the lists says.
+  // A list's Done part, under the box for the next goal: its finished goals, the last one done on top. It is folded
+  // until you open it (S.closed['tododone:<list>'] is true when it is OPEN: a part that starts shut).
+  function doneHtml(l, was) {
+    if (!was.length) return '';
+    var open = !!S.closed['tododone:' + l.id];
+    was = was.slice().sort(function (a, b) { return (b.g.done || 0) - (a.g.done || 0); });
+    return '<li class="dn"><button class="dnb" type="button" data-dn="' + esc(l.id) + '" aria-expanded="' + (open ? 'true' : 'false') + '">' + I.chev +
+      '<span class="n">Done</span><span class="c">' + was.length + '</span></button>' +
+      '<ul class="dnl"' + (open ? '' : ' hidden') + '>' + was.map(function (r) { return goalHtml(r.g, r.s, true); }).join('') + '</ul></li>';
+  }
+  // One list: its bar (the name, done / all, the list menu), its goals that are not finished, the box for the next
+  // one, and its Done part. tally counts what the line above the lists says.
   function listHtml(l, c, tally) {
     var shut = !!S.closed['todo:' + l.id], rows = order(l, c), done = 0;
+    var todoRows = rows.filter(function (r) { return !finished(r.g, r.s); }), was = rows.filter(function (r) { return finished(r.g, r.s); });
     rows.forEach(function (r) { if (r.s.done) done++; });
     tally.goals += rows.length;
     tally.done += done;
@@ -64,8 +80,10 @@
       '<span class="n">' + esc(l.name) + '</span><span class="c">' + done + ' / ' + rows.length + '</span></button>' +
       '<button class="ib xs" type="button" data-lmenu="' + esc(l.id) + '" data-menu="tmenu" aria-label="List menu: ' + esc(l.name) + '" aria-haspopup="true" aria-expanded="false" title="List menu">' + I.dots + '</button></h2>' +
       '<ul class="todo" data-list="' + esc(l.id) + '"' + (shut ? ' hidden' : '') + '>' +
-      (rows.length ? rows.map(function (r) { return goalHtml(r.g, r.s); }).join('') : '<li class="none">No goals here yet.</li>') +
-      '<li class="addrow">' + addFormHtml(' data-qadd="' + esc(l.id) + '"', 'Add a goal to ' + l.name, 'Add a goal') + '</li></ul>';
+      (todoRows.length ? todoRows.map(function (r) { return goalHtml(r.g, r.s); }).join('') :
+        '<li class="none">' + (rows.length ? 'Everything here is done.' : 'No goals here yet.') + '</li>') +
+      '<li class="addrow">' + addFormHtml(' data-qadd="' + esc(l.id) + '"', 'Add a goal to ' + l.name, 'Add a goal') + '</li>' +
+      doneHtml(l, was) + '</ul>';
   }
   // No lists yet: how to start. A goal needs a list, so the first thing to make is a list.
   function emptyHtml() {

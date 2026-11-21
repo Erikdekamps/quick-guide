@@ -49,7 +49,8 @@ The boards (`.dc.html`) and `canvas.json` are in `canvas/`. Their pictures are i
 | `AreasBlue.dc.html` | Achievements in the Blue theme |
 | `AreaBlue.dc.html` | An area, Easy tier, in the Blue theme |
 | `AreaTasksBlue.dc.html` | An area's tasks (Varrock Elite) in the Blue theme |
-| `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal |
+| `MyList.dc.html` | My list: your lists (Today, Skilling goals, Gathering, and a folded one) with flat goals, one with sub tasks two deep; each list ends with the box for the next goal, and Today with Done (2), folded |
+| `MyListDone.dc.html` | The Done part of a list, open: the goals you finished, one row each, struck through, with the day |
 | `MyListType.dc.html` | Typing the next goal in the box at the end of a list |
 | `MyListNew.dc.html` | Create list: type a name |
 | `MyListImport.dc.html` | Import list: a name, and the goals as plain text; it makes a new list from them |

@@ -145,7 +145,10 @@ under its area, in the game's order.
   tasks are the goals of that list.
 - **Open on the wiki:** a goal or sub task you wrote yourself gets this in its ⋯ when the wiki has a page for it
   ("Crystal Hatchet", "500 Magic logs" and "Unlock Soul Split" all find theirs). The app asks the wiki once for each.
-- A done goal stays where it is, struck through, until you clear it.
+- **Done:** a goal you finished (ticked, with every sub task under it) moves out of the way, to **Done** at the end
+  of its list: one row for each, struck through, with the day you did it and the last one on top. Done is folded
+  until you click it, and says how many are in it. The message says where the goal went, with **Undo**. Untick a
+  goal there and it is back in the list. **Clear done goals** (in the list's ⋯) empties it.
 - **Sub tasks:** a goal's ⋯ → **Add sub task** opens a box under it: type one, press Enter, and type the next
   (Esc or × closes the box). A sub task can have its own sub tasks, four deep, at most 20 in one place: "Hatchet
   of bloom and blight" needs a "Hatchet of ember and glade", which needs a "Crystal hatchet".
@@ -265,7 +268,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 | `settings`, `last` | Your settings (the theme too), and the quest, area or cape that was open last |
 | `upd` | When Update from the wiki last ran, and what it found |
 | `player` | The character you looked up: quests done or started (and their names), skill levels, quest points |
-| `view` | Where you were: the search text, folded groups and lists, where each list, tab and tier is scrolled, and if Settings is open |
+| `view` | Where you were: the search text, folded groups and lists (and which lists have Done open), where each list, tab and tier is scrolled, and if Settings is open |
 | `todo` | My list: your lists and their goals (never dropped to make room) |
 
 Local storage holds about 5 MB. When it is full, the guides you opened longest ago are dropped, then the areas (your

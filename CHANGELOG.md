@@ -10,6 +10,12 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.44.0] - 2026-11-21
+
+### Added
+
+- My list keeps what you finished: a goal that is done with all its sub tasks moves to **Done** at the end of its list, one row with the day you did it. Done is folded until you click it. The message says where the goal went, with Undo; untick it there and it is back in the list.
+
 ## [1.43.2] - 2026-11-21
 
 ### Fixed
