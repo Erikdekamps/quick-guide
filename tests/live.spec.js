@@ -235,13 +235,13 @@ test('the three capes read from the wiki, with what each achievement needs and a
   expect(r.mqc.also).toBeGreaterThan(10);
 });
 
-test('the wiki says when pages changed, 50 at a time (for Update from the wiki)', async ({ page }) => {
+test('the data says what it has of the pages the app keeps (for Update from the wiki)', async ({ page }) => {
   await page.goto('/');
-  const r = await page.evaluate(() => window.QuickGuide.pageInfo(["Cook's Assistant/Quick guide", 'Master Quest Cape (achievement)', 'Ardougne_achievements', 'No such page at all 7x']));
+  const r = await page.evaluate(() => window.QuickGuide.pageInfo(["Cook's Assistant/Quick guide", 'Master Quest Cape (achievement)', 'Ardougne achievements', 'No such page at all 7x/Quick guide']));
   expect(r["Cook's Assistant/Quick guide"].rev).toBeGreaterThan(0);
-  expect(r["Cook's Assistant/Quick guide"].edited).toMatch(/^\d{4}-\d\d-\d\dT/);
-  expect(r['Master Quest Cape (achievement)'].touched).toMatch(/^\d{4}-\d\d-\d\dT/);
-  // the wiki's own spelling of a title still finds it
-  expect(r.Ardougne_achievements.rev).toBeGreaterThan(0);
-  expect(r['No such page at all 7x']).toEqual({ missing: true });
+  expect(r["Cook's Assistant/Quick guide"].hash).toMatch(/^[0-9a-f]{10}$/);
+  expect(r['Master Quest Cape (achievement)'].hash).toMatch(/^[0-9a-f]{10}$/);
+  expect(r['Ardougne achievements'].hash).toMatch(/^[0-9a-f]{10}$/);
+  // a page the data does not know is left out
+  expect(r['No such page at all 7x/Quick guide']).toBeUndefined();
 });
