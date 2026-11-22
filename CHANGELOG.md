@@ -19,6 +19,8 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
   area or a cape is one small file. A cape no longer needs dozens of requests.
 - Update from the wiki asks the data what changed: one request.
 - When the data cannot be read, the message says "the app's data", not "the wiki".
+- The app no longer works when `index.html` is opened as a file from disk, and says so. On your own computer, run
+  `npm start` and open `http://localhost:8000/`.
 
 ## [1.45.0] - 2026-11-21
 

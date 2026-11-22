@@ -86,6 +86,14 @@ test.describe('what a file that fails says', () => {
     expect(slow.A.loadError(s)).toBe("The app's data took too long to come. Try again.");
   });
 
+  test('opened as a file on disk: nothing is asked for, and it says how to open the app', async () => {
+    const fetch = full(), app = load({ fetch, location: { href: 'file:///C:/quick-guide/index.html', protocol: 'file:' } });
+    const e = await app.D.loadList().then(null, (x) => x);
+    expect(e.code).toBe('file');
+    expect(app.A.loadError(e)).toBe('The app cannot read its data when it is opened as a file. Open it from a web address (on your own computer: npm start).');
+    expect(fetch.urls).toEqual([]);
+  });
+
   test('another error is passed on as it is', async () => {
     const { D } = load({ fetch: () => Promise.reject(new Error('odd')) });
     await expect(D.loadList()).rejects.toThrow('odd');

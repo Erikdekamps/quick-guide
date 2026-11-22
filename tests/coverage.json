@@ -209,7 +209,6 @@
   "return;",
   "return 'That is not a valid wiki page name.';",
   "|| 'The wiki had a problem.'",
-  "&& e.message",
   "|| t.base",
   "{ S.error = 'That quest is not saved any more. Load it again.'; renderStart(); r",
   "? { title: q.page, base: q.page }",

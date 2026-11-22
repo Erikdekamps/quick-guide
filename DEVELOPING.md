@@ -189,6 +189,7 @@ one file for each guide, area and cape. [data/README.md](data/README.md) says wh
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
+| `tools/serve.js` | Serves the app on your own computer: `npm start` |
 | `data/` | The wiki's quests, area tasks and capes as JSON files, made by a build (see [The data](#the-data)). Its text is the wiki's, under CC BY-NC-SA 3.0 (`data/LICENSE.md`) |
 | `tools/data/` | The build of `data/`: `npm run data` |
 | `.github/workflows/data.yml` | Builds `data/` every night, and opens a pull request when the wiki changed |
@@ -269,7 +270,10 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - GitHub checks the reader and the app against the real wiki once a week, and on a pull request that changes the
   reader (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
 
-To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
+To open the app on your own computer, run `npm start` and open `http://localhost:8000/`. Opening `index.html` as a
+file does not work: a browser does not let a page from a file read the files in `data/`, and the app says so.
+
+To run the tests on your own computer, with [Node.js](https://nodejs.org/) 22:
 
 ```
 npm ci

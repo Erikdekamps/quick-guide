@@ -5,6 +5,7 @@
   "description": "RuneScape Wiki quest quick guides, capes and Area Tasks as a tick list, made for the Alt1 browser.",
   "license": "GPL-3.0-only",
   "scripts": {
+    "start": "node tools/serve.js",
     "test": "playwright test --project=app",
     "test:unit": "playwright test --project=unit",
     "test:live": "playwright test --project=live",

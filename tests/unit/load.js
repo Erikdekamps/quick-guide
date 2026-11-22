@@ -65,7 +65,7 @@ function load(opts = {}) {
     fetch: opts.fetch || (() => Promise.reject(new Error('This test gave no fetch: load({ fetch })'))),
     setTimeout, clearTimeout, AbortController, URL, URLSearchParams,
     navigator: { userAgent: 'node' },
-    location: { href: ORIGIN + '/', protocol: 'http:' },
+    location: opts.location || { href: ORIGIN + '/', protocol: 'http:' },
     matchMedia: () => ({ matches: false, addEventListener() {} }),
     addEventListener() {}
   };

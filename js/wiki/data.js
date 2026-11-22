@@ -20,6 +20,10 @@
 
   // One file of the data. mark: the file's hash from the index, so the browser never gives an old copy.
   function read(path, mark) {
+    // A page opened from a file on disk may not read other files: say so, and how to open it.
+    if (window.location.protocol === 'file:') {
+      return Promise.reject(coded('file', 'The app cannot read its data when it is opened as a file. Open it from a web address (on your own computer: npm start).'));
+    }
     return getJson(DATA + path + (mark ? '?h=' + encodeURIComponent(mark) : '')).then(function (r) {
       if (r.status === 404) throw coded('missingtitle', 'The app has no data for this yet.');
       if (!r.ok) throw coded('http', 'The app\'s data answered with error ' + r.status + '.');
