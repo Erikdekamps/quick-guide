@@ -1,0 +1,525 @@
+{
+  "format": 1,
+  "id": "bar-crawl-miniquest",
+  "title": "Bar Crawl (miniquest)",
+  "page": "Bar Crawl (miniquest)/Quick guide",
+  "rev": 37205964,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to one of the <a href=\"https://runescape.wiki/w/Barbarian_guard\" target=\"_blank\" rel=\"noopener\">barbarian guards</a> at the outer entrance of the <a href=\"https://runescape.wiki/w/Barbarian_Outpost_Agility_Course\" target=\"_blank\" rel=\"noopener\">Barbarian Outpost Agility Course</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3569,
+      "lon": 2544,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Bar_Crawl_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Karamja</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:v3ylo3",
+          "html": "208 coins to buy all the required liquor",
+          "text": "208 coins to buy all the required liquor",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ivpxdq",
+          "html": "Food to recover from beer that inflicts damage.",
+          "text": "Food to recover from beer that inflicts damage.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:10mq2lv",
+          "html": "Unlocked <a href=\"https://runescape.wiki/w/Lodestone_Network\" target=\"_blank\" rel=\"noopener\">Lodestone Network</a> or teleportation runes",
+          "text": "Unlocked Lodestone Network or teleportation runes",
+          "alternatives": []
+        },
+        {
+          "id": "rec:12w0e1l",
+          "html": "<a href=\"https://runescape.wiki/w/Restore_potion\" target=\"_blank\" rel=\"noopener\">Restore potions</a> to restore skills that are lowered",
+          "text": "Restore potions to restore skills that are lowered",
+          "alternatives": []
+        },
+        {
+          "id": "rec:15qjep0",
+          "html": "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a>",
+          "text": "Games necklace",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1nrsjzl",
+          "html": "<a href=\"https://runescape.wiki/w/Grand_seed_pod\" target=\"_blank\" rel=\"noopener\">Grand seed pod</a>",
+          "text": "Grand seed pod",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "getting-started:bring:19myoiu",
+              "html": "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a> for quick travel to the Barbarian Outpost",
+              "text": "Games necklace for quick travel to the Barbarian Outpost"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1xuhqug",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Barbarian_guard\" target=\"_blank\" rel=\"noopener\">barbarian guard</a> located east of <a href=\"https://runescape.wiki/w/Barbarian_assault\" target=\"_blank\" rel=\"noopener\">Barbarian assault</a>.",
+          "text": "Talk to barbarian guard located east of Barbarian assault.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I want to come through this gate."
+                },
+                {
+                  "key": "2",
+                  "text": "Looks can be deceiving, I am in fact a barbarian."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:gqilv9",
+          "html": "Bars are marked with on the world map. It may be helpful to turn off other map icons so that it is easier to locate the bars during the miniquest.",
+          "text": "Bars are marked with on the world map. It may be helpful to turn off other map icons so that it is easier to locate the bars during the miniquest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "visiting-the-bars",
+      "title": "Visiting the bars",
+      "anchor": "Visiting_the_bars",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "visiting-the-bars:bring:3n4hez",
+              "html": "208 gold coins",
+              "text": "208 gold coins"
+            },
+            {
+              "id": "visiting-the-bars:bring:yobujd",
+              "html": "<a href=\"https://runescape.wiki/w/Barcrawl_card\" target=\"_blank\" rel=\"noopener\">Barcrawl card</a>",
+              "text": "Barcrawl card"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "visiting-the-bars:bring:oqz5s3",
+              "html": "Unlocked multiple lodestones on the <a href=\"https://runescape.wiki/w/Lodestone_network\" target=\"_blank\" rel=\"noopener\">lodestone network</a>",
+              "text": "Unlocked multiple lodestones on the lodestone network"
+            },
+            {
+              "id": "visiting-the-bars:bring:1nrsjzl",
+              "html": "<a href=\"https://runescape.wiki/w/Grand_seed_pod\" target=\"_blank\" rel=\"noopener\">Grand seed pod</a>",
+              "text": "Grand seed pod"
+            },
+            {
+              "id": "visiting-the-bars:bring:15qjep0",
+              "html": "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a>",
+              "text": "Games necklace"
+            },
+            {
+              "id": "visiting-the-bars:bring:19okccd",
+              "html": "<a href=\"https://runescape.wiki/w/Restore_potion\" target=\"_blank\" rel=\"noopener\">Restore potions</a> &amp; food",
+              "text": "Restore potions & food"
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "html": "See <a href=\"https://runescape.wiki/w/Bar_Crawl_(miniquest)#Visiting_the_bars\" target=\"_blank\" rel=\"noopener\">this section of the full guide</a> to better understand what ales/beers have what effects on you. It includes the specific drink names, photos, and other helpful info."
+        },
+        {
+          "type": "text",
+          "html": "<b>If you lose/drop your barcrawl card, you will have to start the entire miniquest all over again.</b>"
+        },
+        {
+          "type": "text",
+          "html": "You can visit the bars in any order. None of the beers are physical items, they&#39;re consumed automatically. You can use the barcrawl card on the bartenders to skip the dialogue options."
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:ykacdr",
+          "html": "Go to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a> and talk to <a href=\"https://runescape.wiki/w/Blurberry\" target=\"_blank\" rel=\"noopener\">Blurberry</a>. You can use <a href=\"https://runescape.wiki/w/Home_Teleport\" target=\"_blank\" rel=\"noopener\">Home Teleport</a> to Al Kharid and then take the Gnome Glider to the Tree Gnome Stronghold, <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne lodestone</a> and run north-west, or <a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak lodestone</a> with 61 Agility and head east.",
+          "text": "Go to the 1st floor (UK) / 2nd floor (US) of the Grand Tree and talk to Blurberry. You can use Home Teleport to Al Kharid and then take the Gnome Glider to the Tree Gnome Stronghold, Ardougne lodestone and run north-west, or Eagles' Peak lodestone with 61 Agility and head east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:mxr0x1",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a>, and then visit the <a href=\"https://runescape.wiki/w/Forester%27s_Arms\" target=\"_blank\" rel=\"noopener\">Forester&#39;s Arms</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Seers' Village, and then visit the Forester's Arms. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:ngzrch",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>, then proceed to the <a href=\"https://runescape.wiki/w/Flying_Horse_Inn\" target=\"_blank\" rel=\"noopener\">Flying Horse Inn</a>, located directly north of Ardougne castle. Talk to the Bartender.",
+          "text": "Home Teleport to Ardougne, then proceed to the Flying Horse Inn, located directly north of Ardougne castle. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:1yxj9h5",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Yanille\" target=\"_blank\" rel=\"noopener\">Yanille</a>, and then visit the <a href=\"https://runescape.wiki/w/Dragon_Inn\" target=\"_blank\" rel=\"noopener\">Dragon Inn</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Yanille, and then visit the Dragon Inn. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:qpmesp",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Karamja\" target=\"_blank\" rel=\"noopener\">Karamja</a>. Run north and then east until you reach the <a href=\"https://runescape.wiki/w/Dead_Man%27s_Chest\" target=\"_blank\" rel=\"noopener\">Dead Man&#39;s Chest</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Karamja. Run north and then east until you reach the Dead Man's Chest. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:1gc42da",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>. Run north-east to the <a href=\"https://runescape.wiki/w/Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">Rusty Anchor</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Port Sarim. Run north-east to the Rusty Anchor. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "visiting-the-bars:1gc42da:u5poq9",
+              "html": "If you do not have <a href=\"https://runescape.wiki/w/Visions_of_Havenhythe\" target=\"_blank\" rel=\"noopener\">Visions of Havenhythe</a> started then",
+              "text": "If you do not have Visions of Havenhythe started then",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about something else."
+                    },
+                    {
+                      "key": "1",
+                      "text": "I'm doing Alfred Grimhand's Barcrawl."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:67zvyw",
+          "html": "Run south and &#39;Travel Karamja&#39; on <a href=\"https://runescape.wiki/w/Captain_Tobias\" target=\"_blank\" rel=\"noopener\">Captain Tobias</a> just east of the lodestone. Run west to the pub and talk to <a href=\"https://runescape.wiki/w/Zembo\" target=\"_blank\" rel=\"noopener\">Zembo</a>.",
+          "text": "Run south and 'Travel Karamja' on Captain Tobias just east of the lodestone. Run west to the pub and talk to Zembo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:1nffb4m",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> and run north to the <a href=\"https://runescape.wiki/w/Blue_Moon_Inn\" target=\"_blank\" rel=\"noopener\">Blue Moon Inn</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Varrock and run north to the Blue Moon Inn. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:1awfh88",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a> and head south-west to the <a href=\"https://runescape.wiki/w/Jolly_Boar_Inn\" target=\"_blank\" rel=\"noopener\">Jolly Boar Inn</a>. Talk to the Bartender.",
+          "text": "Home Teleport to Fort Forinthry and head south-west to the Jolly Boar Inn. Talk to the Bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:5w7o74",
+          "html": "Home Teleport to <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> and go to the <a href=\"https://runescape.wiki/w/Rising_Sun_Inn\" target=\"_blank\" rel=\"noopener\">Rising Sun Inn</a>. Talk to <a href=\"https://runescape.wiki/w/Emily\" target=\"_blank\" rel=\"noopener\">Emily</a> or <a href=\"https://runescape.wiki/w/Kaylee\" target=\"_blank\" rel=\"noopener\">Kaylee</a>.",
+          "text": "Home Teleport to Falador and go to the Rising Sun Inn. Talk to Emily or Kaylee.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'm doing Alfred Grimhand's Barcrawl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:em7b1c",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Barbarian_Outpost\" target=\"_blank\" rel=\"noopener\">Barbarian Outpost</a>, ideally by using a games necklace, and talk to the Barbarian guard.",
+          "text": "Return to the Barbarian Outpost, ideally by using a games necklace, and talk to the Barbarian guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-the-bars:1eh5umu",
+          "html": "Miniquest complete!",
+          "text": "Miniquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Bar_Crawl_%28miniquest%29_reward.png?881a8",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Bar_Crawl_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Barbarian_Outpost_Agility_Course\" target=\"_blank\" rel=\"noopener\">Barbarian Outpost Agility Course</a>.",
+        "text": "Access to the Barbarian Outpost Agility Course.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Horror_from_the_Deep/Quick_guide\" target=\"_blank\" rel=\"noopener\">Horror from the Deep</a>",
+        "<a href=\"https://runescape.wiki/w/Scorpion_Catcher/Quick_guide\" target=\"_blank\" rel=\"noopener\">Scorpion Catcher</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Blood_Runs_Deep/Quick_guide\" target=\"_blank\" rel=\"noopener\">Blood Runs Deep</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}
