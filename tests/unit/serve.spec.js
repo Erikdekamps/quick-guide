@@ -3,7 +3,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { test, expect } = require('@playwright/test');
-const { server, fileFor } = require('../../tools/serve');
+const { server, start, fileFor } = require('../../tools/serve');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 
@@ -44,6 +44,20 @@ test('it serves the files with their type, never an old copy, and 404 for the re
   } finally {
     await new Promise((done) => { s.close(done); });
     fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('a port that is in use: it takes the next free one; with no tries left it fails', async () => {
+  const first = await start(ROOT, 0);
+  const port = first.address().port;
+  let second;
+  try {
+    second = await start(ROOT, port);
+    expect(second.address().port).toBeGreaterThan(port);
+    await expect(start(ROOT, port, 0)).rejects.toMatchObject({ code: 'EADDRINUSE' });
+  } finally {
+    await new Promise((done) => { first.close(done); });
+    if (second) await new Promise((done) => { second.close(done); });
   }
 });
 

@@ -33,9 +33,26 @@ function server(root) {
   });
 }
 
-module.exports = { server, fileFor };
+// Starts it on this port, or on the next one that is free (20 tries). Gives the server; its port is the one it got.
+function start(root, port, tries) {
+  tries = tries == null ? 20 : tries;
+  return new Promise((resolve, reject) => {
+    const s = server(root);
+    s.once('error', (e) => {
+      if (e.code === 'EADDRINUSE' && tries > 0) resolve(start(root, port + 1, tries - 1));
+      else reject(e);
+    });
+    s.listen(port, '127.0.0.1', () => resolve(s));
+  });
+}
+
+module.exports = { server, start, fileFor };
 
 if (require.main === module) {
   const port = Number(process.env.PORT) || 8000;
-  server().listen(port, '127.0.0.1', () => { console.log('Quick Guide is at http://localhost:' + port + '/  (Ctrl+C stops it)'); });
+  start(ROOT, port).then((s) => {
+    const got = s.address().port;
+    if (got !== port) console.log('Port ' + port + ' is in use: took ' + got + '.');
+    console.log('Quick Guide is at http://localhost:' + got + '/  (Ctrl+C stops it)');
+  }, (e) => { console.error('Could not start: ' + e.message); process.exit(1); });
 }

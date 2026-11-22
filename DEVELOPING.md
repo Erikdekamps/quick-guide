@@ -270,7 +270,8 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 - GitHub checks the reader and the app against the real wiki once a week, and on a pull request that changes the
   reader (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
 
-To open the app on your own computer, run `npm start` and open `http://localhost:8000/`. Opening `index.html` as a
+To open the app on your own computer, run `npm start` and open the address it prints (`http://localhost:8000/`, or
+the next port when that one is in use). Opening `index.html` as a
 file does not work: a browser does not let a page from a file read the files in `data/`, and the app says so.
 
 To run the tests on your own computer, with [Node.js](https://nodejs.org/) 22:
