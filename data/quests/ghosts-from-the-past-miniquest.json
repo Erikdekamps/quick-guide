@@ -1,0 +1,257 @@
+{
+  "format": 1,
+  "id": "ghosts-from-the-past-miniquest",
+  "title": "Ghosts from the Past (miniquest)",
+  "page": "Ghosts from the Past (miniquest)/Quick guide",
+  "rev": 36327755,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a> on the docks near the <a href=\"https://runescape.wiki/w/Sarim%27s_Revenge\" target=\"_blank\" rel=\"noopener\">Sarim&#39;s Revenge</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 12010,
+      "lon": 1760,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Harbinger (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Eye for an Eye (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Jed Hunter (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 4
+      },
+      {
+        "text": "Flag Fall (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Head of the Family (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Spiritual Enlightenment (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 5
+      },
+      {
+        "text": "Discover the island of Cyclosis in player-owned port",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "ghosts-from-the-past",
+      "title": "Ghosts from the past",
+      "anchor": "Ghosts_from_the_past",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "ghosts-from-the-past:ip8sk1",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/The_Islands_That_Once_Were_Turtles\" target=\"_blank\" rel=\"noopener\">The Islands That Once Were Turtles</a>.",
+          "text": "Travel to The Islands That Once Were Turtles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghosts-from-the-past:1wqtw5l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a> (if you have just completed <a href=\"https://runescape.wiki/w/Harbringer\" target=\"_blank\" rel=\"noopener\">Harbringer</a> you may need to relog for the chat option to show up).",
+          "text": "Talk to Quartermaster Gully (if you have just completed Harbringer you may need to relog for the chat option to show up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ghosts from the Past miniquest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "5",
+                  "text": "Enough questions. Let's move on."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghosts-from-the-past:wkhgcv",
+          "html": "Climb both watchtowers on the island and talk to both skeletons of the <a href=\"https://runescape.wiki/w/Skulls_pirate\" target=\"_blank\" rel=\"noopener\">Skulls pirate</a> and the <a href=\"https://runescape.wiki/w/Skulls_mercenary_(Ghosts_from_the_Past)\" target=\"_blank\" rel=\"noopener\">Skulls mercenary</a>.",
+          "text": "Climb both watchtowers on the island and talk to both skeletons of the Skulls pirate and the Skulls mercenary.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghosts-from-the-past:1s2kb3n",
+          "html": "Continue north and climb up the observatory.",
+          "text": "Continue north and climb up the observatory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ghosts-from-the-past:1s2kb3n:ls5g27",
+              "html": "Talk to the skeleton of the <a href=\"https://runescape.wiki/w/Skulls_thief\" target=\"_blank\" rel=\"noopener\">Skulls thief</a> at the top.",
+              "text": "Talk to the skeleton of the Skulls thief at the top.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ghosts-from-the-past:ttebm1",
+          "html": "Return to Quartermaster Gully.",
+          "text": "Return to Quartermaster Gully.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ghosts from the Past miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Ghosts_from_the_Past_%28miniquest%29_reward.png?91b66",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Ghosts_from_the_Past_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "500 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">Chimes</a>",
+        "text": "500 Chimes",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">Taijitu</a>",
+        "text": "2 Taijitu",
+        "subs": []
+      },
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Medium_XP_lamp_(The_Arc)\" target=\"_blank\" rel=\"noopener\">Medium XP lamp</a> in one of the following skills: <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>, <a href=\"https://runescape.wiki/w/Herblore\" target=\"_blank\" rel=\"noopener\">Herblore</a>, <a href=\"https://runescape.wiki/w/Fishing\" target=\"_blank\" rel=\"noopener\">Fishing</a>, <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a>, <a href=\"https://runescape.wiki/w/Cooking\" target=\"_blank\" rel=\"noopener\">Cooking</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>, <a href=\"https://runescape.wiki/w/Runecrafting\" target=\"_blank\" rel=\"noopener\">Runecrafting</a>, <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a>, <a href=\"https://runescape.wiki/w/Construction\" target=\"_blank\" rel=\"noopener\">Construction</a>, <a href=\"https://runescape.wiki/w/Hunter\" target=\"_blank\" rel=\"noopener\">Hunter</a>, <a href=\"https://runescape.wiki/w/Dungeoneering\" target=\"_blank\" rel=\"noopener\">Dungeoneering</a>, or <a href=\"https://runescape.wiki/w/Divination\" target=\"_blank\" rel=\"noopener\">Divination</a>",
+        "text": "1 Medium XP lamp in one of the following skills: Agility, Herblore, Fishing, Thieving, Cooking, Prayer, Runecrafting, Slayer, Construction, Hunter, Dungeoneering, or Divination",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Islands_That_Once_Were_Turtles_teleport\" target=\"_blank\" rel=\"noopener\">Islands That Once Were Turtles teleport</a> tablet unlocked in the <a href=\"https://runescape.wiki/w/Waiko_Reward_Shop\" target=\"_blank\" rel=\"noopener\">Waiko Reward Shop</a>",
+        "text": "Islands That Once Were Turtles teleport tablet unlocked in the Waiko Reward Shop",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>"
+      ]
+    }
+  ]
+}

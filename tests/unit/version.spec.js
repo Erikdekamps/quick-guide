@@ -214,6 +214,13 @@ test.describe('npm run check:version', () => {
     const dir = project({ 'style.css': 'body {}\n', 'appconfig.json': '{}\n', 'icon.svg': '<svg/>', 'icon.png': 'png', 'README.md': '# X\n' });
     for (const f of ['js/app/a.js', 'vendor/x/x.js', 'tests/a.spec.js', 'tools/a.js', 'designs/a.html', '_site/old.txt']) write(dir, f, '// ' + f + '\n');
     expect(V.site(dir, '_site')).toEqual(V.APP_FILES);
+    // with the wiki's data, when there is any: it goes on the site, and is no part of the app's version
+    write(dir, 'data/quests/a.json', '{}\n');
+    expect(V.site(dir, '_site')).toEqual(V.SITE_FILES);
+    expect(fs.existsSync(path.join(dir, '_site', 'data', 'quests', 'a.json'))).toBe(true);
+    expect(V.isApp('data/quests/a.json')).toBe(false);
+    fs.rmSync(path.join(dir, 'data'), { recursive: true });
+    V.site(dir, '_site');
     const found = fs.readdirSync(path.join(dir, '_site'), { recursive: true }).map((f) => f.split(path.sep).join('/'))
       .filter((f) => fs.statSync(path.join(dir, '_site', f)).isFile()).sort();
     expect(found).toEqual(['appconfig.json', 'icon.png', 'icon.svg', 'index.html', 'js/app/a.js', 'style.css', 'vendor/x/x.js']);

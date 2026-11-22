@@ -1,0 +1,150 @@
+{
+  "format": 1,
+  "id": "wandering-gaal-miniquest",
+  "title": "Wandering Ga'al (miniquest)",
+  "page": "Wandering Ga'al (miniquest)/Quick guide",
+  "rev": 35971453,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/TzHaar-Ga%27al-Kot\" target=\"_blank\" rel=\"noopener\">TzHaar-Ga&#39;al-Kot</a> (after using a <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> on a <a href=\"https://runescape.wiki/w/Ring_of_stone\" target=\"_blank\" rel=\"noopener\">ring of stone</a>) somewhere outside the <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Brink of Extinction",
+        "depth": 1
+      },
+      {
+        "text": "The Elder Kiln",
+        "depth": 2
+      },
+      {
+        "text": "Partial completion of Desert Treasure",
+        "depth": 1
+      },
+      {
+        "text": "The Dig Site",
+        "depth": 2
+      },
+      {
+        "text": "Troll Stronghold",
+        "depth": 2
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 3
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Karamja</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1qw8rdl",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_stone\" target=\"_blank\" rel=\"noopener\">Ring of stone</a>",
+          "text": "Ring of stone",
+          "alternatives": []
+        },
+        {
+          "id": "req:5uc7l6",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">Ring of visibility</a> (<a href=\"https://runescape.wiki/w/Sliske%27s_gift\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s gift</a> will not work)",
+          "text": "Ring of visibility (Sliske's gift will not work)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1pzt6nx",
+          "html": "Use a <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> on a <a href=\"https://runescape.wiki/w/Ring_of_stone\" target=\"_blank\" rel=\"noopener\">ring of stone</a> anywhere outside of the <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>.",
+          "text": "Use a ring of visibility on a ring of stone anywhere outside of the TzHaar City.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:16aawgu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/TzHaar-Ga%27al-Kot\" target=\"_blank\" rel=\"noopener\">TzHaar-Ga&#39;al-Kot</a>.",
+          "text": "Talk to TzHaar-Ga'al-Kot.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can you read the ancient TzHaar Language?"
+                },
+                {
+                  "key": "1",
+                  "text": "Go. I'll meet you at the Fight Cauldron."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Wandering_Ga%27al_%28miniquest%29_reward.png?68435",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Wandering_Ga%27al_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "Ability to read the mysterious bookcase in the <a href=\"https://runescape.wiki/w/Fight_Cauldron\" target=\"_blank\" rel=\"noopener\">Fight Cauldron</a>.",
+        "text": "Ability to read the mysterious bookcase in the Fight Cauldron.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

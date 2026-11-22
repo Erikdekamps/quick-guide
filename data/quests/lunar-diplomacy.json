@@ -1,0 +1,2017 @@
+{
+  "format": 1,
+  "id": "lunar-diplomacy",
+  "title": "Lunar Diplomacy",
+  "page": "Lunar Diplomacy/Quick guide",
+  "rev": 37216631,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Go to the westernmost dock of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a> and talk to <a href=\"https://runescape.wiki/w/Lokar_Searunner\" target=\"_blank\" rel=\"noopener\">Lokar Searunner</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3688,
+      "lon": 2620,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Fremennik Trials",
+        "depth": 1
+      },
+      {
+        "text": "Lost City",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 61,
+        "note": ""
+      },
+      {
+        "skill": "Defence",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 49,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 5,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 65,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 55,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "At least 5 Suqahs (level 73, 74, 79)",
+        "name": "At least 5 Suqahs",
+        "count": null,
+        "level": "73, 74, 79",
+        "note": ""
+      },
+      {
+        "text": "Me (level 84)",
+        "name": "Me",
+        "count": null,
+        "level": "84",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Fremennik</span> <span class=\"reg\">Wilderness</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1u19byh",
+          "html": "<a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">Coins</a> (1,000 should be enough, there is a bank on the island)",
+          "text": "Coins (1,000 should be enough, there is a bank on the island)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1c78fqc",
+          "html": "<a href=\"https://runescape.wiki/w/Runes\" target=\"_blank\" rel=\"noopener\">Runes</a> for combat spells (preferably <a href=\"https://runescape.wiki/w/Fire_spells\" target=\"_blank\" rel=\"noopener\">fire spells</a>, elemental staff not equippable)",
+          "text": "Runes for combat spells (preferably fire spells, elemental staff not equippable)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1g9d58o",
+          "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a>",
+          "text": "Dramen staff",
+          "alternatives": []
+        },
+        {
+          "id": "req:7qaf82",
+          "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a> (tool belt will not work)",
+          "text": "Spade (tool belt will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1kymizo",
+          "html": "<a href=\"https://runescape.wiki/w/Air_talisman\" target=\"_blank\" rel=\"noopener\">Air</a>, <a href=\"https://runescape.wiki/w/Earth_talisman\" target=\"_blank\" rel=\"noopener\">earth</a>, <a href=\"https://runescape.wiki/w/Fire_talisman\" target=\"_blank\" rel=\"noopener\">fire</a>, and <a href=\"https://runescape.wiki/w/Water_talisman\" target=\"_blank\" rel=\"noopener\">water talismans</a>, or alternate methods of accessing the respective <a href=\"https://runescape.wiki/w/Runecrafting_altars\" target=\"_blank\" rel=\"noopener\">runecrafting altars</a> (e.g. a <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a> consumed the aforementioned talisman)",
+          "text": "Air, earth, fire, and water talismans, or alternate methods of accessing the respective runecrafting altars (e.g. a wicked hood consumed the aforementioned talisman)",
+          "alternatives": []
+        },
+        {
+          "id": "req:vsm7r8",
+          "html": "Two spools of <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a> (can be obtained during the quest - <a href=\"https://runescape.wiki/w/Crafting_cape\" target=\"_blank\" rel=\"noopener\">Crafting cape</a> perk works as well)",
+          "text": "Two spools of thread (can be obtained during the quest - Crafting cape perk works as well)",
+          "alternatives": []
+        },
+        {
+          "id": "req:n648vp",
+          "html": "<a href=\"https://runescape.wiki/w/Clean_guam\" target=\"_blank\" rel=\"noopener\">Clean guam</a> (may be obtained from dropped <a href=\"https://runescape.wiki/w/Grimy_guam\" target=\"_blank\" rel=\"noopener\">grimy guam</a> during the quest, common drop)",
+          "text": "Clean guam (may be obtained from dropped grimy guam during the quest, common drop)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1id5939",
+          "html": "<a href=\"https://runescape.wiki/w/Clean_marrentill\" target=\"_blank\" rel=\"noopener\">Clean marrentill</a> (may be obtained from dropped <a href=\"https://runescape.wiki/w/Grimy_marrentill\" target=\"_blank\" rel=\"noopener\">grimy marrentill</a> during the quest, common drop)",
+          "text": "Clean marrentill (may be obtained from dropped grimy marrentill during the quest, common drop)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1aj0ofp",
+          "html": "<a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">Armour</a>, <a href=\"https://runescape.wiki/w/Weapon\" target=\"_blank\" rel=\"noopener\">weapons</a> and <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a>",
+          "text": "Armour, weapons and food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:15l3wzw",
+          "html": "Extra dramen staves (if interested in making more <a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">lunar staves</a>)",
+          "text": "Extra dramen staves (if interested in making more lunar staves)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1clkiqk",
+          "html": "Agility <a href=\"https://runescape.wiki/w/Boost\" target=\"_blank\" rel=\"noopener\">boost</a>, e.g. <a href=\"https://runescape.wiki/w/Summer_pie\" target=\"_blank\" rel=\"noopener\">Summer pie</a>",
+          "text": "Agility boost, e.g. Summer pie",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:709d6y",
+          "html": "Choose the &#39;talk to&#39; option on <a href=\"https://runescape.wiki/w/Lokar_Searunner\" target=\"_blank\" rel=\"noopener\">Lokar Searunner</a> on Rellekka&#39;s westernmost dock.",
+          "text": "Choose the 'talk to' option on Lokar Searunner on Rellekka's westernmost dock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You've been away from these parts for a while?"
+                },
+                {
+                  "key": "1",
+                  "text": "Why did you leave?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:oeuwjy",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Brundt_the_Chieftain\" target=\"_blank\" rel=\"noopener\">Brundt the Chieftain</a> in the Longhall for a <a href=\"https://runescape.wiki/w/Seal_of_passage\" target=\"_blank\" rel=\"noopener\">seal of passage</a>.",
+          "text": "Speak to Brundt the Chieftain in the Longhall for a seal of passage.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about a seal of passage."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:oeuwjy:fmxdgd",
+              "html": "You will need to keep the seal on you while on the island. Talking to anyone without it will teleport you back to Rellekka.",
+              "text": "You will need to keep the seal on you while on the island. Talking to anyone without it will teleport you back to Rellekka.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1dq158e",
+          "html": "Return and talk to Lokar.",
+          "text": "Return and talk to Lokar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Arrr! Yar! Let's be on our way, yar!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1uyu3ze",
+          "html": "Climb the ladder and board the pirate ship. Talk to <a href=\"https://runescape.wiki/w/Captain_Bentley\" target=\"_blank\" rel=\"noopener\">Captain Bentley</a> about sailing to <a href=\"https://runescape.wiki/w/Lunar_Isle\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a>.",
+          "text": "Climb the ladder and board the pirate ship. Talk to Captain Bentley about sailing to Lunar Isle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Can we sail to Lunar Isle now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:1uyu3ze:oml20n",
+              "html": "Make sure to be sufficiently on the pirate ship, otherwise the quest will not progress.",
+              "text": "Make sure to be sufficiently on the pirate ship, otherwise the quest will not progress.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:57bwum",
+          "html": "Climb down the central ladder.",
+          "text": "Climb down the central ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:18erwnv",
+          "html": "Below deck, talk to <a href=\"https://runescape.wiki/w/%27Bird%27s-Eye%27_Jack\" target=\"_blank\" rel=\"noopener\">&#39;Bird&#39;s-Eye&#39; Jack</a> to the south-west.",
+          "text": "Below deck, talk to 'Bird's-Eye' Jack to the south-west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:193dyof",
+          "html": "Talk to Captain Bentley again.",
+          "text": "Talk to Captain Bentley again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Perhaps it's the Navigator's fault?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:t6zvn3",
+          "html": "Return to &#39;Birds-Eye&#39; Jack again.",
+          "text": "Return to 'Birds-Eye' Jack again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "talking-to-the-crew",
+      "title": "Talking to the crew",
+      "anchor": "Talking_to_the_crew",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "talking-to-the-crew:1cp3ny4",
+          "html": "Must talk to them in this order.",
+          "text": "Must talk to them in this order.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "talking-to-the-crew:1cp3ny4:15wb5c2",
+              "html": "Talk to &#39;Eagle-eye&#39; Shultz at the very front of the ship (back upstairs).",
+              "text": "Talk to 'Eagle-eye' Shultz at the very front of the ship (back upstairs).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "talking-to-the-crew:1cp3ny4:qyx3xj",
+              "html": "Talk to &#39;Beefy&#39; Burns on the lowest level of the ship.",
+              "text": "Talk to 'Beefy' Burns on the lowest level of the ship.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "talking-to-the-crew:1cp3ny4:r1b46j",
+              "html": "Talk to &#39;Lecherous&#39; Lee on the very top level, at the south end of the ship.",
+              "text": "Talk to 'Lecherous' Lee on the very top level, at the south end of the ship.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "talking-to-the-crew:1cp3ny4:9xos6m",
+              "html": "Talk to First mate &#39;Davey-boy&#39; on the southern end of the deck near the stairs.",
+              "text": "Talk to First mate 'Davey-boy' on the southern end of the deck near the stairs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "talking-to-the-crew:1cp3ny4:qosxw8",
+              "html": "Climb up to the top level at the south end of the ship and talk to the cabin boy (2 inventory spaces required). He is next to Lecherous Lee.",
+              "text": "Climb up to the top level at the south end of the ship and talk to the cabin boy (2 inventory spaces required). He is next to Lecherous Lee.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "searching-for-clues",
+      "title": "Searching for clues",
+      "anchor": "Searching_for_clues",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "searching-for-clues:7hoieo",
+          "html": "Use the lens on the lantern. Light it.",
+          "text": "Use the lens on the lantern. Light it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "searching-for-clues:rdv97u",
+          "html": "Use the lantern on the following objects and rub away the symbols:",
+          "text": "Use the lantern on the following objects and rub away the symbols:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "searching-for-clues:rdv97u:l61ggz",
+              "html": "<b>Barrel</b>: Return to the lowest level of the ship. It is the southernmost stack of three <a href=\"https://runescape.wiki/w/Barrel_(Lady_Zay)\" target=\"_blank\" rel=\"noopener\">barrels</a>. Show map",
+              "text": "Barrel: Return to the lowest level of the ship. It is the southernmost stack of three barrels. Show map",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Rub away!"
+                    }
+                  ]
+                }
+              ],
+              "images": [
+                {
+                  "type": "map",
+                  "caption": "Show map",
+                  "lat": 3794,
+                  "lon": 2218,
+                  "zoom": 3,
+                  "plane": 0,
+                  "mapId": 28,
+                  "version": "",
+                  "features": [],
+                  "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+                }
+              ],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "searching-for-clues:rdv97u:1q20xbh",
+              "html": "<b>Support</b>: On the same level, it is the big <a href=\"https://runescape.wiki/w/Support\" target=\"_blank\" rel=\"noopener\">support</a> column in the middle of the ship. Show map",
+              "text": "Support: On the same level, it is the big support column in the middle of the ship. Show map",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Rub away!"
+                    }
+                  ]
+                }
+              ],
+              "images": [
+                {
+                  "type": "map",
+                  "caption": "Show map",
+                  "lat": 3797,
+                  "lon": 2222,
+                  "zoom": 3,
+                  "plane": 0,
+                  "mapId": 28,
+                  "version": "",
+                  "features": [],
+                  "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+                }
+              ],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "searching-for-clues:rdv97u:gkq616",
+              "html": "<b>Chest</b>: Same level still, before going back up, it is the <a href=\"https://runescape.wiki/w/Chest_(Lady_Zay)\" target=\"_blank\" rel=\"noopener\">chest</a> on the ground just northwest of the ladder. Show map",
+              "text": "Chest: Same level still, before going back up, it is the chest on the ground just northwest of the ladder. Show map",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Rub away!"
+                    }
+                  ]
+                }
+              ],
+              "images": [
+                {
+                  "type": "map",
+                  "caption": "Show map",
+                  "lat": 3808,
+                  "lon": 2220,
+                  "zoom": 3,
+                  "plane": 0,
+                  "mapId": 28,
+                  "version": "",
+                  "features": [],
+                  "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+                }
+              ],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "searching-for-clues:rdv97u:h600rx",
+              "html": "<b>Cannon</b>: Climb the ladder up one level. It is the long <a href=\"https://runescape.wiki/w/Cannon_(Lady_Zay)\" target=\"_blank\" rel=\"noopener\">cannon</a> at the very south end of the ship, directly behind <a href=\"https://runescape.wiki/w/%27Bird%27s-Eye%27_Jack\" target=\"_blank\" rel=\"noopener\">&#39;Bird&#39;s-Eye&#39; Jack</a>. Show map",
+              "text": "Cannon: Climb the ladder up one level. It is the long cannon at the very south end of the ship, directly behind 'Bird's-Eye' Jack. Show map",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Rub away!"
+                    }
+                  ]
+                }
+              ],
+              "images": [
+                {
+                  "type": "map",
+                  "caption": "Show map",
+                  "lat": 3784,
+                  "lon": 2220,
+                  "zoom": 3,
+                  "plane": 1,
+                  "mapId": 28,
+                  "version": "",
+                  "features": [],
+                  "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+                }
+              ],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "searching-for-clues:rdv97u:33c5qo",
+              "html": "<b>Wallchart</b>: Finally, climb up to the main deck and enter the southernmost room. It is the <a href=\"https://runescape.wiki/w/Wallchart\" target=\"_blank\" rel=\"noopener\">wallchart</a> on the northwestern wall. Show map",
+              "text": "Wallchart: Finally, climb up to the main deck and enter the southernmost room. It is the wallchart on the northwestern wall. Show map",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Rub away!"
+                    }
+                  ]
+                }
+              ],
+              "images": [
+                {
+                  "type": "map",
+                  "caption": "Show map",
+                  "lat": 3789,
+                  "lon": 2220,
+                  "zoom": 3,
+                  "plane": 2,
+                  "mapId": 28,
+                  "version": "",
+                  "features": [],
+                  "href": "https://runescape.wiki/w/Lunar_Diplomacy/Quick_guide"
+                }
+              ],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "searching-for-clues:ohr77r",
+          "html": "Talk to Captain Bentley.",
+          "text": "Talk to Captain Bentley.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "lunar-isle",
+      "title": "Lunar Isle",
+      "anchor": "Lunar_Isle",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "lunar-isle:bring:541vd4",
+              "html": "<a href=\"https://runescape.wiki/w/Clean_guam\" target=\"_blank\" rel=\"noopener\">Clean guam</a>",
+              "text": "Clean guam"
+            },
+            {
+              "id": "lunar-isle:bring:4rt6us",
+              "html": "<a href=\"https://runescape.wiki/w/Clean_marrentill\" target=\"_blank\" rel=\"noopener\">Clean marrentill</a>",
+              "text": "Clean marrentill"
+            },
+            {
+              "id": "lunar-isle:bring:1y43ty",
+              "html": "Ground <a href=\"https://runescape.wiki/w/Suqah_tooth\" target=\"_blank\" rel=\"noopener\">suqah tooth</a>",
+              "text": "Ground suqah tooth"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:30e6e4",
+          "html": "Climb down the ladders and walk into the city (there will be a small cutscene).",
+          "text": "Climb down the ladders and walk into the city (there will be a small cutscene).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:1yxq54t",
+          "html": "Go north-east outside the city and kill <a href=\"https://runescape.wiki/w/Suqah\" target=\"_blank\" rel=\"noopener\">suqah</a> until these items are obtained:",
+          "text": "Go north-east outside the city and kill suqah until these items are obtained:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lunar-isle:1yxq54t:hicd6n",
+              "html": "One <a href=\"https://runescape.wiki/w/Suqah_tooth\" target=\"_blank\" rel=\"noopener\">suqah tooth</a>.",
+              "text": "One suqah tooth.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-isle:1yxq54t:thqkey",
+              "html": "4 <a href=\"https://runescape.wiki/w/Suqah_hide\" target=\"_blank\" rel=\"noopener\">suqah hides</a>.",
+              "text": "4 suqah hides.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-isle:1yxq54t:1n3h7ya",
+              "html": "If not already in the backpack, one <a href=\"https://runescape.wiki/w/Grimy_guam\" target=\"_blank\" rel=\"noopener\">grimy guam</a> and one <a href=\"https://runescape.wiki/w/Grimy_marrentill\" target=\"_blank\" rel=\"noopener\">grimy marrentill</a>. Clean the herbs.",
+              "text": "If not already in the backpack, one grimy guam and one grimy marrentill. Clean the herbs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:tqi7ha",
+          "html": "Mine a <a href=\"https://runescape.wiki/w/Lunar_ore\" target=\"_blank\" rel=\"noopener\">lunar ore</a> at the <a href=\"https://runescape.wiki/w/Lunar_Isle_mine\" target=\"_blank\" rel=\"noopener\">mine</a> north-east of the city. Climb down the ladder and mine a <a href=\"https://runescape.wiki/w/Stalagmite\" target=\"_blank\" rel=\"noopener\">stalagmite</a> to the West of the rune essence rock. It looks like a rock jutting out of the ground.",
+          "text": "Mine a lunar ore at the mine north-east of the city. Climb down the ladder and mine a stalagmite to the West of the rune essence rock. It looks like a rock jutting out of the ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lunar-isle:tqi7ha:tzrflj",
+              "html": "Optional: Mine <a href=\"https://runescape.wiki/w/Rune_essence_(rock)#Lunar_Isle_mine\" target=\"_blank\" rel=\"noopener\">Rune Essence</a> to complete <a href=\"https://runescape.wiki/w/Runes_on_the_Moon\" target=\"_blank\" rel=\"noopener\">Runes on the Moon</a>, which is a <a href=\"https://runescape.wiki/w/Hard_Fremennik_achievements\" target=\"_blank\" rel=\"noopener\">Hard Fremennik achievement</a>.",
+              "text": "Optional: Mine Rune Essence to complete Runes on the Moon, which is a Hard Fremennik achievement.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:1xv9tht",
+          "html": "Run to the south-east part of the island. Talk to the <a href=\"https://runescape.wiki/w/Oneiromancer\" target=\"_blank\" rel=\"noopener\">Oneiromancer</a> near the <a href=\"https://runescape.wiki/w/Astral_altar\" target=\"_blank\" rel=\"noopener\">astral altar</a>.",
+          "text": "Run to the south-east part of the island. Talk to the Oneiromancer near the astral altar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:b1ys82",
+          "html": "Return to the city and enter the walking house in the northern section. Talk to <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a> (1 inventory space required).",
+          "text": "Return to the city and enter the walking house in the northern section. Talk to Baba Yaga (1 inventory space required).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "The Oneiromancer told me you may be able to help..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:1251joq",
+          "html": "Use the vial on the sink.",
+          "text": "Use the vial on the sink.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lunar-isle:1251joq:19nvf53",
+              "html": "Add a guam and a marrentill to the vial of water.",
+              "text": "Add a guam and a marrentill to the vial of water.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-isle:1251joq:1x3zg1n",
+              "html": "Grind the <a href=\"https://runescape.wiki/w/Suqah_tooth\" target=\"_blank\" rel=\"noopener\">suqah tooth</a> and use it on the vial to complete the potion.",
+              "text": "Grind the suqah tooth and use it on the vial to complete the potion.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lunar-isle:y3jaql",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Oneiromancer\" target=\"_blank\" rel=\"noopener\">Oneiromancer</a> with the <a href=\"https://runescape.wiki/w/Waking_sleep_vial\" target=\"_blank\" rel=\"noopener\">potion</a>.",
+          "text": "Return to the Oneiromancer with the potion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "lunar-staff",
+      "title": "Lunar staff",
+      "anchor": "Lunar_staff",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "lunar-staff:bring:1g9d58o",
+              "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a>",
+              "text": "Dramen staff"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Travelling options"
+        },
+        {
+          "type": "text",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Abyss\" target=\"_blank\" rel=\"noopener\">Abyss</a> or"
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:1xqpb47",
+          "html": "<a href=\"https://runescape.wiki/w/Skull_sceptre\" target=\"_blank\" rel=\"noopener\">Skull sceptre</a> or <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a> for the <a href=\"https://runescape.wiki/w/Air_altar\" target=\"_blank\" rel=\"noopener\">air altar</a>",
+          "text": "Skull sceptre or Edgeville lodestone for the air altar",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:3rsy42",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a> or <a href=\"https://runescape.wiki/w/Al_Kharid_lodestone\" target=\"_blank\" rel=\"noopener\">Al Kharid lodestone</a> for the <a href=\"https://runescape.wiki/w/Fire_altar\" target=\"_blank\" rel=\"noopener\">fire altar</a>",
+          "text": "Ring of duelling or Al Kharid lodestone for the fire altar",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:n73cr0",
+          "html": "<a href=\"https://runescape.wiki/w/Enlightened_amulet\" target=\"_blank\" rel=\"noopener\">Enlightened amulet</a> or <a href=\"https://runescape.wiki/w/Lumbridge_lodestone\" target=\"_blank\" rel=\"noopener\">Lumbridge lodestone</a> for the <a href=\"https://runescape.wiki/w/Water_altar\" target=\"_blank\" rel=\"noopener\">water altar</a>",
+          "text": "Enlightened amulet or Lumbridge lodestone for the water altar",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:j367zk",
+          "html": "<a href=\"https://runescape.wiki/w/Fort_Forinthry_lodestone\" target=\"_blank\" rel=\"noopener\">Fort Forinthry lodestone</a>, <a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">Invitation box</a>, or <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> for the <a href=\"https://runescape.wiki/w/Earth_altar\" target=\"_blank\" rel=\"noopener\">earth altar</a>",
+          "text": "Fort Forinthry lodestone, Invitation box, or Archaeology journal for the earth altar",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Elemental runecrafting altars"
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:1f3nax0",
+          "html": "Use your <a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">dramen staff</a>/staves on the following altars <b>in the listed order</b> (you may need talismans to access if you do not have alternate teleports):",
+          "text": "Use your dramen staff/staves on the following altars in the listed order (you may need talismans to access if you do not have alternate teleports):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lunar-staff:1f3nax0:1ou1948",
+              "html": "Air (west of <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a>)",
+              "text": "Air (west of Varrock)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-staff:1f3nax0:u7w1pq",
+              "html": "Fire (north of <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a>)",
+              "text": "Fire (north of Al Kharid)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-staff:1f3nax0:wji086",
+              "html": "Water (<a href=\"https://runescape.wiki/w/Lumbridge_Swamp\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp</a>)",
+              "text": "Water (Lumbridge Swamp)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lunar-staff:1f3nax0:aovxma",
+              "html": "Earth (south of <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>)",
+              "text": "Earth (south of Fort Forinthry)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:4557uf",
+          "html": "Before returning to the isle, smelt the lunar ore at any regular furnace and make a lunar helmet at a regular anvil.",
+          "text": "Before returning to the isle, smelt the lunar ore at any regular furnace and make a lunar helmet at a regular anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:144t8h3",
+          "html": "Travel back to Lunar Isle by selecting &quot;travel&quot; from Lokar Searunner in Rellekka at the westernmost dock.",
+          "text": "Travel back to Lunar Isle by selecting \"travel\" from Lokar Searunner in Rellekka at the westernmost dock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:1kb4nwq",
+          "html": "Travel with Captain Bentley to Lunar Isle.",
+          "text": "Travel with Captain Bentley to Lunar Isle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lunar-staff:11v9p41",
+          "html": "Give a lunar staff to the <a href=\"https://runescape.wiki/w/Oneiromancer\" target=\"_blank\" rel=\"noopener\">Oneiromancer</a>.",
+          "text": "Give a lunar staff to the Oneiromancer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ceremonial-clothes",
+      "title": "Ceremonial clothes",
+      "anchor": "Ceremonial_clothes",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Smithing lunar helm"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ceremonial-clothes:bring:brj9eg",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:1mhu708",
+          "html": "If you have already made the lunar helm, you can skip the next 4 steps.",
+          "text": "If you have already made the lunar helm, you can skip the next 4 steps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ceremonial-clothes:1mhu708:efbbni",
+              "html": "Climb down ladder north-eastern part of the isle.",
+              "text": "Climb down ladder north-eastern part of the isle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "ceremonial-clothes:1mhu708:1c32yae",
+              "html": "Mine a <a href=\"https://runescape.wiki/w/Stalagmite\" target=\"_blank\" rel=\"noopener\">stalagmite</a> for a <a href=\"https://runescape.wiki/w/Lunar_ore\" target=\"_blank\" rel=\"noopener\">lunar ore</a>.",
+              "text": "Mine a stalagmite for a lunar ore.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "ceremonial-clothes:1mhu708:mxvkut",
+              "html": "You have to use a furnace to smith the ore (the forge in the southern building will not work).",
+              "text": "You have to use a furnace to smith the ore (the forge in the southern building will not work).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "ceremonial-clothes:1mhu708:77230z",
+              "html": "Use an anvil to make the helm, such as the one in the southern building.",
+              "text": "Use an anvil to make the helm, such as the one in the southern building.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Crafting lunar gear"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ceremonial-clothes:bring:1uvmodt",
+              "html": "400 coins",
+              "text": "400 coins"
+            },
+            {
+              "id": "ceremonial-clothes:bring:3dlus7",
+              "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a> or <a href=\"https://runescape.wiki/w/Crafting_cape\" target=\"_blank\" rel=\"noopener\">Crafting cape</a>",
+              "text": "Thread or Crafting cape"
+            },
+            {
+              "id": "ceremonial-clothes:bring:1ow4doa",
+              "html": "Four <a href=\"https://runescape.wiki/w/Suqah_hide\" target=\"_blank\" rel=\"noopener\">suqah hides</a>",
+              "text": "Four suqah hides"
+            },
+            {
+              "id": "ceremonial-clothes:bring:brj9eg-2",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:1aa2kc6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Pauline_Polaris\" target=\"_blank\" rel=\"noopener\">Pauline Polaris</a> in the north-western-most building in the city. Choose the correct answer &quot;Jane Blud-Hagic-Maid&quot;. The answers are randomly ordered.",
+          "text": "Talk to Pauline Polaris in the north-western-most building in the city. Choose the correct answer \"Jane Blud-Hagic-Maid\". The answers are randomly ordered.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Pauline."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:3wldsh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Meteora\" target=\"_blank\" rel=\"noopener\">Meteora</a> south in the city.",
+          "text": "Talk to Meteora south in the city.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:owt7b8",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Suqah\" target=\"_blank\" rel=\"noopener\">Suqahs</a> until one drops <a href=\"https://runescape.wiki/w/A_special_tiara\" target=\"_blank\" rel=\"noopener\">a special tiara</a>. If you haven&#39;t already, pick up their hide as well as you&#39;ll need four hides later on.",
+          "text": "Kill Suqahs until one drops a special tiara. If you haven't already, pick up their hide as well as you'll need four hides later on.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:1j19k37",
+          "html": "Give Meteora the tiara.",
+          "text": "Give Meteora the tiara.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:l5n51g",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rimae_Sirsalis\" target=\"_blank\" rel=\"noopener\">Rimae Sirsalis</a> in the clothing store south of the bank about ceremonial clothes.",
+          "text": "Talk to Rimae Sirsalis in the clothing store south of the bank about ceremonial clothes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You know the ceremonial clothes?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:8we1xl",
+          "html": "Talk to Rimae Sirsalis again, she will tan your hides.",
+          "text": "Talk to Rimae Sirsalis again, she will tan your hides.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You know the ceremonial clothes?"
+                },
+                {
+                  "key": "1",
+                  "text": "That seems like a fair deal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ceremonial-clothes:8we1xl:15t33gk",
+              "html": "If you didn&#39;t bring thread, Rimae&#39;s shop sells some.",
+              "text": "If you didn't bring thread, Rimae's shop sells some.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:kxjgwm",
+          "html": "Craft a lunar torso, trousers, gloves, and boots from your hides.",
+          "text": "Craft a lunar torso, trousers, gloves, and boots from your hides.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Looking for lunar ring"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ceremonial-clothes:bring:brj9eg-3",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            },
+            {
+              "id": "ceremonial-clothes:bring:nwd5zh",
+              "html": "A <a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">spade</a>",
+              "text": "A spade"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:kluyk0",
+          "html": "Go to the biggest building in the city (west of the lodestone) and talk to <a href=\"https://runescape.wiki/w/Selene_(Lunar_Isle)\" target=\"_blank\" rel=\"noopener\">Selene</a> (she might be outside).",
+          "text": "Go to the biggest building in the city (west of the lodestone) and talk to Selene (she might be outside).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'm looking for a ring."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:rh0hfv",
+          "html": "Exit the city and run south. Dig up near blue flowers with a spade (tool belt doesn&#39;t work), they are the flowers to the furthest south west across the bridge. Make sure to finish the dialogue.",
+          "text": "Exit the city and run south. Dig up near blue flowers with a spade (tool belt doesn't work), they are the flowers to the furthest south west across the bridge. Make sure to finish the dialogue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Lunar ring location",
+          "head": [],
+          "rows": [
+            [
+              "<a href=\"https://runescape.wiki/w/File:Lunar_ring_location.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Lunar_ring_location.png/200px-Lunar_ring_location.png?a6626\" alt=\"\" width=\"200\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Giving lunar gear"
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:wdonxg",
+          "html": "Give the Oneiromancer all your lunar gear.",
+          "text": "Give the Oneiromancer all your lunar gear.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ceremonial-clothes:1vdffjm",
+          "html": "Talk to the Oneiromancer again with 11 free inventory slots.",
+          "text": "Talk to the Oneiromancer again with 11 free inventory slots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "dreamland",
+      "title": "Dreamland",
+      "anchor": "Dreamland",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "dreamland:bring:t0ta6",
+              "html": "<a href=\"https://runescape.wiki/w/Runes\" target=\"_blank\" rel=\"noopener\">Runes</a> for combat spells (preferably <a href=\"https://runescape.wiki/w/Fire_spells\" target=\"_blank\" rel=\"noopener\">fire spells</a>, elemental staff not equippable).",
+              "text": "Runes for combat spells (preferably fire spells, elemental staff not equippable)."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dreamland:ni9fb1",
+          "html": "Use the vial on the kindling Oneiromancer just gave you to create <a href=\"https://runescape.wiki/w/Soaked_kindling\" target=\"_blank\" rel=\"noopener\">soaked kindling</a>.",
+          "text": "Use the vial on the kindling Oneiromancer just gave you to create soaked kindling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1t2gtp2",
+          "html": "Get your combat runes and supplies, dismiss your follower, and wear all your lunar items. Four backpack spaces are required.",
+          "text": "Get your combat runes and supplies, dismiss your follower, and wear all your lunar items. Four backpack spaces are required.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1fms9gr",
+          "html": "Do not carry an augmented crystal hatchet in the backpack to avoid a bug later in the quest.",
+          "text": "Do not carry an augmented crystal hatchet in the backpack to avoid a bug later in the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1rqcovb",
+          "html": "Run to the biggest building in the city (west of the lodestone).",
+          "text": "Run to the biggest building in the city (west of the lodestone).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:2f9qw0",
+          "html": "Make sure you&#39;re wearing all 8 pieces of lunar equipment and wielding the lunar staff; if you exit to lobby or logout, or are not wearing them all when you add the soaked kindling, you&#39;ll have to return to the Oneiromancer to get a new kindling.",
+          "text": "Make sure you're wearing all 8 pieces of lunar equipment and wielding the lunar staff; if you exit to lobby or logout, or are not wearing them all when you add the soaked kindling, you'll have to return to the Oneiromancer to get a new kindling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:13740v7",
+          "html": "Light the ceremonial brazier then use the Soaked kindling on it to enter Dreamland.",
+          "text": "Light the ceremonial brazier then use the Soaked kindling on it to enter Dreamland.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dicing"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1ovuvch",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ethereal_Man\" target=\"_blank\" rel=\"noopener\">Ethereal Man</a> or <a href=\"https://runescape.wiki/w/Ethereal_Lady\" target=\"_blank\" rel=\"noopener\">Ethereal Lady</a>.",
+          "text": "Talk to Ethereal Man or Ethereal Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:trj1g2",
+          "html": "Step on the yellow/green platform south-west of the island.",
+          "text": "Step on the yellow/green platform south-west of the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1e70dz3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ethereal_Fluke\" target=\"_blank\" rel=\"noopener\">Ethereal Fluke</a>.",
+          "text": "Talk to Ethereal Fluke.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:rbjxy",
+          "html": "He will call out a number. You need to make the dice add up to the number he called. When you &quot;roll&quot; one of the dice, it will turn the die upside down, so each die only has two possible numbers (1 and 6, 2 and 5, 3 and 4).",
+          "text": "He will call out a number. You need to make the dice add up to the number he called. When you \"roll\" one of the dice, it will turn the die upside down, so each die only has two possible numbers (1 and 6, 2 and 5, 3 and 4).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Answers<br>N/A<br>21<br>1<br>6<br>2<br>5<br>3<br>4<br>12<br>1<br>1<br>2<br>2<br>3<br>3<br>22<br>1<br>6<br>2<br>5<br>4<br>4<br>13<br>1<br>1<br>2<br>2<br>3<br>4<br>23<br>1<br>6<br>5<br>5<br>3<br>3<br>14<br>1<br>1<br>2<br>2<br>4<br>4<br>24<br>1<br>6<br>5<br>5<br>3<br>4<br>15<br>1<br>1<br>2<br>5<br>3<br>3<br>25<br>1<br>6<br>5<br>5<br>4<br>4<br>16<br>1<br>1<br>2<br>5<br>3<br>4<br>26<br>6<br>6<br>2<br>5<br>3<br>4<br>17<br>1<br>1<br>2<br>5<br>4<br>4<br>27<br>6<br>6<br>2<br>5<br>4<br>4<br>18<br>1<br>1<br>5<br>5<br>3<br>3<br>28<br>6<br>6<br>5<br>5<br>3<br>3<br>19<br>1<br>1<br>5<br>5<br>3<br>4<br>29<br>6<br>6<br>5<br>5<br>3<br>4<br>20<br>1<br>1<br>5<br>5<br>4<br>4<br>30<br>6<br>6<br>5<br>5<br>4<br>4"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1kh8926",
+          "html": "He eventually teleports you back to the middle.",
+          "text": "He eventually teleports you back to the middle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1p9aqoy",
+          "html": "Talk to the Ethereal Man/Lady.",
+          "text": "Talk to the Ethereal Man/Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Number sequence"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:m9c6b9",
+          "html": "Head south-east and step on the pink/purple platform.",
+          "text": "Head south-east and step on the pink/purple platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:bclow9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ethereal_Numerator\" target=\"_blank\" rel=\"noopener\">Ethereal Numerator</a>.",
+          "text": "Talk to Ethereal Numerator.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1emzrsy",
+          "html": "Click on the numbers to complete the patterns for four times.",
+          "text": "Click on the numbers to complete the patterns for four times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Here are sequences the Ethereal Numerator may possibly give you, with the next two numbers in the patterns highlighted:"
+        },
+        {
+          "type": "text",
+          "html": "0<br>1<br>3<br>4<br>6<br>7<br>1<br>1<br>1<br>2<br>1<br>3<br>1<br>4<br>1<br>5<br>1<br>1<br>2<br>2<br>3<br>3<br>4<br>1<br>1<br>2<br>3<br>1<br>1<br>4<br>5<br>1<br>1<br>2<br>3<br>4<br>5<br>1<br>3<br>5<br>7<br>9<br>1<br>4<br>2<br>5<br>3<br>6<br>1<br>6<br>2<br>5<br>3<br>4<br>1<br>9<br>2<br>8<br>3<br>7<br>2<br>3<br>5<br>6<br>8<br>9<br>2<br>6<br>3<br>7<br>4<br>8<br>3<br>4<br>2<br>5<br>1<br>6<br>7<br>3<br>6<br>2<br>5<br>1<br>8<br>6<br>4<br>2<br>0<br>9<br>7<br>5<br>3<br>1<br>9<br>8<br>7<br>6<br>5<br>4"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1kh8926-2",
+          "html": "He eventually teleports you back to the middle.",
+          "text": "He eventually teleports you back to the middle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1p9aqoy-2",
+          "html": "Talk to the Ethereal Man/Lady.",
+          "text": "Talk to the Ethereal Man/Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Logging race"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:io1mtq",
+          "html": "Head north-east and step on the blue platform.",
+          "text": "Head north-east and step on the blue platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:15uwx93",
+          "html": "Talk to Ethereal Perceptive. He might give you a hatchet. (Do not carry an augmented crystal hatchet in the backpack or you will be given the following message: &quot;You do not have a hatchet which you have the Woodcutting level to use&quot; even if you have another hatchet in the backpack or a hatchet on your toolbelt)",
+          "text": "Talk to Ethereal Perceptive. He might give you a hatchet. (Do not carry an augmented crystal hatchet in the backpack or you will be given the following message: \"You do not have a hatchet which you have the Woodcutting level to use\" even if you have another hatchet in the backpack or a hatchet on your toolbelt)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ok, let's go!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:mgf20w",
+          "html": "Run west and chop 20 <a href=\"https://runescape.wiki/w/Dream_log\" target=\"_blank\" rel=\"noopener\">dream logs</a>, depositing them on your log pile.",
+          "text": "Run west and chop 20 dream logs, depositing them on your log pile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:6r3p42",
+          "html": "He will teleport you once you&#39;ve won the competition.",
+          "text": "He will teleport you once you've won the competition.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1p9aqoy-3",
+          "html": "Talk to the Ethereal Man/Lady.",
+          "text": "Talk to the Ethereal Man/Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Memorisation"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:xtsi5f",
+          "html": "Head north-west and step on the grey platform.",
+          "text": "Head north-west and step on the grey platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:11ams8k",
+          "html": "Talk to Ethereal Guide.",
+          "text": "Talk to Ethereal Guide.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:ne2q4w",
+          "html": "Cross the chasm by jumping on the correct combination of Dream Puffs. Keep a note of the correct steps! You can use the table below to track your path: click cell to highlight it. Click again to cancel a highlight.",
+          "text": "Cross the chasm by jumping on the correct combination of Dream Puffs. Keep a note of the correct steps! You can use the table below to track your path: click cell to highlight it. Click again to cancel a highlight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1y7xok4",
+          "html": "Once complete, talk to the Ethereal Man/Lady.",
+          "text": "Once complete, talk to the Ethereal Man/Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Possible paths (patterns are when facing north):"
+        },
+        {
+          "type": "table",
+          "label": "Path 1",
+          "head": [],
+          "rows": [
+            [
+              "Path 1<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 2<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 3<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 4<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 5<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 6<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 7<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 8<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 9<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>Path 10<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X"
+            ]
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The hurdles"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "dreamland:bring:6uj2y9",
+              "html": "<a href=\"https://runescape.wiki/w/Agility_cape\" target=\"_blank\" rel=\"noopener\">Agility cape</a> to prevent you from being electrocuted",
+              "text": "Agility cape to prevent you from being electrocuted"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1giy178",
+          "html": "Head east and step on the yellow platform.",
+          "text": "Head east and step on the yellow platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:7so6q9",
+          "html": "Talk to Ethereal Expert and start the race.",
+          "text": "Talk to Ethereal Expert and start the race.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:nb6vk1",
+          "html": "Jump over the hurdles. If you fail three times, you will lose the race. Run and stop before each hurdle, before clicking the orb to jump over.",
+          "text": "Jump over the hurdles. If you fail three times, you will lose the race. Run and stop before each hurdle, before clicking the orb to jump over.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:xhda3j",
+          "html": "After you have won talk to the Ethereal Man/Lady.",
+          "text": "After you have won talk to the Ethereal Man/Lady.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Copy cat"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:7b86mp",
+          "html": "Head south-east and step on the green platform.",
+          "text": "Head south-east and step on the green platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:x5gwcr",
+          "html": "Talk to Ethereal Mimic.",
+          "text": "Talk to Ethereal Mimic.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Suppose I may as well have a go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:zlvzze",
+          "html": "Click on them and then copy the emote that they perform. They teleport after each correct emote.",
+          "text": "Click on them and then copy the emote that they perform. They teleport after each correct emote.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1iphy64",
+          "html": "After five correct emotes, they&#39;ll teleport you back.",
+          "text": "After five correct emotes, they'll teleport you back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Defeating me"
+        },
+        {
+          "type": "step",
+          "id": "dreamland:1a4ah2l",
+          "html": "Talk to the Ethereal Man/Lady to begin the final fight.",
+          "text": "Talk to the Ethereal Man/Lady to begin the final fight.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course. I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreamland:mfesxh",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Me\" target=\"_blank\" rel=\"noopener\">Me</a> (6,000 life points, weakness to fire spells). You can <a href=\"https://runescape.wiki/w/Safe_spot\" target=\"_blank\" rel=\"noopener\">safe-spot</a> them behind the dream tree.",
+          "text": "Kill Me (6,000 life points, weakness to fire spells). You can safe-spot them behind the dream tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dreamland:mfesxh:122kczv",
+              "html": "Should you forget your runes after entering the fight, you will not be able to leave the fight in any way unless you log out and back in. This will take you back to <a href=\"https://runescape.wiki/w/Lunar_Isle\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a> where you can bank to get the runes.",
+              "text": "Should you forget your runes after entering the fight, you will not be able to leave the fight in any way unless you log out and back in. This will take you back to Lunar Isle where you can bank to get the runes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dreamland:mfesxh:jbqe2z",
+              "html": "Be sure to equip your <a href=\"https://runescape.wiki/w/Seal_of_passage\" target=\"_blank\" rel=\"noopener\">Seal of passage</a> before speaking to a banker.",
+              "text": "Be sure to equip your Seal of passage before speaking to a banker.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dreamland:mfesxh:eenlaj",
+              "html": "Go back to the <a href=\"https://runescape.wiki/w/Oneiromancer\" target=\"_blank\" rel=\"noopener\">Oneiromancer</a> again to get the kindling and potion to return back to the dream.",
+              "text": "Go back to the Oneiromancer again to get the kindling and potion to return back to the dream.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dreamland:mfesxh:1nqb7",
+              "html": "Re-equip your <a href=\"https://runescape.wiki/w/Lunar_amulet\" target=\"_blank\" rel=\"noopener\">Lunar amulet</a> before attempting to enter the dream.",
+              "text": "Re-equip your Lunar amulet before attempting to enter the dream.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1509a7q",
+          "html": "Read the lectern to return to Lunar Isle.",
+          "text": "Read the lectern to return to Lunar Isle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:al9g6n",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Oneiromancer\" target=\"_blank\" rel=\"noopener\">Oneiromancer</a>.",
+          "text": "Talk to the Oneiromancer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Lunar_Diplomacy_reward.png?e3746",
+      "width": 512,
+      "height": 402,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Lunar_Diplomacy_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Full access to <a href=\"https://runescape.wiki/w/Lunar_Isle\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a>",
+        "text": "Full access to Lunar Isle",
+        "subs": [
+          "Use of the <a href=\"https://runescape.wiki/w/Astral_altar\" target=\"_blank\" rel=\"noopener\">Astral altar</a>",
+          "Access to <a href=\"https://runescape.wiki/w/Livid_Farm\" target=\"_blank\" rel=\"noopener\">Livid Farm</a>",
+          "Ability to buy astral runes from Baba Yaga"
+        ]
+      },
+      {
+        "html": "Ability to use <a href=\"https://runescape.wiki/w/Lunar_Spells\" target=\"_blank\" rel=\"noopener\">Lunar Spells</a>",
+        "text": "Ability to use Lunar Spells",
+        "subs": []
+      },
+      {
+        "html": "A set of <a href=\"https://runescape.wiki/w/Lunar_equipment\" target=\"_blank\" rel=\"noopener\">Lunar equipment</a> (obtained during quest)",
+        "text": "A set of Lunar equipment (obtained during quest)",
+        "subs": []
+      },
+      {
+        "html": "50 <a href=\"https://runescape.wiki/w/Astral_rune\" target=\"_blank\" rel=\"noopener\">astral runes</a>",
+        "text": "50 astral runes",
+        "subs": []
+      },
+      {
+        "html": "Ability to have <a href=\"https://runescape.wiki/w/Suqah\" target=\"_blank\" rel=\"noopener\">suqahs</a> assigned as a <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a> task",
+        "text": "Ability to have suqahs assigned as a Slayer task",
+        "subs": []
+      },
+      {
+        "html": "Ability to unlock the <a href=\"https://runescape.wiki/w/Ourania_Teleport\" target=\"_blank\" rel=\"noopener\">Ourania Teleport</a> spell from the <a href=\"https://runescape.wiki/w/Lunar_Spellbook\" target=\"_blank\" rel=\"noopener\">Lunar Spellbook</a>, by talking to <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a> with Lunar spells active",
+        "text": "Ability to unlock the Ourania Teleport spell from the Lunar Spellbook, by talking to Baba Yaga with Lunar spells active",
+        "subs": []
+      },
+      {
+        "html": "An extra 10,338 experience when <a href=\"https://runescape.wiki/w/Swept_Away\" target=\"_blank\" rel=\"noopener\">Swept Away</a> quest is completed and the <a href=\"https://runescape.wiki/w/Broomstick\" target=\"_blank\" rel=\"noopener\">broomstick</a> is brought to <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a> (with level 73 Magic)",
+        "text": "An extra 10,338 experience when Swept Away quest is completed and the broomstick is brought to Baba Yaga (with level 73 Magic)",
+        "subs": []
+      },
+      {
+        "html": "The ability to <a href=\"https://runescape.wiki/w/Home_Teleport\" target=\"_blank\" rel=\"noopener\">Home Teleport</a> to the <a href=\"https://runescape.wiki/w/Lunar_Isle_lodestone\" target=\"_blank\" rel=\"noopener\">Lunar Isle lodestone</a>",
+        "text": "The ability to Home Teleport to the Lunar Isle lodestone",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Seal_of_passage\" target=\"_blank\" rel=\"noopener\">seal of passage</a> can now be used to teleport to Lunar Isle once per day",
+        "text": "The seal of passage can now be used to teleport to Lunar Isle once per day",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Dreamstate",
+      "where": "in Dream World"
+    },
+    {
+      "name": "The Galleon",
+      "where": "at the Pirates' Cove"
+    },
+    {
+      "name": "Isle of Everywhere",
+      "where": "on the northeast coast of Lunar Isle"
+    },
+    {
+      "name": "The Lunar Isle",
+      "where": "on the Moonclan Isle"
+    },
+    {
+      "name": "Waking Dream",
+      "where": "when at one of the challenges in Dream World"
+    },
+    {
+      "name": "Way of the Enchanter",
+      "where": "in the Lunar Isle mine"
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Lunar_Diplomacy_(achievement)\" target=\"_blank\" rel=\"noopener\">Lunar Diplomacy</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Out_into_the_Ourania\" target=\"_blank\" rel=\"noopener\">Out into the Ourania</a> (15) – Unlock the spell: Ourania Teleport.",
+    "<a href=\"https://runescape.wiki/w/Lunar_Isle_(achievement)\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a> (5) – Activate the lodestone in Lunar Isle.",
+    "<b><a href=\"https://runescape.wiki/w/Falador_achievements\" target=\"_blank\" rel=\"noopener\">Falador achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Fremennik_achievements\" target=\"_blank\" rel=\"noopener\">Fremennik achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Seers%27_Village_achievements\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dream_Mentor/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dream Mentor</a>",
+        "<a href=\"https://runescape.wiki/w/Glorious_Memories/Quick_guide\" target=\"_blank\" rel=\"noopener\">Glorious Memories</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Blood_Runs_Deep/Quick_guide\" target=\"_blank\" rel=\"noopener\">Blood Runs Deep</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

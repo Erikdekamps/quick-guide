@@ -1,0 +1,1143 @@
+{
+  "format": 1,
+  "id": "regicide",
+  "title": "Regicide",
+  "page": "Regicide/Quick guide",
+  "rev": 37212779,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Receive a message from <a href=\"https://runescape.wiki/w/King%27s_messenger\" target=\"_blank\" rel=\"noopener\">King Lathas&#39;s messenger</a> (typically, this happens about 15 minutes after completing <a href=\"https://runescape.wiki/w/Underground_Pass\" target=\"_blank\" rel=\"noopener\">Underground Pass</a>).",
+    "startMap": null,
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Underground Pass",
+        "depth": 1
+      },
+      {
+        "text": "Biohazard",
+        "depth": 2
+      },
+      {
+        "text": "Plague City",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 56,
+        "note": "(boostable) (not required to start)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Tyras guard (level 58)",
+        "name": "Tyras guard",
+        "count": null,
+        "level": "58",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Tirannwn</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Tirannwn</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:i5j2wd",
+          "html": "Items to get through the <a href=\"https://runescape.wiki/w/Underground_Pass_(dungeon)\" target=\"_blank\" rel=\"noopener\">Underground Pass</a> (other items can be banked until the lodestone is active):",
+          "text": "Items to get through the Underground Pass (other items can be banked until the lodestone is active):",
+          "alternatives": [
+            "A <a href=\"https://runescape.wiki/w/Bow\" target=\"_blank\" rel=\"noopener\">bow</a> (excluding all <a href=\"https://runescape.wiki/w/Chargebow_(bow_type)\" target=\"_blank\" rel=\"noopener\">chargebows</a>)",
+            "A few of <a href=\"https://runescape.wiki/w/Bronze_arrow\" target=\"_blank\" rel=\"noopener\">bronze</a>, <a href=\"https://runescape.wiki/w/Iron_arrow\" target=\"_blank\" rel=\"noopener\">iron</a>, <a href=\"https://runescape.wiki/w/Steel_arrow\" target=\"_blank\" rel=\"noopener\">steel</a>, <a href=\"https://runescape.wiki/w/Mithril_arrow\" target=\"_blank\" rel=\"noopener\">mithril</a>, <a href=\"https://runescape.wiki/w/Adamant_arrow\" target=\"_blank\" rel=\"noopener\">adamant</a>, <a href=\"https://runescape.wiki/w/Rune_arrow\" target=\"_blank\" rel=\"noopener\">rune</a>, <a href=\"https://runescape.wiki/w/Dragon_arrow\" target=\"_blank\" rel=\"noopener\">dragon</a>, or <a href=\"https://runescape.wiki/w/Dark_arrow\" target=\"_blank\" rel=\"noopener\">dark arrows</a>",
+            "A <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">plank</a> (can be obtained in the underground pass)",
+            "1-5 <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">ropes</a> (you won&#39;t necessarily use all of them)"
+          ]
+        },
+        {
+          "id": "req:1bn4rym",
+          "html": "<a href=\"https://runescape.wiki/w/Limestone\" target=\"_blank\" rel=\"noopener\">Limestone</a> (<a href=\"https://runescape.wiki/w/Limestone_brick\" target=\"_blank\" rel=\"noopener\">limestone bricks</a> will not work)",
+          "text": "Limestone (limestone bricks will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:5mqagd",
+          "html": "6-30 pieces of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (coal in an <a href=\"https://runescape.wiki/w/Orebox\" target=\"_blank\" rel=\"noopener\">orebox</a> will not work)",
+          "text": "6-30 pieces of coal (coal in an orebox will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1e3wfre",
+          "html": "An <a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">empty pot</a> (can be obtained in the elf camp)",
+          "text": "An empty pot (can be obtained in the elf camp)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1j4xq4d",
+          "html": "A <a href=\"https://runescape.wiki/w/Strip_of_cloth\" target=\"_blank\" rel=\"noopener\">strip of cloth</a> (made by using 2 <a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">balls of wool</a> on a <a href=\"https://runescape.wiki/w/Loom\" target=\"_blank\" rel=\"noopener\">loom</a>)",
+          "text": "A strip of cloth (made by using 2 balls of wool on a loom)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1lfmemk",
+          "html": "A <a href=\"https://runescape.wiki/w/Cooked_rabbit\" target=\"_blank\" rel=\"noopener\">cooked rabbit</a> (can be obtained from charter traders or in <a href=\"https://runescape.wiki/w/Tirannwn\" target=\"_blank\" rel=\"noopener\">Tirannwn</a> after killing a <a href=\"https://runescape.wiki/w/Rabbit\" target=\"_blank\" rel=\"noopener\">rabbit</a> and cooking the meat)",
+          "text": "A cooked rabbit (can be obtained from charter traders or in Tirannwn after killing a rabbit and cooking the meat)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ou8jmu",
+          "html": "60 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> or higher (to decrease the chance of failing obstacles in the Underground Pass).",
+          "text": "60 Agility or higher (to decrease the chance of failing obstacles in the Underground Pass).",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1d4sq2y",
+          "html": "6,400 coins (to activate a <a href=\"https://runescape.wiki/w/Charter_ship\" target=\"_blank\" rel=\"noopener\">charter ship</a> route between <a href=\"https://runescape.wiki/w/Port_Tyras\" target=\"_blank\" rel=\"noopener\">Port Tyras</a> and <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>; less cost with discounts)",
+          "text": "6,400 coins (to activate a charter ship route between Port Tyras and Port Sarim; less cost with discounts)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:c9ylpz",
+          "html": "<a href=\"https://runescape.wiki/w/Remora%27s_necklace\" target=\"_blank\" rel=\"noopener\">Remora&#39;s necklace</a> or an active lodestone in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> for quicker travels to <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>",
+          "text": "Remora's necklace or an active lodestone in Port Sarim for quicker travels to Rimmington",
+          "alternatives": []
+        },
+        {
+          "id": "rec:xaczjt",
+          "html": "Any <a href=\"https://runescape.wiki/w/Emergency_teleport\" target=\"_blank\" rel=\"noopener\">emergency teleport</a> (<a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">Ectophial</a>, <a href=\"https://runescape.wiki/w/Teleport_tablet\" target=\"_blank\" rel=\"noopener\">teleport tablets</a>, etc.)",
+          "text": "Any emergency teleport (Ectophial, teleport tablets, etc.)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1m61djr",
+          "html": "<a href=\"https://runescape.wiki/w/Weight-reducing_clothing\" target=\"_blank\" rel=\"noopener\">Weight-reducing clothing</a>",
+          "text": "Weight-reducing clothing",
+          "alternatives": []
+        },
+        {
+          "id": "rec:b3t3ej",
+          "html": "<a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">Antipoisons</a> for the elf traps",
+          "text": "Antipoisons for the elf traps",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1yo837x",
+          "html": "<a href=\"https://runescape.wiki/w/Summer_Pie\" target=\"_blank\" rel=\"noopener\">Summer Pies</a> for lower agility levels",
+          "text": "Summer Pies for lower agility levels",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "starting-out:bring:4utc8l",
+              "html": "Any <a href=\"https://runescape.wiki/w/Bow\" target=\"_blank\" rel=\"noopener\">bow</a>",
+              "text": "Any bow"
+            },
+            {
+              "id": "starting-out:bring:1ezw2bz",
+              "html": "<a href=\"https://runescape.wiki/w/Arrow\" target=\"_blank\" rel=\"noopener\">Arrows</a>",
+              "text": "Arrows"
+            },
+            {
+              "id": "starting-out:bring:13igr63",
+              "html": "1-5 <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">ropes</a>",
+              "text": "1-5 ropes"
+            },
+            {
+              "id": "starting-out:bring:18lwhln",
+              "html": "<a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">Plank</a>",
+              "text": "Plank"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:b6as67",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Lathas\" target=\"_blank\" rel=\"noopener\">King Lathas</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of <a href=\"https://runescape.wiki/w/Ardougne_Castle\" target=\"_blank\" rel=\"noopener\">Ardougne Castle</a>.",
+          "text": "Talk to King Lathas on the 1st floor (UK) / 2nd floor (US) of Ardougne Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1q754uh",
+          "html": "Travel through the <a href=\"https://runescape.wiki/w/Underground_Pass_(dungeon)\" target=\"_blank\" rel=\"noopener\">Underground Pass</a> which can be found on the far west side of <a href=\"https://runescape.wiki/w/West_Ardougne\" target=\"_blank\" rel=\"noopener\">West Ardougne</a>. You do not need to find another Iban&#39;s doll or complete any of the steps from Underground Pass quest. You only need to reach Iban&#39;s temple.",
+          "text": "Travel through the Underground Pass which can be found on the far west side of West Ardougne. You do not need to find another Iban's doll or complete any of the steps from Underground Pass quest. You only need to reach Iban's temple.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1k887k5",
+          "html": "Refer to <a href=\"https://runescape.wiki/w/Underground_Pass_(dungeon)\" target=\"_blank\" rel=\"noopener\">this guide</a> for instructions navigating the Underground Pass.",
+          "text": "Refer to this guide for instructions navigating the Underground Pass.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1wcha8g",
+          "html": "Enter the well in <a href=\"https://runescape.wiki/w/Iban%27s_Temple\" target=\"_blank\" rel=\"noopener\">Iban&#39;s Temple</a>.",
+          "text": "Enter the well in Iban's Temple.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:84wkn8",
+          "html": "Exit the cave to the west.",
+          "text": "Exit the cave to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "tirannwn",
+      "title": "Tirannwn",
+      "anchor": "Tirannwn",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "tirannwn:bring:f3k93t",
+              "html": "<a href=\"https://runescape.wiki/w/Limestone\" target=\"_blank\" rel=\"noopener\">Limestone</a>",
+              "text": "Limestone"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3200,
+          "lon": 2222,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2205,
+                  3252,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "Lord Iorwerth",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2257,
+                  3149,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "Elf Tracker",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2187,
+                  3149,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "General Hining",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Regicide/Quick_guide"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Coal_tar_exact_spot.png/200px-Coal_tar_exact_spot.png?99b62",
+          "width": 200,
+          "height": 200,
+          "alt": "",
+          "caption": "The location to find the coal tar",
+          "href": "https://runescape.wiki/w/File:Coal_tar_exact_spot.png"
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:41uagk",
+          "html": "Run through the forest, talk to <a href=\"https://runescape.wiki/w/Idris\" target=\"_blank\" rel=\"noopener\">Idris</a>. Watch him die then continue.",
+          "text": "Run through the forest, talk to Idris. Watch him die then continue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:41uagk:17xdni7",
+              "html": "If <a href=\"https://runescape.wiki/w/Idris\" target=\"_blank\" rel=\"noopener\">Idris</a> does not spawn, log out and back in to trigger the scene.",
+              "text": "If Idris does not spawn, log out and back in to trigger the scene.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:7pkdjn",
+          "html": "Go west to jump the leaves trap (a dark green patch on the ground).",
+          "text": "Go west to jump the leaves trap (a dark green patch on the ground).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:u7emna",
+          "html": "Proceed southwest of the musician. Between some trees find a trap of <a href=\"https://runescape.wiki/w/Sticks\" target=\"_blank\" rel=\"noopener\">sticks</a> on the ground, click the sticks (choose the &quot;pass&quot; option, clicking beyond the sticks has a 100% failure rate).",
+          "text": "Proceed southwest of the musician. Between some trees find a trap of sticks on the ground, click the sticks (choose the \"pass\" option, clicking beyond the sticks has a 100% failure rate).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:u7emna:1ik0nmx",
+              "html": "This may take a few tries if you spam click the trap, it will let you pass - make sure you're clicking the trap itself, as it has a small hitbox. If you're running low on health, return to the musician to recuperate before trying again.",
+              "text": "This may take a few tries if you spam click the trap, it will let you pass - make sure you're clicking the trap itself, as it has a small hitbox. If you're running low on health, return to the musician to recuperate before trying again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:vhsuvd",
+          "html": "Continue south towards the lodestone.",
+          "text": "Continue south towards the lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:15e9klx",
+          "html": "Activate the Tirannwn lodestone once you find it.",
+          "text": "Activate the Tirannwn lodestone once you find it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:js8tzp",
+          "html": "Run back north-west towards the elf camp.",
+          "text": "Run back north-west towards the elf camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:1wtrqhr",
+          "html": "Jump another leaves trap, run past the bears and cross the log into the elf camp.",
+          "text": "Jump another leaves trap, run past the bears and cross the log into the elf camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:10ls1t5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lord_Iorwerth\" target=\"_blank\" rel=\"noopener\">Lord Iorwerth</a>.",
+          "text": "Talk to Lord Iorwerth.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:1o5a7ml",
+          "html": "Teleport to the Tirannwn lodestone, talk to the <a href=\"https://runescape.wiki/w/Elf_tracker\" target=\"_blank\" rel=\"noopener\">elf tracker</a>.",
+          "text": "Teleport to the Tirannwn lodestone, talk to the elf tracker.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:3o0tby",
+          "html": "Talk to Lord Iorwerth again which requires at least one free inventory space.",
+          "text": "Talk to Lord Iorwerth again which requires at least one free inventory space.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:cfmsev",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Elf_tracker\" target=\"_blank\" rel=\"noopener\">elf tracker</a> back at the Tirannwn lodestone.",
+          "text": "Talk to the elf tracker back at the Tirannwn lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:11xmh3d",
+          "html": "<i>Follow</i> the tracks just west of the lodestone in front of the dense forest entrance.",
+          "text": "Follow the tracks just west of the lodestone in front of the dense forest entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:yrztpo",
+          "html": "Talk to the elf tracker.",
+          "text": "Talk to the elf tracker.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:56m7hc",
+          "html": "<i>Enter</i> the dense forest and kill the guard that appears.",
+          "text": "Enter the dense forest and kill the guard that appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:ttbirk",
+          "html": "Go north, <i>step-over</i> the tripwire.",
+          "text": "Go north, step-over the tripwire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:ttbirk:jxst5v",
+              "html": "Stepping over avoids taking damage as opposed to walking through.",
+              "text": "Stepping over avoids taking damage as opposed to walking through.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:15ybpyz",
+          "html": "Continue north through the dense forest and west, then once again through dense forest to enter <a href=\"https://runescape.wiki/w/Tyras_Camp\" target=\"_blank\" rel=\"noopener\">Tyras Camp</a>.",
+          "text": "Continue north through the dense forest and west, then once again through dense forest to enter Tyras Camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:46ksf2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/General_Hining\" target=\"_blank\" rel=\"noopener\">General Hining</a> in the camp.",
+          "text": "Talk to General Hining in the camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:a3krmh",
+          "html": "Take two <a href=\"https://runescape.wiki/w/Barrel\" target=\"_blank\" rel=\"noopener\">barrels</a> behind the largest rectangular tent.",
+          "text": "Take two barrels behind the largest rectangular tent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:a3krmh:7h1hhw",
+              "html": "The second is required for completing <a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_I\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part I</a>.",
+              "text": "The second is required for completing Mourning's End Part I.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:sq23zq",
+          "html": "Teleport to the Tirannwn lodestone again and head south to reach the shoreline of the swamp.",
+          "text": "Teleport to the Tirannwn lodestone again and head south to reach the shoreline of the swamp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:1em2q4o",
+          "html": "<i>Use</i> the barrels on the <a href=\"https://runescape.wiki/w/Tar\" target=\"_blank\" rel=\"noopener\">tar</a> to fill them into <a href=\"https://runescape.wiki/w/Barrel_of_tar\" target=\"_blank\" rel=\"noopener\">barrels of tar</a>.",
+          "text": "Use the barrels on the tar to fill them into barrels of tar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:1em2q4o:4q9jkp",
+              "html": "There are only two clickable tiles near the corpse and trees. Mouse over along the shoreline until you find the clickable area.",
+              "text": "There are only two clickable tiles near the corpse and trees. Mouse over along the shoreline until you find the clickable area.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:ewx23k",
+          "html": "Take some <a href=\"https://runescape.wiki/w/Sulphur\" target=\"_blank\" rel=\"noopener\">sulphur</a> from the floor, then <i>grind</i> it into <a href=\"https://runescape.wiki/w/Ground_sulphur\" target=\"_blank\" rel=\"noopener\">ground sulphur</a>.",
+          "text": "Take some sulphur from the floor, then grind it into ground sulphur.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:m9p2io",
+          "html": "Head north-west into the elf camp and talk to Lord Iorwerth.",
+          "text": "Head north-west into the elf camp and talk to Lord Iorwerth.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:1ppdxaf",
+          "html": "Read <a href=\"https://runescape.wiki/w/The_Big_Book_of_Bangs\" target=\"_blank\" rel=\"noopener\">the Big Book of Bangs</a> he gives you and pick up the empty pot north of him if you need one.",
+          "text": "Read the Big Book of Bangs he gives you and pick up the empty pot north of him if you need one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tirannwn:gte45g",
+          "html": "Go to a <a href=\"https://runescape.wiki/w/Furnace\" target=\"_blank\" rel=\"noopener\">furnace</a> and <i>use</i> the limestone on it to obtain some <a href=\"https://runescape.wiki/w/Quicklime\" target=\"_blank\" rel=\"noopener\">quicklime</a>.",
+          "text": "Go to a furnace and use the limestone on it to obtain some quicklime.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tirannwn:gte45g:tcgaxk",
+              "html": "You need a pot if you wish to grind the quicklime now, otherwise it will be destroyed.",
+              "text": "You need a pot if you wish to grind the quicklime now, otherwise it will be destroyed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sabotage",
+      "title": "Sabotage",
+      "anchor": "Sabotage",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "sabotage:bring:hln7qf",
+              "html": "<a href=\"https://runescape.wiki/w/The_Big_Book_of_Bangs\" target=\"_blank\" rel=\"noopener\">The Big Book of Bangs</a>",
+              "text": "The Big Book of Bangs"
+            },
+            {
+              "id": "sabotage:bring:1a5j7ol",
+              "html": "<a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">Empty pot</a>",
+              "text": "Empty pot"
+            },
+            {
+              "id": "sabotage:bring:1ou7qo5",
+              "html": "<a href=\"https://runescape.wiki/w/Quicklime\" target=\"_blank\" rel=\"noopener\">Quicklime</a>",
+              "text": "Quicklime"
+            },
+            {
+              "id": "sabotage:bring:9pbxe2",
+              "html": "<a href=\"https://runescape.wiki/w/Strip_of_cloth\" target=\"_blank\" rel=\"noopener\">Strip of cloth</a>",
+              "text": "Strip of cloth"
+            },
+            {
+              "id": "sabotage:bring:1p4w55s",
+              "html": "<a href=\"https://runescape.wiki/w/Cooked_rabbit\" target=\"_blank\" rel=\"noopener\">Cooked rabbit</a>",
+              "text": "Cooked rabbit"
+            },
+            {
+              "id": "sabotage:bring:1yfp3sr",
+              "html": "<a href=\"https://runescape.wiki/w/Barrel_of_coal-tar\" target=\"_blank\" rel=\"noopener\">Barrel of coal-tar</a>",
+              "text": "Barrel of coal-tar"
+            },
+            {
+              "id": "sabotage:bring:sbvdr3",
+              "html": "<a href=\"https://runescape.wiki/w/Ground_sulphur\" target=\"_blank\" rel=\"noopener\">Ground sulphur</a> and at least 10 pieces of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (cannot be in an <a href=\"https://runescape.wiki/w/Ore_box\" target=\"_blank\" rel=\"noopener\">ore box</a>, noted or Furnace - more may be required as you fail to operate the still)",
+              "text": "Ground sulphur and at least 10 pieces of coal (cannot be in an ore box, noted or Furnace - more may be required as you fail to operate the still)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:4cwp0r",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Chemist\" target=\"_blank\" rel=\"noopener\">Chemist</a> in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+          "text": "Talk to the Chemist in Rimmington.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Ask about Regicide."
+                },
+                {
+                  "key": "1",
+                  "text": "What is naphtha and how do I make it?"
+                },
+                {
+                  "key": "2",
+                  "text": "What's quicklime?"
+                },
+                {
+                  "key": "3",
+                  "text": "What's brimstone?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sabotage:4cwp0r:18pf4k3",
+              "html": "The book must be in your inventory, otherwise your Quest Journal will not update.",
+              "text": "The book must be in your inventory, otherwise your Quest Journal will not update.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sabotage:16b9xzj",
+          "html": "Use your barrel of tar on the <a href=\"https://runescape.wiki/w/Fractionation_still\" target=\"_blank\" rel=\"noopener\">fractionation still</a> outside.",
+          "text": "Use your barrel of tar on the fractionation still outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Operating the still"
+        },
+        {
+          "type": "text",
+          "html": "To operate the still:"
+        },
+        {
+          "type": "step",
+          "id": "sabotage:jvbnlb",
+          "html": "Click the <b>tar regulator</b> side twice.",
+          "text": "Click the tar regulator side twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:1c6u8rw",
+          "html": "Wait until the arrow gauge is within the green on the <b>pressure valve</b> side, then click the <b>pressure valve</b> once. This should keep the pressure indicator in the green without fluctuating.",
+          "text": "Wait until the arrow gauge is within the green on the pressure valve side, then click the pressure valve once. This should keep the pressure indicator in the green without fluctuating.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:1cftkx0",
+          "html": "Now add coal in 2x increments using the middle &quot;Add coal&quot; button to get the <b>tar regulator</b> indicator in the green.",
+          "text": "Now add coal in 2x increments using the middle \"Add coal\" button to get the tar regulator indicator in the green.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:3py8p9",
+          "html": "Now that the pressure valve and tar regulator are both in the green, the distillation bar at the bottom of the interface will begin to fill up.",
+          "text": "Now that the pressure valve and tar regulator are both in the green, the distillation bar at the bottom of the interface will begin to fill up.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:ad8rr",
+          "html": "When the distillation bar is full, you may exit out of the interface, You should now have a barrel of naptha in the backpack.",
+          "text": "When the distillation bar is full, you may exit out of the interface, You should now have a barrel of naptha in the backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sabotage:ad8rr:pohlhx",
+              "html": "If you plan on completing <a href=\"https://runescape.wiki/w/Mourning%27s_End_I\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End I</a> a barrel of naphtha is required for that quest, repeat this process for a second barrel.",
+              "text": "If you plan on completing Mourning's End I a barrel of naphtha is required for that quest, repeat this process for a second barrel.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Preparing barrel bomb"
+        },
+        {
+          "type": "step",
+          "id": "sabotage:7lavwi",
+          "html": "Make the bomb:",
+          "text": "Make the bomb:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sabotage:7lavwi:18oth78",
+              "html": "Use ground sulphur on the barrel of naphtha for <a href=\"https://runescape.wiki/w/Naphtha_mix_(quicklime)\" target=\"_blank\" rel=\"noopener\">naphtha mix</a>.",
+              "text": "Use ground sulphur on the barrel of naphtha for naphtha mix.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sabotage:7lavwi:18aq1mf",
+              "html": "Grind the quicklime with an empty pot in your backpack.",
+              "text": "Grind the quicklime with an empty pot in your backpack.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sabotage:7lavwi:1yrtjdh",
+              "html": "Use the pot of quicklime on the naptha mix.",
+              "text": "Use the pot of quicklime on the naptha mix.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sabotage:7lavwi:jp348y",
+              "html": "Use a strip of cloth on the <a href=\"https://runescape.wiki/w/Barrel_bomb_(unfused)\" target=\"_blank\" rel=\"noopener\">barrel bomb</a>.",
+              "text": "Use a strip of cloth on the barrel bomb.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sabotage:12sxekb",
+          "html": "Teleport back to the Tirannwn lodestone.",
+          "text": "Teleport back to the Tirannwn lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sabotage:12sxekb:1530wde",
+              "html": "Kill and cook a rabbit just north if you didn&#39;t bring a cooked rabbit.",
+              "text": "Kill and cook a rabbit just north if you didn't bring a cooked rabbit.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sabotage:1u3m72c",
+          "html": "Head to the catapult north of Tyras Camp (west through the dense forest and tripwires if you used the lodestone).",
+          "text": "Head to the catapult north of Tyras Camp (west through the dense forest and tripwires if you used the lodestone).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:1sj0afg",
+          "html": "Right-click <i>use</i> the cooked rabbit on the <a href=\"https://runescape.wiki/w/Tyras_guard_(catapult)\" target=\"_blank\" rel=\"noopener\">Tyras guard</a> standing next to the catapult.",
+          "text": "Right-click use the cooked rabbit on the Tyras guard standing next to the catapult.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:3pbomt",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Barrel_bomb\" target=\"_blank\" rel=\"noopener\">barrel bomb</a> on the catapult.",
+          "text": "Use the barrel bomb on the catapult.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sabotage:ihhqa9",
+          "html": "Talk to Lord Iorwerth at the Elf Camp.",
+          "text": "Talk to Lord Iorwerth at the Elf Camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-lord-s-message",
+      "title": "The lord's message",
+      "anchor": "The_lord's_message",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-lord-s-message:1wjf7jx",
+          "html": "Attempt to enter Ardougne Castle. <a href=\"https://runescape.wiki/w/Arianwyn\" target=\"_blank\" rel=\"noopener\">Arianwyn</a> will talk to you.",
+          "text": "Attempt to enter Ardougne Castle. Arianwyn will talk to you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-lord-s-message:3lkqtw",
+          "html": "Talk to King Lathas.",
+          "text": "Talk to King Lathas.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-lord-s-message:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Regicide_reward.png?d8bc9",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Regicide_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "13,750 experience",
+        "text": "13,750 experience",
+        "subs": []
+      },
+      {
+        "html": "15,000 coins",
+        "text": "15,000 coins",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a> and the overpass of <a href=\"https://runescape.wiki/w/Arandar\" target=\"_blank\" rel=\"noopener\">Arandar</a>",
+        "text": "Access to Isafdar and the overpass of Arandar",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Port_Tyras\" target=\"_blank\" rel=\"noopener\">Port Tyras</a> by using charter ships",
+        "text": "Access to Port Tyras by using charter ships",
+        "subs": []
+      },
+      {
+        "html": "Ability to wield and use a <a href=\"https://runescape.wiki/w/Dragon_halberd\" target=\"_blank\" rel=\"noopener\">dragon halberd</a> (bought for 325,000 coins from the <a href=\"https://runescape.wiki/w/Quartermaster_(Tyras_Camp)\" target=\"_blank\" rel=\"noopener\">quartermaster</a> in <a href=\"https://runescape.wiki/w/Tyras_Camp\" target=\"_blank\" rel=\"noopener\">Tyras Camp</a>)",
+        "text": "Ability to wield and use a dragon halberd (bought for 325,000 coins from the quartermaster in Tyras Camp)",
+        "subs": []
+      },
+      {
+        "html": "Ability to have elves assigned as a slayer task by <a href=\"https://runescape.wiki/w/Chaeldar\" target=\"_blank\" rel=\"noopener\">Chaeldar</a>, <a href=\"https://runescape.wiki/w/Sumona\" target=\"_blank\" rel=\"noopener\">Sumona</a>, <a href=\"https://runescape.wiki/w/Morvran\" target=\"_blank\" rel=\"noopener\">Morvran</a>, and <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a>.",
+        "text": "Ability to have elves assigned as a slayer task by Chaeldar, Sumona, Morvran, and Laniakea.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Breeze",
+      "where": ""
+    },
+    {
+      "name": "Elven Mist",
+      "where": ""
+    },
+    {
+      "name": "Everywhere",
+      "where": ""
+    },
+    {
+      "name": "Forest",
+      "where": ""
+    },
+    {
+      "name": "Lost Soul",
+      "where": ""
+    },
+    {
+      "name": "Meridian",
+      "where": ""
+    },
+    {
+      "name": "Overpass",
+      "where": ""
+    },
+    {
+      "name": "Riverside",
+      "where": ""
+    },
+    {
+      "name": "Well of Voyage",
+      "where": ""
+    },
+    {
+      "name": "Woodland",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Catapult_Construction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Catapult Construction</a>",
+        "<a href=\"https://runescape.wiki/w/Roving_Elves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Roving Elves</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part I</a>",
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part II</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Prisoner_of_Glouphrie/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Prisoner of Glouphrie</a>",
+        "<a href=\"https://runescape.wiki/w/Within_the_Light/Quick_guide\" target=\"_blank\" rel=\"noopener\">Within the Light</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

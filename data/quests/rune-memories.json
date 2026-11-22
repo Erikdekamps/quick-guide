@@ -1,0 +1,1103 @@
+{
+  "format": 1,
+  "id": "rune-memories",
+  "title": "Rune Memories",
+  "page": "Rune Memories/Quick guide",
+  "rev": 37080895,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> in the ruins beneath the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>, south of <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3168,
+      "lon": 3133,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Rune_Memories/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Rune Mysteries",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1545ead",
+          "html": "14 backpack spaces",
+          "text": "14 backpack spaces",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:khwogj",
+          "html": "<a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">Stardust</a>, <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a> or a <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a> for quick teleports to the Wizards&#39; Tower",
+          "text": "Stardust, wicked hood or a traveller's necklace for quick teleports to the Wizards' Tower",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the Wizards' Tower",
+          "lat": 3158,
+          "lon": 3101,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [],
+          "href": "https://runescape.wiki/w/Rune_Memories/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1lku6nz",
+          "html": "Enter the ruins beneath the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+          "text": "Enter the ruins beneath the Wizards' Tower.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1vyw6ue",
+          "html": "Pass through the first door, cross the fallen statue then pass through the second door. In the ruins and talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "Pass through the first door, cross the fallen statue then pass through the second door. In the ruins and talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What do you need help with?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'd be happy to help."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "How can I get you out?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, what do you want me to do?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:3j5zj1",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Prepared_fire_rune\" target=\"_blank\" rel=\"noopener\">prepared fire rune</a> on a red vortex and the <a href=\"https://runescape.wiki/w/Prepared_air_rune\" target=\"_blank\" rel=\"noopener\">prepared air rune</a> on a grey vortex.",
+          "text": "Use the prepared fire rune on a red vortex and the prepared air rune on a grey vortex.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:18qvf9u",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "OK, I'll do that now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "memories",
+      "title": "Memories",
+      "anchor": "Memories",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "memories:1stinws",
+          "html": "Head through the eastern library door.",
+          "text": "Head through the eastern library door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "memories:1ffm7d1",
+          "html": "Put the <a href=\"https://runescape.wiki/w/Glowing_fire_rune\" target=\"_blank\" rel=\"noopener\">glowing fire rune</a> on the red chair and the <a href=\"https://runescape.wiki/w/Glowing_air_rune\" target=\"_blank\" rel=\"noopener\">glowing air rune</a> on the grey chair.",
+          "text": "Put the glowing fire rune on the red chair and the glowing air rune on the grey chair.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "memories:uclywl",
+          "html": "Head west back through the door.",
+          "text": "Head west back through the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "memories:18qvf9u",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I saw them talking about the 'teleportation problem'."
+                },
+                {
+                  "key": "2",
+                  "text": "So, what now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-meeting-of-the-head-wizards",
+      "title": "The meeting of the head wizards",
+      "anchor": "The_meeting_of_the_head_wizards",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-meeting-of-the-head-wizards:1sfgs9d",
+          "html": "Use each prepared rune on a vortex corresponding to the colour of the background of the rune.",
+          "text": "Use each prepared rune on a vortex corresponding to the colour of the background of the rune.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-meeting-of-the-head-wizards:18qvf9u",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "OK, I'll do that now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-meeting-of-the-head-wizards:js9mag",
+          "html": "Head west and climb up the staircase to go back to the room with the <a href=\"https://runescape.wiki/w/Rune_guardian_(NPC)\" target=\"_blank\" rel=\"noopener\">rune guardian</a>.",
+          "text": "Head west and climb up the staircase to go back to the room with the rune guardian.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-meeting-of-the-head-wizards:cezgng",
+          "html": "Use the following glowing runes on the corresponding statues:",
+          "text": "Use the following glowing runes on the corresponding statues:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-meeting-of-the-head-wizards:cezgng:1w1iva7",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_cosmic_rune\" target=\"_blank\" rel=\"noopener\">Glowing cosmic rune</a> on the <a href=\"https://runescape.wiki/w/Statue_(Old_Tower_Shrine_Room)#Grey_Order\" target=\"_blank\" rel=\"noopener\">Grey Order statue</a> (north-west)",
+              "text": "Glowing cosmic rune on the Grey Order statue (north-west)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-meeting-of-the-head-wizards:cezgng:pafzzg",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_nature_rune\" target=\"_blank\" rel=\"noopener\">Glowing nature rune</a> on the <a href=\"https://runescape.wiki/w/Statue_(Old_Tower_Shrine_Room)#Green_Order\" target=\"_blank\" rel=\"noopener\">Green Order statue</a> (north-east)",
+              "text": "Glowing nature rune on the Green Order statue (north-east)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-meeting-of-the-head-wizards:cezgng:7h0iwi",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_law_rune\" target=\"_blank\" rel=\"noopener\">Glowing law rune</a> on the <a href=\"https://runescape.wiki/w/Statue_(Old_Tower_Shrine_Room)#Blue_Order\" target=\"_blank\" rel=\"noopener\">Blue Order statue</a> (south-east)",
+              "text": "Glowing law rune on the Blue Order statue (south-east)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-meeting-of-the-head-wizards:cezgng:1j80wcn",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_chaos_rune\" target=\"_blank\" rel=\"noopener\">Glowing chaos rune</a> on the <a href=\"https://runescape.wiki/w/Statue_(Old_Tower_Shrine_Room)#Red_Order\" target=\"_blank\" rel=\"noopener\">Red Order statue</a> (south-west)",
+              "text": "Glowing chaos rune on the Red Order statue (south-west)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-meeting-of-the-head-wizards:1ezgn",
+          "html": "Go back down to the main chamber and talk to Ariane.",
+          "text": "Go back down to the main chamber and talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The Green master stole the Red apprentice's idea!"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, so what do we do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "OK."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "memories-of-the-abyss",
+      "title": "Memories of the Abyss",
+      "anchor": "Memories_of_the_Abyss",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "memories-of-the-abyss:16zlnxl",
+          "html": "Head through the northern <a href=\"https://runescape.wiki/w/Studies_door\" target=\"_blank\" rel=\"noopener\">studies door</a> then into the north-eastern room.",
+          "text": "Head through the northern studies door then into the north-eastern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "memories-of-the-abyss:zv0eib",
+          "html": "Use the following glowing runes on the corresponding chairs:",
+          "text": "Use the following glowing runes on the corresponding chairs:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "memories-of-the-abyss:zv0eib:p3n7gc",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_chaos_rune\" target=\"_blank\" rel=\"noopener\">Glowing chaos rune</a> on the large chair",
+              "text": "Glowing chaos rune on the large chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "memories-of-the-abyss:zv0eib:xj00ei",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_fire_rune\" target=\"_blank\" rel=\"noopener\">Glowing fire rune</a> on the middle chair",
+              "text": "Glowing fire rune on the middle chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "memories-of-the-abyss:1x4jci",
+          "html": "Return to the main chamber and talk to Ariane.",
+          "text": "Return to the main chamber and talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The Red master summoned a demon!"
+                },
+                {
+                  "key": "3",
+                  "text": "So what do we do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "OK."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-teleportation-debate",
+      "title": "The teleportation debate",
+      "anchor": "The_teleportation_debate",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1stinws",
+          "html": "Head through the eastern <a href=\"https://runescape.wiki/w/Library_door\" target=\"_blank\" rel=\"noopener\">library door</a>.",
+          "text": "Head through the eastern library door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:pnpsy0",
+          "html": "In the centre, <i>use</i> the glowing runes on the corresponding scenery:",
+          "text": "In the centre, use the glowing runes on the corresponding scenery:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:pnpsy0:1mbion4",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_air_rune\" target=\"_blank\" rel=\"noopener\">Glowing air rune</a> on the grey chair",
+              "text": "Glowing air rune on the grey chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:pnpsy0:1239y6k",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_fire_rune\" target=\"_blank\" rel=\"noopener\">Glowing fire rune</a> on the red chair",
+              "text": "Glowing fire rune on the red chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:pnpsy0:1mi7v3c",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_earth_rune\" target=\"_blank\" rel=\"noopener\">Glowing earth rune</a> on the green chair",
+              "text": "Glowing earth rune on the green chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:pnpsy0:fzad62",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_water_rune\" target=\"_blank\" rel=\"noopener\">Glowing water rune</a> on the blue chair",
+              "text": "Glowing water rune on the blue chair",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:pnpsy0:10wa7x6",
+              "html": "<a href=\"https://runescape.wiki/w/Glowing_chaos_rune\" target=\"_blank\" rel=\"noopener\">Glowing chaos rune</a> on the table",
+              "text": "Glowing chaos rune on the table",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1x4jci",
+          "html": "Return to the main chamber and talk to Ariane.",
+          "text": "Return to the main chamber and talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The wizards were about to start the ritual."
+                },
+                {
+                  "key": "3",
+                  "text": "OK, what now?"
+                },
+                {
+                  "key": "2",
+                  "text": "OK."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1stinws-2",
+          "html": "Head through the eastern library door.",
+          "text": "Head through the eastern library door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:82pdrx",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Shelves_(Old_Tower)\" target=\"_blank\" rel=\"noopener\">shelves</a> for:",
+          "text": "Search the shelves for:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:82pdrx:17ivkky",
+              "html": "<a href=\"https://runescape.wiki/w/Document_fragment_(1/5)\" target=\"_blank\" rel=\"noopener\">Document fragment (1/5)</a>",
+              "text": "Document fragment (1/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:82pdrx:1hi55eg",
+              "html": "<a href=\"https://runescape.wiki/w/Document_fragment_(3/5)\" target=\"_blank\" rel=\"noopener\">Document fragment (3/5)</a>",
+              "text": "Document fragment (3/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1qdcvsc",
+          "html": "Return to the main chamber.",
+          "text": "Return to the main chamber.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1eavbwy",
+          "html": "Head through the northern studies door.",
+          "text": "Head through the northern studies door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:yfi7rl",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Crate_(Old_Tower)\" target=\"_blank\" rel=\"noopener\">crates</a> and <a href=\"https://runescape.wiki/w/Chest_(Old_Tower)\" target=\"_blank\" rel=\"noopener\">chests</a> in each room for:",
+          "text": "Search the crates and chests in each room for:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:yfi7rl:8t0yf1",
+              "html": "<a href=\"https://runescape.wiki/w/Document_fragment_(2/5)\" target=\"_blank\" rel=\"noopener\">Document fragment (2/5)</a>",
+              "text": "Document fragment (2/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:yfi7rl:tericz",
+              "html": "<a href=\"https://runescape.wiki/w/Document_fragment_(4/5)\" target=\"_blank\" rel=\"noopener\">Document fragment (4/5)</a>",
+              "text": "Document fragment (4/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:yfi7rl:1qgiw4e",
+              "html": "<a href=\"https://runescape.wiki/w/Document_fragment_(5/5)\" target=\"_blank\" rel=\"noopener\">Document fragment (5/5)</a>",
+              "text": "Document fragment (5/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-teleportation-debate:yfi7rl:1nxrrjg",
+              "html": "<a href=\"https://runescape.wiki/w/Diary_(Rune_Memories)\" target=\"_blank\" rel=\"noopener\">Diary</a>",
+              "text": "Diary",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-teleportation-debate:1x4jci-2",
+          "html": "Return to the main chamber and talk to Ariane.",
+          "text": "Return to the main chamber and talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I found some document fragments."
+                },
+                {
+                  "key": "2",
+                  "text": "I found a diary in the ruins."
+                },
+                {
+                  "key": "3",
+                  "text": "Enough about the diary."
+                },
+                {
+                  "key": "2",
+                  "text": "OK."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-beam",
+      "title": "The beam",
+      "anchor": "The_beam",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-beam:9wmszn",
+          "html": "Place your glowing runes in their corresponding positions on the floor surrounding the blue beam:",
+          "text": "Place your glowing runes in their corresponding positions on the floor surrounding the blue beam:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:1t6gal2",
+              "html": "North: Law",
+              "text": "North: Law",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:nkb39c",
+              "html": "North-east: Fire",
+              "text": "North-east: Fire",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:1nyues1",
+              "html": "East: Nature",
+              "text": "East: Nature",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:xf820y",
+              "html": "South-east: Air",
+              "text": "South-east: Air",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:1h8nfu0",
+              "html": "South: Chaos",
+              "text": "South: Chaos",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:1fek0fn",
+              "html": "South-west: Water",
+              "text": "South-west: Water",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:ksxama",
+              "html": "West: Cosmic",
+              "text": "West: Cosmic",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-beam:9wmszn:1dwysgi",
+              "html": "North-west: Earth",
+              "text": "North-west: Earth",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-beam:110hded",
+          "html": "A cutscene ensues when the placement is correct.",
+          "text": "A cutscene ensues when the placement is correct.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beam:1lxqc92",
+          "html": "Head back up to the surface and talk to Wizard Ellaron at the Wizards&#39; Tower entrance.",
+          "text": "Head back up to the surface and talk to Wizard Ellaron at the Wizards' Tower entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ariane is hurt in the ruins of the old Tower!"
+                },
+                {
+                  "key": "3",
+                  "text": "I didn't say she was in a coma."
+                },
+                {
+                  "key": "4",
+                  "text": "Enough talk! Prepare to fight, Red Wizard!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-burning-tower",
+      "title": "The burning tower",
+      "anchor": "The_burning_tower",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-burning-tower:18qvf9u",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:a04kbi",
+          "html": "Use the following prepared runes on Ariane corresponding to the beam Must be completed in order from top to bottom:",
+          "text": "Use the following prepared runes on Ariane corresponding to the beam Must be completed in order from top to bottom:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-burning-tower:a04kbi:1r7t8nu",
+              "html": "Cosmic rune - Thick (spinning) grey beam",
+              "text": "Cosmic rune - Thick (spinning) grey beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-burning-tower:a04kbi:qkv97s",
+              "html": "Water rune - Simple blue beam",
+              "text": "Water rune - Simple blue beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:10li50j",
+          "html": "Ascend the beam",
+          "text": "Ascend the beam",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j:opsct2",
+              "html": "Earth rune - Simple green beam",
+              "text": "Earth rune - Simple green beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j:tazmro",
+              "html": "Fire rune - Simple red beam",
+              "text": "Fire rune - Simple red beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:10li50j-2",
+          "html": "Ascend the beam",
+          "text": "Ascend the beam",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j-2:q6r0yb",
+              "html": "Law rune - Thick (spinning) blue beam",
+              "text": "Law rune - Thick (spinning) blue beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j-2:1k8j7f5",
+              "html": "Nature rune - Thick (spinning) green beam",
+              "text": "Nature rune - Thick (spinning) green beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:10li50j-3",
+          "html": "Ascend the beam",
+          "text": "Ascend the beam",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j-3:1wddqgu",
+              "html": "Chaos rune - Thick (spinning) red beam",
+              "text": "Chaos rune - Thick (spinning) red beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-burning-tower:10li50j-3:446jni",
+              "html": "Air rune - Simple grey beam",
+              "text": "Air rune - Simple grey beam",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:18qvf9u-2",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Are you OK?"
+                },
+                {
+                  "key": "2",
+                  "text": "So... what now?"
+                },
+                {
+                  "key": "3",
+                  "text": "So, is there a reward?"
+                },
+                {
+                  "key": "3",
+                  "text": "We did find out what happened to the old tower."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-burning-tower:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Rune_Memories_reward.png?6652c",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Rune_Memories_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "300 experience",
+        "text": "300 experience",
+        "subs": []
+      },
+      {
+        "html": "300 experience",
+        "text": "300 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/First_tower_robes\" target=\"_blank\" rel=\"noopener\">First tower robes (top and bottom)</a>",
+        "text": "First tower robes (top and bottom)",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Archmage_Sedridor\" target=\"_blank\" rel=\"noopener\">Archmage Sedridor</a>&#39;s personal <a href=\"https://runescape.wiki/w/Rune_chest\" target=\"_blank\" rel=\"noopener\">rune chest</a>",
+        "text": "Access to Archmage Sedridor's personal rune chest",
+        "subs": [
+          "For every level reached in Runecrafting, <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a> will be placed into the chest for you equal to five times your new Runecrafting level.",
+          "This adds up to pure essence when first opened, where is your current Runecrafting level.",
+          "More pure essence will be added even after it is opened, and there is no benefit or detriment whatsoever in waiting to increase your runecrafting level to use the chest."
+        ]
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Material_cache_(cadmium_red)\" target=\"_blank\" rel=\"noopener\">cadmium red</a>, <a href=\"https://runescape.wiki/w/Material_cache_(white_marble)\" target=\"_blank\" rel=\"noopener\">white marble</a>, and <a href=\"https://runescape.wiki/w/Material_cache_(vellum)\" target=\"_blank\" rel=\"noopener\">vellum</a> <a href=\"https://runescape.wiki/w/Material_cache\" target=\"_blank\" rel=\"noopener\">material caches</a> in the <a href=\"https://runescape.wiki/w/First_Tower_excavation_site\" target=\"_blank\" rel=\"noopener\">First Tower excavation site</a>.",
+        "text": "Access to the cadmium red, white marble, and vellum material caches in the First Tower excavation site.",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "The <a href=\"https://runescape.wiki/w/Archmage\" target=\"_blank\" rel=\"noopener\">Archmage [Name]</a> (requires 99 Magic and 99 Runecrafting; speak to Archmage Sedridor to retrieve the title)",
+            "text": "The Archmage [Name] (requires 99 Magic and 99 Runecrafting; speak to Archmage Sedridor to retrieve the title)",
+            "subs": []
+          },
+          {
+            "html": "10,000 experience or 10,000 experience requiring 50 Magic and 50 Prayer by talking to the <a href=\"https://runescape.wiki/w/Lesser_demon_(Wizards%27_Tower)\" target=\"_blank\" rel=\"noopener\">lesser demon</a> in the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>",
+            "text": "10,000 experience or 10,000 experience requiring 50 Magic and 50 Prayer by talking to the lesser demon in the 1st floor (UK) / 2nd floor (US) of the Wizards' Tower",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Bloody Foundation",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

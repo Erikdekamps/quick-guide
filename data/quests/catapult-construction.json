@@ -1,0 +1,614 @@
+{
+  "format": 1,
+  "id": "catapult-construction",
+  "title": "Catapult Construction",
+  "page": "Catapult Construction/Quick guide",
+  "rev": 36695163,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Tyras_guard\" target=\"_blank\" rel=\"noopener\">Tyras guard</a> next to the catapult in the <a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a> Forest.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3187,
+      "lon": 2187,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Catapult_Construction/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Regicide",
+        "depth": 1
+      },
+      {
+        "text": "Underground Pass",
+        "depth": 2
+      },
+      {
+        "text": "Biohazard",
+        "depth": 3
+      },
+      {
+        "text": "Plague City",
+        "depth": 4
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 44,
+        "note": ""
+      },
+      {
+        "skill": "Fletching",
+        "level": 42,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": "(to smith mithril nails)"
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 60,
+        "note": "(to cut Mahogany trees)"
+      }
+    ],
+    "otherReqs": [
+      "Alternatively, <a href=\"https://runescape.wiki/w/Carnillean_Rising\" target=\"_blank\" rel=\"noopener\">Carnillean Rising</a> rewards 10 <a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">mahogany planks</a>."
+    ],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Tirannwn</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Tirannwn</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:77ggy8",
+          "html": "90 <a href=\"https://runescape.wiki/w/Mithril_nails\" target=\"_blank\" rel=\"noopener\">mithril nails</a> (or better)",
+          "text": "90 mithril nails (or better)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1j8b2ic",
+          "html": "10 <a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">mahogany planks</a> (<a href=\"https://runescape.wiki/w/Protean_plank\" target=\"_blank\" rel=\"noopener\">protean planks</a> will not work)",
+          "text": "10 mahogany planks (protean planks will not work)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1l5nvx3",
+          "html": "56 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> if entering forest from <a href=\"https://runescape.wiki/w/Port_Tyras\" target=\"_blank\" rel=\"noopener\">Port Tyras</a>",
+          "text": "56 Agility if entering forest from Port Tyras",
+          "alternatives": []
+        },
+        {
+          "id": "rec:y9gs41",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Tirannwn_lodestone\" target=\"_blank\" rel=\"noopener\">Tirannwn lodestone</a>",
+          "text": "Access to the Tirannwn lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:vzqqiz",
+          "html": "A charged <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">amulet of glory</a> or <a href=\"https://runescape.wiki/w/Combat_bracelet\" target=\"_blank\" rel=\"noopener\">combat bracelet</a>",
+          "text": "A charged amulet of glory or combat bracelet",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ggtdx7",
+          "html": "An <a href=\"https://runescape.wiki/w/Arc_journal\" target=\"_blank\" rel=\"noopener\">arc journal</a> for teleport outside the <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">pub</a> in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> and <a href=\"https://runescape.wiki/w/Thaki_the_delivery_dwarf\" target=\"_blank\" rel=\"noopener\">Thaki the delivery dwarf</a>",
+          "text": "An arc journal for teleport outside the pub in Port Sarim and Thaki the delivery dwarf",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1xn2ywy",
+          "html": "Some food and <a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">antipoison</a>",
+          "text": "Some food and antipoison",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "fetching-the-materials",
+      "title": "Fetching the materials",
+      "anchor": "Fetching_the_materials",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Catapult engineer's location",
+          "lat": 3199,
+          "lon": 2185,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2180.5,
+                      3194.5
+                    ],
+                    [
+                      2180.5,
+                      3204.5
+                    ],
+                    [
+                      2190.5,
+                      3204.5
+                    ],
+                    [
+                      2190.5,
+                      3194.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Catapult_Construction/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:1uvox8",
+          "html": "North of the <a href=\"https://runescape.wiki/w/Tyras_camp\" target=\"_blank\" rel=\"noopener\">Tyras camp</a>, talk to the guard next to the catapult.",
+          "text": "North of the Tyras camp, talk to the guard next to the catapult.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "I guess you're going to get fired, then."
+                },
+                {
+                  "key": "1",
+                  "text": "What do you suggest?"
+                },
+                {
+                  "key": "1",
+                  "text": "Alright, I'll go and speak to General Hining."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:2hv90u",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/General_Hining\" target=\"_blank\" rel=\"noopener\">General Hining</a> in Tyras Camp.",
+          "text": "Talk to General Hining in Tyras Camp.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So, the Tyras Camp catapult is broken?"
+                },
+                {
+                  "key": "1",
+                  "text": "Perhaps I can help to repair it?"
+                },
+                {
+                  "key": "2",
+                  "text": "General, I believe I can be of service to you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:10tnyn2",
+          "html": "Teleport to the Tirannwn lodestone, then take the north-western path, cross the leaves trap, and then the sticks trap (south west of the log crossing shortcut) to find the <a href=\"https://runescape.wiki/w/Catapult_engineer\" target=\"_blank\" rel=\"noopener\">Catapult engineer</a>.",
+          "text": "Teleport to the Tirannwn lodestone, then take the north-western path, cross the leaves trap, and then the sticks trap (south west of the log crossing shortcut) to find the Catapult engineer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:1yk6jk5",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Catapult_engineer\" target=\"_blank\" rel=\"noopener\">Catapult engineer</a> for schematics.",
+          "text": "Talk to the Catapult engineer for schematics.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "General Hining asked me to find you."
+                },
+                {
+                  "key": "2",
+                  "text": "I'm quite an experienced carpenter."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:1lh1yz6",
+          "html": "<i>Read</i> the <a href=\"https://runescape.wiki/w/Catapult_schematics\" target=\"_blank\" rel=\"noopener\">schematics</a>.",
+          "text": "Read the schematics.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Make the repair parts."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:bbeuum",
+          "html": "Talk to the engineer again.",
+          "text": "Talk to the engineer again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Can I read the letter?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:7cex8k",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rolad\" target=\"_blank\" rel=\"noopener\">Rolad</a> at the <a href=\"https://runescape.wiki/w/Dwarven_Mine\" target=\"_blank\" rel=\"noopener\">Dwarven Mine</a> camp, south of <a href=\"https://runescape.wiki/w/Ice_Mountain\" target=\"_blank\" rel=\"noopener\">Ice Mountain</a>. (North-east of Falador lodestone)",
+          "text": "Talk to Rolad at the Dwarven Mine camp, south of Ice Mountain. (North-east of Falador lodestone)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Can I have the metal parts for the Tyras Camp catapult please?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:g574t",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Thaki\" target=\"_blank\" rel=\"noopener\">Thaki</a> inside <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">Port Sarim&#39;s pub</a>.",
+          "text": "Talk to Thaki inside Port Sarim's pub.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You're right, I'm not a sailor."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:uqnf10",
+          "html": "Search the drunken sailor outside.",
+          "text": "Search the drunken sailor outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fetching-the-materials:1qyomg5",
+          "html": "Wear the sailor&#39;s hat and talk to Thaki again.",
+          "text": "Wear the sailor's hat and talk to Thaki again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-catapult",
+      "title": "Building the catapult",
+      "anchor": "Building_the_catapult",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "building-the-catapult:xqnfli",
+          "html": "Return to the catapult north of the Tyras Camp and talk to the guard.",
+          "text": "Return to the catapult north of the Tyras Camp and talk to the guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-catapult:15eh77u",
+          "html": "Copy the solution below. Use the big buttons to swap sides.",
+          "text": "Copy the solution below. Use the big buttons to swap sides.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Purple_Side.png?04a6c",
+          "width": 512,
+          "height": 334,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Purple_Side.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Orange_Side.png?3c9d0",
+          "width": 512,
+          "height": 334,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Orange_Side.png"
+        }
+      ]
+    },
+    {
+      "id": "catapult-testing",
+      "title": "Catapult testing",
+      "anchor": "Catapult_testing",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "catapult-testing:1uia49c",
+          "html": "Talk to the guard.",
+          "text": "Talk to the guard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll have a go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "catapult-testing:1lbxni6",
+          "html": "Move the catapult left or right so the arrow at the bottom middle aligns with the target rock.",
+          "text": "Move the catapult left or right so the arrow at the bottom middle aligns with the target rock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "catapult-testing:1lbxni6:1xhwe5b",
+              "html": "Shoot the middle rock - 0/6 green bars on Counterweight.",
+              "text": "Shoot the middle rock - 0/6 green bars on Counterweight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "catapult-testing:1lbxni6:zm6zcw",
+              "html": "Left rock (four points left of middle rock) - 5/6 green bars on Counterweight.",
+              "text": "Left rock (four points left of middle rock) - 5/6 green bars on Counterweight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "catapult-testing:1lbxni6:iqwryk",
+              "html": "Right rock (two points right of middle rock, one turn left from far right) - 6/6 green bars on Counterweight.",
+              "text": "Right rock (two points right of middle rock, one turn left from far right) - 6/6 green bars on Counterweight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "catapult-testing:1ch8rd8",
+          "html": "Talk to the guard again.",
+          "text": "Talk to the guard again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "catapult-testing:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Catapult_Construction_reward.png?ab2f6",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Catapult_Construction_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "15,000 experience",
+        "text": "15,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "30 <a href=\"https://runescape.wiki/w/Teak_plank\" target=\"_blank\" rel=\"noopener\">Teak planks</a> (worth 8,820 coins)",
+        "text": "30 Teak planks (worth 8,820 coins)",
+        "subs": []
+      },
+      {
+        "html": "2,000 coins",
+        "text": "2,000 coins",
+        "subs": []
+      },
+      {
+        "html": "An <a href=\"https://runescape.wiki/w/Adamant_halberd\" target=\"_blank\" rel=\"noopener\">adamant halberd</a> (worth 12,113 coins)",
+        "text": "An adamant halberd (worth 12,113 coins)",
+        "subs": []
+      },
+      {
+        "html": "Increased damage when using the <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a> catapults",
+        "text": "Increased damage when using the Castle Wars catapults",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Sailor%27s_hat\" target=\"_blank\" rel=\"noopener\">Sailor&#39;s hat</a>",
+        "text": "Sailor's hat",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Meridian",
+      "where": "When you finish building the catapult"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

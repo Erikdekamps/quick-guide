@@ -1,0 +1,956 @@
+{
+  "format": 1,
+  "id": "beneath-cursed-tides",
+  "title": "Beneath Cursed Tides",
+  "page": "Beneath Cursed Tides/Quick guide",
+  "rev": 37188238,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Wizard_Myrtle\" target=\"_blank\" rel=\"noopener\">Wizard Myrtle</a> at the fountains in front of the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3184,
+      "lon": 3094,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Beneath_Cursed_Tides/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Attack",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Cooking",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1pgdybz",
+          "html": "<a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">Wicked hood</a> for teleportation (members only)",
+          "text": "Wicked hood for teleportation (members only)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:645kqw",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring network</a> (members only)",
+          "text": "Access to the fairy ring network (members only)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:mlo35p",
+          "html": "<a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a> for teleporting to Vannaka (members only)",
+          "text": "Slayer cape for teleporting to Vannaka (members only)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:5be35f",
+          "html": "<a href=\"https://runescape.wiki/w/Wilderness_sword_1\" target=\"_blank\" rel=\"noopener\">Wilderness sword 1</a> or better for teleporting to <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>, or activated the <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>",
+          "text": "Wilderness sword 1 or better for teleporting to Edgeville, or activated the Edgeville lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-sunken-island",
+      "title": "The sunken island",
+      "anchor": "The_sunken_island",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-sunken-island:3bgwdx",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Myrtle\" target=\"_blank\" rel=\"noopener\">Wizard Myrtle</a> at the fountain near the entrance to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>. (<a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">Fairy ring</a> <b>D</b><b>I</b><b>S</b>)",
+          "text": "Talk to Wizard Myrtle at the fountain near the entrance to the Wizards' Tower. (Fairy ring DIS)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "[Continue]"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "I know Vannaka!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sunken-island:1m40o47",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Edgeville_Mausoleum\" target=\"_blank\" rel=\"noopener\">Edgeville Mausoleum</a> just south of the bank and talk to <a href=\"https://runescape.wiki/w/Vannaka\" target=\"_blank\" rel=\"noopener\">Vannaka</a>.",
+          "text": "Go to the Edgeville Mausoleum just south of the bank and talk to Vannaka.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Beneath Cursed Tides."
+                },
+                {
+                  "key": "4",
+                  "text": "[Continue...]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I do."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sunken-island:nr4djn",
+          "html": "Return to the Wizards&#39; Tower, and talk to Wizard Myrtle.",
+          "text": "Return to the Wizards' Tower, and talk to Wizard Myrtle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What's the plan then?"
+                },
+                {
+                  "key": "1",
+                  "text": "How do I get to Mudskipper Point?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sunken-island:1h8yiwi",
+          "html": "Make your way to <a href=\"https://runescape.wiki/w/Mudskipper_Point\" target=\"_blank\" rel=\"noopener\">Mudskipper Point</a>. The fastest route is via <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>A</b><b>I</b><b>Q</b>. Alternatively, you can run south from the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a>.",
+          "text": "Make your way to Mudskipper Point. The fastest route is via fairy ring AIQ. Alternatively, you can run south from the Port Sarim lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sunken-island:1majz93",
+          "html": "Unequip your weapons and dismiss followers and then talk to Wizard Myrtle.",
+          "text": "Unequip your weapons and dismiss followers and then talk to Wizard Myrtle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Sounds perfect, let's do this!"
+                },
+                {
+                  "key": "2",
+                  "text": "I'd like to dive to the sunken island."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-sunken-island:1majz93:1fwpdi3",
+              "html": "If you have completed the <a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Pirate Pete</a> subquest, or have built any kind of diving suit in the <a href=\"https://runescape.wiki/w/Aquarium\" target=\"_blank\" rel=\"noopener\">Aquarium</a>.",
+              "text": "If you have completed the Recipe for Disaster: Freeing Pirate Pete subquest, or have built any kind of diving suit in the Aquarium.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Sounds perfect, let's do this."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Underwater breathing spell."
+                    },
+                    {
+                      "key": "2",
+                      "text": "I'd like to dive to the sunken island."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, I'm ready."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-sunken-island:1qd8tkk",
+          "html": "East of the room, read the message in the bottle for the key and open the door.",
+          "text": "East of the room, read the message in the bottle for the key and open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "krillinary-expert",
+      "title": "Krillinary expert",
+      "anchor": "Krillinary_expert",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "krillinary-expert:1geqrs7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Survival_expert\" target=\"_blank\" rel=\"noopener\">Brynna</a>, the survival expert (directly to the south).",
+          "text": "Talk to Brynna, the survival expert (directly to the south).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:yz05cu",
+          "html": "Catch two <a href=\"https://runescape.wiki/w/Raw_shrimp_(Beneath_Cursed_Tides)\" target=\"_blank\" rel=\"noopener\">raw shrimps</a>.",
+          "text": "Catch two raw shrimps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1sqwi68",
+          "html": "Gather the seaweed nearby.",
+          "text": "Gather the seaweed nearby.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:146vsfn",
+          "html": "Cut a tree to get a soggy branch.",
+          "text": "Cut a tree to get a soggy branch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:d3o1me",
+          "html": "Interact with the boulder to push it into the hole.",
+          "text": "Interact with the boulder to push it into the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:d94smy",
+          "html": "Cook both shrimp on the steam vent (two squares west of the boulder) to receive two <a href=\"https://runescape.wiki/w/Boiled_shrimp\" target=\"_blank\" rel=\"noopener\">boiled shrimps</a>.",
+          "text": "Cook both shrimp on the steam vent (two squares west of the boulder) to receive two boiled shrimps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1ujyir",
+          "html": "Boil 1 shrimp again to <a href=\"https://runescape.wiki/w/Burnt_shrimp_(Beneath_Cursed_Tides)\" target=\"_blank\" rel=\"noopener\">burn it</a>. Keep one boiled shrimp.",
+          "text": "Boil 1 shrimp again to burn it. Keep one boiled shrimp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:893978",
+          "html": "Talk to Brynna twice.",
+          "text": "Talk to Brynna twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1strw2",
+          "html": "Continue through the west gate.",
+          "text": "Continue through the west gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1p46mab",
+          "html": "Go to the building to the west and talk to the <a href=\"https://runescape.wiki/w/Master_chef\" target=\"_blank\" rel=\"noopener\">master chef</a>.",
+          "text": "Go to the building to the west and talk to the master chef.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1lfs2wt",
+          "html": "Go to the large jellyfish south-east of the chef&#39;s house and play the music box.",
+          "text": "Go to the large jellyfish south-east of the chef's house and play the music box.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Turn second handle."
+                },
+                {
+                  "key": "3",
+                  "text": "Turn third handle."
+                },
+                {
+                  "key": "1",
+                  "text": "Turn first handle."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:aztd1f",
+          "html": "Gather <a href=\"https://runescape.wiki/w/Tasty_seaweed\" target=\"_blank\" rel=\"noopener\">tasty seaweed</a>.",
+          "text": "Gather tasty seaweed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:1u5zbxp",
+          "html": "Talk to the master chef again.",
+          "text": "Talk to the master chef again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "krillinary-expert:o9ekdk",
+          "html": "Prepare the large table 3 times by matching the 3 tastes with 3 ingredients (large table is in the same house).",
+          "text": "Prepare the large table 3 times by matching the 3 tastes with 3 ingredients (large table is in the same house).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Recipe Number<br>Recipe<br>Solution<br>First<br>Sweet, Sour, Spicy<br>1 up, 2 up, 3 up<br>Second<br>Mellow, Sour, Bitter<br>2 down, 2 up, 3 down<br>Third<br>Spicy, Salty, Bitter<br>3 up, 1 down, 3 down"
+        }
+      ]
+    },
+    {
+      "id": "mining-and-combat",
+      "title": "Mining and combat",
+      "anchor": "Mining_and_combat",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mining-and-combat:5q6gfn",
+          "html": "Continue through the west door to the small house in the north.",
+          "text": "Continue through the west door to the small house in the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:18gnyin",
+          "html": "Climb down the ladder.",
+          "text": "Climb down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:oresqv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Mining_instructor\" target=\"_blank\" rel=\"noopener\">mining instructor</a>.",
+          "text": "Talk to mining instructor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Absolutely!"
+                },
+                {
+                  "key": "3",
+                  "text": "Good bye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:15e5ph7",
+          "html": "Mine <a href=\"https://runescape.wiki/w/Soggy_copper_ore\" target=\"_blank\" rel=\"noopener\">soggy copper ore</a> and <a href=\"https://runescape.wiki/w/Soggy_tin_ore\" target=\"_blank\" rel=\"noopener\">soggy tin ore</a>.",
+          "text": "Mine soggy copper ore and soggy tin ore.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:hdvn1k",
+          "html": "Click the furnace",
+          "text": "Click the furnace",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:42hw7g",
+          "html": "Right click and close the doors.",
+          "text": "Right click and close the doors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1ivp7b2",
+          "html": "Operate the pump and light the furnace.",
+          "text": "Operate the pump and light the furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1fdtxi7",
+          "html": "Retrieve the <a href=\"https://runescape.wiki/w/Bronzish_bar\" target=\"_blank\" rel=\"noopener\">bronzish bar</a> from the furnace.",
+          "text": "Retrieve the bronzish bar from the furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1xiukqd",
+          "html": "Smith a <a href=\"https://runescape.wiki/w/Bronze_butter_knife\" target=\"_blank\" rel=\"noopener\">bronze dagger</a>.",
+          "text": "Smith a bronze dagger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:8cf6o6",
+          "html": "Talk to the mining instructor again.",
+          "text": "Talk to the mining instructor again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1hbmqqk",
+          "html": "Continue through the east gate.",
+          "text": "Continue through the east gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1cvfv4m",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Vannaka\" target=\"_blank\" rel=\"noopener\">Vannaka</a>, the combat instructor.",
+          "text": "Talk to Vannaka, the combat instructor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Sure, I'm up for a challenge."
+                },
+                {
+                  "key": "2",
+                  "text": "Let's get on with the task."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:2w6tkr",
+          "html": "Open the gate and click on the sword in the middle of the room to begin combat training.",
+          "text": "Open the gate and click on the sword in the middle of the room to begin combat training.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:1t5dsjy",
+          "html": "Click on the rats and other elements bouncing on the screen.",
+          "text": "Click on the rats and other elements bouncing on the screen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-and-combat:y1fwbg",
+          "html": "Exit the cage and climb the ladder to the north-east.",
+          "text": "Exit the cage and climb the ladder to the north-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fishy-business",
+      "title": "Fishy business",
+      "anchor": "Fishy_business",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fishy-business:11ao1o5",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Financial_advisor\" target=\"_blank\" rel=\"noopener\">financial advisor</a> in the house directly to the east.",
+          "text": "Talk to the financial advisor in the house directly to the east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Can we skip to the task?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-business:1tby11e",
+          "html": "Enter the vault (the code is 139).",
+          "text": "Enter the vault (the code is 139).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-business:1jzyk3e",
+          "html": "Talk to the financial advisor again.",
+          "text": "Talk to the financial advisor again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fishy-friends-and-magic",
+      "title": "Fishy friends and magic",
+      "anchor": "Fishy_friends_and_magic",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:1a0kxy0",
+          "html": "Leave through the 2 doors to the east.",
+          "text": "Leave through the 2 doors to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:nxq0pg",
+          "html": "Head south to the church through double doors.",
+          "text": "Head south to the church through double doors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:1cqtskl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Brother_Brace\" target=\"_blank\" rel=\"noopener\">Brother Brace</a>.",
+          "text": "Talk to Brother Brace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:2f216k",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Friend_list\" target=\"_blank\" rel=\"noopener\">friend list</a>.",
+          "text": "Read the friend list.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:1vvxwqp",
+          "html": "There will be 2 fish just east of the bank and the 3rd fish west of the bank, back through the two doors leading through the bank.",
+          "text": "There will be 2 fish just east of the bank and the 3rd fish west of the bank, back through the two doors leading through the bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:cduiey",
+          "html": "One of the five fish will tell you where the book is. Search for it.",
+          "text": "One of the five fish will tell you where the book is. Search for it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:16f4xlm",
+          "html": "Give the book to Brother Brace.",
+          "text": "Give the book to Brother Brace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:1k2qkhb",
+          "html": "Go through the south door to the south-east building and talk to <a href=\"https://runescape.wiki/w/Wizard_Terrova\" target=\"_blank\" rel=\"noopener\">Wizard Terrova</a>.",
+          "text": "Go through the south door to the south-east building and talk to Wizard Terrova.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I certainly am."
+                },
+                {
+                  "key": "1",
+                  "text": "Can you give me some runes to cast this 'strike of air'?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:f4tf6t",
+          "html": "Attack a <a href=\"https://runescape.wiki/w/Chicken_(Beneath_Cursed_Tides)\" target=\"_blank\" rel=\"noopener\">chicken</a>.",
+          "text": "Attack a chicken.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishy-friends-and-magic:32y0zg",
+          "html": "Talk to the wizard.",
+          "text": "Talk to the wizard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "commotion-in-the-ocean",
+      "title": "Commotion in the ocean",
+      "anchor": "Commotion_in_the_ocean",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "commotion-in-the-ocean:110fzol",
+          "html": "Pick any option during the cutscene.",
+          "text": "Pick any option during the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commotion-in-the-ocean:84oshp",
+          "html": "Channel the spell while repelling Crassians.",
+          "text": "Channel the spell while repelling Crassians.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commotion-in-the-ocean:1dlpr18",
+          "html": "Finish <a href=\"https://runescape.wiki/w/Hector_Vivian\" target=\"_blank\" rel=\"noopener\">Hector Vivian</a>.",
+          "text": "Finish Hector Vivian.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commotion-in-the-ocean:1t9dzt4",
+          "html": "Talk to Wizard Myrtle.",
+          "text": "Talk to Wizard Myrtle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "We did it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commotion-in-the-ocean:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Beneath_Cursed_Tides_reward.png?c67a9",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Beneath_Cursed_Tides_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience <a href=\"https://runescape.wiki/w/Combat_lamp_(Beneath_Cursed_Tides)\" target=\"_blank\" rel=\"noopener\">lamp</a> in a choice of <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>, <a href=\"https://runescape.wiki/w/Herblore\" target=\"_blank\" rel=\"noopener\">Herblore</a>, <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a>, or <a href=\"https://runescape.wiki/w/Summoning\" target=\"_blank\" rel=\"noopener\">Summoning</a> (Skill must be level 10 or higher)",
+        "text": "10,000 experience lamp in a choice of Attack, Constitution, Strength, Defence, Ranged, Prayer, Magic, Necromancy, Herblore, Slayer, or Summoning (Skill must be level 10 or higher)",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Fishing_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "5,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Cooking_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "5,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Vannaka%27s_Sword\" target=\"_blank\" rel=\"noopener\">Vannaka&#39;s Sword</a>, a sword override similar to that of <a href=\"https://runescape.wiki/w/Vannaka\" target=\"_blank\" rel=\"noopener\">Vannaka</a>&#39;s steel two-handed sword which can be held in one hand",
+        "text": "Vannaka's Sword, a sword override similar to that of Vannaka's steel two-handed sword which can be held in one hand",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Lev%27s_old_music_box\" target=\"_blank\" rel=\"noopener\">Lev&#39;s old music box</a> – crumbles to dust when played, unlocking <a href=\"https://runescape.wiki/w/Newbie_Melody_(original)\" target=\"_blank\" rel=\"noopener\">Newbie Melody (original)</a>",
+        "text": "Lev's old music box – crumbles to dust when played, unlocking Newbie Melody (original)",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Giant_Oyster\" target=\"_blank\" rel=\"noopener\">Giant Oyster</a>, a monthly <a href=\"https://runescape.wiki/w/Distraction_and_Diversion\" target=\"_blank\" rel=\"noopener\">Distraction and Diversion</a> that provides <a href=\"https://runescape.wiki/w/Fishing\" target=\"_blank\" rel=\"noopener\">Fishing</a> and <a href=\"https://runescape.wiki/w/Farming\" target=\"_blank\" rel=\"noopener\">Farming</a> experience",
+        "text": "Access to the Giant Oyster, a monthly Distraction and Diversion that provides Fishing and Farming experience",
+        "subs": [
+          "Looting the Giant Oyster will reward the player with items from the <a href=\"https://runescape.wiki/w/Treasure_Trails#Rewards\" target=\"_blank\" rel=\"noopener\">Treasure Trail reward tables</a>"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Newbie Melody",
+      "where": "Boss"
+    },
+    {
+      "name": "Newbie Melody",
+      "where": "original"
+    },
+    {
+      "name": "Newbie Melody",
+      "where": "underwater"
+    },
+    {
+      "name": "Scape Cave",
+      "where": "underwater"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

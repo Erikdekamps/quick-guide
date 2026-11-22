@@ -1,0 +1,387 @@
+{
+  "format": 1,
+  "id": "final-destination-miniquest",
+  "title": "Final Destination (miniquest)",
+  "page": "Final Destination (miniquest)/Quick guide",
+  "rev": 35950403,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Lookout_Ekahi\" target=\"_blank\" rel=\"noopener\">Lookout Ekahi</a> on the docks near the <a href=\"https://runescape.wiki/w/Sarim%27s_Revenge\" target=\"_blank\" rel=\"noopener\">Sarim&#39;s Revenge</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11592,
+      "lon": 2452,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Tuai Leit's Own (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Harbinger (miniquest)…",
+        "depth": 2
+      },
+      {
+        "text": "Ghosts from the Past (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Harbinger (miniquest)…",
+        "depth": 2
+      },
+      {
+        "text": "Damage Control (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Harbinger (miniquest)…",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "3 zyclops cannoneers (level 93)",
+        "name": "zyclops cannoneers",
+        "count": 3,
+        "level": "93",
+        "note": ""
+      },
+      {
+        "text": "6 zombies (level 93)",
+        "name": "zombies",
+        "count": 6,
+        "level": "93",
+        "note": ""
+      },
+      {
+        "text": "2 skeletons (level 93)",
+        "name": "skeletons",
+        "count": 2,
+        "level": "93",
+        "note": ""
+      },
+      {
+        "text": "2 zyclopes (level 93)",
+        "name": "zyclopes",
+        "count": 2,
+        "level": "93",
+        "note": ""
+      },
+      {
+        "text": "Captain Cora",
+        "name": "Captain Cora",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8w69bo",
+          "html": "Food and combat equipment",
+          "text": "Food and combat equipment",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ioows",
+          "html": "<a href=\"https://runescape.wiki/w/Salve_amulet\" target=\"_blank\" rel=\"noopener\">Salve amulet</a> or <a href=\"https://runescape.wiki/w/Salve_amulet_(e)\" target=\"_blank\" rel=\"noopener\">Salve amulet (e)</a>",
+          "text": "Salve amulet or Salve amulet (e)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "commandeering-the-ship",
+      "title": "Commandeering the ship",
+      "anchor": "Commandeering_the_ship",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:7bbzcj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lookout_Ekahi\" target=\"_blank\" rel=\"noopener\">Lookout Ekahi</a> (if you have just completed the previous miniquests you may need to relog for the chat option to show up).",
+          "text": "Talk to Lookout Ekahi (if you have just completed the previous miniquests you may need to relog for the chat option to show up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Final Destination miniquest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:x055tj",
+          "html": "Fire the cannon.",
+          "text": "Fire the cannon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:1g8wg97",
+          "html": "Climb the ladder.",
+          "text": "Climb the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:8wlw12",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Zyclops\" target=\"_blank\" rel=\"noopener\">Zyclopses</a>.",
+          "text": "Kill the Zyclopses.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:1dqefhz",
+          "html": "Climb another ladder.",
+          "text": "Climb another ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:c4it9p",
+          "html": "Kill the zombies.",
+          "text": "Kill the zombies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:19i5ace",
+          "html": "Kill the 2 skeletons.",
+          "text": "Kill the 2 skeletons.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:1g8wg97-2",
+          "html": "Climb the ladder.",
+          "text": "Climb the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:1y9hfeg",
+          "html": "Kill 2 more Zyclopses.",
+          "text": "Kill 2 more Zyclopses.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "commandeering-the-ship:u6mlhu",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Captain_Cora\" target=\"_blank\" rel=\"noopener\">Captain Cora</a> then talk to her.",
+          "text": "Defeat Captain Cora then talk to her.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "goshima",
+      "title": "Goshima",
+      "anchor": "Goshima",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "goshima:1ebou2n",
+          "html": "Talk to Captain Cora again.",
+          "text": "Talk to Captain Cora again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goshima:1wg4y7s",
+          "html": "Run east to the gates. Cora will talk to you.",
+          "text": "Run east to the gates. Cora will talk to you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goshima:15b4uyy",
+          "html": "Run southwest to the destroyed colony. Cora will talk to you again.",
+          "text": "Run southwest to the destroyed colony. Cora will talk to you again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goshima:v0lqug",
+          "html": "<a href=\"https://runescape.wiki/w/Jiangshi\" target=\"_blank\" rel=\"noopener\">Jiangshi</a> will appear between the colony and the gates, talk to <a href=\"https://runescape.wiki/w/Jiangshi\" target=\"_blank\" rel=\"noopener\">Jiangshi</a>.",
+          "text": "Jiangshi will appear between the colony and the gates, talk to Jiangshi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goshima:pvdmpj",
+          "html": "Talk to Captain Cora.",
+          "text": "Talk to Captain Cora.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Final_Destination_%28miniquest%29_reward.png?9577c",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Final_Destination_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "2,000 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "2,000 chimes",
+        "subs": []
+      },
+      {
+        "html": "10 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "10 taijitu",
+        "subs": []
+      },
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Large_combat_XP_lamp_(The_Arc)\" target=\"_blank\" rel=\"noopener\">large combat XP lamp</a> in one of the following skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>, or <a href=\"https://runescape.wiki/w/Summoning\" target=\"_blank\" rel=\"noopener\">Summoning</a>",
+        "text": "1 large combat XP lamp in one of the following skills: Attack, Strength, Defence, Constitution, Ranged, Magic, Necromancy, Prayer, or Summoning",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Goshima_teleport\" target=\"_blank\" rel=\"noopener\">Goshima teleport</a> tablet unlocked in the <a href=\"https://runescape.wiki/w/Waiko_Reward_Shop\" target=\"_blank\" rel=\"noopener\">Waiko Reward Shop</a>",
+        "text": "Goshima teleport tablet unlocked in the Waiko Reward Shop",
+        "subs": []
+      },
+      {
+        "html": "Unlocked <a href=\"https://runescape.wiki/w/Of_the_Arc\" target=\"_blank\" rel=\"noopener\">[Name] of the Arc</a> title",
+        "text": "Unlocked [Name] of the Arc title",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Canon in C",
+      "where": ""
+    },
+    {
+      "name": "Funus Insula",
+      "where": ""
+    },
+    {
+      "name": "Goshima's Lament",
+      "where": ""
+    },
+    {
+      "name": "Goshima Lament",
+      "where": "instrumental"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

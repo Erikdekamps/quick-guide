@@ -1,0 +1,650 @@
+{
+  "format": 1,
+  "id": "benedicts-world-tour-miniquest",
+  "title": "Benedict's World Tour (miniquest)",
+  "page": "Benedict's World Tour (miniquest)/Quick guide",
+  "rev": 37188192,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Benedict\" target=\"_blank\" rel=\"noopener\">Benedict Encumberyak</a> in the building just north-west of the <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>, near <a href=\"https://runescape.wiki/w/Charlie_the_Tramp\" target=\"_blank\" rel=\"noopener\">Charlie the Tramp</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3386,
+      "lon": 3206,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Benedict's_World_Tour_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Partial completion of Stolen Hearts",
+        "depth": 1
+      },
+      {
+        "text": "Partial completion of Anachronia base camp tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Morytania</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:2xwv4f",
+          "html": "<a href=\"https://runescape.wiki/w/Skeletal_horror_Teleport\" target=\"_blank\" rel=\"noopener\">Skeletal horror Teleport</a>, <a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">invitation box</a>, or <a href=\"https://runescape.wiki/w/Dig_Site_pendant\" target=\"_blank\" rel=\"noopener\">Dig Site pendant</a>",
+          "text": "Skeletal horror Teleport, invitation box, or Dig Site pendant",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rct37",
+          "html": "<a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">Wicked hood</a> or <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>",
+          "text": "Wicked hood or stardust",
+          "alternatives": []
+        },
+        {
+          "id": "rec:6opu6t",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a> (needs at least 2 charges)",
+          "text": "Ring of duelling (needs at least 2 charges)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:7gxpni",
+          "html": "Access to <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a>",
+          "text": "Access to fairy rings",
+          "alternatives": []
+        },
+        {
+          "id": "rec:d3ix7u",
+          "html": "Access to <a href=\"https://runescape.wiki/w/Gnome_glider\" target=\"_blank\" rel=\"noopener\">gnome gliders</a> (<a href=\"https://runescape.wiki/w/The_Grand_Tree\" target=\"_blank\" rel=\"noopener\">The Grand Tree</a>) or <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit trees</a> (<a href=\"https://runescape.wiki/w/Tree_Gnome_Village\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>)",
+          "text": "Access to gnome gliders (The Grand Tree) or spirit trees (Tree Gnome Village)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1qhg8ey",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a>",
+          "text": "Archaeology journal",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:qz2so4",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Benedict\" target=\"_blank\" rel=\"noopener\">Benedict</a> in a house north-west of the <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>.",
+          "text": "Talk to Benedict in a house north-west of the Varrock lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "all-players",
+      "title": "All players",
+      "anchor": "All_players",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "all-players:1jdthmt",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace</a>. Climb up the north-west staircase twice and then climb up the ladder to the top floor to collect the <a href=\"https://runescape.wiki/w/Fox_pelt_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">fox pelt</a>.",
+          "text": "Travel to Varrock Palace. Climb up the north-west staircase twice and then climb up the ladder to the top floor to collect the fox pelt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "all-players:qzoscx",
+          "html": "Head to the roof of <a href=\"https://runescape.wiki/w/Al_Kharid_Palace\" target=\"_blank\" rel=\"noopener\">Al Kharid Palace</a> and collect the <a href=\"https://runescape.wiki/w/Toffee_apple_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">toffee apple</a>.",
+          "text": "Head to the roof of Al Kharid Palace and collect the toffee apple.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "all-players:12yerg",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a> and go to the statue in the centre to collect the <a href=\"https://runescape.wiki/w/Package_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">package</a>.",
+          "text": "Head to Het's Oasis and go to the statue in the centre to collect the package.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "all-players:12yerg:1giv1as",
+              "html": "Teleport there with a <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a>.",
+              "text": "Teleport there with a ring of duelling.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Het's Oasis"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "all-players:12yerg:jxq7x4",
+              "html": "If you are below 65 Agility, run north around the whirligig pool to cross the <a href=\"https://runescape.wiki/w/Fallen_palm_tree_(Statue_of_Het)\" target=\"_blank\" rel=\"noopener\">fallen palm tree</a>, which has no Agility requirement.",
+              "text": "If you are below 65 Agility, run north around the whirligig pool to cross the fallen palm tree, which has no Agility requirement.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "all-players:1yr9qlc",
+          "html": "Enter the low-level <a href=\"https://runescape.wiki/w/Runespan_portal\" target=\"_blank\" rel=\"noopener\">Runespan portal</a> to collect the <a href=\"https://runescape.wiki/w/Crystal_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">crystal</a> to the south-west (on the same island you start on).",
+          "text": "Enter the low-level Runespan portal to collect the crystal to the south-west (on the same island you start on).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "all-players:1yr9qlc:10wwvnr",
+              "html": "Teleport there with the <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a> or <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>.",
+              "text": "Teleport there with the wicked hood or stardust.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "all-players:1fbl3f6",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Mudskipper_Point\" target=\"_blank\" rel=\"noopener\">Mudskipper Point</a> and head south-west to collect the <a href=\"https://runescape.wiki/w/Toy_ship_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">toy ship</a>.",
+          "text": "Head to Mudskipper Point and head south-west to collect the toy ship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "all-players:1fbl3f6:3k0ikt",
+              "html": "Use a fairy Ring <b>A</b><b>I</b><b>Q</b> or the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a> to teleport there",
+              "text": "Use a fairy Ring AIQ or the Port Sarim lodestone to teleport there",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "all-players:4puy8s",
+          "html": "Head to the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> and collect a <a href=\"https://runescape.wiki/w/Pipe_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">pipe</a> by the north stairs.",
+          "text": "Head to the 2nd floor (UK) / 3rd floor (US) of Lumbridge Castle and collect a pipe by the north stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "all-players:8tpm17",
+          "html": "Head to the west side of the <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a> in <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>, and climb the stairs to the roof to collect a <a href=\"https://runescape.wiki/w/Monocle_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">monocle</a>.",
+          "text": "Head to the west side of the White Knights' Castle in Falador, and climb the stairs to the roof to collect a monocle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "all-players:1tidlys",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Beacon\" target=\"_blank\" rel=\"noopener\">beacon</a> south of <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a> to collect a <a href=\"https://runescape.wiki/w/Scarf_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">scarf</a>.",
+          "text": "Head to the beacon south of Paterdomus to collect a scarf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "all-players:1tidlys:pjl4a5",
+              "html": "Teleport there with either the <a href=\"https://runescape.wiki/w/Skeletal_horror_Teleport\" target=\"_blank\" rel=\"noopener\">Skeletal horror Teleport</a>, an <a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">invitation box</a>, a <a href=\"https://runescape.wiki/w/Fort_Forinthry_Teleport\" target=\"_blank\" rel=\"noopener\">Fort Forinthry Teleport</a>, an <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a>.",
+              "text": "Teleport there with either the Skeletal horror Teleport, an invitation box, a Fort Forinthry Teleport, an Archaeology journal.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "all-players:1tidlys:1rot7ab",
+              "html": "Alternatively, teleport there with a <a href=\"https://runescape.wiki/w/Dig_Site_pendant\" target=\"_blank\" rel=\"noopener\">Dig Site pendant</a> to the <a href=\"https://runescape.wiki/w/Varrock_Dig_Site\" target=\"_blank\" rel=\"noopener\">Varrock Dig Site</a>.",
+              "text": "Alternatively, teleport there with a Dig Site pendant to the Varrock Dig Site.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Digsite"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "all-players:ibds5o",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Ashdale_lodestone\" target=\"_blank\" rel=\"noopener\">Ashdale lodestone</a> and head directly south to collect the <a href=\"https://runescape.wiki/w/Surgical_mask_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">surgical mask</a>.",
+          "text": "Teleport to Ashdale lodestone and head directly south to collect the surgical mask.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "members-only",
+      "title": "Members-only",
+      "anchor": "Members-only",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "members-only:1nrt1tv",
+          "html": "Head to <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a> and collect the <a href=\"https://runescape.wiki/w/Raw_fish-like_thing_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">raw fish-like thing</a>, which is right next to the glider.",
+          "text": "Head to White Wolf Mountain and collect the raw fish-like thing, which is right next to the glider.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "members-only:1nrt1tv:a9l419",
+              "html": "Ride on the <a href=\"https://runescape.wiki/w/Gnome_glider\" target=\"_blank\" rel=\"noopener\">gnome glider</a> of <a href=\"https://runescape.wiki/w/Captain_Dalbur\" target=\"_blank\" rel=\"noopener\">Captain Dalbur</a> from <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a>.",
+              "text": "Ride on the gnome glider of Captain Dalbur from Al Kharid.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Sindarpos"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "members-only:pcwmn",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a> and head south of the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) to collect a <a href=\"https://runescape.wiki/w/Flask_of_tea_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">flask of tea</a>.",
+          "text": "Head to the Grand Tree and head south of the 2nd floor (UK) / 3rd floor (US) to collect a flask of tea.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "members-only:pcwmn:dlgk5i",
+              "html": "Ride on the gnome glider.",
+              "text": "Ride on the gnome glider.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Ta Quir Priw"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "members-only:pcwmn:qrxk02",
+              "html": "Alternatively, teleport via <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit trees</a>.",
+              "text": "Alternatively, teleport via spirit trees.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "members-only:gznglw",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a>, then head north-west of the portals, and walk on to the spectating wall to collect the <a href=\"https://runescape.wiki/w/Sweets_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">sweets</a>.",
+          "text": "Head to Castle Wars, then head north-west of the portals, and walk on to the spectating wall to collect the sweets.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "members-only:gznglw:1lom8bi",
+              "html": "Teleport with a <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a>.",
+              "text": "Teleport with a ring of duelling.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Castle Wars Arena"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "members-only:1v9bchh",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Polypore_Dungeon\" target=\"_blank\" rel=\"noopener\">Polypore Dungeon</a> and go slightly east to collect <a href=\"https://runescape.wiki/w/Cinnamon_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">cinnamon</a>, which is next to the <a href=\"https://runescape.wiki/w/Neem_drupes_(scenery)\" target=\"_blank\" rel=\"noopener\">neem drupe branch</a>.",
+          "text": "Enter the Polypore Dungeon and go slightly east to collect cinnamon, which is next to the neem drupe branch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "members-only:1v9bchh:18aa5ex",
+              "html": "Use a fairy Ring <b>B</b><b>I</b><b>P</b> to teleport there.",
+              "text": "Use a fairy Ring BIP to teleport there.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "members-only:1v9bchh:1qvta9c",
+              "html": "Alternatively, the <a href=\"https://runescape.wiki/w/Dungeoneering_cape\" target=\"_blank\" rel=\"noopener\">Dungeoneering cape</a> teleport (0, 7) or;",
+              "text": "Alternatively, the Dungeoneering cape teleport (0, 7) or;",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "members-only:1v9bchh:1pw086o",
+              "html": "<a href=\"https://runescape.wiki/w/Delver%27s_anklet\" target=\"_blank\" rel=\"noopener\">Delver&#39;s anklet</a> (3) can be used or;",
+              "text": "Delver's anklet (3) can be used or;",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "members-only:1v9bchh:mmy7lc",
+              "html": "<a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> can be used.",
+              "text": "Archaeology journal can be used.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "members-only:140g1be",
+          "html": "Head to the top floor of the <a href=\"https://runescape.wiki/w/Sorcerer%27s_Tower\" target=\"_blank\" rel=\"noopener\">Sorcerer&#39;s Tower</a> north-east of <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a> to collect a <a href=\"https://runescape.wiki/w/Money_pouch_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">money pouch</a>.",
+          "text": "Head to the top floor of the Sorcerer's Tower north-east of Ardougne to collect a money pouch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "members-only:d7ynlc",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Anachronia_lodestone\" target=\"_blank\" rel=\"noopener\">Anachronia lodestone</a> to collect the <a href=\"https://runescape.wiki/w/Foot_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">foot</a> slightly south-east of the lodestone.",
+          "text": "Teleport to Anachronia lodestone to collect the foot slightly south-east of the lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "members-only:8yfkwo",
+          "html": "Head west of the <a href=\"https://runescape.wiki/w/Menaphos\" target=\"_blank\" rel=\"noopener\">Menaphos</a> gates to pass through the <a href=\"https://runescape.wiki/w/World_window\" target=\"_blank\" rel=\"noopener\">world window</a> and continue slightly north to collect the <a href=\"https://runescape.wiki/w/Frogburger_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">frogburger</a>. Alternatively, teleport to <a href=\"https://runescape.wiki/w/Mazcab\" target=\"_blank\" rel=\"noopener\">Mazcab</a> directly and run south.",
+          "text": "Head west of the Menaphos gates to pass through the world window and continue slightly north to collect the frogburger. Alternatively, teleport to Mazcab directly and run south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "members-only:8yfkwo:h9j7hs",
+              "html": "If you did not finish the dialog with Benedict, talk to him again to complete the miniquest.",
+              "text": "If you did not finish the dialog with Benedict, talk to him again to complete the miniquest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "members-only:1eh5umu",
+          "html": "Miniquest complete!",
+          "text": "Miniquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "item-list",
+      "title": "Item list",
+      "anchor": "Item_list",
+      "blocks": [
+        {
+          "type": "table",
+          "label": "Image · Item",
+          "head": [
+            "Image",
+            "Item",
+            "Location"
+          ],
+          "rows": [
+            [
+              "<a href=\"https://runescape.wiki/w/File:Pipe_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Pipe_%28Benedict%27s_World_Tour%29.png/45px-Pipe_%28Benedict%27s_World_Tour%29.png?b5836\" alt=\"\" width=\"45\" height=\"26\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Pipe_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Pipe (Benedict&#39;s World Tour)</a>",
+              "Top floor of <a href=\"https://runescape.wiki/w/Lumbridge_castle\" target=\"_blank\" rel=\"noopener\">Lumbridge castle</a>, by the northernmost staircase."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Monocle_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Monocle_%28Benedict%27s_World_Tour%29.png/45px-Monocle_%28Benedict%27s_World_Tour%29.png?60414\" alt=\"\" width=\"45\" height=\"36\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Monocle_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Monocle (Benedict&#39;s World Tour)</a>",
+              "Top floor of the western side of the <a href=\"https://runescape.wiki/w/Falador_castle\" target=\"_blank\" rel=\"noopener\">Falador castle</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Toffee_apple_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Toffee_apple_%28Benedict%27s_World_Tour%29.png/45px-Toffee_apple_%28Benedict%27s_World_Tour%29.png?ed24a\" alt=\"\" width=\"45\" height=\"116\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Toffee_apple_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Toffee apple (Benedict&#39;s World Tour)</a>",
+              "Top floor of the <a href=\"https://runescape.wiki/w/Al_Kharid_palace\" target=\"_blank\" rel=\"noopener\">Al Kharid palace</a>, on the north-western side."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Package_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Package_%28Benedict%27s_World_Tour%29.png/45px-Package_%28Benedict%27s_World_Tour%29.png?3ac2a\" alt=\"\" width=\"45\" height=\"28\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Package_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Package (Benedict&#39;s World Tour)</a>",
+              "In front of the statue in the centre of <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Fox_pelt_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Fox_pelt_%28Benedict%27s_World_Tour%29.png/45px-Fox_pelt_%28Benedict%27s_World_Tour%29.png?2ed66\" alt=\"\" width=\"45\" height=\"46\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Fox_pelt_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Fox pelt (Benedict&#39;s World Tour)</a>",
+              "Top floor of the tower in the north-western part of the <a href=\"https://runescape.wiki/w/Varrock_Castle\" target=\"_blank\" rel=\"noopener\">Varrock Castle</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Crystal_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Crystal_%28Benedict%27s_World_Tour%29.png/45px-Crystal_%28Benedict%27s_World_Tour%29.png?64ac2\" alt=\"\" width=\"45\" height=\"56\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Crystal_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Crystal (Benedict&#39;s World Tour)</a>",
+              "On the low-level <a href=\"https://runescape.wiki/w/Runespan\" target=\"_blank\" rel=\"noopener\">Runespan</a> starting island, south-west of teleporting in."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Surgical_mask_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Surgical_mask_%28Benedict%27s_World_Tour%29.png/45px-Surgical_mask_%28Benedict%27s_World_Tour%29.png?a852b\" alt=\"\" width=\"45\" height=\"54\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Surgical_mask_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Surgical mask (Benedict&#39;s World Tour)</a>",
+              "South of the <a href=\"https://runescape.wiki/w/Ashdale\" target=\"_blank\" rel=\"noopener\">Ashdale</a> lodestone, near <a href=\"https://runescape.wiki/w/Magda\" target=\"_blank\" rel=\"noopener\">Magda</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Toy_ship_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Toy_ship_%28Benedict%27s_World_Tour%29.png/45px-Toy_ship_%28Benedict%27s_World_Tour%29.png?8f48b\" alt=\"\" width=\"45\" height=\"53\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Toy_ship_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Toy ship (Benedict&#39;s World Tour)</a>",
+              "South of <a href=\"https://runescape.wiki/w/Mudskipper_Point\" target=\"_blank\" rel=\"noopener\">Mudskipper Point</a>, south-west of the fairy ring <b>A</b><b>I</b><b>Q</b>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Scarf_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Scarf_%28Benedict%27s_World_Tour%29.png/45px-Scarf_%28Benedict%27s_World_Tour%29.png?a852b\" alt=\"\" width=\"45\" height=\"39\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Scarf_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Scarf (Benedict&#39;s World Tour)</a>",
+              "Beacon south of <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Sweets_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Sweets_%28Benedict%27s_World_Tour%29.png/45px-Sweets_%28Benedict%27s_World_Tour%29.png?fdd90\" alt=\"\" width=\"45\" height=\"52\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Sweets_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Sweets (Benedict&#39;s World Tour)</a>",
+              "Northernmost section of the <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a> spectating wall, west of the portals."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Foot_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Foot_%28Benedict%27s_World_Tour%29.png/45px-Foot_%28Benedict%27s_World_Tour%29.png?a52e3\" alt=\"\" width=\"45\" height=\"67\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Foot_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Foot (Benedict&#39;s World Tour)</a>",
+              "In the <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">Anachronia base camp</a>, west of the <a href=\"https://runescape.wiki/w/Anachronia_lodestone\" target=\"_blank\" rel=\"noopener\">Anachronia lodestone</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Cinnamon_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Cinnamon_%28Benedict%27s_World_Tour%29.png/45px-Cinnamon_%28Benedict%27s_World_Tour%29.png?5a82b\" alt=\"\" width=\"45\" height=\"53\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Cinnamon_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Cinnamon (Benedict&#39;s World Tour)</a>",
+              "Inside of the <a href=\"https://runescape.wiki/w/Polypore_Dungeon\" target=\"_blank\" rel=\"noopener\">Polypore Dungeon</a>, to the east of the entrance."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Flask_of_tea_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Flask_of_tea_%28Benedict%27s_World_Tour%29.png/45px-Flask_of_tea_%28Benedict%27s_World_Tour%29.png?4a129\" alt=\"\" width=\"45\" height=\"48\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Flask_of_tea_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Flask of tea (Benedict&#39;s World Tour)</a>",
+              "2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a>, to the south."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Frogburger_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Frogburger_%28Benedict%27s_World_Tour%29.png/45px-Frogburger_%28Benedict%27s_World_Tour%29.png?0187c\" alt=\"\" width=\"45\" height=\"36\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Frogburger_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Frogburger (Benedict&#39;s World Tour)</a>",
+              "On <a href=\"https://runescape.wiki/w/Mazcab\" target=\"_blank\" rel=\"noopener\">Mazcab</a>, just north of the <a href=\"https://runescape.wiki/w/World_window\" target=\"_blank\" rel=\"noopener\">world window</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Raw_fish-like_thing_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Raw_fish-like_thing_%28Benedict%27s_World_Tour%29.png/45px-Raw_fish-like_thing_%28Benedict%27s_World_Tour%29.png?66c80\" alt=\"\" width=\"45\" height=\"22\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Raw_fish-like_thing_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Raw fish-like thing (Benedict&#39;s World Tour)</a>",
+              "On the top of <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a>, north of <a href=\"https://runescape.wiki/w/Captain_Bleemadge\" target=\"_blank\" rel=\"noopener\">Captain Bleemadge</a>."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:Money_pouch_(Benedict%27s_World_Tour).png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/Money_pouch_%28Benedict%27s_World_Tour%29.png/45px-Money_pouch_%28Benedict%27s_World_Tour%29.png?87d4f\" alt=\"\" width=\"45\" height=\"56\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Money_pouch_(Benedict%27s_World_Tour)\" target=\"_blank\" rel=\"noopener\">Money pouch (Benedict&#39;s World Tour)</a>",
+              "On the top floor of the <a href=\"https://runescape.wiki/w/Sorcerer%27s_Tower\" target=\"_blank\" rel=\"noopener\">Sorcerer&#39;s Tower</a>."
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": null,
+    "items": [
+      {
+        "html": "4 items found: <a href=\"https://runescape.wiki/w/Small_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Small XP lamp</a>",
+        "text": "4 items found: Small XP lamp",
+        "subs": []
+      },
+      {
+        "html": "8 items found: <a href=\"https://runescape.wiki/w/Small_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Small XP lamp</a>",
+        "text": "8 items found: Small XP lamp",
+        "subs": []
+      },
+      {
+        "html": "12 items found: <a href=\"https://runescape.wiki/w/Small_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Small XP lamp</a>",
+        "text": "12 items found: Small XP lamp",
+        "subs": []
+      },
+      {
+        "html": "First 9 items found: <a href=\"https://runescape.wiki/w/Large_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Large XP lamp</a>",
+        "text": "First 9 items found: Large XP lamp",
+        "subs": []
+      },
+      {
+        "html": "Last 7 items found: <a href=\"https://runescape.wiki/w/Large_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Large XP lamp</a>",
+        "text": "Last 7 items found: Large XP lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

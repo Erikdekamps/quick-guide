@@ -1,0 +1,209 @@
+{
+  "format": 1,
+  "id": "borics-task-i-miniquest",
+  "title": "Boric's Task I (miniquest)",
+  "page": "Boric's Task I (miniquest)/Quick guide",
+  "rev": 36313897,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Boric\" target=\"_blank\" rel=\"noopener\">Boric</a> in the workshop accessed from the stairs in <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">Doric&#39;s hut</a>, just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5987,
+      "lon": 1560,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Boric's_Task_I_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "What's Mine is Yours",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1tg8s9l",
+          "html": "30 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+          "text": "30 coal",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1x2cpg0",
+          "html": "20 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>",
+          "text": "20 Agility",
+          "alternatives": []
+        },
+        {
+          "id": "rec:wwnn77",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a> or activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador Teleport or activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "mining-some-coal",
+      "title": "Mining some coal",
+      "anchor": "Mining_some_coal",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mining-some-coal:165c62d",
+          "html": "Head down the stairs behind <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">Doric&#39;s hut</a> to speak to <a href=\"https://runescape.wiki/w/Boric\" target=\"_blank\" rel=\"noopener\">Boric</a>.",
+          "text": "Head down the stairs behind Doric's hut to speak to Boric.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any Mining tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-some-coal:1q4sukc",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> <a href=\"https://runescape.wiki/w/Coal_truck_mining_site\" target=\"_blank\" rel=\"noopener\">coal truck mining site</a>, west of <a href=\"https://runescape.wiki/w/McGrubor%27s_Wood\" target=\"_blank\" rel=\"noopener\">McGrubor&#39;s Wood</a>.",
+          "text": "Head to Seers' Village coal truck mining site, west of McGrubor's Wood.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-some-coal:on83hy",
+          "html": "Deposit 30 coal into the coal truck.",
+          "text": "Deposit 30 coal into the coal truck.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mining-some-coal:on83hy:o6lils",
+              "html": "It does not need to be mined, it can be purchased off the Grand exchange. Make sure it isn&#39;t noted.",
+              "text": "It does not need to be mined, it can be purchased off the Grand exchange. Make sure it isn't noted.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mining-some-coal:qk3ruk",
+          "html": "Talk to the Dwarven Miner to the south.",
+          "text": "Talk to the Dwarven Miner to the south.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Boric%27s_Task_I_%28miniquest%29_reward.png?eeff5",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Boric%27s_Task_I_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "4,500 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "4,500 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Boric%27s_Task_II_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Boric&#39;s Task II (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Boric%27s_Task_III_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Boric&#39;s Task III (miniquest)</a>"
+      ]
+    }
+  ]
+}

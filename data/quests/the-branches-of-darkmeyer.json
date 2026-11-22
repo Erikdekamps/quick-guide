@@ -1,0 +1,2974 @@
+{
+  "format": 1,
+  "id": "the-branches-of-darkmeyer",
+  "title": "The Branches of Darkmeyer",
+  "page": "The Branches of Darkmeyer/Quick guide",
+  "rev": 37202386,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Veliaf_Hurtz\" target=\"_blank\" rel=\"noopener\">Veliaf Hurtz</a> in the <a href=\"https://runescape.wiki/w/Myreque_base\" target=\"_blank\" rel=\"noopener\">Myreque base</a> under <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3231,
+      "lon": 3490,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Legacy of Seergaze",
+        "depth": 1
+      },
+      {
+        "text": "The Darkness of Hallowvale",
+        "depth": 2
+      },
+      {
+        "text": "In Aid of the Myreque",
+        "depth": 3
+      },
+      {
+        "text": "In Search of the Myreque",
+        "depth": 4
+      },
+      {
+        "text": "Nature Spirit…",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 63,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 64,
+        "note": ""
+      },
+      {
+        "skill": "Farming",
+        "level": 63,
+        "note": ""
+      },
+      {
+        "skill": "Fletching",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 67,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 76,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Harold (level 98)",
+        "name": "Harold",
+        "count": null,
+        "level": "98",
+        "note": ""
+      },
+      {
+        "text": "Vanstrom Klause (level 140)",
+        "name": "Vanstrom Klause",
+        "count": null,
+        "level": "140",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:dzlsb9",
+          "html": "<a href=\"https://runescape.wiki/w/Gadderhammer\" target=\"_blank\" rel=\"noopener\">Gadderhammer</a> (recommended if you want a higher vampyric title)",
+          "text": "Gadderhammer (recommended if you want a higher vampyric title)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1fbv7xn",
+          "html": "<a href=\"https://runescape.wiki/w/Wolfbane\" target=\"_blank\" rel=\"noopener\">Wolfbane dagger</a> (recommended if you don&#39;t want to kill captured citizens)",
+          "text": "Wolfbane dagger (recommended if you don't want to kill captured citizens)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rftqec",
+          "html": "Combat equipment and food",
+          "text": "Combat equipment and food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13rv1lh",
+          "html": "4 <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a> (obtainable during the quest by talking to <a href=\"https://runescape.wiki/w/Vanescula_Drakan\" target=\"_blank\" rel=\"noopener\">Vanescula</a> when entering <a href=\"https://runescape.wiki/w/Darkmeyer\" target=\"_blank\" rel=\"noopener\">Darkmeyer</a>)",
+          "text": "4 thread (obtainable during the quest by talking to Vanescula when entering Darkmeyer)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:ph403k",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Veliaf_Hurtz\" target=\"_blank\" rel=\"noopener\">Veliaf Hurtz</a> in the Burgh de Rott pub&#39;s basement.",
+          "text": "Talk to Veliaf Hurtz in the Burgh de Rott pub's basement.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's wrong?"
+                },
+                {
+                  "key": "1",
+                  "text": "Is there anything I can do to help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Okay, I'll go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1crd7g",
+          "html": "South of the <a href=\"https://runescape.wiki/w/Burgh_de_Rott_bank\" target=\"_blank\" rel=\"noopener\">Burgh de Rott bank</a>, <i>enter</i> the cave entrance.",
+          "text": "South of the Burgh de Rott bank, enter the cave entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:jmd7l6",
+          "html": "Read both pages of the <a href=\"https://runescape.wiki/w/Decaying_tome\" target=\"_blank\" rel=\"noopener\">decaying tome</a> on the floor in the south-east corner of the room.",
+          "text": "Read both pages of the decaying tome on the floor in the south-east corner of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:15654kk",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Letter_(The_Branches_of_Darkmeyer)\" target=\"_blank\" rel=\"noopener\">letter</a> on the floor south-west of the rope.",
+          "text": "Take the letter on the floor south-west of the rope.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:thv4m3",
+          "html": "Search the coffin for a <a href=\"https://runescape.wiki/w/Mysterious_medallion\" target=\"_blank\" rel=\"noopener\">mysterious medallion</a> (deals small amount of damage).",
+          "text": "Search the coffin for a mysterious medallion (deals small amount of damage).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1l2o1i",
+          "html": "Climb the rope to leave the cave and then return to Veliaf Hurtz.",
+          "text": "Climb the rope to leave the cave and then return to Veliaf Hurtz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I found a medallion."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, please send me!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "an-unexpected-help",
+      "title": "An unexpected help",
+      "anchor": "An_unexpected_help",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "an-unexpected-help:14hlruz",
+          "html": "Once teleported, head to the northernmost room. The medallion can also teleport you to the <a href=\"https://runescape.wiki/w/Meiyerditch_laboratory\" target=\"_blank\" rel=\"noopener\">Meiyerditch laboratory</a>.",
+          "text": "Once teleported, head to the northernmost room. The medallion can also teleport you to the Meiyerditch laboratory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-unexpected-help:iumxil",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Safalaan\" target=\"_blank\" rel=\"noopener\">Safalaan</a>.",
+          "text": "Talk to Safalaan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What do you think of this medallion?"
+                },
+                {
+                  "key": "2",
+                  "text": "What have the vampyres been doing?"
+                },
+                {
+                  "key": "1",
+                  "text": "I've got a letter for you."
+                },
+                {
+                  "key": "1",
+                  "text": "What do you think?"
+                },
+                {
+                  "key": "1",
+                  "text": "What do you think we should do?"
+                },
+                {
+                  "key": "1",
+                  "text": "Of course."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "traversing-meiyerditch",
+      "title": "Traversing Meiyerditch",
+      "anchor": "Traversing_Meiyerditch",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Vertida Sefalatis location",
+          "lat": 3258,
+          "lon": 3599,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3594.5,
+                      3253.5
+                    ],
+                    [
+                      3594.5,
+                      3263.5
+                    ],
+                    [
+                      3604.5,
+                      3263.5
+                    ],
+                    [
+                      3604.5,
+                      3253.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:blg5zg",
+          "html": "Exit the base, go through the wall to the north and climb up the stairs.",
+          "text": "Exit the base, go through the wall to the north and climb up the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:15l5fam",
+          "html": "Jump the floorboards to the west and go down the ladder.",
+          "text": "Jump the floorboards to the west and go down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:12bkfwm",
+          "html": "Open the door, then go west a bit, then south to the building with the fireplace.",
+          "text": "Open the door, then go west a bit, then south to the building with the fireplace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:1b975lu",
+          "html": "Enter the building and climb up the ladder, where you will briefly be held up by two vyrewatch.",
+          "text": "Enter the building and climb up the ladder, where you will briefly be held up by two vyrewatch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:f9jrva",
+          "html": "Now jump over the wall to the building to the west and climb down the ladder.",
+          "text": "Now jump over the wall to the building to the west and climb down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:a0b5zu",
+          "html": "Open the door, exit and close the door.",
+          "text": "Open the door, exit and close the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:riyaa7",
+          "html": "Now go north and west around the next building. Enter it and go east, where Vertida will be standing and talk to him.",
+          "text": "Now go north and west around the next building. Enter it and go east, where Vertida will be standing and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:803vq9",
+          "html": "<i>Climb</i> the wall and speak to <a href=\"https://runescape.wiki/w/Mekritus_A%27hara\" target=\"_blank\" rel=\"noopener\">Mekritus A&#39;hara</a>.",
+          "text": "Climb the wall and speak to Mekritus A'hara.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:zm4jgu",
+          "html": "<i>Stand</i> on the lookout point for a cutscene.",
+          "text": "Stand on the lookout point for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:ebepdu",
+          "html": "Drop-down the floorboards to the east.",
+          "text": "Drop-down the floorboards to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "traversing-meiyerditch:o9s731",
+          "html": "Talk to Nessie who is in the courtyard south of the building.",
+          "text": "Talk to Nessie who is in the courtyard south of the building.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do you know my name?"
+                },
+                {
+                  "key": "1",
+                  "text": "What are you doing here?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "entering-darkmeyer",
+      "title": "Entering Darkmeyer",
+      "anchor": "Entering_Darkmeyer",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:14yxs9x",
+          "html": "Attack <a href=\"https://runescape.wiki/w/Vanescula_Drakan\" target=\"_blank\" rel=\"noopener\">Vanescula Drakan</a> - she will knock you back (if she does not knock you back, dismiss any active <a href=\"https://runescape.wiki/w/Conjuration\" target=\"_blank\" rel=\"noopener\">conjured spirits</a>, unequip any armour, and climb up and back down the wall to the east, then try talking to her again).",
+          "text": "Attack Vanescula Drakan - she will knock you back (if she does not knock you back, dismiss any active conjured spirits, unequip any armour, and climb up and back down the wall to the east, then try talking to her again).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1u5g4ug",
+          "html": "Talk to her and exhaust all options, eventually learning about the tree and receiving an envelope.",
+          "text": "Talk to her and exhaust all options, eventually learning about the tree and receiving an envelope.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What are you doing here?"
+                },
+                {
+                  "key": "1",
+                  "text": "How can you help?"
+                },
+                {
+                  "key": "3",
+                  "text": "I'm not telling you anything, vampyre scum!"
+                },
+                {
+                  "key": "2",
+                  "text": "How do you plan on freeing Meiyerditch?"
+                },
+                {
+                  "key": "3",
+                  "text": "You won't get any information out of me."
+                },
+                {
+                  "key": "1",
+                  "text": "Why do you want to kill Drakan?"
+                },
+                {
+                  "key": "3",
+                  "text": "Why should I trust you?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll listen, for now."
+                },
+                {
+                  "key": "3",
+                  "text": "Tell me more about this tree."
+                },
+                {
+                  "key": "1",
+                  "text": "How do I know you are telling the truth?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:nbek5l",
+          "html": "Teleport to Meiyerditch with the medallion and take the <a href=\"https://runescape.wiki/w/Vanescula%27s_offer\" target=\"_blank\" rel=\"noopener\">envelope</a> to Safalaan.",
+          "text": "Teleport to Meiyerditch with the medallion and take the envelope to Safalaan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Meiyerditch"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:z0qi1i",
+          "html": "In the same room, talk to <a href=\"https://runescape.wiki/w/Vertida_Sefalatis\" target=\"_blank\" rel=\"noopener\">Vertida Sefalatis</a>.",
+          "text": "In the same room, talk to Vertida Sefalatis.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do I need to go to Darkmeyer?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1ntibvn",
+          "html": "Head to the most south-western point within the Meiyerditch hideout. Search the <a href=\"https://runescape.wiki/w/Crate_(Meiyerditch_Myreque_base,_smoke_bomb)\" target=\"_blank\" rel=\"noopener\">crate</a> for 30 <a href=\"https://runescape.wiki/w/Smoke_bomb\" target=\"_blank\" rel=\"noopener\">smoke bombs</a>.",
+          "text": "Head to the most south-western point within the Meiyerditch hideout. Search the crate for 30 smoke bombs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1sh1dam",
+          "html": "With your medallion, teleport to the Meiyerditch laboratory.",
+          "text": "With your medallion, teleport to the Meiyerditch laboratory.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Meiyerditch Laboratories"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1r1zzca",
+          "html": "Go up the stairs, open the door, go through the slashed tapestry, and then out of the building.",
+          "text": "Go up the stairs, open the door, go through the slashed tapestry, and then out of the building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:135fpc3",
+          "html": "Run north and <i>squeeze-through</i> the grate on the north wall.",
+          "text": "Run north and squeeze-through the grate on the north wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:14zdfon",
+          "html": "Talk to Vanescula on the other side of the grate. In Darkmeyer, the <a href=\"https://runescape.wiki/w/Vyrewatch\" target=\"_blank\" rel=\"noopener\">vyrewatch</a> will attack you when you pass them as opposed to in <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a>.",
+          "text": "Talk to Vanescula on the other side of the grate. In Darkmeyer, the vyrewatch will attack you when you pass them as opposed to in Meiyerditch.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What did you tell Safalaan?"
+                },
+                {
+                  "key": "1",
+                  "text": "So, where's this tree?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll get on with it, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1hoxzln",
+          "html": "Use the smoke bombs to avoid being caught by <a href=\"https://runescape.wiki/w/Vampyre_juvinate\" target=\"_blank\" rel=\"noopener\">vampyre juvinates</a>. Do not go near vyrewatch.",
+          "text": "Use the smoke bombs to avoid being caught by vampyre juvinates. Do not go near vyrewatch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:3xihvp",
+          "html": "Search chests inside buildings to find clothing (four pieces in total). You can use another smoke bomb before the previous one dissipates. Enter a building before your smoke shroud vanishes. Once in a building, immediately close the door.",
+          "text": "Search chests inside buildings to find clothing (four pieces in total). You can use another smoke bomb before the previous one dissipates. Enter a building before your smoke shroud vanishes. Once in a building, immediately close the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:18l4upa",
+          "html": "Fix all four pieces and wear them. You no longer need to hide in smoke.",
+          "text": "Fix all four pieces and wear them. You no longer need to hide in smoke.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-darkmeyer:1yf5kk8",
+          "html": "Return to Vanescula.",
+          "text": "Return to Vanescula.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So can I go and get those logs now?"
+                },
+                {
+                  "key": "1",
+                  "text": "No, of course not."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gaining-status",
+      "title": "Gaining Status",
+      "anchor": "Gaining_Status",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3361,
+          "lon": 3634,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3632.5,
+                  3333.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Vanescula_Drakan\" title=\"Vanescula Drakan\">Vanescula Drakan</a>",
+                "shape": "Dot",
+                "fill": "#FF2233"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3651.5,
+                  3406.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Vanescula_Drakan\" title=\"Vanescula Drakan\">Vanescula Drakan</a>",
+                "shape": "Dot",
+                "fill": "#FF2233"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3597.5,
+                  3359.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Vanescula_Drakan\" title=\"Vanescula Drakan\">Vanescula Drakan</a>",
+                "shape": "Dot",
+                "fill": "#FF2233"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3637.5,
+                  3379.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grigan_Kaninus\" title=\"Grigan Kaninus\">Grigan Kaninus</a>",
+                "shape": "Dot",
+                "fill": "#20A220"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3629.5,
+                  3387.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Valentina_Kaust\" title=\"Valentina Kaust\">Valentina Kaust</a>",
+                "shape": "Dot",
+                "fill": "#3357FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3667.5,
+                  3380.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sanguinus_Varnis\" title=\"Sanguinus Varnis\">Sanguinus Varnis</a>",
+                "shape": "Dot",
+                "fill": "#FF33A6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3669.5,
+                  3401.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Maria_Gadderanks\" title=\"Maria Gadderanks\">Maria Gadderanks</a>",
+                "shape": "Dot",
+                "fill": "#33FFF5"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3599.5,
+                  3340.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sentinel_Bloodmortis\" title=\"Sentinel Bloodmortis\">Sentinel Bloodmortis</a>",
+                "shape": "Dot",
+                "fill": "#FF8333"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3605.5,
+                  3367.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Misdrievus_Vakan\" title=\"Misdrievus Vakan\">Misdrievus Vakan</a>",
+                "shape": "Dot",
+                "fill": "#A020F0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3597.5,
+                  3317.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3597.5,
+                  3321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3598.5,
+                  3319.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3598.5,
+                  3323.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3599.5,
+                  3317.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3599.5,
+                  3321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3599.5,
+                  3324.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3600.5,
+                  3319.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3601.5,
+                  3317.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3601.5,
+                  3321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3602.5,
+                  3319.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3603.5,
+                  3317.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3603.5,
+                  3321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3604.5,
+                  3319.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Captured_Meiyerditch_citizen\" title=\"Captured Meiyerditch citizen\">Captured Meiyerditch citizen</a>",
+                "shape": "Dot",
+                "fill": "#AAA"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3618.5,
+                  3363.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Ranis_Drakan\" title=\"Ranis Drakan\">Ranis Drakan</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3601.5,
+                  3379.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3606.5,
+                  3392.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3613.5,
+                  3403.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3625.5,
+                  3384.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3627.5,
+                  3406.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3632.5,
+                  3390.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3635.5,
+                  3379.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3644.5,
+                  3406.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3656.5,
+                  3405.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3658.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3661.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3668.5,
+                  3384.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3675.5,
+                  3399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3678.5,
+                  3384.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3654.5,
+                  3372.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3631.5,
+                  3345.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3654.5,
+                  3340.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Bloodveld_youngling\" title=\"Bloodveld youngling\">Possible spawn of Bloodveld youngling</a>",
+                "shape": "Dot",
+                "fill": "#DFDB23"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3613.5,
+                  3383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Poster",
+                "shape": "SquareDot",
+                "fill": "#AA85FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3627.5,
+                  3392.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Poster",
+                "shape": "SquareDot",
+                "fill": "#AA85FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3647.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Poster",
+                "shape": "SquareDot",
+                "fill": "#AA85FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3664.5,
+                  3391.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Poster",
+                "shape": "SquareDot",
+                "fill": "#AA85FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3645.5,
+                  3333.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3645.5,
+                  3341.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3655.5,
+                  3362.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3656.5,
+                  3344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3661.5,
+                  3362.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3662.5,
+                  3344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3671.5,
+                  3361.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3671.5,
+                  3369.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Darkmeyer_outfit\" title=\"Darkmeyer outfit\">Darkmeyer disguise</a>",
+                "shape": "SquareDot",
+                "fill": "#40a0c0"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3621.5,
+                  3400.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sentinel_Draemus\" title=\"Sentinel Draemus\">Sentinel Draemus</a>",
+                "shape": "Dot",
+                "fill": "#FFF"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:bfu6na",
+          "html": "<a href=\"https://runescape.wiki/w/Vanescula_Drakan\" target=\"_blank\" rel=\"noopener\">Vanescula Drakan</a>",
+          "text": "Vanescula Drakan",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:btx0eu",
+          "html": "<a href=\"https://runescape.wiki/w/Grigan_Kaninus\" target=\"_blank\" rel=\"noopener\">Grigan Kaninus</a>",
+          "text": "Grigan Kaninus",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:sco8yd",
+          "html": "<a href=\"https://runescape.wiki/w/Valentina_Kaust\" target=\"_blank\" rel=\"noopener\">Valentina Kaust</a>",
+          "text": "Valentina Kaust",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:12extcz",
+          "html": "<a href=\"https://runescape.wiki/w/Sanguinus_Varnis\" target=\"_blank\" rel=\"noopener\">Sanguinus Varnis</a>",
+          "text": "Sanguinus Varnis",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1vjwr4d",
+          "html": "<a href=\"https://runescape.wiki/w/Maria_Gadderanks\" target=\"_blank\" rel=\"noopener\">Maria Gadderanks</a>",
+          "text": "Maria Gadderanks",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1uc475v",
+          "html": "<a href=\"https://runescape.wiki/w/Sentinel_Bloodmortis\" target=\"_blank\" rel=\"noopener\">Sentinel Bloodmortis</a>",
+          "text": "Sentinel Bloodmortis",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:13yprsr",
+          "html": "<a href=\"https://runescape.wiki/w/Misdrievus_Vakan\" target=\"_blank\" rel=\"noopener\">Misdrievus Vakan</a>",
+          "text": "Misdrievus Vakan",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:3p0dic",
+          "html": "<a href=\"https://runescape.wiki/w/Captured_Meiyerditch_citizen\" target=\"_blank\" rel=\"noopener\">Captured Meiyerditch citizen</a>",
+          "text": "Captured Meiyerditch citizen",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:myr3aj",
+          "html": "<a href=\"https://runescape.wiki/w/Ranis_Drakan\" target=\"_blank\" rel=\"noopener\">Ranis Drakan</a>",
+          "text": "Ranis Drakan",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1emy2iz",
+          "html": "<a href=\"https://runescape.wiki/w/Bloodveld_youngling\" target=\"_blank\" rel=\"noopener\">Possible spawn of Bloodveld youngling</a>",
+          "text": "Possible spawn of Bloodveld youngling",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:xke1bw",
+          "html": "Poster",
+          "text": "Poster",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1cuv21k",
+          "html": "<a href=\"https://runescape.wiki/w/Darkmeyer_outfit\" target=\"_blank\" rel=\"noopener\">Darkmeyer disguise</a>",
+          "text": "Darkmeyer disguise",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:gstygu",
+          "html": "<a href=\"https://runescape.wiki/w/Sentinel_Draemus\" target=\"_blank\" rel=\"noopener\">Sentinel Draemus</a>",
+          "text": "Sentinel Draemus",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:The_Branches_of_Darkmeyer\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:The_Branches_of_Darkmeyer\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:The_Branches_of_Darkmeyer?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:15cil4o",
+          "html": "Walk up the ramp to the north-east to enter the ground floor (UK) / 1<sup>st</sup> floor (US) level of the city.",
+          "text": "Walk up the ramp to the north-east to enter the ground floor (UK) / 1st floor (US) level of the city.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:a91j6e",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sanguinus_Varnis\" target=\"_blank\" rel=\"noopener\">Sanguinus Varnis</a> at the top of the ramp, telling him your vampyre name.",
+          "text": "Talk to Sanguinus Varnis at the top of the ramp, telling him your vampyre name.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:3307lf",
+          "html": "Completing vampyric tasks below increases your rating. After completing enough tasks in the middle tier of the city, your rating bar will be half full, allowing progression into the next tier of the city.",
+          "text": "Completing vampyric tasks below increases your rating. After completing enough tasks in the middle tier of the city, your rating bar will be half full, allowing progression into the next tier of the city.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1bwemhb",
+          "html": "Talk to the Vyrewatch guard in the north-eastern jail.",
+          "text": "Talk to the Vyrewatch guard in the north-eastern jail.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Middle tier"
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:112riam",
+          "html": "Complete any of the following tasks until you reach a half-full rating bar and access to the upper tier (proceed to next section).",
+          "text": "Complete any of the following tasks until you reach a half-full rating bar and access to the upper tier (proceed to next section).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:1by505n",
+              "html": "Terrorising <a href=\"https://runescape.wiki/w/Maria_Gadderanks\" target=\"_blank\" rel=\"noopener\">Maria Gadderanks</a>,,",
+              "text": "Terrorising Maria Gadderanks,,",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Quiet, rat."
+                    },
+                    {
+                      "key": "1",
+                      "text": "What a shame. I'm going to be back later for a tithe."
+                    }
+                  ]
+                },
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Enough, vermin!"
+                    },
+                    {
+                      "key": "1",
+                      "text": "He's dead."
+                    }
+                  ]
+                },
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Silence, wretch!"
+                    },
+                    {
+                      "key": "1",
+                      "text": "Perhaps we need to 'dispose' of this one."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:1bad9ld",
+              "html": "Use the <a href=\"https://runescape.wiki/w/Angry\" target=\"_blank\" rel=\"noopener\">Angry</a> or <a href=\"https://runescape.wiki/w/Laugh\" target=\"_blank\" rel=\"noopener\">Laugh</a> emotes several times next to Maria Gadderanks",
+              "text": "Use the Angry or Laugh emotes several times next to Maria Gadderanks",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:607614",
+              "html": "Talk to Maria while wielding the <a href=\"https://runescape.wiki/w/Gadderhammer\" target=\"_blank\" rel=\"noopener\">Gadderhammer</a>",
+              "text": "Talk to Maria while wielding the Gadderhammer",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:76h1gd",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Valentina_Kaust\" target=\"_blank\" rel=\"noopener\">Valentina Kaust</a>, drink the vial of blood she gives you (if you are prepared to be damaged for half of your health), and then use either chat option.",
+              "text": "Talk to Valentina Kaust, drink the vial of blood she gives you (if you are prepared to be damaged for half of your health), and then use either chat option.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Ok"
+                    }
+                  ]
+                },
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:14mdni9",
+              "html": "Vandalise the four posters (after getting the task by speaking with <a href=\"https://runescape.wiki/w/Sanguinus_Varnis\" target=\"_blank\" rel=\"noopener\">Sanguinus Varnis</a>), shown as purple squares on the image, and then report back to Sanguinus Varnis again.",
+              "text": "Vandalise the four posters (after getting the task by speaking with Sanguinus Varnis), shown as purple squares on the image, and then report back to Sanguinus Varnis again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:65xqlm",
+              "html": "Recapture six <a href=\"https://runescape.wiki/w/Bloodveld_youngling\" target=\"_blank\" rel=\"noopener\">bloodveld younglings</a> (after talking to <a href=\"https://runescape.wiki/w/Grigan_Kaninus\" target=\"_blank\" rel=\"noopener\">Grigan Kaninus</a>). These vanish for long periods of time, so they can appear in places you&#39;ve already checked. They are displayed as yellow dots on the minimap.",
+              "text": "Recapture six bloodveld younglings (after talking to Grigan Kaninus). These vanish for long periods of time, so they can appear in places you've already checked. They are displayed as yellow dots on the minimap.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Perhaps I could help you get them back?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gaining-status:112riam:2rlfzy",
+              "html": "Talking to <a href=\"https://runescape.wiki/w/Sentinel_Draemus\" target=\"_blank\" rel=\"noopener\">Sentinel Draemus</a>, <a href=\"https://runescape.wiki/w/Sentinel_Gorthaur\" target=\"_blank\" rel=\"noopener\">Sentinel Gorthaur</a>, or <a href=\"https://runescape.wiki/w/Sentinel_Mortshade\" target=\"_blank\" rel=\"noopener\">Sentinel Mortshade</a> about citizens in Meiyerditch, the Myreque, and Burgh de Rott (three conversations).",
+              "text": "Talking to Sentinel Draemus, Sentinel Gorthaur, or Sentinel Mortshade about citizens in Meiyerditch, the Myreque, and Burgh de Rott (three conversations).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Upper tier"
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1wdjxag",
+          "html": "Killing <a href=\"https://runescape.wiki/w/Captured_Meiyerditch_citizen\" target=\"_blank\" rel=\"noopener\">Captured Meiyerditch citizens</a> for the <a href=\"https://runescape.wiki/w/Vyrewatch_guard\" target=\"_blank\" rel=\"noopener\">Vyrewatch guards</a> is the fastest way to fill the reputation bar, as each kill gives 2 reputation but there is a limit to how many you can kill in a short period of time. There are about a dozen locked in the jail and they respawn fairly quick. Start the task by talking to a Vyrewatch guard in the south-western jail.",
+          "text": "Killing Captured Meiyerditch citizens for the Vyrewatch guards is the fastest way to fill the reputation bar, as each kill gives 2 reputation but there is a limit to how many you can kill in a short period of time. There are about a dozen locked in the jail and they respawn fairly quick. Start the task by talking to a Vyrewatch guard in the south-western jail.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                },
+                {
+                  "key": "1",
+                  "text": "Ok."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1xyc7wj",
+          "html": "Entertaining <a href=\"https://runescape.wiki/w/Misdrievus_Vakan\" target=\"_blank\" rel=\"noopener\">Misdrievus Vakan</a>",
+          "text": "Entertaining Misdrievus Vakan",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do I need to do?"
+                }
+              ]
+            },
+            {
+              "when": "Then approach the nearby blood tither",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Punch the blood tither"
+                }
+              ]
+            },
+            {
+              "when": "Talk to Misdrievus Vakan again and then enter the building to the west for a cutscene",
+              "options": [
+                {
+                  "key": "2",
+                  "text": "No, I didn't see anything!"
+                },
+                {
+                  "key": "1",
+                  "text": "I think he deserves to die."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:jy2y37",
+          "html": "Speaking to Vanescula Drakan to pledge allegiance to the Drakan family.",
+          "text": "Speaking to Vanescula Drakan to pledge allegiance to the Drakan family.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do I do that?"
+                },
+                {
+                  "key": "1",
+                  "text": "I pledge fealty to the Drakan family."
+                },
+                {
+                  "key": "1",
+                  "text": "I devote my service, land an power to the Drakan before me."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gaining-status:1gski1a",
+          "html": "Talking to <a href=\"https://runescape.wiki/w/Sentinel_Bloodmortis\" target=\"_blank\" rel=\"noopener\">Sentinel Bloodmortis</a>, <a href=\"https://runescape.wiki/w/Sentinel_Noctantine\" target=\"_blank\" rel=\"noopener\">Sentinel Noctantine</a>, or <a href=\"https://runescape.wiki/w/Sentinel_Plaguemanst\" target=\"_blank\" rel=\"noopener\">Sentinel Plaguemanst</a> about Vanstrom Klause (two conversations).",
+          "text": "Talking to Sentinel Bloodmortis, Sentinel Noctantine, or Sentinel Plaguemanst about Vanstrom Klause (two conversations).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "He should be killed."
+                }
+              ]
+            },
+            {
+              "when": "And Lord Drakan",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I think he should be removed from power."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-arboretum",
+      "title": "The Arboretum",
+      "anchor": "The_Arboretum",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-arboretum:1lcz62o",
+          "html": "After gaining enough status in the upper tier, talk to Vanescula about entering the <a href=\"https://runescape.wiki/w/Arboretum_(location)\" target=\"_blank\" rel=\"noopener\">Arboretum</a>.",
+          "text": "After gaining enough status in the upper tier, talk to Vanescula about entering the Arboretum.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'll be off to the Arboretum, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:4n2w1c",
+          "html": "Enter the Arboretum (Ranis will stop you).",
+          "text": "Enter the Arboretum (Ranis will stop you).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course not!"
+                },
+                {
+                  "key": "1",
+                  "text": "I hereby pledge fealty to you, Ranis Drakan."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-arboretum:4n2w1c:y56dhv",
+              "html": "Arboretum is a big temple-like building to the east",
+              "text": "Arboretum is a big temple-like building to the east",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:1cwyqnk",
+          "html": "Proceed to enter the Arboretum.",
+          "text": "Proceed to enter the Arboretum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:wfprt2",
+          "html": "Solve the four puzzles:",
+          "text": "Solve the four puzzles:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-arboretum:wfprt2:1eaqr1f",
+              "html": "Check the health of the tree for the orb pattern.",
+              "text": "Check the health of the tree for the orb pattern.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-arboretum:wfprt2:1m2x99l",
+              "html": "Pull the lever (along the eastern edge) to start the first puzzle.",
+              "text": "Pull the lever (along the eastern edge) to start the first puzzle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-arboretum:wfprt2:pkhzik",
+              "html": "Rotating the orbs by clicking the left-bottom orb of a group of four orbs.",
+              "text": "Rotating the orbs by clicking the left-bottom orb of a group of four orbs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-arboretum:wfprt2:i2y5s4",
+              "html": "Match the orbs to the puzzle solution.",
+              "text": "Match the orbs to the puzzle solution.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-arboretum:wfprt2:l10ng9",
+              "html": "When the puzzle is complete, pull the lever.",
+              "text": "When the puzzle is complete, pull the lever.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:1awloj6",
+          "html": "Check the health of the tree again. Repeat the process for all four puzzles.",
+          "text": "Check the health of the tree again. Repeat the process for all four puzzles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Bodtreesolution1.png/300px-Bodtreesolution1.png?4f2a9",
+          "width": 300,
+          "height": 214,
+          "alt": "",
+          "caption": "Puzzle 1 solution",
+          "href": "https://runescape.wiki/w/File:Bodtreesolution1.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Bodtreesolution2.png/300px-Bodtreesolution2.png?f00db",
+          "width": 300,
+          "height": 272,
+          "alt": "",
+          "caption": "Puzzle 2 solution",
+          "href": "https://runescape.wiki/w/File:Bodtreesolution2.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Bodtree3new.png/300px-Bodtree3new.png?351ee",
+          "width": 300,
+          "height": 267,
+          "alt": "",
+          "caption": "Puzzle 3 solution: L,N,W,N W,L,L,L N,L,W,N W,L,L,L",
+          "href": "https://runescape.wiki/w/File:Bodtree3new.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Bodtreesolution4.png/300px-Bodtreesolution4.png?6ceb6",
+          "width": 300,
+          "height": 419,
+          "alt": "",
+          "caption": "Puzzle 4 solution: L,L,L,L N,N,N,N W,W,W,W N,N,N,W L/N,L/N,N,W L/N,L/N,N,W",
+          "href": "https://runescape.wiki/w/File:Bodtreesolution4.png"
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:193jfaq",
+          "html": "Chop the tree for three blisterwood logs and a cutscene will play.",
+          "text": "Chop the tree for three blisterwood logs and a cutscene will play.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-arboretum:1s45a0k",
+          "html": "In the entrance room to the west, talk to Vanescula to be teleported to out of Darkmeyer.",
+          "text": "In the entrance room to the west, talk to Vanescula to be teleported to out of Darkmeyer.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "But the vampyres will be furious! You've betrayed us!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "preparing-for-the-fight",
+      "title": "Preparing for the fight",
+      "anchor": "Preparing_for_the_fight",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:ih62w7",
+          "html": "Use the medallion to go to Meiyerditch.",
+          "text": "Use the medallion to go to Meiyerditch.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Meiyerditch"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:1d3l0xf",
+          "html": "Talk to Vertida Sefalatis.",
+          "text": "Talk to Vertida Sefalatis.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I managed to get some logs from the blisterwood tree."
+                },
+                {
+                  "key": "1",
+                  "text": "We may be able to trust her, yes."
+                },
+                {
+                  "key": "1",
+                  "text": "I'd be happy to dispatch one of the Myreque's most fearsome opponents."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:iigge9",
+          "html": "Talk to Vertida again for a <a href=\"https://runescape.wiki/w/Vertida%27s_bottle_of_holy_water\" target=\"_blank\" rel=\"noopener\">bottle of holy water</a>.",
+          "text": "Talk to Vertida again for a bottle of holy water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:1o2y21z",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kael_Forshaw\" target=\"_blank\" rel=\"noopener\">Kael Forshaw</a> for two silver sickles.",
+          "text": "Talk to Kael Forshaw for two silver sickles.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any sickles I could use?"
+                },
+                {
+                  "key": "2",
+                  "text": "That's all, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:8j1mkb",
+          "html": "Use the medallion to teleport back to Darkmeyer.. This will complete the achievement <a href=\"https://runescape.wiki/w/On_Wings_Of_Bling\" target=\"_blank\" rel=\"noopener\">On Wings Of Bling</a>.",
+          "text": "Use the medallion to teleport back to Darkmeyer.. This will complete the achievement On Wings Of Bling.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Darkmeyer"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:119op8p",
+          "html": "Craft each of the logs into a <a href=\"https://runescape.wiki/w/Blisterwood_staff\" target=\"_blank\" rel=\"noopener\">staff</a>, a <a href=\"https://runescape.wiki/w/Blisterwood_polearm\" target=\"_blank\" rel=\"noopener\">polearm</a>, and a set of <a href=\"https://runescape.wiki/w/Blisterwood_stake\" target=\"_blank\" rel=\"noopener\">stakes</a>. Remember to set the quantity to 1 in the Build-X interface or you will lose the logs permanently. Fletching the blisterwood polearm leads to the achievement <a href=\"https://runescape.wiki/w/Raising_The_Stakes\" target=\"_blank\" rel=\"noopener\">Raising The Stakes</a>.",
+          "text": "Craft each of the logs into a staff, a polearm, and a set of stakes. Remember to set the quantity to 1 in the Build-X interface or you will lose the logs permanently. Fletching the blisterwood polearm leads to the achievement Raising The Stakes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "preparing-for-the-fight:119op8p:duwn12",
+              "html": "If you forgot to cut three logs, you can enter Arboretum without any issues and cut some more.",
+              "text": "If you forgot to cut three logs, you can enter Arboretum without any issues and cut some more.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:ysvzl1",
+          "html": "Bank at the Darkmeyer Treasury. The bottle of holy water is required for the fights with <a href=\"https://runescape.wiki/w/Vanstrom_Klause\" target=\"_blank\" rel=\"noopener\">Vanstrom Klause</a> and <a href=\"https://runescape.wiki/w/Harold_(monster)\" target=\"_blank\" rel=\"noopener\">Harold</a>.",
+          "text": "Bank at the Darkmeyer Treasury. The bottle of holy water is required for the fights with Vanstrom Klause and Harold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:fxywya",
+          "html": "Enter the house with Harold in it (just north-east of the captured citizens) and kill him with any weapon. You must throw the bottle of holy water over him to be able to kill him.",
+          "text": "Enter the house with Harold in it (just north-east of the captured citizens) and kill him with any weapon. You must throw the bottle of holy water over him to be able to kill him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-the-fight:1l3cti1",
+          "html": "Go back to the bank and prepare for the final fight with Vanstrom Klause who is east of Harold.",
+          "text": "Go back to the bank and prepare for the final fight with Vanstrom Klause who is east of Harold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-battle-with-vanstrom",
+      "title": "The battle with Vanstrom",
+      "anchor": "The_battle_with_Vanstrom",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-battle-with-vanstrom:bring:ivwqt",
+              "html": "Equip full <a href=\"https://runescape.wiki/w/Darkmeyer_disguise\" target=\"_blank\" rel=\"noopener\">Darkmeyer disguise</a>",
+              "text": "Equip full Darkmeyer disguise"
+            },
+            {
+              "id": "the-battle-with-vanstrom:bring:3vrd7a",
+              "html": "Vertida&#39;s bottle of holy water",
+              "text": "Vertida's bottle of holy water"
+            },
+            {
+              "id": "the-battle-with-vanstrom:bring:mpy07s",
+              "html": "A blisterwood weapon of choice",
+              "text": "A blisterwood weapon of choice"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "the-battle-with-vanstrom:bring:c6voud",
+              "html": "Combat armour and <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potions</a>",
+              "text": "Combat armour and prayer potions"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "How to kill Vanstrom:"
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:fghfxh",
+          "html": "Only blisterwood weaponry can deal damage.",
+          "text": "Only blisterwood weaponry can deal damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:1g5jkyx",
+          "html": "If you&#39;re attacking at a distance use <a href=\"https://runescape.wiki/w/Deflect_Magic\" target=\"_blank\" rel=\"noopener\">Deflect</a>/<a href=\"https://runescape.wiki/w/Protect_from_Magic\" target=\"_blank\" rel=\"noopener\">Protect from Magic</a>; otherwise, <a href=\"https://runescape.wiki/w/Deflect_Melee\" target=\"_blank\" rel=\"noopener\">Deflect</a>/<a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a>.",
+          "text": "If you're attacking at a distance use Deflect/Protect from Magic; otherwise, Deflect/Protect from Melee.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:r9ch0j",
+          "html": "If he shouts <b>&quot;Stare into the darkness!&quot;</b> run to the edge of the arena and rotate your camera away from him. Maximum 4000 damage.",
+          "text": "If he shouts \"Stare into the darkness!\" run to the edge of the arena and rotate your camera away from him. Maximum 4000 damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:pvapty",
+          "html": "If he shouts <b>&quot;Let the blood consume you!&quot;</b> run away from the blood splodge on the floor. Maximum 6000 damage.",
+          "text": "If he shouts \"Let the blood consume you!\" run away from the blood splodge on the floor. Maximum 6000 damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:zx59hb",
+          "html": "If he shouts <b>&quot;Come, fiends, and aid your master!&quot;</b> kill the two easy minions that he spawns.",
+          "text": "If he shouts \"Come, fiends, and aid your master!\" kill the two easy minions that he spawns.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:125v93b",
+          "html": "If he throws <b>blood bombs</b> towards you, keep running around the room to avoid them. Maximum 4000 damage per bomb.",
+          "text": "If he throws blood bombs towards you, keep running around the room to avoid them. Maximum 4000 damage per bomb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:2i9pme",
+          "html": "Once he is very low health he turns into a cloud. Keep using holy water near him until he loses all health. Unequip your <a href=\"https://runescape.wiki/w/Ring_of_life\" target=\"_blank\" rel=\"noopener\">ring of life</a> if you&#39;re wearing one.",
+          "text": "Once he is very low health he turns into a cloud. Keep using holy water near him until he loses all health. Unequip your ring of life if you're wearing one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-battle-with-vanstrom:2i9pme:74dc3o",
+              "html": "If you are saved by a ring of life after a group of bloodveld guardians spawn, heal up and return without a ring of life. You will be damaged, but in a safe way. You will not have to redo the fight.",
+              "text": "If you are saved by a ring of life after a group of bloodveld guardians spawn, heal up and return without a ring of life. You will be damaged, but in a safe way. You will not have to redo the fight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-battle-with-vanstrom:14l0sea",
+          "html": "Use <a href=\"https://runescape.wiki/w/Deflect_Magic\" target=\"_blank\" rel=\"noopener\">Deflect</a>/<a href=\"https://runescape.wiki/w/Protect_from_Magic\" target=\"_blank\" rel=\"noopener\">Protect from Magic</a> for this last part as Vanstom can do rapid magic damage to you whilst he is dying.",
+          "text": "Use Deflect/Protect from Magic for this last part as Vanstom can do rapid magic damage to you whilst he is dying.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up-in-darkmeyer",
+      "title": "Finishing up in Darkmeyer",
+      "anchor": "Finishing_up_in_Darkmeyer",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up-in-darkmeyer:14a1bgb",
+          "html": "Take control of Vanescula and kill the <a href=\"https://runescape.wiki/w/Bloodveld_guardian\" target=\"_blank\" rel=\"noopener\">Bloodveld guardians</a>. It is recommended to use the Shriek attack repeatedly as soon as it recharges.",
+          "text": "Take control of Vanescula and kill the Bloodveld guardians. It is recommended to use the Shriek attack repeatedly as soon as it recharges.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up-in-darkmeyer:1btmju7",
+          "html": "When you awaken, speak with Vertida, and watch a short cutscene.",
+          "text": "When you awaken, speak with Vertida, and watch a short cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What happened?"
+                },
+                {
+                  "key": "1",
+                  "text": "Vanstrom believed that Safalaan may be the Icyene blood."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up-in-darkmeyer:100eofz",
+          "html": "Teleport to Burgh de Rott with the medallion",
+          "text": "Teleport to Burgh de Rott with the medallion",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Burgh de Rott"
+                }
+              ]
+            },
+            {
+              "when": "And talk to Veliaf Hurtz",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Vanstrom is dead!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up-in-darkmeyer:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Branches_of_Darkmeyer_reward.png?53b9a",
+      "width": 512,
+      "height": 447,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Branches_of_Darkmeyer_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience",
+        "text": "50,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "40,000 experience",
+        "text": "40,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience",
+        "text": "25,000 experience",
+        "subs": []
+      },
+      {
+        "html": "35,000 experience",
+        "text": "35,000 experience",
+        "subs": []
+      },
+      {
+        "html": "150,000 experience <a href=\"https://runescape.wiki/w/Tome_of_xp_3rd_ed\" target=\"_blank\" rel=\"noopener\">tome</a> (3x 50,000 experience - Skill must be level 60 or higher)",
+        "text": "150,000 experience tome (3x 50,000 experience - Skill must be level 60 or higher)",
+        "subs": [
+          "Only 75,000 experience is granted if used on <a href=\"https://runescape.wiki/w/Elite_skills\" target=\"_blank\" rel=\"noopener\">elite skills</a> (3x 25,000 experience)"
+        ]
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Darkmeyer\" target=\"_blank\" rel=\"noopener\">Darkmeyer</a>",
+        "text": "Access to Darkmeyer",
+        "subs": []
+      },
+      {
+        "html": "Ability to fletch and use <a href=\"https://runescape.wiki/w/Blisterwood\" target=\"_blank\" rel=\"noopener\">Blisterwood</a> weapons",
+        "text": "Ability to fletch and use Blisterwood weapons",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Darkmeyer_outfit\" target=\"_blank\" rel=\"noopener\">Darkmeyer outfit</a> (can be put into a <a href=\"https://runescape.wiki/w/Fancy_dress_box\" target=\"_blank\" rel=\"noopener\">Fancy dress box</a> in a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">Player-owned house</a>)",
+        "text": "Darkmeyer outfit (can be put into a Fancy dress box in a Player-owned house)",
+        "subs": []
+      },
+      {
+        "html": "A new <a href=\"https://runescape.wiki/w/Titles\" target=\"_blank\" rel=\"noopener\">title</a> depending on your status bar progress",
+        "text": "A new title depending on your status bar progress",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Vyreling\" target=\"_blank\" rel=\"noopener\">Vyreling [Name]</a> (0–24%)",
+          "<a href=\"https://runescape.wiki/w/Vyre_Grunt\" target=\"_blank\" rel=\"noopener\">Vyre Grunt [Name]</a> (25–49%)",
+          "<a href=\"https://runescape.wiki/w/Vyrewatch_(title)\" target=\"_blank\" rel=\"noopener\">Vyrewatch [Name]</a> (50–99%)",
+          "<a href=\"https://runescape.wiki/w/Vyrelord/Vyrelady\" target=\"_blank\" rel=\"noopener\">Vyrelord</a> / <a href=\"https://runescape.wiki/w/Vyrelord/Vyrelady\" target=\"_blank\" rel=\"noopener\">Vyrelady [Name]</a> (100%)"
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Drakan%27s_medallion\" target=\"_blank\" rel=\"noopener\">Drakan&#39;s medallion</a>, allowing teleportation to various places in Morytania (<a href=\"https://runescape.wiki/w/Barrows\" target=\"_blank\" rel=\"noopener\">Barrows</a>, <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>, <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a>, <a href=\"https://runescape.wiki/w/Darkmeyer\" target=\"_blank\" rel=\"noopener\">Darkmeyer</a> and <a href=\"https://runescape.wiki/w/Meiyerditch_tunnels\" target=\"_blank\" rel=\"noopener\">Meiyerditch tunnels</a>).",
+        "text": "Drakan's medallion, allowing teleportation to various places in Morytania (Barrows, Burgh de Rott, Meiyerditch, Darkmeyer and Meiyerditch tunnels).",
+        "subs": []
+      },
+      {
+        "html": "Ability to receive <a href=\"https://runescape.wiki/w/Vyrewatch\" target=\"_blank\" rel=\"noopener\">Vyrewatch</a> as a <a href=\"https://runescape.wiki/w/Vyrewatch_(Slayer_assignment)\" target=\"_blank\" rel=\"noopener\">Slayer task</a> from <a href=\"https://runescape.wiki/w/Chaeldar\" target=\"_blank\" rel=\"noopener\">Chaeldar</a>, <a href=\"https://runescape.wiki/w/Sumona\" target=\"_blank\" rel=\"noopener\">Sumona</a>, <a href=\"https://runescape.wiki/w/Duradel\" target=\"_blank\" rel=\"noopener\">Duradel</a> or <a href=\"https://runescape.wiki/w/Lapalok\" target=\"_blank\" rel=\"noopener\">Lapalok</a>, <a href=\"https://runescape.wiki/w/Kuradal\" target=\"_blank\" rel=\"noopener\">Kuradal</a>, <a href=\"https://runescape.wiki/w/Morvran\" target=\"_blank\" rel=\"noopener\">Morvran</a>, and <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a>.",
+        "text": "Ability to receive Vyrewatch as a Slayer task from Chaeldar, Sumona, Duradel or Lapalok, Kuradal, Morvran, and Laniakea.",
+        "subs": []
+      },
+      {
+        "html": "Access to a <a href=\"https://runescape.wiki/w/Bloodwood_tree\" target=\"_blank\" rel=\"noopener\">Bloodwood tree</a> outside the <a href=\"https://runescape.wiki/w/Arboretum_(location)\" target=\"_blank\" rel=\"noopener\">Arboretum</a>.",
+        "text": "Access to a Bloodwood tree outside the Arboretum.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Arboretum",
+      "where": "upon entering the Arboretum"
+    },
+    {
+      "name": "Darkmeyer",
+      "where": "upon entering Darkmeyer"
+    },
+    {
+      "name": "Upir Likhyi",
+      "where": "upon entering the large chamber in Vanstrom's house"
+    },
+    {
+      "name": "Vanescula Fight",
+      "where": "when Vanescula Drakan defeats the bloodveld guardians"
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer_(achievement)\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Got_a_Vyre_Reputation\" target=\"_blank\" rel=\"noopener\">Got a Vyre Reputation</a> (10) – Unlock the Vyrelord/Vyrelady title and reach maximum vyre reputation in Darkmeyer.",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Tirannwn_achievements\" target=\"_blank\" rel=\"noopener\">Tirannwn achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

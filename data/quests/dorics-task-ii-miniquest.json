@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "id": "dorics-task-ii-miniquest",
+  "title": "Doric's Task II (miniquest)",
+  "page": "Doric's Task II (miniquest)/Quick guide",
+  "rev": 37076503,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_II_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task I (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 2
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:oujdf3",
+          "html": "10 <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bars</a>",
+          "text": "10 steel bars",
+          "alternatives": []
+        },
+        {
+          "id": "req:jcf0k3",
+          "html": "2 <a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">bronze bars</a>",
+          "text": "2 bronze bars",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ipw3m0",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "attack-of-the-trolls",
+      "title": "Attack of the Trolls",
+      "anchor": "Attack_of_the_Trolls",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his hut north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:1tg6zza",
+          "html": "Smith two <a href=\"https://runescape.wiki/w/Steel_chainbody\" target=\"_blank\" rel=\"noopener\">steel chainbodies</a>.",
+          "text": "Smith two steel chainbodies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "attack-of-the-trolls:1tg6zza:ve7mge",
+              "html": "Make sure you are smithing chainbodies, not <a href=\"https://runescape.wiki/w/Steel_platebody\" target=\"_blank\" rel=\"noopener\">platebodies</a>.",
+              "text": "Make sure you are smithing chainbodies, not platebodies.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "attack-of-the-trolls:1tg6zza:1os2b5w",
+              "html": "Purchasing chainbodies from the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a> will not complete the task.",
+              "text": "Purchasing chainbodies from the Grand Exchange will not complete the task.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:12cfirv",
+          "html": "Deliver the chainbodies to <a href=\"https://runescape.wiki/w/Commander_Denulth\" target=\"_blank\" rel=\"noopener\">Commander Denulth</a>, north-east of <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a>.",
+          "text": "Deliver the chainbodies to Commander Denulth, north-east of Burthorpe lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about Doric's Tasks"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "attack-of-the-trolls:12cfirv:1kakwbf",
+              "html": "There are breaks in the dialogue. Make sure the conversation is completed.",
+              "text": "There are breaks in the dialogue. Make sure the conversation is completed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:1qrlh21",
+          "html": "Return to Doric and speak to him.",
+          "text": "Return to Doric and speak to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:l8her6",
+          "html": "Have 2 unnoted <a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">bronze bars</a> in your inventory.",
+          "text": "Have 2 unnoted bronze bars in your inventory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:vwmb0a",
+          "html": "Use the anvil in the same room as Doric to make the cannon repair part.",
+          "text": "Use the anvil in the same room as Doric to make the cannon repair part.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:1nisymd",
+          "html": "Return to Burthorpe and head north to the <a href=\"https://runescape.wiki/w/Burthorpe_Castle\" target=\"_blank\" rel=\"noopener\">castle</a>. Outside the castle, climb the ladder west of the entrance to reach the roof.",
+          "text": "Return to Burthorpe and head north to the castle. Outside the castle, climb the ladder west of the entrance to reach the roof.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:1p075ev",
+          "html": "Repair the middle broken cannon to the north.",
+          "text": "Repair the middle broken cannon to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "attack-of-the-trolls:7kov4e",
+          "html": "Return to Commander Denulth.",
+          "text": "Return to Commander Denulth.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've fixed the cannon."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_II_%28miniquest%29_reward.png?000ad",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_II_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "500 experience",
+        "text": "500 experience",
+        "subs": []
+      },
+      {
+        "html": "1,500 charges on the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "1,500 charges on the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_III_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task III (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_IV_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task IV (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_V_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task V (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VI_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VI (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

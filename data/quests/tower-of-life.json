@@ -1,0 +1,1445 @@
+{
+  "format": 1,
+  "id": "tower-of-life",
+  "title": "Tower of Life",
+  "page": "Tower of Life/Quick guide",
+  "rev": 37216319,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Effigy\" target=\"_blank\" rel=\"noopener\">Effigy</a> outside the <a href=\"https://runescape.wiki/w/Tower_of_Life_(building)\" target=\"_blank\" rel=\"noopener\">Tower of Life</a> south of <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3215,
+      "lon": 2640,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Tower_of_Life/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 10,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:2k9g9j",
+          "html": "<a href=\"https://runescape.wiki/w/Beer\" target=\"_blank\" rel=\"noopener\">Beer</a>",
+          "text": "Beer",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1rp7bb6",
+          "html": "At least 14 empty spaces to carry items acquired during the quest.",
+          "text": "At least 14 empty spaces to carry items acquired during the quest.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rkx48i",
+          "html": "To complete the post-quest <a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a>:",
+          "text": "To complete the post-quest Ardougne achievements:",
+          "alternatives": [
+            "Unicow<br>• <a href=\"https://runescape.wiki/w/Cowhide\" target=\"_blank\" rel=\"noopener\">Cowhide</a><br>• <a href=\"https://runescape.wiki/w/Unicorn_horn\" target=\"_blank\" rel=\"noopener\">Unicorn horn</a>",
+            "Swordchick<br>• <a href=\"https://runescape.wiki/w/Raw_swordfish\" target=\"_blank\" rel=\"noopener\">Raw swordfish</a><br>• <a href=\"https://runescape.wiki/w/Raw_chicken\" target=\"_blank\" rel=\"noopener\">Raw chicken</a>",
+            "Frogeel<br>• <a href=\"https://runescape.wiki/w/Raw_cave_eel\" target=\"_blank\" rel=\"noopener\">Raw cave eel</a><br>• <a href=\"https://runescape.wiki/w/Giant_frog_legs\" target=\"_blank\" rel=\"noopener\">Giant frog legs</a>"
+          ]
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:15vccg8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Effigy_(NPC)\" target=\"_blank\" rel=\"noopener\">Effigy</a> at the <a href=\"https://runescape.wiki/w/Tower_of_Life_(building)\" target=\"_blank\" rel=\"noopener\">Tower of Life</a> near fairy ring code <b>D</b><b>J</b><b>P</b>.",
+          "text": "Talk to Effigy at the Tower of Life near fairy ring code DJP.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Sure, why not."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:z4lg13",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bonafido\" target=\"_blank\" rel=\"noopener\">Bonafido</a>, the builder lying down north of the door to the tower.",
+          "text": "Talk to Bonafido, the builder lying down north of the door to the tower.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "builder-s-outfit",
+      "title": "Builder's outfit",
+      "anchor": "Builder's_outfit",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Hard hat"
+        },
+        {
+          "type": "step",
+          "id": "builder-s-outfit:91p9b5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/%27Black-eye%27\" target=\"_blank\" rel=\"noopener\">&#39;Black-eye&#39;</a>.",
+          "text": "Talk to 'Black-eye'.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Three"
+                },
+                {
+                  "key": "1",
+                  "text": "Torn curtains"
+                },
+                {
+                  "key": "2",
+                  "text": "10 clay pieces"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Shirt"
+        },
+        {
+          "type": "step",
+          "id": "builder-s-outfit:14b2k93",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/%27The_Guns%27\" target=\"_blank\" rel=\"noopener\">&#39;The Guns&#39;</a> and give him the beer.",
+          "text": "Talk to 'The Guns' and give him the beer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boots"
+        },
+        {
+          "type": "step",
+          "id": "builder-s-outfit:1436k5d",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/%27No_fingers%27\" target=\"_blank\" rel=\"noopener\">&#39;No fingers&#39;</a>.",
+          "text": "Talk to 'No fingers'.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "builder-s-outfit:1sv7o9",
+          "html": "Pickpocket the boots from him. It may take multiple attempts.",
+          "text": "Pickpocket the boots from him. It may take multiple attempts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Trousers"
+        },
+        {
+          "type": "step",
+          "id": "builder-s-outfit:qa876x",
+          "html": "Search the plants south-east of the tower for the trousers.",
+          "text": "Search the plants south-east of the tower for the trousers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gaining-entry",
+      "title": "Gaining entry",
+      "anchor": "Gaining_entry",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "gaining-entry:15vai6c",
+          "html": "Equip the costume and talk to Bonafido.",
+          "text": "Equip the costume and talk to Bonafido.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Tea"
+                },
+                {
+                  "key": "3",
+                  "text": "Whistle for attention"
+                },
+                {
+                  "key": "1",
+                  "text": "Your legs are getting a bit cold"
+                },
+                {
+                  "key": "2",
+                  "text": "Carry on, it'll fix itself"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "tower-repair",
+      "title": "Tower repair",
+      "anchor": "Tower_repair",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Tower_of_Life_(building)\" target=\"_blank\" rel=\"noopener\">Tower of Life ground floor (UK) / 1<sup>st</sup> floor (US)</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3218,
+          "lon": 2649,
+          "zoom": 4,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2650,
+                  3213,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  12.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  25,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_entrance_map_icon.png?73368",
+                "icon": "dungeon entrance",
+                "title": "to <a href=\"/w/Map:Tower_of_Life_basement\" title=\"Map:Tower of Life basement\">Tower of Life basement</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2650,
+                  3213,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "label": "<a href=\"/w/Map:Tower_of_Life_basement\" title=\"Map:Tower of Life basement\">to Tower of<br />Life basement</a>",
+                "direction": "left",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2647.5,
+                  3223.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  14.5,
+                  7.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Metal_bar\" title=\"Metal bar\">Metal bar</a>",
+                "iconSize": [
+                  29,
+                  15
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Metal_bar.png?5aa07",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2651.5,
+                  3213,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  14.5,
+                  7.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Metal_bar\" title=\"Metal bar\">Metal bar</a>",
+                "iconSize": [
+                  29,
+                  15
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Metal_bar.png?5aa07",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2648.5,
+                  3222.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  13,
+                  12
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Pipe_(Tower_of_Life)\" title=\"Pipe (Tower of Life)\">Pipe (Tower of Life)</a>",
+                "iconSize": [
+                  26,
+                  24
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Pipe_%28Tower_of_Life%29.png?f7b07",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2652.5,
+                  3222.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  14,
+                  11
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Pipe_ring\" title=\"Pipe ring\">Pipe ring</a>",
+                "iconSize": [
+                  28,
+                  22
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Pipe_ring.png?e38b7",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2654,
+                  3220.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  12.5,
+                  11.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Rivets\" title=\"Rivets\">Rivets</a>",
+                "iconSize": [
+                  25,
+                  23
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Rivets_3.png?fec5b",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2655,
+                  3217.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  14.5,
+                  14.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Valve_wheel\" title=\"Valve wheel\">Valve wheel</a>",
+                "iconSize": [
+                  29,
+                  29
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Valve_wheel.png?ed851",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2654,
+                  3216.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  15,
+                  15
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Triangle_sandwich\" title=\"Triangle sandwich\">Triangle sandwich</a>",
+                "iconSize": [
+                  30,
+                  30
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Triangle_sandwich.png?96a44",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2652.5,
+                  3214.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  8.5,
+                  15
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Binding_fluid\" title=\"Binding fluid\">Binding fluid</a>",
+                "iconSize": [
+                  17,
+                  30
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Binding_fluid.png?1cf7b",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2644.5,
+                  3216,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  11.5,
+                  11.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Coloured_ball\" title=\"Coloured ball\">Coloured ball</a>",
+                "iconSize": [
+                  23,
+                  23
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Coloured_ball.png?3a8af",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2644,
+                  3219,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  15,
+                  15
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Metal_sheet\" title=\"Metal sheet\">Metal sheet</a>",
+                "iconSize": [
+                  30,
+                  30
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Metal_sheet.png?dfe7e",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2644.5,
+                  3219.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "label": "to Tower of<br />Life <span class=\"floornumber\" data-sort-value=\"2\"><span class=\"floornumber-gb\">1<sup class=\"floornumber-ordinal-suffix\">st</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"British convention; floor 2 in the US. Click to configure preference.\">UK</span>&#93;</sup></span><span class=\"floornumber-us noexcerpt\">2<sup class=\"floornumber-ordinal-suffix\">nd</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"US convention; floor 1 in the UK. Click to configure preference.\">US</span>&#93;</sup></span></span>",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Tower_of_Life/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:lzn8hd",
+          "html": "<a href=\"https://runescape.wiki/w/Metal_bar\" target=\"_blank\" rel=\"noopener\">Metal bar</a>",
+          "text": "Metal bar",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:i6jppa",
+          "html": "<a href=\"https://runescape.wiki/w/Pipe_(Tower_of_Life)\" target=\"_blank\" rel=\"noopener\">Pipe (Tower of Life)</a>",
+          "text": "Pipe (Tower of Life)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:zllb1p",
+          "html": "<a href=\"https://runescape.wiki/w/Pipe_ring\" target=\"_blank\" rel=\"noopener\">Pipe ring</a>",
+          "text": "Pipe ring",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:qzc7xo",
+          "html": "<a href=\"https://runescape.wiki/w/Rivets\" target=\"_blank\" rel=\"noopener\">Rivets</a>",
+          "text": "Rivets",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:wb49gy",
+          "html": "<a href=\"https://runescape.wiki/w/Valve_wheel\" target=\"_blank\" rel=\"noopener\">Valve wheel</a>",
+          "text": "Valve wheel",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1jhztxi",
+          "html": "<a href=\"https://runescape.wiki/w/Triangle_sandwich\" target=\"_blank\" rel=\"noopener\">Triangle sandwich</a>",
+          "text": "Triangle sandwich",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:35ma8e",
+          "html": "<a href=\"https://runescape.wiki/w/Binding_fluid\" target=\"_blank\" rel=\"noopener\">Binding fluid</a>",
+          "text": "Binding fluid",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:kljm0h",
+          "html": "<a href=\"https://runescape.wiki/w/Coloured_ball\" target=\"_blank\" rel=\"noopener\">Coloured ball</a>",
+          "text": "Coloured ball",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1un09l3",
+          "html": "<a href=\"https://runescape.wiki/w/Metal_sheet\" target=\"_blank\" rel=\"noopener\">Metal sheet</a>",
+          "text": "Metal sheet",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Tower_of_Life_ground_floor\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Tower_of_Life_ground_floor\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Tower_of_Life_ground_floor?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:58o9hj",
+          "html": "All of the items you need for the quest will be found on the ground floor (UK) / 1<sup>st</sup> floor (US) of the tower in crates. Refer to image for item crate locations.",
+          "text": "All of the items you need for the quest will be found on the ground floor (UK) / 1st floor (US) of the tower in crates. Refer to image for item crate locations.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Pressure machine"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "tower-repair:bring:ro634q",
+              "html": "4 <a href=\"https://runescape.wiki/w/Coloured_ball\" target=\"_blank\" rel=\"noopener\">coloured balls</a>",
+              "text": "4 coloured balls"
+            },
+            {
+              "id": "tower-repair:bring:n2bp5f",
+              "html": "3 <a href=\"https://runescape.wiki/w/Metal_sheet\" target=\"_blank\" rel=\"noopener\">metal sheets</a>",
+              "text": "3 metal sheets"
+            },
+            {
+              "id": "tower-repair:bring:1htjav",
+              "html": "4 <a href=\"https://runescape.wiki/w/Valve_wheel\" target=\"_blank\" rel=\"noopener\">valve wheels</a>",
+              "text": "4 valve wheels"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1swal9s",
+          "html": "Go to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US).",
+          "text": "Go to the 1st floor (UK) / 2nd floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:104ols7",
+          "html": "Fix the <a href=\"https://runescape.wiki/w/Pressure_machine\" target=\"_blank\" rel=\"noopener\">pressure machine</a>.",
+          "text": "Fix the pressure machine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:wehayz",
+          "html": "Turn wheel 1 left until blocked.",
+          "text": "Turn wheel 1 left until blocked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:gtckbs",
+          "html": "Turn wheel 1 right until fixed.",
+          "text": "Turn wheel 1 right until fixed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:pf8kqv",
+          "html": "Pull left lever.",
+          "text": "Pull left lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:fjeldu",
+          "html": "Turn wheel 2 left until blocked.",
+          "text": "Turn wheel 2 left until blocked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:172219v",
+          "html": "Turn wheel 2 right until fixed.",
+          "text": "Turn wheel 2 right until fixed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1higjn7",
+          "html": "Turn wheel 3 right until it reaches the hole.",
+          "text": "Turn wheel 3 right until it reaches the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:aotxwh",
+          "html": "Turn wheel 3 left until blocked.",
+          "text": "Turn wheel 3 left until blocked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:qxiroa",
+          "html": "Turn wheel 3 right until fixed.",
+          "text": "Turn wheel 3 right until fixed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1d7yr3a",
+          "html": "Pull right lever.",
+          "text": "Pull right lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:brskp8",
+          "html": "Turn wheel 4 right until it reaches the hole.",
+          "text": "Turn wheel 4 right until it reaches the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:cs8h88",
+          "html": "Turn wheel 4 left until blocked.",
+          "text": "Turn wheel 4 left until blocked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:acr72t",
+          "html": "Turn wheel 4 right until fixed.",
+          "text": "Turn wheel 4 right until fixed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Pipe machine"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/ToL_Pipe_Puzzle.png/300px-ToL_Pipe_Puzzle.png?36365",
+          "width": 300,
+          "height": 196,
+          "alt": "",
+          "caption": "The completed pipe puzzle",
+          "href": "https://runescape.wiki/w/File:ToL_Pipe_Puzzle.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "tower-repair:bring:w210iu",
+              "html": "6 <a href=\"https://runescape.wiki/w/Rivets\" target=\"_blank\" rel=\"noopener\">rivets</a>",
+              "text": "6 rivets"
+            },
+            {
+              "id": "tower-repair:bring:1kn5ksi",
+              "html": "4 <a href=\"https://runescape.wiki/w/Pipe_(Tower_of_Life)\" target=\"_blank\" rel=\"noopener\">pipes</a>",
+              "text": "4 pipes"
+            },
+            {
+              "id": "tower-repair:bring:5sq7uf",
+              "html": "5 <a href=\"https://runescape.wiki/w/Pipe_ring\" target=\"_blank\" rel=\"noopener\">pipe rings</a>",
+              "text": "5 pipe rings"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:o2ltov",
+          "html": "Go to the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US).",
+          "text": "Go to the 2nd floor (UK) / 3rd floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1xl6lit",
+          "html": "Fix the pipe machine and move the pieces as shown in image.",
+          "text": "Fix the pipe machine and move the pieces as shown in image.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The cage"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Tower_of_Life_cage_fix.png/300px-Tower_of_Life_cage_fix.png?73296",
+          "width": 300,
+          "height": 196,
+          "alt": "",
+          "caption": "The fixed cage",
+          "href": "https://runescape.wiki/w/File:Tower_of_Life_cage_fix.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "tower-repair:bring:yzloj5",
+              "html": "5 <a href=\"https://runescape.wiki/w/Metal_bar\" target=\"_blank\" rel=\"noopener\">metal bars</a> and 4 bottles of <a href=\"https://runescape.wiki/w/Binding_fluid\" target=\"_blank\" rel=\"noopener\">Binding fluid</a>",
+              "text": "5 metal bars and 4 bottles of Binding fluid"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:kon201",
+          "html": "Go to the 3<sup>rd</sup> floor (UK) / 4<sup>th</sup> floor (US).",
+          "text": "Go to the 3rd floor (UK) / 4th floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1t6gr34",
+          "html": "Fix the cage using the instructions below.",
+          "text": "Fix the cage using the instructions below.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1fhowqr",
+          "html": "Front side",
+          "text": "Front side",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tower-repair:1fhowqr:bk3lgp",
+              "html": "Vertical 2",
+              "text": "Vertical 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:1fhowqr:1jih6p4",
+              "html": "Horizontal 3",
+              "text": "Horizontal 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:1fhowqr:1jsgse3",
+              "html": "Horizontal 2",
+              "text": "Horizontal 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:1fhowqr:103lnms",
+              "html": "Turn right",
+              "text": "Turn right",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:160nxg",
+          "html": "Right side",
+          "text": "Right side",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tower-repair:160nxg:c42sun",
+              "html": "Vertical 4",
+              "text": "Vertical 4",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:160nxg:bk3lgp",
+              "html": "Vertical 2",
+              "text": "Vertical 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:160nxg:1jsgse3",
+              "html": "Horizontal 2",
+              "text": "Horizontal 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:160nxg:103lnms",
+              "html": "Turn right",
+              "text": "Turn right",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:fhvw9e",
+          "html": "Rear side",
+          "text": "Rear side",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tower-repair:fhvw9e:1lgeejx",
+              "html": "Horizontal 4",
+              "text": "Horizontal 4",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:fhvw9e:bk3lgp",
+              "html": "Vertical 2",
+              "text": "Vertical 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:fhvw9e:ba3zrq",
+              "html": "Vertical 3",
+              "text": "Vertical 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:fhvw9e:103lnms",
+              "html": "Turn right",
+              "text": "Turn right",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tower-repair:1pinh8b",
+          "html": "Left side",
+          "text": "Left side",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tower-repair:1pinh8b:1jsgse3",
+              "html": "Horizontal 2",
+              "text": "Horizontal 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:1pinh8b:1jsgse3-2",
+              "html": "Horizontal 2",
+              "text": "Horizontal 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tower-repair:1pinh8b:bk3lgp",
+              "html": "Vertical 2",
+              "text": "Vertical 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homunculus",
+      "title": "Homunculus",
+      "anchor": "Homunculus",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "homunculus:1c5a6m7",
+          "html": "Return to the ground floor (UK) / 1<sup>st</sup> floor (US), exit the tower and talk to <a href=\"https://runescape.wiki/w/Effigy\" target=\"_blank\" rel=\"noopener\">Effigy</a>.",
+          "text": "Return to the ground floor (UK) / 1st floor (US), exit the tower and talk to Effigy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "homunculus:nmemu1",
+          "html": "Go to the top of the tower to start a cutscene.",
+          "text": "Go to the top of the tower to start a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "homunculus:16m1g4t",
+          "html": "After the cutscene, talk to Effigy outside of the tower.",
+          "text": "After the cutscene, talk to Effigy outside of the tower.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "homunculus:1t6lqb8",
+          "html": "Return to the top of the tower and talk to <a href=\"https://runescape.wiki/w/Homunculus\" target=\"_blank\" rel=\"noopener\">Homunculus</a>.",
+          "text": "Return to the top of the tower and talk to Homunculus.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Get some logs and a tinderbox."
+                },
+                {
+                  "key": "3",
+                  "text": "By ignition of gas in their belly as they exhale."
+                },
+                {
+                  "key": "3",
+                  "text": "Fletching, Crafting, Smithing."
+                },
+                {
+                  "key": "1",
+                  "text": "Bury them."
+                },
+                {
+                  "key": "2",
+                  "text": "Run, run as fast as you can."
+                },
+                {
+                  "key": "2",
+                  "text": "People mix together ingredients in vials. The nutrients will help you."
+                },
+                {
+                  "key": "3",
+                  "text": "Take a rune stone to an altar and use a talisman."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:lrtaac",
+          "html": "Return to Effigy for a final cutscene.",
+          "text": "Return to Effigy for a final cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1eruggt",
+          "html": "Go down the trapdoor inside the tower.",
+          "text": "Go down the trapdoor inside the tower.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:e57kyt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Homunculus\" target=\"_blank\" rel=\"noopener\">Homunculus</a>.",
+          "text": "Talk to Homunculus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Tower_of_Life_reward.png?f7e1b",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Tower_of_Life_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "500 experience",
+        "text": "500 experience",
+        "subs": []
+      },
+      {
+        "html": "500 experience",
+        "text": "500 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Builder%27s_costume\" target=\"_blank\" rel=\"noopener\">Builder&#39;s costume</a>",
+        "text": "Builder's costume",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Creature_Creation\" target=\"_blank\" rel=\"noopener\">Creature Creation</a>",
+        "text": "Access to Creature Creation",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Creature Cruelty",
+      "where": ""
+    },
+    {
+      "name": "Magic Magic Magic",
+      "where": ""
+    },
+    {
+      "name": "Work Work Work",
+      "where": ""
+    },
+    {
+      "name": "Mutant Medley",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Tower_of_Life_(achievement)\" target=\"_blank\" rel=\"noopener\">Tower of Life</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Deadliest_Catch/Quick_guide\" target=\"_blank\" rel=\"noopener\">Deadliest Catch</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

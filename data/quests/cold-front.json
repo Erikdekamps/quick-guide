@@ -1,0 +1,522 @@
+{
+  "format": 1,
+  "id": "cold-front",
+  "title": "Cold Front",
+  "page": "Cold Front/Quick guide",
+  "rev": 36907477,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Queen_of_Snow\" target=\"_blank\" rel=\"noopener\">Queen of Snow</a> at the Snowball Arena in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">the Land of Snow&#39;s Christmas Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9798,
+      "lon": 5183,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 746,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Cold_Front/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "N/A"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:c8t04v",
+          "html": "25 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+          "text": "25 coal",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "talking-to-the-queen-of-snow",
+      "title": "Talking to the Queen of Snow",
+      "anchor": "Talking_to_the_Queen_of_Snow",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "talking-to-the-queen-of-snow:bring:pprqe9",
+              "html": "Free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> slot",
+              "text": "Free backpack slot"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:1d9ziit",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Queen_of_Snow\" target=\"_blank\" rel=\"noopener\">Queen of Snow</a> at the snowball arena in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>.",
+          "text": "Talk to the Queen of Snow at the snowball arena in Christmas Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:1qttnqn",
+          "html": "Talk to her again.",
+          "text": "Talk to her again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:xjqqjy",
+          "html": "Continue through the dialogue.",
+          "text": "Continue through the dialogue.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:1e2t70z",
+          "html": "Inspect each of the three snowmen and go through all the options for all three.",
+          "text": "Inspect each of the three snowmen and go through all the options for all three.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Inspect their head."
+                },
+                {
+                  "key": "2",
+                  "text": "Inspect their face."
+                },
+                {
+                  "key": "3",
+                  "text": "Inspect their equipment."
+                },
+                {
+                  "key": "4",
+                  "text": "Inspect their body."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:pdibrt",
+          "html": "Talk to the Queen of Snow again.",
+          "text": "Talk to the Queen of Snow again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:resw7n",
+          "html": "Inspect each of the three snowmen again.",
+          "text": "Inspect each of the three snowmen again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:mslmbp",
+          "html": "Talk to the Queen of Snow again and go through all the options.",
+          "text": "Talk to the Queen of Snow again and go through all the options.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Delegate."
+                },
+                {
+                  "key": "2",
+                  "text": "Keep it simple."
+                },
+                {
+                  "key": "3",
+                  "text": "Delay."
+                },
+                {
+                  "key": "4",
+                  "text": "Prioritise."
+                },
+                {
+                  "key": "5",
+                  "text": "Be honest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "talking-to-the-queen-of-snow:1sjrhz0",
+          "html": "Leave Cold Front using the <a href=\"https://runescape.wiki/w/Cold_Front_(portal)\" target=\"_blank\" rel=\"noopener\">quest marker</a>.",
+          "text": "Leave Cold Front using the quest marker.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-the-perfect-materials",
+      "title": "Finding the perfect materials",
+      "anchor": "Finding_the_perfect_materials",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-the-perfect-materials:bring:mnk95",
+              "html": "<a href=\"https://runescape.wiki/w/Chisel_of_conditional_worth\" target=\"_blank\" rel=\"noopener\">Chisel of conditional worth</a> and 25 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+              "text": "Chisel of conditional worth and 25 coal"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:1cxcmq",
+          "html": "Use the chisel of conditional worth on the coal and make five pieces of <a href=\"https://runescape.wiki/w/%27Perfect%27_coal\" target=\"_blank\" rel=\"noopener\">&#39;perfect&#39; coal</a>.",
+          "text": "Use the chisel of conditional worth on the coal and make five pieces of 'perfect' coal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:1f0qbhw",
+          "html": "Take 20 <a href=\"https://runescape.wiki/w/Carrot_(Cold_Front)\" target=\"_blank\" rel=\"noopener\">carrots</a> from the <a href=\"https://runescape.wiki/w/Bucket_o%27_carrots_(Cold_Front)\" target=\"_blank\" rel=\"noopener\">bucket o&#39; carrots</a> near the <a href=\"https://runescape.wiki/w/Hungry_reindeer\" target=\"_blank\" rel=\"noopener\">hungry reindeer</a> on the south-western wall outside of <a href=\"https://runescape.wiki/w/Diango%27s_Workshop\" target=\"_blank\" rel=\"noopener\">Diango&#39;s Workshop</a>.",
+          "text": "Take 20 carrots from the bucket o' carrots near the hungry reindeer on the south-western wall outside of Diango's Workshop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:o4vzvc",
+          "html": "Use the chisel of conditional worth on the carrots to make a <a href=\"https://runescape.wiki/w/%27Perfect%27_carrot\" target=\"_blank\" rel=\"noopener\">&#39;perfect&#39; carrot</a>.",
+          "text": "Use the chisel of conditional worth on the carrots to make a 'perfect' carrot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:u4qpl0",
+          "html": "Gather 10 <a href=\"https://runescape.wiki/w/Branch_(Cold_Front)\" target=\"_blank\" rel=\"noopener\">branches</a> by chopping <a href=\"https://runescape.wiki/w/Fir\" target=\"_blank\" rel=\"noopener\">fir</a> trees.",
+          "text": "Gather 10 branches by chopping fir trees.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:wwig6w",
+          "html": "Use the chisel of conditional worth on the branches to make two <a href=\"https://runescape.wiki/w/%27Perfect%27_branch\" target=\"_blank\" rel=\"noopener\">&#39;perfect&#39; branches</a>.",
+          "text": "Use the chisel of conditional worth on the branches to make two 'perfect' branches.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:1hgnibk",
+          "html": "Return and talk to the <a href=\"https://runescape.wiki/w/Queen_of_Snow\" target=\"_blank\" rel=\"noopener\">Queen of Snow</a>",
+          "text": "Return and talk to the Queen of Snow",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-perfect-materials:hzj9dd",
+          "html": "Talk to the Queen of Snow again in the centre of the snowball arena.",
+          "text": "Talk to the Queen of Snow again in the centre of the snowball arena.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "constructing-the-perfect-snowman",
+      "title": "Constructing the perfect snowman",
+      "anchor": "Constructing_the_perfect_snowman",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "constructing-the-perfect-snowman:1adkrdy",
+          "html": "Make a snowball with one of the <a href=\"https://runescape.wiki/w/Pile_of_snow_(Cold_Front)\" target=\"_blank\" rel=\"noopener\">piles of snow</a> and push it to the marked spot at the top of the hill. The snowball needs to be pushed so that it becomes a <a href=\"https://runescape.wiki/w/Large_snowball\" target=\"_blank\" rel=\"noopener\">large snowball</a> precisely when reaching the reticule on the top of the hill, requiring a total of eight pushes.",
+          "text": "Make a snowball with one of the piles of snow and push it to the marked spot at the top of the hill. The snowball needs to be pushed so that it becomes a large snowball precisely when reaching the reticule on the top of the hill, requiring a total of eight pushes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "constructing-the-perfect-snowman:1adkrdy:197fory",
+              "html": "You can&#39;t push diagonally, nor south from under the <a href=\"https://runescape.wiki/w/Queen_of_Snow\" target=\"_blank\" rel=\"noopener\">Queen of Snow</a>.",
+              "text": "You can't push diagonally, nor south from under the Queen of Snow.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "constructing-the-perfect-snowman:1adkrdy:1nhlkfj",
+              "html": "At any point, you can break the snowball down, and the pile of snow will reappear in the spot where you broke it down.",
+              "text": "At any point, you can break the snowball down, and the pile of snow will reappear in the spot where you broke it down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "constructing-the-perfect-snowman:t7sx4s",
+          "html": "Repeat with another pile of snow to make an <a href=\"https://runescape.wiki/w/Enormous_snowball\" target=\"_blank\" rel=\"noopener\">enormous snowball</a> positioned next to the large snowball, requiring a total of 10 pushes.",
+          "text": "Repeat with another pile of snow to make an enormous snowball positioned next to the large snowball, requiring a total of 10 pushes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "constructing-the-perfect-snowman:ew4z7t",
+          "html": "Repeat with the remaining pile of snow to make an <a href=\"https://runescape.wiki/w/Average_snowball\" target=\"_blank\" rel=\"noopener\">average snowball</a> positioned next to the previous snowballs, requiring a total of five pushes.",
+          "text": "Repeat with the remaining pile of snow to make an average snowball positioned next to the previous snowballs, requiring a total of five pushes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "constructing-the-perfect-snowman:xjqqjy",
+          "html": "Continue through the dialogue.",
+          "text": "Continue through the dialogue.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "She deserves support. Not Judgement."
+                },
+                {
+                  "key": "1",
+                  "text": "You taught her to feel ashamed for having needs."
+                },
+                {
+                  "key": "3",
+                  "text": "You made her this way."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "constructing-the-perfect-snowman:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Cold_Front_reward.png?f43b8",
+      "width": 510,
+      "height": 332,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Cold_Front_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Lamp_of_imperfection\" target=\"_blank\" rel=\"noopener\">Lamp of imperfection</a> yielding 1,500 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> in a skill of choice",
+        "text": "Lamp of imperfection yielding 1,500 experience in a skill of choice",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Lamp_of_people_pleasing\" target=\"_blank\" rel=\"noopener\">Lamp of people pleasing</a> yielding 1,500 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> in a skill of choice",
+        "text": "Lamp of people pleasing yielding 1,500 experience in a skill of choice",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Lamp_of_procrastination\" target=\"_blank\" rel=\"noopener\">Lamp of procrastination</a> yielding 1,500 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> in a skill of choice",
+        "text": "Lamp of procrastination yielding 1,500 experience in a skill of choice",
+        "subs": []
+      },
+      {
+        "html": "2,000 <a href=\"https://runescape.wiki/w/Christmas_spirit\" target=\"_blank\" rel=\"noopener\">Christmas spirit</a>",
+        "text": "2,000 Christmas spirit",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/The_Snowman\" target=\"_blank\" rel=\"noopener\">[Name] the Snowman</a> title",
+        "text": "[Name] the Snowman title",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Snowman_slippers\" target=\"_blank\" rel=\"noopener\">Snowman slippers</a>",
+        "text": "Snowman slippers",
+        "subs": []
+      },
+      {
+        "html": "Emotes from previous <a href=\"https://runescape.wiki/w/Christmas_event\" target=\"_blank\" rel=\"noopener\">Christmas events</a> (if not unlocked)",
+        "text": "Emotes from previous Christmas events (if not unlocked)",
+        "subs": []
+      },
+      {
+        "html": "Access to the snowman combat activity in the <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>",
+        "text": "Access to the snowman combat activity in the Christmas Village",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

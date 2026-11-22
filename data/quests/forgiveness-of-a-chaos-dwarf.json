@@ -1,0 +1,973 @@
+{
+  "format": 1,
+  "id": "forgiveness-of-a-chaos-dwarf",
+  "title": "Forgiveness of a Chaos Dwarf",
+  "page": "Forgiveness of a Chaos Dwarf/Quick guide",
+  "rev": 37238580,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Commander_Veldaban\" target=\"_blank\" rel=\"noopener\">Commander Veldaban</a> in the <a href=\"https://runescape.wiki/w/Black_Guard_headquarters\" target=\"_blank\" rel=\"noopener\">Black Guard headquarters</a> on the western side of <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 10213,
+      "lon": 2827,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Forgiveness_of_a_Chaos_Dwarf/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Forgettable Tale of a Drunken Dwarf",
+        "depth": 1
+      },
+      {
+        "text": "The Giant Dwarf",
+        "depth": 2
+      },
+      {
+        "text": "Fishing Contest",
+        "depth": 2
+      },
+      {
+        "text": "Between a Rock...",
+        "depth": 1
+      },
+      {
+        "text": "Dwarf Cannon",
+        "depth": 2
+      },
+      {
+        "text": "Fishing Contest",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Firemaking",
+        "level": 61,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 61,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 69,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Chaos dwarf hand cannoneer (level 70)",
+        "name": "Chaos dwarf hand cannoneer",
+        "count": null,
+        "level": "70",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:wh660e",
+          "html": "At least 6 free inventory spaces",
+          "text": "At least 6 free inventory spaces",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:5igzah",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_Wealth\" target=\"_blank\" rel=\"noopener\">Ring of Wealth</a>, <a href=\"https://runescape.wiki/w/Ring_of_Fortune\" target=\"_blank\" rel=\"noopener\">Ring of Fortune</a>, <a href=\"https://runescape.wiki/w/Luck_of_the_Dwarves\" target=\"_blank\" rel=\"noopener\">Luck of the Dwarves</a>, <a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a> runes, <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville</a> or <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestones</a> or <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit tree</a> access to teleport to the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>",
+          "text": "Ring of Wealth, Ring of Fortune, Luck of the Dwarves, Varrock Teleport runes, Edgeville or Varrock lodestones or spirit tree access to teleport to the Grand Exchange",
+          "alternatives": []
+        },
+        {
+          "id": "rec:lmcud0",
+          "html": "Combat gear",
+          "text": "Combat gear",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "initial-battle",
+      "title": "Initial Battle",
+      "anchor": "Initial_Battle",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "Prepare to fight a level 70 <a href=\"https://runescape.wiki/w/Chaos_dwarf_hand_cannoneer\" target=\"_blank\" rel=\"noopener\">chaos dwarf hand cannoneer</a>."
+        },
+        {
+          "type": "step",
+          "id": "initial-battle:19nfto6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Commander_Veldaban\" target=\"_blank\" rel=\"noopener\">Commander Veldaban</a> in the building west of the bank in west <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a>.",
+          "text": "Talk to Commander Veldaban in the building west of the bank in west Keldagrim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you have a quest for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "2",
+                  "text": "Do you think the Red Axe is behind it?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "initial-battle:1iq7wfj",
+          "html": "After the cutscene you will be transported next to the <a href=\"https://runescape.wiki/w/Keldagrim_Watchtower\" target=\"_blank\" rel=\"noopener\">Keldagrim Watchtower</a>, continue dialogue with Commander Veldaban.",
+          "text": "After the cutscene you will be transported next to the Keldagrim Watchtower, continue dialogue with Commander Veldaban.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'll deal with the chaos dwarf."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "initial-battle:11f84j2",
+          "html": "Head into the Keldagrim Watchtower next to you, travel upstairs to the roof, and kill the chaos dwarf and pick up the <a href=\"https://runescape.wiki/w/Mysterious_slip\" target=\"_blank\" rel=\"noopener\">mysterious slip</a>.",
+          "text": "Head into the Keldagrim Watchtower next to you, travel upstairs to the roof, and kill the chaos dwarf and pick up the mysterious slip.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "initial-battle:1kdjw8d",
+          "html": "Talk to Commander Veldaban about the slip.",
+          "text": "Talk to Commander Veldaban about the slip.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "The chaos dwarf dropped a slip of paper."
+                },
+                {
+                  "key": "1",
+                  "text": "I'll take the slip to the Grand Exchange now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "initial-battle:iix5xq",
+          "html": "Talk to any <a href=\"https://runescape.wiki/w/Grand_Exchange_clerk\" target=\"_blank\" rel=\"noopener\">Grand Exchange clerk</a> at the Grand Exchange in Varrock.",
+          "text": "Talk to any Grand Exchange clerk at the Grand Exchange in Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "I have this dwarven order slip..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "initial-battle:iix5xq:1m82aim",
+              "html": "Grand Exchange clerks in <a href=\"https://runescape.wiki/w/Prifddinas\" target=\"_blank\" rel=\"noopener\">Prifddinas</a>, the <a href=\"https://runescape.wiki/w/Max_Guild\" target=\"_blank\" rel=\"noopener\">Max Guild</a>, and <a href=\"https://runescape.wiki/w/Menaphos\" target=\"_blank\" rel=\"noopener\">Menaphos</a> do not work.",
+              "text": "Grand Exchange clerks in Prifddinas, the Max Guild, and Menaphos do not work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "initial-battle:iix5xq:s7jrvd",
+              "html": "If you have never used the Grand Exchange (common for <a href=\"https://runescape.wiki/w/Ironmen\" target=\"_blank\" rel=\"noopener\">ironmen</a>), the Grand Exchange clerk will refuse to talk to you. Speak to the <a href=\"https://runescape.wiki/w/Grand_Exchange_Tutor\" target=\"_blank\" rel=\"noopener\">Grand Exchange Tutor</a> just south and state that &quot;I want the basics from you.&quot; before talking to the Grand Exchange clerk.",
+              "text": "If you have never used the Grand Exchange (common for ironmen), the Grand Exchange clerk will refuse to talk to you. Speak to the Grand Exchange Tutor just south and state that \"I want the basics from you.\" before talking to the Grand Exchange clerk.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drunk-commander",
+      "title": "Drunk Commander",
+      "anchor": "Drunk_Commander",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "drunk-commander:1t6qb50",
+          "html": "Talk to Veldaban in the <a href=\"https://runescape.wiki/w/Laughing_Miner\" target=\"_blank\" rel=\"noopener\">Laughing Miner</a> pub in eastern Keldagrim (if he doesn&#39;t appear, logout and log back in. In some cases, even after a client restart, he may not appear visually, if this is the case you may click on an invisible Veldaban by clicking on the the northern seat of the most northwestern table in the Laughing Miner pub to speak to him).",
+          "text": "Talk to Veldaban in the Laughing Miner pub in eastern Keldagrim (if he doesn't appear, logout and log back in. In some cases, even after a client restart, he may not appear visually, if this is the case you may click on an invisible Veldaban by clicking on the the northern seat of the most northwestern table in the Laughing Miner pub to speak to him).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What are you doing here?"
+                },
+                {
+                  "key": "4",
+                  "text": "Do you think the Red Axe is involved?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "drunk-commander:h1qn11",
+          "html": "Ask the barmaid for his stout.",
+          "text": "Ask the barmaid for his stout.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Commander Veldaban wants a Guardsman's Stout."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "drunk-commander:33osp8",
+          "html": "Talk to Veldaban about the battle then take him to the headquarters.",
+          "text": "Talk to Veldaban about the battle then take him to the headquarters.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I didn't know you had a lady-friend."
+                },
+                {
+                  "key": "2",
+                  "text": "What was the Battle of Barendir?"
+                },
+                {
+                  "key": "1",
+                  "text": "The barmaid said she'd seen you with someone."
+                },
+                {
+                  "key": "2",
+                  "text": "Let's talk about something else."
+                },
+                {
+                  "key": "1",
+                  "text": "Are you drunk?"
+                },
+                {
+                  "key": "1",
+                  "text": "What are you doing here?"
+                },
+                {
+                  "key": "4",
+                  "text": "Do you think the Red Axe is involved?"
+                },
+                {
+                  "key": "3",
+                  "text": "Do you think the missing persons are connected to the chaos dwarves?"
+                },
+                {
+                  "key": "2",
+                  "text": "Who's on the case now?"
+                },
+                {
+                  "key": "1",
+                  "text": "Why did he take you off the case?"
+                },
+                {
+                  "key": "4",
+                  "text": "Let's talk about something else."
+                },
+                {
+                  "key": "3",
+                  "text": "I have the Grand Exchange package."
+                },
+                {
+                  "key": "5",
+                  "text": "Let's talk about something else."
+                },
+                {
+                  "key": "1",
+                  "text": "Let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "drunk-commander:atr473",
+          "html": "After the cutscene, head back to the watchtower in the south area of west Keldagrim, where you fought the chaos dwarf.",
+          "text": "After the cutscene, head back to the watchtower in the south area of west Keldagrim, where you fought the chaos dwarf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "investigation",
+      "title": "Investigation",
+      "anchor": "Investigation",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "investigation:1h2grhs",
+          "html": "Open the package and take all the items.",
+          "text": "Open the package and take all the items.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:28s01y",
+          "html": "Use the boot on the footprints south of the watchtower building (where you defeated the chaos dwarf).",
+          "text": "Use the boot on the footprints south of the watchtower building (where you defeated the chaos dwarf).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:1hr57jp",
+          "html": "Follow the footsteps south and then west to reach a small fire pit (the one across the bridge - it looks different from the other fire pits in the area).",
+          "text": "Follow the footsteps south and then west to reach a small fire pit (the one across the bridge - it looks different from the other fire pits in the area).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:79qs94",
+          "html": "Use the bowl on the fire pit, remove it, then use the rod on the fire pit.",
+          "text": "Use the bowl on the fire pit, remove it, then use the rod on the fire pit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:1rojt0u",
+          "html": "Turn the rod.",
+          "text": "Turn the rod.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:2rlt84",
+          "html": "Enter the tunnel west, then enter the doorway at the west end.",
+          "text": "Enter the tunnel west, then enter the doorway at the west end.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:19k6jra",
+          "html": "Free your hands.",
+          "text": "Free your hands.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:1c0jfxr",
+          "html": "Attempt to ride the train cart (you don&#39;t go far).",
+          "text": "Attempt to ride the train cart (you don't go far).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:zf4e7q",
+          "html": "Leave through the tunnel back to Keldagrim.",
+          "text": "Leave through the tunnel back to Keldagrim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Return to Keldagrim."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:1afc96k",
+          "html": "Dismiss any followers you may have.",
+          "text": "Dismiss any followers you may have.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigation:1h73q5y",
+          "html": "Talk to Commander Veldaban back where the quest started and take him back to the caves.",
+          "text": "Talk to Commander Veldaban back where the quest started and take him back to the caves.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I found a secret door in the mines."
+                },
+                {
+                  "key": "1",
+                  "text": "Let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "cart-labyrinth",
+      "title": "Cart Labyrinth",
+      "anchor": "Cart_Labyrinth",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "cart-labyrinth:1u4z3ud",
+          "html": "Try to control the Dwarven Machinery and have Veldaban do it while you ride the cart.",
+          "text": "Try to control the Dwarven Machinery and have Veldaban do it while you ride the cart.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "You take the stones and man the board. I'll ride the cart."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cart-labyrinth:55ds5t",
+          "html": "Click on the cart to begin.",
+          "text": "Click on the cart to begin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cart-labyrinth:szsdxr",
+          "html": "Follow these choices:",
+          "text": "Follow these choices:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1azd270",
+              "html": "Green",
+              "text": "Green",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Green Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561-2",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1azd270-2",
+              "html": "Green",
+              "text": "Green",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Green Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1azd270-3",
+              "html": "Green",
+              "text": "Green",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Green Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561-3",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561-4",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561-5",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cart-labyrinth:szsdxr:1ofl561-6",
+              "html": "Yellow",
+              "text": "Yellow",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Yellow Stone"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "cart-labyrinth:gnuogo",
+          "html": "Pull the bridge lever.",
+          "text": "Pull the bridge lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "rescue-and-escape",
+      "title": "Rescue and Escape",
+      "anchor": "Rescue_and_Escape",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "rescue-and-escape:9ycqb7",
+          "html": "Head south to the prison and open the door.",
+          "text": "Head south to the prison and open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:1xvsjkr",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Fjoila\" target=\"_blank\" rel=\"noopener\">Fjoila</a>.",
+          "text": "Talk to Fjoila.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "You should get back to Keldagrim now."
+                },
+                {
+                  "key": "1",
+                  "text": "You told the prisoner we'd look for Hilda."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:1np0745",
+          "html": "Head south, turn either of the switches and go through the doorway. Commander Veldaban may be stuck up north.",
+          "text": "Head south, turn either of the switches and go through the doorway. Commander Veldaban may be stuck up north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:1dv97l",
+          "html": "After the cutscene, talk to Veldaban in the room.",
+          "text": "After the cutscene, talk to Veldaban in the room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "3",
+                  "text": "That wasn't Hilda. Hilda was gone by then."
+                },
+                {
+                  "key": "4",
+                  "text": "There are still some things in the package."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:5cyf0t",
+          "html": "Use the metal rectangle then the turnscrew on the sorting machine.",
+          "text": "Use the metal rectangle then the turnscrew on the sorting machine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:1sqpww2",
+          "html": "Squeeze through the hole and ride the train cart and enter the doorway for a cutscene.",
+          "text": "Squeeze through the hole and ride the train cart and enter the doorway for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescue-and-escape:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Forgiveness_of_a_Chaos_Dwarf_reward.png?ad81c",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Forgiveness_of_a_Chaos_Dwarf_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience",
+        "text": "30,000 experience",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience",
+        "text": "30,000 experience",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience",
+        "text": "30,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Chaos_Dwarf_Battlefield\" target=\"_blank\" rel=\"noopener\">Chaos Dwarf Battlefield</a> and the <a href=\"https://runescape.wiki/w/Keldagrim_north_mine\" target=\"_blank\" rel=\"noopener\">North Keldagrim mining area</a>.",
+        "text": "Access to the Chaos Dwarf Battlefield and the North Keldagrim mining area.",
+        "subs": []
+      },
+      {
+        "html": "Ability to wield the <a href=\"https://runescape.wiki/w/Hand_cannon\" target=\"_blank\" rel=\"noopener\">hand cannon</a>",
+        "text": "Ability to wield the hand cannon",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Fight of the Dwarves",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>"
+      ]
+    }
+  ]
+}

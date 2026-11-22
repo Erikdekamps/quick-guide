@@ -1,0 +1,3111 @@
+{
+  "format": 1,
+  "id": "monkey-madness",
+  "title": "Monkey Madness",
+  "page": "Monkey Madness/Quick guide",
+  "rev": 37213202,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/King_Narnode_Shareen\" target=\"_blank\" rel=\"noopener\">King Narnode Shareen</a> in the <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a> in the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3495,
+      "lon": 2465,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Monkey_Madness/Quick_guide"
+    },
+    "members": true,
+    "length": "Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Grand Tree",
+        "depth": 1
+      },
+      {
+        "text": "Tree Gnome Village",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Jungle demon (level 70)",
+        "name": "Jungle demon",
+        "count": null,
+        "level": "70",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Karamja</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:vx50w6",
+          "html": "<a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">Gold bar</a>",
+          "text": "Gold bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:17e78z2",
+          "html": "<a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">Ball of wool</a>",
+          "text": "Ball of wool",
+          "alternatives": []
+        },
+        {
+          "id": "req:l47xk9",
+          "html": "<a href=\"https://runescape.wiki/w/Monkey_bones\" target=\"_blank\" rel=\"noopener\">Monkey bones</a> from <a href=\"https://runescape.wiki/w/Karamja\" target=\"_blank\" rel=\"noopener\">Karamja</a> (or a <a href=\"https://runescape.wiki/w/Monkey_corpse\" target=\"_blank\" rel=\"noopener\">monkey corpse</a> or <a href=\"https://runescape.wiki/w/Monkey_skull\" target=\"_blank\" rel=\"noopener\">monkey skull</a>)",
+          "text": "Monkey bones from Karamja (or a monkey corpse or monkey skull)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1vxhgtr",
+          "html": "5 <a href=\"https://runescape.wiki/w/Banana\" target=\"_blank\" rel=\"noopener\">bananas</a> (can be obtained in Ape Atoll)",
+          "text": "5 bananas (can be obtained in Ape Atoll)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:12jmbmf",
+          "html": "43 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> or higher (for the protection prayers)",
+          "text": "43 Prayer or higher (for the protection prayers)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:wf70u7",
+          "html": "10 <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a> or higher (for increased success chance in lock-picking)",
+          "text": "10 Thieving or higher (for increased success chance in lock-picking)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1thhfv0",
+          "html": "<a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">Antipoison</a> potions (<a href=\"https://runescape.wiki/w/Antipoison%2B%2B\" target=\"_blank\" rel=\"noopener\">Antipoison++</a> recommended), <a href=\"https://runescape.wiki/w/Anti-poison_totem\" target=\"_blank\" rel=\"noopener\">anti-poison totem</a>, or a dip in the <a href=\"https://runescape.wiki/w/Thermal_bath\" target=\"_blank\" rel=\"noopener\">thermal bath</a> to reduce poison damage",
+          "text": "Antipoison potions (Antipoison++ recommended), anti-poison totem, or a dip in the thermal bath to reduce poison damage",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1jp3ys0",
+          "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer potions</a> for prayer restoration",
+          "text": "Prayer potions for prayer restoration",
+          "alternatives": []
+        },
+        {
+          "id": "rec:10h7ym3",
+          "html": "<a href=\"https://runescape.wiki/w/Super_energy\" target=\"_blank\" rel=\"noopener\">Super energy</a> potions, a charged <a href=\"https://runescape.wiki/w/Explorer%27s_ring\" target=\"_blank\" rel=\"noopener\">explorer&#39;s ring</a>, <a href=\"https://runescape.wiki/w/Mint_cake\" target=\"_blank\" rel=\"noopener\">mint cakes</a> or a dip in the <a href=\"https://runescape.wiki/w/Salt-water_spring\" target=\"_blank\" rel=\"noopener\">Salt-water spring</a> for run energy boosts",
+          "text": "Super energy potions, a charged explorer's ring, mint cakes or a dip in the Salt-water spring for run energy boosts",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1tmjrcq",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a>",
+          "text": "Ring of duelling",
+          "alternatives": []
+        },
+        {
+          "id": "rec:188ys2t",
+          "html": "<a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a>",
+          "text": "Amulet of glory",
+          "alternatives": []
+        },
+        {
+          "id": "rec:bc6gdg",
+          "html": "<a href=\"https://runescape.wiki/w/Ardougne_cloak\" target=\"_blank\" rel=\"noopener\">Ardougne cloak</a> to quickly reach the Ardougne Zoo (Monastery teleport)",
+          "text": "Ardougne cloak to quickly reach the Ardougne Zoo (Monastery teleport)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1e9o6d2",
+          "html": "200,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> if you want Glough to do the puzzle for you",
+          "text": "200,000 coins if you want Glough to do the puzzle for you",
+          "alternatives": []
+        },
+        {
+          "id": "rec:114pukb",
+          "html": "Food and/or <a href=\"https://runescape.wiki/w/Enhanced_Excalibur\" target=\"_blank\" rel=\"noopener\">Enhanced Excalibur</a> for surviving the dangers of the island and cave",
+          "text": "Food and/or Enhanced Excalibur for surviving the dangers of the island and cave",
+          "alternatives": []
+        },
+        {
+          "id": "rec:cyjcqz",
+          "html": "A one-click teleport item (<a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">Ectophial</a>)",
+          "text": "A one-click teleport item (Ectophial)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1rlwnd2",
+          "html": "<a href=\"https://runescape.wiki/w/Spirit_tree_re-rooter\" target=\"_blank\" rel=\"noopener\">Spirit tree re-rooter</a> for quicker access to the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>",
+          "text": "Spirit tree re-rooter for quicker access to the Tree Gnome Stronghold",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "missing-10th-squad",
+      "title": "Missing 10th squad",
+      "anchor": "Missing_10th_squad",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "missing-10th-squad:x7mi4c",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/King_Narnode_Shareen\" target=\"_blank\" rel=\"noopener\">King Narnode Shareen</a> in the Grand Tree. He will give you a <a href=\"https://runescape.wiki/w/Gnome_royal_seal\" target=\"_blank\" rel=\"noopener\">gnome royal seal</a>.",
+          "text": "Speak to King Narnode Shareen in the Grand Tree. He will give you a gnome royal seal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "missing-10th-squad:175gmww",
+          "html": "<i>Right-click</i> the ladder, select <i>Top Floor</i>, and take the glider from <a href=\"https://runescape.wiki/w/Captain_Errdo\" target=\"_blank\" rel=\"noopener\">Captain Errdo</a> to Karamja - &#39;Gandius&#39;.",
+          "text": "Right-click the ladder, select Top Floor, and take the glider from Captain Errdo to Karamja - 'Gandius'.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": ""
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "missing-10th-squad:s5tir9",
+          "html": "Head north along the coast to reach the shipyard and try to enter through the gate.",
+          "text": "Head north along the coast to reach the shipyard and try to enter through the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "missing-10th-squad:12spqmj",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/G.L.O._Caranock\" target=\"_blank\" rel=\"noopener\">G.L.O. Caranock</a> in the hut southeast of the gate.",
+          "text": "Speak with G.L.O. Caranock in the hut southeast of the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "missing-10th-squad:1bqpews",
+          "html": "Return to King Narnode. He gives you <a href=\"https://runescape.wiki/w/Narnode%27s_orders\" target=\"_blank\" rel=\"noopener\">Narnode&#39;s orders</a>.",
+          "text": "Return to King Narnode. He gives you Narnode's orders.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "missing-10th-squad:1bqpews:1v0zeo4",
+              "html": "You can return to <a href=\"https://runescape.wiki/w/Captain_Klemfoodle\" target=\"_blank\" rel=\"noopener\">Captain Klemfoodle</a> to take the glider to The Grand Tree - &#39;Ta Quir Priw&#39;",
+              "text": "You can return to Captain Klemfoodle to take the glider to The Grand Tree - 'Ta Quir Priw'",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "missing-10th-squad:grnw18",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Daero\" target=\"_blank\" rel=\"noopener\">Daero</a>, found on the east side of the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the Grand Tree. He is at the Blurberry bar platform.",
+          "text": "Talk to Daero, found on the east side of the 1st floor (UK) / 2nd floor (US) of the Grand Tree. He is at the Blurberry bar platform.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the journey"
+                },
+                {
+                  "key": "4",
+                  "text": "Return to previous menu"
+                },
+                {
+                  "key": "2",
+                  "text": "Talk about the 10th squad"
+                },
+                {
+                  "key": "4",
+                  "text": "Return to previous menu"
+                },
+                {
+                  "key": "3",
+                  "text": "Talk about Caranock"
+                },
+                {
+                  "key": "4",
+                  "text": "Return to previous menu"
+                },
+                {
+                  "key": "4",
+                  "text": "Leave..."
+                },
+                {
+                  "key": "1",
+                  "text": "Who is it?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "solving-puzzle-before-crashing",
+      "title": "Solving puzzle before crashing",
+      "anchor": "Solving_puzzle_before_crashing",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Monkey_madness_puzzle.png?7bc84",
+          "width": 236,
+          "height": 237,
+          "alt": "",
+          "caption": "Finished puzzle",
+          "href": "https://runescape.wiki/w/File:Monkey_madness_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:uq8rll",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Daero\" target=\"_blank\" rel=\"noopener\">Daero</a>.",
+          "text": "Talk to Daero.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:oieaiz",
+          "html": "Begin the puzzle by clicking on the <a href=\"https://runescape.wiki/w/Reinitialisation_Panel\" target=\"_blank\" rel=\"noopener\">Reinitialisation Panel</a> to the south-east in front of the long pipe.",
+          "text": "Begin the puzzle by clicking on the Reinitialisation Panel to the south-east in front of the long pipe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:1tosief",
+          "html": "Unscramble the puzzle. Caution: The A3 and A5 pieces look near identical and can make the solving the puzzle difficult (A3 should have a straight cloud bottom on the tile and A5 should have a small curve at the bottom right corner of the tile).",
+          "text": "Unscramble the puzzle. Caution: The A3 and A5 pieces look near identical and can make the solving the puzzle difficult (A3 should have a straight cloud bottom on the tile and A5 should have a small curve at the bottom right corner of the tile).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "solving-puzzle-before-crashing:1tosief:ijtsx0",
+              "html": "You can use this <a href=\"https://alexyuisingwu.github.io/sliding-puzzle-solver/\" target=\"_blank\" rel=\"noopener\">sliding puzzle solver</a>.",
+              "text": "You can use this sliding puzzle solver.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "solving-puzzle-before-crashing:1tosief:1tynw9j",
+              "html": "Or pay <a href=\"https://runescape.wiki/w/Glough\" target=\"_blank\" rel=\"noopener\">Glough</a> 200,000 coins. He&#39;s located in the tree house south-east of the Grand Tree. Speak to Daero at the Blurberry bar platform to return to the hangar; you will only have to complete the last move in the puzzle if you pay.",
+              "text": "Or pay Glough 200,000 coins. He's located in the tree house south-east of the Grand Tree. Speak to Daero at the Blurberry bar platform to return to the hangar; you will only have to complete the last move in the puzzle if you pay.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": ""
+                    },
+                    {
+                      "key": "1",
+                      "text": ""
+                    },
+                    {
+                      "key": "1",
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:1r3wbjl",
+          "html": "There is a cutscene when the puzzle is correct. Speak to Daero and then to <a href=\"https://runescape.wiki/w/Waydar\" target=\"_blank\" rel=\"noopener\">Waydar</a> to fly to Crash Island.",
+          "text": "There is a cutscene when the puzzle is correct. Speak to Daero and then to Waydar to fly to Crash Island.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:1lupwo5",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Lumdo\" target=\"_blank\" rel=\"noopener\">Lumdo</a>.",
+          "text": "Speak to Lumdo.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "solving-puzzle-before-crashing:1dae2z1",
+          "html": "Speak to Waydar who will convince Lumdo to follow orders.",
+          "text": "Speak to Waydar who will convince Lumdo to follow orders.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I cannot convince Lumdo to take us to the island…"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ape-atoll",
+      "title": "Ape Atoll",
+      "anchor": "Ape_Atoll",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Garkor's location",
+          "lat": 2762,
+          "lon": 2805,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2802.5,
+                      2759.5
+                    ],
+                    [
+                      2802.5,
+                      2765.5
+                    ],
+                    [
+                      2808.5,
+                      2765.5
+                    ],
+                    [
+                      2808.5,
+                      2759.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Monkey_Madness/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "ape-atoll:a5bkr",
+          "html": "Recommended: turn off <a href=\"https://runescape.wiki/w/Auto-retaliate\" target=\"_blank\" rel=\"noopener\">auto-retaliate</a> and leave it off until the final battle (Can be toggled on/off by clicking the button left of the adrenaline gauge on the Action Bar).",
+          "text": "Recommended: turn off auto-retaliate and leave it off until the final battle (Can be toggled on/off by clicking the button left of the adrenaline gauge on the Action Bar).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ape-atoll:1chrv5f",
+          "html": "On the island, travel west then north to a bamboo gate. Stand there getting pelted by poisoned arrows until you are brought to a prison. You will take some damage and be poisoned.",
+          "text": "On the island, travel west then north to a bamboo gate. Stand there getting pelted by poisoned arrows until you are brought to a prison. You will take some damage and be poisoned.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ape-atoll:cp3vsp",
+          "html": "Picklock the cell when there is no guard outside and escape the prison.",
+          "text": "Picklock the cell when there is no guard outside and escape the prison.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ape-atoll:cp3vsp:1wrbv2y",
+              "html": "Stay at least 2 squares away from the guards (even while in the cell) otherwise they will attack and damage you.",
+              "text": "Stay at least 2 squares away from the guards (even while in the cell) otherwise they will attack and damage you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ape-atoll:16antm1",
+          "html": "Stay in the grass to hide from archer monkeys and travel south against the western wall of the <a href=\"https://runescape.wiki/w/Temple_of_Marimbo\" target=\"_blank\" rel=\"noopener\">Temple of Marimbo</a>.",
+          "text": "Stay in the grass to hide from archer monkeys and travel south against the western wall of the Temple of Marimbo.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ape-atoll:1dh5vqk",
+          "html": "Go east along the wall of the temple and around the monkey palace. Speak to <a href=\"https://runescape.wiki/w/Garkor\" target=\"_blank\" rel=\"noopener\">Garkor</a>.",
+          "text": "Go east along the wall of the temple and around the monkey palace. Speak to Garkor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "zooknock",
+      "title": "Zooknock",
+      "anchor": "Zooknock",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "zooknock:bring:vx50w6",
+              "html": "<a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">Gold bar</a>",
+              "text": "Gold bar"
+            },
+            {
+              "id": "zooknock:bring:17e78z2",
+              "html": "<a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">Ball of wool</a>",
+              "text": "Ball of wool"
+            },
+            {
+              "id": "zooknock:bring:11b3owf",
+              "html": "<a href=\"https://runescape.wiki/w/Monkey_bones\" target=\"_blank\" rel=\"noopener\">Monkey bones</a>",
+              "text": "Monkey bones"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "zooknock:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "zooknock:bring:6rak1l",
+              "html": "Antipoison",
+              "text": "Antipoison"
+            },
+            {
+              "id": "zooknock:bring:fo4mmp",
+              "html": "Prayer potion",
+              "text": "Prayer potion"
+            },
+            {
+              "id": "zooknock:bring:1qpnniw",
+              "html": "Energy potion",
+              "text": "Energy potion"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/M%27amulet_mould_location.png/300px-M%27amulet_mould_location.png?5c354",
+          "width": 300,
+          "height": 159,
+          "alt": "",
+          "caption": "The location of the crate that holds the monkeyspeak amulet moulds.",
+          "href": "https://runescape.wiki/w/File:M%27amulet_mould_location.png"
+        },
+        {
+          "type": "step",
+          "id": "zooknock:y18qdj",
+          "html": "Head to the U-shaped building in the southern side of the monkey village. <b>Enter through the southern door</b> otherwise you will be knocked out.",
+          "text": "Head to the U-shaped building in the southern side of the monkey village. Enter through the southern door otherwise you will be knocked out.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zooknock:y18qdj:1kouyib",
+              "html": "Stay on the dark brown ground at the perimeter of the room.",
+              "text": "Stay on the dark brown ground at the perimeter of the room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1ysa4kz",
+          "html": "Search the stacked crates two tiles east of the trapdoor for <a href=\"https://runescape.wiki/w/Monkey_dentures\" target=\"_blank\" rel=\"noopener\">monkey dentures</a> (you can grab another for making a <a href=\"https://runescape.wiki/w/Tooth_creature\" target=\"_blank\" rel=\"noopener\">tooth creature</a>).",
+          "text": "Search the stacked crates two tiles east of the trapdoor for monkey dentures (you can grab another for making a tooth creature).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1oktls0",
+          "html": "Search the south-easternmost crate (which is a different style and slightly darker brown) to crawl down into the basement - you may fall and take up to 50% of your life points in damage.",
+          "text": "Search the south-easternmost crate (which is a different style and slightly darker brown) to crawl down into the basement - you may fall and take up to 50% of your life points in damage.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I’m sure"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1hphnr8",
+          "html": "In the northwest corner there&#39;s a cluster of crates around a stalagmite; search the crate directly south of the stalagmite for a <a href=\"https://runescape.wiki/w/Monkeyspeak_amulet_mould\" target=\"_blank\" rel=\"noopener\">monkeyspeak amulet mould</a>.",
+          "text": "In the northwest corner there's a cluster of crates around a stalagmite; search the crate directly south of the stalagmite for a monkeyspeak amulet mould.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1k612ha",
+          "html": "If you needed to leave to obtain items, teleport to Al Kharid, go north, talk to <a href=\"https://runescape.wiki/w/Captain_Dalbur\" target=\"_blank\" rel=\"noopener\">Captain Dalbur</a> to glide to the Tree Gnome Stronghold, then talk to <a href=\"https://runescape.wiki/w/Daero\" target=\"_blank\" rel=\"noopener\">Daero</a> at Blurberry&#39;s Bar to return to the hangar.",
+          "text": "If you needed to leave to obtain items, teleport to Al Kharid, go north, talk to Captain Dalbur to glide to the Tree Gnome Stronghold, then talk to Daero at Blurberry's Bar to return to the hangar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "when": "Waydar to return to Crash Island",
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "when": "And then Lumdo to return to Ape Atoll",
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1yfeu94",
+          "html": "If you didn&#39;t need to leave to obtain items, go to the area where you first landed on Ape Atoll. There is a one-way shortcut south of Garkor.",
+          "text": "If you didn't need to leave to obtain items, go to the area where you first landed on Ape Atoll. There is a one-way shortcut south of Garkor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1kx3ssc",
+          "html": "Travel west until you see a dungeon on your mini-map. Climb down.",
+          "text": "Travel west until you see a dungeon on your mini-map. Climb down.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ape Atoll Dungeon"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Ape_Atoll_Dungeon\" target=\"_blank\" rel=\"noopener\">Ape Atoll Dungeon</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 9120,
+          "lon": 2752,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 615,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2694.5,
+                  9104.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2694.5,
+                  9138.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2698.5,
+                  9127.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2704.5,
+                  9104.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2711.5,
+                  9137.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2712.5,
+                  9108.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2716.5,
+                  9096.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2716.5,
+                  9146.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2729.5,
+                  9118.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2732.5,
+                  9130.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2741.5,
+                  9122.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2743.5,
+                  9107.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2748.5,
+                  9100.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2748.5,
+                  9143.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2761.5,
+                  9094.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2761.5,
+                  9120.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2761.5,
+                  9144.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2764.5,
+                  9103.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2766.5,
+                  9133.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2768.5,
+                  9111.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2781.5,
+                  9140.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2784.5,
+                  9093.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2788.5,
+                  9102.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2793.5,
+                  9117.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2793.5,
+                  9130.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2798.5,
+                  9138.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2799.5,
+                  9099.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2810.5,
+                  9104.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2810.5,
+                  9124.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Spider#Ape_Atoll\" title=\"Spider\">Spider</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2694.5,
+                  9115.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2697.5,
+                  9130.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2698.5,
+                  9145.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2702.5,
+                  9093.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2714.5,
+                  9095.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2719.5,
+                  9147.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2726.5,
+                  9107.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2728.5,
+                  9097.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2740.5,
+                  9138.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2742.5,
+                  9146.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2752.5,
+                  9144.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2763.5,
+                  9118.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2764.5,
+                  9133.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2765.5,
+                  9113.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2769.5,
+                  9094.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2772.5,
+                  9110.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2774.5,
+                  9093.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2777.5,
+                  9144.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2779.5,
+                  9119.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2779.5,
+                  9129.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2781.5,
+                  9092.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2788.5,
+                  9103.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2793.5,
+                  9129.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2794.5,
+                  9117.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2799.5,
+                  9112.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2801.5,
+                  9097.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2807.5,
+                  9131.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2809.5,
+                  9104.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2810.5,
+                  9111.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2810.5,
+                  9123.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Monkey_Zombie#77\" title=\"Monkey Zombie\">Monkey Zombie</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2704.5,
+                  9109.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2707.5,
+                  9112.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2708.5,
+                  9103.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2710.5,
+                  9135.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2711.5,
+                  9109.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2711.5,
+                  9130.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2714.5,
+                  9135.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2715.5,
+                  9132.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2735.5,
+                  9119.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2736.5,
+                  9121.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2738.5,
+                  9124.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2740.5,
+                  9120.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2741.5,
+                  9103.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2741.5,
+                  9124.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2743.5,
+                  9105.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2744.5,
+                  9100.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2745.5,
+                  9102.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton_(Ape_Atoll)\" title=\"Skeleton (Ape Atoll)\">Skeleton</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2803.5,
+                  9147.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Bunkwicket\" title=\"Bunkwicket\">Bunkwicket</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2808.5,
+                  9145.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Waymottin\" title=\"Waymottin\">Waymottin</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2803.5,
+                  9144.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Zooknock\" title=\"Zooknock\">Zooknock</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2757,
+                  9104,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "label": "<a href=\"/w/Ape_Atoll\" title=\"Ape Atoll\">to Ape Atoll</a>",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2757.5,
+                  9104.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "615",
+                "plane": 0,
+                "title": "<a href=\"/w/Ape_Atoll\" title=\"Ape Atoll\">to Ape Atoll</a>",
+                "shape": "SquareDot",
+                "fill": "#AD002A"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Monkey_Madness/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1ovp99k",
+          "html": "<a href=\"https://runescape.wiki/w/Spider#Ape_Atoll\" target=\"_blank\" rel=\"noopener\">Spider</a>",
+          "text": "Spider",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:dgh8uy",
+          "html": "<a href=\"https://runescape.wiki/w/Monkey_Zombie#77\" target=\"_blank\" rel=\"noopener\">Monkey Zombie</a>",
+          "text": "Monkey Zombie",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:z52hla",
+          "html": "<a href=\"https://runescape.wiki/w/Skeleton_(Ape_Atoll)\" target=\"_blank\" rel=\"noopener\">Skeleton</a>",
+          "text": "Skeleton",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:115pol0",
+          "html": "<a href=\"https://runescape.wiki/w/Bunkwicket\" target=\"_blank\" rel=\"noopener\">Bunkwicket</a>",
+          "text": "Bunkwicket",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:u4oh0r",
+          "html": "<a href=\"https://runescape.wiki/w/Waymottin\" target=\"_blank\" rel=\"noopener\">Waymottin</a>",
+          "text": "Waymottin",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:50xzhp",
+          "html": "<a href=\"https://runescape.wiki/w/Zooknock\" target=\"_blank\" rel=\"noopener\">Zooknock</a>",
+          "text": "Zooknock",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Ape_Atoll_Dungeon\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Ape_Atoll_Dungeon\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Ape_Atoll_Dungeon?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "zooknock:pzvu3q",
+          "html": "Run through the long dungeon.",
+          "text": "Run through the long dungeon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zooknock:pzvu3q:178xmd2",
+              "html": "<a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a> is highly recommended here, as are antipoison and energy potions. Make sure to have several pieces of food (and/or <a href=\"https://runescape.wiki/w/Enhanced_Excalibur\" target=\"_blank\" rel=\"noopener\">Enhanced Excalibur</a>) for healing from the traps and mobs.",
+              "text": "Protect from Melee is highly recommended here, as are antipoison and energy potions. Make sure to have several pieces of food (and/or Enhanced Excalibur) for healing from the traps and mobs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "zooknock:oxwkjl",
+          "html": "At the end of the dungeon (the most north-eastern part), speak to <a href=\"https://runescape.wiki/w/Zooknock\" target=\"_blank\" rel=\"noopener\">Zooknock</a> first.",
+          "text": "At the end of the dungeon (the most north-eastern part), speak to Zooknock first.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1hh65ot",
+          "html": "Use the gold bar on Zooknock.",
+          "text": "Use the gold bar on Zooknock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1yfw77t",
+          "html": "Use the monkey dentures on Zooknock.",
+          "text": "Use the monkey dentures on Zooknock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:fcsskh",
+          "html": "Use the monkeyspeak amulet mould on Zooknock. He will give you an <a href=\"https://runescape.wiki/w/Enchanted_bar\" target=\"_blank\" rel=\"noopener\">enchanted bar</a> and your mould back.",
+          "text": "Use the monkeyspeak amulet mould on Zooknock. He will give you an enchanted bar and your mould back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zooknock:1pqohnd",
+          "html": "Use the bones on Zooknock if you already have them.",
+          "text": "Use the bones on Zooknock if you already have them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zooknock:1pqohnd:ov2kgf",
+              "html": "If you use the monkey bones on him here, you don&#39;t need to get new ones when turning in the talisman. Monkey bones from the monkey zombies in the cave do not work. Keep your monkeyspeak amulet mould as it used in <a href=\"https://runescape.wiki/w/Do_No_Evil\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>.",
+              "text": "If you use the monkey bones on him here, you don't need to get new ones when turning in the talisman. Monkey bones from the monkey zombies in the cave do not work. Keep your monkeyspeak amulet mould as it used in Do No Evil.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "zooknock:1pqohnd:1jl85pl",
+              "html": "Make sure you finish the dialogue after giving him the three items and the bones; otherwise, you will not receive the enchanted bar and your mould back. If you leave the area, you will have to run all the way back through this cave to finish the dialogue to get the enchanted gold bar.",
+              "text": "Make sure you finish the dialogue after giving him the three items and the bones; otherwise, you will not receive the enchanted bar and your mould back. If you leave the area, you will have to run all the way back through this cave to finish the dialogue to get the enchanted gold bar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monkey-s-uncle",
+      "title": "Monkey's uncle",
+      "anchor": "Monkey's_uncle",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "monkey-s-uncle:bring:fpi7qb",
+              "html": "<a href=\"https://runescape.wiki/w/Monkeyspeak_amulet_mould\" target=\"_blank\" rel=\"noopener\">Monkeyspeak amulet mould</a>",
+              "text": "Monkeyspeak amulet mould"
+            },
+            {
+              "id": "monkey-s-uncle:bring:80ij12",
+              "html": "<a href=\"https://runescape.wiki/w/Enchanted_bar\" target=\"_blank\" rel=\"noopener\">Enchanted bar</a>",
+              "text": "Enchanted bar"
+            },
+            {
+              "id": "monkey-s-uncle:bring:17e78z2",
+              "html": "<a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">Ball of wool</a>",
+              "text": "Ball of wool"
+            },
+            {
+              "id": "monkey-s-uncle:bring:10eeud5",
+              "html": "<a href=\"https://runescape.wiki/w/Monkey_corpse\" target=\"_blank\" rel=\"noopener\">Monkey corpse</a> or <a href=\"https://runescape.wiki/w/Monkey_bones\" target=\"_blank\" rel=\"noopener\">monkey bones</a>",
+              "text": "Monkey corpse or monkey bones"
+            },
+            {
+              "id": "monkey-s-uncle:bring:8myjfq",
+              "html": "5 <a href=\"https://runescape.wiki/w/Banana\" target=\"_blank\" rel=\"noopener\">bananas</a>",
+              "text": "5 bananas"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "monkey-s-uncle:bring:6rak1l",
+              "html": "Antipoison",
+              "text": "Antipoison"
+            },
+            {
+              "id": "monkey-s-uncle:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "monkey-s-uncle:bring:gc4f2d",
+              "html": "Other types of monkey bones",
+              "text": "Other types of monkey bones"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:an97of",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Marim\" target=\"_blank\" rel=\"noopener\">Marim</a> (Ape Atoll) (protect from missiles and surge to gate).",
+          "text": "Return to Marim (Ape Atoll) (protect from missiles and surge to gate).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:vx0mfe",
+          "html": "Escape prison and run east into the temple.",
+          "text": "Escape prison and run east into the temple.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:1vv1v6g",
+          "html": "Take the southern ladder up, the eastern ladder down, and then the trapdoor down into the <a href=\"https://runescape.wiki/w/Temple_of_Marimbo_Dungeon\" target=\"_blank\" rel=\"noopener\">dungeon</a>.",
+          "text": "Take the southern ladder up, the eastern ladder down, and then the trapdoor down into the dungeon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:1vv1v6g:culhzh",
+              "html": "Alternatively, you can kill one of the two gorilla guards blocking the trapdoor and climb down that way.",
+              "text": "Alternatively, you can kill one of the two gorilla guards blocking the trapdoor and climb down that way.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:u43yjc",
+          "html": "Use the enchanted bar on a pillar of <a href=\"https://runescape.wiki/w/Fire_(Temple_of_Marimbo)\" target=\"_blank\" rel=\"noopener\">fire</a> and use the amulet on a ball of wool to create an <a href=\"https://runescape.wiki/w/Monkeyspeak_amulet\" target=\"_blank\" rel=\"noopener\">monkeyspeak amulet</a>.",
+          "text": "Use the enchanted bar on a pillar of fire and use the amulet on a ball of wool to create an monkeyspeak amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:13n5atl",
+          "html": "Go to the banana garden west of the prison.",
+          "text": "Go to the banana garden west of the prison.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:j1130f",
+          "html": "Wait for the <a href=\"https://runescape.wiki/w/Monkey%27s_aunt\" target=\"_blank\" rel=\"noopener\">monkey&#39;s aunt</a> to leave and quickly go into the garden through the corridor at its north-east corner.",
+          "text": "Wait for the monkey's aunt to leave and quickly go into the garden through the corridor at its north-east corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:boyon1",
+          "html": "When she returns, run back into the corridor.",
+          "text": "When she returns, run back into the corridor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:boyon1:1io21ux",
+              "html": "You can stay in the area with red <a href=\"https://runescape.wiki/w/Monkey_knife_fighter\" target=\"_blank\" rel=\"noopener\">monkey knife fighters</a> if the guards are called and climb the ladder to the south up and back down again.",
+              "text": "You can stay in the area with red monkey knife fighters if the guards are called and climb the ladder to the south up and back down again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:2f2y6c",
+          "html": "Equip the monkeyspeak amulet, talk to the <a href=\"https://runescape.wiki/w/Monkey_child\" target=\"_blank\" rel=\"noopener\">monkey child</a>, and talk to him again.",
+          "text": "Equip the monkeyspeak amulet, talk to the monkey child, and talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Well I’ll be a monkey’s uncle!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:qiuh6r",
+          "html": "Talk to Monkey child again.",
+          "text": "Talk to Monkey child again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How many bananas did Aunty want?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:qzivf0",
+          "html": "You will have to wait for <a href=\"https://runescape.wiki/w/The_Monkey%27s_Aunt\" target=\"_blank\" rel=\"noopener\">The Monkey&#39;s Aunt</a> to pass by the child once again before the child gives you the <a href=\"https://runescape.wiki/w/Monkey_talisman\" target=\"_blank\" rel=\"noopener\">Monkey talisman</a>.",
+          "text": "You will have to wait for The Monkey's Aunt to pass by the child once again before the child gives you the Monkey talisman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:qzivf0:16r84ph",
+              "html": "If you&#39;re obtaining multiple for <a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_King_Awowogei\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing King Awowogei</a> or <a href=\"https://runescape.wiki/w/Do_No_Evil\" target=\"_blank\" rel=\"noopener\">Do No Evil</a> then repeat the same step as before",
+              "text": "If you're obtaining multiple for Recipe for Disaster: Freeing King Awowogei or Do No Evil then repeat the same step as before",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Wow - can I borrow it?"
+                    },
+                    {
+                      "key": "1",
+                      "text": "Ok, I promise!"
+                    }
+                  ]
+                },
+                {
+                  "when": "Then speak to the Monkey child again",
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "I've lost that toy you gave me..."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:1k1ssfl",
+          "html": "Take your <a href=\"https://runescape.wiki/w/Monkey_bones\" target=\"_blank\" rel=\"noopener\">monkey bones</a> and monkey talisman and use it on Zooknock at the end of the dungeon under <a href=\"https://runescape.wiki/w/Ape_Atoll\" target=\"_blank\" rel=\"noopener\">Ape Atoll</a>.",
+          "text": "Take your monkey bones and monkey talisman and use it on Zooknock at the end of the dungeon under Ape Atoll.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:1k1ssfl:1wycigt",
+              "html": "Make sure to make the standard <a href=\"https://runescape.wiki/w/Monkey_greegree\" target=\"_blank\" rel=\"noopener\">monkey greegree</a> for the next steps as other forms will not work.",
+              "text": "Make sure to make the standard monkey greegree for the next steps as other forms will not work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:1k1ssfl:3hxfmq",
+              "html": "Bring other monkey bones and multiple talismans if you want to make more <a href=\"https://runescape.wiki/w/Greegree\" target=\"_blank\" rel=\"noopener\">greegrees</a> and then use your Monkey talisman and different types of monkey bones on Zooknock.",
+              "text": "Bring other monkey bones and multiple talismans if you want to make more greegrees and then use your Monkey talisman and different types of monkey bones on Zooknock.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": ""
+                    },
+                    {
+                      "key": "1",
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "monkey-s-uncle:1k1ssfl:1ve8rpu",
+              "html": "You can use multiple greegrees on each other to save bank space.",
+              "text": "You can use multiple greegrees on each other to save bank space.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monkey-s-uncle:bbteh3",
+          "html": "Watch the cutscene. Talk to Zooknock to receive your greegree.",
+          "text": "Watch the cutscene. Talk to Zooknock to receive your greegree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "king-awowogei",
+      "title": "King Awowogei",
+      "anchor": "King_Awowogei",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "king-awowogei:bring:vzwf50",
+              "html": "<a href=\"https://runescape.wiki/w/Monkey_greegree\" target=\"_blank\" rel=\"noopener\">Monkey greegree</a>",
+              "text": "Monkey greegree"
+            },
+            {
+              "id": "king-awowogei:bring:1p4sbpo",
+              "html": "<a href=\"https://runescape.wiki/w/Monkeyspeak_amulet\" target=\"_blank\" rel=\"noopener\">Monkeyspeak amulet</a>",
+              "text": "Monkeyspeak amulet"
+            },
+            {
+              "id": "king-awowogei:bring:brj9eg",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "king-awowogei:bring:6rak1l",
+              "html": "Antipoison",
+              "text": "Antipoison"
+            },
+            {
+              "id": "king-awowogei:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:cphf6n",
+          "html": "During this section, do not teleport while you&#39;re carrying the <a href=\"https://runescape.wiki/w/Monkey_(Monkey_Madness)\" target=\"_blank\" rel=\"noopener\">monkey</a> or you will have to re-obtain the monkey. This includes spirit tree teleportation.",
+          "text": "During this section, do not teleport while you're carrying the monkey or you will have to re-obtain the monkey. This includes spirit tree teleportation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:8l5ahw",
+          "html": "Enter Ardougne Zoo and equip your greegree near the monkey zone. Speak to the <a href=\"https://runescape.wiki/w/Monkey_minder\" target=\"_blank\" rel=\"noopener\">monkey minder</a>.",
+          "text": "Enter Ardougne Zoo and equip your greegree near the monkey zone. Speak to the monkey minder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "king-awowogei:8l5ahw:1lskrjx",
+              "html": "If you have other monkeys types on your <a href=\"https://runescape.wiki/w/Monkey_greegree\" target=\"_blank\" rel=\"noopener\">monkey greegree</a>, make sure to swap it to the Karamjan monkey (brown with red cap). Otherwise the monkey minder will say to you that you aren&#39;t getting anywhere near his monkeys.",
+              "text": "If you have other monkeys types on your monkey greegree, make sure to swap it to the Karamjan monkey (brown with red cap). Otherwise the monkey minder will say to you that you aren't getting anywhere near his monkeys.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:zqc00v",
+          "html": "Talk to any <a href=\"https://runescape.wiki/w/Monkey_(Ardougne_Zoo,_unattackable)\" target=\"_blank\" rel=\"noopener\">level 3 monkey</a>. Unequip the greegree and talk to the monkey minder again.",
+          "text": "Talk to any level 3 monkey. Unequip the greegree and talk to the monkey minder again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:1fx4fr4",
+          "html": "<b>Run</b> to the Grand Tree and talk to Daero, and finally Lumdo.",
+          "text": "Run to the Grand Tree and talk to Daero, and finally Lumdo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "when": "Then Waydar",
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:6hac8j",
+          "html": "Equip the greegree, pass through the gates.",
+          "text": "Equip the greegree, pass through the gates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:oz2grf",
+          "html": "Return to Garkor by the kings palace (as a monkey) and speak to him.",
+          "text": "Return to Garkor by the kings palace (as a monkey) and speak to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:1slamsu",
+          "html": "Talk to the elder guard west of Garkor, they will say you need permission from <a href=\"https://runescape.wiki/w/Kruk\" target=\"_blank\" rel=\"noopener\">Kruk</a>.",
+          "text": "Talk to the elder guard west of Garkor, they will say you need permission from Kruk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:1qxovkr",
+          "html": "Head west from the main gate, walk round and up the hill and then cross the bridge to end up on the other side of the hill.",
+          "text": "Head west from the main gate, walk round and up the hill and then cross the bridge to end up on the other side of the hill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:ftou1l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kruk\" target=\"_blank\" rel=\"noopener\">Kruk</a>, who will grant you an audience with <a href=\"https://runescape.wiki/w/Awowogei\" target=\"_blank\" rel=\"noopener\">Awowogei</a>.",
+          "text": "Talk to Kruk, who will grant you an audience with Awowogei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "king-awowogei:ftou1l:2nh2s0",
+              "html": "You may need to talk to Garkor, then with the <a href=\"https://runescape.wiki/w/Elder_Guard\" target=\"_blank\" rel=\"noopener\">Elder Guard</a> outside of the throne room first.",
+              "text": "You may need to talk to Garkor, then with the Elder Guard outside of the throne room first.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:123lu22",
+          "html": "Inside the throne room, talk to <a href=\"https://runescape.wiki/w/Awowogei\" target=\"_blank\" rel=\"noopener\">Awowogei</a>.",
+          "text": "Inside the throne room, talk to Awowogei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:1f2jm0n",
+          "html": "Talk to him again to give him the rescued monkey.",
+          "text": "Talk to him again to give him the rescued monkey.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:7hfbbh",
+          "html": "Talk to the southern <a href=\"https://runescape.wiki/w/Elder_Guard\" target=\"_blank\" rel=\"noopener\">Elder Guard</a> to exit the throne room.",
+          "text": "Talk to the southern Elder Guard to exit the throne room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:niyjj3",
+          "html": "Talk to Garkor, this will start a cutscene.",
+          "text": "Talk to Garkor, this will start a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-awowogei:1l92uxq",
+          "html": "Talk to Garkor again after the cutscene for the <a href=\"https://runescape.wiki/w/10th_squad_sigil\" target=\"_blank\" rel=\"noopener\">10th squad sigil</a>.",
+          "text": "Talk to Garkor again after the cutscene for the 10th squad sigil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:1oajoqm",
+              "html": "A weapon to kill a level 70 demon",
+              "text": "A weapon to kill a level 70 demon"
+            },
+            {
+              "id": "finishing-up:bring:nysedu",
+              "html": "<a href=\"https://runescape.wiki/w/10th_squad_sigil\" target=\"_blank\" rel=\"noopener\">10th squad sigil</a>",
+              "text": "10th squad sigil"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "finishing-up:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "finishing-up:bring:1u1sbxl",
+              "html": "Armour",
+              "text": "Armour"
+            },
+            {
+              "id": "finishing-up:bring:1k29dxi",
+              "html": "Prayer potions",
+              "text": "Prayer potions"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:e9j13v",
+          "html": "<i>Right-click</i> 10th squad sigil <i>teleport</i> when you are ready to kill <a href=\"https://runescape.wiki/w/Jungle_Demon\" target=\"_blank\" rel=\"noopener\">Jungle Demon</a>.",
+          "text": "Right-click 10th squad sigil teleport when you are ready to kill Jungle Demon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:e9j13v:d1qiz1",
+              "html": "If you rub the sigil with your greegree equipped and with a full inventory, your greegree will drop on the ground.",
+              "text": "If you rub the sigil with your greegree equipped and with a full inventory, your greegree will drop on the ground.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ew5y4a",
+          "html": "Kill the Jungle demon.",
+          "text": "Kill the Jungle demon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:1ew5y4a:64h0p1",
+              "html": "Prayer flicking between <a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a> and <a href=\"https://runescape.wiki/w/Protect_from_Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> (or <a href=\"https://runescape.wiki/w/Deflect_Melee\" target=\"_blank\" rel=\"noopener\">Deflect Melee</a> and <a href=\"https://runescape.wiki/w/Deflect_Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>) can prevent most damage. Begin on Protect From Melee, and as the demon begins the animation for the magic attack swap to Protect from Magic, then wait for the hit and switch back to Protect from Melee. Otherwise, remain on Protect from or Deflect Magic.",
+              "text": "Prayer flicking between Protect from Melee and Magic (or Deflect Melee and Magic) can prevent most damage. Begin on Protect From Melee, and as the demon begins the animation for the magic attack swap to Protect from Magic, then wait for the hit and switch back to Protect from Melee. Otherwise, remain on Protect from or Deflect Magic.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:s79bgs",
+          "html": "Speak to King Narnode in the Grand Tree.",
+          "text": "Speak to King Narnode in the Grand Tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Monkey_Madness_reward.png?0d44b",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Monkey_Madness_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "By speaking to King Narnode and Daero after the quest, you can obtain a total of 110,000 experience, with the choice to focus 35,000 experience each in your chosen pair between either Strength and Constitution or Attack and Defence, and 20,000 experience each in the other pair.",
+        "text": "By speaking to King Narnode and Daero after the quest, you can obtain a total of 110,000 experience, with the choice to focus 35,000 experience each in your chosen pair between either Strength and Constitution or Attack and Defence, and 20,000 experience each in the other pair.",
+        "subs": []
+      },
+      {
+        "html": "10,000 coins",
+        "text": "10,000 coins",
+        "subs": []
+      },
+      {
+        "html": "3 cut <a href=\"https://runescape.wiki/w/Diamond\" target=\"_blank\" rel=\"noopener\">diamonds</a>",
+        "text": "3 cut diamonds",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Ape_Atoll\" target=\"_blank\" rel=\"noopener\">Ape Atoll</a>",
+        "text": "Access to Ape Atoll",
+        "subs": []
+      },
+      {
+        "html": "The ability to use the <a href=\"https://runescape.wiki/w/Ape_Atoll_Agility_Course\" target=\"_blank\" rel=\"noopener\">Ape Atoll Agility Course</a>",
+        "text": "The ability to use the Ape Atoll Agility Course",
+        "subs": []
+      },
+      {
+        "html": "The ability to wield the <a href=\"https://runescape.wiki/w/Dragon_scimitar\" target=\"_blank\" rel=\"noopener\">dragon scimitar</a>",
+        "text": "The ability to wield the dragon scimitar",
+        "subs": []
+      },
+      {
+        "html": "The ability to create more monkey <a href=\"https://runescape.wiki/w/Greegree\" target=\"_blank\" rel=\"noopener\">greegrees</a> to transform into different versions of the primates. You must bring the bones of the type of desired monkey, and a monkey talisman, to <a href=\"https://runescape.wiki/w/Zooknock\" target=\"_blank\" rel=\"noopener\">Zooknock</a> in his tunnel.",
+        "text": "The ability to create more monkey greegrees to transform into different versions of the primates. You must bring the bones of the type of desired monkey, and a monkey talisman, to Zooknock in his tunnel.",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Monkey_(Monkey_Madness)\" target=\"_blank\" rel=\"noopener\">monkey</a> in your backpack can spit out a <a href=\"https://runescape.wiki/w/Clue_scroll_(medium)\" target=\"_blank\" rel=\"noopener\">medium clue scroll</a> when it is fed bananas. This is a 1 in 256 chance and is a requirement for obtaining the <a href=\"https://runescape.wiki/w/Master_quest_cape\" target=\"_blank\" rel=\"noopener\">master quest cape</a>.",
+        "text": "The monkey in your backpack can spit out a medium clue scroll when it is fed bananas. This is a 1 in 256 chance and is a requirement for obtaining the master quest cape.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Anywhere",
+      "where": ""
+    },
+    {
+      "name": "Find My Way",
+      "where": ""
+    },
+    {
+      "name": "Island Life",
+      "where": ""
+    },
+    {
+      "name": "Marooned",
+      "where": ""
+    },
+    {
+      "name": "Monkey Madness",
+      "where": ""
+    },
+    {
+      "name": "Showdown",
+      "where": ""
+    },
+    {
+      "name": "Suspicious",
+      "where": ""
+    },
+    {
+      "name": "Technology",
+      "where": ""
+    },
+    {
+      "name": "Temple",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Monkey_Madness_(achievement)\" target=\"_blank\" rel=\"noopener\">Monkey Madness</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Clue%27s_in_the_Monkey_Drool\" target=\"_blank\" rel=\"noopener\">Clue&#39;s in the Monkey Drool</a> (10) – Receive the medium clue scroll from a monkey in your backpack.",
+    "<a href=\"https://runescape.wiki/w/Daero_Take_This_Experience%3F\" target=\"_blank\" rel=\"noopener\">Daero Take This Experience?</a> (10) – Claim the XP reward from Daero following Monkey Madness.",
+    "<a href=\"https://runescape.wiki/w/Milky_Teeth\" target=\"_blank\" rel=\"noopener\">Milky Teeth</a> (10) – Give the Tooth Fairy five teeth and claim a tooth creature pet.",
+    "<b><a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Desert_achievements\" target=\"_blank\" rel=\"noopener\">Desert achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Fur_%27n_Seek/Wish_list\" target=\"_blank\" rel=\"noopener\">Fur &#39;n Seek/Wish list</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_King_Awowogei/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing King Awowogei</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Do_No_Evil/Quick_guide\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    }
+  ]
+}

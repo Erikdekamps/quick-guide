@@ -1,0 +1,832 @@
+{
+  "format": 1,
+  "id": "jungle-potion",
+  "title": "Jungle Potion",
+  "page": "Jungle Potion/Quick guide",
+  "rev": 36838894,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Trufitus\" target=\"_blank\" rel=\"noopener\">Trufitus</a> near <a href=\"https://runescape.wiki/w/Tai_Bwo_Wannai\" target=\"_blank\" rel=\"noopener\">Tai Bwo Wannai</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3086,
+      "lon": 2808,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Jungle_Potion/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Herblore",
+        "level": 3,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Able to defend against level 57 jogres, level 60 wandering warriors, and level 63 Harpie Bug Swarms",
+        "name": "Able to defend against level 57 jogres, level 60 wandering warriors, and level 63 Harpie Bug Swarms",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Karamja</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Karamja</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:191ntf8",
+          "html": "<a href=\"https://runescape.wiki/w/Karamja_lodestone\" target=\"_blank\" rel=\"noopener\">Karamja lodestone</a> activated.",
+          "text": "Karamja lodestone activated.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1n7xsla",
+          "html": "6 <a href=\"https://runescape.wiki/w/Tai_Bwo_Wannai_Teleport\" target=\"_blank\" rel=\"noopener\">Tai Bwo Wannai Teleport</a> scrolls, which teleport you right outside Trufitus Shakaya&#39;s house. Use one to arrive and one every time you find a herb.",
+          "text": "6 Tai Bwo Wannai Teleport scrolls, which teleport you right outside Trufitus Shakaya's house. Use one to arrive and one every time you find a herb.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:c26uam",
+          "html": "<a href=\"https://runescape.wiki/w/Energy_potion\" target=\"_blank\" rel=\"noopener\">Energy potion</a>, <a href=\"https://runescape.wiki/w/Mint_cake\" target=\"_blank\" rel=\"noopener\">mint cake</a>, <a href=\"https://runescape.wiki/w/Explorer%27s_ring\" target=\"_blank\" rel=\"noopener\">explorer&#39;s ring</a>, and/or <a href=\"https://runescape.wiki/w/Weight-reducing_clothing\" target=\"_blank\" rel=\"noopener\">weight-reducing clothing</a>, as you will be doing a lot of running during this quest.",
+          "text": "Energy potion, mint cake, explorer's ring, and/or weight-reducing clothing, as you will be doing a lot of running during this quest.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:6rak1l",
+          "html": "<a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">Antipoison</a>",
+          "text": "Antipoison",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:uult8i",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trufitus\" target=\"_blank\" rel=\"noopener\">Trufitus</a> in his house located northeast of <a href=\"https://runescape.wiki/w/Tai_Bwo_Wannai\" target=\"_blank\" rel=\"noopener\">Tai Bwo Wannai</a>.",
+          "text": "Talk to Trufitus in his house located northeast of Tai Bwo Wannai.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "It's a nice village, but where is everyone?"
+                },
+                {
+                  "key": "1",
+                  "text": "Me? How can I help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gathering-herbs",
+      "title": "Gathering herbs",
+      "anchor": "Gathering_herbs",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Jungle_Potion\" target=\"_blank\" rel=\"noopener\">Jungle Potion</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3080,
+          "lon": 2815,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2809.5,
+                  3087.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Trufitus\" title=\"Trufitus\">Trufitus</a>",
+                "shape": "SquareDot",
+                "fill": "#ffffff"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2760.5,
+                  3042.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grimy_snake_weed\" title=\"Grimy snake weed\">Snake weed</a>",
+                "shape": "Dot",
+                "fill": "#ffdf4d"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2873.5,
+                  3115.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grimy_ardrigal\" title=\"Grimy ardrigal\">Ardrigal</a>",
+                "shape": "Dot",
+                "fill": "#00cccc"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2789.5,
+                  3048.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grimy_sito_foil\" title=\"Grimy sito foil\">Sito foil</a>",
+                "shape": "Dot",
+                "fill": "#d55e00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2845.5,
+                  3042.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grimy_volencia_moss\" title=\"Grimy volencia moss\">Volencia moss</a>",
+                "shape": "Dot",
+                "fill": "#ff6db6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2824.5,
+                  3119.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Grimy_rogue%27s_purse\" title=\"Grimy rogue&#39;s purse\">Rogue's purse</a>",
+                "shape": "Dot",
+                "fill": "#22cf22"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Jungle_Potion/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:38ng0d",
+          "html": "<a href=\"https://runescape.wiki/w/Trufitus\" target=\"_blank\" rel=\"noopener\">Trufitus</a>",
+          "text": "Trufitus",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1xm7fl8",
+          "html": "<a href=\"https://runescape.wiki/w/Grimy_snake_weed\" target=\"_blank\" rel=\"noopener\">Snake weed</a>",
+          "text": "Snake weed",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1x2zttt",
+          "html": "<a href=\"https://runescape.wiki/w/Grimy_ardrigal\" target=\"_blank\" rel=\"noopener\">Ardrigal</a>",
+          "text": "Ardrigal",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:xbauoy",
+          "html": "<a href=\"https://runescape.wiki/w/Grimy_sito_foil\" target=\"_blank\" rel=\"noopener\">Sito foil</a>",
+          "text": "Sito foil",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1492w62",
+          "html": "<a href=\"https://runescape.wiki/w/Grimy_volencia_moss\" target=\"_blank\" rel=\"noopener\">Volencia moss</a>",
+          "text": "Volencia moss",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:q5r2gg",
+          "html": "<a href=\"https://runescape.wiki/w/Grimy_rogue%27s_purse\" target=\"_blank\" rel=\"noopener\">Rogue&#39;s purse</a>",
+          "text": "Rogue's purse",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Jungle_Potion\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Jungle_Potion\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Jungle_Potion?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Snake weed"
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1wddaxx",
+          "html": "Head south-west to some <a href=\"https://runescape.wiki/w/Marshy_jungle_vine\" target=\"_blank\" rel=\"noopener\">marshy jungle vines</a> (refer to map).",
+          "text": "Head south-west to some marshy jungle vines (refer to map).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:120tvwu",
+          "html": "<i>Search</i> one for a <a href=\"https://runescape.wiki/w/Grimy_snake_weed\" target=\"_blank\" rel=\"noopener\">grimy snake weed</a>.",
+          "text": "Search one for a grimy snake weed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gathering-herbs:120tvwu:1ikepv1",
+              "html": "Take three if you intend to do <a href=\"https://runescape.wiki/w/Legends%27_Quest\" target=\"_blank\" rel=\"noopener\">Legends&#39; Quest</a> and <a href=\"https://runescape.wiki/w/Zogre_Flesh_Eaters\" target=\"_blank\" rel=\"noopener\">Zogre Flesh Eaters</a>.",
+              "text": "Take three if you intend to do Legends' Quest and Zogre Flesh Eaters.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:12mw72i",
+          "html": "Clean the herb.",
+          "text": "Clean the herb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:ll3sqz",
+          "html": "Talk to Trufitus to give him a <a href=\"https://runescape.wiki/w/Clean_snake_weed\" target=\"_blank\" rel=\"noopener\">clean snake weed</a>.",
+          "text": "Talk to Trufitus to give him a clean snake weed.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ardrigal"
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:t6h6s8",
+          "html": "Head north-east to some <a href=\"https://runescape.wiki/w/Palm_tree_(Jungle_Potion)\" target=\"_blank\" rel=\"noopener\">palm trees</a> (refer to map).",
+          "text": "Head north-east to some palm trees (refer to map).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1dq9qqt",
+          "html": "<i>Search</i> one for a <a href=\"https://runescape.wiki/w/Grimy_ardrigal\" target=\"_blank\" rel=\"noopener\">grimy ardrigal</a>.",
+          "text": "Search one for a grimy ardrigal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gathering-herbs:1dq9qqt:9om4rx",
+              "html": "Take two if you intend to do <a href=\"https://runescape.wiki/w/Legends%27_Quest\" target=\"_blank\" rel=\"noopener\">Legends&#39; Quest</a>.",
+              "text": "Take two if you intend to do Legends' Quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:12mw72i-2",
+          "html": "Clean the herb.",
+          "text": "Clean the herb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:d011ow",
+          "html": "Talk to Trufitus to give him a <a href=\"https://runescape.wiki/w/Clean_ardrigal\" target=\"_blank\" rel=\"noopener\">clean ardrigal</a>.",
+          "text": "Talk to Trufitus to give him a clean ardrigal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Sito foil"
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:e6dv1l",
+          "html": "Head south of Tai Bwo Wannai to the <a href=\"https://runescape.wiki/w/Scorched_earth\" target=\"_blank\" rel=\"noopener\">scorched earth</a> near two fires (refer to map labelled &quot;sito foil&quot;).",
+          "text": "Head south of Tai Bwo Wannai to the scorched earth near two fires (refer to map labelled \"sito foil\").",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1lzadvp",
+          "html": "<i>Search</i> it for a <a href=\"https://runescape.wiki/w/Grimy_sito_foil\" target=\"_blank\" rel=\"noopener\">grimy sito foil</a>.",
+          "text": "Search it for a grimy sito foil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:12mw72i-3",
+          "html": "Clean the herb.",
+          "text": "Clean the herb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1pohbj7",
+          "html": "Talk to Trufitus to give him a <a href=\"https://runescape.wiki/w/Clean_sito_foil\" target=\"_blank\" rel=\"noopener\">clean sito foil</a>.",
+          "text": "Talk to Trufitus to give him a clean sito foil.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Volencia moss"
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1fj7pvx",
+          "html": "Head south-east to the mine.",
+          "text": "Head south-east to the mine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:10m110i",
+          "html": "<i>Search</i> the green-coloured <a href=\"https://runescape.wiki/w/Rock_(Jungle_Potion)\" target=\"_blank\" rel=\"noopener\">rocks</a> for a <a href=\"https://runescape.wiki/w/Grimy_volencia_moss\" target=\"_blank\" rel=\"noopener\">grimy volencia moss</a>.",
+          "text": "Search the green-coloured rocks for a grimy volencia moss.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:12mw72i-4",
+          "html": "Clean the herb.",
+          "text": "Clean the herb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:xw1lnb",
+          "html": "Talk to Trufitus to give him a <a href=\"https://runescape.wiki/w/Clean_volencia_moss\" target=\"_blank\" rel=\"noopener\">clean volencia moss</a>.",
+          "text": "Talk to Trufitus to give him a clean volencia moss.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Rogue's purse"
+        },
+        {
+          "type": "text",
+          "html": "Rogue&#39;s purse must be obtained via the following method and cannot be obtained anywhere else."
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1cwh0yn",
+          "html": "Head back north near the palm trees and follow the shoreline west to some rocks (refer to map labelled &quot;rogue&#39;s purse&quot;).",
+          "text": "Head back north near the palm trees and follow the shoreline west to some rocks (refer to map labelled \"rogue's purse\").",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:1y6l8s1",
+          "html": "<i>Search</i> the rocks to enter the cave and ignore the level 57 <a href=\"https://runescape.wiki/w/Jogre\" target=\"_blank\" rel=\"noopener\">jogres</a>.",
+          "text": "Search the rocks to enter the cave and ignore the level 57 jogres.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll enter the cave."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gathering-herbs:1y6l8s1:730z1s",
+              "html": "(Optional) Kill one jogre to complete one of the <a href=\"https://runescape.wiki/w/Easy_Karamja_achievements\" target=\"_blank\" rel=\"noopener\">easy Karamja achievements</a>, <a href=\"https://runescape.wiki/w/It%27s_a_Jungle_Ogre\" target=\"_blank\" rel=\"noopener\">It&#39;s a Jungle Ogre</a>.",
+              "text": "(Optional) Kill one jogre to complete one of the easy Karamja achievements, It's a Jungle Ogre.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:ucpl76",
+          "html": "<i>Search</i> a <a href=\"https://runescape.wiki/w/Fungus_covered_Cavern_wall\" target=\"_blank\" rel=\"noopener\">fungus covered Cavern wall</a> for a <a href=\"https://runescape.wiki/w/Grimy_rogue%27s_purse\" target=\"_blank\" rel=\"noopener\">grimy rogue&#39;s purse</a>.",
+          "text": "Search a fungus covered Cavern wall for a grimy rogue's purse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gathering-herbs:ucpl76:k6njlj",
+              "html": "Take two if you intend to do <a href=\"https://runescape.wiki/w/Zogre_Flesh_Eaters\" target=\"_blank\" rel=\"noopener\">Zogre Flesh Eaters</a>.",
+              "text": "Take two if you intend to do Zogre Flesh Eaters.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:12mw72i-5",
+          "html": "Clean the herb.",
+          "text": "Clean the herb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:nfpo81",
+          "html": "Talk to Trufitus to give him a <a href=\"https://runescape.wiki/w/Clean_rogue%27s_purse\" target=\"_blank\" rel=\"noopener\">clean rogue&#39;s purse</a>.",
+          "text": "Talk to Trufitus to give him a clean rogue's purse.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-herbs:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Jungle_Potion_reward.png?cd012",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Jungle_Potion_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "775 experience <a href=\"https://runescape.wiki/w/Herblore_XP_lamp_(Jungle_Potion)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "775 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Tai_Bwo_Wannai_Cleanup\" target=\"_blank\" rel=\"noopener\">Tai Bwo Wannai Cleanup</a> minigame",
+        "text": "Access to Tai Bwo Wannai Cleanup minigame",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Hardwood_grove\" target=\"_blank\" rel=\"noopener\">hardwood grove</a>",
+        "text": "Access to hardwood grove",
+        "subs": []
+      },
+      {
+        "html": "Access to use <a href=\"https://runescape.wiki/w/Rionasta\" target=\"_blank\" rel=\"noopener\">Rionasta</a> for <a href=\"https://runescape.wiki/w/Parcel_service\" target=\"_blank\" rel=\"noopener\">parcel service</a>",
+        "text": "Access to use Rionasta for parcel service",
+        "subs": []
+      },
+      {
+        "html": "Access to a gardener for <a href=\"https://runescape.wiki/w/Calquat_tree\" target=\"_blank\" rel=\"noopener\">calquat trees</a>",
+        "text": "Access to a gardener for calquat trees",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Jungle Community",
+      "where": ""
+    },
+    {
+      "name": "Jungly1",
+      "where": "If you went to Cairn Isle to gather the snake weed"
+    },
+    {
+      "name": "Jungly3",
+      "where": ""
+    },
+    {
+      "name": "Tribal",
+      "where": ""
+    },
+    {
+      "name": "Jungle Troubles",
+      "where": ""
+    },
+    {
+      "name": "Tribal Background",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Jungle_Potion_(achievement)\" target=\"_blank\" rel=\"noopener\">Jungle Potion</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Karamja_achievements\" target=\"_blank\" rel=\"noopener\">Karamja achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Legends%27_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legends&#39; Quest</a>",
+        "<a href=\"https://runescape.wiki/w/My_Arm%27s_Big_Adventure/Quick_guide\" target=\"_blank\" rel=\"noopener\">My Arm&#39;s Big Adventure</a>",
+        "<a href=\"https://runescape.wiki/w/Shilo_Village/Quick_guide\" target=\"_blank\" rel=\"noopener\">Shilo Village</a>",
+        "<a href=\"https://runescape.wiki/w/Tai_Bwo_Wannai_Trio/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tai Bwo Wannai Trio</a>",
+        "<a href=\"https://runescape.wiki/w/Zogre_Flesh_Eaters/Quick_guide\" target=\"_blank\" rel=\"noopener\">Zogre Flesh Eaters</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/King%27s_Ransom/Quick_guide\" target=\"_blank\" rel=\"noopener\">King&#39;s Ransom</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Requiem/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Requiem</a>",
+        "<a href=\"https://runescape.wiki/w/One_Small_Favour/Quick_guide\" target=\"_blank\" rel=\"noopener\">One Small Favour</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Sir_Amik_Varze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Sir Amik Varze</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rag_and_Bone_Man/Wish_list\" target=\"_blank\" rel=\"noopener\">Rag and Bone Man/Wish list</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Zogre_Flesh_Eaters/Quick_guide\" target=\"_blank\" rel=\"noopener\">Zogre Flesh Eaters</a> (full comprehension)"
+      ]
+    }
+  ]
+}

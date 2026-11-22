@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "id": "alpha-vs-omega",
+  "title": "Alpha vs Omega",
+  "page": "Alpha vs Omega/Quick guide",
+  "rev": 36705147,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Rasial\" target=\"_blank\" rel=\"noopener\">Rasial</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1776,
+      "lon": 1074,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Remains of the Necrolord",
+        "depth": 1
+      },
+      {
+        "text": "Tomes of the Warlock",
+        "depth": 2
+      },
+      {
+        "text": "The Spirit of War",
+        "depth": 3
+      },
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 4
+      },
+      {
+        "text": "Rune Mythos…",
+        "depth": 5
+      },
+      {
+        "text": "Ghosts Ahoy…",
+        "depth": 5
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 4
+      },
+      {
+        "text": "The Jack of Spades",
+        "depth": 3
+      },
+      {
+        "text": "Diamond in the Rough",
+        "depth": 4
+      },
+      {
+        "text": "Stolen Hearts",
+        "depth": 5
+      },
+      {
+        "text": "Unabridged Vengeance (saga) with 100%",
+        "depth": 2
+      },
+      {
+        "text": "Unabridged Nadir (saga) with 100%",
+        "depth": 2
+      },
+      {
+        "text": "30,000 City of Um vessel souls",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 95,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "2 Putrid zombies (level 98), optional",
+        "name": "Putrid zombies",
+        "count": 2,
+        "level": "98",
+        "note": ", optional"
+      },
+      {
+        "text": "4 Skeleton warriors (level 98), optional",
+        "name": "Skeleton warriors",
+        "count": 4,
+        "level": "98",
+        "note": ", optional"
+      },
+      {
+        "text": "Hermod, the Spirit of War (level 732)",
+        "name": "Hermod, the Spirit of War",
+        "count": null,
+        "level": "732",
+        "note": ""
+      },
+      {
+        "text": "Rasial, the First Necromancer (level 8,462)",
+        "name": "Rasial, the First Necromancer",
+        "count": null,
+        "level": "8,462",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:7oh02y",
+          "html": "Necromancy combat equipment",
+          "text": "Necromancy combat equipment",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:ydt6bn",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rasial,_the_First_Necromancer\" target=\"_blank\" rel=\"noopener\">Rasial, the First Necromancer</a> on the bridge in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Rasial, the First Necromancer on the bridge in the City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:ydt6bn:13yenp9",
+              "html": "If Rasial, the First Necromancer isn&#39;t there, home teleport to the City of Um or relog.",
+              "text": "If Rasial, the First Necromancer isn't there, home teleport to the City of Um or relog.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ftinpk",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kharen\" target=\"_blank\" rel=\"noopener\">Kharen</a> in City of Um to travel to <a href=\"https://runescape.wiki/w/Rasial%27s_Citadel\" target=\"_blank\" rel=\"noopener\">Rasial&#39;s Citadel</a>.",
+          "text": "Talk to Kharen in City of Um to travel to Rasial's Citadel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:1ftinpk:fg8qfx",
+              "html": "You must <i>talk to</i> Kharen; using the right-click <i>travel</i> option will not start the fight.",
+              "text": "You must talk to Kharen; using the right-click travel option will not start the fight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-fight",
+      "title": "The fight",
+      "anchor": "The_fight",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "If at any point you die during the fights, talk to <a href=\"https://runescape.wiki/w/Kharen\" target=\"_blank\" rel=\"noopener\">Kharen</a> in <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> to get back to <a href=\"https://runescape.wiki/w/Rasial%27s_Citadel\" target=\"_blank\" rel=\"noopener\">Rasial&#39;s Citadel</a>."
+        },
+        {
+          "type": "step",
+          "id": "the-fight:w3wj0o",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Hermod,_the_Spirit_of_War\" target=\"_blank\" rel=\"noopener\">Hermod, the Spirit of War</a>. Cannot be killed with <a href=\"https://runescape.wiki/w/Deathtouched_dart\" target=\"_blank\" rel=\"noopener\">deathtouched dart</a>.",
+          "text": "Defeat Hermod, the Spirit of War. Cannot be killed with deathtouched dart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-fight:1v06fyy",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Rasial,_the_First_Necromancer\" target=\"_blank\" rel=\"noopener\">Rasial, the First Necromancer</a>. Cannot be killed with <a href=\"https://runescape.wiki/w/Deathtouched_dart\" target=\"_blank\" rel=\"noopener\">deathtouched dart</a>.",
+          "text": "Defeat Rasial, the First Necromancer. Cannot be killed with deathtouched dart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-fight:13ofevm",
+          "html": "A cutscene ensues. Continue speaking with Rasial, the First Necromancer.",
+          "text": "A cutscene ensues. Continue speaking with Rasial, the First Necromancer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1nikjw5",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> to complete the quest.",
+          "text": "Return to Death in the City of Um to complete the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Alpha_vs_Omega_reward.png?29b11",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Alpha_vs_Omega_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "150,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Alpha_vs_Omega)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "150,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Rasial,_the_First_Necromancer\" target=\"_blank\" rel=\"noopener\">Rasial, the First Necromancer</a> boss encounter",
+        "text": "Access to the Rasial, the First Necromancer boss encounter",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The First Necromancer",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega_(achievement)\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a> (0) – Complete this quest."
+  ],
+  "requiredFor": []
+}

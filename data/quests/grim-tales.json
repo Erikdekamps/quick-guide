@@ -1,0 +1,836 @@
+{
+  "format": 1,
+  "id": "grim-tales",
+  "title": "Grim Tales",
+  "page": "Grim Tales/Quick guide",
+  "rev": 37014462,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Sylas\" target=\"_blank\" rel=\"noopener\">Sylas</a> south of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3379,
+      "lon": 2912,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Grim_Tales/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Witch's House",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 59,
+        "note": ""
+      },
+      {
+        "skill": "Farming",
+        "level": 45,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 52,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 58,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 71,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Glod (level 68)",
+        "name": "Glod",
+        "count": null,
+        "level": "68",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1iyng6i",
+          "html": "2 <a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">vials of water</a>",
+          "text": "2 vials of water",
+          "alternatives": []
+        },
+        {
+          "id": "req:1xmx84w",
+          "html": "2 <a href=\"https://runescape.wiki/w/Clean_tarromin\" target=\"_blank\" rel=\"noopener\">clean tarromin</a>",
+          "text": "2 clean tarromin",
+          "alternatives": []
+        },
+        {
+          "id": "req:undx3j",
+          "html": "<a href=\"https://runescape.wiki/w/Leather_gloves\" target=\"_blank\" rel=\"noopener\">Leather gloves</a> (can be obtained during quest)",
+          "text": "Leather gloves (can be obtained during quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:l1q65r",
+          "html": "<a href=\"https://runescape.wiki/w/Watering_can#(8)\" target=\"_blank\" rel=\"noopener\">Watering can (8)</a> or <a href=\"https://runescape.wiki/w/Magic_watering_can\" target=\"_blank\" rel=\"noopener\">magic watering can</a> (cannot be used from tool belt)",
+          "text": "Watering can (8) or magic watering can (cannot be used from tool belt)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wyqeje",
+          "html": "2 <a href=\"https://runescape.wiki/w/Goblin_village_sphere\" target=\"_blank\" rel=\"noopener\">Goblin village spheres</a> or a <a href=\"https://runescape.wiki/w/Bandosian_token\" target=\"_blank\" rel=\"noopener\">Bandosian token</a>",
+          "text": "2 Goblin village spheres or a Bandosian token",
+          "alternatives": []
+        },
+        {
+          "id": "rec:7whmxf",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley</a> and <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Taverley and Falador lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1kc1yi5",
+          "html": "Armour to defend from level 61 <a href=\"https://runescape.wiki/w/Mouse\" target=\"_blank\" rel=\"noopener\">mice</a> if low defence or combat",
+          "text": "Armour to defend from level 61 mice if low defence or combat",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1387hgf",
+          "html": "<a href=\"https://runescape.wiki/w/Teleport_to_house\" target=\"_blank\" rel=\"noopener\">Teleport to house</a> tablets to chip for <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> or teleport to Taverley portal",
+          "text": "Teleport to house tablets to chip for Taverley or teleport to Taverley portal",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Grim_Tales_Sylas.png/300px-Grim_Tales_Sylas.png?1a10f",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "The location of Sylas south of Taverley",
+          "href": "https://runescape.wiki/w/File:Grim_Tales_Sylas.png"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:192kvt5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sylas\" target=\"_blank\" rel=\"noopener\">Sylas</a> south of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> (north of the Witch&#39;s house).",
+          "text": "Talk to Sylas south of Taverley (north of the Witch's house).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "grimgnash",
+      "title": "Grimgnash",
+      "anchor": "Grimgnash",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Grim_Tales_Grimgnash.png/300px-Grim_Tales_Grimgnash.png?e8516",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "The location of Grimgnash on White Wolf Mountain near Taverley",
+          "href": "https://runescape.wiki/w/File:Grim_Tales_Grimgnash.png"
+        },
+        {
+          "type": "step",
+          "id": "grimgnash:k3uucj",
+          "html": "Head up the east side of <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a> near the <a href=\"https://runescape.wiki/w/Burthorpe_mine\" target=\"_blank\" rel=\"noopener\">Burthorpe mine</a> entrance and talk to <a href=\"https://runescape.wiki/w/Grimgnash\" target=\"_blank\" rel=\"noopener\">Grimgnash</a>.",
+          "text": "Head up the east side of White Wolf Mountain near the Burthorpe mine entrance and talk to Grimgnash.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I heard you were a great and mighty Griffin!"
+                },
+                {
+                  "key": "1",
+                  "text": "There once was graveyard filled with undead."
+                },
+                {
+                  "key": "2",
+                  "text": "There lived a skeleton named Skullrot."
+                },
+                {
+                  "key": "4",
+                  "text": "Skullrot was insane!"
+                },
+                {
+                  "key": "4",
+                  "text": "Skullrot hungrily grabbed the gnome's hair."
+                },
+                {
+                  "key": "3",
+                  "text": "Started to strangle the poor gnome."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "grimgnash:hp9a",
+          "html": "Once he is sleeping, <i>take</i> a <a href=\"https://runescape.wiki/w/Griffin_feather\" target=\"_blank\" rel=\"noopener\">Feather</a> from next to the nest.",
+          "text": "Once he is sleeping, take a Feather from next to the nest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "grimgnash:re06g3",
+          "html": "Go back to Sylas and talk to him.",
+          "text": "Go back to Sylas and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "rupert",
+      "title": "Rupert",
+      "anchor": "Rupert",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Miazrqa%27s_Tower.png/300px-Miazrqa%27s_Tower.png?473b4",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "The location of the crumbling wall of the tower, south of the Goblin Village",
+          "href": "https://runescape.wiki/w/File:Miazrqa%27s_Tower.png"
+        },
+        {
+          "type": "step",
+          "id": "rupert:f1k1pp",
+          "html": "Head to the tower directly south-east of <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a>.",
+          "text": "Head to the tower directly south-east of Goblin Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:13mf2x8",
+          "html": "Go around the south-east side, <i>climb over</i> the crumbling wall, and <i>talk into</i> the drainpipe.",
+          "text": "Go around the south-east side, climb over the crumbling wall, and talk into the drainpipe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:167glfo",
+          "html": "<i>Talk into</i> the drainpipe again.",
+          "text": "Talk into the drainpipe again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I could try and climb up"
+                },
+                {
+                  "key": "2",
+                  "text": "Is there anything up there that can help?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:17omytl",
+          "html": "<i>Climb up</i> Rupert&#39;s beard.",
+          "text": "Climb up Rupert's beard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:1byedxm",
+          "html": "Talk to Rupert.",
+          "text": "Talk to Rupert.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:bi6b8h",
+          "html": "Right-click <i>climb down</i> Rupert.",
+          "text": "Right-click climb down Rupert.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rupert:1askse2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Miazrqa\" target=\"_blank\" rel=\"noopener\">Miazrqa</a>, located over the crumbling wall and to the north of the tower.",
+          "text": "Talk to Miazrqa, located over the crumbling wall and to the north of the tower.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Your second-cousin, twice removed?"
+                },
+                {
+                  "key": "4",
+                  "text": "I need a key for the house."
+                },
+                {
+                  "key": "4",
+                  "text": "I should be off, I think."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-pendant",
+      "title": "The pendant",
+      "anchor": "The_pendant",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-pendant:bring:xwuvwz",
+              "html": "2 <a href=\"https://runescape.wiki/w/Tarromin_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">tarromin potions (unfinished)</a> (2 vials of water and 2 clean tarromin)",
+              "text": "2 tarromin potions (unfinished) (2 vials of water and 2 clean tarromin)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Grim_Tales_-_Sheet_music.png/300px-Grim_Tales_-_Sheet_music.png?ab041",
+          "width": 300,
+          "height": 231,
+          "alt": "",
+          "caption": "The music sheet",
+          "href": "https://runescape.wiki/w/File:Grim_Tales_-_Sheet_music.png"
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1vs8ha5",
+          "html": "Head to the Witch&#39;s house south of Taverley, the building next to Sylas.",
+          "text": "Head to the Witch's house south of Taverley, the building next to Sylas.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:ojqdrl",
+          "html": "Open the main door.",
+          "text": "Open the main door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-pendant:ojqdrl:139q0qp",
+              "html": "Look under the Potted plant to the left of the main door of the witch&#39;s house to obtain a key if not given by the princess.",
+              "text": "Look under the Potted plant to the left of the main door of the witch's house to obtain a key if not given by the princess.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1qdk5c2",
+          "html": "Climb down stairs (cellar bulkhead) and search the crate near the piano for leather gloves. You may need to search multiple times.",
+          "text": "Climb down stairs (cellar bulkhead) and search the crate near the piano for leather gloves. You may need to search multiple times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:6uznbw",
+          "html": "Whilst wearing the leather gloves, open the gate and <i>search</i> the Music stand.",
+          "text": "Whilst wearing the leather gloves, open the gate and search the Music stand.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:19ucye7",
+          "html": "<i>Play</i> the piano in the first room (refer to the music sheet pictured right).",
+          "text": "Play the piano in the first room (refer to the music sheet pictured right).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-pendant:19ucye7:knjk79",
+              "html": "The notes &quot;EFEDC&quot; are played on the right hand (upper) side and the notes &quot;AEGA&quot; are played on the left hand (lower) side.",
+              "text": "The notes \"EFEDC\" are played on the right hand (upper) side and the notes \"AEGA\" are played on the left hand (lower) side.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1w116ig",
+          "html": "Right-click <i>Search</i> the now-opened piano.",
+          "text": "Right-click Search the now-opened piano.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1wmep9",
+          "html": "Make two <a href=\"https://runescape.wiki/w/Shrink-me-quick\" target=\"_blank\" rel=\"noopener\">shrink-me-quick</a> potions.",
+          "text": "Make two shrink-me-quick potions.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-pendant:1wmep9:ngo6gq",
+              "html": "Combine vial of water and <a href=\"https://runescape.wiki/w/Clean_tarromin\" target=\"_blank\" rel=\"noopener\">clean tarromin</a>.",
+              "text": "Combine vial of water and clean tarromin.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:1wmep9:1wltays",
+              "html": "Add <a href=\"https://runescape.wiki/w/Shrunk_ogleroot\" target=\"_blank\" rel=\"noopener\">shrunk ogleroot</a>.",
+              "text": "Add shrunk ogleroot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:1wmep9:vc6qng",
+              "html": "Repeat.",
+              "text": "Repeat.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:114iziz",
+          "html": "Go upstairs and head into the small room leading to the garden.",
+          "text": "Go upstairs and head into the small room leading to the garden.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1g8ay52",
+          "html": "Drink one of the potions next to the mouse hole and glyph.",
+          "text": "Drink one of the potions next to the mouse hole and glyph.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:b5ul17",
+          "html": "While in the mouse hole, follow these directions:",
+          "text": "While in the mouse hole, follow these directions:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:1gu3ycj",
+              "html": "Run north past the first mouse, find the set of the nails on the eastern wall and climb up them.",
+              "text": "Run north past the first mouse, find the set of the nails on the eastern wall and climb up them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:1xgmsq7",
+              "html": "Go south-west, and climb up the nails on the northern wall.",
+              "text": "Go south-west, and climb up the nails on the northern wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:1fbuvgv",
+              "html": "Climb up the nails on the south wall in the room.",
+              "text": "Climb up the nails on the south wall in the room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:ltebc6",
+              "html": "Run to the north-east corner, and climb down the nails on the eastern wall.",
+              "text": "Run to the north-east corner, and climb down the nails on the eastern wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:atnf0a",
+              "html": "Run north, and climb up the nails on the eastern wall.",
+              "text": "Run north, and climb up the nails on the eastern wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-pendant:b5ul17:9ygoic",
+              "html": "Pickup the pendant at the end of the next hallway.",
+              "text": "Pickup the pendant at the end of the next hallway.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1jl5vqc",
+          "html": "After taking <a href=\"https://runescape.wiki/w/Miazrqa%27s_pendant\" target=\"_blank\" rel=\"noopener\">Miazrqa&#39;s pendant</a>, leave the mouse hole either by teleporting to Taverley, or Home teleport to Falador, or going back through the entrance.",
+          "text": "After taking Miazrqa's pendant, leave the mouse hole either by teleporting to Taverley, or Home teleport to Falador, or going back through the entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:15ikr2r",
+          "html": "Talk to Miazrqa.",
+          "text": "Talk to Miazrqa.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1o7lo4k",
+          "html": "Talk to Rupert to get <a href=\"https://runescape.wiki/w/Rupert%27s_helmet\" target=\"_blank\" rel=\"noopener\">Rupert&#39;s helmet</a>.",
+          "text": "Talk to Rupert to get Rupert's helmet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-pendant:1ncdluy",
+          "html": "<b>If you need another shrunken ogleroot, you can kill an Experiment No. 2 down the manhole near the entrance to the witch&#39;s house, or pick one up from the pile in the room with the experiments.</b>",
+          "text": "If you need another shrunken ogleroot, you can kill an Experiment No. 2 down the manhole near the entrance to the witch's house, or pick one up from the pile in the room with the experiments.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-beanstalk",
+      "title": "The beanstalk",
+      "anchor": "The_beanstalk",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-beanstalk:bring:a1velw",
+              "html": "Watering can (with water)",
+              "text": "Watering can (with water)"
+            },
+            {
+              "id": "the-beanstalk:bring:ah8j9n",
+              "html": "Do not have any pets following or in the backpack.",
+              "text": "Do not have any pets following or in the backpack."
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:172gv36",
+          "html": "Talk to Sylas.",
+          "text": "Talk to Sylas.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:121f52q",
+          "html": "Plant the <a href=\"https://runescape.wiki/w/Magic_beans_(Grim_Tales)\" target=\"_blank\" rel=\"noopener\">magic beans</a> in the <a href=\"https://runescape.wiki/w/Farming_patch\" target=\"_blank\" rel=\"noopener\">Farming patch</a> next to Sylas and water it using a <a href=\"https://runescape.wiki/w/Watering_can\" target=\"_blank\" rel=\"noopener\">watering can</a>.",
+          "text": "Plant the magic beans in the Farming patch next to Sylas and water it using a watering can.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:16uain1",
+          "html": "<i>Climb</i> the <a href=\"https://runescape.wiki/w/Beanstalk\" target=\"_blank\" rel=\"noopener\">beanstalk</a> and kill <a href=\"https://runescape.wiki/w/Glod\" target=\"_blank\" rel=\"noopener\">Glod</a>.",
+          "text": "Climb the beanstalk and kill Glod.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:siynmn",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Golden_goblin\" target=\"_blank\" rel=\"noopener\">golden goblin</a>, climb down the stalk on southern sides and give it to Sylas.",
+          "text": "Take the golden goblin, climb down the stalk on southern sides and give it to Sylas.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:1d9dxx3",
+          "html": "Right-click <i>Use</i> the other shrinking potion on the beanstalk.",
+          "text": "Right-click Use the other shrinking potion on the beanstalk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-beanstalk:1d9dxx3:h94mgh",
+              "html": "Careful not to drink it!",
+              "text": "Careful not to drink it!",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:16by2bn",
+          "html": "<i>Chop</i> the beanstalk.",
+          "text": "Chop the beanstalk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:172gv36-2",
+          "html": "Talk to Sylas.",
+          "text": "Talk to Sylas.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-beanstalk:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Grim_Tales_reward.png?88c37",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Grim_Tales_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "4,000 experience",
+        "text": "4,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "14,000 experience",
+        "text": "14,000 experience",
+        "subs": []
+      },
+      {
+        "html": "6,000 experience",
+        "text": "6,000 experience",
+        "subs": []
+      },
+      {
+        "html": "6,000 experience",
+        "text": "6,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Dwarven_helmet\" target=\"_blank\" rel=\"noopener\">Dwarven helmet</a>",
+        "text": "Dwarven helmet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Fe Fi Fo Fum",
+      "where": ""
+    },
+    {
+      "name": "Mouse Trap",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

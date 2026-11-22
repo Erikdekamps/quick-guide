@@ -1,0 +1,432 @@
+{
+  "format": 1,
+  "id": "corporate-egg-spionage",
+  "title": "Corporate Egg-spionage",
+  "page": "Corporate Egg-spionage/Quick guide",
+  "rev": 37025218,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Easter_Bunny\" target=\"_blank\" rel=\"noopener\">Easter Bunny</a> in the <a href=\"https://runescape.wiki/w/Blooming_Burrow\" target=\"_blank\" rel=\"noopener\">Blooming Burrow</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 4987,
+      "lon": 3811,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 747,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Corporate_Egg-spionage/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Great Egg-spectations",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "N/A"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:s5d965",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a>",
+          "text": "Access to the Port Sarim lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "learning-about-a-business-opportunity",
+      "title": "Learning about a business opportunity",
+      "anchor": "Learning_about_a_business_opportunity",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "learning-about-a-business-opportunity:zx5h72",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Easter_Bunny\" target=\"_blank\" rel=\"noopener\">Easter Bunny</a> outside their house in the <a href=\"https://runescape.wiki/w/Blooming_Burrow\" target=\"_blank\" rel=\"noopener\">Blooming Burrow</a>.",
+          "text": "Talk to the Easter Bunny outside their house in the Blooming Burrow.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have a quest for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "inside-the-factory",
+      "title": "Inside the factory",
+      "anchor": "Inside_the_factory",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "inside-the-factory:1jb7mkv",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Blooming_Burrow#Egg_Plant\" target=\"_blank\" rel=\"noopener\">Egg Plant</a> on the western side of the burrow and talk to either the <a href=\"https://runescape.wiki/w/Easter_Bunny\" target=\"_blank\" rel=\"noopener\">Easter Bunny</a>, <a href=\"https://runescape.wiki/w/Angus_Almond\" target=\"_blank\" rel=\"noopener\">Angus Almond</a>, <a href=\"https://runescape.wiki/w/Carmilla_Caramel\" target=\"_blank\" rel=\"noopener\">Carmilla Caramel</a>, or <a href=\"https://runescape.wiki/w/Chad_Berry\" target=\"_blank\" rel=\"noopener\">Chad Berry</a>.",
+          "text": "Go to the Egg Plant on the western side of the burrow and talk to either the Easter Bunny, Angus Almond, Carmilla Caramel, or Chad Berry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-factory:1qzbmmy",
+          "html": "Talk to the Easter Bunny just north.",
+          "text": "Talk to the Easter Bunny just north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "confrontation",
+      "title": "Confrontation",
+      "anchor": "Confrontation",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "confrontation:bring:himbo5",
+              "html": "Free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "Free backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Locations of the spies",
+          "lat": 4933,
+          "lon": 3816,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": -1,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3783,
+                  4962,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "-1",
+                "description": "Suspicious Rabbit",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3830,
+                  4926,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "-1",
+                "description": "Loitering Hare",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3850,
+                  4905,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "-1",
+                "description": "Odd Jackrabbit",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Corporate_Egg-spionage/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "confrontation:1axe70t",
+          "html": "Just outside of the Egg Plant, north-east of <a href=\"https://runescape.wiki/w/Nougat_Bunny\" target=\"_blank\" rel=\"noopener\">Nougat Bunny</a>&#39;s stall, confront the <a href=\"https://runescape.wiki/w/Suspicious_Rabbit\" target=\"_blank\" rel=\"noopener\">Suspicious Rabbit</a>.",
+          "text": "Just outside of the Egg Plant, north-east of Nougat Bunny's stall, confront the Suspicious Rabbit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confrontation:ajmf1j",
+          "html": "Go east by passing the two bridges and then midway south (north of the <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a> icons on the map) and confront the <a href=\"https://runescape.wiki/w/Loitering_Hare\" target=\"_blank\" rel=\"noopener\">Loitering Hare</a>.",
+          "text": "Go east by passing the two bridges and then midway south (north of the Thieving icons on the map) and confront the Loitering Hare.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confrontation:517pua",
+          "html": "Go all the way south-east and confront the <a href=\"https://runescape.wiki/w/Odd_Jackrabbit\" target=\"_blank\" rel=\"noopener\">Odd Jackrabbit</a> from behind.",
+          "text": "Go all the way south-east and confront the Odd Jackrabbit from behind.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confrontation:1qs9jun",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Easter_Bunny\" target=\"_blank\" rel=\"noopener\">Easter Bunny</a>.",
+          "text": "Talk to the Easter Bunny.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "translation",
+      "title": "Translation",
+      "anchor": "Translation",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "translation:bring:7py25i",
+              "html": "Three free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+              "text": "Three free backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "translation:1i8399b",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Count_Rivance\" target=\"_blank\" rel=\"noopener\">Count Rivance</a> outside of <a href=\"https://runescape.wiki/w/Gerrant%27s_Fishy_Business\" target=\"_blank\" rel=\"noopener\">Gerrant&#39;s Fishy Business</a> at the eastern wall.",
+          "text": "Talk to Count Rivance outside of Gerrant's Fishy Business at the eastern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "corporate-synergy",
+      "title": "Corporate synergy",
+      "anchor": "Corporate_synergy",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "corporate-synergy:1qs9jun",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Easter_Bunny\" target=\"_blank\" rel=\"noopener\">Easter Bunny</a>.",
+          "text": "Talk to the Easter Bunny.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "corporate-synergy:1ldrk9n",
+          "html": "Talk to either <a href=\"https://runescape.wiki/w/Angus_Almond\" target=\"_blank\" rel=\"noopener\">Angus Almond</a>, <a href=\"https://runescape.wiki/w/Carmilla_Caramel\" target=\"_blank\" rel=\"noopener\">Carmilla Caramel</a>, or <a href=\"https://runescape.wiki/w/Chad_Berry\" target=\"_blank\" rel=\"noopener\">Chad Berry</a>.",
+          "text": "Talk to either Angus Almond, Carmilla Caramel, or Chad Berry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Carmilla has been replacing your gold with chocolate coins!"
+                },
+                {
+                  "key": "2",
+                  "text": "You pay your employees overtime!"
+                },
+                {
+                  "key": "2",
+                  "text": "You've been cooking the books!"
+                },
+                {
+                  "key": "3",
+                  "text": "You have an almond allergy!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "corporate-synergy:1qs9jun-2",
+          "html": "Talk to the Easter Bunny.",
+          "text": "Talk to the Easter Bunny.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "corporate-synergy:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Corporate_Egg-spionage_reward.png?93ea4",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Corporate_Egg-spionage_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Blooming_Spycatcher_Outfit\" target=\"_blank\" rel=\"noopener\">Blooming Spycatcher Outfit</a>",
+        "text": "Blooming Spycatcher Outfit",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Corporate_Egg-spionage)\" target=\"_blank\" rel=\"noopener\">Thieving XP lamp</a> (yielding 5,000 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a>)",
+        "text": "Thieving XP lamp (yielding 5,000 experience)",
+        "subs": []
+      },
+      {
+        "html": "3,000 <a href=\"https://runescape.wiki/w/Spring_tokens\" target=\"_blank\" rel=\"noopener\">spring tokens</a>",
+        "text": "3,000 spring tokens",
+        "subs": []
+      },
+      {
+        "html": "Emotes from previous <a href=\"https://runescape.wiki/w/Easter_event\" target=\"_blank\" rel=\"noopener\">Easter events</a> (if not already unlocked)",
+        "text": "Emotes from previous Easter events (if not already unlocked)",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Blooming_Burrow#Intel_Eggstraction\" target=\"_blank\" rel=\"noopener\">Intel Eggstraction</a> activity in the <a href=\"https://runescape.wiki/w/Blooming_Burrow\" target=\"_blank\" rel=\"noopener\">Blooming Burrow</a>",
+        "text": "Access to the Intel Eggstraction activity in the Blooming Burrow",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

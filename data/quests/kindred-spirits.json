@@ -1,0 +1,1037 @@
+{
+  "format": 1,
+  "id": "kindred-spirits",
+  "title": "Kindred Spirits",
+  "page": "Kindred Spirits/Quick guide",
+  "rev": 37026211,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Linza\" target=\"_blank\" rel=\"noopener\">Linza</a> at the smithy in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3503,
+      "lon": 2884,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Kindred_Spirits/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Missing, Presumed Death",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 60,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Deadliest Catch",
+      "Tower of Life"
+    ],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Wilderness</span> <span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1gkqhnt",
+          "html": "Food",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1r40r2c",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">Ring of kinship</a>",
+          "text": "Ring of kinship",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1bgrieq",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe</a> and <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor lodestone</a>",
+          "text": "Activated Burthorpe and Draynor lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "mysterious-disappearances",
+      "title": "Mysterious disappearances",
+      "anchor": "Mysterious_disappearances",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mysterious-disappearances:7lwuql",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Linza\" target=\"_blank\" rel=\"noopener\">Linza</a> in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>, near the furnaces south of the <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a>.",
+          "text": "Talk to Linza in Burthorpe, near the furnaces south of the Burthorpe lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-disappearances:59ar50",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Relomia,_Emissary_of_Sliske\" target=\"_blank\" rel=\"noopener\">Relomia</a> in the middle of Draynor Village.",
+          "text": "Talk to Relomia in the middle of Draynor Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Kindred Spirits"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-disappearances:16akhf9",
+          "html": "Talk to Linza in south-eastern Daemonheim. Dismiss any followers.",
+          "text": "Talk to Linza in south-eastern Daemonheim. Dismiss any followers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mysterious-disappearances:16akhf9:7e7w29",
+              "html": "(Optional) Bring some good healing food, no more than 20 pieces.",
+              "text": "(Optional) Bring some good healing food, no more than 20 pieces.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mysterious-disappearances:hzvs5m",
+          "html": "Open the trapdoor (you need at least 6 free inventory spaces)",
+          "text": "Open the trapdoor (you need at least 6 free inventory spaces)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-disappearances:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "escaping-the-prison",
+      "title": "Escaping the prison",
+      "anchor": "Escaping_the_prison",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "escaping-the-prison:y98vsm",
+          "html": "<i>Interact</i> with the Dragonkin guard.",
+          "text": "Interact with the Dragonkin guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1lgokz3",
+          "html": "Talk to Sliske.",
+          "text": "Talk to Sliske.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:n8wehj",
+          "html": "Talk to Sliske again.",
+          "text": "Talk to Sliske again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "You're a better actor."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:13cj3dc",
+          "html": "Interact with the Dragonkin guard for some <a href=\"https://runescape.wiki/w/Dragonkin_food\" target=\"_blank\" rel=\"noopener\">Dragonkin food</a>.",
+          "text": "Interact with the Dragonkin guard for some Dragonkin food.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:ko76hr",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Dragonkin_food\" target=\"_blank\" rel=\"noopener\">Dragonkin food</a> on the <a href=\"https://runescape.wiki/w/Latrine\" target=\"_blank\" rel=\"noopener\">latrine</a>.",
+          "text": "Use the Dragonkin food on the latrine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:58grke",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Plate_(item)\" target=\"_blank\" rel=\"noopener\">plate</a> on the <a href=\"https://runescape.wiki/w/Loose_brick\" target=\"_blank\" rel=\"noopener\">loose brick</a>.",
+          "text": "Use the plate on the loose brick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1mr8ebr",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Plate_half\" target=\"_blank\" rel=\"noopener\">plate half</a> on the <a href=\"https://runescape.wiki/w/Brick\" target=\"_blank\" rel=\"noopener\">brick</a> to make a <a href=\"https://runescape.wiki/w/Blade\" target=\"_blank\" rel=\"noopener\">blade</a>.",
+          "text": "Use the plate half on the brick to make a blade.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1o6p1td",
+          "html": "Use the blade on the <a href=\"https://runescape.wiki/w/Barracks_bed\" target=\"_blank\" rel=\"noopener\">barracks bed</a> for a <a href=\"https://runescape.wiki/w/Cloth_strip\" target=\"_blank\" rel=\"noopener\">cloth strip</a>.",
+          "text": "Use the blade on the barracks bed for a cloth strip.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1t4ughq",
+          "html": "Use the brick on the cloth strip to create a <a href=\"https://runescape.wiki/w/Ludicrous_flail\" target=\"_blank\" rel=\"noopener\">ludicrous flail</a>.",
+          "text": "Use the brick on the cloth strip to create a ludicrous flail.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:tvzel4",
+          "html": "Talk to Sliske to give him the <a href=\"https://runescape.wiki/w/Ludicrous_flail\" target=\"_blank\" rel=\"noopener\">ludicrous flail</a>, which he will use to distract the guard.",
+          "text": "Talk to Sliske to give him the ludicrous flail, which he will use to distract the guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:12g8mfr",
+          "html": "Interact with the Dragonkin guard to steal the <a href=\"https://runescape.wiki/w/Bag_of_crystals\" target=\"_blank\" rel=\"noopener\">bag of crystals</a>.",
+          "text": "Interact with the Dragonkin guard to steal the bag of crystals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:gouogg",
+          "html": "Talk to Sliske to get back a <a href=\"https://runescape.wiki/w/Cloth_strip\" target=\"_blank\" rel=\"noopener\">cloth strip</a>.",
+          "text": "Talk to Sliske to get back a cloth strip.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:151khlb",
+          "html": "Use the bag of crystals on the latrine to get an empty bottle.",
+          "text": "Use the bag of crystals on the latrine to get an empty bottle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1atk23n",
+          "html": "Use the cloth strip on the empty bottle to create a <a href=\"https://runescape.wiki/w/Bottle_on_a_string\" target=\"_blank\" rel=\"noopener\">bottle on a string</a>.",
+          "text": "Use the cloth strip on the empty bottle to create a bottle on a string.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:dkek5h",
+          "html": "Use the bottle on a string on the latrine to get a <a href=\"https://runescape.wiki/w/Bottle_of_acid\" target=\"_blank\" rel=\"noopener\">bottle of acid</a>.",
+          "text": "Use the bottle on a string on the latrine to get a bottle of acid.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1lgokz3-2",
+          "html": "Talk to Sliske.",
+          "text": "Talk to Sliske.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1c73v23",
+          "html": "Use the bottle of acid on your <a href=\"https://runescape.wiki/w/Cell_door_(Kindred_Spirits)\" target=\"_blank\" rel=\"noopener\">cell door</a>.",
+          "text": "Use the bottle of acid on your cell door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:1lgokz3-3",
+          "html": "Talk to Sliske.",
+          "text": "Talk to Sliske.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:c5gycj",
+          "html": "Exit through either door.",
+          "text": "Exit through either door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escaping-the-prison:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "All right Sliske, I'll do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-games",
+      "title": "The games",
+      "anchor": "The_games",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Kindred_Spirits_maze_solution.png/199px-Kindred_Spirits_maze_solution.png?74819",
+          "width": 199,
+          "height": 235,
+          "alt": "Maze with solution",
+          "caption": "Maze with solution",
+          "href": "https://runescape.wiki/w/File:Kindred_Spirits_maze_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-games:19y2d8q",
+          "html": "<i>Enter</i> the fighting pit directly south.",
+          "text": "Enter the fighting pit directly south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:1p117o1",
+          "html": "Talk to Dharok.",
+          "text": "Talk to Dharok.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "We need to solve this."
+                },
+                {
+                  "key": "2",
+                  "text": "Why not let them kill you?"
+                },
+                {
+                  "key": "2",
+                  "text": "You are already dead."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:1p3p650",
+          "html": "After Dharok dies, talk to him again.",
+          "text": "After Dharok dies, talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:194u3zg",
+          "html": "Go north, navigate to the centre of the maze. Use the map here as reference.",
+          "text": "Go north, navigate to the centre of the maze. Use the map here as reference.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:1pqzqcq",
+              "html": "First choice.",
+              "text": "First choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should go left."
+                    },
+                    {
+                      "key": "1",
+                      "text": "You'd let someone else be hurt?"
+                    },
+                    {
+                      "key": "2",
+                      "text": "That's no reason to hurt someone else."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:1w5qncu",
+              "html": "Second choice.",
+              "text": "Second choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should be hurt."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Then suffer now so it won't be as bad later."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Think about the innocents Ahrim."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:6sktsl",
+              "html": "Third choice.",
+              "text": "Third choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should be hurt."
+                    },
+                    {
+                      "key": "2",
+                      "text": "It's more practical to hurt you."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Sliske won't kill you, he wants you at the end."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:8t8yxm",
+              "html": "Fourth choice.",
+              "text": "Fourth choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should be hurt."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Going west gets it over with faster."
+                    },
+                    {
+                      "key": "2",
+                      "text": "It's the hesitation that makes it worse."
+                    },
+                    {
+                      "key": "1",
+                      "text": "So make there be only one choice - you."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:ncebp1",
+              "html": "Fifth choice.",
+              "text": "Fifth choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should be hurt."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Don't be weak Ahrim."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Then fight, Ahrim!"
+                    },
+                    {
+                      "key": "1",
+                      "text": "You'll remember it as a moment of weakness."
+                    },
+                    {
+                      "key": "2",
+                      "text": "You're Saradomin's holy warrior."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:194u3zg:11qra2o",
+              "html": "Sixth choice.",
+              "text": "Sixth choice.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I think Ahrim should be hurt."
+                    },
+                    {
+                      "key": "1",
+                      "text": "You're pathetic Ahrim."
+                    },
+                    {
+                      "key": "3",
+                      "text": "A disappointment."
+                    },
+                    {
+                      "key": "3",
+                      "text": "...knows he's strong enough to continue."
+                    },
+                    {
+                      "key": "2",
+                      "text": "...Saradomin's greatest soldier."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-games:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:9mn8em",
+          "html": "<i>Enter</i> the <a href=\"https://runescape.wiki/w/Impressive_doorway\" target=\"_blank\" rel=\"noopener\">impressive doorway</a>.",
+          "text": "Enter the impressive doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:x185x1",
+          "html": "<i>Talk to</i> Verac.",
+          "text": "Talk to Verac.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I need the Saradomin key."
+                },
+                {
+                  "key": "1",
+                  "text": "Make the cut"
+                },
+                {
+                  "key": "1",
+                  "text": "Reach inside"
+                },
+                {
+                  "key": "1",
+                  "text": "Go deeper"
+                },
+                {
+                  "key": "1",
+                  "text": "Pull harder"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:af41tw",
+          "html": "<i>Unlock</i> the <a href=\"https://runescape.wiki/w/Saradomin_statue_(Kindred_Spirits)\" target=\"_blank\" rel=\"noopener\">Saradomin statue</a>.",
+          "text": "Unlock the Saradomin statue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:x185x1-2",
+          "html": "Talk to Verac.",
+          "text": "Talk to Verac.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:1wlhj4o",
+          "html": "Pick up the 4 books in the next rooms (do not use area loot to pick up the books).",
+          "text": "Pick up the 4 books in the next rooms (do not use area loot to pick up the books).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:x4ntzm",
+          "html": "<i>Investigate</i> the Orrery in the larger room against the western wall.",
+          "text": "Investigate the Orrery in the larger room against the western wall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:1j5a97s",
+          "html": "Investigate the <a href=\"https://runescape.wiki/w/Shadow_focus\" target=\"_blank\" rel=\"noopener\">shadow focus</a> in the centre.",
+          "text": "Investigate the shadow focus in the centre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-games:1j5a97s:1afddz3",
+              "html": "If no cutscene occurs, lobby and pick up the books again, without area loot.",
+              "text": "If no cutscene occurs, lobby and pick up the books again, without area loot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-games:168p25r",
+          "html": "Investigate the lever.",
+          "text": "Investigate the lever.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Investigate the lever."
+                },
+                {
+                  "key": "1",
+                  "text": "Heroically"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:u0seid",
+          "html": "Watch or skip the cutscene.",
+          "text": "Watch or skip the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:zdxecp",
+          "html": "Escape in 120 seconds.",
+          "text": "Escape in 120 seconds.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-games:zdxecp:1rn7gww",
+              "html": "Run to the illuminated areas and try to climb the ropes.",
+              "text": "Run to the illuminated areas and try to climb the ropes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:zdxecp:epms58",
+              "html": "Right-click <i>check</i> on the ropes first to check if they&#39;re climbable. Using the wrong rope will result in you taking damage and getting stunned.",
+              "text": "Right-click check on the ropes first to check if they're climbable. Using the wrong rope will result in you taking damage and getting stunned.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:zdxecp:33lcx8",
+              "html": "Use <a href=\"https://runescape.wiki/w/Freedom\" target=\"_blank\" rel=\"noopener\">Freedom</a> and <a href=\"https://runescape.wiki/w/Anticipation\" target=\"_blank\" rel=\"noopener\">Anticipation</a> where possible.",
+              "text": "Use Freedom and Anticipation where possible.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-games:zdxecp:cak5sq",
+              "html": "The falling rocks can kill you (which will be an <b>unsafe</b> death), but running out of time will only result in the escape sequence being reset. If either happens, the minimap will be usable in the next escape attempt.",
+              "text": "The falling rocks can kill you (which will be an unsafe death), but running out of time will only result in the escape sequence being reset. If either happens, the minimap will be usable in the next escape attempt.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-games:1p117o1-2",
+          "html": "Talk to Dharok.",
+          "text": "Talk to Dharok.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-games:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Kindred_Spirits_reward.png?1ac77",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Kindred_Spirits_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Herblore_Lamp_(Kindred_Spirits)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Crafting_Lamp_(Kindred_Spirits)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Smithing_Lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Agility_Lamp_(Kindred_Spirits)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": [
+          "If you do not have four free backpack spaces, you must speak to <a href=\"https://runescape.wiki/w/Major_Mary_Rancour\" target=\"_blank\" rel=\"noopener\">Major Mary Rancour</a> at her post in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a> to claim the lamps."
+        ]
+      },
+      {
+        "html": "Access to a new Barrows sister, <a href=\"https://runescape.wiki/w/Linza_the_Disgraced\" target=\"_blank\" rel=\"noopener\">Linza the Disgraced</a>, and <a href=\"https://runescape.wiki/w/Linza_the_Disgraced%27s_equipment\" target=\"_blank\" rel=\"noopener\">her equipment</a>",
+        "text": "Access to a new Barrows sister, Linza the Disgraced, and her equipment",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Grip of the Gods",
+      "where": ""
+    },
+    {
+      "name": "Hanging in the Balance",
+      "where": ""
+    },
+    {
+      "name": "Moral Maze",
+      "where": ""
+    },
+    {
+      "name": "Run, Escape!",
+      "where": ""
+    },
+    {
+      "name": "Sliske's Cellmate",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

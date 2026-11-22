@@ -1,0 +1,414 @@
+{
+  "format": 1,
+  "id": "soul-searching",
+  "title": "Soul Searching",
+  "page": "Soul Searching/Quick guide",
+  "rev": 37212240,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">Suspicious Stranger</a> and then eavesdrop on their conversation in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1817,
+      "lon": 1081,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 742,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Soul_Searching/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Necromancy!",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:4p3kdc",
+          "html": "3 <a href=\"https://runescape.wiki/w/Cadava_berries\" target=\"_blank\" rel=\"noopener\">cadava berries</a>",
+          "text": "3 cadava berries",
+          "alternatives": []
+        },
+        {
+          "id": "req:1ahue3u",
+          "html": "10 <a href=\"https://runescape.wiki/w/Fishing_bait\" target=\"_blank\" rel=\"noopener\">fishing bait</a>",
+          "text": "10 fishing bait",
+          "alternatives": []
+        },
+        {
+          "id": "req:7g2twl",
+          "html": "<a href=\"https://runescape.wiki/w/Antipoison#(3)\" target=\"_blank\" rel=\"noopener\">Antipoison (3)</a>",
+          "text": "Antipoison (3)",
+          "alternatives": []
+        },
+        {
+          "id": "req:prjpgy",
+          "html": "<a href=\"https://runescape.wiki/w/Charcoal\" target=\"_blank\" rel=\"noopener\">Charcoal</a>",
+          "text": "Charcoal",
+          "alternatives": []
+        },
+        {
+          "id": "req:1pzof4p",
+          "html": "<a href=\"https://runescape.wiki/w/Papyrus\" target=\"_blank\" rel=\"noopener\">Papyrus</a>",
+          "text": "Papyrus",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1jl9bgc",
+          "html": "<a href=\"https://runescape.wiki/w/City_of_Um_lodestone\" target=\"_blank\" rel=\"noopener\">City of Um lodestone</a> activated, <a href=\"https://runescape.wiki/w/Spirit_rune\" target=\"_blank\" rel=\"noopener\">spirit runes</a> or <a href=\"https://runescape.wiki/w/Underworld_Grimoire\" target=\"_blank\" rel=\"noopener\">Underworld Grimoire</a> (2 or higher) for teleportation to the <a href=\"https://runescape.wiki/w/Um_ritual_site\" target=\"_blank\" rel=\"noopener\">Um ritual site</a>",
+          "text": "City of Um lodestone activated, spirit runes or Underworld Grimoire (2 or higher) for teleportation to the Um ritual site",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "suspicious-stranger",
+      "title": "Suspicious Stranger",
+      "anchor": "Suspicious_Stranger",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "suspicious-stranger:83r3f2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trista\" target=\"_blank\" rel=\"noopener\">Trista</a> on the dock north of <a href=\"https://runescape.wiki/w/Soul_Supplies\" target=\"_blank\" rel=\"noopener\">Soul Supplies</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Trista on the dock north of Soul Supplies in the City of Um.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "suspicious-stranger:zuloqb",
+          "html": "Choose the &quot;Eavesdrop&quot; option on Trista.",
+          "text": "Choose the \"Eavesdrop\" option on Trista.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "death",
+      "title": "Death",
+      "anchor": "Death",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "death:8zuqih",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the main plaza of the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Death in the main plaza of the City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Soul Searching'"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "death:ygwxzo",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">Suspicious Stranger</a> on the dock where <a href=\"https://runescape.wiki/w/Trista\" target=\"_blank\" rel=\"noopener\">Trista</a> was earlier.",
+          "text": "Talk to the Suspicious Stranger on the dock where Trista was earlier.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Convince"
+                },
+                {
+                  "key": "2",
+                  "text": "Persuade."
+                },
+                {
+                  "key": "3",
+                  "text": "Threaten."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "death:1e472j6",
+          "html": "Talk to Death in the City of Um.",
+          "text": "Talk to Death in the City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Soul Searching'"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "malignius",
+      "title": "Malignius",
+      "anchor": "Malignius",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "malignius:bring:t84utc",
+              "html": "3 <a href=\"https://runescape.wiki/w/Cadava_berries\" target=\"_blank\" rel=\"noopener\">Cadava berries</a>",
+              "text": "3 Cadava berries"
+            },
+            {
+              "id": "malignius:bring:1ahue3u",
+              "html": "10 <a href=\"https://runescape.wiki/w/Fishing_bait\" target=\"_blank\" rel=\"noopener\">fishing bait</a>",
+              "text": "10 fishing bait"
+            },
+            {
+              "id": "malignius:bring:7g2twl",
+              "html": "<a href=\"https://runescape.wiki/w/Antipoison#(3)\" target=\"_blank\" rel=\"noopener\">Antipoison (3)</a>",
+              "text": "Antipoison (3)"
+            },
+            {
+              "id": "malignius:bring:prjpgy",
+              "html": "<a href=\"https://runescape.wiki/w/Charcoal\" target=\"_blank\" rel=\"noopener\">Charcoal</a>",
+              "text": "Charcoal"
+            },
+            {
+              "id": "malignius:bring:1pzof4p",
+              "html": "<a href=\"https://runescape.wiki/w/Papyrus\" target=\"_blank\" rel=\"noopener\">Papyrus</a>",
+              "text": "Papyrus"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "malignius:1cx06t7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Malignius_Mortifer\" target=\"_blank\" rel=\"noopener\">Malignius Mortifer</a> at the <a href=\"https://runescape.wiki/w/Um_ritual_site\" target=\"_blank\" rel=\"noopener\">Um ritual site</a> with the required items in your <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a>.",
+          "text": "Talk to Malignius Mortifer at the Um ritual site with the required items in your backpack.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Quests."
+                },
+                {
+                  "key": "?",
+                  "text": "Soul Searching."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "malignius:1xwtnek",
+          "html": "Return to the dock with the <a href=\"https://runescape.wiki/w/Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">Suspicious Stranger</a>.",
+          "text": "Return to the dock with the Suspicious Stranger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "zombification",
+      "title": "Zombification",
+      "anchor": "Zombification",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "zombification:bring:n5gqq7",
+              "html": "<a href=\"https://runescape.wiki/w/Potion_of_zombification\" target=\"_blank\" rel=\"noopener\">Potion of zombification</a>",
+              "text": "Potion of zombification"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "zombification:1hgsmtz",
+          "html": "Drink the potion of zombification at least 8 paces away from the <a href=\"https://runescape.wiki/w/Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">Suspicious Stranger</a> but still closer than the bottom of the stairs to transmogrify into a zombie.",
+          "text": "Drink the potion of zombification at least 8 paces away from the Suspicious Stranger but still closer than the bottom of the stairs to transmogrify into a zombie.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombification:1jvmk8u",
+          "html": "Talk to the Suspicious Stranger.",
+          "text": "Talk to the Suspicious Stranger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombification:1vgrt5y",
+          "html": "Board the northern <a href=\"https://runescape.wiki/w/Gondola#Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">gondola</a>.",
+          "text": "Board the northern gondola.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombification:qrjka8",
+          "html": "Continue dialogue with <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a>.",
+          "text": "Continue dialogue with Icthlarin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What now? (Continue Quest)"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombification:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Soul_Searching_reward.png?443bd",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Soul_Searching_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Sanctum_of_Rebirth\" target=\"_blank\" rel=\"noopener\">Sanctum of Rebirth</a> dungeon",
+        "text": "Access to the Sanctum of Rebirth dungeon",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Sanctum of Rebirth",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Soul_Searching_(achievement)\" target=\"_blank\" rel=\"noopener\">Soul Searching</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    }
+  ]
+}

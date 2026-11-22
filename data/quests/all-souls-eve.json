@@ -1,0 +1,578 @@
+{
+  "format": 1,
+  "id": "all-souls-eve",
+  "title": "All Souls' Eve",
+  "page": "All Souls' Eve/Quick guide",
+  "rev": 37220373,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the courtyard of the <a href=\"https://runescape.wiki/w/Harvest_Hollow\" target=\"_blank\" rel=\"noopener\">Harvest Hollow</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1709,
+      "lon": 608,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 752,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/All_Souls'_Eve/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Necromancy!",
+        "depth": 1
+      },
+      {
+        "text": "Field of Screams",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:aomy3q",
+          "html": "Five pieces of cooked food",
+          "text": "Five pieces of cooked food",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:18kawo3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in <a href=\"https://runescape.wiki/w/Harvest_Hollow\" target=\"_blank\" rel=\"noopener\">Harvest Hollow</a>.",
+          "text": "Talk to Death in Harvest Hollow.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:1y3zvii",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Frank\" target=\"_blank\" rel=\"noopener\">Frank</a>.",
+          "text": "Talk to Frank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "evening-s-entertainment",
+      "title": "Evening's entertainment",
+      "anchor": "Evening's_entertainment",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "evening-s-entertainment:bring:brj9eg",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "evening-s-entertainment:1682jqo",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/War\" target=\"_blank\" rel=\"noopener\">War</a>.",
+          "text": "Talk to War.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evening-s-entertainment:q5w2l1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a> on the stage to the southeast.",
+          "text": "Talk to Lady Grey on the stage to the southeast.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evening-s-entertainment:175xbav",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> and search one of the <a href=\"https://runescape.wiki/w/Pub_table\" target=\"_blank\" rel=\"noopener\">pub tables</a> around the stage in the city square to find <a href=\"https://runescape.wiki/w/Lady_Grey%27s_set_list\" target=\"_blank\" rel=\"noopener\">Lady Grey&#39;s set list</a>. You may have to search the same table multiple times.",
+          "text": "Go to the City of Um and search one of the pub tables around the stage in the city square to find Lady Grey's set list. You may have to search the same table multiple times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evening-s-entertainment:i5s9kb",
+          "html": "Go back to Harvest Hollow and give Lady Grey her set list.",
+          "text": "Go back to Harvest Hollow and give Lady Grey her set list.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "party-food",
+      "title": "Party food",
+      "anchor": "Party_food",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "party-food:bring:9zuujv",
+              "html": "5 pieces of cooked food",
+              "text": "5 pieces of cooked food"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "party-food:1y3zvii",
+          "html": "Talk to Frank.",
+          "text": "Talk to Frank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "party-food:14hmfvs",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Famine\" target=\"_blank\" rel=\"noopener\">Famine</a>.",
+          "text": "Talk to Famine.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "party-food:ict6n2",
+          "html": "Go to the Harvest Hollow bonfire to the southwest and use any five pieces of cooked food on the bonfire to burn it, which turns into ashes.",
+          "text": "Go to the Harvest Hollow bonfire to the southwest and use any five pieces of cooked food on the bonfire to burn it, which turns into ashes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "party-food:14hmfvs-2",
+          "html": "Talk to Famine.",
+          "text": "Talk to Famine.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "a-large-drinks-order",
+      "title": "A large drinks order",
+      "anchor": "A_large_drinks_order",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "a-large-drinks-order:1y3zvii",
+          "html": "Talk to Frank.",
+          "text": "Talk to Frank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-large-drinks-order:1xghu2o",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Pestilence\" target=\"_blank\" rel=\"noopener\">Pestilence</a>.",
+          "text": "Talk to Pestilence.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-large-drinks-order:1xqlg0z",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/The_Last_Call\" target=\"_blank\" rel=\"noopener\">the Last Call</a> pub in the City of Um and ring the <a href=\"https://runescape.wiki/w/Bell_(The_Last_Call)\" target=\"_blank\" rel=\"noopener\">bell</a> at the southwest corner of the bar countertop to alert <a href=\"https://runescape.wiki/w/Bart\" target=\"_blank\" rel=\"noopener\">Bart</a>.",
+          "text": "Go to the the Last Call pub in the City of Um and ring the bell at the southwest corner of the bar countertop to alert Bart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-large-drinks-order:kghn9r",
+          "html": "Go back to Harvest Hollow and talk to Frank.",
+          "text": "Go back to Harvest Hollow and talk to Frank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "trick-of-treat",
+      "title": "Trick of Treat",
+      "anchor": "Trick_of_Treat",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "trick-of-treat:1axtbmg",
+          "html": "Talk to Death.",
+          "text": "Talk to Death.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trick-of-treat:1jewrss",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Death%27s_office\" target=\"_blank\" rel=\"noopener\">Death&#39;s office</a> and talk to Death. Get there by either:",
+          "text": "Go to Death's office and talk to Death. Get there by either:",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Continue 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "trick-of-treat:1jewrss:1lbtzpb",
+              "html": "Enter from <a href=\"https://runescape.wiki/w/Death%27s_Hourglass\" target=\"_blank\" rel=\"noopener\">Death&#39;s Hourglass</a> in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+              "text": "Enter from Death's Hourglass in Draynor Village.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Continue 'All Souls' Eve'."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "trick-of-treat:1jewrss:38978q",
+              "html": "Enter from the <a href=\"https://runescape.wiki/w/Portal_(War%27s_Retreat)\" target=\"_blank\" rel=\"noopener\">Portal (War&#39;s Retreat)</a> in <a href=\"https://runescape.wiki/w/War%27s_Retreat\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat</a>.",
+              "text": "Enter from the Portal (War's Retreat) in War's Retreat.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Continue 'All Souls' Eve'."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "trick-of-treat:6u7mpa",
+          "html": "Interact with the <a href=\"https://runescape.wiki/w/Trick_or_Treat_bowl_(All_Souls%27_Eve)\" target=\"_blank\" rel=\"noopener\">Trick or Treat bowl</a> in front of Death&#39;s desk.",
+          "text": "Interact with the Trick or Treat bowl in front of Death's desk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trick-of-treat:1axtbmg-2",
+          "html": "Talk to Death.",
+          "text": "Talk to Death.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trick-of-treat:16jhvmc",
+          "html": "Interact with the <a href=\"https://runescape.wiki/w/Trick_or_Treat_bowl_(All_Souls%27_Eve)\" target=\"_blank\" rel=\"noopener\">Trick or Treat bowl</a> again.",
+          "text": "Interact with the Trick or Treat bowl again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trick-of-treat:1axtbmg-3",
+          "html": "Talk to Death.",
+          "text": "Talk to Death.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:kghn9r",
+          "html": "Go back to Harvest Hollow and talk to Frank.",
+          "text": "Go back to Harvest Hollow and talk to Frank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1axtbmg",
+          "html": "Talk to Death.",
+          "text": "Talk to Death.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'All Souls' Eve'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/All_Souls%27_Eve_reward.png?86c48",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:All_Souls%27_Eve_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Furniture_plans:_Trick_or_Treat_bowl\" target=\"_blank\" rel=\"noopener\">Furniture plans: Trick or Treat bowl</a> (automatically unlocked)",
+        "text": "Furniture plans: Trick or Treat bowl (automatically unlocked)",
+        "subs": []
+      },
+      {
+        "html": "The title <a href=\"https://runescape.wiki/w/The_Dead_Cool\" target=\"_blank\" rel=\"noopener\">the Dead Cool</a>",
+        "text": "The title the Dead Cool",
+        "subs": []
+      },
+      {
+        "html": "10,000 <a href=\"https://runescape.wiki/w/Spooky_tokens\" target=\"_blank\" rel=\"noopener\">spooky tokens</a>",
+        "text": "10,000 spooky tokens",
+        "subs": []
+      },
+      {
+        "html": "Emotes from previous Halloween events (if not unlocked)",
+        "text": "Emotes from previous Halloween events (if not unlocked)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Bursting_trick_or_treat_bag_(All_Souls%27_Eve)\" target=\"_blank\" rel=\"noopener\">Bursting trick or treat bag</a> (obtained during the quest), which contains:",
+        "text": "Bursting trick or treat bag (obtained during the quest), which contains:",
+        "subs": [
+          "3 <a href=\"https://runescape.wiki/w/Regular_ritual_candle\" target=\"_blank\" rel=\"noopener\">regular ritual candles</a>",
+          "5 <a href=\"https://runescape.wiki/w/Gold_charm\" target=\"_blank\" rel=\"noopener\">gold charms</a>",
+          "100 spooky tokens"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

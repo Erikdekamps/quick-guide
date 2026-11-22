@@ -1,0 +1,511 @@
+{
+  "format": 1,
+  "id": "olafs-quest",
+  "title": "Olaf's Quest",
+  "page": "Olaf's Quest/Quick guide",
+  "rev": 36546168,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Olaf_Hradson\" target=\"_blank\" rel=\"noopener\">Olaf Hradson</a> in his &#39;camp&#39; north-east of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>, south of the <a href=\"https://runescape.wiki/w/Rellekka_Hunter_area\" target=\"_blank\" rel=\"noopener\">Rellekka Hunter area</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3729,
+      "lon": 2726,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Olaf's_Quest/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Fremennik Trials",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Firemaking",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Ulfric (Level 49)",
+        "name": "Ulfric",
+        "count": null,
+        "level": "49",
+        "note": ""
+      },
+      {
+        "text": "Skeleton fremennik (Level 23, 28, or 30)",
+        "name": "Skeleton fremennik",
+        "count": null,
+        "level": "23, 28, or 30",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1cqyy76",
+          "html": "43 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> and/or <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> for low-levelled players, or prayer boosting items, which should lessen the need for food",
+          "text": "43 Prayer and/or food for low-levelled players, or prayer boosting items, which should lessen the need for food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13f7vs",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a> or access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> network",
+          "text": "Activated Fremennik Province lodestone or access to the fairy ring network",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1y8914t",
+          "html": "8 free inventory spaces to store <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a> and <a href=\"https://runescape.wiki/w/Barrel\" target=\"_blank\" rel=\"noopener\">barrels</a> (can be obtained during quest)",
+          "text": "8 free inventory spaces to store rope and barrels (can be obtained during quest)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "family-honour",
+      "title": "Family honour",
+      "anchor": "Family_honour",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "family-honour:b5o708",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Olaf_Hradson\" target=\"_blank\" rel=\"noopener\">Olaf Hradson</a> north-east of Rellekka.",
+          "text": "Talk to Olaf Hradson north-east of Rellekka.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-honour:1ps2lbh",
+          "html": "Go east up the icy mountain and chop the <a href=\"https://runescape.wiki/w/Windswept_tree\" target=\"_blank\" rel=\"noopener\">windswept tree</a>.",
+          "text": "Go east up the icy mountain and chop the windswept tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-honour:1l8w2jz",
+          "html": "Return and talk to Olaf.",
+          "text": "Return and talk to Olaf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-windswept-tree",
+      "title": "The windswept tree",
+      "anchor": "The_windswept_tree",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-windswept-tree:1bgdw9f",
+          "html": "Go to Rellekka and talk to <a href=\"https://runescape.wiki/w/Ingrid_Hradson\" target=\"_blank\" rel=\"noopener\">Ingrid Hradson</a> next to the well in the south-east.",
+          "text": "Go to Rellekka and talk to Ingrid Hradson next to the well in the south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-windswept-tree:1e6zy59",
+          "html": "Head north and talk to <a href=\"https://runescape.wiki/w/Volf_Olafson\" target=\"_blank\" rel=\"noopener\">Volf Olafson</a> who is wandering outside the helmet shop.",
+          "text": "Head north and talk to Volf Olafson who is wandering outside the helmet shop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-windswept-tree:1l8w2jz",
+          "html": "Return and talk to Olaf.",
+          "text": "Return and talk to Olaf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-windswept-tree:15e8oh7",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Damp_planks\" target=\"_blank\" rel=\"noopener\">damp planks</a> on the embers on the ground next to him.",
+          "text": "Use the damp planks on the embers on the ground next to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-windswept-tree:19lm02e",
+          "html": "Talk to Olaf.",
+          "text": "Talk to Olaf.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Alright, here, have some food. Now give me the map."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-windswept-tree:1skf5zm",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Sven%27s_last_map\" target=\"_blank\" rel=\"noopener\">map</a>.",
+          "text": "Read the map.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "brine-rat-cavern",
+      "title": "Brine Rat Cavern",
+      "anchor": "Brine_Rat_Cavern",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "brine-rat-cavern:p1nqud",
+          "html": "Go back up the icy mountain and dig west of the windswept tree (left-click a pile of snow).",
+          "text": "Go back up the icy mountain and dig west of the windswept tree (left-click a pile of snow).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "brine-rat-cavern:ro58l4",
+          "html": "Once inside the caverns, follow the path east and then north, continuing along the northern path until you reach a &quot;picture wall&quot; door.",
+          "text": "Once inside the caverns, follow the path east and then north, continuing along the northern path until you reach a \"picture wall\" door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "brine-rat-cavern:1wu5qc1",
+          "html": "Kill a nearby <a href=\"https://runescape.wiki/w/Skeleton_fremennik\" target=\"_blank\" rel=\"noopener\">skeleton</a> and pick up the <a href=\"https://runescape.wiki/w/Key_(Olaf%27s_Quest)\" target=\"_blank\" rel=\"noopener\">key</a> that it drops from the ground.",
+          "text": "Kill a nearby skeleton and pick up the key that it drops from the ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "brine-rat-cavern:qlyhk5",
+          "html": "Search the door and solve the puzzle:",
+          "text": "Search the door and solve the puzzle:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "brine-rat-cavern:qlyhk5:19o4rhx",
+              "html": "Down",
+              "text": "Down",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "brine-rat-cavern:qlyhk5:8humpx",
+              "html": "Right",
+              "text": "Right",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "brine-rat-cavern:qlyhk5:14n06mo",
+              "html": "Left",
+              "text": "Left",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "brine-rat-cavern:qlyhk5:ikr0w0",
+              "html": "Up",
+              "text": "Up",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "brine-rat-cavern:qlyhk5:9mpruy",
+              "html": "Bottom",
+              "text": "Bottom",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "brine-rat-cavern:2he5nd",
+          "html": "Search the door again to pass through.",
+          "text": "Search the door again to pass through.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience",
+      "anchor": "Resilience",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "resilience:1hsvsbk",
+          "html": "In the next area, pick up two rotten barrels and six ropes.",
+          "text": "In the next area, pick up two rotten barrels and six ropes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "resilience:1swdu3w",
+          "html": "Head towards the north-east walkway made of planks and use rotten barrels on the gaps in the walkway.",
+          "text": "Head towards the north-east walkway made of planks and use rotten barrels on the gaps in the walkway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "resilience:1swdu3w:15ko8t1",
+              "html": "Make sure you walk over all obstacles here, running will give you a 100% failure rate.",
+              "text": "Make sure you walk over all obstacles here, running will give you a 100% failure rate.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "resilience:1swdu3w:1mjclc9",
+              "html": "Toggle by clicking the <a href=\"https://runescape.wiki/w/Energy\" target=\"_blank\" rel=\"noopener\">Energy</a> button.",
+              "text": "Toggle by clicking the Energy button.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "resilience:gqtbn7",
+          "html": "Open the gate by clicking the keyhole that matches the key (e.g. if the bottom of the key is triangle, then it goes into the triangle key slot).",
+          "text": "Open the gate by clicking the keyhole that matches the key (e.g. if the bottom of the key is triangle, then it goes into the triangle key slot).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "resilience:gqtbn7:wncqzw",
+              "html": "If you were running, which causes you to slip and fall after this step re obtain the <a href=\"https://runescape.wiki/w/Key_(Olaf%27s_Quest)\" target=\"_blank\" rel=\"noopener\">key</a> before trying again.",
+              "text": "If you were running, which causes you to slip and fall after this step re obtain the key before trying again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "resilience:rox20p",
+          "html": "Attempt to open the chest inside the wrecked ship.",
+          "text": "Attempt to open the chest inside the wrecked ship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "resilience:1yxr0sg",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Ulfric\" target=\"_blank\" rel=\"noopener\">Ulfric</a>.",
+          "text": "Kill Ulfric.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "resilience:1yxr0sg:1y9cli4",
+              "html": "If he spawns again, re-open the chest before killing him a second time.",
+              "text": "If he spawns again, re-open the chest before killing him a second time.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "resilience:1kbcxae",
+          "html": "Attempt to open the chest again and you&#39;ll receive a <a href=\"https://runescape.wiki/w/Parchment_(Olaf%27s_Quest)\" target=\"_blank\" rel=\"noopener\">parchment</a>.",
+          "text": "Attempt to open the chest again and you'll receive a parchment.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "resilience:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Olaf%27s_Quest_reward.png?2bc35",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Olaf%27s_Quest_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "12,000 experience",
+        "text": "12,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+        "text": "20,000 coins",
+        "subs": []
+      },
+      {
+        "html": "4 cut <a href=\"https://runescape.wiki/w/Ruby\" target=\"_blank\" rel=\"noopener\">rubies</a>",
+        "text": "4 cut rubies",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Brine_Rat_Cavern\" target=\"_blank\" rel=\"noopener\">Brine Rat Cavern</a> where you can kill <a href=\"https://runescape.wiki/w/Brine_rat\" target=\"_blank\" rel=\"noopener\">brine rats</a> (requires level 47 <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a>)",
+        "text": "Access to the Brine Rat Cavern where you can kill brine rats (requires level 47 Slayer)",
+        "subs": []
+      },
+      {
+        "html": "A piece of <a href=\"https://runescape.wiki/w/Parchment_(Olaf%27s_Quest)\" target=\"_blank\" rel=\"noopener\">parchment</a> telling you of other shipwrecks with more treasure. Content following up on this teaser has yet to be released.",
+        "text": "A piece of parchment telling you of other shipwrecks with more treasure. Content following up on this teaser has yet to be released.",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Shark\" target=\"_blank\" rel=\"noopener\">shark</a> and <a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">bread</a>",
+        "text": "A shark and bread",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Rising Damp",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

@@ -1,0 +1,385 @@
+{
+  "format": 1,
+  "id": "helping-laniakea-miniquest",
+  "title": "Helping Laniakea (miniquest)",
+  "page": "Helping Laniakea (miniquest)/Quick guide",
+  "rev": 36985155,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a> at the <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">base camp</a> on <a href=\"https://runescape.wiki/w/Anachronia\" target=\"_blank\" rel=\"noopener\">Anachronia</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2356,
+      "lon": 5461,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Helping_Laniakea_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Anachronia base camp tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Hunter",
+        "level": 75,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 55,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Anachronia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:pgfy6d",
+          "html": "<a href=\"https://runescape.wiki/w/Raw_arcane_apoterrasaur_meat\" target=\"_blank\" rel=\"noopener\">Raw arcane apoterrasaur meat</a> (can be bought from the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a> or another player)",
+          "text": "Raw arcane apoterrasaur meat (can be bought from the Grand Exchange or another player)",
+          "alternatives": [
+            "Ironmen: 1-3 <a href=\"https://runescape.wiki/w/Raw_shark\" target=\"_blank\" rel=\"noopener\">Raw sharks</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ei62vv",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> to get to <a href=\"https://runescape.wiki/w/The_Stormbreaker\" target=\"_blank\" rel=\"noopener\">The Stormbreaker</a> faster",
+          "text": "Archaeology journal to get to The Stormbreaker faster",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1qh28ep",
+          "html": "Ways to keep up run energy such as <a href=\"https://runescape.wiki/w/Super_energy\" target=\"_blank\" rel=\"noopener\">super energy</a> potions, especially at low <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> levels",
+          "text": "Ways to keep up run energy such as super energy potions, especially at low Agility levels",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "embarking-on-an-adventure",
+      "title": "Embarking on an adventure",
+      "anchor": "Embarking_on_an_adventure",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "embarking-on-an-adventure:h17mlx",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a> at either <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">base camp</a> on <a href=\"https://runescape.wiki/w/Anachronia\" target=\"_blank\" rel=\"noopener\">Anachronia</a> or the south-eastern part of the island (using <a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a>).",
+          "text": "Talk to Laniakea at either base camp on Anachronia or the south-eastern part of the island (using Slayer cape).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Let's talk about you."
+                },
+                {
+                  "key": "4",
+                  "text": "Tell me about your poisons."
+                },
+                {
+                  "key": "1",
+                  "text": "I'll help you out."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "embarking-on-an-adventure:1ouhk71",
+          "html": "Collect the following items (can be quickly collected in order by following the <a href=\"https://runescape.wiki/w/Anachronia_Agility_Course\" target=\"_blank\" rel=\"noopener\">agility course</a> anticlockwise, see pictures below):",
+          "text": "Collect the following items (can be quickly collected in order by following the agility course anticlockwise, see pictures below):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:1ouhk71:1q31uh6",
+              "html": "<a href=\"https://runescape.wiki/w/Old_spring\" target=\"_blank\" rel=\"noopener\">Old spring</a> by searching crates next to <i><a href=\"https://runescape.wiki/w/The_Stormbreaker\" target=\"_blank\" rel=\"noopener\">The Stormbreaker</a></i>.",
+              "text": "Old spring by searching crates next to The Stormbreaker.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:1q31uh6:b6112g",
+                  "html": "Use archaeology journal to teleport to the Archaeology Campus and run north-east to The Stormbreaker and board it",
+                  "text": "Use archaeology journal to teleport to the Archaeology Campus and run north-east to The Stormbreaker and board it",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:1ouhk71:10zu5z4",
+              "html": "A <a href=\"https://runescape.wiki/w/Shimmering_feather\" target=\"_blank\" rel=\"noopener\">shimmering feather</a> from the <a href=\"https://runescape.wiki/w/Strange_bird\" target=\"_blank\" rel=\"noopener\">strange bird</a> that can be found on the southern (middle) peninsula of the island.",
+              "text": "A shimmering feather from the strange bird that can be found on the southern (middle) peninsula of the island.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:10zu5z4:1k58e10",
+                  "html": "This is also a short run from the <a href=\"https://runescape.wiki/w/Moksha_ritual_site\" target=\"_blank\" rel=\"noopener\">Moksha ritual site</a>",
+                  "text": "This is also a short run from the Moksha ritual site",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:1ouhk71:go5h3b",
+              "html": "Collect a <a href=\"https://runescape.wiki/w/Block_of_stone\" target=\"_blank\" rel=\"noopener\">block of stone</a> by investigating a rock south of Laniakea&#39;s second location, at the south-eastern part of the island.",
+              "text": "Collect a block of stone by investigating a rock south of Laniakea's second location, at the south-eastern part of the island.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:go5h3b:p3zup",
+                  "html": "Use the <a href=\"https://runescape.wiki/w/Grouping_System\" target=\"_blank\" rel=\"noopener\">Grouping System</a> to teleport to <a href=\"https://runescape.wiki/w/Raksha\" target=\"_blank\" rel=\"noopener\">Raksha</a> under the &quot;Boss Fights&quot; tab and exit the stairway to the west",
+                  "text": "Use the Grouping System to teleport to Raksha under the \"Boss Fights\" tab and exit the stairway to the west",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:go5h3b:1kg7fn1",
+                  "html": "Teleport to <a href=\"https://runescape.wiki/w/Xolo_City\" target=\"_blank\" rel=\"noopener\">Xolo City</a> archaeology site from base camp",
+                  "text": "Teleport to Xolo City archaeology site from base camp",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:go5h3b:102cdo1",
+                  "html": "Use the <a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a> to teleport to Laniakea",
+                  "text": "Use the Slayer cape to teleport to Laniakea",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:1ouhk71:436988",
+              "html": "A <a href=\"https://runescape.wiki/w/Jungle_vine\" target=\"_blank\" rel=\"noopener\">jungle vine</a>, found by investigating the dense jungle vines north-west and across the river from the eastern most <a href=\"https://runescape.wiki/w/Overgrown_idol\" target=\"_blank\" rel=\"noopener\">overgrown idol</a> in the north-eastern corner of the island. It cannot be obtained from the nearby overgrown idols.",
+              "text": "A jungle vine, found by investigating the dense jungle vines north-west and across the river from the eastern most overgrown idol in the north-eastern corner of the island. It cannot be obtained from the nearby overgrown idols.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:1ouhk71:qqez2g",
+              "html": "<a href=\"https://runescape.wiki/w/Ancient_arbuck\" target=\"_blank\" rel=\"noopener\">Ancient arbuck</a>, found by investigating the strange foliage east of the entrance to the <a href=\"https://runescape.wiki/w/Herby_Werby\" target=\"_blank\" rel=\"noopener\">Herby Werby</a> D&amp;D.",
+              "text": "Ancient arbuck, found by investigating the strange foliage east of the entrance to the Herby Werby D&D.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "embarking-on-an-adventure:1ouhk71:qqez2g:3rl5v2",
+                  "html": "Combine it with <a href=\"https://runescape.wiki/w/Raw_arcane_apoterrasaur_meat\" target=\"_blank\" rel=\"noopener\">raw arcane apoterrasaur meat</a> to obtain <a href=\"https://runescape.wiki/w/Herby_meat\" target=\"_blank\" rel=\"noopener\">herby meat</a>.",
+                  "text": "Combine it with raw arcane apoterrasaur meat to obtain herby meat.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "embarking-on-an-adventure:za92tt",
+          "html": "Collect an <a href=\"https://runescape.wiki/w/Immaculate_jungle_stick\" target=\"_blank\" rel=\"noopener\">immaculate jungle stick</a> by doing the following:",
+          "text": "Collect an immaculate jungle stick by doing the following:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:za92tt:qsypf",
+              "html": "Bring the block of stone (collected above) talk to either <a href=\"https://runescape.wiki/w/Eliza\" target=\"_blank\" rel=\"noopener\">Eliza</a> or <a href=\"https://runescape.wiki/w/Alpheus\" target=\"_blank\" rel=\"noopener\">Alpheus</a> in order to get a <a href=\"https://runescape.wiki/w/Dirty_stick\" target=\"_blank\" rel=\"noopener\">dirty stick</a>.",
+              "text": "Bring the block of stone (collected above) talk to either Eliza or Alpheus in order to get a dirty stick.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "embarking-on-an-adventure:za92tt:1lyke5i",
+              "html": "Wash the dirty stick in the <a href=\"https://runescape.wiki/w/Mucky_water\" target=\"_blank\" rel=\"noopener\">mucky water</a> next to Eliza and Alpheus to get the immaculate jungle stick.",
+              "text": "Wash the dirty stick in the mucky water next to Eliza and Alpheus to get the immaculate jungle stick.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:b144wc",
+          "html": "Create a <a href=\"https://runescape.wiki/w/Custom_jungle_fishing_rod\" target=\"_blank\" rel=\"noopener\">custom jungle fishing rod</a> by combining the <a href=\"https://runescape.wiki/w/Immaculate_jungle_stick\" target=\"_blank\" rel=\"noopener\">immaculate jungle stick</a> with the <a href=\"https://runescape.wiki/w/Jungle_vine\" target=\"_blank\" rel=\"noopener\">jungle vine</a>.",
+          "text": "Create a custom jungle fishing rod by combining the immaculate jungle stick with the jungle vine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1yj7cky",
+          "html": "Create a <a href=\"https://runescape.wiki/w/Custom_fishing_lure\" target=\"_blank\" rel=\"noopener\">custom fishing lure</a> by combining <a href=\"https://runescape.wiki/w/Herby_meat\" target=\"_blank\" rel=\"noopener\">herby meat</a>, the <a href=\"https://runescape.wiki/w/Shimmering_feather\" target=\"_blank\" rel=\"noopener\">shimmering feather</a>, and the <a href=\"https://runescape.wiki/w/Old_spring\" target=\"_blank\" rel=\"noopener\">old spring</a>.",
+          "text": "Create a custom fishing lure by combining herby meat, the shimmering feather, and the old spring.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:f8lbe7",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Strange_fishing_spot\" target=\"_blank\" rel=\"noopener\">strange fishing spot</a> found on the west side of the island (see the picture below) and fish for <a href=\"https://runescape.wiki/w/Fugu\" target=\"_blank\" rel=\"noopener\">fugu</a>. The pathway that leads to the fishing spot is by the <a href=\"https://runescape.wiki/w/Cannibal_jadinko\" target=\"_blank\" rel=\"noopener\">cannibal jadinkos</a>. The exact fishing spot is north of the <a href=\"https://runescape.wiki/w/Luminous_snaggler\" target=\"_blank\" rel=\"noopener\">luminous snaggler</a> area. The fishing spot can be reached from the luminous snaggler area.",
+          "text": "Go to the strange fishing spot found on the west side of the island (see the picture below) and fish for fugu. The pathway that leads to the fishing spot is by the cannibal jadinkos. The exact fishing spot is north of the luminous snaggler area. The fishing spot can be reached from the luminous snaggler area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ybfzkz",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a> and give her the fugu.",
+          "text": "Return to Laniakea and give her the fugu.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "locations",
+      "title": "Locations",
+      "anchor": "Locations",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Crate_(Helping_Laniakea)\" target=\"_blank\" rel=\"noopener\">Crates</a> location"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Strange_bird\" target=\"_blank\" rel=\"noopener\">Strange bird</a> location"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Block_of_stone\" target=\"_blank\" rel=\"noopener\">Block of stone</a> location"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Jungle_vine\" target=\"_blank\" rel=\"noopener\">Jungle vine</a> location"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Ancient_arbuck\" target=\"_blank\" rel=\"noopener\">Ancient arbuck</a> location"
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Strange_fishing_spot\" target=\"_blank\" rel=\"noopener\">Strange fishing spot</a> location"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Helping_Laniakea_%28miniquest%29_reward.png?04b62",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Helping_Laniakea_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Totem_of_Intimidation_middle\" target=\"_blank\" rel=\"noopener\">Totem of Intimidation middle</a>",
+        "text": "Totem of Intimidation middle",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

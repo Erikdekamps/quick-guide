@@ -1,0 +1,4954 @@
+{
+  "format": 1,
+  "id": "heroes-quest",
+  "title": "Heroes' Quest",
+  "page": "Heroes' Quest/Quick guide",
+  "rev": 37080477,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Achietties\" target=\"_blank\" rel=\"noopener\">Achietties</a> at the entrance to the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a> in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3514,
+      "lon": 2918,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Heroes'_Quest/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Shield of Arrav",
+        "depth": 1
+      },
+      {
+        "text": "Dragon Slayer",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 53,
+        "note": ""
+      },
+      {
+        "skill": "Fishing",
+        "level": 53,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 25,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Defence",
+        "level": 25,
+        "note": "(only Black Arm Gang members, you may switch your gang) (not required to start)"
+      }
+    ],
+    "otherReqs": [
+      "56 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Entranan firebird (level 1)",
+        "name": "Entranan firebird",
+        "count": null,
+        "level": "1",
+        "note": ""
+      },
+      {
+        "text": "Grip (level 21) (only if completing the quest with a partner and only if part of the Phoenix Gang; does not fight back)",
+        "name": "Grip",
+        "count": null,
+        "level": "21",
+        "note": "(only if completing the quest with a partner and only if part of the Phoenix Gang; does not fight back)"
+      },
+      {
+        "text": "Jailer (level 39) (to obtain the dusty key, if required)",
+        "name": "Jailer",
+        "count": null,
+        "level": "39",
+        "note": "(to obtain the dusty key, if required)"
+      },
+      {
+        "text": "Ice Queen (level 77) (to obtain the ice gloves, if not already found)",
+        "name": "Ice Queen",
+        "count": null,
+        "level": "77",
+        "note": "(to obtain the ice gloves, if not already found)"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Karamja</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Asgarnia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:11pv1vs",
+          "html": "<a href=\"https://runescape.wiki/w/Ice_gloves\" target=\"_blank\" rel=\"noopener\">Ice gloves</a> (can be obtained during the quest)",
+          "text": "Ice gloves (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:anyhiu",
+          "html": "<a href=\"https://runescape.wiki/w/Harralander_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">Harralander potion (unfinished)</a>",
+          "text": "Harralander potion (unfinished)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1mhs1ya",
+          "html": "<a href=\"https://runescape.wiki/w/Fishing_rod\" target=\"_blank\" rel=\"noopener\">Fishing rod</a> (can be obtained during the quest)",
+          "text": "Fishing rod (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:17rm59z",
+          "html": "<a href=\"https://runescape.wiki/w/Fishing_bait\" target=\"_blank\" rel=\"noopener\">Fishing bait</a> if <a href=\"https://runescape.wiki/w/Prawnbroker#List_of_prawn_perks\" target=\"_blank\" rel=\"noopener\">baitless fishing</a> is not unlocked (can be obtained during the quest)",
+          "text": "Fishing bait if baitless fishing is not unlocked (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:npu2nm",
+          "html": "For completing the quest solo:",
+          "text": "For completing the quest solo:",
+          "alternatives": [
+            "Multiple <a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">lockpicks</a> in case of failure, or a <a href=\"https://runescape.wiki/w/Hair_clip\" target=\"_blank\" rel=\"noopener\">hair clip</a>, or <a href=\"https://runescape.wiki/w/Master_thief%27s_lockpick\" target=\"_blank\" rel=\"noopener\">master thief&#39;s lockpick</a> (tool belt works)",
+            "Either one (you may switch your gang):<br>• <a href=\"https://runescape.wiki/w/Black_Arm_Gang\" target=\"_blank\" rel=\"noopener\">Black Arm Gang</a> members: <a href=\"https://runescape.wiki/w/Black_full_helm\" target=\"_blank\" rel=\"noopener\">black full helm</a>, <a href=\"https://runescape.wiki/w/Black_platebody\" target=\"_blank\" rel=\"noopener\">platebody</a> and <a href=\"https://runescape.wiki/w/Black_platelegs\" target=\"_blank\" rel=\"noopener\">platelegs</a> (<a href=\"https://runescape.wiki/w/Black_plateskirt\" target=\"_blank\" rel=\"noopener\">plateskirt</a> will not work; trimmed armour versions also do not work)<br>• <a href=\"https://runescape.wiki/w/Phoenix_Gang\" target=\"_blank\" rel=\"noopener\">Phoenix Gang</a> members: 1,000 coins or <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">ring of charos (a)</a>"
+          ]
+        },
+        {
+          "id": "req:11b5lq0",
+          "html": "For completing the quest with a partner:",
+          "text": "For completing the quest with a partner:",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Black_Arm_Gang\" target=\"_blank\" rel=\"noopener\">Black Arm Gang</a> members: <a href=\"https://runescape.wiki/w/Black_full_helm\" target=\"_blank\" rel=\"noopener\">black full helm</a>, <a href=\"https://runescape.wiki/w/Black_platebody\" target=\"_blank\" rel=\"noopener\">platebody</a> and <a href=\"https://runescape.wiki/w/Black_platelegs\" target=\"_blank\" rel=\"noopener\">platelegs</a> (<a href=\"https://runescape.wiki/w/Black_plateskirt\" target=\"_blank\" rel=\"noopener\">plateskirt</a> will not work)",
+            "<a href=\"https://runescape.wiki/w/Phoenix_Gang\" target=\"_blank\" rel=\"noopener\">Phoenix Gang</a> members: <a href=\"https://runescape.wiki/w/Weapon/Ranged_weapons\" target=\"_blank\" rel=\"noopener\">ranged</a> or <a href=\"https://runescape.wiki/w/Weapon/Magic_weapons\" target=\"_blank\" rel=\"noopener\">magic weapons</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:68frtx",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>, <a href=\"https://runescape.wiki/w/Karamja_lodestone\" target=\"_blank\" rel=\"noopener\">Karamja</a>, <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley</a> (or <a href=\"https://runescape.wiki/w/Catherby_lodestone\" target=\"_blank\" rel=\"noopener\">Catherby</a>) and <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestones</a>",
+          "text": "Activated Burthorpe, Karamja, Taverley (or Catherby) and Varrock lodestones",
+          "alternatives": []
+        },
+        {
+          "id": "rec:60y34g",
+          "html": "<a href=\"https://runescape.wiki/w/Law_altar_teleport\" target=\"_blank\" rel=\"noopener\">Law altar teleport</a> for faster access to <a href=\"https://runescape.wiki/w/Entrana\" target=\"_blank\" rel=\"noopener\">Entrana</a>",
+          "text": "Law altar teleport for faster access to Entrana",
+          "alternatives": []
+        },
+        {
+          "id": "rec:e77nl0",
+          "html": "<a href=\"https://runescape.wiki/w/Dusty_key\" target=\"_blank\" rel=\"noopener\">Dusty key</a> (or level 70 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>; can be obtained during quest; not required if fishing for <a href=\"https://runescape.wiki/w/Lava_eel\" target=\"_blank\" rel=\"noopener\">lava eels</a> in the <a href=\"https://runescape.wiki/w/Lava_Maze\" target=\"_blank\" rel=\"noopener\">Lava Maze</a>) or a <a href=\"https://runescape.wiki/w/Mask_of_the_Black_Demon\" target=\"_blank\" rel=\"noopener\">Mask of the Black Demon</a> to teleport to <a href=\"https://runescape.wiki/w/Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">Taverley Dungeon</a>",
+          "text": "Dusty key (or level 70 Agility; can be obtained during quest; not required if fishing for lava eels in the Lava Maze) or a Mask of the Black Demon to teleport to Taverley Dungeon",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:8io6g1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Achietties\" target=\"_blank\" rel=\"noopener\">Achietties</a> outside the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a> in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>.",
+          "text": "Talk to Achietties outside the Heroes' Guild in Burthorpe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "The feather, lava eel, and armband parts can be done in any order."
+        }
+      ]
+    },
+    {
+      "id": "lava-eel",
+      "title": "Lava eel",
+      "anchor": "Lava_eel",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">Taverley Dungeon</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 9760,
+          "lon": 2892,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 17,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2895.5,
+                  9769.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2896.5,
+                  9766.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2900.5,
+                  9764.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2892.5,
+                  9799.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2904.5,
+                  9796.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2909.5,
+                  9806.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2911.5,
+                  9797.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2911.5,
+                  9808.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2917.5,
+                  9801.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Baby_blue_dragon\" title=\"Baby blue dragon\">Baby blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2854.5,
+                  9776.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2854.5,
+                  9781.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2858.5,
+                  9772.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2860.5,
+                  9763.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2860.5,
+                  9781.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2862.5,
+                  9776.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2863.5,
+                  9769.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2866.5,
+                  9783.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2869.5,
+                  9776.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2871.5,
+                  9783.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2875.5,
+                  9776.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_demon\" title=\"Black demon\">Black demon</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2829.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_dragon\" title=\"Black dragon\">Black dragon</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2835.5,
+                  9824.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_dragon\" title=\"Black dragon\">Black dragon</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2888.5,
+                  9678.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2888.5,
+                  9682.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2891.5,
+                  9693.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2891.5,
+                  9701.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2892.5,
+                  9696.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2892.5,
+                  9710.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2893.5,
+                  9702.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2895.5,
+                  9711.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2897.5,
+                  9675.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2898.5,
+                  9688.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2899.5,
+                  9682.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2899.5,
+                  9705.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2899.5,
+                  9709.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2900.5,
+                  9678.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2900.5,
+                  9701.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2901.5,
+                  9711.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2902.5,
+                  9693.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2904.5,
+                  9690.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2905.5,
+                  9692.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2906.5,
+                  9673.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2906.5,
+                  9687.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2906.5,
+                  9706.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2907.5,
+                  9676.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2907.5,
+                  9711.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2908.5,
+                  9694.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2908.5,
+                  9702.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2910.5,
+                  9691.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2911.5,
+                  9677.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2912.5,
+                  9682.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2912.5,
+                  9688.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2913.5,
+                  9694.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2915.5,
+                  9703.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2915.5,
+                  9710.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2916.5,
+                  9677.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2916.5,
+                  9692.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2917.5,
+                  9682.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2917.5,
+                  9695.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2919.5,
+                  9679.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2920.5,
+                  9702.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2921.5,
+                  9708.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2923.5,
+                  9710.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2939.5,
+                  9812.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2943.5,
+                  9801.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Black_Knight\" title=\"Black Knight\">Black Knight</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2897.5,
+                  9797.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Blue_dragon\" title=\"Blue dragon\">Blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2899.5,
+                  9802.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Blue_dragon\" title=\"Blue dragon\">Blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2904.5,
+                  9802.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Blue_dragon\" title=\"Blue dragon\">Blue dragon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2929.5,
+                  9848.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2931.5,
+                  9846.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2932.5,
+                  9852.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2936.5,
+                  9846.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2936.5,
+                  9852.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2937.5,
+                  9849.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_druid\" title=\"Chaos druid\">Chaos druid</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2915.5,
+                  9760.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2922.5,
+                  9757.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2925.5,
+                  9769.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2928.5,
+                  9761.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2932.5,
+                  9784.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2938.5,
+                  9788.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Chaos_dwarf\" title=\"Chaos dwarf\">Chaos dwarf</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2930.5,
+                  9699.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Dwarf\" title=\"Dwarf\">Dwarf</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2931.5,
+                  9703.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Dwarf\" title=\"Dwarf\">Dwarf</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2888.5,
+                  9849.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2900.5,
+                  9819.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2901.5,
+                  9848.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2905.5,
+                  9851.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2907.5,
+                  9818.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2909.5,
+                  9848.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2912.5,
+                  9820.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2915.5,
+                  9851.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2920.5,
+                  9818.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2920.5,
+                  9848.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2933.5,
+                  9838.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2936.5,
+                  9829.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2938.5,
+                  9836.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Ghost\" title=\"Ghost\">Ghost</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2904.5,
+                  9832.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2908.5,
+                  9830.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2909.5,
+                  9837.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2914.5,
+                  9828.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2914.5,
+                  9840.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2919.5,
+                  9831.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2921.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2922.5,
+                  9834.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2925.5,
+                  9830.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2851.5,
+                  9849.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2855.5,
+                  9837.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2856.5,
+                  9847.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2857.5,
+                  9841.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2859.5,
+                  9852.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2861.5,
+                  9837.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2864.5,
+                  9851.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2867.5,
+                  9840.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2868.5,
+                  9833.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2869.5,
+                  9829.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2870.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2871.5,
+                  9819.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2871.5,
+                  9822.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hellhound\" title=\"Hellhound\">Hellhound</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2902.5,
+                  9736.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hill_Giant\" class=\"mw-redirect\" title=\"Hill Giant\">Hill Giant</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2905.5,
+                  9732.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hill_Giant\" class=\"mw-redirect\" title=\"Hill Giant\">Hill Giant</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2907.5,
+                  9735.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hill_Giant\" class=\"mw-redirect\" title=\"Hill Giant\">Hill Giant</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2913.5,
+                  9732.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hill_Giant\" class=\"mw-redirect\" title=\"Hill Giant\">Hill Giant</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2913.5,
+                  9741.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Hill_Giant\" class=\"mw-redirect\" title=\"Hill Giant\">Hill Giant</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2933.5,
+                  9693.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Jailer\" title=\"Jailer\">Jailer</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2926.5,
+                  9802.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lesser_demon\" title=\"Lesser demon\">Lesser demon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2931.5,
+                  9798.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lesser_demon\" title=\"Lesser demon\">Lesser demon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2931.5,
+                  9807.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lesser_demon\" title=\"Lesser demon\">Lesser demon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2932.5,
+                  9810.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lesser_demon\" title=\"Lesser demon\">Lesser demon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2936.5,
+                  9793.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lesser_demon\" title=\"Lesser demon\">Lesser demon</a>",
+                "shape": "Dot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2955.5,
+                  9775.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2956.5,
+                  9790.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2957.5,
+                  9780.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2962.5,
+                  9791.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2966.5,
+                  9775.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2966.5,
+                  9787.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2955.5,
+                  9795.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Magic_axe\" title=\"Magic axe\">Magic axe</a>",
+                "shape": "Dot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2825.5,
+                  9810.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2828.5,
+                  9805.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2829.5,
+                  9808.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2829.5,
+                  9812.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2833.5,
+                  9808.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2834.5,
+                  9814.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Monk_of_Zamorak\" title=\"Monk of Zamorak\">Monk of Zamorak</a>",
+                "shape": "Dot",
+                "fill": "#AD002A"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2929.5,
+                  9752.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_Scorpion\" title=\"Poison Scorpion\">Poison Scorpion</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2934.5,
+                  9775.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_Scorpion\" title=\"Poison Scorpion\">Poison Scorpion</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2935.5,
+                  9758.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_Scorpion\" title=\"Poison Scorpion\">Poison Scorpion</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2935.5,
+                  9769.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_Scorpion\" title=\"Poison Scorpion\">Poison Scorpion</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2941.5,
+                  9778.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_Scorpion\" title=\"Poison Scorpion\">Poison Scorpion</a>",
+                "shape": "Dot",
+                "fill": "#ADB6B6"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2850.5,
+                  9808.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2857.5,
+                  9822.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2859.5,
+                  9802.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2859.5,
+                  9814.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2864.5,
+                  9819.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2870.5,
+                  9799.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2871.5,
+                  9792.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2876.5,
+                  9806.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Poison_spider\" title=\"Poison spider\">Poison spider</a>",
+                "shape": "Dot",
+                "fill": "#1B1919"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2887.5,
+                  9821.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2882.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2885.5,
+                  9819.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2885.5,
+                  9823.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2886.5,
+                  9812.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2886.5,
+                  9816.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_15\" title=\"Skeleton\">Skeleton (lv 15)</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2884.5,
+                  9836.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Skeleton#Level_32\" title=\"Skeleton\">Skeleton (lv 32)</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2893.5,
+                  9831.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  12.5,
+                  12.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Cauldron_of_Thunder\" title=\"Cauldron of Thunder\">Cauldron of Thunder</a>",
+                "iconSize": [
+                  25,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Enchanted_bear_meat.png?0559a",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2900.5,
+                  9765.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  20,
+                  19
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Dusty_key\" title=\"Dusty key\">Dusty key spawn</a>",
+                "iconSize": [
+                  30,
+                  28
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dusty_key.png?608a8",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2875.5,
+                  9797.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Kharid_Scorpion#Taverley_Dungeon\" title=\"Kharid Scorpion\">Kharid Scorpion</a>",
+                "shape": "SquareDot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2889.5,
+                  9680.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Lord_Daquarius\" title=\"Lord Daquarius\">Lord Daquarius</a>",
+                "shape": "SquareDot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2931.5,
+                  9685.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "plane": 0,
+                "title": "<a href=\"/w/Velrak_the_explorer\" title=\"Velrak the explorer\">Velrak the explorer</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2886,
+                  9795,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_exit_map_icon.png?73368",
+                "icon": "dungeon exit",
+                "title": "<a href=\"/w/Taverley\" title=\"Taverley\">to south of Taverley</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2886,
+                  9796,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Taverley\" title=\"Taverley\">to south<br />of Taverley</a>",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2890,
+                  9796.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  26
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -26
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Shortcut_map_icon.png?8dece",
+                "icon": "shortcut",
+                "title": "<a href=\"/w/Obstacle_pipe_(Taverley_Dungeon)\" title=\"Obstacle pipe (Taverley Dungeon)\">Obstacle pipe (Agility lv 70)</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2890,
+                  9798.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Obstacle_pipe_(Taverley_Dungeon)\" title=\"Obstacle pipe (Taverley Dungeon)\">(lv 70)</a>",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2880.5,
+                  9812.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  26
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -26
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Shortcut_map_icon.png?8dece",
+                "icon": "shortcut",
+                "title": "<a href=\"/w/Strange_floor\" title=\"Strange floor\">Strange floor (Agility lv 80)</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2880.5,
+                  9812.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Strange_floor\" title=\"Strange floor\">(lv 80)</a>",
+                "direction": "left",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2843,
+                  9824.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_exit_map_icon.png?73368",
+                "icon": "dungeon exit",
+                "title": "<a href=\"/w/Obelisk_of_Water\" title=\"Obelisk of Water\">to Obelisk of Water</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2843,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Obelisk_of_Water\" title=\"Obelisk of Water\">to Obelisk<br />of Water</a>",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2819.5,
+                  9828.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  9,
+                  8.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Obelisk_of_Fire\" title=\"Obelisk of Fire\">Obelisk of Fire</a>",
+                "iconSize": [
+                  18,
+                  17
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Fire_orb.png?165be",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2853,
+                  9838.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_map_icon.png?73368",
+                "icon": "dungeon entrance 2",
+                "title": "<a href=\"/w/Taverley_hellhound_resource_dungeon\" title=\"Taverley hellhound resource dungeon\">Taverley hellhound resource dungeon (lv 55)</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2853,
+                  9838.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Taverley_hellhound_resource_dungeon\" title=\"Taverley hellhound resource dungeon\">Hellhound resource<br />dg (lv 55)</a>",
+                "direction": "left",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2911.5,
+                  9810.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_map_icon.png?73368",
+                "icon": "dungeon entrance 2",
+                "title": "<a href=\"/w/Taverley_blue_dragon_resource_dungeon\" title=\"Taverley blue dragon resource dungeon\">Taverley blue dragon resource dungeon (lv 60)</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2911.5,
+                  9810.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Taverley_blue_dragon_resource_dungeon\" title=\"Taverley blue dragon resource dungeon\">Blue dragon<br />resource dg (lv 60)</a>",
+                "direction": "right",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    2924.5,
+                    9803
+                  ],
+                  [
+                    2948,
+                    9806
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "17",
+                "title": "<a href=\"/w/Dusty_key\" title=\"Dusty key\">Locked door, Dusty key required</a>",
+                "plane": 0,
+                "stroke": "#fff",
+                "shape": "Line"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2942,
+                  9805.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Dusty_key\" title=\"Dusty key\">Locked door,<br />Dusty key required</a>",
+                "direction": "right",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2889.5,
+                  9786.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  10.5,
+                  30
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -30
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  30
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Small_Summoning_obelisk_map_icon.png?48cbd",
+                "icon": "small obelisk",
+                "title": "<a href=\"/w/Small_obelisk\" title=\"Small obelisk\">Small obelisk</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2890.5,
+                  9763.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "iconAnchor": [
+                  12.5,
+                  28
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -28
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  25,
+                  28
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Fishing_spot_map_icon.png?60321",
+                "icon": "fishing spot",
+                "title": "<a href=\"/w/Fishing_spot_(lava_eels)\" title=\"Fishing spot (lava eels)\">Lava eel fishing spot</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2890.5,
+                  9763.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Raw_lava_eel\" title=\"Raw lava eel\">Lava eel fishing<br />(lv 53)</a>",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2883.5,
+                  9696.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Black_Knights%27_Base\" title=\"Black Knights&#39; Base\">Black Knights' Base</a>",
+                "direction": "left",
+                "class": "large-label",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2924.5,
+                  9700.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "description": "(Archaeology collector)",
+                "iconAnchor": [
+                  10.5,
+                  30
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -30
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  30
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Collector_map_icon.png?fa4ba",
+                "icon": "collectors",
+                "title": "<a href=\"/w/Isaura\" title=\"Isaura\">Isaura</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2851.5,
+                  9750.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "17",
+                "label": "<a href=\"/w/Entrana_Dungeon\" title=\"Entrana Dungeon\">Entrana Dungeon</a>",
+                "direction": "center",
+                "class": "large-label",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Heroes'_Quest/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:17xpyza",
+          "html": "<a href=\"https://runescape.wiki/w/Baby_blue_dragon\" target=\"_blank\" rel=\"noopener\">Baby blue dragon</a>",
+          "text": "Baby blue dragon",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:18tgc8n",
+          "html": "<a href=\"https://runescape.wiki/w/Black_demon\" target=\"_blank\" rel=\"noopener\">Black demon</a>",
+          "text": "Black demon",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:16zw4ev",
+          "html": "<a href=\"https://runescape.wiki/w/Black_dragon\" target=\"_blank\" rel=\"noopener\">Black dragon</a>",
+          "text": "Black dragon",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:24w5tt",
+          "html": "<a href=\"https://runescape.wiki/w/Black_Knight\" target=\"_blank\" rel=\"noopener\">Black Knight</a>",
+          "text": "Black Knight",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1x7mdqo",
+          "html": "<a href=\"https://runescape.wiki/w/Blue_dragon\" target=\"_blank\" rel=\"noopener\">Blue dragon</a>",
+          "text": "Blue dragon",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:62vn6v",
+          "html": "<a href=\"https://runescape.wiki/w/Chaos_druid\" target=\"_blank\" rel=\"noopener\">Chaos druid</a>",
+          "text": "Chaos druid",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:15sy0gj",
+          "html": "<a href=\"https://runescape.wiki/w/Chaos_dwarf\" target=\"_blank\" rel=\"noopener\">Chaos dwarf</a>",
+          "text": "Chaos dwarf",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:i0fayj",
+          "html": "<a href=\"https://runescape.wiki/w/Dwarf\" target=\"_blank\" rel=\"noopener\">Dwarf</a>",
+          "text": "Dwarf",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:8bhfu8",
+          "html": "<a href=\"https://runescape.wiki/w/Ghost\" target=\"_blank\" rel=\"noopener\">Ghost</a>",
+          "text": "Ghost",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1g8ayd9",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_bat\" target=\"_blank\" rel=\"noopener\">Giant bat</a>",
+          "text": "Giant bat",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1eu5nvg",
+          "html": "<a href=\"https://runescape.wiki/w/Hellhound\" target=\"_blank\" rel=\"noopener\">Hellhound</a>",
+          "text": "Hellhound",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1caftv3",
+          "html": "<a href=\"https://runescape.wiki/w/Hill_Giant\" target=\"_blank\" rel=\"noopener\">Hill Giant</a>",
+          "text": "Hill Giant",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:h0dbe2",
+          "html": "<a href=\"https://runescape.wiki/w/Jailer\" target=\"_blank\" rel=\"noopener\">Jailer</a>",
+          "text": "Jailer",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:e6wy68",
+          "html": "<a href=\"https://runescape.wiki/w/Lesser_demon\" target=\"_blank\" rel=\"noopener\">Lesser demon</a>",
+          "text": "Lesser demon",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1574w74",
+          "html": "<a href=\"https://runescape.wiki/w/Magic_axe\" target=\"_blank\" rel=\"noopener\">Magic axe</a>",
+          "text": "Magic axe",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:100hktu",
+          "html": "<a href=\"https://runescape.wiki/w/Monk_of_Zamorak\" target=\"_blank\" rel=\"noopener\">Monk of Zamorak</a>",
+          "text": "Monk of Zamorak",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:nlawty",
+          "html": "<a href=\"https://runescape.wiki/w/Poison_Scorpion\" target=\"_blank\" rel=\"noopener\">Poison Scorpion</a>",
+          "text": "Poison Scorpion",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:134h6a6",
+          "html": "<a href=\"https://runescape.wiki/w/Poison_spider\" target=\"_blank\" rel=\"noopener\">Poison spider</a>",
+          "text": "Poison spider",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:ublo9",
+          "html": "<a href=\"https://runescape.wiki/w/Skeleton#Level_15\" target=\"_blank\" rel=\"noopener\">Skeleton (lv 15)</a>",
+          "text": "Skeleton (lv 15)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:oqe1y8",
+          "html": "<a href=\"https://runescape.wiki/w/Skeleton#Level_32\" target=\"_blank\" rel=\"noopener\">Skeleton (lv 32)</a>",
+          "text": "Skeleton (lv 32)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1atskcm",
+          "html": "<a href=\"https://runescape.wiki/w/Cauldron_of_Thunder\" target=\"_blank\" rel=\"noopener\">Cauldron of Thunder</a>",
+          "text": "Cauldron of Thunder",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:c8xdn0",
+          "html": "<a href=\"https://runescape.wiki/w/Dusty_key\" target=\"_blank\" rel=\"noopener\">Dusty key spawn</a>",
+          "text": "Dusty key spawn",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1ntf0ex",
+          "html": "<a href=\"https://runescape.wiki/w/Kharid_Scorpion#Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">Kharid Scorpion</a>",
+          "text": "Kharid Scorpion",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:uhl5tj",
+          "html": "<a href=\"https://runescape.wiki/w/Lord_Daquarius\" target=\"_blank\" rel=\"noopener\">Lord Daquarius</a>",
+          "text": "Lord Daquarius",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:19cmmfc",
+          "html": "<a href=\"https://runescape.wiki/w/Velrak_the_explorer\" target=\"_blank\" rel=\"noopener\">Velrak the explorer</a>",
+          "text": "Velrak the explorer",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:rkseo9",
+          "html": "<a href=\"https://runescape.wiki/w/Obelisk_of_Fire\" target=\"_blank\" rel=\"noopener\">Obelisk of Fire</a>",
+          "text": "Obelisk of Fire",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1ayzetq",
+          "html": "<a href=\"https://runescape.wiki/w/Isaura\" target=\"_blank\" rel=\"noopener\">Isaura</a>",
+          "text": "Isaura",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Taverley_Dungeon?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "lava-eel:bring:w7g75g",
+              "html": "<a href=\"https://runescape.wiki/w/Fishing_rod\" target=\"_blank\" rel=\"noopener\">Fishing rod</a>",
+              "text": "Fishing rod"
+            },
+            {
+              "id": "lava-eel:bring:1v0xd4v",
+              "html": "<a href=\"https://runescape.wiki/w/Fishing_bait\" target=\"_blank\" rel=\"noopener\">Fishing bait</a>",
+              "text": "Fishing bait"
+            },
+            {
+              "id": "lava-eel:bring:anyhiu",
+              "html": "<a href=\"https://runescape.wiki/w/Harralander_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">Harralander potion (unfinished)</a>",
+              "text": "Harralander potion (unfinished)"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "lava-eel:bring:1ytmnm3",
+              "html": "<a href=\"https://runescape.wiki/w/Dusty_key\" target=\"_blank\" rel=\"noopener\">Dusty key</a> (may be on the <a href=\"https://runescape.wiki/w/Keyring\" target=\"_blank\" rel=\"noopener\">keyring</a>)",
+              "text": "Dusty key (may be on the keyring)"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1m1c0x1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gerrant\" target=\"_blank\" rel=\"noopener\">Gerrant</a>, the fishing shop owner in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>, about <a href=\"https://runescape.wiki/w/Lava_eel\" target=\"_blank\" rel=\"noopener\">lava eels</a>. He will give you a vial of <a href=\"https://runescape.wiki/w/Blamish_snail_slime\" target=\"_blank\" rel=\"noopener\">blamish snail slime</a>.",
+          "text": "Talk to Gerrant, the fishing shop owner in Port Sarim, about lava eels. He will give you a vial of blamish snail slime.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I want to find out how to catch a lava eel."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lava-eel:1m1c0x1:1nd37ux",
+              "html": "Buy a fishing rod and fishing bait from Gerrant if you don&#39;t already have them.",
+              "text": "Buy a fishing rod and fishing bait from Gerrant if you don't already have them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:ilouu3",
+          "html": "Use the blamish snail slime on your <a href=\"https://runescape.wiki/w/Harralander_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">harralander potion (unfinished)</a>.",
+          "text": "Use the blamish snail slime on your harralander potion (unfinished).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1foaks2",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Blamish_oil\" target=\"_blank\" rel=\"noopener\">blamish oil</a> on your fishing rod.",
+          "text": "Use the blamish oil on your fishing rod.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:180molv",
+          "html": "Enter <a href=\"https://runescape.wiki/w/Taverley_dungeon\" target=\"_blank\" rel=\"noopener\">Taverley dungeon</a>.",
+          "text": "Enter Taverley dungeon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:nwfdes",
+          "html": "If you already have a <a href=\"https://runescape.wiki/w/Dusty_key\" target=\"_blank\" rel=\"noopener\">dusty key</a> (a <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a> with the dusty key works), or 70, skip the next step.",
+          "text": "If you already have a dusty key (a steel key ring with the dusty key works), or 70, skip the next step.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:vo6erg",
+          "html": "To obtain a dusty key:",
+          "text": "To obtain a dusty key:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lava-eel:vo6erg:1dzgwtp",
+              "html": "Use the map (pictured right) to find <a href=\"https://runescape.wiki/w/Velrak_the_explorer\" target=\"_blank\" rel=\"noopener\">Velrak the explorer</a>. He is in the southern part of the dungeon.",
+              "text": "Use the map (pictured right) to find Velrak the explorer. He is in the southern part of the dungeon.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lava-eel:vo6erg:o6ap1z",
+              "html": "Kill the <a href=\"https://runescape.wiki/w/Jailer\" target=\"_blank\" rel=\"noopener\">Jailer</a> standing by the prison and use the key he drops to get into Velrak&#39;s cell.",
+              "text": "Kill the Jailer standing by the prison and use the key he drops to get into Velrak's cell.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lava-eel:vo6erg:1t30zo",
+              "html": "Talk to him for the dusty key.",
+              "text": "Talk to him for the dusty key.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "So..do you know anywhere good to explore?"
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, please!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:1emjni",
+          "html": "Enter the area with the blue dragons, either by using your key on the locked door or by taking the Agility shortcut.",
+          "text": "Enter the area with the blue dragons, either by using your key on the locked door or by taking the Agility shortcut.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:iw3ic7",
+          "html": "Run to the southernmost lava pool.",
+          "text": "Run to the southernmost lava pool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:f8c5h5",
+          "html": "Catch a lava eel.",
+          "text": "Catch a lava eel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lava-eel:15mmuou",
+          "html": "Cook the eel on a range or fire.",
+          "text": "Cook the eel on a range or fire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "master-thief-s-armband",
+      "title": "Master thief's armband",
+      "anchor": "Master_thief's_armband",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "master-thief-s-armband:bring:1jz0bpo",
+              "html": "<a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">Lockpick</a> and 2 open inventory slots; 1,000 coins or a <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">ring of charos (a)</a> (if Phoenix Gang); black armour (if Black Arm Gang)",
+              "text": "Lockpick and 2 open inventory slots; 1,000 coins or a ring of charos (a) (if Phoenix Gang); black armour (if Black Arm Gang)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "You only need to do one of the following methods to get the required armband. You may switch the gangs at the start of this part, e.g. if you finished the previous quest on <a href=\"https://runescape.wiki/w/Black_Arm_Gang\" target=\"_blank\" rel=\"noopener\">Black Arm Gang</a>, you can still switch and do the <a href=\"https://runescape.wiki/w/Phoenix_Gang\" target=\"_blank\" rel=\"noopener\">Phoenix Gang</a> method."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Method (Phoenix Gang)"
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1g00o19",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Phoenix_Gang_Hideout\" target=\"_blank\" rel=\"noopener\">Phoenix Gang Hideout</a> in south-east Varrock, down the ladder into the hideout and talk to <a href=\"https://runescape.wiki/w/Straven\" target=\"_blank\" rel=\"noopener\">Straven</a>, learning the gang password from him (Gherkin). Talk to him one more time.",
+          "text": "Go to the Phoenix Gang Hideout in south-east Varrock, down the ladder into the hideout and talk to Straven, learning the gang password from him (Gherkin). Talk to him one more time.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:28yx1d",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Brimhaven\" target=\"_blank\" rel=\"noopener\">Brimhaven</a> and talk to <a href=\"https://runescape.wiki/w/Alfonse_the_waiter\" target=\"_blank\" rel=\"noopener\">Alfonse the waiter</a> in the food shop.",
+          "text": "Go to Brimhaven and talk to Alfonse the waiter in the food shop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you sell...gherkins?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:615e52",
+          "html": "Go through the door and talk to <a href=\"https://runescape.wiki/w/Charlie_the_cook\" target=\"_blank\" rel=\"noopener\">Charlie the cook</a>.",
+          "text": "Go through the door and talk to Charlie the cook.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm looking for a gherkin..."
+                },
+                {
+                  "key": "2",
+                  "text": "I want to steal Scarface Pete's candlesticks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:i7n1x3",
+          "html": "Go to the mansion entrance to the west and talk to <a href=\"https://runescape.wiki/w/Garv\" target=\"_blank\" rel=\"noopener\">Garv</a>. Bribe him with 1,000 coins, or free with a <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">ring of charos (a)</a>.",
+          "text": "Go to the mansion entrance to the west and talk to Garv. Bribe him with 1,000 coins, or free with a ring of charos (a).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "OK"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:psx7rd",
+          "html": "Enter the front door near the guard.",
+          "text": "Enter the front door near the guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1v35phr",
+          "html": "Go to the north-west part of the building and open the Treasure room door with a lockpick to enter.",
+          "text": "Go to the north-west part of the building and open the Treasure room door with a lockpick to enter.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "OK"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:154dkm1",
+          "html": "Open the northern <a href=\"https://runescape.wiki/w/Chest_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">chest</a>.",
+          "text": "Open the northern chest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:xpyfxq",
+          "html": "Search the chest to take one candlestick.",
+          "text": "Search the chest to take one candlestick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:15tzt26",
+          "html": "Bring the candlestick back to Straven to receive a Master Thief&#39;s Armband.",
+          "text": "Bring the candlestick back to Straven to receive a Master Thief's Armband.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Method (Black Arm)"
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:ae6up9",
+          "html": "Go to south-west Varrock and talk to <a href=\"https://runescape.wiki/w/Katrine\" target=\"_blank\" rel=\"noopener\">Katrine</a>.",
+          "text": "Go to south-west Varrock and talk to Katrine.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How can I get a master thief's armband?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1st7l60",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Brimhaven\" target=\"_blank\" rel=\"noopener\">Brimhaven</a>, to the building east of the bar",
+          "text": "Go to Brimhaven, to the building east of the bar",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Four-leafed clover"
+                }
+              ]
+            },
+            {
+              "when": "And talk to Trobert",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So can you help me get Scarface Pete's candlesticks?"
+                },
+                {
+                  "key": "1",
+                  "text": "I volunteer to undertake that mission!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:qgyoh7",
+          "html": "Equip your Black armour.",
+          "text": "Equip your Black armour.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1gyub4l",
+          "html": "Enter the large mansion in the north-west part of town.",
+          "text": "Enter the large mansion in the north-west part of town.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1stvn76",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Grip\" target=\"_blank\" rel=\"noopener\">Grip</a>.",
+          "text": "Talk to Grip.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "So what do my duties involve?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1v35phr-2",
+          "html": "Go to the north-west part of the building and open the Treasure room door with a lockpick to enter.",
+          "text": "Go to the north-west part of the building and open the Treasure room door with a lockpick to enter.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "OK"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:154dkm1-2",
+          "html": "Open the northern <a href=\"https://runescape.wiki/w/Chest_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">chest</a>.",
+          "text": "Open the northern chest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:xpyfxq-2",
+          "html": "Search the chest to take one candlestick.",
+          "text": "Search the chest to take one candlestick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "master-thief-s-armband:1tehvyj",
+          "html": "Bring the candlestick back to Katrine to receive a Master Thief&#39;s Armband.",
+          "text": "Bring the candlestick back to Katrine to receive a Master Thief's Armband.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have a candlestick now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "entrana-firebird-feather",
+      "title": "Entrana firebird feather",
+      "anchor": "Entrana_firebird_feather",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Ice_Queen%27s_Lair_map.png/300px-Ice_Queen%27s_Lair_map.png?875ac",
+          "width": 300,
+          "height": 369,
+          "alt": "",
+          "caption": "Map to the Ice Queen",
+          "href": "https://runescape.wiki/w/File:Ice_Queen%27s_Lair_map.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "entrana-firebird-feather:bring:1hd68di",
+              "html": "<a href=\"https://runescape.wiki/w/Ice_gloves\" target=\"_blank\" rel=\"noopener\">Ice gloves</a>",
+              "text": "Ice gloves"
+            },
+            {
+              "id": "entrana-firebird-feather:bring:d5owsu",
+              "html": "Bank all items that cannot be taken to <a href=\"https://runescape.wiki/w/Entrana\" target=\"_blank\" rel=\"noopener\">Entrana</a>",
+              "text": "Bank all items that cannot be taken to Entrana"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-firebird-feather:ba8zbg",
+          "html": "If you do not have ice gloves:",
+          "text": "If you do not have ice gloves:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:byig26",
+              "html": "Equip combat gear and food to kill a level 77 Ice Queen.",
+              "text": "Equip combat gear and food to kill a level 77 Ice Queen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:rfgwup",
+              "html": "Teleport to Taverley and climb to the top of the <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a> and enter the cave.",
+              "text": "Teleport to Taverley and climb to the top of the White Wolf Mountain and enter the cave.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:1s1ra5m",
+              "html": "Mine the <a href=\"https://runescape.wiki/w/Rock_slide\" target=\"_blank\" rel=\"noopener\">rock slide</a> to the east.",
+              "text": "Mine the rock slide to the east.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:ef5ouy",
+              "html": "Climb down the south ladder.",
+              "text": "Climb down the south ladder.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:1hih2cf",
+              "html": "Follow the tunnel south-west, then go up the ladder.",
+              "text": "Follow the tunnel south-west, then go up the ladder.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:1dwetm5",
+              "html": "Make sure your compass is pointed north and take the east ladder down.",
+              "text": "Make sure your compass is pointed north and take the east ladder down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:12j0278",
+              "html": "Head north and follow the long tunnel all the way round, then use the ladder at the end.",
+              "text": "Head north and follow the long tunnel all the way round, then use the ladder at the end.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:wqaj0b",
+              "html": "Take the north ladder back down.",
+              "text": "Take the north ladder back down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "entrana-firebird-feather:ba8zbg:12z8nkx",
+              "html": "Run north and kill the queen for her gloves.",
+              "text": "Run north and kill the queen for her gloves.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "entrana-firebird-feather:nb8fux",
+          "html": "Bank any equipment (has combat stats).",
+          "text": "Bank any equipment (has combat stats).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-firebird-feather:1pcyjni",
+          "html": "Sail to Entrana or teleport to the <a href=\"https://runescape.wiki/w/Law_altar\" target=\"_blank\" rel=\"noopener\">law altar</a> through the <a href=\"https://runescape.wiki/w/Abyss\" target=\"_blank\" rel=\"noopener\">Abyss</a>.",
+          "text": "Sail to Entrana or teleport to the law altar through the Abyss.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-firebird-feather:13y2nkz",
+          "html": "Equip the ice gloves.",
+          "text": "Equip the ice gloves.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-firebird-feather:13rbleq",
+          "html": "Kill the Firebird which is located on the northern part of the island, near the law altar, and take the Entranan firebird feather it drops.",
+          "text": "Kill the Firebird which is located on the northern part of the island, near the law altar, and take the Entranan firebird feather it drops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Heroes_quest_-_Fire_bird.png/300px-Heroes_quest_-_Fire_bird.png?443b2",
+          "width": 300,
+          "height": 219,
+          "alt": "",
+          "caption": "Killing the Entranan firebird.",
+          "href": "https://runescape.wiki/w/File:Heroes_quest_-_Fire_bird.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:swj9sk",
+              "html": "<a href=\"https://runescape.wiki/w/Entranan_firebird_feather\" target=\"_blank\" rel=\"noopener\">Entranan firebird feather</a>",
+              "text": "Entranan firebird feather"
+            },
+            {
+              "id": "finishing-up:bring:kgu685",
+              "html": "<a href=\"https://runescape.wiki/w/Lava_eel\" target=\"_blank\" rel=\"noopener\">Lava eel</a>",
+              "text": "Lava eel"
+            },
+            {
+              "id": "finishing-up:bring:1s1d1a4",
+              "html": "<a href=\"https://runescape.wiki/w/Master_thief%27s_armband\" target=\"_blank\" rel=\"noopener\">Master thief&#39;s armband</a>",
+              "text": "Master thief's armband"
+            },
+            {
+              "id": "finishing-up:bring:11wlgdn",
+              "html": "At least 9 open inventory slots",
+              "text": "At least 9 open inventory slots"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:16gp6mu",
+          "html": "Take the feather, eel, and armband to <a href=\"https://runescape.wiki/w/Achietties\" target=\"_blank\" rel=\"noopener\">Achietties</a> outside the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a>.",
+          "text": "Take the feather, eel, and armband to Achietties outside the Heroes' Guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Heroes%27_Quest_reward.png?56fab",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Heroes%27_Quest_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "3,075 experience <a href=\"https://runescape.wiki/w/Attack_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,075 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "3,075 experience <a href=\"https://runescape.wiki/w/Defence_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,075 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "3,075 experience <a href=\"https://runescape.wiki/w/Strength_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,075 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "3,075 experience <a href=\"https://runescape.wiki/w/Constitution_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,075 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,075 experience <a href=\"https://runescape.wiki/w/Ranged_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,075 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,725 experience <a href=\"https://runescape.wiki/w/Fishing_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,725 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,825 experience <a href=\"https://runescape.wiki/w/Cooking_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,825 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "1,575 experience <a href=\"https://runescape.wiki/w/Woodcutting_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,575 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "1,575 experience <a href=\"https://runescape.wiki/w/Firemaking_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,575 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,257 experience <a href=\"https://runescape.wiki/w/Smithing_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,257 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,575 experience <a href=\"https://runescape.wiki/w/Mining_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,575 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "1,325 experience <a href=\"https://runescape.wiki/w/Herblore_XP_lamp_(Heroes%27_Quest)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,325 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a>",
+        "text": "Access to the Heroes' Guild",
+        "subs": []
+      },
+      {
+        "html": "Ability to wield the <a href=\"https://runescape.wiki/w/Dragon_battleaxe\" target=\"_blank\" rel=\"noopener\">dragon battleaxe</a> and <a href=\"https://runescape.wiki/w/Dragon_mace\" target=\"_blank\" rel=\"noopener\">dragon mace</a>, and buy them, along with their off-hand variants, from the <a href=\"https://runescape.wiki/w/Happy_Heroes%27_H%27emporium\" target=\"_blank\" rel=\"noopener\">Happy Heroes&#39; H&#39;emporium</a> shop in the guild",
+        "text": "Ability to wield the dragon battleaxe and dragon mace, and buy them, along with their off-hand variants, from the Happy Heroes' H'emporium shop in the guild",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Scarface_Pete%27s_mansion\" target=\"_blank\" rel=\"noopener\">Scarface Pete&#39;s mansion</a> in <a href=\"https://runescape.wiki/w/Brimhaven\" target=\"_blank\" rel=\"noopener\">Brimhaven</a> (if you are in the Black Arm Gang)",
+        "text": "Access to Scarface Pete's mansion in Brimhaven (if you are in the Black Arm Gang)",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Cap%27n_Arnav\" target=\"_blank\" rel=\"noopener\">Cap&#39;n Arnav</a>&#39;s garden (if you are in the <a href=\"https://runescape.wiki/w/Phoenix_Gang\" target=\"_blank\" rel=\"noopener\">Phoenix Gang</a>)",
+        "text": "Access to Cap'n Arnav's garden (if you are in the Phoenix Gang)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Legends%27_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legends&#39; Quest</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Sir_Amik_Varze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Sir Amik Varze</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

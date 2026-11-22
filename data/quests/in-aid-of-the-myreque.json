@@ -1,0 +1,1293 @@
+{
+  "format": 1,
+  "id": "in-aid-of-the-myreque",
+  "title": "In Aid of the Myreque",
+  "page": "In Aid of the Myreque/Quick guide",
+  "rev": 37180987,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Veliaf\" target=\"_blank\" rel=\"noopener\">Veliaf</a> in the <a href=\"https://runescape.wiki/w/Myreque_Hideout\" target=\"_blank\" rel=\"noopener\">Myreque Hideout</a>, beneath the <a href=\"https://runescape.wiki/w/Hair_of_the_Dog\" target=\"_blank\" rel=\"noopener\">pub</a> in <a href=\"https://runescape.wiki/w/Canifis\" target=\"_blank\" rel=\"noopener\">Canifis</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9837,
+      "lon": 3506,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/In_Aid_of_the_Myreque/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "In Search of the Myreque",
+        "depth": 1
+      },
+      {
+        "text": "Nature Spirit",
+        "depth": 2
+      },
+      {
+        "text": "Priest in Peril",
+        "depth": 3
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 3
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 25,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 7,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 15,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": "(to get a mithril bar)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Shades of Mort'ton",
+      "Ability to enter Morytania"
+    ],
+    "enemies": [
+      {
+        "text": "Gadderanks (level 58)",
+        "name": "Gadderanks",
+        "count": null,
+        "level": "58",
+        "note": ""
+      },
+      {
+        "text": "2 Vampyre Juvinates (level 58 and 63)",
+        "name": "Vampyre Juvinates",
+        "count": 2,
+        "level": "58 and 63",
+        "note": ""
+      },
+      {
+        "text": "2 Vampyre Juvinates (level 60 or 68)",
+        "name": "Vampyre Juvinates",
+        "count": 2,
+        "level": "60 or 68",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1p1ur1z",
+          "html": "At least 1 piece of <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> †",
+          "text": "At least 1 piece of food †",
+          "alternatives": []
+        },
+        {
+          "id": "req:xko4rq",
+          "html": "A <a href=\"https://runescape.wiki/w/Silver_weapon\" target=\"_blank\" rel=\"noopener\">silver weapon</a> (<a href=\"https://runescape.wiki/w/Silver_bolts\" target=\"_blank\" rel=\"noopener\">silver bolts</a> do <b>not</b> work, <a href=\"https://runescape.wiki/w/Havensilver\" target=\"_blank\" rel=\"noopener\">havensilver</a> weapons will <b>not</b> work against the juvinates in the Burgh de Rott general store), and armour to beat several enemies up to level 68",
+          "text": "A silver weapon (silver bolts do not work, havensilver weapons will not work against the juvinates in the Burgh de Rott general store), and armour to beat several enemies up to level 68",
+          "alternatives": []
+        },
+        {
+          "id": "req:mxkzs5",
+          "html": "1–5 <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">buckets</a> † (can be picked up by the <a href=\"https://runescape.wiki/w/Well_(Burgh_de_Rott)\" target=\"_blank\" rel=\"noopener\">well</a> in <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>)",
+          "text": "1–5 buckets † (can be picked up by the well in Burgh de Rott)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1cfl520",
+          "html": "11 regular <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a> † (<a href=\"https://runescape.wiki/w/Protean_plank\" target=\"_blank\" rel=\"noopener\">protean planks</a> do not work)",
+          "text": "11 regular planks † (protean planks do not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1oqm9o9",
+          "html": "<a href=\"https://runescape.wiki/w/Swamp_paste\" target=\"_blank\" rel=\"noopener\">Swamp paste</a> (not <a href=\"https://runescape.wiki/w/Swamp_tar\" target=\"_blank\" rel=\"noopener\">tar</a>) †",
+          "text": "Swamp paste (not tar) †",
+          "alternatives": []
+        },
+        {
+          "id": "req:1dgjbgu",
+          "html": "36–45 <a href=\"https://runescape.wiki/w/Nails\" target=\"_blank\" rel=\"noopener\">nails</a> of any metal (you might get enough of them from mining the rubble)",
+          "text": "36–45 nails of any metal (you might get enough of them from mining the rubble)",
+          "alternatives": []
+        },
+        {
+          "id": "req:kfp50o",
+          "html": "10 <a href=\"https://runescape.wiki/w/Bronze_hatchet\" target=\"_blank\" rel=\"noopener\">bronze hatchets</a>",
+          "text": "10 bronze hatchets",
+          "alternatives": []
+        },
+        {
+          "id": "req:dlmado",
+          "html": "Either 10 <a href=\"https://runescape.wiki/w/Raw_mackerel\" target=\"_blank\" rel=\"noopener\">raw mackerel</a> † or 10 <a href=\"https://runescape.wiki/w/Raw_snail\" target=\"_blank\" rel=\"noopener\">raw snails</a> † (depending on the store-owner&#39;s choice; any size or combination works), or a weapon and <a href=\"https://runescape.wiki/w/Big_fishing_net\" target=\"_blank\" rel=\"noopener\">big fishing net</a> to gather them yourself. Mackerel can be obtained at the boat dock south-east of the pub, and snails can be obtained in Morytania.",
+          "text": "Either 10 raw mackerel † or 10 raw snails † (depending on the store-owner's choice; any size or combination works), or a weapon and big fishing net to gather them yourself. Mackerel can be obtained at the boat dock south-east of the pub, and snails can be obtained in Morytania.",
+          "alternatives": []
+        },
+        {
+          "id": "req:1mva9y9",
+          "html": "3 <a href=\"https://runescape.wiki/w/Tinderbox\" target=\"_blank\" rel=\"noopener\">tinderboxes</a> †",
+          "text": "3 tinderboxes †",
+          "alternatives": []
+        },
+        {
+          "id": "req:y2jssw",
+          "html": "2 <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bars</a>",
+          "text": "2 steel bars",
+          "alternatives": []
+        },
+        {
+          "id": "req:p2v8mm",
+          "html": "1 piece of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+          "text": "1 piece of coal",
+          "alternatives": []
+        },
+        {
+          "id": "req:1w5k0qq",
+          "html": "A piece of <a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">soft clay</a>",
+          "text": "A piece of soft clay",
+          "alternatives": []
+        },
+        {
+          "id": "req:lmcxxx",
+          "html": "<a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">Silver bar</a>",
+          "text": "Silver bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:2bcp9z",
+          "html": "<a href=\"https://runescape.wiki/w/Mithril_bar\" target=\"_blank\" rel=\"noopener\">Mithril bar</a>",
+          "text": "Mithril bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:1ksfug6",
+          "html": "A cut <a href=\"https://runescape.wiki/w/Sapphire\" target=\"_blank\" rel=\"noopener\">sapphire</a>",
+          "text": "A cut sapphire",
+          "alternatives": []
+        },
+        {
+          "id": "req:1b1ar8t",
+          "html": "1 <a href=\"https://runescape.wiki/w/Cosmic_rune\" target=\"_blank\" rel=\"noopener\">cosmic</a> and <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water rune</a>, or a <a href=\"https://runescape.wiki/w/Lvl-1_enchant_(item)\" target=\"_blank\" rel=\"noopener\">Lvl-1 enchant</a> tablet.",
+          "text": "1 cosmic and water rune, or a Lvl-1 enchant tablet.",
+          "alternatives": []
+        },
+        {
+          "id": "req:1he8o5p",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+          "text": "Rope",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1gts10z",
+          "html": "Completion of <a href=\"https://runescape.wiki/w/Shades_of_Mort%27ton\" target=\"_blank\" rel=\"noopener\">Shades of Mort&#39;ton</a> for access to <a href=\"https://runescape.wiki/w/Razmire_Builders%27_Merchants\" target=\"_blank\" rel=\"noopener\">Razmire Builders&#39; Merchants</a>.",
+          "text": "Completion of Shades of Mort'ton for access to Razmire Builders' Merchants.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:17qaxd3",
+          "html": "A charged <a href=\"https://runescape.wiki/w/Druid_pouch\" target=\"_blank\" rel=\"noopener\">druid pouch</a>",
+          "text": "A charged druid pouch",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ylfsex",
+          "html": "50 coins or a <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">ring of charos (a)</a>",
+          "text": "50 coins or a ring of charos (a)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:gb9lnu",
+          "html": "A second <a href=\"https://runescape.wiki/w/Silver_weapon\" target=\"_blank\" rel=\"noopener\">silver weapon</a> to provide to <a href=\"https://runescape.wiki/w/Ivan\" target=\"_blank\" rel=\"noopener\">Ivan</a> (not recoverable)",
+          "text": "A second silver weapon to provide to Ivan (not recoverable)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:p4yf4b",
+          "html": "Steel equipment (<a href=\"https://runescape.wiki/w/Steel_med_helm\" target=\"_blank\" rel=\"noopener\">med helm</a>, <a href=\"https://runescape.wiki/w/Steel_chainbody\" target=\"_blank\" rel=\"noopener\">chainbody</a>, and <a href=\"https://runescape.wiki/w/Steel_platelegs\" target=\"_blank\" rel=\"noopener\">platelegs</a>) and food for Ivan (up to 15 pieces of cooked snails, salmon, slimy eel or stew). This is only needed for lower level players, as the enemies you have to protect Ivan from mainly focus their attacks on the player. (not recoverable)",
+          "text": "Steel equipment (med helm, chainbody, and platelegs) and food for Ivan (up to 15 pieces of cooked snails, salmon, slimy eel or stew). This is only needed for lower level players, as the enemies you have to protect Ivan from mainly focus their attacks on the player. (not recoverable)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:n6mkas",
+          "html": "1–2 <a href=\"https://runescape.wiki/w/Guthix_balance\" target=\"_blank\" rel=\"noopener\">Guthix balance</a> potions for the journey.",
+          "text": "1–2 Guthix balance potions for the journey.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13bi3y2",
+          "html": "Attuning the <a href=\"https://runescape.wiki/w/Boss_portal_(War%27s_Retreat)\" target=\"_blank\" rel=\"noopener\">boss portal</a> from <a href=\"https://runescape.wiki/w/War%27s_Retreat\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat</a> to <a href=\"https://runescape.wiki/w/The_Barrows_Brothers\" target=\"_blank\" rel=\"noopener\">the Barrows Brothers</a> provides an easy teleport to a bank chest and a way past <a href=\"https://runescape.wiki/w/Mort_Myre_Swamp\" target=\"_blank\" rel=\"noopener\">Mort Myre Swamp</a>.",
+          "text": "Attuning the boss portal from War's Retreat to the Barrows Brothers provides an easy teleport to a bank chest and a way past Mort Myre Swamp.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "burgh-de-rott",
+      "title": "Burgh de Rott",
+      "anchor": "Burgh_de_Rott",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "burgh-de-rott:bring:1azecqw",
+              "html": "1 food",
+              "text": "1 food"
+            },
+            {
+              "id": "burgh-de-rott:bring:eltqt0",
+              "html": "1-5 buckets and 9 free spaces, preferably charged druid pouch so your food won&#39;t rot",
+              "text": "1-5 buckets and 9 free spaces, preferably charged druid pouch so your food won't rot"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "note",
+          "html": "To save a bank run, also take the items needed for the next chapter. If you don&#39;t want to use a beast of burden, bringing 6 planks and 24 nails will also save you one bank run."
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:tlcvge",
+          "html": "In the hideout behind the Canifis pub, go through the secret wall and squeeze past the stalagmite on the east side of the cave",
+          "text": "In the hideout behind the Canifis pub, go through the secret wall and squeeze past the stalagmite on the east side of the cave",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1syy1x2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Veliaf_Hurtz\" target=\"_blank\" rel=\"noopener\">Veliaf Hurtz</a>.",
+          "text": "Talk to Veliaf Hurtz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I want to join your organisation."
+                },
+                {
+                  "key": "3",
+                  "text": "Can you tell me about the job?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Ok, I'll do the job."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1fg3tuy",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Mort%27ton\" target=\"_blank\" rel=\"noopener\">Mort&#39;ton</a>. The fastest way is by heading south of the cave, exiting through the doors, climbing the same tree from <a href=\"https://runescape.wiki/w/In_Search_of_the_Myreque\" target=\"_blank\" rel=\"noopener\">In Search of the Myreque</a> and using the <a href=\"https://runescape.wiki/w/Swamp_boat\" target=\"_blank\" rel=\"noopener\">swamp boat</a> south, or using a portal to the <a href=\"https://runescape.wiki/w/Barrows\" target=\"_blank\" rel=\"noopener\">Barrows</a> in <a href=\"https://runescape.wiki/w/War%27s_Retreat\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat</a>.",
+          "text": "Travel to Mort'ton. The fastest way is by heading south of the cave, exiting through the doors, climbing the same tree from In Search of the Myreque and using the swamp boat south, or using a portal to the Barrows in War's Retreat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "burgh-de-rott:1fg3tuy:rkbrej",
+              "html": "If you need a piece of food, there are snails to the west of Mort&#39;ton that can be cooked with level 12 Cooking.",
+              "text": "If you need a piece of food, there are snails to the west of Mort'ton that can be cooked with level 12 Cooking.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1yzvz6r",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Florin\" target=\"_blank\" rel=\"noopener\">Florin</a>, south of the bridge to <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>, who won&#39;t let you pass yet. (Make sure to finish dialogue options)",
+          "text": "Speak to Florin, south of the bridge to Burgh de Rott, who won't let you pass yet. (Make sure to finish dialogue options)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1w6knyv",
+          "html": "Search the chest.",
+          "text": "Search the chest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1f0trd3",
+          "html": "Use food on the chest.",
+          "text": "Use food on the chest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:5u80w5",
+          "html": "Jump the gate.",
+          "text": "Jump the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1hl3kuy",
+          "html": "Talk to Florin.",
+          "text": "Talk to Florin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Are there any 'out of the way' places in here?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:13u4nof",
+          "html": "Climb over the broken down wall in the building just south-east of the well. It&#39;ll be near an unreachable pile of rubble that you can mine.",
+          "text": "Climb over the broken down wall in the building just south-east of the well. It'll be near an unreachable pile of rubble that you can mine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1d7rpbi",
+          "html": "Mine the rubble to clear the trap door, then open the trapdoor and climb down.",
+          "text": "Mine the rubble to clear the trap door, then open the trapdoor and climb down.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1hyebbv",
+          "html": "Mine and use spade to remove all the rubble piles (15). Your bucket can be emptied on the pile outside the pub.",
+          "text": "Mine and use spade to remove all the rubble piles (15). Your bucket can be emptied on the pile outside the pub.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "burgh-de-rott:1hyebbv:5nz6bk",
+              "html": "1 bucket will allow you to mine 3 piles before it needs to be emptied in the pile outside. There is a bucket next to the well if you need one.",
+              "text": "1 bucket will allow you to mine 3 piles before it needs to be emptied in the pile outside. There is a bucket next to the well if you need one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "burgh-de-rott:1hyebbv:19jv7tf",
+              "html": "Bucket(s) of rubble may be disassembled or alchemized to avoid the need to empty them outside.",
+              "text": "Bucket(s) of rubble may be disassembled or alchemized to avoid the need to empty them outside.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "burgh-de-rott:1hyebbv:56pj0t",
+              "html": "Any items left on the ground when you climb back up the ladder will be lost.",
+              "text": "Any items left on the ground when you climb back up the ladder will be lost.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "burgh-de-rott:1ooyf94",
+          "html": "Go up and talk to any villager.",
+          "text": "Go up and talk to any villager.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'd like to help fix up the town."
+                },
+                {
+                  "key": "4",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "general-store-and-bank",
+      "title": "General store and bank",
+      "anchor": "General_store_and_bank",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "general-store-and-bank:bring:tpc4yw",
+              "html": "11 planks",
+              "text": "11 planks"
+            },
+            {
+              "id": "general-store-and-bank:bring:kfp50o",
+              "html": "10 bronze hatchets",
+              "text": "10 bronze hatchets"
+            },
+            {
+              "id": "general-store-and-bank:bring:1vcvn95",
+              "html": "3 tinderboxes",
+              "text": "3 tinderboxes"
+            },
+            {
+              "id": "general-store-and-bank:bring:1ed27z4",
+              "html": "44 nails",
+              "text": "44 nails"
+            },
+            {
+              "id": "general-store-and-bank:bring:y2jssw",
+              "html": "2 steel bars",
+              "text": "2 steel bars"
+            },
+            {
+              "id": "general-store-and-bank:bring:1ddscgj",
+              "html": "1 swamp paste",
+              "text": "1 swamp paste"
+            },
+            {
+              "id": "general-store-and-bank:bring:1m81to8",
+              "html": "1 coal and 10 raw mackerel or snails (all un-noted).",
+              "text": "1 coal and 10 raw mackerel or snails (all un-noted)."
+            },
+            {
+              "id": "general-store-and-bank:bring:6fthjq",
+              "html": "A <a href=\"https://runescape.wiki/w/Beast_of_burden\" target=\"_blank\" rel=\"noopener\">beast of burden</a> familiar may also help out in holding all the needed supplies.",
+              "text": "A beast of burden familiar may also help out in holding all the needed supplies."
+            },
+            {
+              "id": "general-store-and-bank:bring:1keoxvj",
+              "html": "A <a href=\"https://runescape.wiki/w/Plank_box\" target=\"_blank\" rel=\"noopener\">plank box</a> may help with inventory space as well.",
+              "text": "A plank box may help with inventory space as well."
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:ennv70",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aurel\" target=\"_blank\" rel=\"noopener\">Aurel</a> in the general store.",
+          "text": "Talk to Aurel in the general store.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'd like to help fix up the town."
+                },
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:97lxlu",
+          "html": "Climb the ladder outside and use a plank on the <a href=\"https://runescape.wiki/w/Broken_Roof\" target=\"_blank\" rel=\"noopener\">Broken Roof</a> (3 planks, 12 nails required).",
+          "text": "Climb the ladder outside and use a plank on the Broken Roof (3 planks, 12 nails required).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:uzowva",
+          "html": "Climb down and use a plank on the damaged wall (3 planks, 12 nails required).",
+          "text": "Climb down and use a plank on the damaged wall (3 planks, 12 nails required).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:5rywqh",
+          "html": "Talk to Aurel.",
+          "text": "Talk to Aurel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:190pvlp",
+          "html": "Fill the box with supplies: 10 bronze hatchet, 3 tinderbox and 10 <a href=\"https://runescape.wiki/w/Raw_mackerel\" target=\"_blank\" rel=\"noopener\">raw mackerel</a> or snails. The snails can be cooked or raw (depending on what Aurel asked for, check the in-game <a href=\"https://runescape.wiki/w/Quest_journal\" target=\"_blank\" rel=\"noopener\">quest journal</a> if you forget).",
+          "text": "Fill the box with supplies: 10 bronze hatchet, 3 tinderbox and 10 raw mackerel or snails. The snails can be cooked or raw (depending on what Aurel asked for, check the in-game quest journal if you forget).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:1acd2ix",
+          "html": "Return the crate to Aurel.",
+          "text": "Return the crate to Aurel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:1fq66n2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Cornelius\" target=\"_blank\" rel=\"noopener\">Cornelius</a> in the bank.",
+          "text": "Talk to Cornelius in the bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:v2ksss",
+          "html": "Use 2 planks on the bank booth covered in broken glass while holding 1 swamp paste and 8 nails (any kind).",
+          "text": "Use 2 planks on the bank booth covered in broken glass while holding 1 swamp paste and 8 nails (any kind).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:144iify",
+          "html": "Use 3 planks and 12 nails on the wall behind it.",
+          "text": "Use 3 planks and 12 nails on the wall behind it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:fguy5o",
+          "html": "Talk to Cornelius.",
+          "text": "Talk to Cornelius.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "Do you fancy the job?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "You can now use the bank booth in Burgh de Rott."
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:1hgpwla",
+          "html": "Talk to any villager.",
+          "text": "Talk to any villager.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:1c2mjpo",
+          "html": "Use two steel bars and a piece of coal on the furnace to the east.",
+          "text": "Use two steel bars and a piece of coal on the furnace to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "general-store-and-bank:1c5vmpa",
+          "html": "Search the furnace to light it.",
+          "text": "Search the furnace to light it.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "vampyre-slayer",
+      "title": "Vampyre slayer",
+      "anchor": "Vampyre_slayer",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "vampyre-slayer:bring:1zoxi6",
+              "html": "A silver melee weapon (silver sickle)",
+              "text": "A silver melee weapon (silver sickle)"
+            },
+            {
+              "id": "vampyre-slayer:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            },
+            {
+              "id": "vampyre-slayer:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "vampyre-slayer:bring:13g86m1",
+              "html": "For fight with Gadderanks: magic equipment",
+              "text": "For fight with Gadderanks: magic equipment"
+            },
+            {
+              "id": "vampyre-slayer:bring:1ic42yj",
+              "html": "Runes for magic attacks",
+              "text": "Runes for magic attacks"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:y9zqwj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gadderanks\" target=\"_blank\" rel=\"noopener\">Gadderanks</a> in the general store.",
+          "text": "Talk to Gadderanks in the general store.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1dxtkq5",
+          "html": "Talk to everyone else in the general store but Aurel.",
+          "text": "Talk to everyone else in the general store but Aurel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:afhbho",
+          "html": "Kill Gadderanks and the <a href=\"https://runescape.wiki/w/Vampyre\" target=\"_blank\" rel=\"noopener\">vampyres</a>. (The vampyres can only be damaged by a silver melee weapon)",
+          "text": "Kill Gadderanks and the vampyres. (The vampyres can only be damaged by a silver melee weapon)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1nlnnpo",
+          "html": "Talk to Gadderanks.",
+          "text": "Talk to Gadderanks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1x3f22h",
+          "html": "Talk to Veliaf.",
+          "text": "Talk to Veliaf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:119w54p",
+          "html": "Talk to Veliaf in the Canifis hideout (Take Melee Gear and Sickle).",
+          "text": "Talk to Veliaf in the Canifis hideout (Take Melee Gear and Sickle).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:no5ckd",
+          "html": "Dismiss your followers if you have any.",
+          "text": "Dismiss your followers if you have any.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1xi6zhy",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Polmafi\" target=\"_blank\" rel=\"noopener\">Polmafi</a> then <a href=\"https://runescape.wiki/w/Radigad\" target=\"_blank\" rel=\"noopener\">Radigad</a> then <a href=\"https://runescape.wiki/w/Ivan_Strom\" target=\"_blank\" rel=\"noopener\">Ivan</a>.",
+          "text": "Talk to Polmafi then Radigad then Ivan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:drc3lh",
+          "html": "Route 1 is generally easier:",
+          "text": "Route 1 is generally easier:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "vampyre-slayer:drc3lh:gcgs9d",
+              "html": "Kill the vampyres.",
+              "text": "Kill the vampyres.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1pw3c91",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Paterdomus#Mausoleum\" target=\"_blank\" rel=\"noopener\">Mausoleum</a> west of Canifis and talk to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a> until he gives you a key.",
+          "text": "Enter the Mausoleum west of Canifis and talk to Drezel until he gives you a key.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I found out some things about Efaritay."
+                }
+              ]
+            },
+            {
+              "when": "Then",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Veliaf told me about Ivandis."
+                },
+                {
+                  "key": "4",
+                  "text": "Is there somewhere that I might get more information about Ivandis?"
+                },
+                {
+                  "key": "3",
+                  "text": "The lives of those pitiful few left in Morytania could rest on this!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:1excxb3",
+          "html": "Use the key on the east wall, then climb the secret trapdoor.",
+          "text": "Use the key on the east wall, then climb the secret trapdoor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vampyre-slayer:8sdxsw",
+          "html": "Find and read the book titled &#39;<a href=\"https://runescape.wiki/w/The_Sleeping_Seven\" target=\"_blank\" rel=\"noopener\">The Sleeping Seven</a>&#39; on the westernmost middle-bookcase.",
+          "text": "Find and read the book titled 'The Sleeping Seven' on the westernmost middle-bookcase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "silvthril-rod",
+      "title": "Silvthril rod",
+      "anchor": "Silvthril_rod",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "silvthril-rod:bring:1he8o5p",
+              "html": "Rope",
+              "text": "Rope"
+            },
+            {
+              "id": "silvthril-rod:bring:1ogy8ps",
+              "html": "Water rune",
+              "text": "Water rune"
+            },
+            {
+              "id": "silvthril-rod:bring:162y9st",
+              "html": "Cosmic rune",
+              "text": "Cosmic rune"
+            },
+            {
+              "id": "silvthril-rod:bring:e19krq",
+              "html": "Soft clay",
+              "text": "Soft clay"
+            },
+            {
+              "id": "silvthril-rod:bring:1x80dsn",
+              "html": "Cut sapphire",
+              "text": "Cut sapphire"
+            },
+            {
+              "id": "silvthril-rod:bring:lmcxxx",
+              "html": "Silver bar",
+              "text": "Silver bar"
+            },
+            {
+              "id": "silvthril-rod:bring:6x7jcb",
+              "html": "Mithril bar (metal bank is fine)",
+              "text": "Mithril bar (metal bank is fine)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:yrveek",
+          "html": "Return to Canifis and enter the trapdoor south of the pub.",
+          "text": "Return to Canifis and enter the trapdoor south of the pub.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1e81jqa",
+          "html": "Leave the pub cellar via the south wall and smash the wooden boards on the eastern wall.",
+          "text": "Leave the pub cellar via the south wall and smash the wooden boards on the eastern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:tffjp5",
+          "html": "Enter and use soft clay on the <a href=\"https://runescape.wiki/w/Tomb_(Ivandis_Seergaze)\" target=\"_blank\" rel=\"noopener\">tomb</a>, then add the <a href=\"https://runescape.wiki/w/Rod_clay_mould\" target=\"_blank\" rel=\"noopener\">rod clay mould</a> to your tool belt.",
+          "text": "Enter and use soft clay on the tomb, then add the rod clay mould to your tool belt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1cffdx5",
+          "html": "Smelt a <a href=\"https://runescape.wiki/w/Silvthril_rod\" target=\"_blank\" rel=\"noopener\">silvthril rod</a> at any furnace (under the Silver Casting section).",
+          "text": "Smelt a silvthril rod at any furnace (under the Silver Casting section).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:mc78yb",
+          "html": "Enchant it using the <a href=\"https://runescape.wiki/w/Lvl-1_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-1 Enchant</a> spell.",
+          "text": "Enchant it using the Lvl-1 Enchant spell.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1jc8ji9",
+          "html": "With a rope and the enchanted rod in your inventory, return to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a>, located underground in the mausoleum west of <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a>.",
+          "text": "With a rope and the enchanted rod in your inventory, return to Drezel, located underground in the mausoleum west of Paterdomus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1p6uf20",
+          "html": "Use the rod on the well in the room west of Drezel to receive the <a href=\"https://runescape.wiki/w/Rod_of_ivandis\" target=\"_blank\" rel=\"noopener\">rod of ivandis</a>.",
+          "text": "Use the rod on the well in the room west of Drezel to receive the rod of ivandis.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1sdhlkv",
+          "html": "Go back to Burgh de Rott, and go to the cellar in the pub where you previously cleared the rubble.",
+          "text": "Go back to Burgh de Rott, and go to the cellar in the pub where you previously cleared the rubble.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:1x3f22h",
+          "html": "Talk to Veliaf.",
+          "text": "Talk to Veliaf.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have brought you the Rod of Ivandis!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I've come to give the Rod of Ivandis to you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "silvthril-rod:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/In_Aid_of_the_Myreque_reward.png?c61e3",
+      "width": 512,
+      "height": 402,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:In_Aid_of_the_Myreque_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Attack_XP_lamp_(In_Aid_of_the_Myreque)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Strength_XP_lamp_(In_Aid_of_the_Myreque)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Crafting_XP_lamp_(In_Aid_of_the_Myreque)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Defence_XP_lamp_(In_Aid_of_the_Myreque)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a> and its facilities",
+        "text": "Access to Burgh de Rott and its facilities",
+        "subs": []
+      },
+      {
+        "html": "Ability to play the <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Temple Trekking</a> <a href=\"https://runescape.wiki/w/Minigame\" target=\"_blank\" rel=\"noopener\">minigame</a>",
+        "text": "Ability to play the Temple Trekking minigame",
+        "subs": []
+      },
+      {
+        "html": "Ability to use a <a href=\"https://runescape.wiki/w/Gadderhammer\" target=\"_blank\" rel=\"noopener\">Gadderhammer</a>, which is strong against <a href=\"https://runescape.wiki/w/Shades\" target=\"_blank\" rel=\"noopener\">shades</a>",
+        "text": "Ability to use a Gadderhammer, which is strong against shades",
+        "subs": []
+      },
+      {
+        "html": "Ability to make and use the <a href=\"https://runescape.wiki/w/Rod_of_ivandis\" target=\"_blank\" rel=\"noopener\">rod of Ivandis</a> and <a href=\"https://runescape.wiki/w/Guthix_balance_potion\" target=\"_blank\" rel=\"noopener\">Guthix balance potions</a> to fight and defeat <a href=\"https://runescape.wiki/w/Vampyre_Juvenile\" target=\"_blank\" rel=\"noopener\">Vampyre Juveniles</a> and <a href=\"https://runescape.wiki/w/Vampyre_Juvinate\" target=\"_blank\" rel=\"noopener\">Juvinates</a>",
+        "text": "Ability to make and use the rod of Ivandis and Guthix balance potions to fight and defeat Vampyre Juveniles and Juvinates",
+        "subs": []
+      },
+      {
+        "html": "Talk to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a> to receive 5 kudos in the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a>",
+        "text": "Talk to Historian Minas to receive 5 kudos in the Varrock Museum",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Distant Land – when you first enter Burgh De Rott",
+      "where": ""
+    },
+    {
+      "name": "Fangs For the Memory – when you are ambushed while escorting Ivan",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/In_Aid_of_the_Myreque_(achievement)\" target=\"_blank\" rel=\"noopener\">In Aid of the Myreque</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/The_Darkness_of_Hallowvale/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Darkness of Hallowvale</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Legacy_of_Seergaze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legacy of Seergaze</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>",
+        "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "format": 1,
+  "id": "dorics-task-i-miniquest",
+  "title": "Doric's Task I (miniquest)",
+  "page": "Doric's Task I (miniquest)/Quick guide",
+  "rev": 36777135,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_I_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "What's Mine is Yours",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 10,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 10,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:px7ffr",
+          "html": "4 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bars</a> or an <a href=\"https://runescape.wiki/w/Iron_full_helm\" target=\"_blank\" rel=\"noopener\">iron full helm</a> and 2 iron bars",
+          "text": "4 iron bars or an iron full helm and 2 iron bars",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ipw3m0",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "delivery-for-aksel",
+      "title": "Delivery for Aksel",
+      "anchor": "Delivery_for_Aksel",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "delivery-for-aksel:famdfi",
+          "html": "Talk to Doric in his hut north of Falador.",
+          "text": "Talk to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivery-for-aksel:1opgkdg",
+          "html": "Smith an <a href=\"https://runescape.wiki/w/Iron_full_helm_%2B1\" target=\"_blank\" rel=\"noopener\">iron full helm +1</a>",
+          "text": "Smith an iron full helm +1",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "delivery-for-aksel:1opgkdg:rofwbx",
+              "html": "It can not be purchased off the Grand Exchange or smithed on any other anvil but Doric&#39;s, however players can buy an unimproved <a href=\"https://runescape.wiki/w/Iron_full_helm\" target=\"_blank\" rel=\"noopener\">iron full helm</a> from the Grand Exchange and upgrade themselves to +1.",
+              "text": "It can not be purchased off the Grand Exchange or smithed on any other anvil but Doric's, however players can buy an unimproved iron full helm from the Grand Exchange and upgrade themselves to +1.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "delivery-for-aksel:10927xo",
+          "html": "Deliver it to Aksel at <a href=\"https://runescape.wiki/w/Artisans%27_Workshop\" target=\"_blank\" rel=\"noopener\">Artisans&#39; Workshop</a>.",
+          "text": "Deliver it to Aksel at Artisans' Workshop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Doric sent me here with another delivery."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_I_%28miniquest%29_reward.png?e6b59",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_I_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "250 experience",
+        "text": "250 experience",
+        "subs": []
+      },
+      {
+        "html": "750 charges on the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "750 charges on the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_II_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task II (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_III_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task III (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_IV_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task IV (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_V_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task V (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VI_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VI (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

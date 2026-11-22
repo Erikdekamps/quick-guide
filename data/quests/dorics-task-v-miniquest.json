@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "id": "dorics-task-v-miniquest",
+  "title": "Doric's Task V (miniquest)",
+  "page": "Doric's Task V (miniquest)/Quick guide",
+  "rev": 36711497,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_V_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task IV (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Doric's Task III (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Doric's Task II (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Doric's Task I (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 5
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 4
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:15daacd",
+          "html": "12 <a href=\"https://runescape.wiki/w/Rune_bar\" target=\"_blank\" rel=\"noopener\">rune bars</a> or",
+          "text": "12 rune bars or",
+          "alternatives": [
+            "6 rune bars",
+            "3 <a href=\"https://runescape.wiki/w/Rune_sword\" target=\"_blank\" rel=\"noopener\">rune swords</a>"
+          ]
+        },
+        {
+          "id": "req:m3t5tg",
+          "html": "20 <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bars</a> or 4 <a href=\"https://runescape.wiki/w/Steel_platebody\" target=\"_blank\" rel=\"noopener\">steel platebodies</a>",
+          "text": "20 steel bars or 4 steel platebodies",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wwnn77",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a> or activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador Teleport or activated Falador lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:7c50zz",
+          "html": "<a href=\"https://runescape.wiki/w/Ardougne_Teleport\" target=\"_blank\" rel=\"noopener\">Ardougne Teleport</a> or activated <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne lodestone</a>; optionally, the <a href=\"https://runescape.wiki/w/Kandarin_monastery_Teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery Teleport</a> can be used after completing the <a href=\"https://runescape.wiki/w/Easy_Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">easy Ardougne achievements</a>.",
+          "text": "Ardougne Teleport or activated Ardougne lodestone; optionally, the Kandarin monastery Teleport can be used after completing the easy Ardougne achievements.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "a-gnomish-request",
+      "title": "A gnomish request",
+      "anchor": "A_gnomish_request",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "a-gnomish-request:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-gnomish-request:1iufd06",
+          "html": "Smith 4 <a href=\"https://runescape.wiki/w/Gnome_platebody\" target=\"_blank\" rel=\"noopener\">Gnome platebodies</a> on <a href=\"https://runescape.wiki/w/Anvil_(Doric%27s_hut)\" target=\"_blank\" rel=\"noopener\">Doric&#39;s anvil</a>.",
+          "text": "Smith 4 Gnome platebodies on Doric's anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-gnomish-request:1iufd06:tal15f",
+              "html": "Have 4 <a href=\"https://runescape.wiki/w/Steel_platebodies\" target=\"_blank\" rel=\"noopener\">steel platebodies</a> in the backpack to make them.",
+              "text": "Have 4 steel platebodies in the backpack to make them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "a-gnomish-request:ikffso",
+          "html": "Smith 3 <a href=\"https://runescape.wiki/w/Rune_sword_%2B1\" target=\"_blank\" rel=\"noopener\">rune swords +1</a> on any anvil.",
+          "text": "Smith 3 rune swords +1 on any anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-gnomish-request:1ngstrf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Commander_Montai\" target=\"_blank\" rel=\"noopener\">Commander Montai</a> on the <a href=\"https://runescape.wiki/w/Battlefield\" target=\"_blank\" rel=\"noopener\">Battlefield</a> south of <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>.",
+          "text": "Talk to Commander Montai on the Battlefield south of Ardougne.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_V_%28miniquest%29_reward.png?43243",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_V_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "15,000 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "15,000 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VI_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VI (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

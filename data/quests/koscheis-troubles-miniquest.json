@@ -1,0 +1,615 @@
+{
+  "format": 1,
+  "id": "koscheis-troubles-miniquest",
+  "title": "Koschei's Troubles (miniquest)",
+  "page": "Koschei's Troubles (miniquest)/Quick guide",
+  "rev": 37026273,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Thorvald_the_Warrior\" target=\"_blank\" rel=\"noopener\">Thorvald the Warrior</a> in <a href=\"https://runescape.wiki/w/Skulgrimen%27s_Battle_Gear\" target=\"_blank\" rel=\"noopener\">Skulgrimen&#39;s Battle Gear</a> in <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3693,
+      "lon": 2666,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Koschei's_Troubles_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Blood Runs Deep",
+        "depth": 1
+      },
+      {
+        "text": "Horror from the Deep…",
+        "depth": 2
+      },
+      {
+        "text": "Dream Mentor…",
+        "depth": 2
+      },
+      {
+        "text": "Glorious Memories…",
+        "depth": 2
+      },
+      {
+        "text": "Ritual of the Mahjarrat",
+        "depth": 1
+      },
+      {
+        "text": "The Temple at Senntisten…",
+        "depth": 2
+      },
+      {
+        "text": "While Guthix Sleeps…",
+        "depth": 2
+      },
+      {
+        "text": "Hazeel Cult",
+        "depth": 2
+      },
+      {
+        "text": "Enakhra's Lament",
+        "depth": 2
+      },
+      {
+        "text": "The Slug Menace…",
+        "depth": 2
+      },
+      {
+        "text": "A Fairy Tale II - Cure a Queen…",
+        "depth": 2
+      },
+      {
+        "text": "Cabin Fever…",
+        "depth": 2
+      },
+      {
+        "text": "A Tail of Two Cats…",
+        "depth": 2
+      },
+      {
+        "text": "Fight Arena",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:dv0j0t",
+          "html": "<a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a>",
+          "text": "Balmung",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1d0485r",
+          "html": "<a href=\"https://runescape.wiki/w/Enchanted_Lyre\" target=\"_blank\" rel=\"noopener\">Enchanted Lyre</a>",
+          "text": "Enchanted Lyre",
+          "alternatives": []
+        },
+        {
+          "id": "rec:g9e26l",
+          "html": "90 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>",
+          "text": "90 Strength",
+          "alternatives": []
+        },
+        {
+          "id": "rec:b0bwkv",
+          "html": "90 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>",
+          "text": "90 Prayer",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "koschei-the-deathless-returns",
+      "title": "Koschei the Deathless returns",
+      "anchor": "Koschei_the_Deathless_returns",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "koschei-the-deathless-returns:1k2nm8m",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Thorvald_the_Warrior\" target=\"_blank\" rel=\"noopener\">Thorvald the Warrior</a> north of Rellekka inside <a href=\"https://runescape.wiki/w/Skulgrimen%27s_Battle_Gear\" target=\"_blank\" rel=\"noopener\">Skulgrimen&#39;s Battle Gear</a>.",
+          "text": "Talk to Thorvald the Warrior north of Rellekka inside Skulgrimen's Battle Gear.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "Does he need my help?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "koschei-the-deathless-returns:18gnyin",
+          "html": "Climb down the ladder.",
+          "text": "Climb down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-axe-and-the-tree",
+      "title": "The Axe and the tree",
+      "anchor": "The_Axe_and_the_tree",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-axe-and-the-tree:bring:dv0j0t",
+              "html": "<a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a>",
+              "text": "Balmung"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-axe-and-the-tree:1iqxmmc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Koschei_the_Deathless\" target=\"_blank\" rel=\"noopener\">Koschei the Deathless</a>.",
+          "text": "Talk to Koschei the Deathless.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let's go fight it - together!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-axe-and-the-tree:4m91pl",
+          "html": "With the Balmung in your inventory, chop down the <a href=\"https://runescape.wiki/w/Blossoming_tree\" target=\"_blank\" rel=\"noopener\">Blossoming tree</a> north-west of the bridge south of Rellekka.",
+          "text": "With the Balmung in your inventory, chop down the Blossoming tree north-west of the bridge south of Rellekka.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-axe-and-the-tree:1464193",
+          "html": "Take the chest from tree stump.",
+          "text": "Take the chest from tree stump.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-axe-and-the-tree:jad7mv",
+          "html": "Return and talk to Koschei.",
+          "text": "Return and talk to Koschei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-axe-and-the-tree:1r5lofr",
+          "html": "Open the chest.",
+          "text": "Open the chest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "floating-the-ship",
+      "title": "Floating the ship",
+      "anchor": "Floating_the_ship",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "floating-the-ship:1ee6gc0",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Toy_ship\" target=\"_blank\" rel=\"noopener\">toy ship</a>.",
+          "text": "Inspect the toy ship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "floating-the-ship:t8w5lc",
+          "html": "Talk to Koschei.",
+          "text": "Talk to Koschei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "floating-the-ship:1hmogjz",
+          "html": "Climb up the ladder and return to Rellekka.",
+          "text": "Climb up the ladder and return to Rellekka.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "floating-the-ship:dcqivd",
+          "html": "Go to the well south-east of the longhall.",
+          "text": "Go to the well south-east of the longhall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "floating-the-ship:1bapwmp",
+          "html": "Use the toy ship on the well.",
+          "text": "Use the toy ship on the well.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-jewel",
+      "title": "The jewel",
+      "anchor": "The_jewel",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-jewel:jad7mv",
+          "html": "Return and talk to Koschei.",
+          "text": "Return and talk to Koschei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-jewel:ou0uet",
+          "html": "Interact with the jewel.",
+          "text": "Interact with the jewel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Attempt to cut the jewel"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-jewel:t8w5lc",
+          "html": "Talk to Koschei.",
+          "text": "Talk to Koschei.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-jewel:1eh5umu",
+          "html": "Miniquest complete!",
+          "text": "Miniquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:rwlcqh",
+              "html": "For additional completion, talk to <a href=\"https://runescape.wiki/w/Kharshai\" target=\"_blank\" rel=\"noopener\">Kharshai</a>.",
+              "text": "For additional completion, talk to Kharshai.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I want to talk about your identity crisis."
+                    },
+                    {
+                      "key": "3",
+                      "text": "About that jewel..."
+                    },
+                    {
+                      "key": "1",
+                      "text": "May I have a look at the jewel?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:3oo2tm",
+              "html": "<i>Interact</i> <a href=\"https://runescape.wiki/w/Blue_jewel\" target=\"_blank\" rel=\"noopener\">blue jewel</a> (Requires 90)",
+              "text": "Interact blue jewel (Requires 90)",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Attempt to crush the jewel"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:10fbpfl",
+              "html": "Talk to Kharshai.",
+              "text": "Talk to Kharshai.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I want to talk about your identity crisis."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Kharshai, have a look at the jewel."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:7kj35l",
+              "html": "Talk to Kharshai again.",
+              "text": "Talk to Kharshai again.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I want to talk about your identity crisis."
+                    },
+                    {
+                      "key": "3",
+                      "text": "About that jewel..."
+                    },
+                    {
+                      "key": "2",
+                      "text": "May I have a look at the jewel?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:emle03",
+              "html": "<i>Interact</i> <a href=\"https://runescape.wiki/w/Red_jewel\" target=\"_blank\" rel=\"noopener\">red jewel</a> (Requires 90)",
+              "text": "Interact red jewel (Requires 90)",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Attempt to detect any curses"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:10fbpfl-2",
+              "html": "Talk to Kharshai.",
+              "text": "Talk to Kharshai.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I want to talk about your identity crisis."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Kharshai, have a look at the jewel."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-jewel:1eh5umu:18g6026",
+              "html": "Repeat the steps once again but make a new memory instead (blue) and the miniquest will be completed",
+              "text": "Repeat the steps once again but make a new memory instead (blue) and the miniquest will be completed",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Koschei%27s_Troubles_%28miniquest%29_reward.png?2715f",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Koschei%27s_Troubles_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Antique_lamp_(Koschei%27s_Troubles)\" target=\"_blank\" rel=\"noopener\">Antique lamp</a> giving 30,000 experience in any skill of level 75 or higher.",
+        "text": "Antique lamp giving 30,000 experience in any skill of level 75 or higher.",
+        "subs": []
+      },
+      {
+        "html": "An enhanced <a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a> axe, depending on the colour of gem made:",
+        "text": "An enhanced Balmung axe, depending on the colour of gem made:",
+        "subs": [
+          "Turning the jewel red will morph the Balmung into a <a href=\"https://runescape.wiki/w/Crimson_Balmung\" target=\"_blank\" rel=\"noopener\">Crimson Balmung</a>.",
+          "Turning the jewel blue will morph the Balmung into a <a href=\"https://runescape.wiki/w/Cobalt_Balmung\" target=\"_blank\" rel=\"noopener\">Cobalt Balmung</a>.",
+          "Turning the jewel green will morph the Balmung into a <a href=\"https://runescape.wiki/w/Viridian_Balmung\" target=\"_blank\" rel=\"noopener\">Viridian Balmung</a>.",
+          "Using the &quot;Toggle-colour&quot; option to turn it into an <a href=\"https://runescape.wiki/w/Achromatic_Balmung\" target=\"_blank\" rel=\"noopener\">Achromatic Balmung</a>."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": [
+      "You can change the colour of the jewel, and the Balmung, at any time by speaking to Kharshai.",
+      "You may speak to Kharshai after receiving the rewards to show him each of the coloured jewels and unlock additional memories. To do this, if you are eligible to start the miniquest <a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories</a>, he will first ask for the player to have at least a level of 60 in <a href=\"https://runescape.wiki/w/Divination\" target=\"_blank\" rel=\"noopener\">Divination</a>, mentioning that he has been experimenting with the methods of channelling used in divination. Once these are unlocked, the player can go through all the options at any time.",
+      "Speak to Kharshai with the <a href=\"https://runescape.wiki/w/Blue_jewel\" target=\"_blank\" rel=\"noopener\">blue jewel</a> to unlock this memory. It is revealed that Kharshai himself was the one that actually erased his memories. According to him, he did that to conceal himself from the other Mahjarrat and that simply shapeshifting wouldn&#39;t protect him from the Mahjarrat&#39;s innate ability to sense one another.",
+      "Speak to Kharshai with the <a href=\"https://runescape.wiki/w/Red_jewel\" target=\"_blank\" rel=\"noopener\">red jewel</a> to unlock this memory. It is revealed that he is the creator of the Balmung, which he says is made of <a href=\"https://runescape.wiki/w/Bane_ore\" target=\"_blank\" rel=\"noopener\">bane ore</a> and that he was working on a spell to enhance it, heading to the <a href=\"https://runescape.wiki/w/Fremennik_Isles\" target=\"_blank\" rel=\"noopener\">Fremennik Isles</a> to obtain <a href=\"https://runescape.wiki/w/Dagannoth\" target=\"_blank\" rel=\"noopener\">Dagannoth</a> blood when his memory was gone. He adds that the player later added the Dagannoth blood, thus tuning the weapon to dagannoth.",
+      "Speak to Kharshai with the <a href=\"https://runescape.wiki/w/Green_jewel\" target=\"_blank\" rel=\"noopener\">green jewel</a> to unlock this memory. He reveals that he knows why he is still powerful after so many centuries in the form of Koschei, despite the fact that Mahjarrat generally lose their power over time, even when disguised. According to him, sealing his memory was the key to preserving the power he possessed, since he didn&#39;t know the power he had, he didn&#39;t use it. He also mentions that this information will interest all the Mahjarrat and he suspects they are already working on a way to locate anyone else that may try to use this method in the future."
+    ]
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

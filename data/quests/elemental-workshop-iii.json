@@ -1,0 +1,1389 @@
+{
+  "format": 1,
+  "id": "elemental-workshop-iii",
+  "title": "Elemental Workshop III",
+  "page": "Elemental Workshop III/Quick guide",
+  "rev": 37178151,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Search a <a href=\"https://runescape.wiki/w/Bookcase_(Elemental_Workshop_III)\" target=\"_blank\" rel=\"noopener\">bookcase</a> in <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> church.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3465,
+      "lon": 2702,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Elemental_Workshop_III/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Elemental Workshop II",
+        "depth": 1
+      },
+      {
+        "text": "Elemental Workshop I",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Defence",
+        "level": 33,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 33,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "3 Earth elementals (level 44)",
+        "name": "Earth elementals",
+        "count": 3,
+        "level": "44",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:dwpuxu",
+          "html": "12 pieces of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (can be mined west of <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a>, at the <a href=\"https://runescape.wiki/w/Coal_trucks\" target=\"_blank\" rel=\"noopener\">coal trucks</a>; these cannot be noted or in an <a href=\"https://runescape.wiki/w/Ore_box\" target=\"_blank\" rel=\"noopener\">ore box</a>)",
+          "text": "12 pieces of coal (can be mined west of Seers' Village, at the coal trucks; these cannot be noted or in an ore box)",
+          "alternatives": []
+        },
+        {
+          "id": "req:b2jm42",
+          "html": "3 <a href=\"https://runescape.wiki/w/Elemental_ore\" target=\"_blank\" rel=\"noopener\">elemental ores</a> (can be obtained during the quest)",
+          "text": "3 elemental ores (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:18d571a",
+          "html": "<a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">Soft clay</a> (you can mine <a href=\"https://runescape.wiki/w/Clay\" target=\"_blank\" rel=\"noopener\">clay</a> in the <a href=\"https://runescape.wiki/w/Elemental_Workshop_mine\" target=\"_blank\" rel=\"noopener\">mine</a> in the north-western room and use it on the sink in the northern room to soften it, or automatically mine one by wearing a <a href=\"https://runescape.wiki/w/Bracelet_of_clay\" target=\"_blank\" rel=\"noopener\">bracelet of clay</a>)",
+          "text": "Soft clay (you can mine clay in the mine in the north-western room and use it on the sink in the northern room to soften it, or automatically mine one by wearing a bracelet of clay)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1lgkg1b",
+          "html": "Bring <a href=\"https://runescape.wiki/w/Defence_potion\" target=\"_blank\" rel=\"noopener\">defence potions</a>, <a href=\"https://runescape.wiki/w/Super_defence_potion\" target=\"_blank\" rel=\"noopener\">super defence potions</a> or <a href=\"https://runescape.wiki/w/Restore_potion\" target=\"_blank\" rel=\"noopener\">restore potions</a>, if you are under 66 <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>",
+          "text": "Bring defence potions, super defence potions or restore potions, if you are under 66 Defence",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Excalibur\" target=\"_blank\" rel=\"noopener\">Excalibur</a> can be used to restore eight Defence levels"
+          ]
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "starting-out:bring:24dr05",
+              "html": "12 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+              "text": "12 coal"
+            },
+            {
+              "id": "starting-out:bring:fn3dwd",
+              "html": "1 <a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">soft clay</a>",
+              "text": "1 soft clay"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:qx8cu4",
+          "html": "Search the north-east bookcase in the Seers&#39; Village church.",
+          "text": "Search the north-east bookcase in the Seers' Village church.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:20u74d",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Ragged_book\" target=\"_blank\" rel=\"noopener\">ragged book</a>.",
+          "text": "Read the ragged book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1lyl992",
+          "html": "Use <a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">soft clay</a> on the book to get the <a href=\"https://runescape.wiki/w/Key_mould\" target=\"_blank\" rel=\"noopener\">key mould</a>. If you do not have soft clay, you can mine some from the <a href=\"https://runescape.wiki/w/Clay_rocks\" target=\"_blank\" rel=\"noopener\">clay rocks</a> in the western mine of the workshop then use it on the sink in the northern room.",
+          "text": "Use soft clay on the book to get the key mould. If you do not have soft clay, you can mine some from the clay rocks in the western mine of the workshop then use it on the sink in the northern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1uq3b4l",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Elemental_Workshop\" target=\"_blank\" rel=\"noopener\">Elemental Workshop</a> and go into the mine to the west. Mine 3 <a href=\"https://runescape.wiki/w/Elemental_rock\" target=\"_blank\" rel=\"noopener\">elemental rocks</a>, killing the <a href=\"https://runescape.wiki/w/Earth_elemental\" target=\"_blank\" rel=\"noopener\">earth elementals</a> that appear, then pick up the 3 <a href=\"https://runescape.wiki/w/Elemental_ore\" target=\"_blank\" rel=\"noopener\">elemental ores</a> that they drop. Simply killing the earth elementals wandering around the mine will not yield the ore.",
+          "text": "Enter the Elemental Workshop and go into the mine to the west. Mine 3 elemental rocks, killing the earth elementals that appear, then pick up the 3 elemental ores that they drop. Simply killing the earth elementals wandering around the mine will not yield the ore.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1j3h2c9",
+          "html": "In the fire elemental room (south), use the elemental ore on the furnace to create 3 <a href=\"https://runescape.wiki/w/Elemental_bar\" target=\"_blank\" rel=\"noopener\">elemental bars</a>. 4 coal is required per bar.",
+          "text": "In the fire elemental room (south), use the elemental ore on the furnace to create 3 elemental bars. 4 coal is required per bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ijvbqv",
+          "html": "Use 1 elemental bar on the furnace again to make a <a href=\"https://runescape.wiki/w/Ragged_elemental_key\" target=\"_blank\" rel=\"noopener\">ragged elemental key</a>.",
+          "text": "Use 1 elemental bar on the furnace again to make a ragged elemental key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1cpdjbg",
+          "html": "Climb down the hatch in the centre of the middle room.",
+          "text": "Climb down the hatch in the centre of the middle room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:xoyqul",
+          "html": "Prime the remaining two elemental bars (see <a href=\"https://runescape.wiki/w/Primed_bar\" target=\"_blank\" rel=\"noopener\">primed bar</a> on how to do this) using the jig cart, but <b>don&#39;t</b> infuse them with the Mind machine.",
+          "text": "Prime the remaining two elemental bars (see primed bar on how to do this) using the jig cart, but don't infuse them with the Mind machine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:15dpynn",
+          "html": "Go down the northwest stairwell.",
+          "text": "Go down the northwest stairwell.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1s7kwrm",
+          "html": "In the middle of the hallway, open the &#39;Body door&#39; on the western wall with the ragged elemental key.",
+          "text": "In the middle of the hallway, open the 'Body door' on the western wall with the ragged elemental key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-puzzle",
+      "title": "The puzzle",
+      "anchor": "The_puzzle",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Elemental_Workshop_III_Map.png?f13db",
+          "width": 213,
+          "height": 191,
+          "alt": "",
+          "caption": "The control layout",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_Map.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1jutp0u",
+          "html": "Head down the stairs.",
+          "text": "Head down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1kcd0aw",
+          "html": "Label the levers as follows and use the interface to move them. The levers on the north and south are the same, and the levers east and west are the same so feel free to use the closest lever to your current orientation. You can use the Minigame window to hit the levers, you don&#39;t need to run to each one.",
+          "text": "Label the levers as follows and use the interface to move them. The levers on the north and south are the same, and the levers east and west are the same so feel free to use the closest lever to your current orientation. You can use the Minigame window to hit the levers, you don't need to run to each one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:nj4msl",
+          "html": "The &quot;Reset&quot; and &quot;Undo&quot; levers can be found on the west wall (when the camera is not locked into the fixed overhead view; otherwise, they&#39;re to the north)",
+          "text": "The \"Reset\" and \"Undo\" levers can be found on the west wall (when the camera is not locked into the fixed overhead view; otherwise, they're to the north)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "First section"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_A.png/250px-Elemental_Workshop_III_puzzle_part_A.png?7f691",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "The solution to the first section of the puzzle",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_A.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:sqeos0",
+              "html": "C, 2, F, 6",
+              "text": "C, 2, F, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:sqeos0-2",
+              "html": "C, 2, F, 6",
+              "text": "C, 2, F, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:168f7aa",
+              "html": "C, 2, E, 5",
+              "text": "C, 2, E, 5",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:yhsvcu",
+              "html": "B, 3, F, 2",
+              "text": "B, 3, F, 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:yhsvcu-2",
+              "html": "B, 3, F, 2",
+              "text": "B, 3, F, 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt:vs8kuj",
+              "html": "E, 4, F, 3",
+              "text": "E, 4, F, 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1jt43bb",
+          "html": "A cutscene will play. Pull the reset lever.",
+          "text": "A cutscene will play. Pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Second section"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_B.png/250px-Elemental_Workshop_III_puzzle_part_B.png?aec6b",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "The solution to the second section of the puzzle",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_B.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt-2",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:z6igba",
+              "html": "A, 5, C, 6",
+              "text": "A, 5, C, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:10nf8aq",
+              "html": "B, 5, D, 6",
+              "text": "B, 5, D, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:1k962n2",
+              "html": "C, 5, E, 6",
+              "text": "C, 5, E, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:1byhudd",
+              "html": "C, 5, F, 6",
+              "text": "C, 5, F, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:c7zafi",
+              "html": "D, 5, E, 3",
+              "text": "D, 5, E, 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-2:y36qmm",
+              "html": "F, 4, E",
+              "text": "F, 4, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:kw6q7t",
+          "html": "No cutscene will play. Pull the reset lever.",
+          "text": "No cutscene will play. Pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Third section"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_C.png/250px-Elemental_Workshop_III_puzzle_part_C.png?bdc23",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "The solution to the third section of the puzzle",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_C.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt-3",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1pysylo",
+              "html": "2, B, 6, A",
+              "text": "2, B, 6, A",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:shjuul",
+              "html": "5, B, 6, C",
+              "text": "5, B, 6, C",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1hxbb3d",
+              "html": "5, B, 2, C",
+              "text": "5, B, 2, C",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:ohbnne",
+              "html": "5, B, 3, E",
+              "text": "5, B, 3, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1oplh6i",
+              "html": "6, F, 5, B",
+              "text": "6, F, 5, B",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:9af207",
+              "html": "3, C, 6, F",
+              "text": "3, C, 6, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:xrcn2v",
+              "html": "2, C, 6, E",
+              "text": "2, C, 6, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1m40ts2",
+              "html": "3, B, 5, E",
+              "text": "3, B, 5, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1pbvu4m",
+              "html": "6, F, 4, E",
+              "text": "6, F, 4, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:1pbvu4m-2",
+              "html": "6, F, 4, E",
+              "text": "6, F, 4, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-3:dby8y8",
+              "html": "5",
+              "text": "5",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1jt43bb-2",
+          "html": "A cutscene will play. Pull the reset lever.",
+          "text": "A cutscene will play. Pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fourth section"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_D.png/250px-Elemental_Workshop_III_puzzle_part_D.png?b8021",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "The solution to the fourth section of the puzzle",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_D.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt-4",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:31clon",
+              "html": "2, C, 3, B",
+              "text": "2, C, 3, B",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:1m345c4",
+              "html": "2, A, 3, E",
+              "text": "2, A, 3, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:pnb2vk",
+              "html": "2, B, 3, F",
+              "text": "2, B, 3, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:1xe6wr",
+              "html": "2, C, 3, F",
+              "text": "2, C, 3, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:exp7fx",
+              "html": "2, C, 5, F",
+              "text": "2, C, 5, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-4:1lj8wy4",
+              "html": "2, E",
+              "text": "2, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1k7db48",
+          "html": "A message appears: &quot;you hear a crunching of gears&quot;. Pull the reset lever.",
+          "text": "A message appears: \"you hear a crunching of gears\". Pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Lowering the tower"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_E.png/250px-Elemental_Workshop_III_puzzle_part_E.png?92187",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "Lowering the tower",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_E.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt-5",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:vo64k1",
+              "html": "B, 2, A, 3",
+              "text": "B, 2, A, 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:14xymyh",
+              "html": "B, 2, F, 6",
+              "text": "B, 2, F, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:rovng4",
+              "html": "B, 2, D, 3",
+              "text": "B, 2, D, 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:sy36ch",
+              "html": "F, 6, C, 5",
+              "text": "F, 6, C, 5",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:w44gdy",
+              "html": "D, 6, F, 5",
+              "text": "D, 6, F, 5",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:11n2bp4",
+              "html": "C, 6, F, 2",
+              "text": "C, 6, F, 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:15y5o0n",
+              "html": "E, 5, F, 2",
+              "text": "E, 5, F, 2",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:12x6jih",
+              "html": "E, 5, D, 6",
+              "text": "E, 5, D, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-5:imj0vg",
+              "html": "F, 4, E, 6",
+              "text": "F, 4, E, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:yxyb1z",
+          "html": "Many of the gears start moving and the machine makes a noise.",
+          "text": "Many of the gears start moving and the machine makes a noise.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:vypm34",
+          "html": "Pull the reset lever.",
+          "text": "Pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Spinning the tower"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_F.png/250px-Elemental_Workshop_III_puzzle_part_F.png?04b3b",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "Spinning the tower",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_F.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1wu0cwt-6",
+          "html": "Pull the levers in the following order:",
+          "text": "Pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:h6hene",
+              "html": "4, E, 6, F",
+              "text": "4, E, 6, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:fsje6j",
+              "html": "4, E, 6, A",
+              "text": "4, E, 6, A",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:qtm8or",
+              "html": "5, B, 6, E",
+              "text": "5, B, 6, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:1kohynb",
+              "html": "5, A, 6, F",
+              "text": "5, A, 6, F",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:1hdc3pf",
+              "html": "5, B, 2, A",
+              "text": "5, B, 2, A",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:cm0xd",
+              "html": "3, B, 4, C",
+              "text": "3, B, 4, C",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:1ouujts",
+              "html": "2, B, 6, E",
+              "text": "2, B, 6, E",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:1r4qg4j",
+              "html": "5, C, 2, D",
+              "text": "5, C, 2, D",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:s24vnh",
+              "html": "3, E, 5, C",
+              "text": "3, E, 5, C",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzle:1wu0cwt-6:5metme",
+              "html": "3, F, 6",
+              "text": "3, F, 6",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:14r6dqy",
+          "html": "Many of the gears start rotating and the central column stats rotating.",
+          "text": "Many of the gears start rotating and the central column stats rotating.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:10q35r6",
+          "html": "<b>Do not</b> pull the reset lever.",
+          "text": "Do not pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Raising the tower"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_part_F.png/300px-Elemental_Workshop_III_puzzle_part_F.png?04b3b",
+          "width": 300,
+          "height": 246,
+          "alt": "",
+          "caption": "Figure 1",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_part_F.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_puzzle_completed.png/300px-Elemental_Workshop_III_puzzle_completed.png?8d595",
+          "width": 300,
+          "height": 300,
+          "alt": "",
+          "caption": "Figure 2 (The result)",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_puzzle_completed.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1j614sx",
+          "html": "If your puzzle looks exactly like Figure 1, pull the levers in the following order:",
+          "text": "If your puzzle looks exactly like Figure 1, pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1j614sx:jdtryd",
+              "html": "B, 4, C, 3",
+              "text": "B, 4, C, 3",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1bbioqy",
+          "html": "If your puzzle looks like that image, but with the left and right sides reversed (&quot;inverse position&quot;), pull the levers in the following order:",
+          "text": "If your puzzle looks like that image, but with the left and right sides reversed (\"inverse position\"), pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzle:1bbioqy:hpw5sj",
+              "html": "B, 4, C, 5",
+              "text": "B, 4, C, 5",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzle:1gmw8tf",
+          "html": "A message appears: &quot;As the machine raises, you hear a whirring noise from the level above&quot;. Do <b>not</b> pull the reset lever.",
+          "text": "A message appears: \"As the machine raises, you hear a whirring noise from the level above\". Do not pull the reset lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "body-body",
+      "title": "Body body",
+      "anchor": "Body_body",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_III_Puzzle.png/250px-Elemental_Workshop_III_Puzzle.png?1afbf",
+          "width": 250,
+          "height": 205,
+          "alt": "",
+          "caption": "The order of blocks that allow for 2, 4, B, C, 3 to work",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_Puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "body-body:1vsnn0c",
+          "html": "Go upstairs (click the metallic stairs on the bottom-left or bottom-right of the screen) to make a <a href=\"https://runescape.wiki/w/Body_bar\" target=\"_blank\" rel=\"noopener\">body bar</a>.",
+          "text": "Go upstairs (click the metallic stairs on the bottom-left or bottom-right of the screen) to make a body bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "body-body:13fp02m",
+          "html": "The metallic stairs may be blocked by your interface due to the forced camera angle, so closing out of the view by pressing the magnifying glass may be required.",
+          "text": "The metallic stairs may be blocked by your interface due to the forced camera angle, so closing out of the view by pressing the magnifying glass may be required.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "body-body:13fp02m:ybj1yk",
+              "html": "Put a <a href=\"https://runescape.wiki/w/Primed_bar\" target=\"_blank\" rel=\"noopener\">primed bar</a> in the slot next to the door.",
+              "text": "Put a primed bar in the slot next to the door.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:13fp02m:1uex5q",
+              "html": "Enter the room and flip the lever.",
+              "text": "Enter the room and flip the lever.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:13fp02m:pjpm2g",
+              "html": "Push the button.",
+              "text": "Push the button.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:13fp02m:1bm4hcp",
+              "html": "Flip the lever.",
+              "text": "Flip the lever.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:13fp02m:1xsfg00",
+              "html": "Retrieve the <a href=\"https://runescape.wiki/w/Body_bar\" target=\"_blank\" rel=\"noopener\">body bar</a> from the slot.",
+              "text": "Retrieve the body bar from the slot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "body-body:au1xp3",
+          "html": "Go downstairs.",
+          "text": "Go downstairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "body-body:2kyfx1",
+          "html": "If your puzzle was in the &quot;guide position&quot; mentioned above, pull the levers in the following order:",
+          "text": "If your puzzle was in the \"guide position\" mentioned above, pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "body-body:2kyfx1:1fnh6ge",
+              "html": "2 (The tower drops)",
+              "text": "2 (The tower drops)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:2kyfx1:28wwft",
+              "html": "4, B (The tower spins)",
+              "text": "4, B (The tower spins)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:2kyfx1:zcjsjw",
+              "html": "C, 3 (The tower rises)",
+              "text": "C, 3 (The tower rises)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "body-body:1cvr5c0",
+          "html": "Or if your puzzle was in the &quot;inverse position&quot;, pull the levers in the following order:",
+          "text": "Or if your puzzle was in the \"inverse position\", pull the levers in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "body-body:1cvr5c0:1j594qr",
+              "html": "4, 3 (The tower drops)",
+              "text": "4, 3 (The tower drops)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:1cvr5c0:28wwft",
+              "html": "4, B (The tower spins)",
+              "text": "4, B (The tower spins)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:1cvr5c0:zcjsjw",
+              "html": "C, 3 (The tower rises)",
+              "text": "C, 3 (The tower rises)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "body-body:172pmb9",
+          "html": "Go upstairs and make a second <a href=\"https://runescape.wiki/w/Body_bar\" target=\"_blank\" rel=\"noopener\">body bar</a>.",
+          "text": "Go upstairs and make a second body bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "body-body:172pmb9:ybj1yk",
+              "html": "Put a <a href=\"https://runescape.wiki/w/Primed_bar\" target=\"_blank\" rel=\"noopener\">primed bar</a> in the slot next to the door.",
+              "text": "Put a primed bar in the slot next to the door.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:172pmb9:1uex5q",
+              "html": "Enter the room and flip the lever.",
+              "text": "Enter the room and flip the lever.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:172pmb9:pjpm2g",
+              "html": "Push the button.",
+              "text": "Push the button.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:172pmb9:1bm4hcp",
+              "html": "Flip the lever.",
+              "text": "Flip the lever.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "body-body:172pmb9:1xsfg00",
+              "html": "Retrieve the <a href=\"https://runescape.wiki/w/Body_bar\" target=\"_blank\" rel=\"noopener\">body bar</a> from the slot.",
+              "text": "Retrieve the body bar from the slot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "body-body:1qeiib8",
+          "html": "Use a workbench on the first-level basement (the level with water, air, and fire elementals where you can obtain elemental ore) to create a <a href=\"https://runescape.wiki/w/Body_body\" target=\"_blank\" rel=\"noopener\">body body</a>. The ragged book must be in your inventory.",
+          "text": "Use a workbench on the first-level basement (the level with water, air, and fire elementals where you can obtain elemental ore) to create a body body. The ragged book must be in your inventory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "body-body:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Elemental_Workshop_III_reward.png?b64c7",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Elemental_Workshop_III_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "A total of 8,500 experience:",
+        "text": "A total of 8,500 experience:",
+        "subs": [
+          "2,000 experience from finishing the quest",
+          "A <a href=\"https://runescape.wiki/w/Book_of_knowledge_(Elemental_Workshop_III)\" target=\"_blank\" rel=\"noopener\">Book of knowledge</a> worth 6,500 experience (two charges of 3,250 experience each)"
+        ]
+      },
+      {
+        "html": "A total of 8,500 experience (via two charges of 4,250 experience from the <a href=\"https://runescape.wiki/w/Book_of_knowledge_(Elemental_Workshop_III)\" target=\"_blank\" rel=\"noopener\">Book of knowledge</a>)",
+        "text": "A total of 8,500 experience (via two charges of 4,250 experience from the Book of knowledge)",
+        "subs": []
+      },
+      {
+        "html": "50 noted pieces of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+        "text": "50 noted pieces of coal",
+        "subs": []
+      },
+      {
+        "html": "Ability to smith <a href=\"https://runescape.wiki/w/Elemental_Body\" target=\"_blank\" rel=\"noopener\">elemental</a>, <a href=\"https://runescape.wiki/w/Mind_body\" target=\"_blank\" rel=\"noopener\">mind</a> and <a href=\"https://runescape.wiki/w/Body_body\" target=\"_blank\" rel=\"noopener\">body</a> bodies, along with body <a href=\"https://runescape.wiki/w/Body_helmet\" target=\"_blank\" rel=\"noopener\">helmets</a> and <a href=\"https://runescape.wiki/w/Body_shield\" target=\"_blank\" rel=\"noopener\">shields</a>.",
+        "text": "Ability to smith elemental, mind and body bodies, along with body helmets and shields.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Body Talk",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_IV/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop IV</a>"
+      ]
+    }
+  ]
+}

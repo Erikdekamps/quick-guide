@@ -42,6 +42,13 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 - Text from the wiki goes through esc() before it becomes HTML, unless the parser already cleaned it.
 - When the app reads a new kind of wiki page, add a check for it to tests/live.spec.js.
 
+## Data
+
+- Never change a file in data/ by hand: `npm run data` builds them from the wiki, and the nightly build writes them again.
+- A file in data/ has nothing that changes with every build (no dates of the build): the same wiki gives the same files.
+- A change to the shape of the files raises FORMAT in tools/data/shape.js, and tests/unit/data.spec.js checks the files.
+- data/ is no part of the app's version: a change to it needs no bump and no changelog line.
+
 ## Tests
 
 - Test logic with a unit test in tests/unit/ (Node, no browser, milliseconds); use a browser test only for what needs a page.

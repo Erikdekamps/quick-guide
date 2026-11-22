@@ -1,0 +1,1246 @@
+{
+  "format": 1,
+  "id": "heart-of-stone",
+  "title": "Heart of Stone",
+  "page": "Heart of Stone/Quick guide",
+  "rev": 36971008,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> at the entrance to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3216,
+      "lon": 3102,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Heart_of_Stone/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Carnillean Rising",
+        "depth": 1
+      },
+      {
+        "text": "The Blood Pact",
+        "depth": 2
+      },
+      {
+        "text": "Hazeel Cult",
+        "depth": 2
+      },
+      {
+        "text": "Rune Memories",
+        "depth": 1
+      },
+      {
+        "text": "Rune Mysteries",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Magic",
+        "level": 35,
+        "note": ""
+      },
+      {
+        "skill": "Runecrafting",
+        "level": 25,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Rune Mechanics",
+      "The Elder Kiln",
+      "Fate of the Gods",
+      "Missing, Presumed Death",
+      "Koschei's Troubles (miniquest)…",
+      "The Chosen Commander…",
+      "Ritual of the Mahjarrat…",
+      "The World Wakes…",
+      "The Death of Chivalry…",
+      "The World Wakes",
+      "The Firemaker's Curse",
+      "The Branches of Darkmeyer…",
+      "The Void Stares Back…",
+      "Ritual of the Mahjarrat",
+      "The Temple at Senntisten…",
+      "While Guthix Sleeps…",
+      "Hazeel Cult",
+      "Enakhra's Lament",
+      "The Slug Menace…",
+      "A Fairy Tale II - Cure a Queen…",
+      "Cabin Fever…",
+      "A Tail of Two Cats…",
+      "Fight Arena",
+      "The General's Shadow (miniquest)…",
+      "The Temple at Senntisten",
+      "Devious Minds…",
+      "Desert Treasure…",
+      "The Curse of Arrav…",
+      "125 Kudos"
+    ],
+    "enemies": [
+      {
+        "text": "BikKra's attendant (level 35) (numerous)",
+        "name": "BikKra's attendant",
+        "count": null,
+        "level": "35",
+        "note": "(numerous)"
+      },
+      {
+        "text": "FulKra's attendant (level 44) (numerous)",
+        "name": "FulKra's attendant",
+        "count": null,
+        "level": "44",
+        "note": "(numerous)"
+      },
+      {
+        "text": "Prehistoric abyssal (level 56)",
+        "name": "Prehistoric abyssal",
+        "count": null,
+        "level": "56",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Karamja</span> <span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:13kccz9",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a> and combat equipment to fight several enemies level 35-56 (preferably with Ranged or Magic)",
+          "text": "Food and combat equipment to fight several enemies level 35-56 (preferably with Ranged or Magic)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:yqpate",
+          "html": "<a href=\"https://runescape.wiki/w/Law_altar_teleport\" target=\"_blank\" rel=\"noopener\">Law altar teleport</a>",
+          "text": "Law altar teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:nghhd7",
+          "html": "<a href=\"https://runescape.wiki/w/Waterskin\" target=\"_blank\" rel=\"noopener\">Waterskins</a> or an <a href=\"https://runescape.wiki/w/Enchanted_water_tiara\" target=\"_blank\" rel=\"noopener\">enchanted water tiara</a> to survive the <a href=\"https://runescape.wiki/w/Desert_heat\" target=\"_blank\" rel=\"noopener\">desert heat</a>.",
+          "text": "Waterskins or an enchanted water tiara to survive the desert heat.",
+          "alternatives": [
+            "Completing the <a href=\"https://runescape.wiki/w/Crocodile_Tears\" target=\"_blank\" rel=\"noopener\">Crocodile Tears</a> quest grants immunity against desert heat."
+          ]
+        },
+        {
+          "id": "rec:wawlxy",
+          "html": "<a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a> for quick teleport to Karamja.",
+          "text": "Amulet of glory for quick teleport to Karamja.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "tracking-down-xenia",
+      "title": "Tracking down Xenia",
+      "anchor": "Tracking_down_Xenia",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:12lcj7l",
+          "html": "Dismiss any followers now. If you recently completed <a href=\"https://runescape.wiki/w/Carnillean_Rising\" target=\"_blank\" rel=\"noopener\">Carnillean Rising</a>, you might have to re-log to start the quest.",
+          "text": "Dismiss any followers now. If you recently completed Carnillean Rising, you might have to re-log to start the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:x73tdt",
+          "html": "<i>Interact</i> with <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a> at the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a> entrance south of <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+          "text": "Interact with Xenia at the Wizards' Tower entrance south of Draynor Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:1dahftm",
+          "html": "End their fight.",
+          "text": "End their fight.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:32sze2",
+          "html": "On the east side of the Wizards&#39; Tower (outside, near the water), talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "On the east side of the Wizards' Tower (outside, near the water), talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Okay, I'll talk to Kipple."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:bp2pgz",
+          "html": "Talk to Kipple.",
+          "text": "Talk to Kipple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "2",
+                  "text": "No"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:1la6725",
+          "html": "Solve the puzzle.",
+          "text": "Solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:1cknnwk",
+          "html": "Dismiss any followers now.",
+          "text": "Dismiss any followers now.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tracking-down-xenia:1uuh7xy",
+          "html": "Talk to Kipple and note the location he tells you.",
+          "text": "Talk to Kipple and note the location he tells you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Heart_of_Stone_-_Wizards%27_Tower_solution.png?1c4b3",
+          "width": 307,
+          "height": 250,
+          "alt": "Wizards' Tower solution",
+          "caption": "Wizards' Tower solution",
+          "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_Wizards%27_Tower_solution.png"
+        }
+      ]
+    },
+    {
+      "id": "karamja-volcano-ful",
+      "title": "Karamja Volcano: Ful",
+      "anchor": "Karamja_Volcano:_Ful",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "karamja-volcano-ful:bring:1bxlvpg",
+              "html": "Combat equipment (Ranged, Magic, or Necromancy is advised)",
+              "text": "Combat equipment (Ranged, Magic, or Necromancy is advised)"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "karamja-volcano-ful:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "karamja-volcano-ful:bring:1xd5nhz",
+              "html": "<a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a> to teleport to Karamja",
+              "text": "Amulet of glory to teleport to Karamja"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:fgi45y",
+          "html": "Head to the Karamja Volcano.",
+          "text": "Head to the Karamja Volcano.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "karamja-volcano-ful:fgi45y:1ho1v74",
+              "html": "Kipple will appear near the entrance.",
+              "text": "Kipple will appear near the entrance.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:1735pe2",
+          "html": "Right-click <i>open tracker</i> with Kipple to solve the puzzle.",
+          "text": "Right-click open tracker with Kipple to solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:1wfv0bi",
+          "html": "Enter the portal.",
+          "text": "Enter the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:1sk3ky0",
+          "html": "Kill attendants while avoiding the fires until the green bar at the top fills up (takes about 5 minutes).",
+          "text": "Kill attendants while avoiding the fires until the green bar at the top fills up (takes about 5 minutes).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:5gj25p",
+          "html": "Talk to FulKra.",
+          "text": "Talk to FulKra.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Why was Xenia here?"
+                },
+                {
+                  "key": "1",
+                  "text": "No, it's not right."
+                },
+                {
+                  "key": "4",
+                  "text": "I've got no further questions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "karamja-volcano-ful:bp2pgz",
+          "html": "Talk to Kipple.",
+          "text": "Talk to Kipple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_Karamja_Volcano_solution.png?731d4",
+              "width": 307,
+              "height": 250,
+              "alt": "Karamja Volcano solution",
+              "caption": "Karamja Volcano solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_Karamja_Volcano_solution.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_FulKra_solution.png?87659",
+              "width": 307,
+              "height": 250,
+              "alt": "FulKra solution",
+              "caption": "FulKra solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_FulKra_solution.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entrana-bik",
+      "title": "Entrana: Bik",
+      "anchor": "Entrana:_Bik",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "entrana-bik:bring:yqpate",
+              "html": "<a href=\"https://runescape.wiki/w/Law_altar_teleport\" target=\"_blank\" rel=\"noopener\">Law altar teleport</a>",
+              "text": "Law altar teleport"
+            },
+            {
+              "id": "entrana-bik:bring:zh40bu",
+              "html": "Food may be required for low-level players",
+              "text": "Food may be required for low-level players"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:15iyosc",
+          "html": "Travel to the north half of Entrana, east of the dungeon entrance.",
+          "text": "Travel to the north half of Entrana, east of the dungeon entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "entrana-bik:15iyosc:1brb4zj",
+              "html": "A quick way to get there is using the <a href=\"https://runescape.wiki/w/Law_altar_teleport\" target=\"_blank\" rel=\"noopener\">law altar teleport</a>. No weapons or armour are allowed on the island.",
+              "text": "A quick way to get there is using the law altar teleport. No weapons or armour are allowed on the island.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:1735pe2",
+          "html": "Right-click <i>open tracker</i> with Kipple to solve the puzzle.",
+          "text": "Right-click open tracker with Kipple to solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:118h4ik",
+          "html": "Enter the portal and open the Bik door.",
+          "text": "Enter the portal and open the Bik door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:usrrrj",
+          "html": "Equip a weapon (three basic weapons are provided) and kill the attendants while staying close to Kipple.",
+          "text": "Equip a weapon (three basic weapons are provided) and kill the attendants while staying close to Kipple.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "entrana-bik:usrrrj:mxjxc5",
+              "html": "Kipple needs to grab 3 unstable attendants.",
+              "text": "Kipple needs to grab 3 unstable attendants.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:wg3xcr",
+          "html": "Once Kipple has placed 3 unstable attendants by the door, light them. NOTE - There is a bug where sometimes you light them and nothing happens. If this happens leave out the portal and come back in.",
+          "text": "Once Kipple has placed 3 unstable attendants by the door, light them. NOTE - There is a bug where sometimes you light them and nothing happens. If this happens leave out the portal and come back in.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:3pl5sk",
+          "html": "Talk to BikKra.",
+          "text": "Talk to BikKra.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What was Xenia doing?"
+                },
+                {
+                  "key": "2",
+                  "text": "I am sorry mighty one, I'll explain."
+                },
+                {
+                  "key": "1",
+                  "text": "They could be useful."
+                },
+                {
+                  "key": "4",
+                  "text": "I don't care"
+                },
+                {
+                  "key": "4",
+                  "text": "I have no more questions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:bp2pgz",
+          "html": "Talk to Kipple.",
+          "text": "Talk to Kipple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entrana-bik:1la6725",
+          "html": "Solve the puzzle.",
+          "text": "Solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_Entrana_solution.png?0a0cb",
+              "width": 307,
+              "height": 250,
+              "alt": "Entrana solution",
+              "caption": "Entrana solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_Entrana_solution.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_BikKra_solution.png?60fa9",
+              "width": 307,
+              "height": 250,
+              "alt": "BikKra solution",
+              "caption": "BikKra solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_BikKra_solution.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "white-wolf-mountain-wen",
+      "title": "White Wolf Mountain: Wen",
+      "anchor": "White_Wolf_Mountain:_Wen",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:1w99wzh",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> and climb up <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a>.",
+          "text": "Head to Taverley and climb up White Wolf Mountain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:1735pe2",
+          "html": "Right-click <i>open tracker</i> with Kipple to solve the puzzle.",
+          "text": "Right-click open tracker with Kipple to solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:1wfv0bi",
+          "html": "Enter the portal.",
+          "text": "Enter the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:16nvr70",
+          "html": "Click the circuit nodes until you match the power.",
+          "text": "Click the circuit nodes until you match the power.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "white-wolf-mountain-wen:16nvr70:1lf2qfh",
+              "html": "Each circuit node outputs a certain amount of power, but some nodes will consume more power than they generate, causing your total units to decrease instead.",
+              "text": "Each circuit node outputs a certain amount of power, but some nodes will consume more power than they generate, causing your total units to decrease instead.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "white-wolf-mountain-wen:16nvr70:o5s1sh",
+              "html": "The white spires will redirect power to its other pair.",
+              "text": "The white spires will redirect power to its other pair.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "white-wolf-mountain-wen:16nvr70:wrdsda",
+              "html": "You need to match the number of power units by activating or deactivating the correct nodes.",
+              "text": "You need to match the number of power units by activating or deactivating the correct nodes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:13e09mc",
+          "html": "Talk to WenKra.",
+          "text": "Talk to WenKra.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I am not TokHaar."
+                },
+                {
+                  "key": "1",
+                  "text": "What was Xenia doing?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, it should be available to all."
+                },
+                {
+                  "key": "4",
+                  "text": "I have no more questions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "white-wolf-mountain-wen:bp2pgz",
+          "html": "Talk to Kipple.",
+          "text": "Talk to Kipple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_White_Wolf_Mountain_solution.png?b18ac",
+              "width": 307,
+              "height": 250,
+              "alt": "White Wolf Mountain solution",
+              "caption": "White Wolf Mountain solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_White_Wolf_Mountain_solution.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/thumb/Heart_of_Stone_-_WenKra_puzzle_solution.png/255px-Heart_of_Stone_-_WenKra_puzzle_solution.png?26b87",
+              "width": 170,
+              "height": 250,
+              "alt": "Example puzzle solution",
+              "caption": "Example puzzle solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_WenKra_puzzle_solution.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/Heart_of_Stone_-_WenKra_solution.png?ac0f7",
+              "width": 307,
+              "height": 250,
+              "alt": "WenKra solution",
+              "caption": "WenKra solution",
+              "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_WenKra_solution.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/thumb/20_power_solution.png/343px-20_power_solution.png?81692",
+              "width": 229,
+              "height": 250,
+              "alt": "20 Power Solution",
+              "caption": "20 Power Solution",
+              "href": "https://runescape.wiki/w/File:20_power_solution.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sophanem-jas",
+      "title": "Sophanem: Jas",
+      "anchor": "Sophanem:_Jas",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "sophanem-jas:bring:wvyptu",
+              "html": "20 free inventory slots",
+              "text": "20 free inventory slots"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "sophanem-jas:bring:3v1m9l",
+              "html": "<a href=\"https://runescape.wiki/w/Desert_heat\" target=\"_blank\" rel=\"noopener\">Desert heat</a> survival gear such as an <a href=\"https://runescape.wiki/w/Enchanted_water_tiara\" target=\"_blank\" rel=\"noopener\">enchanted water tiara</a> or <a href=\"https://runescape.wiki/w/Waterskins\" target=\"_blank\" rel=\"noopener\">waterskins</a>.",
+              "text": "Desert heat survival gear such as an enchanted water tiara or waterskins."
+            },
+            {
+              "id": "sophanem-jas:bring:1u5gtwi",
+              "html": "Completing the <a href=\"https://runescape.wiki/w/Crocodile_Tears\" target=\"_blank\" rel=\"noopener\">Crocodile Tears</a> quest grants immunity against desert heat.",
+              "text": "Completing the Crocodile Tears quest grants immunity against desert heat."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:idikv4",
+          "html": "Head east of <a href=\"https://runescape.wiki/w/Sophanem\" target=\"_blank\" rel=\"noopener\">Sophanem</a>, south of the <a href=\"https://runescape.wiki/w/Agility_pyramid\" target=\"_blank\" rel=\"noopener\">agility pyramid</a>.",
+          "text": "Head east of Sophanem, south of the agility pyramid.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:1735pe2",
+          "html": "Right-click <i>open tracker</i> with Kipple to solve the puzzle.",
+          "text": "Right-click open tracker with Kipple to solve the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:ippu82",
+          "html": "Head south and enter the portal.",
+          "text": "Head south and enter the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:g3ge0z",
+          "html": "Search any shelf.",
+          "text": "Search any shelf.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:13dbvnp",
+          "html": "Combine the following (right-click <i>use</i>):",
+          "text": "Combine the following (right-click use):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sophanem-jas:13dbvnp:dbkao6",
+              "html": "Correction with Transition",
+              "text": "Correction with Transition",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sophanem-jas:13dbvnp:1elzraj",
+              "html": "Dispersal with Arrival",
+              "text": "Dispersal with Arrival",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sophanem-jas:13dbvnp:17c9y2t",
+              "html": "Evolution with Imprinting",
+              "text": "Evolution with Imprinting",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sophanem-jas:13dbvnp:b20slm",
+              "html": "Predator with Focus",
+              "text": "Predator with Focus",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sophanem-jas:13dbvnp:gk20za",
+              "html": "Conflict with Condemnation",
+              "text": "Conflict with Condemnation",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:1xdqkxf",
+          "html": "Combine <i>Ariane and the Golem</i> and <i>Golem and I</i>.",
+          "text": "Combine Ariane and the Golem and Golem and I.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:1bh19za",
+          "html": "Use the 4 combinations on JasKra.",
+          "text": "Use the 4 combinations on JasKra.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:15ze38c",
+          "html": "Talk to JasKra.",
+          "text": "Talk to JasKra.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Because power corrupts."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sophanem-jas:bp2pgz",
+          "html": "Talk to Kipple.",
+          "text": "Talk to Kipple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/Heart_of_Stone_-_Desert_solution.png?330cc",
+          "width": 307,
+          "height": 250,
+          "alt": "Desert solution",
+          "caption": "Desert solution",
+          "href": "https://runescape.wiki/w/File:Heart_of_Stone_-_Desert_solution.png"
+        }
+      ]
+    },
+    {
+      "id": "confronting-xenia",
+      "title": "Confronting Xenia",
+      "anchor": "Confronting_Xenia",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "confronting-xenia:bring:1opvdzt",
+              "html": "Combat equipment (Magic is recommended) and food",
+              "text": "Combat equipment (Magic is recommended) and food"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "confronting-xenia:bring:70c2qm",
+              "html": "Air spells",
+              "text": "Air spells"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:1rvnibe",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> cemetery, south of the church.",
+          "text": "Head to the Lumbridge cemetery, south of the church.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:5ob8ei",
+          "html": "Enter the portal for a cutscene.",
+          "text": "Enter the portal for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:16n0cm9",
+          "html": "Defeat the boss. The boss can hit up to 2,900 damage. Do not attack the <a href=\"https://runescape.wiki/w/Prehistoric_abyssal\" target=\"_blank\" rel=\"noopener\">prehistoric abyssal</a> yet, avoid his energy balls. Keep running around the cave until Kipple finds the correct spot.",
+          "text": "Defeat the boss. The boss can hit up to 2,900 damage. Do not attack the prehistoric abyssal yet, avoid his energy balls. Keep running around the cave until Kipple finds the correct spot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "confronting-xenia:16n0cm9:1dmttzy",
+              "html": "Destroy 3 abyssal anchors in total.",
+              "text": "Destroy 3 abyssal anchors in total.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "confronting-xenia:16n0cm9:g5gxc9",
+              "html": "Watch the cutscene.",
+              "text": "Watch the cutscene.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "confronting-xenia:16n0cm9:15nywi2",
+              "html": "Kill the prehistoric abyssal as normal.",
+              "text": "Kill the prehistoric abyssal as normal.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:18qvf9u",
+          "html": "Talk to Ariane.",
+          "text": "Talk to Ariane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-xenia:ooev71",
+          "html": "Optional: Talk to Ariane back at the <a href=\"https://runescape.wiki/w/Old_Tower\" target=\"_blank\" rel=\"noopener\">Old Tower</a> to complete the <a href=\"https://runescape.wiki/w/Nano_to_Kipple,_Come_in_Kipple\" target=\"_blank\" rel=\"noopener\">Nano to Kipple, Come in Kipple</a> <a href=\"https://runescape.wiki/w/Achievement\" target=\"_blank\" rel=\"noopener\">achievement</a>.",
+          "text": "Optional: Talk to Ariane back at the Old Tower to complete the Nano to Kipple, Come in Kipple achievement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Heart_of_Stone_reward.png?4fa91",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Heart_of_Stone_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience <a href=\"https://runescape.wiki/w/Runecrafting_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience <a href=\"https://runescape.wiki/w/Magic_lamp_(Heart_of_Stone)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience (2× 500 experience <a href=\"https://runescape.wiki/w/Combat_lamp_(Heart_of_Stone)\" target=\"_blank\" rel=\"noopener\">lamps</a>) in one of the following skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> or <a href=\"https://runescape.wiki/w/Summoning\" target=\"_blank\" rel=\"noopener\">Summoning</a>",
+        "text": "1,000 experience (2× 500 experience lamps) in one of the following skills: Attack, Strength, Defence, Constitution, Ranged, Magic, Necromancy, Prayer or Summoning",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "The <a href=\"https://runescape.wiki/w/Kipple_Nano\" target=\"_blank\" rel=\"noopener\">Kipple Nano</a> pet can be received from Ariane at the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+            "text": "The Kipple Nano pet can be received from Ariane at the Wizards' Tower.",
+            "subs": []
+          },
+          {
+            "html": "The ability to talk to <a href=\"https://runescape.wiki/w/Azzanadra\" target=\"_blank\" rel=\"noopener\">Azzanadra</a> (<a href=\"https://runescape.wiki/w/Dr_Nabanik\" target=\"_blank\" rel=\"noopener\">Dr Nabanik</a>) in <a href=\"https://runescape.wiki/w/Senntisten_Temple\" target=\"_blank\" rel=\"noopener\">Senntisten Temple</a> and tell him what you discovered about the Elder Gods to receive a <a href=\"https://runescape.wiki/w/Medium_experience_lamp\" target=\"_blank\" rel=\"noopener\">medium experience lamp</a>.",
+            "text": "The ability to talk to Azzanadra (Dr Nabanik) in Senntisten Temple and tell him what you discovered about the Elder Gods to receive a medium experience lamp.",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Elder Fury",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

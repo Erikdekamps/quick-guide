@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "id": "harbinger-miniquest",
+  "title": "Harbinger (miniquest)",
+  "page": "Harbinger (miniquest)/Quick guide",
+  "rev": 36522933,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Navigator_Jemi\" target=\"_blank\" rel=\"noopener\">Navigator Jemi</a> on the docks of <a href=\"https://runescape.wiki/w/Cyclosis\" target=\"_blank\" rel=\"noopener\">Cyclosis</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11182,
+      "lon": 2252,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Eye for an Eye (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Jed Hunter (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Flag Fall (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 4
+      },
+      {
+        "text": "Head of the Family (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 4
+      },
+      {
+        "text": "Spiritual Enlightenment (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 4
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 4
+      },
+      {
+        "text": "Discover the island of Cyclosis in player-owned port",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "tuai-leit",
+      "title": "Tuai Leit",
+      "anchor": "Tuai_Leit",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "tuai-leit:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tuai-leit:fr5bek",
+          "html": "Speak to Navigator Jemi on <a href=\"https://runescape.wiki/w/Cyclosis\" target=\"_blank\" rel=\"noopener\">Cyclosis</a> (if you have just completed the <a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)\" target=\"_blank\" rel=\"noopener\">Eye for an Eye miniquest</a> you may need to relog for the chat option to show up).",
+          "text": "Speak to Navigator Jemi on Cyclosis (if you have just completed the Eye for an Eye miniquest you may need to relog for the chat option to show up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Harbinger miniquest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tuai-leit:12cfo6r",
+          "html": "Travel to Tuai Leit.",
+          "text": "Travel to Tuai Leit.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tuai-leit:1c5s73r",
+          "html": "Survive for 2 minutes. The player can simply stand there and wait.",
+          "text": "Survive for 2 minutes. The player can simply stand there and wait.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tuai-leit:1c5s73r:19cetk2",
+              "html": "Repairing the hull is unnecessary as the damage dealt by the cannonballs is not enough to sink the ship in 2 minutes and <a href=\"https://runescape.wiki/w/Bosun_Higgs\" target=\"_blank\" rel=\"noopener\">Bosun Higgs</a> repairs most of the damages for you.",
+              "text": "Repairing the hull is unnecessary as the damage dealt by the cannonballs is not enough to sink the ship in 2 minutes and Bosun Higgs repairs most of the damages for you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "tuai-leit:1c5s73r:wfy7m7",
+              "html": "White rings will indicate where the cannonballs will hit the ship. To reduce the need for food, move your character to avoid the incoming cannonballs.",
+              "text": "White rings will indicate where the cannonballs will hit the ship. To reduce the need for food, move your character to avoid the incoming cannonballs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "tuai-leit:qgyxwm",
+          "html": "Talk to Navigator Jemi to finish.",
+          "text": "Talk to Navigator Jemi to finish.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Harbinger_%28miniquest%29_reward.png?dbeec",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Harbinger_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "250 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">Chimes</a>",
+        "text": "250 Chimes",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">Taijitu</a>",
+        "text": "2 Taijitu",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Construction_XP_lamp_(The_Arc)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>"
+      ]
+    }
+  ]
+}

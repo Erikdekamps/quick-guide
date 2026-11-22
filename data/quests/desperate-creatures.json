@@ -1,0 +1,776 @@
+{
+  "format": 1,
+  "id": "desperate-creatures",
+  "title": "Desperate Creatures",
+  "page": "Desperate Creatures/Quick guide",
+  "rev": 37062916,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/The_Curator\" target=\"_blank\" rel=\"noopener\">the Curator</a> north of the <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3537,
+      "lon": 2892,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Desperate_Creatures/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Desperate Measures",
+        "depth": 1
+      },
+      {
+        "text": "Desperate Times",
+        "depth": 2
+      },
+      {
+        "text": "The Needle Skips",
+        "depth": 3
+      },
+      {
+        "text": "You Are It",
+        "depth": 3
+      },
+      {
+        "text": "There's No Place Like Home...",
+        "depth": 4
+      },
+      {
+        "text": "Anachronia base camp tutorial",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Anachronia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:14dfzma",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a> and <a href=\"https://runescape.wiki/w/Anachronia_lodestone\" target=\"_blank\" rel=\"noopener\">Anachronia lodestone</a>",
+          "text": "Activated Burthorpe lodestone and Anachronia lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:11sk1z2",
+          "html": "Travelling to east of <a href=\"https://runescape.wiki/w/Anachronia\" target=\"_blank\" rel=\"noopener\">Anachronia</a> near <a href=\"https://runescape.wiki/w/Moksha_ritual_site\" target=\"_blank\" rel=\"noopener\">Moksha ritual site</a> with <a href=\"https://runescape.wiki/w/Orthen_teleportation_device\" target=\"_blank\" rel=\"noopener\">Orthen teleportation device</a> if completed <a href=\"https://runescape.wiki/w/Know_Thy_Measure\" target=\"_blank\" rel=\"noopener\">Know Thy Measure</a> mystery",
+          "text": "Travelling to east of Anachronia near Moksha ritual site with Orthen teleportation device if completed Know Thy Measure mystery",
+          "alternatives": []
+        },
+        {
+          "id": "rec:kc5qlt",
+          "html": "Travelling to <a href=\"https://runescape.wiki/w/Rex_Matriarchs\" target=\"_blank\" rel=\"noopener\">Rex Matriarchs</a> by using the <a href=\"https://runescape.wiki/w/Boss_portal\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat boss portal</a> or <a href=\"https://runescape.wiki/w/Combat_portal\" target=\"_blank\" rel=\"noopener\">Max Guild combat portal</a>",
+          "text": "Travelling to Rex Matriarchs by using the War's Retreat boss portal or Max Guild combat portal",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1921z7q",
+          "html": "<a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a> for fast teleports to <a href=\"https://runescape.wiki/w/Spria\" target=\"_blank\" rel=\"noopener\">Spria</a> and <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a>",
+          "text": "Slayer cape for fast teleports to Spria and Laniakea",
+          "alternatives": []
+        },
+        {
+          "id": "rec:4k4784",
+          "html": "<a href=\"https://runescape.wiki/w/Eastern_Anachronia_Teleport\" target=\"_blank\" rel=\"noopener\">Eastern Anachronia Teleport</a> and runes to cast it, or the <a href=\"https://runescape.wiki/w/Eastern_anachronia_teleport_(item)\" target=\"_blank\" rel=\"noopener\">Eastern Anachronia teleport tablet</a>",
+          "text": "Eastern Anachronia Teleport and runes to cast it, or the Eastern Anachronia teleport tablet",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:1am7mz1",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/The_Curator\" target=\"_blank\" rel=\"noopener\">the Curator</a> just north of <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a>.",
+          "text": "Speak to the Curator just north of Burthorpe lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Desperate Creatures'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "What do I need to do first?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-off:1am7mz1:1utf5yz",
+              "html": "<a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a> teleport to <a href=\"https://runescape.wiki/w/Turael\" target=\"_blank\" rel=\"noopener\">Turael</a>/<a href=\"https://runescape.wiki/w/Spria\" target=\"_blank\" rel=\"noopener\">Spria</a> is a good option as you&#39;ll need to teleport a few times.",
+              "text": "Slayer cape teleport to Turael/Spria is a good option as you'll need to teleport a few times.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task-1",
+      "title": "Task 1",
+      "anchor": "Task_1",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "task-1:statv8",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Anachronia\" target=\"_blank\" rel=\"noopener\">Anachronia</a> and run west.",
+          "text": "Teleport to Anachronia and run west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-1:10y205x",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Tome_of_tracking\" target=\"_blank\" rel=\"noopener\">Tome of tracking</a> to find all four flowers.",
+          "text": "Use the Tome of tracking to find all four flowers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-1:nhp48o",
+          "html": "After the dialogue between <a href=\"https://runescape.wiki/w/Hannibus\" target=\"_blank\" rel=\"noopener\">Hannibus</a> and <a href=\"https://runescape.wiki/w/Vindicta\" target=\"_blank\" rel=\"noopener\">Vindicta</a> teleport back to <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a> and speak to the Curator.",
+          "text": "After the dialogue between Hannibus and Vindicta teleport back to Burthorpe and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Desperate Creatures'."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-1:3j4503",
+          "html": "Talk to the Curator again for the next task.",
+          "text": "Talk to the Curator again for the next task.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Desperate Creatures'."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "task-2",
+      "title": "Task 2",
+      "anchor": "Task_2",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "task-2:1ffjyhv",
+          "html": "Teleport to Anachronia.",
+          "text": "Teleport to Anachronia.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-2:jhrljm",
+          "html": "Find the 4 shrubberies around the camp using the tome.",
+          "text": "Find the 4 shrubberies around the camp using the tome.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-2:j90p9k",
+          "html": "Finish the dialogue with <a href=\"https://runescape.wiki/w/Mr_Mordaut\" target=\"_blank\" rel=\"noopener\">Mr Mordaut</a> and teleport back to Burthorpe and speak to the Curator.",
+          "text": "Finish the dialogue with Mr Mordaut and teleport back to Burthorpe and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-2:3j4503",
+          "html": "Talk to the Curator again for the next task.",
+          "text": "Talk to the Curator again for the next task.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "task-3",
+      "title": "Task 3",
+      "anchor": "Task_3",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "task-3:19tqhgl",
+          "html": "Teleport to Anachronia and navigate to the <a href=\"https://runescape.wiki/w/Anachronia_Swamp_Fortress\" target=\"_blank\" rel=\"noopener\">Anachronia Swamp Fortress</a>.",
+          "text": "Teleport to Anachronia and navigate to the Anachronia Swamp Fortress.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "task-3:19tqhgl:1p4cr1s",
+              "html": "Teleport to the <a href=\"https://runescape.wiki/w/Orthen_-_Xolo_city_excavation_site\" target=\"_blank\" rel=\"noopener\">Xolo dig site</a> using the <a href=\"https://runescape.wiki/w/Orthen_teleportation_device\" target=\"_blank\" rel=\"noopener\">Orthen teleportation device</a> or teleport to <a href=\"https://runescape.wiki/w/Laniakea\" target=\"_blank\" rel=\"noopener\">Laniakea</a> via <a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a>.",
+              "text": "Teleport to the Xolo dig site using the Orthen teleportation device or teleport to Laniakea via Slayer cape.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "task-3:1u95zu8",
+          "html": "Alternatively exit Anachronia base camp to the north down the stairs, not via the Agility shortcut.",
+          "text": "Alternatively exit Anachronia base camp to the north down the stairs, not via the Agility shortcut.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "task-3:1u95zu8:1uam5p6",
+              "html": "Run east to the <a href=\"https://runescape.wiki/w/Liverworts\" target=\"_blank\" rel=\"noopener\">liverworts</a>.",
+              "text": "Run east to the liverworts.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "task-3:1u95zu8:zbypvh",
+              "html": "Run south past the <a href=\"https://runescape.wiki/w/Lampenfloras\" target=\"_blank\" rel=\"noopener\">lampenfloras</a> while staying as far west as possible.",
+              "text": "Run south past the lampenfloras while staying as far west as possible.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "task-3:mdomcq",
+          "html": "Find all four mushrooms.",
+          "text": "Find all four mushrooms.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-3:i62l52",
+          "html": "Finish the dialogue with <a href=\"https://runescape.wiki/w/Zaros\" target=\"_blank\" rel=\"noopener\">Zaros</a> and teleport back to Burthorpe and speak to the Curator.",
+          "text": "Finish the dialogue with Zaros and teleport back to Burthorpe and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-3:3j4503",
+          "html": "Talk to the Curator again for the next task.",
+          "text": "Talk to the Curator again for the next task.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "task-4",
+      "title": "Task 4",
+      "anchor": "Task_4",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the first insect",
+          "lat": 4267,
+          "lon": 4096,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  4096,
+                  4267,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Desperate_Creatures/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "task-4:14sm35w",
+          "html": "Teleport to Anachronia and navigate to an area south of the <a href=\"https://runescape.wiki/w/Liverworts\" target=\"_blank\" rel=\"noopener\">liverworts</a> and north of the <a href=\"https://runescape.wiki/w/Lampenfloras\" target=\"_blank\" rel=\"noopener\">lampenfloras</a>.",
+          "text": "Teleport to Anachronia and navigate to an area south of the liverworts and north of the lampenfloras.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "task-4:14sm35w:nx8d3e",
+              "html": "The fastest way to get there is by teleporting to Anachronia and running slightly east to use the <a href=\"https://runescape.wiki/w/Orthen_teleportation_device\" target=\"_blank\" rel=\"noopener\">Orthen teleportation device</a>. Then teleporting to the <a href=\"https://runescape.wiki/w/Moksha_ritual_site\" target=\"_blank\" rel=\"noopener\">Moksha ritual site</a> M and then exiting and running north-east.",
+              "text": "The fastest way to get there is by teleporting to Anachronia and running slightly east to use the Orthen teleportation device. Then teleporting to the Moksha ritual site M and then exiting and running north-east.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "task-4:14sm35w:6xr1ov",
+              "html": "Alternatively, leave Anachronia base camp to the north down the stairs, not via the Agility shortcut. Run east to the <a href=\"https://runescape.wiki/w/Liverworts\" target=\"_blank\" rel=\"noopener\">liverworts</a>. Run south towards the <a href=\"https://runescape.wiki/w/Lampenfloras\" target=\"_blank\" rel=\"noopener\">lampenfloras</a>.",
+              "text": "Alternatively, leave Anachronia base camp to the north down the stairs, not via the Agility shortcut. Run east to the liverworts. Run south towards the lampenfloras.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "task-4:1h1t31o",
+          "html": "Find all four insects.",
+          "text": "Find all four insects.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-4:1396v3u",
+          "html": "Finish the dialogue with <a href=\"https://runescape.wiki/w/Charos\" target=\"_blank\" rel=\"noopener\">Charos</a> and <a href=\"https://runescape.wiki/w/Thok\" target=\"_blank\" rel=\"noopener\">Thok</a> and teleport back to Burthorpe and speak to the Curator.",
+          "text": "Finish the dialogue with Charos and Thok and teleport back to Burthorpe and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-4:3j4503",
+          "html": "Talk to the Curator again for the next task.",
+          "text": "Talk to the Curator again for the next task.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "task-5",
+      "title": "Task 5",
+      "anchor": "Task_5",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the first frog",
+          "lat": 4268,
+          "lon": 4018,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  4018,
+                  4268,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Desperate_Creatures/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "task-5:ltmwey",
+          "html": "Teleport to Anachronia and run north.",
+          "text": "Teleport to Anachronia and run north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "task-5:ltmwey:14vr8e5",
+              "html": "Fastest way to get there is by using the <a href=\"https://runescape.wiki/w/Boss_portal_(War%27s_Retreat)\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat boss portal</a> / the <a href=\"https://runescape.wiki/w/Boss_portal_(Max_Guild)\" target=\"_blank\" rel=\"noopener\">Max Guild boss portal</a> or the <a href=\"https://runescape.wiki/w/Grouping_System#Teleporting\" target=\"_blank\" rel=\"noopener\">Grouping System teleporting</a> to <a href=\"https://runescape.wiki/w/Rex_Matriarchs\" target=\"_blank\" rel=\"noopener\">Rex Matriarchs</a> and heading west to the <a href=\"https://runescape.wiki/w/Orthen_teleportation_device\" target=\"_blank\" rel=\"noopener\">Teleportation Device</a> and activating it, taking you where you need to be.",
+              "text": "Fastest way to get there is by using the War's Retreat boss portal / the Max Guild boss portal or the Grouping System teleporting to Rex Matriarchs and heading west to the Teleportation Device and activating it, taking you where you need to be.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "task-5:ltmwey:1o5jg5y",
+              "html": "Alternatively, leave Anachronia base camp through the southern exit and head north-east to central Anachronia",
+              "text": "Alternatively, leave Anachronia base camp through the southern exit and head north-east to central Anachronia",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "task-5:1o3iyfu",
+          "html": "Find all four frogs.",
+          "text": "Find all four frogs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-5:k20ps4",
+          "html": "Finish the dialogue with <a href=\"https://runescape.wiki/w/Prehistoric_Potterington\" target=\"_blank\" rel=\"noopener\">Prehistoric Potterington</a>.",
+          "text": "Finish the dialogue with Prehistoric Potterington.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "task-5:frzals",
+          "html": "Teleport back to Burthorpe and speak to the Curator.",
+          "text": "Teleport back to Burthorpe and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about Desperate Creatures."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about your progress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:144gvdx",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Seren\" target=\"_blank\" rel=\"noopener\">Seren</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Burthorpe_Castle\" target=\"_blank\" rel=\"noopener\">Burthorpe Castle</a>.",
+          "text": "Speak to Seren on the 1st floor (UK) / 2nd floor (US) of the Burthorpe Castle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Desperate Creatures'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:17u3uhh",
+          "html": "Go downstairs, head south and speak to the Curator.",
+          "text": "Go downstairs, head south and speak to the Curator.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Desperate Creatures'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Desperate_Creatures_reward.png?0a43f",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Desperate_Creatures_reward.png"
+    },
+    "items": [
+      {
+        "html": "Two lore books:",
+        "text": "Two lore books:",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Colossi_%26_the_time_of_colossi\" target=\"_blank\" rel=\"noopener\">Colossi &amp; the time of colossi</a>, written by Charos as Reldo, that details some aspects of colossi.",
+          "<a href=\"https://runescape.wiki/w/Reldo%27s_ages_seventeenth_edition\" target=\"_blank\" rel=\"noopener\">Reldo&#39;s ages seventeenth edition</a>, written by Reldo and revised by Charos, that details major events that define the Ages of Gielinor.<br>• This 17th edition is updated with discoveries found with the expedition to Anachronia."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Desperate_Creatures_(achievement)\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

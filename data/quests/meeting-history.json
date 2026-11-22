@@ -1,0 +1,732 @@
+{
+  "format": 1,
+  "id": "meeting-history",
+  "title": "Meeting History",
+  "page": "Meeting History/Quick guide",
+  "rev": 37218198,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a> in the outpost south of the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>, north-west of <a href=\"https://runescape.wiki/w/West_Ardougne\" target=\"_blank\" rel=\"noopener\">West Ardougne</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3348,
+      "lon": 2438,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Meeting_History/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Making History",
+        "depth": 1
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 2
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Herblore",
+        "level": 3,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Morytania</span> <span class=\"reg\">Fremennik</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1ocmyrr",
+          "html": "<a href=\"https://runescape.wiki/w/Enchanted_key_(Making_History)\" target=\"_blank\" rel=\"noopener\">Enchanted key</a> from <a href=\"https://runescape.wiki/w/Making_History\" target=\"_blank\" rel=\"noopener\">Making History</a> (if you no longer have that key, you will receive it again by talking to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a>)",
+          "text": "Enchanted key from Making History (if you no longer have that key, you will receive it again by talking to Jorral)",
+          "alternatives": []
+        },
+        {
+          "id": "req:dbutrf",
+          "html": "Nothing else equipped or in your inventory",
+          "text": "Nothing else equipped or in your inventory",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1r8r874",
+          "html": "<a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">Traveller&#39;s necklace</a> to get to the outpost at the start of the quest. This can then be banked along with everything else (except the Enchanted key) once you speak to Jorral.",
+          "text": "Traveller's necklace to get to the outpost at the start of the quest. This can then be banked along with everything else (except the Enchanted key) once you speak to Jorral.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:116i0eh",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Outpost\" target=\"_blank\" rel=\"noopener\">Outpost</a>.",
+          "text": "Go to the Outpost.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:5qqyy2",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a>.",
+          "text": "Speak to Jorral.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Anything else I can help you with?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:5qqyy2:rc0wji",
+              "html": "As needed, accept his offer to bank your items.",
+              "text": "As needed, accept his offer to bank your items.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-right-spot",
+      "title": "The right spot",
+      "anchor": "The_right_spot",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Meeting_history_spot.png/300px-Meeting_history_spot.png?fdf52",
+          "width": 300,
+          "height": 178,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Meeting_history_spot.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-right-spot:bring:1bynjq0",
+              "html": "<a href=\"https://runescape.wiki/w/Enchanted_key_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">Enchanted key</a>; Nothing else equipped or in your inventory (although bringing the <a href=\"https://runescape.wiki/w/Enchanted_key_notes\" target=\"_blank\" rel=\"noopener\">enchanted key notes</a> will be fine).",
+              "text": "Enchanted key; Nothing else equipped or in your inventory (although bringing the enchanted key notes will be fine)."
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-right-spot:1up74k",
+          "html": "Run east to the sheep pen across the river, or run north-west from Ardougne lodestone.",
+          "text": "Run east to the sheep pen across the river, or run north-west from Ardougne lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-right-spot:1bms9br",
+          "html": "Right-click <i>rub</i> the key in the location shown right (stand on the flowers west of the sheep pen west of the lodestone).",
+          "text": "Right-click rub the key in the location shown right (stand on the flowers west of the sheep pen west of the lodestone).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-past",
+      "title": "The past",
+      "anchor": "The_past",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-past:1p3r3lr",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a>.",
+          "text": "Talk to Laura.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-past:cmo0t4",
+          "html": "Rub the <a href=\"https://runescape.wiki/w/Enchanted_key_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">enchanted key</a> again.",
+          "text": "Rub the enchanted key again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-past:r8p9aw",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a> and talk to him.",
+          "text": "Return to Jorral and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-past:c8ugg9",
+          "html": "After the cutscene, go back to the location shown above and rub the key again, choosing &quot;Past - A.&quot; (Don&#39;t forget to bank your traveller&#39;s necklace if you used it to get back to the outpost.)",
+          "text": "After the cutscene, go back to the location shown above and rub the key again, choosing \"Past - A.\" (Don't forget to bank your traveller's necklace if you used it to get back to the outpost.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "helping-jack",
+      "title": "Helping Jack",
+      "anchor": "Helping_Jack",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Meeting_History_fruit_trees_map.png/404px-Meeting_History_fruit_trees_map.png?f6b2b",
+          "width": 404,
+          "height": 147,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Meeting_History_fruit_trees_map.png"
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:4x5lns",
+          "html": "While in Past A, talk to <a href=\"https://runescape.wiki/w/Jack\" target=\"_blank\" rel=\"noopener\">Jack</a>.",
+          "text": "While in Past A, talk to Jack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:1n4kfcb",
+          "html": "Rub the key, go to Past B, talk to <a href=\"https://runescape.wiki/w/Jack\" target=\"_blank\" rel=\"noopener\">Jack</a>.",
+          "text": "Rub the key, go to Past B, talk to Jack.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Perhaps you'd spare the time if I read your mind with magic?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:ew1nfd",
+          "html": "Answer with the following:",
+          "text": "Answer with the following:",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Super Jack The Fantasmic."
+                },
+                {
+                  "key": "2",
+                  "text": "Cosmic, mind, body, and fire runes."
+                },
+                {
+                  "key": "3",
+                  "text": "Misalionar."
+                },
+                {
+                  "key": "2",
+                  "text": "Seven."
+                },
+                {
+                  "key": "3",
+                  "text": "Trying to create fire."
+                },
+                {
+                  "key": "1",
+                  "text": "Create chocolate cakes."
+                },
+                {
+                  "key": "1",
+                  "text": "Good."
+                },
+                {
+                  "key": "3",
+                  "text": "Strawberry."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:1mqkuy0",
+          "html": "Go to Past A, take a <a href=\"https://runescape.wiki/w/Spade_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">spade</a> and 6 <a href=\"https://runescape.wiki/w/Plant_pot_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">plant pots</a> from the backyard.",
+          "text": "Go to Past A, take a spade and 6 plant pots from the backyard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:5sb76t",
+          "html": "Use the spade or a plant pot on each seedling.",
+          "text": "Use the spade or a plant pot on each seedling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:1v93ggc",
+          "html": "Use the seedling pots on the correct tree spots using this image.",
+          "text": "Use the seedling pots on the correct tree spots using this image.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:cu386p",
+          "html": "Go to Past B, talk to <a href=\"https://runescape.wiki/w/Sarah_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">Sarah</a> about the trees.",
+          "text": "Go to Past B, talk to Sarah about the trees.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "helping-jack:1u1sjsp",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jack\" target=\"_blank\" rel=\"noopener\">Jack</a> for a cutscene.",
+          "text": "Talk to Jack for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "healing-baby-sarah",
+      "title": "Healing Baby Sarah",
+      "anchor": "Healing_Baby_Sarah",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:u8iezp",
+          "html": "Go to Past A, talk to <a href=\"https://runescape.wiki/w/Roger\" target=\"_blank\" rel=\"noopener\">Roger</a>.",
+          "text": "Go to Past A, talk to Roger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:t56dyk",
+          "html": "Go to Past B, talk to <a href=\"https://runescape.wiki/w/Sarah_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">Sarah</a>.",
+          "text": "Go to Past B, talk to Sarah.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:192kp45",
+          "html": "Go to Past A, search the south-east <a href=\"https://runescape.wiki/w/Side_table_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">side table</a> inside to find a <a href=\"https://runescape.wiki/w/Pestle_and_mortar_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">pestle and mortar</a>, <a href=\"https://runescape.wiki/w/Bucket_of_milk_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">bucket of milk</a> and a <a href=\"https://runescape.wiki/w/Clean_guam_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">clean guam</a>.",
+          "text": "Go to Past A, search the south-east side table inside to find a pestle and mortar, bucket of milk and a clean guam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:4a32s4",
+          "html": "Search the middle shelves (south side) for a <a href=\"https://runescape.wiki/w/Bowl_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">bowl</a>.",
+          "text": "Search the middle shelves (south side) for a bowl.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:68aue6",
+          "html": "Use the bowl on the <a href=\"https://runescape.wiki/w/Beehive_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">beehive</a> just west of the house.",
+          "text": "Use the bowl on the beehive just west of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:z6waq3",
+          "html": "Use the pestle and mortar on the clean guam.",
+          "text": "Use the pestle and mortar on the clean guam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:nzf6dp",
+          "html": "Use the bucket of milk on the bowl of honey.",
+          "text": "Use the bucket of milk on the bowl of honey.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:1nu8nqi",
+          "html": "Add the <a href=\"https://runescape.wiki/w/Ground_guam_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">ground guam</a>.",
+          "text": "Add the ground guam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:1yrwfte",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Bowl_of_milk,_honey_and_guam\" target=\"_blank\" rel=\"noopener\">bowl of milk, honey and guam</a> on <a href=\"https://runescape.wiki/w/Sarah_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">Baby Sarah</a> (<b>right click</b> so that you don&#39;t use the bowl on the <a href=\"https://runescape.wiki/w/Basket_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">basket</a>).",
+          "text": "Use the bowl of milk, honey and guam on Baby Sarah (right click so that you don't use the bowl on the basket).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "healing-baby-sarah:6icghd",
+          "html": "Talk to Roger again for a cutscene.",
+          "text": "Talk to Roger again for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "a-map-for-laura",
+      "title": "A map for Laura",
+      "anchor": "A_map_for_Laura",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "a-map-for-laura:sudu08",
+          "html": "Go to Past B, talk to <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a>.",
+          "text": "Go to Past B, talk to Laura.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-map-for-laura:8oyr86",
+          "html": "Go to Past A, search either the south-western or south-eastern <a href=\"https://runescape.wiki/w/Shelves_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">shelves</a> in the house for a <a href=\"https://runescape.wiki/w/Papyrus_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">papyrus</a> and <a href=\"https://runescape.wiki/w/Charcoal_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">charcoal</a>.",
+          "text": "Go to Past A, search either the south-western or south-eastern shelves in the house for a papyrus and charcoal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-map-for-laura:1b2g2h0",
+          "html": "Use the charcoal on the papyrus.",
+          "text": "Use the charcoal on the papyrus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-map-for-laura:v4cnnk",
+          "html": "Give this to <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a>.",
+          "text": "Give this to Laura.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-map-for-laura:sudu08-2",
+          "html": "Go to Past B, talk to <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a>.",
+          "text": "Go to Past B, talk to Laura.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "laura-s-brooch",
+      "title": "Laura's brooch",
+      "anchor": "Laura's_brooch",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "laura-s-brooch:1jp8xdf",
+          "html": "Go to Past A.",
+          "text": "Go to Past A.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "laura-s-brooch:1bnxp75",
+          "html": "Inside the house, search the 3 stone bedside tables (One of them should contain the brooch)",
+          "text": "Inside the house, search the 3 stone bedside tables (One of them should contain the brooch)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "laura-s-brooch:3wcn1u",
+          "html": "Use the brooch on the <a href=\"https://runescape.wiki/w/Soil_mound_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">soil mound</a> west of the shed <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a> is building.",
+          "text": "Use the brooch on the soil mound west of the shed Laura is building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "laura-s-brooch:trs32",
+          "html": "Go to Past B, take the <a href=\"https://runescape.wiki/w/Spade_(Meeting_History)\" target=\"_blank\" rel=\"noopener\">spade</a> from the shed.",
+          "text": "Go to Past B, take the spade from the shed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "laura-s-brooch:1p8c2t6",
+          "html": "Dig up the brooch.",
+          "text": "Dig up the brooch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "laura-s-brooch:1xfk8cd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Laura\" target=\"_blank\" rel=\"noopener\">Laura</a> for a cutscene.",
+          "text": "Talk to Laura for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:tievja",
+          "html": "Return to the present.",
+          "text": "Return to the present.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:cd9lb8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a>.",
+          "text": "Talk to Jorral.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Meeting_History_reward.png?258d1",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Meeting_History_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "An <a href=\"https://runescape.wiki/w/Old_tome\" target=\"_blank\" rel=\"noopener\">old tome</a> giving a total of 2,500 experience across up to 3 skills with level 25 or higher (1,000 experience for the first chapter, 1,000 experience for the second, and 500 experience for the third).",
+        "text": "An old tome giving a total of 2,500 experience across up to 3 skills with level 25 or higher (1,000 experience for the first chapter, 1,000 experience for the second, and 500 experience for the third).",
+        "subs": []
+      },
+      {
+        "html": "Even more treasure hunting with the <a href=\"https://runescape.wiki/w/Enchanted_key_(miniquest)\" target=\"_blank\" rel=\"noopener\">enchanted key miniquest</a>.",
+        "text": "Even more treasure hunting with the enchanted key miniquest.",
+        "subs": []
+      },
+      {
+        "html": "Speak to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a> at the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> to earn 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">Kudos</a>.",
+        "text": "Speak to Historian Minas at the Varrock Museum to earn 5 Kudos.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Ardougne Ago",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Meeting_History_(achievement)\" target=\"_blank\" rel=\"noopener\">Meeting History</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a></b>",
+    "<a href=\"https://runescape.wiki/w/Banking_History\" target=\"_blank\" rel=\"noopener\">Banking History</a> (25) – Find all hidden treasure from the &#39;Making History&#39; quest. (X/11)"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Enchanted_key_(lore_activity)\" target=\"_blank\" rel=\"noopener\">Enchanted key (lore activity)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

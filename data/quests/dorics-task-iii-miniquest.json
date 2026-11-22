@@ -1,0 +1,196 @@
+{
+  "format": 1,
+  "id": "dorics-task-iii-miniquest",
+  "title": "Doric's Task III (miniquest)",
+  "page": "Doric's Task III (miniquest)/Quick guide",
+  "rev": 37216727,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_III_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task II (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Doric's Task I (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 3
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:dh2rg9",
+          "html": "8 <a href=\"https://runescape.wiki/w/Mithril_bar\" target=\"_blank\" rel=\"noopener\">mithril bars</a> or",
+          "text": "8 mithril bars or",
+          "alternatives": [
+            "4 mithril bars",
+            "<a href=\"https://runescape.wiki/w/Mithril_longsword\" target=\"_blank\" rel=\"noopener\">Mithril longsword</a>",
+            "<a href=\"https://runescape.wiki/w/Mithril_warhammer\" target=\"_blank\" rel=\"noopener\">Mithril warhammer</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ipw3m0",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "warhammers-and-longswords",
+      "title": "Warhammers and longswords",
+      "anchor": "Warhammers_and_longswords",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "warhammers-and-longswords:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\"> hut</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warhammers-and-longswords:de4e6u",
+          "html": "Smith a <a href=\"https://runescape.wiki/w/Mithril_longsword_%2B1\" target=\"_blank\" rel=\"noopener\">mithril longsword +1</a> and a <a href=\"https://runescape.wiki/w/Mithril_warhammer_%2B1\" target=\"_blank\" rel=\"noopener\">mithril warhammer +1</a>.",
+          "text": "Smith a mithril longsword +1 and a mithril warhammer +1.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warhammers-and-longswords:dhx2sr",
+          "html": "Head north to <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a> and talk to either <a href=\"https://runescape.wiki/w/General_Bentnoze\" target=\"_blank\" rel=\"noopener\">General Bentnoze</a> or <a href=\"https://runescape.wiki/w/General_Wartface\" target=\"_blank\" rel=\"noopener\">General Wartface</a> <b>twice</b> in the building in the back.",
+          "text": "Head north to Goblin Village and talk to either General Bentnoze or General Wartface twice in the building in the back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_III_%28miniquest%29_reward.png?236a1",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_III_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "750 experience",
+        "text": "750 experience",
+        "subs": []
+      },
+      {
+        "html": "2,250 charges on the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "2,250 charges on the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_IV_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task IV (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_V_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task V (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VI_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VI (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

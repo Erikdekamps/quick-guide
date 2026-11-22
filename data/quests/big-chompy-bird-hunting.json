@@ -1,0 +1,650 @@
+{
+  "format": 1,
+  "id": "big-chompy-bird-hunting",
+  "title": "Big Chompy Bird Hunting",
+  "page": "Big Chompy Bird Hunting/Quick guide",
+  "rev": 36963894,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Rantz\" target=\"_blank\" rel=\"noopener\">Rantz</a>, in eastern <a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2982,
+      "lon": 2631,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Big_Chompy_Bird_Hunting/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Fletching",
+        "level": 5,
+        "note": ""
+      },
+      {
+        "skill": "Ranged",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Chompy bird (level 2)",
+        "name": "Chompy bird",
+        "count": null,
+        "level": "2",
+        "note": ""
+      },
+      {
+        "text": "Wolves (level 11) (optional, but aggressive)",
+        "name": "Wolves",
+        "count": null,
+        "level": "11",
+        "note": "(optional, but aggressive)"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1k858tj",
+          "html": "<a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">Feathers</a> (100+ to be safe, 25 can be bought during quest for 50 coins)",
+          "text": "Feathers (100+ to be safe, 25 can be bought during quest for 50 coins)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1y105wr",
+          "html": "4-6 <a href=\"https://runescape.wiki/w/Wolf_bones\" target=\"_blank\" rel=\"noopener\">wolf bones</a> (can be obtained during the quest)",
+          "text": "4-6 wolf bones (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:pd2glx",
+          "html": "4-6 <a href=\"https://runescape.wiki/w/Achey_tree_logs\" target=\"_blank\" rel=\"noopener\">achey tree logs</a> (can be obtained during the quest)",
+          "text": "4-6 achey tree logs (can be obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1tmjrcq",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a>",
+          "text": "Ring of duelling",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1mue74m",
+          "html": "<a href=\"https://runescape.wiki/w/Gnome_glider\" target=\"_blank\" rel=\"noopener\">Gnome glider</a> network",
+          "text": "Gnome glider network",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1rqpxhi",
+          "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a> or <a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a> completed (fairy ring <b>A</b><b>K</b><b>S</b> – fastest way to start)",
+          "text": "Dramen staff or A Fairy Tale III - Battle at Ork's Rift completed (fairy ring AKS – fastest way to start)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:99zmem",
+          "html": "<a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">Armour</a> and <a href=\"https://runescape.wiki/w/Weapons\" target=\"_blank\" rel=\"noopener\">weapons</a> (recommended if you&#39;re a low level as there are level 11 <a href=\"https://runescape.wiki/w/Wolf#Level_11_(1)\" target=\"_blank\" rel=\"noopener\">Wolves</a> to be encountered)",
+          "text": "Armour and weapons (recommended if you're a low level as there are level 11 Wolves to be encountered)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ib156b",
+          "html": "<a href=\"https://runescape.wiki/w/Ranged_armour\" target=\"_blank\" rel=\"noopener\">Ranged armour</a> otherwise accuracy of shot damage will be considerably reduced",
+          "text": "Ranged armour otherwise accuracy of shot damage will be considerably reduced",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:veii47",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rantz\" target=\"_blank\" rel=\"noopener\">Rantz</a> east of <a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a>.",
+          "text": "Talk to Rantz east of Feldip Hills.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "How do I make the 'stabbers'?."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fletching-some-arrows",
+      "title": "Fletching some arrows",
+      "anchor": "Fletching_some_arrows",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "Buying <a href=\"https://runescape.wiki/w/Wolf_bone_arrowheads\" target=\"_blank\" rel=\"noopener\">wolf bone arrowheads</a> or <a href=\"https://runescape.wiki/w/Ogre_arrow\" target=\"_blank\" rel=\"noopener\">ogre arrows</a> from the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a> will not work."
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:epavfs",
+          "html": "Chop down two <a href=\"https://runescape.wiki/w/Achey_Tree\" target=\"_blank\" rel=\"noopener\">Achey Trees</a>.",
+          "text": "Chop down two Achey Trees.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:1oznapq",
+          "html": "Craft ogre arrow shafts from the <a href=\"https://runescape.wiki/w/Achey_tree_logs\" target=\"_blank\" rel=\"noopener\">logs</a>.",
+          "text": "Craft ogre arrow shafts from the logs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:17km8ah",
+          "html": "Use <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feathers</a> on the <a href=\"https://runescape.wiki/w/Ogre_arrow_shafts\" target=\"_blank\" rel=\"noopener\">ogre arrow shafts</a>.",
+          "text": "Use feathers on the ogre arrow shafts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:1wmmp0c",
+          "html": "Obtain some <a href=\"https://runescape.wiki/w/Wolf_bones\" target=\"_blank\" rel=\"noopener\">wolf bones</a>. There are some wolves just south-west of Rantz, by the swamp.",
+          "text": "Obtain some wolf bones. There are some wolves just south-west of Rantz, by the swamp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:14lm597",
+          "html": "Craft <a href=\"https://runescape.wiki/w/Wolf_bone_arrowheads\" target=\"_blank\" rel=\"noopener\">wolf bone arrowheads</a> from the wolf bones.",
+          "text": "Craft wolf bone arrowheads from the wolf bones.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fletching-some-arrows:14lm597:1m3mle0",
+              "html": "Be careful not to bury the <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a>.",
+              "text": "Be careful not to bury the bones.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:fjg4da",
+          "html": "Use the wolf bone arrowheads on the shafts.",
+          "text": "Use the wolf bone arrowheads on the shafts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fletching-some-arrows:z7jtxp",
+          "html": "Use 6 ogre arrows on Rantz.",
+          "text": "Use 6 ogre arrows on Rantz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "bloated-toads",
+      "title": "Bloated toads",
+      "anchor": "Bloated_toads",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "bloated-toads:1cykwlm",
+          "html": "Ask Rantz all possible questions.",
+          "text": "Ask Rantz all possible questions.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do we make the chompys come?"
+                },
+                {
+                  "key": "2",
+                  "text": "What are 'fatsy toadies'?"
+                },
+                {
+                  "key": "3",
+                  "text": "Where do we put the fatsy toadies?"
+                },
+                {
+                  "key": "4",
+                  "text": "What do you mean 'sneaky..sneaky, stick da chompy?'"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bloated-toads:3f3pr8",
+          "html": "Enter the cave north of Rantz.",
+          "text": "Enter the cave north of Rantz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bloated-toads:xeymrp",
+          "html": "Unlock the <a href=\"https://runescape.wiki/w/Locked_Ogre_chest\" target=\"_blank\" rel=\"noopener\">Locked Ogre chest</a> in the north-west corner, then search it to receive <a href=\"https://runescape.wiki/w/Ogre_bellows\" target=\"_blank\" rel=\"noopener\">ogre bellows</a>.",
+          "text": "Unlock the Locked Ogre chest in the north-west corner, then search it to receive ogre bellows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bloated-toads:c2bn6g",
+          "html": "Exit the cave and run a short distance south-west to the swamp.",
+          "text": "Exit the cave and run a short distance south-west to the swamp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bloated-toads:1yow2va",
+          "html": "At the swamp, <i>fill bellows</i> via the <a href=\"https://runescape.wiki/w/Swamp_bubbles\" target=\"_blank\" rel=\"noopener\">swamp bubbles</a>, then <i>bloat</i> 3 nearby <a href=\"https://runescape.wiki/w/Swamp_toad_(creature)\" target=\"_blank\" rel=\"noopener\">swamp toads</a> for 3 <a href=\"https://runescape.wiki/w/Bloated_toad\" target=\"_blank\" rel=\"noopener\">bloated toads</a>.",
+          "text": "At the swamp, fill bellows via the swamp bubbles, then bloat 3 nearby swamp toads for 3 bloated toads.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "hunting",
+      "title": "Hunting",
+      "anchor": "Hunting",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "hunting:ljfz4r",
+          "html": "Remove any Armour/Augmented Armour this will stop you from killing Chompy",
+          "text": "Remove any Armour/Augmented Armour this will stop you from killing Chompy",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1x0fuu7",
+          "html": "Talk to Rantz.",
+          "text": "Talk to Rantz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1wqhhfu",
+          "html": "Drop a bloated toad where the arrow points and wait for a chompy to appear.",
+          "text": "Drop a bloated toad where the arrow points and wait for a chompy to appear.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "hunting:1wqhhfu:3eo66h",
+              "html": "You may need to drop more toads if the bird doesn&#39;t spawn.",
+              "text": "You may need to drop more toads if the bird doesn't spawn.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "hunting:wx9u1i",
+          "html": "Talk to Rantz after the chompy appears.",
+          "text": "Talk to Rantz after the chompy appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1qvamsx",
+          "html": "Wait until Rantz has fired his bow and missed the bird, then talk to him.",
+          "text": "Wait until Rantz has fired his bow and missed the bird, then talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:c3t1w5",
+          "html": "Convince him to let you try shooting the bird instead. He&#39;ll give you an <a href=\"https://runescape.wiki/w/Ogre_bow\" target=\"_blank\" rel=\"noopener\">ogre bow</a>.",
+          "text": "Convince him to let you try shooting the bird instead. He'll give you an ogre bow.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Come on, let me have a go..."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm actually quite strong...please let me try."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1uvf1wk",
+          "html": "Place another toad in the clearing.",
+          "text": "Place another toad in the clearing.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "hunting:1uvf1wk:17o5rbc",
+              "html": "Alternatively, you can kill the same chompy bird, if it has not left.",
+              "text": "Alternatively, you can kill the same chompy bird, if it has not left.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "hunting:ygkkx4",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Chompy_bird\" target=\"_blank\" rel=\"noopener\">chompy bird</a> that appears with the ogre bow.",
+          "text": "Kill the chompy bird that appears with the ogre bow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1oht2h8",
+          "html": "Pluck the carcass and take the <a href=\"https://runescape.wiki/w/Raw_chompy\" target=\"_blank\" rel=\"noopener\">raw chompy</a>.",
+          "text": "Pluck the carcass and take the raw chompy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hunting:1b4yboj",
+          "html": "Talk to Rantz. Take note of the specific ingredient he wants on the chompy",
+          "text": "Talk to Rantz. Take note of the specific ingredient he wants on the chompy",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "cooking-the-bird",
+      "title": "Cooking the bird",
+      "anchor": "Cooking_the_bird",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "cooking-the-bird:1o9577i",
+          "html": "Go back into the cave and talk to Fycie and Bugs. Take note of the specific ingredients they want on the chompy, all are possible but not necessarily needed.",
+          "text": "Go back into the cave and talk to Fycie and Bugs. Take note of the specific ingredients they want on the chompy, all are possible but not necessarily needed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Ingredient<br>Location<br><a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">Onion</a><br>To the west of the swamp where you get the bloated toads, planted near the tomato on a stool, there&#39;s a fire and some ogres, right around there. You need to pick them from the ground, because they don&#39;t appear on the minimap.<br><a href=\"https://runescape.wiki/w/Doogle_leaf\" target=\"_blank\" rel=\"noopener\">Doogle leaf</a><br>West of onion spawn, on the gnome gliders landing strip in between the fungus (red dot on minimap).<br><a href=\"https://runescape.wiki/w/Tomato\" target=\"_blank\" rel=\"noopener\">Tomato</a><br>West of the swamp on a stool, in the same area as the onions (red dot on minimap).<br><a href=\"https://runescape.wiki/w/Cabbage\" target=\"_blank\" rel=\"noopener\">Cabbage</a><br>On the ground, not too far from the tomatoes or the potatoes.<br><a href=\"https://runescape.wiki/w/Equa_leaf\" target=\"_blank\" rel=\"noopener\">Equa leaf</a><br>You can get this south-east of Rantz, east of the place you placed your toad for the bait. Equa leaves are small and green so sometimes they can be hard to see, a way to get around this is to use the red dots on your minimap to pin point the location of the equa leaves.<br><a href=\"https://runescape.wiki/w/Raw_potato\" target=\"_blank\" rel=\"noopener\">Raw potato</a><br>You can pick a raw potato from a <a href=\"https://runescape.wiki/w/Potato_(scenery)\" target=\"_blank\" rel=\"noopener\">potato plant</a> south-east of Rantz, right beside the equa leaf."
+        },
+        {
+          "type": "step",
+          "id": "cooking-the-bird:s1nsle",
+          "html": "Obtain the ingredients that they ask for and use the raw chompy on the spit-roast north of Rantz.",
+          "text": "Obtain the ingredients that they ask for and use the raw chompy on the spit-roast north of Rantz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cooking-the-bird:s1nsle:xnzu6w",
+              "html": "In case you forgot the ingredients, using the raw chompy on the spit-roast will list them out.",
+              "text": "In case you forgot the ingredients, using the raw chompy on the spit-roast will list them out.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "cooking-the-bird:1x0fuu7",
+          "html": "Talk to Rantz.",
+          "text": "Talk to Rantz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cooking-the-bird:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Big_Chompy_Bird_Hunting_reward.png?96301",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Big_Chompy_Bird_Hunting_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "262 experience",
+        "text": "262 experience",
+        "subs": []
+      },
+      {
+        "html": "1,470 experience",
+        "text": "1,470 experience",
+        "subs": []
+      },
+      {
+        "html": "735 experience",
+        "text": "735 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Ogre_bow\" target=\"_blank\" rel=\"noopener\">Ogre bow</a>",
+        "text": "Ogre bow",
+        "subs": []
+      },
+      {
+        "html": "Ability to fletch <a href=\"https://runescape.wiki/w/Ogre_arrow\" target=\"_blank\" rel=\"noopener\">ogre arrows</a>",
+        "text": "Ability to fletch ogre arrows",
+        "subs": []
+      },
+      {
+        "html": "Ability to hunt <a href=\"https://runescape.wiki/w/Chompy_bird\" target=\"_blank\" rel=\"noopener\">chompy birds</a> and cook <a href=\"https://runescape.wiki/w/Raw_chompy\" target=\"_blank\" rel=\"noopener\">raw chompy</a>",
+        "text": "Ability to hunt chompy birds and cook raw chompy",
+        "subs": []
+      },
+      {
+        "html": "Ability to earn <a href=\"https://runescape.wiki/w/Chompy_bird_hat\" target=\"_blank\" rel=\"noopener\">ogre hats</a>",
+        "text": "Ability to earn ogre hats",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Big_Chompy_Bird_Hunting_(achievement)\" target=\"_blank\" rel=\"noopener\">Big Chompy Bird Hunting</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Master_Bogreman\" target=\"_blank\" rel=\"noopener\">Master Bogreman</a> (10) – Unlock the ogre bowman hat by killing 30 chompy birds. (X/30)",
+    "<a href=\"https://runescape.wiki/w/Chompy_Massacre\" target=\"_blank\" rel=\"noopener\">Chompy Massacre</a> (50) – Kill chompy birds. (X/4,000)"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part I</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Skrach_Uglogwee/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Skrach Uglogwee</a>",
+        "<a href=\"https://runescape.wiki/w/Zogre_Flesh_Eaters/Quick_guide\" target=\"_blank\" rel=\"noopener\">Zogre Flesh Eaters</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part II</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>",
+        "<a href=\"https://runescape.wiki/w/Rag_and_Bone_Man/Wish_list\" target=\"_blank\" rel=\"noopener\">Rag and Bone Man/Wish list</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/Within_the_Light/Quick_guide\" target=\"_blank\" rel=\"noopener\">Within the Light</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

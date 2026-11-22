@@ -1,0 +1,686 @@
+{
+  "format": 1,
+  "id": "song-from-the-depths",
+  "title": "Song from the Depths",
+  "page": "Song from the Depths/Quick guide",
+  "rev": 37088490,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Lucille\" target=\"_blank\" rel=\"noopener\">Lucille</a> in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3207,
+      "lon": 2946,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Song_from_the_Depths/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "The players will need to defend against low-level enemies.",
+        "name": "The players will need to defend against low-level enemies.",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:bp7tn0",
+          "html": "Four backpack spaces",
+          "text": "Four backpack spaces",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pvtrq7",
+          "html": "Some food for all levels to heal from the acid",
+          "text": "Some food for all levels to heal from the acid",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1m645je",
+          "html": "Armour for lower levels",
+          "text": "Armour for lower levels",
+          "alternatives": []
+        },
+        {
+          "id": "rec:b10sme",
+          "html": "80 <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a> to get optional 30,000 Constitution experience (this reward can be collected later, after reaching level 80)",
+          "text": "80 Constitution to get optional 30,000 Constitution experience (this reward can be collected later, after reaching level 80)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "dreaming-souls",
+      "title": "Dreaming souls",
+      "anchor": "Dreaming_souls",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the cave entrance",
+          "lat": 3224,
+          "lon": 2974,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2974.5,
+                  3224.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Cave entrance<br /><b>Object ID</b>: 72450",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Song_from_the_Depths/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "dreaming-souls:17xa2ev",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lucille\" target=\"_blank\" rel=\"noopener\">Lucille</a> who is in a house west of the <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a> well.",
+          "text": "Talk to Lucille who is in a house west of the Rimmington well.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Is everything okay?"
+                },
+                {
+                  "key": "1",
+                  "text": "Can I help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreaming-souls:1c8252",
+          "html": "Stay within Lucille&#39;s house and drink the <a href=\"https://runescape.wiki/w/Restless_sleep_potion\" target=\"_blank\" rel=\"noopener\">restless sleep potion</a>.",
+          "text": "Stay within Lucille's house and drink the restless sleep potion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dreaming-souls:1gb5yzd",
+          "html": "Follow the souls north-east to a <a href=\"https://runescape.wiki/w/Cave_entrance_(Song_from_the_Depths)\" target=\"_blank\" rel=\"noopener\">cave entrance</a> located south of the <a href=\"https://runescape.wiki/w/Rimmington_mine\" target=\"_blank\" rel=\"noopener\">Rimmington mine</a> and north-west of the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a> and enter it.",
+          "text": "Follow the souls north-east to a cave entrance located south of the Rimmington mine and north-west of the Port Sarim lodestone and enter it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dreaming-souls:1gb5yzd:7apne6",
+              "html": "If you go past the cave, exit to the lobby, or logout in the cave, you will have to go back to Lucille and obtain the potion once again.",
+              "text": "If you go past the cave, exit to the lobby, or logout in the cave, you will have to go back to Lucille and obtain the potion once again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inside-the-cave",
+      "title": "Inside the cave",
+      "anchor": "Inside_the_cave",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "inside-the-cave:jzk0ls",
+          "html": "Go north over the bridge.",
+          "text": "Go north over the bridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:e7s3bu",
+          "html": "Continue through the cave to the east.",
+          "text": "Continue through the cave to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:2x1x9l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>.",
+          "text": "Talk to the Raptor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here to save Waylan."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1uxc5ht",
+          "html": "Enter the door to follow the Raptor.",
+          "text": "Enter the door to follow the Raptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The maze"
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:p6zmdj",
+          "html": "Enter the north door.",
+          "text": "Enter the north door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:b6woaz",
+          "html": "Enter the west door.",
+          "text": "Enter the west door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:8bk1bt",
+          "html": "Enter the south door.",
+          "text": "Enter the south door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1yw7wnh",
+          "html": "Enter the east door.",
+          "text": "Enter the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1irvvb4",
+          "html": "Follow the souls and enter the final door to the north.",
+          "text": "Follow the souls and enter the final door to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Symbol searching"
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1qb6nqw",
+          "html": "After the cutscene, go to the north-east corner of the room to discover the first symbol. It is two steps south of the wall feature against the north wall and two steps east of the fissure.",
+          "text": "After the cutscene, go to the north-east corner of the room to discover the first symbol. It is two steps south of the wall feature against the north wall and two steps east of the fissure.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:g61b1i",
+          "html": "Head to the north-west corner where the second symbol will be located a bit south-west of the wavy section of the ground.",
+          "text": "Head to the north-west corner where the second symbol will be located a bit south-west of the wavy section of the ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:15k2arw",
+          "html": "Enter the sparkling doorway that just appears. The location will be different for each player.",
+          "text": "Enter the sparkling doorway that just appears. The location will be different for each player.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:qossrp",
+          "html": "Go just west of the central fissure to find the first symbol.",
+          "text": "Go just west of the central fissure to find the first symbol.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1y0dzfc",
+          "html": "Go west of the northern fissure to find the second symbol.",
+          "text": "Go west of the northern fissure to find the second symbol.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1c6ukl6",
+          "html": "The last symbol is just north-west of the eastern fissure.",
+          "text": "The last symbol is just north-west of the eastern fissure.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:15k2arw-2",
+          "html": "Enter the sparkling doorway that just appears. The location will be different for each player.",
+          "text": "Enter the sparkling doorway that just appears. The location will be different for each player.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1wrctrs",
+          "html": "Follow the souls and enter the door to the north.",
+          "text": "Follow the souls and enter the door to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Tree growing"
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:r9xsdg",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Burning_sapling\" target=\"_blank\" rel=\"noopener\">burning sapling</a> from the centre of the room and plant it in the pot overflowing with water to the southwest.",
+          "text": "Take the burning sapling from the centre of the room and plant it in the pot overflowing with water to the southwest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1bt3grw",
+          "html": "Enter the doorway with a waterfall to the northeast.",
+          "text": "Enter the doorway with a waterfall to the northeast.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1n8e4wy",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Dead_sapling\" target=\"_blank\" rel=\"noopener\">dead sapling</a> from the previous pot and plant it in the pot with living fungi to the northwest.",
+          "text": "Take the dead sapling from the previous pot and plant it in the pot with living fungi to the northwest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:osgcaf",
+          "html": "Enter the doorway surrounded by fungus to the southwest.",
+          "text": "Enter the doorway surrounded by fungus to the southwest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:yq33m2",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Budding_sapling\" target=\"_blank\" rel=\"noopener\">budding sapling</a> from the previous pot and plant it in the pot with ivy growing around it to the southeast.",
+          "text": "Take the budding sapling from the previous pot and plant it in the pot with ivy growing around it to the southeast.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:1fjh7y4",
+          "html": "Enter the doorway surrounded by ivy to the west.",
+          "text": "Enter the doorway surrounded by ivy to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:qy2p2d",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Healthy_sapling\" target=\"_blank\" rel=\"noopener\">healthy sapling</a> from the previous pot and plant it in the pot covered in cobwebs to the northeast.",
+          "text": "Take the healthy sapling from the previous pot and plant it in the pot covered in cobwebs to the northeast.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-the-cave:ywojnk",
+          "html": "Enter the doorway covered in cobwebs to the east.",
+          "text": "Enter the doorway covered in cobwebs to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-stomach-of-the-dragon",
+      "title": "The stomach of the dragon",
+      "anchor": "The_stomach_of_the_dragon",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:g8erdl",
+          "html": "Proceed north and enter the doorway.",
+          "text": "Proceed north and enter the doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:1lxyg49",
+          "html": "After the cutscene, jump into the chasm.",
+          "text": "After the cutscene, jump into the chasm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:10wcwqf",
+          "html": "Proceed through the three passageways and enter the openings whilst evading the acid, players with high life points or some food can simply run through the acid taking the shortest route to save time. Running straight through the acid deals some (2-15) damage. Use <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">Surge</a> and <a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a> when available.",
+          "text": "Proceed through the three passageways and enter the openings whilst evading the acid, players with high life points or some food can simply run through the acid taking the shortest route to save time. Running straight through the acid deals some (2-15) damage. Use Surge and Dive when available.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:1dz6rae",
+          "html": "After an interactive cutscene, finish the dialogue with the siren, <a href=\"https://runescape.wiki/w/Remora\" target=\"_blank\" rel=\"noopener\">Remora</a>.",
+          "text": "After an interactive cutscene, finish the dialogue with the siren, Remora.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "We're not on an island."
+                },
+                {
+                  "key": "1",
+                  "text": "What you're talking about isn't real."
+                },
+                {
+                  "key": "2",
+                  "text": "Don't you know how you got here?"
+                },
+                {
+                  "key": "2",
+                  "text": "You have been stealing the souls of villagers."
+                },
+                {
+                  "key": "1",
+                  "text": "Alright."
+                },
+                {
+                  "key": "1",
+                  "text": "Wait, don't kill her!"
+                },
+                {
+                  "key": "1",
+                  "text": "We need her to escape."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:13lho8k",
+          "html": "Talk to the Raptor. You will receive 3 items.",
+          "text": "Talk to the Raptor. You will receive 3 items.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What now?"
+                },
+                {
+                  "key": "2",
+                  "text": "We should talk to Lucille."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:9t97",
+          "html": "Head south-west to Rimmington and talk to <a href=\"https://runescape.wiki/w/Lucille\" target=\"_blank\" rel=\"noopener\">Lucille</a>.",
+          "text": "Head south-west to Rimmington and talk to Lucille.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-stomach-of-the-dragon:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Song_from_the_Depths_reward.png?49e97",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Song_from_the_Depths_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "700 experience <a href=\"https://runescape.wiki/w/Constitution_XP_lamp_(Song_from_the_Depths)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "700 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Coral_crossbow\" target=\"_blank\" rel=\"noopener\">Coral crossbow</a>",
+        "text": "Coral crossbow",
+        "subs": []
+      },
+      {
+        "html": "50 <a href=\"https://runescape.wiki/w/Coral_bolts\" target=\"_blank\" rel=\"noopener\">Coral bolts</a>",
+        "text": "50 Coral bolts",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Remora%27s_necklace\" target=\"_blank\" rel=\"noopener\">Remora&#39;s necklace</a> (Providing unlimited teleportation to the <a href=\"https://runescape.wiki/w/Queen_Black_Dragon\" target=\"_blank\" rel=\"noopener\">Queen Black Dragon</a> and <a href=\"https://runescape.wiki/w/Mature_grotworm\" target=\"_blank\" rel=\"noopener\">Mature grotworms</a>)",
+        "text": "Remora's necklace (Providing unlimited teleportation to the Queen Black Dragon and Mature grotworms)",
+        "subs": []
+      },
+      {
+        "html": "Reduced incoming damage when fighting the <a href=\"https://runescape.wiki/w/Queen_Black_Dragon\" target=\"_blank\" rel=\"noopener\">Queen Black Dragon</a> (with 60 Summoning)",
+        "text": "Reduced incoming damage when fighting the Queen Black Dragon (with 60 Summoning)",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Two <a href=\"https://runescape.wiki/w/Ancient_writings_(music_maze_cave)\" target=\"_blank\" rel=\"noopener\">ancient writings</a> in <a href=\"https://runescape.wiki/w/Music_maze_cave\" target=\"_blank\" rel=\"noopener\">music maze cave</a> for the player to read to gain <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a> experience:",
+            "text": "Two ancient writings in music maze cave for the player to read to gain Constitution experience:",
+            "subs": [
+              "5000 experience, which requires 50 Constitution",
+              "25000 experience, which requires 80 Constitution"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Awoken",
+      "where": "Only if you had not previously entered Queen Black Dragon's lair"
+    },
+    {
+      "name": "Belly of the Beast",
+      "where": ""
+    },
+    {
+      "name": "Something is Wrong",
+      "where": ""
+    },
+    {
+      "name": "Song from the Depths",
+      "where": ""
+    },
+    {
+      "name": "Wending Through the Willows",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Song_from_the_Depths_(achievement)\" target=\"_blank\" rel=\"noopener\">Song from the Depths</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Scribbling_in_the_Depths\" target=\"_blank\" rel=\"noopener\">Scribbling in the Depths</a> (10) – Obtain the hidden rewards after the &#39;Song from the Depths&#39; quest."
+  ],
+  "requiredFor": []
+}

@@ -1,0 +1,392 @@
+{
+  "format": 1,
+  "id": "once-upon-a-slime",
+  "title": "Once Upon a Slime",
+  "page": "Once Upon a Slime/Quick guide",
+  "rev": 36924010,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Peter\" target=\"_blank\" rel=\"noopener\">Peter</a> in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3207,
+      "lon": 2956,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Once_Upon_a_Slime/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:34j40l",
+          "html": "3 <a href=\"https://runescape.wiki/w/Rimmington_tablet\" target=\"_blank\" rel=\"noopener\">Rimmington tablets</a>",
+          "text": "3 Rimmington tablets",
+          "alternatives": []
+        },
+        {
+          "id": "rec:66f2hd",
+          "html": "2 <a href=\"https://runescape.wiki/w/Varrock_teleport_(item)\" target=\"_blank\" rel=\"noopener\">Varrock teleports</a>",
+          "text": "2 Varrock teleports",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "return-of-the-king",
+      "title": "Return of the king",
+      "anchor": "Return_of_the_king",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "return-of-the-king:11j7p04",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Peter\" target=\"_blank\" rel=\"noopener\">Peter</a>, next to the well in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+          "text": "Talk to Peter, next to the well in Rimmington.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yeah, I know all about it"
+                },
+                {
+                  "key": "1",
+                  "text": "Aye, I mean, yes."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-of-the-king:98t89q",
+          "html": "After the cutscene, continue talking to Peter.",
+          "text": "After the cutscene, continue talking to Peter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "top-hat-shenanigans",
+      "title": "Top hat shenanigans",
+      "anchor": "Top_hat_shenanigans",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "top-hat-shenanigans:tu7db9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Thessalia\" target=\"_blank\" rel=\"noopener\">Thessalia</a> in her clothing store in <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> for a <a href=\"https://runescape.wiki/w/Giant_top_hat\" target=\"_blank\" rel=\"noopener\">giant top hat</a>.",
+          "text": "Talk to Thessalia in her clothing store in Varrock for a giant top hat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Once Upon a Slime."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "top-hat-shenanigans:12woiyk",
+          "html": "Talk to Peter next to the well in Rimmington.",
+          "text": "Talk to Peter next to the well in Rimmington.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "top-hat-shenanigans:1iqun2g",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Thessalia\" target=\"_blank\" rel=\"noopener\">Thessalia</a>.",
+          "text": "Return to Thessalia.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Once Upon a Slime."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "shrinking-machine",
+      "title": "Shrinking Machine",
+      "anchor": "Shrinking_Machine",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of Eva and the Shrinking Machine",
+          "lat": 3407,
+          "lon": 3249,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3246,
+                      3404
+                    ],
+                    [
+                      3246,
+                      3410
+                    ],
+                    [
+                      3252,
+                      3410
+                    ],
+                    [
+                      3252,
+                      3404
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Once_Upon_a_Slime/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "shrinking-machine:lyc5lb",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eva\" target=\"_blank\" rel=\"noopener\">Eva</a> inside the building south of <a href=\"https://runescape.wiki/w/Varrock_east_bank\" target=\"_blank\" rel=\"noopener\">Varrock east bank</a>. The building is attached to <a href=\"https://runescape.wiki/w/Aubury%27s_Rune_Shop\" target=\"_blank\" rel=\"noopener\">Aubury&#39;s Rune Shop</a>, and features an <a href=\"https://runescape.wiki/w/Anvil\" target=\"_blank\" rel=\"noopener\">anvil</a>.",
+          "text": "Talk to Eva inside the building south of Varrock east bank. The building is attached to Aubury's Rune Shop, and features an anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shrinking-machine:ssye51",
+          "html": "<i>Shrink Something</i> on the <a href=\"https://runescape.wiki/w/Shrinking_Machine\" target=\"_blank\" rel=\"noopener\">Shrinking Machine</a>. It will automatically put in the hat to shrink it.",
+          "text": "Shrink Something on the Shrinking Machine. It will automatically put in the hat to shrink it.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Silver Button"
+                },
+                {
+                  "key": "3",
+                  "text": "Hot"
+                },
+                {
+                  "key": "1",
+                  "text": "Red Button"
+                },
+                {
+                  "key": "2",
+                  "text": "Increase"
+                },
+                {
+                  "key": "2",
+                  "text": "No"
+                },
+                {
+                  "key": "1",
+                  "text": "KSL"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shrinking-machine:1b6t3wf",
+          "html": "Go back to Peter and return the <a href=\"https://runescape.wiki/w/Top_hat_(Once_Upon_a_Slime)\" target=\"_blank\" rel=\"noopener\">top hat</a>.",
+          "text": "Go back to Peter and return the top hat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gloop-gloop-gloop",
+      "title": "Gloop gloop gloop",
+      "anchor": "Gloop_gloop_gloop",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:1kclol7",
+          "html": "After the cutscene, talk to Peter again.",
+          "text": "After the cutscene, talk to Peter again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:1c17zeb",
+          "html": "<i>Poke</i> the <a href=\"https://runescape.wiki/w/Queen_Slime\" target=\"_blank\" rel=\"noopener\">Queen Slime</a> for <a href=\"https://runescape.wiki/w/Pink_goop\" target=\"_blank\" rel=\"noopener\">pink goop</a>.",
+          "text": "Poke the Queen Slime for pink goop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:fweh8g",
+          "html": "Talk to Peter.",
+          "text": "Talk to Peter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:1vflihw",
+          "html": "Use the bucket on the cauldron in <a href=\"https://runescape.wiki/w/Hetty\" target=\"_blank\" rel=\"noopener\">Hetty</a>&#39;s house, east of the well in Rimmington.",
+          "text": "Use the bucket on the cauldron in Hetty's house, east of the well in Rimmington.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:1ncwz90",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Bucket_of_purple_goop\" target=\"_blank\" rel=\"noopener\">bucket of purple goop</a> on <a href=\"https://runescape.wiki/w/King_Slime\" target=\"_blank\" rel=\"noopener\">King Slime</a> and watch the cutscene.",
+          "text": "Use the bucket of purple goop on King Slime and watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gloop-gloop-gloop:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Once_Upon_a_Slime_reward.png?fda59",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Once_Upon_a_Slime_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience <a href=\"https://runescape.wiki/w/Cooking_XP_lamp_(Once_Upon_a_Slime)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Lil_Miss_Gloop\" target=\"_blank\" rel=\"noopener\">Lil Miss Gloop</a> pet",
+        "text": "Lil Miss Gloop pet",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">bucket</a>",
+        "text": "A bucket",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "<a href=\"https://runescape.wiki/w/King_Slime%27s_Top_Hat\" target=\"_blank\" rel=\"noopener\">King Slime&#39;s Top Hat</a> override by talking to <a href=\"https://runescape.wiki/w/Eva\" target=\"_blank\" rel=\"noopener\">Eva</a> again after the quest",
+            "text": "King Slime's Top Hat override by talking to Eva again after the quest",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

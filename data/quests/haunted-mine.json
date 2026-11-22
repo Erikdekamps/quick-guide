@@ -1,0 +1,734 @@
+{
+  "format": 1,
+  "id": "haunted-mine",
+  "title": "Haunted Mine",
+  "page": "Haunted Mine/Quick guide",
+  "rev": 37171323,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Zealot\" target=\"_blank\" rel=\"noopener\">zealot</a> at the entrance of the <a href=\"https://runescape.wiki/w/Abandoned_Mine\" target=\"_blank\" rel=\"noopener\">Abandoned Mine</a> in south <a href=\"https://runescape.wiki/w/Morytania\" target=\"_blank\" rel=\"noopener\">Morytania</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3258,
+      "lon": 3444,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Haunted_Mine/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 15,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 35,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Treus Dayth (Level 63)",
+        "name": "Treus Dayth",
+        "count": null,
+        "level": "63",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8w69bo",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a> and combat equipment",
+          "text": "Food and combat equipment",
+          "alternatives": []
+        },
+        {
+          "id": "rec:fv8488",
+          "html": "<a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">Balls of wool</a> for extra <a href=\"https://runescape.wiki/w/Salve_amulet\" target=\"_blank\" rel=\"noopener\">salve amulets</a>",
+          "text": "Balls of wool for extra salve amulets",
+          "alternatives": []
+        },
+        {
+          "id": "rec:t6w7xi",
+          "html": "Methods to teleport to <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>",
+          "text": "Methods to teleport to Burgh de Rott",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Drakan%27s_medallion\" target=\"_blank\" rel=\"noopener\">Drakan&#39;s medallion</a> (requires <a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>) or",
+            "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a> (requires <a href=\"https://runescape.wiki/w/The_Darkness_of_Hallowvale\" target=\"_blank\" rel=\"noopener\">The Darkness of Hallowvale</a> and 500 Companions levels from <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Temple Trekking</a>) or",
+            "Quick-travel to the <a href=\"https://runescape.wiki/w/Nature_Grotto\" target=\"_blank\" rel=\"noopener\">Nature Grotto</a> for easier access to the town, if you have reached 100 total levels in <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Temple Trekking</a>"
+          ]
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "saradominist-zealot",
+      "title": "Saradominist Zealot",
+      "anchor": "Saradominist_Zealot",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "saradominist-zealot:1owuros",
+          "html": "Speak to the <a href=\"https://runescape.wiki/w/Zealot\" target=\"_blank\" rel=\"noopener\">Zealot</a>, north of the mine west of <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>.",
+          "text": "Speak to the Zealot, north of the mine west of Burgh de Rott.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I follow the path of Saradomin."
+                },
+                {
+                  "key": "1",
+                  "text": "I come seeking challenges and quests."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Is there any other way into the mines?"
+                },
+                {
+                  "key": "3",
+                  "text": "Can I borrow your key?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradominist-zealot:1cj8tmm",
+          "html": "Pickpocket Zealot to get <a href=\"https://runescape.wiki/w/Zealot%27s_key\" target=\"_blank\" rel=\"noopener\">Zealot&#39;s key</a>.",
+          "text": "Pickpocket Zealot to get Zealot's key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradominist-zealot:10m8e0u",
+          "html": "Climb over the cart to the south and crawl-down the cart tunnel.",
+          "text": "Climb over the cart to the south and crawl-down the cart tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "navigating-the-cave",
+      "title": "Navigating the cave",
+      "anchor": "Navigating_the_cave",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "navigating-the-cave:1h7jqe3",
+          "html": "Run directly west through the cave and crawl-through the cart tunnel.",
+          "text": "Run directly west through the cave and crawl-through the cart tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigating-the-cave:1rjp66m",
+          "html": "Re-enter the cave via the southern entrance.",
+          "text": "Re-enter the cave via the southern entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigating-the-cave:9brfqm",
+          "html": "Descend the nearby ladder to the east.",
+          "text": "Descend the nearby ladder to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigating-the-cave:dxjt29",
+          "html": "Go down the ladder directly east.",
+          "text": "Go down the ladder directly east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigating-the-cave:qijnvf",
+          "html": "Go down the south ladder (beware of the moving cart — follow it as it moves south and step off the track when you can).",
+          "text": "Go down the south ladder (beware of the moving cart — follow it as it moves south and step off the track when you can).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Abandoned_Mine_Level_4.png/300px-Abandoned_Mine_Level_4.png?24b2d",
+          "width": 300,
+          "height": 319,
+          "alt": "",
+          "caption": "Cave level 4",
+          "href": "https://runescape.wiki/w/File:Abandoned_Mine_Level_4.png"
+        }
+      ]
+    },
+    {
+      "id": "glowing-mushrooms",
+      "title": "Glowing mushrooms",
+      "anchor": "Glowing_mushrooms",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Points_Setting_interface.png/300px-Points_Setting_interface.png?d378e",
+          "width": 300,
+          "height": 196,
+          "alt": "",
+          "caption": "Correct track",
+          "href": "https://runescape.wiki/w/File:Points_Setting_interface.png"
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:19tb7vj",
+          "html": "Pick a <a href=\"https://runescape.wiki/w/Glowing_fungus\" target=\"_blank\" rel=\"noopener\">glowing fungus</a> (J).",
+          "text": "Pick a glowing fungus (J).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:5gfjyv",
+          "html": "Use the glowing fungus on the mine cart (K).",
+          "text": "Use the glowing fungus on the mine cart (K).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:13sw0b6",
+          "html": "Check <a href=\"https://runescape.wiki/w/Points_settings\" target=\"_blank\" rel=\"noopener\">points settings</a> (L).",
+          "text": "Check points settings (L).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:jsu3wd",
+          "html": "Compare your tracks to the correct version (pictured in bright red). Remember the letters where the track needs to be changed. Pull the levers at (M) and (N) so that the bright red arrows match. (You can also examine the levers to find the corresponding letter).",
+          "text": "Compare your tracks to the correct version (pictured in bright red). Remember the letters where the track needs to be changed. Pull the levers at (M) and (N) so that the bright red arrows match. (You can also examine the levers to find the corresponding letter).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/thumb/ABCDE_Map.png/120px-ABCDE_Map.png?916a9",
+              "width": 120,
+              "height": 90,
+              "alt": "East set of levers (M)",
+              "caption": "East set of levers (M)",
+              "href": "https://runescape.wiki/w/File:ABCDE_Map.png"
+            },
+            {
+              "type": "image",
+              "src": "https://runescape.wiki/images/thumb/FGHIJK_Map.png/120px-FGHIJK_Map.png?33816",
+              "width": 120,
+              "height": 90,
+              "alt": "North set of levers (N)",
+              "caption": "North set of levers (N)",
+              "href": "https://runescape.wiki/w/File:FGHIJK_Map.png"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:1owpyey",
+          "html": "Return to (L) and check points settings. Click start.",
+          "text": "Return to (L) and check points settings. Click start.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:o92t1g",
+          "html": "If you fail and manage to put the mine cart in water, you will need to pick another glowing fungus to put into the mine cart.",
+          "text": "If you fail and manage to put the mine cart in water, you will need to pick another glowing fungus to put into the mine cart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:1xjdufa",
+          "html": "Your character will say &quot;I wonder if that cart is anywhere useful now?&quot; when the puzzle is complete.",
+          "text": "Your character will say \"I wonder if that cart is anywhere useful now?\" when the puzzle is complete.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:24yq1y",
+          "html": "Make your way back to the very first cave room, by backtracking or teleporting out and coming back.",
+          "text": "Make your way back to the very first cave room, by backtracking or teleporting out and coming back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:1n19wn8",
+              "html": "You can use the <a href=\"https://runescape.wiki/w/Drakan%27s_medallion\" target=\"_blank\" rel=\"noopener\">Drakan&#39;s medallion</a> or <a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">games necklace</a> for quicker access if you have it, to teleport to Burgh de Rott. Otherwise continue with the instructions in this section.",
+              "text": "You can use the Drakan's medallion or games necklace for quicker access if you have it, to teleport to Burgh de Rott. Otherwise continue with the instructions in this section.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:1go5kgj",
+              "html": "Go up the ladder by the glowing fungus spawn.",
+              "text": "Go up the ladder by the glowing fungus spawn.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:1c9nvy5",
+              "html": "Go north past the haunted cart, then the first wing east, climb up the ladder.",
+              "text": "Go north past the haunted cart, then the first wing east, climb up the ladder.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:vnfca9",
+              "html": "Go west, climb up the ladder.",
+              "text": "Go west, climb up the ladder.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:qf32k7",
+              "html": "Go west and exit the cave.",
+              "text": "Go west and exit the cave.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "glowing-mushrooms:24yq1y:v6yg8t",
+              "html": "Enter the northern cave.",
+              "text": "Enter the northern cave.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Abandoned_Mine_Level_1.png/300px-Abandoned_Mine_Level_1.png?8cf12",
+          "width": 300,
+          "height": 283,
+          "alt": "",
+          "caption": "Cave level 1",
+          "href": "https://runescape.wiki/w/File:Abandoned_Mine_Level_1.png"
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:1if8nuu",
+          "html": "Go down the ladder east of the cart tunnel from which you just exited.",
+          "text": "Go down the ladder east of the cart tunnel from which you just exited.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:21dkvh",
+          "html": "Go north-east and down the ladder by the doors.",
+          "text": "Go north-east and down the ladder by the doors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:hmcly6",
+          "html": "Go west and down the ladder in the north-west corner.",
+          "text": "Go west and down the ladder in the north-west corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "glowing-mushrooms:26q61n",
+          "html": "Search the cart just south to get the fungus.",
+          "text": "Search the cart just south to get the fungus.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Take it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "treus-dayth-fight",
+      "title": "Treus Dayth fight",
+      "anchor": "Treus_Dayth_fight",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:yo0kjj",
+          "html": "With the fungus, go back up the ladder.",
+          "text": "With the fungus, go back up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1c3ey4s",
+          "html": "Run east, go past the ladder going up, and go down the ladder (beware of the moving cart).",
+          "text": "Run east, go past the ladder going up, and go down the ladder (beware of the moving cart).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1nysbrj",
+          "html": "Run south (on the east path when it splits) and use Zealot&#39;s Key on water valve (P).",
+          "text": "Run south (on the east path when it splits) and use Zealot's Key on water valve (P).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:33h9k4",
+          "html": "Quickly go down the lift directly south of the water valve. Note that if you take too long, you will need to use the key on the valve again.",
+          "text": "Quickly go down the lift directly south of the water valve. Note that if you take too long, you will need to use the key on the valve again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1l2271a",
+          "html": "You should fall into a chamber full of water. From the flooded chamber, walk south onto the track and follow it to the east. Walk down the stairs.",
+          "text": "You should fall into a chamber full of water. From the flooded chamber, walk south onto the track and follow it to the east. Walk down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1bmi4dr",
+          "html": "Go directly west and through the door.",
+          "text": "Go directly west and through the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1hg963k",
+          "html": "Try to pick up the <a href=\"https://runescape.wiki/w/Innocent_looking_key\" target=\"_blank\" rel=\"noopener\">innocent looking key</a> to the west, sitting on the crate just north of the crane.",
+          "text": "Try to pick up the innocent looking key to the west, sitting on the crate just north of the crane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1vh0n4k",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Treus_Dayth\" target=\"_blank\" rel=\"noopener\">Treus Dayth</a>.",
+          "text": "Kill Treus Dayth.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treus-dayth-fight:1h12ylt",
+          "html": "Pick up the key.",
+          "text": "Pick up the key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "treus-dayth-fight:1h12ylt:1shhr5c",
+              "html": "Optional: Add it to the <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a> if you have it.",
+              "text": "Optional: Add it to the steel key ring if you have it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "getting-the-crystal",
+      "title": "Getting the crystal",
+      "anchor": "Getting_the_crystal",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-the-crystal:1bm7022",
+          "html": "Walk up the stairs you came from (in the east room).",
+          "text": "Walk up the stairs you came from (in the east room).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-crystal:1rzel8t",
+          "html": "Walk down the stairs to the far west.",
+          "text": "Walk down the stairs to the far west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-crystal:3rzydn",
+          "html": "Open the large door.",
+          "text": "Open the large door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-crystal:1y1o9ib",
+          "html": "Cut a piece of <a href=\"https://runescape.wiki/w/Crystal_outcrop\" target=\"_blank\" rel=\"noopener\">crystal outcrop</a>.",
+          "text": "Cut a piece of crystal outcrop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-crystal:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-the-crystal:fvxipr:1w3q2e0",
+              "html": "[Optional] If you want extra salve amulets you can mine multiple crystals.",
+              "text": "[Optional] If you want extra salve amulets you can mine multiple crystals.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-the-crystal:fvxipr:2jjpnw",
+              "html": "[Optional] First mine a <a href=\"https://runescape.wiki/w/Mithril_ore_vein\" target=\"_blank\" rel=\"noopener\">mithril ore vein</a> to the near the large doors on cave level 2 for an <a href=\"https://runescape.wiki/w/Polterheist\" target=\"_blank\" rel=\"noopener\">achievement</a>.",
+              "text": "[Optional] First mine a mithril ore vein to the near the large doors on cave level 2 for an achievement.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "getting-the-crystal:fvxipr:2jjpnw:13ewkks",
+                  "html": "You can get there by backtracking. Up the lift, then up the ladder to the north, then up the ladder to the north again. Through both large doors to the West and the vein is immediately north.",
+                  "text": "You can get there by backtracking. Up the lift, then up the ladder to the north, then up the ladder to the north again. Through both large doors to the West and the vein is immediately north.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Haunted_Mine_reward.png?abc78",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Haunted_Mine_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "22,000 experience <a href=\"https://runescape.wiki/w/Strength_XP_lamp_(Haunted_Mine)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "22,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Crystal-mine_key\" target=\"_blank\" rel=\"noopener\">Crystal-mine key</a> (which can be added to the <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a>)",
+        "text": "Crystal-mine key (which can be added to the steel key ring)",
+        "subs": []
+      },
+      {
+        "html": "The ability to make <a href=\"https://runescape.wiki/w/Salve_amulet\" target=\"_blank\" rel=\"noopener\">salve amulets</a>, which gives combat bonuses against <a href=\"https://runescape.wiki/w/Undead\" target=\"_blank\" rel=\"noopener\">undead</a> creatures. Simply use the <a href=\"https://runescape.wiki/w/Salve_shard\" target=\"_blank\" rel=\"noopener\">salve shard</a> obtained at the end of the quest with a <a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">ball of wool</a>.",
+        "text": "The ability to make salve amulets, which gives combat bonuses against undead creatures. Simply use the salve shard obtained at the end of the quest with a ball of wool.",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Lair_of_Tarn_Razorlor_(miniquest)\" target=\"_blank\" rel=\"noopener\">Lair of Tarn Razorlor miniquest</a>, where players can create <a href=\"https://runescape.wiki/w/Salve_amulet_(e)\" target=\"_blank\" rel=\"noopener\">an enhanced version</a> of the salve amulet",
+        "text": "Access to the Lair of Tarn Razorlor miniquest, where players can create an enhanced version of the salve amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Haunted Mine",
+      "where": ""
+    },
+    {
+      "name": "Spooky2",
+      "where": ""
+    },
+    {
+      "name": "Deep Down",
+      "where": ""
+    },
+    {
+      "name": "Chamber",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Lair_of_Tarn_Razorlor_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Lair of Tarn Razorlor (miniquest)</a>"
+      ]
+    }
+  ]
+}

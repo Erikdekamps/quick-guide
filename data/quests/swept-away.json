@@ -1,0 +1,686 @@
+{
+  "format": 1,
+  "id": "swept-away",
+  "title": "Swept Away",
+  "page": "Swept Away/Quick guide",
+  "rev": 37186118,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Maggie\" target=\"_blank\" rel=\"noopener\">Maggie</a> the witch at her caravan, north of <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>, west of the <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor lodestone</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3297,
+      "lon": 3082,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Swept_Away/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:rf1jk1",
+          "html": "Active lodestones in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a> and <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+          "text": "Active lodestones in Draynor Village and Port Sarim.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:brj9eg",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:aa0ptl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Maggie\" target=\"_blank\" rel=\"noopener\">Maggie</a> who is located just west of the <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor lodestone</a>.",
+          "text": "Talk to Maggie who is located just west of the Draynor lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Oo, something smells rather...interesting!"
+                },
+                {
+                  "key": "1",
+                  "text": "Is there any way I could help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Sure, I can do that for you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-puzzles",
+      "title": "The puzzles",
+      "anchor": "The_puzzles",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Betty"
+        },
+        {
+          "type": "map",
+          "caption": "Location of Betty at Port Sarim",
+          "lat": 3259,
+          "lon": 3012,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3007.5,
+                      3254.5
+                    ],
+                    [
+                      3007.5,
+                      3264.5
+                    ],
+                    [
+                      3017.5,
+                      3264.5
+                    ],
+                    [
+                      3017.5,
+                      3254.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Swept_Away/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:ol14t6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Betty\" target=\"_blank\" rel=\"noopener\">Betty</a> in furthest north-western house in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+          "text": "Talk to Betty in furthest north-western house in Port Sarim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to Betty about Swept Away."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1stecf9",
+          "html": "Enter the trapdoor in the south-east corner of the house.",
+          "text": "Enter the trapdoor in the south-east corner of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:2zhakn",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lottie\" target=\"_blank\" rel=\"noopener\">Lottie</a>.",
+          "text": "Talk to Lottie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need to retrieve Betty's wand."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:wje077",
+          "html": "Complete the puzzle.",
+          "text": "Complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:mkwvxz",
+              "html": "Put the blackbird in the holding pen.",
+              "text": "Put the blackbird in the holding pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:cs932h",
+              "html": "Put the rat in the blackbird pen.",
+              "text": "Put the rat in the blackbird pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:1m8qr3f",
+              "html": "Put the spider in the spiders pen.",
+              "text": "Put the spider in the spiders pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:1nug8vy",
+              "html": "Put the lizard in the reptiles pen.",
+              "text": "Put the lizard in the reptiles pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:si5pzk",
+              "html": "Put the rat in the rat pen.",
+              "text": "Put the rat in the rat pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-puzzles:wje077:ley0ru",
+              "html": "Put the blackbird in the blackbird pen.",
+              "text": "Put the blackbird in the blackbird pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:xrit86",
+          "html": "Open and search the chest near the ladder you came from.",
+          "text": "Open and search the chest near the ladder you came from.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:ipra5k",
+          "html": "Climb up the ladder and talk to Betty.",
+          "text": "Climb up the ladder and talk to Betty.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to Betty about Swept Away."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Hetty"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1i3nrxa",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a> (run southwest from Betty&#39;s shop in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>).",
+          "text": "Head to Rimmington (run southwest from Betty's shop in Port Sarim).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1rte5xc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Hetty\" target=\"_blank\" rel=\"noopener\">Hetty</a>.",
+          "text": "Talk to Hetty.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about Swept Away."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1tbp2c0",
+          "html": "Enter the trapdoor just south of her house.",
+          "text": "Enter the trapdoor just south of her house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1smvroh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gus\" target=\"_blank\" rel=\"noopener\">Gus</a>.",
+          "text": "Talk to Gus.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "It's a deal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:3ud02d",
+          "html": "Take from the crate that&#39;s labelled &quot;Newts and Toads&quot;.",
+          "text": "Take from the crate that's labelled \"Newts and Toads\".",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:11p70o4",
+          "html": "Place the label of the creature you removed on that box.",
+          "text": "Place the label of the creature you removed on that box.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:ogpzai",
+          "html": "If you placed the &quot;Newts&quot; label previously, place the &quot;Toads&quot; label on the &quot;Newts&quot; crate. Otherwise place the &quot;Newts&quot; label on the &quot;Toads&quot; crate.",
+          "text": "If you placed the \"Newts\" label previously, place the \"Toads\" label on the \"Newts\" crate. Otherwise place the \"Newts\" label on the \"Toads\" crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:wesvf9",
+          "html": "Place the remaining label on the last box and talk to <a href=\"https://runescape.wiki/w/Gus\" target=\"_blank\" rel=\"noopener\">Gus</a>.",
+          "text": "Place the remaining label on the last box and talk to Gus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1datt4d",
+          "html": "Take a newt from the newt crate.",
+          "text": "Take a newt from the newt crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1rte5xc-2",
+          "html": "Talk to Hetty.",
+          "text": "Talk to Hetty.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about Swept Away."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1ay10ek",
+          "html": "Use the ointment on the broom.",
+          "text": "Use the ointment on the broom.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Aggie"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Pattern_triangles.png/300px-Pattern_triangles.png?aec80",
+          "width": 300,
+          "height": 197,
+          "alt": "",
+          "caption": "One possible solution for Aggie's puzzle",
+          "href": "https://runescape.wiki/w/File:Pattern_triangles.png"
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:1cazy8d",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aggie\" target=\"_blank\" rel=\"noopener\">Aggie</a> in Draynor Village. You will get teleported to a new area.",
+          "text": "Talk to Aggie in Draynor Village. You will get teleported to a new area.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about Swept Away."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'm ready to go now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:18e64lz",
+          "html": "Talk to Aggie again.",
+          "text": "Talk to Aggie again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:wje077-2",
+          "html": "Complete the puzzle.",
+          "text": "Complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-puzzles:ti3dgb",
+          "html": "Talk to Aggie",
+          "text": "Talk to Aggie",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'd like to go back to Draynor, please."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:181uhh4",
+          "html": "Talk to Maggie.",
+          "text": "Talk to Maggie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have good news for you."
+                },
+                {
+                  "key": "1",
+                  "text": "Of course I could."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:69zih0",
+          "html": "Stir the cauldron with the broomstick.",
+          "text": "Stir the cauldron with the broomstick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:181uhh4-2",
+          "html": "Talk to Maggie.",
+          "text": "Talk to Maggie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've stirred the cauldron for you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:fvxipr:zchmun",
+              "html": "If drinking the Goulash after the quest, you may want to disable the setting that destroys empty bowls when eating.",
+              "text": "If drinking the Goulash after the quest, you may want to disable the setting that destroys empty bowls when eating.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Swept_Away_reward.png?f50b7",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Swept_Away_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a> (or 1 <a href=\"https://runescape.wiki/w/Quest_point\" target=\"_blank\" rel=\"noopener\">quest point</a>; depending on whether you had completed <a href=\"https://runescape.wiki/w/Witch%27s_Potion_(miniquest)\" target=\"_blank\" rel=\"noopener\">Witch&#39;s Potion</a>/<a href=\"https://runescape.wiki/w/Sheep_Shearer_(miniquest)\" target=\"_blank\" rel=\"noopener\">Sheep Shearer</a> before they got demoted to a miniquest)",
+        "text": "2 quest points (or 1 quest point; depending on whether you had completed Witch's Potion/Sheep Shearer before they got demoted to a miniquest)",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Broomstick\" target=\"_blank\" rel=\"noopener\">broomstick</a>",
+        "text": "A broomstick",
+        "subs": []
+      },
+      {
+        "html": "10 portions of experience-giving <a href=\"https://runescape.wiki/w/Goulash\" target=\"_blank\" rel=\"noopener\">goulash</a>, and a <a href=\"https://runescape.wiki/w/Bowl\" target=\"_blank\" rel=\"noopener\">bowl</a> to collect it with (each drink gives experience equal to ten times the corresponding skill level, or five times if used for <a href=\"https://runescape.wiki/w/Invention\" target=\"_blank\" rel=\"noopener\">Invention</a>)",
+        "text": "10 portions of experience-giving goulash, and a bowl to collect it with (each drink gives experience equal to ten times the corresponding skill level, or five times if used for Invention)",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "With the indicated minimum <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> level (boostable), talking to <a href=\"https://runescape.wiki/w/Maysa_the_Hag\" target=\"_blank\" rel=\"noopener\">Maysa the Hag</a>, <a href=\"https://runescape.wiki/w/Netty\" target=\"_blank\" rel=\"noopener\">Netty</a>, <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a>, and <a href=\"https://runescape.wiki/w/Kardia\" target=\"_blank\" rel=\"noopener\">Kardia</a> will give a one-time Magic experience bonus when the broomstick is wielded.",
+            "text": "With the indicated minimum Magic level (boostable), talking to Maysa the Hag, Netty, Baba Yaga, and Kardia will give a one-time Magic experience bonus when the broomstick is wielded.",
+            "subs": [
+              "Maysa the Hag: 1,997 Magic experience (requiring level 33 Magic)",
+              "Netty: 7,139 Magic experience (requiring level 53 Magic)",
+              "Baba Yaga: 10,338 Magic experience (requiring level 73 Magic, partial completion of <a href=\"https://runescape.wiki/w/Lunar_Diplomacy\" target=\"_blank\" rel=\"noopener\">Lunar Diplomacy</a>)",
+              "Kardia: 14,979 Magic experience (requiring level 93 Magic, partial completion of <a href=\"https://runescape.wiki/w/Underground_Pass\" target=\"_blank\" rel=\"noopener\">Underground Pass</a>)"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Magic and Mystery",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Swept_Away_(achievement)\" target=\"_blank\" rel=\"noopener\">Swept Away</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Advanced_Sweeping\" target=\"_blank\" rel=\"noopener\">Advanced Sweeping</a> (15) – Fully enchant your broomstick after the &#39;Swept Away&#39; quest.",
+    "<a href=\"https://runescape.wiki/w/Goulash!_Get_Your_Free_Goulash!\" target=\"_blank\" rel=\"noopener\">Goulash! Get Your Free Goulash!</a> (5) – Drink 10 bowls of goulash after &#39;Swept Away&#39;."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Purple_Cat_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Purple Cat (miniquest)</a>"
+      ]
+    }
+  ]
+}

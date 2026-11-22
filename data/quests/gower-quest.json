@@ -1,0 +1,1286 @@
+{
+  "format": 1,
+  "id": "gower-quest",
+  "title": "Gower Quest",
+  "page": "Gower Quest/Quick guide",
+  "rev": 37220384,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Andrew\" target=\"_blank\" rel=\"noopener\">Andrew Gower</a> at the <a href=\"https://runescape.wiki/w/Gower_farm\" target=\"_blank\" rel=\"noopener\">cabbage farm</a> south of <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a>, south-east of the <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3355,
+      "lon": 3255,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Gower_Quest/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [
+      "34 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Black Knight Titan (scales to the player) six times",
+        "name": "Black Knight Titan (scales to the player) six times",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1hofn0z",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:qnvn3f",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a> and combat gear for the final battle",
+          "text": "Food and combat gear for the final battle",
+          "alternatives": []
+        },
+        {
+          "id": "rec:zkl4iu",
+          "html": "Use the desktop version during <a href=\"https://runescape.wiki/w/The_Black_Hole\" target=\"_blank\" rel=\"noopener\">The Black Hole Experience</a> to find objects",
+          "text": "Use the desktop version during The Black Hole Experience to find objects",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "gower-s-farm",
+      "title": "Gower's Farm",
+      "anchor": "Gower's_Farm",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "gower-s-farm:1opcoje",
+          "html": "Speak to the Gowers at their <a href=\"https://runescape.wiki/w/Gower_farm\" target=\"_blank\" rel=\"noopener\">farm</a> next to rats and a cabbage patch south-east of the <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>.",
+          "text": "Speak to the Gowers at their farm next to rats and a cabbage patch south-east of the Varrock lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So about that quest, then?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1w1zs3r",
+          "html": "Search the crate in the room to the west to obtain <a href=\"https://runescape.wiki/w/Pure_essence_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">pure essence</a>.",
+          "text": "Search the crate in the room to the west to obtain pure essence.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:igaqu1",
+          "html": "Search the largest <a href=\"https://runescape.wiki/w/Water_barrel_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">water barrel</a> to the west of the southern entrance to obtain a <a href=\"https://runescape.wiki/w/Brussels_sprout\" target=\"_blank\" rel=\"noopener\">brussels sprout</a>.",
+          "text": "Search the largest water barrel to the west of the southern entrance to obtain a brussels sprout.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:m76n7t",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Scarecrow_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">scarecrow</a> in the south-western part of the farm with the cabbages to obtain a <a href=\"https://runescape.wiki/w/Cruciferous_mounting\" target=\"_blank\" rel=\"noopener\">cruciferous mounting</a>.",
+          "text": "Search the scarecrow in the south-western part of the farm with the cabbages to obtain a cruciferous mounting.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1avuuy4",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Food_trough_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">food trough</a> on the east side of the farm in the area with the giant rats to obtain a <a href=\"https://runescape.wiki/w/Broccoli_root\" target=\"_blank\" rel=\"noopener\">broccoli root</a>.",
+          "text": "Search the food trough on the east side of the farm in the area with the giant rats to obtain a broccoli root.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:3ls3se",
+          "html": "Spin the broccoli root into broccoli string on the <a href=\"https://runescape.wiki/w/Spinning_wheel\" target=\"_blank\" rel=\"noopener\">spinning wheel</a> in the main room.",
+          "text": "Spin the broccoli root into broccoli string on the spinning wheel in the main room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:16ufw17",
+          "html": "Use the brussels sprout on the cruciferous mounting to make it into an <a href=\"https://runescape.wiki/w/Brassican_amulet_(unstrung)\" target=\"_blank\" rel=\"noopener\">unstrung brassican amulet</a>.",
+          "text": "Use the brussels sprout on the cruciferous mounting to make it into an unstrung brassican amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:vg25dz",
+          "html": "Use the &quot;Flip&quot; option on the pure essence to turn it into a <a href=\"https://runescape.wiki/w/Life_rune\" target=\"_blank\" rel=\"noopener\">life rune</a>.",
+          "text": "Use the \"Flip\" option on the pure essence to turn it into a life rune.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:hpt59b",
+          "html": "Use the broccoli string on the unstrung brassican amulet to create a <a href=\"https://runescape.wiki/w/Brassican_amulet\" target=\"_blank\" rel=\"noopener\">brassican amulet</a>.",
+          "text": "Use the broccoli string on the unstrung brassican amulet to create a brassican amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1juvri6",
+          "html": "Use the life rune on the brassican amulet to enchant it into a <a href=\"https://runescape.wiki/w/Cabbagespeak_amulet\" target=\"_blank\" rel=\"noopener\">cabbagespeak amulet</a>.",
+          "text": "Use the life rune on the brassican amulet to enchant it into a cabbagespeak amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1u9ylvs",
+          "html": "Equip the amulet and talk to <a href=\"https://runescape.wiki/w/Crispy_the_Cabbage\" target=\"_blank\" rel=\"noopener\">Crispy the Cabbage</a> south-west on the cabbage field.",
+          "text": "Equip the amulet and talk to Crispy the Cabbage south-west on the cabbage field.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1jnd0wu",
+          "html": "Talk to the Gower brothers inside of the house.",
+          "text": "Talk to the Gower brothers inside of the house.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:162yp8v",
+          "html": "Speak to the Cabbages again.",
+          "text": "Speak to the Cabbages again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gower-s-farm:1se937w",
+          "html": "Speak to Andrew to receive the <a href=\"https://runescape.wiki/w/Disk_of_returning_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">disk of returning</a>.",
+          "text": "Speak to Andrew to receive the disk of returning.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "black-hole-experience",
+      "title": "Black Hole Experience",
+      "anchor": "Black_Hole_Experience",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location to access Behind the Scenes from within the Dwarven Mines.",
+          "lat": 9803,
+          "lon": 2983,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 18,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2978,
+                      9798
+                    ],
+                    [
+                      2978,
+                      9808
+                    ],
+                    [
+                      2988,
+                      9808
+                    ],
+                    [
+                      2988,
+                      9798
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "18",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Gower_Quest/Quick_guide"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Behind_the_Scenes_map.png/300px-Behind_the_Scenes_map.png?965bf",
+          "width": 300,
+          "height": 130,
+          "alt": "",
+          "caption": "Quest related points of interest",
+          "href": "https://runescape.wiki/w/File:Behind_the_Scenes_map.png"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "black-hole-experience:bring:1u1sbxl",
+              "html": "Armour",
+              "text": "Armour"
+            },
+            {
+              "id": "black-hole-experience:bring:1ezgtb5",
+              "html": "Weapon",
+              "text": "Weapon"
+            },
+            {
+              "id": "black-hole-experience:bring:yuzw6c",
+              "html": "Food (Note: keep 6-7 free spaces)",
+              "text": "Food (Note: keep 6-7 free spaces)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "If you destroy &quot;Crispy The Cabbage&quot;, you can reclaim &quot;Crispy&quot; from the Gower Farm."
+        },
+        {
+          "type": "step",
+          "id": "black-hole-experience:1ep5oim",
+          "html": "Go to Dwarven Mines (entrance north-east of Falador lodestone).",
+          "text": "Go to Dwarven Mines (entrance north-east of Falador lodestone).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "black-hole-experience:jwkhy4",
+          "html": "Go to the &quot;room&quot; just before the south-westernmost one (Boot will be in the area).",
+          "text": "Go to the \"room\" just before the south-westernmost one (Boot will be in the area).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "black-hole-experience:1wkg43v",
+          "html": "<i>Scan</i> with the disk of returning.",
+          "text": "Scan with the disk of returning.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "black-hole-experience:1u9e8ow",
+          "html": "The room is intentionally black. Move your cursor around to find the hidden objects:",
+          "text": "The room is intentionally black. Move your cursor around to find the hidden objects:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:5e3ipr",
+              "html": "Search the table for a rock.",
+              "text": "Search the table for a rock.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:3iho2i",
+              "html": "Use the rock on the wall to the northwest.",
+              "text": "Use the rock on the wall to the northwest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:2kc13m",
+              "html": "Right click on the table to look under it for an orange.",
+              "text": "Right click on the table to look under it for an orange.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:whw1cn",
+              "html": "Eat the orange for a key.",
+              "text": "Eat the orange for a key.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:1uo83r7",
+              "html": "Use the small key on the bumpy wall on the right for a tinderbox.",
+              "text": "Use the small key on the bumpy wall on the right for a tinderbox.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:w2lhbs",
+              "html": "Use the tinderbox on the scary wispy thing and take the skull.",
+              "text": "Use the tinderbox on the scary wispy thing and take the skull.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:cjqqob",
+              "html": "Use the skull on the unusual shape to the west.",
+              "text": "Use the skull on the unusual shape to the west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "black-hole-experience:1u9e8ow:hmnic3",
+              "html": "Enter The Gate of Lloigh-enn.",
+              "text": "Enter The Gate of Lloigh-enn.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-gate-of-lloigh-enn",
+      "title": "The Gate of Lloigh-enn",
+      "anchor": "The_Gate_of_Lloigh-enn",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-gate-of-lloigh-enn:mhn1iy",
+          "html": "Talk to Thordur.",
+          "text": "Talk to Thordur.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "Off I go, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "lloigh-enn",
+      "title": "Lloigh-enn",
+      "anchor": "Lloigh-enn",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "lloigh-enn:1j4d64c",
+          "html": "Talk to Spiral Orb (the purple spider DJ in the middle).",
+          "text": "Talk to Spiral Orb (the purple spider DJ in the middle).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's up with the cabbage patches?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll take a look around myself."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:fxxdxn",
+          "html": "Look around in this area for 3 NPCs: Lucien, Steve the Chaos Elemental, and Thok.",
+          "text": "Look around in this area for 3 NPCs: Lucien, Steve the Chaos Elemental, and Thok.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lloigh-enn:fxxdxn:11ujfco",
+              "html": "You can complete the following in any order.",
+              "text": "You can complete the following in any order.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Lucien"
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:ep429e",
+          "html": "Talk to Lucien, north-west of spiral orb and next to central bank portal.",
+          "text": "Talk to Lucien, north-west of spiral orb and next to central bank portal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Can you help me fix the life altar?"
+                },
+                {
+                  "key": "3",
+                  "text": "Not much, man."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:iz0j6n",
+          "html": "<i>Enter</i> the Central Bank Portal.",
+          "text": "Enter the Central Bank Portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:7nh9vx",
+          "html": "Talk to Claire Hick.",
+          "text": "Talk to Claire Hick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1sybdzd",
+          "html": "Talk to Ernie.",
+          "text": "Talk to Ernie.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1t6skck",
+          "html": "<i>Check out</i> the Locked Vault Door.",
+          "text": "Check out the Locked Vault Door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:j2aqhu",
+          "html": "Leave the area.",
+          "text": "Leave the area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:akz6pw",
+          "html": "Talk to Sphenishchev, located south of the portal next to the bar, the penguin next to Beastmaster Durzag.",
+          "text": "Talk to Sphenishchev, located south of the portal next to the bar, the penguin next to Beastmaster Durzag.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Will you help me break into the bank?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1xi570j",
+          "html": "Talk to Tim or Crunchy, just south-west of Spiral Orb (the DJ).",
+          "text": "Talk to Tim or Crunchy, just south-west of Spiral Orb (the DJ).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Will you help me break into the bank?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:9sg1zd",
+          "html": "Ask the bartender for 5 cups of tea and hand them out to all 5 Environment artists around the bar.",
+          "text": "Ask the bartender for 5 cups of tea and hand them out to all 5 Environment artists around the bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1qi6qan",
+          "html": "Return to Tim and Crunchy.",
+          "text": "Return to Tim and Crunchy.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Everyone's been watered!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:le03t9",
+          "html": "Talk to Romeo, southeast of Beastmaster Durzag.",
+          "text": "Talk to Romeo, southeast of Beastmaster Durzag.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Will you help me break into the bank?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll see who I can find."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:kpzfd6",
+          "html": "Talk to each God Wars Boss to the east.",
+          "text": "Talk to each God Wars Boss to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lloigh-enn:kpzfd6:1pr8wk9",
+              "html": "Commander Zilyana",
+              "text": "Commander Zilyana",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:kpzfd6:i6nnpd",
+              "html": "K&#39;ril Tsutsaroth",
+              "text": "K'ril Tsutsaroth",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:kpzfd6:d5ku3o",
+              "html": "General Graardoor",
+              "text": "General Graardoor",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:kpzfd6:11jyoxd",
+              "html": "Kree&#39;arra",
+              "text": "Kree'arra",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:kpzfd6:10nx5t8",
+              "html": "Nex",
+              "text": "Nex",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1evurcc",
+          "html": "Return to Romeo.",
+          "text": "Return to Romeo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, some people had ideas."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:9qs2jp",
+          "html": "Talk to Guthix, south of the bar.",
+          "text": "Talk to Guthix, south of the bar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Will you help me break into the bank?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:hpv6iy",
+          "html": "Talk to one of the cabbages on the north-side of the bar.",
+          "text": "Talk to one of the cabbages on the north-side of the bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:p8rg0t",
+          "html": "Return to Guthix.",
+          "text": "Return to Guthix.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, they're very interested in working with you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:iz0j6n-2",
+          "html": "<i>Enter</i> the Central Bank Portal.",
+          "text": "Enter the Central Bank Portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:7nh9vx-2",
+          "html": "Talk to Claire Hick.",
+          "text": "Talk to Claire Hick.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1sybdzd-2",
+          "html": "Talk to Ernie.",
+          "text": "Talk to Ernie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have someone who wants to speak to you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:h6qc2y",
+          "html": "<i>Check out</i> the locked vault door, then <i>enter</i> it.",
+          "text": "Check out the locked vault door, then enter it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:dq0wab",
+          "html": "<i>Open</i> the Bank Safety box, then <i>search</i> it for a fragment.",
+          "text": "Open the Bank Safety box, then search it for a fragment.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:ea4br6",
+          "html": "Leave the bank area.",
+          "text": "Leave the bank area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Steve"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Grand_Exchange_pipes_solution.png/220px-Grand_Exchange_pipes_solution.png?76e80",
+          "width": 220,
+          "height": 190,
+          "alt": "",
+          "caption": "Solution",
+          "href": "https://runescape.wiki/w/File:Grand_Exchange_pipes_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1t5omfn",
+          "html": "Talk to Chaos Elemental, north of the Grand Exchange Maintenance, southwest of the bar.",
+          "text": "Talk to Chaos Elemental, north of the Grand Exchange Maintenance, southwest of the bar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Can you help me fix the life altar?"
+                },
+                {
+                  "key": "2",
+                  "text": "NO! No, thank you."
+                },
+                {
+                  "key": "3",
+                  "text": "Goodbye Steve!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:142znim",
+          "html": "Enter the Grand Exchange Maintenance portal.",
+          "text": "Enter the Grand Exchange Maintenance portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1agwii1",
+          "html": "<i>Repair</i> the Grand Exchange pipes. There are 3 different thickness pipes, each size must fit each other from the beginning to the end, the interface will close when it&#39;s correct.",
+          "text": "Repair the Grand Exchange pipes. There are 3 different thickness pipes, each size must fit each other from the beginning to the end, the interface will close when it's correct.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lloigh-enn:1agwii1:15fi696",
+              "html": "You should get the life altar fragment 2 after repairing, otherwise you should attempt to repair the pipes again.",
+              "text": "You should get the life altar fragment 2 after repairing, otherwise you should attempt to repair the pipes again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:idaabr",
+          "html": "Leave the Grand Exchange area.",
+          "text": "Leave the Grand Exchange area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Thok"
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:1wwypvt",
+          "html": "Talk to Thok, just north-west of Clawdia.",
+          "text": "Talk to Thok, just north-west of Clawdia.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Can you help me fix the life altar?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:cx2b54",
+          "html": "Enter Beta Room Portal and talk to Max.",
+          "text": "Enter Beta Room Portal and talk to Max.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll get right on with that then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:15e90un",
+          "html": "Max all 3 skills.",
+          "text": "Max all 3 skills.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lloigh-enn:15e90un:1ctfuox",
+              "html": "First room: You get options to rock, trot, gallop, turn. Just click on the action displayed on top of the screen.",
+              "text": "First room: You get options to rock, trot, gallop, turn. Just click on the action displayed on top of the screen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:15e90un:5nouuv",
+              "html": "Second room: Fire at other battleships (searching desert island and bubbles give more xp too).",
+              "text": "Second room: Fire at other battleships (searching desert island and bubbles give more xp too).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lloigh-enn:15e90un:14u04x7",
+              "html": "Third room: Stay inside the bank on the white floor tiles.",
+              "text": "Third room: Stay inside the bank on the white floor tiles.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:qnstz5",
+          "html": "Talk to Max for the third fragment.",
+          "text": "Talk to Max for the third fragment.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lloigh-enn:j2aqhu-2",
+          "html": "Leave the area.",
+          "text": "Leave the area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "repairing-the-life-altar",
+      "title": "Repairing the Life Altar",
+      "anchor": "Repairing_the_Life_Altar",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:1w93k25",
+          "html": "Enter the Life Altar Portal south, opposite of the Beta Room Portal.",
+          "text": "Enter the Life Altar Portal south, opposite of the Beta Room Portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:ip5r94",
+          "html": "Investigate Life altar.",
+          "text": "Investigate Life altar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:1fxac0c",
+          "html": "Speak with the Black Knight Titan.",
+          "text": "Speak with the Black Knight Titan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Can we just get on with the boss fight?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:8697yj",
+          "html": "Kill it 6 times. 3 before cutscene, 3 after.",
+          "text": "Kill it 6 times. 3 before cutscene, 3 after.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:1i3fobv",
+          "html": "Talk to any of the brothers.",
+          "text": "Talk to any of the brothers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-life-altar:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Gower_Quest_reward.png?24553",
+      "width": 512,
+      "height": 522,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Gower_Quest_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "15 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+        "text": "15 coins",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Brassica_Prime_Godsword\" target=\"_blank\" rel=\"noopener\">Brassica Prime Godsword</a> two-handed melee weapon override",
+        "text": "Brassica Prime Godsword two-handed melee weapon override",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Cabbagemancer_(override)\" target=\"_blank\" rel=\"noopener\">Cabbagemancer outfit</a> override",
+        "text": "Cabbagemancer outfit override",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Retro_Login_Teleport\" target=\"_blank\" rel=\"noopener\">Retro Login Teleport</a> spell override",
+        "text": "Retro Login Teleport spell override",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Crispy_the_Cabbage\" target=\"_blank\" rel=\"noopener\">Crispy the Cabbage</a> follower pet",
+        "text": "Crispy the Cabbage follower pet",
+        "subs": []
+      },
+      {
+        "html": "Ability to have the <a href=\"https://runescape.wiki/w/Black_Knight_Titan\" target=\"_blank\" rel=\"noopener\">old</a> and <a href=\"https://runescape.wiki/w/Black_Knight_Titan_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">graphically updated Black Knight Titan</a> swap places",
+        "text": "Ability to have the old and graphically updated Black Knight Titan swap places",
+        "subs": [
+          "Speak to the Black Knight Titan in Behind the Scenes to toggle between his original and updated appearance."
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tim_(pet)\" target=\"_blank\" rel=\"noopener\">Tim</a> and <a href=\"https://runescape.wiki/w/Crunchy_(pet)\" target=\"_blank\" rel=\"noopener\">Crunchy</a> follower pets, obtained by speaking to them in <a href=\"https://runescape.wiki/w/Behind_the_Scenes_(location)\" target=\"_blank\" rel=\"noopener\">Behind the Scenes</a>",
+        "text": "Tim and Crunchy follower pets, obtained by speaking to them in Behind the Scenes",
+        "subs": []
+      },
+      {
+        "html": "250 experience <a href=\"https://runescape.wiki/w/Ian%27s_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> for use in a <a href=\"https://runescape.wiki/w/Skills#Free_to_play_skills\" target=\"_blank\" rel=\"noopener\">free-to-play skill</a>, after speaking to <a href=\"https://runescape.wiki/w/Ian\" target=\"_blank\" rel=\"noopener\">Ian</a> with level 10 or higher in all free-to-play skills",
+        "text": "250 experience lamp for use in a free-to-play skill, after speaking to Ian with level 10 or higher in all free-to-play skills",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience <a href=\"https://runescape.wiki/w/Paul%27s_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> for use in a free-to-play skill, after speaking to <a href=\"https://runescape.wiki/w/Paul\" target=\"_blank\" rel=\"noopener\">Paul</a> with level 30 or higher in all free-to-play skills",
+        "text": "1,500 experience lamp for use in a free-to-play skill, after speaking to Paul with level 30 or higher in all free-to-play skills",
+        "subs": []
+      },
+      {
+        "html": "12,000 experience <a href=\"https://runescape.wiki/w/Andrew%27s_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> for use in a free-to-play skill, after speaking to <a href=\"https://runescape.wiki/w/Andrew\" target=\"_blank\" rel=\"noopener\">Andrew</a> with level 50 or higher in all free-to-play skills",
+        "text": "12,000 experience lamp for use in a free-to-play skill, after speaking to Andrew with level 50 or higher in all free-to-play skills",
+        "subs": []
+      },
+      {
+        "html": "The ability to reset the quest by searching a crate at the Gower Farm",
+        "text": "The ability to reset the quest by searching a crate at the Gower Farm",
+        "subs": [
+          "This reset removes all quest rewards, including 1 quest point, unlike most replayable quests"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Life Altaring",
+      "where": ""
+    },
+    {
+      "name": "Life Is Good",
+      "where": ""
+    },
+    {
+      "name": "Tables are Turned",
+      "where": ""
+    },
+    {
+      "name": "Three Brothers",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

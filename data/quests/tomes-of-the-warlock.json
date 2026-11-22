@@ -1,0 +1,688 @@
+{
+  "format": 1,
+  "id": "tomes-of-the-warlock",
+  "title": "Tomes of the Warlock",
+  "page": "Tomes of the Warlock/Quick guide",
+  "rev": 36960196,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1776,
+      "lon": 1103,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Tomes_of_the_Warlock/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Spirit of War",
+        "depth": 1
+      },
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 2
+      },
+      {
+        "text": "Rune Mythos",
+        "depth": 3
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 4
+      },
+      {
+        "text": "Ghosts Ahoy",
+        "depth": 3
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 4
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 4
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 2
+      },
+      {
+        "text": "The Jack of Spades",
+        "depth": 1
+      },
+      {
+        "text": "Diamond in the Rough",
+        "depth": 2
+      },
+      {
+        "text": "Stolen Hearts",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Archaeology",
+        "level": 86,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 66,
+        "note": ""
+      },
+      {
+        "skill": "Necromancy",
+        "level": 75,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Desert</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:pynqo7",
+          "html": "Restored <a href=\"https://runescape.wiki/w/Necromantic_focus\" target=\"_blank\" rel=\"noopener\">necromantic focus</a>, or:",
+          "text": "Restored necromantic focus, or:",
+          "alternatives": [
+            "A <a href=\"https://runescape.wiki/w/Necromantic_focus_(damaged)\" target=\"_blank\" rel=\"noopener\">necromantic focus (damaged)</a>",
+            "30 <a href=\"https://runescape.wiki/w/Ancient_vis\" target=\"_blank\" rel=\"noopener\">ancient vis</a>",
+            "26 <a href=\"https://runescape.wiki/w/Blood_of_Orcus\" target=\"_blank\" rel=\"noopener\">blood of Orcus</a>",
+            "20 <a href=\"https://runescape.wiki/w/Imperial_steel\" target=\"_blank\" rel=\"noopener\">imperial steel</a>"
+          ]
+        },
+        {
+          "id": "req:xkqx75",
+          "html": "120 <a href=\"https://runescape.wiki/w/Ancient_vis\" target=\"_blank\" rel=\"noopener\">ancient vis</a> (in material storage container)",
+          "text": "120 ancient vis (in material storage container)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1py4ufm",
+          "html": "104 <a href=\"https://runescape.wiki/w/Blood_of_Orcus\" target=\"_blank\" rel=\"noopener\">blood of Orcus</a> (in material storage container)",
+          "text": "104 blood of Orcus (in material storage container)",
+          "alternatives": []
+        },
+        {
+          "id": "req:enf5ow",
+          "html": "80 <a href=\"https://runescape.wiki/w/Imperial_steel\" target=\"_blank\" rel=\"noopener\">imperial steel</a> (in material storage container)",
+          "text": "80 imperial steel (in material storage container)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1u7t0yw",
+          "html": "<a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">Traveller&#39;s necklace</a>, <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">Wicked hood</a>, <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>, or <a href=\"https://runescape.wiki/w/Infinity_ethereal_outfit\" target=\"_blank\" rel=\"noopener\">Infinity ethereal outfit</a> for teleportation to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>",
+          "text": "Traveller's necklace, Wicked hood, stardust, or Infinity ethereal outfit for teleportation to the Wizards' Tower",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rxzevw",
+          "html": "<a href=\"https://runescape.wiki/w/Master_archaeologist%27s_outfit\" target=\"_blank\" rel=\"noopener\">Master archaeologist&#39;s outfit</a> for teleportation to <a href=\"https://runescape.wiki/w/Kharid-et_Dig_Site\" target=\"_blank\" rel=\"noopener\">Kharid-et Dig Site</a> and the <a href=\"https://runescape.wiki/w/Archaeology_Campus\" target=\"_blank\" rel=\"noopener\">Archaeology Campus</a>",
+          "text": "Master archaeologist's outfit for teleportation to Kharid-et Dig Site and the Archaeology Campus",
+          "alternatives": [
+            "Alternatively, the <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> for its teleport"
+          ]
+        },
+        {
+          "id": "rec:1e2u5p0",
+          "html": "<a href=\"https://runescape.wiki/w/Dig_Site_Pendant\" target=\"_blank\" rel=\"noopener\">Dig Site Pendant</a> for more direct teleport to Engelbert (<a href=\"https://runescape.wiki/w/Head_of_Research\" target=\"_blank\" rel=\"noopener\">Head of Research</a>) in the <a href=\"https://runescape.wiki/w/Exam_Centre\" target=\"_blank\" rel=\"noopener\">Exam Centre</a>",
+          "text": "Dig Site Pendant for more direct teleport to Engelbert (Head of Research) in the Exam Centre",
+          "alternatives": []
+        },
+        {
+          "id": "rec:j2gohi",
+          "html": "<a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a> spell for quick passage to <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace library</a>.",
+          "text": "Varrock Teleport spell for quick passage to Varrock Palace library.",
+          "alternatives": [
+            "Alternatively, <a href=\"https://runescape.wiki/w/%27Chipped%27_Varrock_teleport\" target=\"_blank\" rel=\"noopener\">&#39;Chipped&#39; Varrock teleport</a> to <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> is also close to the library."
+          ]
+        },
+        {
+          "id": "rec:1bcn1w4",
+          "html": "<a href=\"https://runescape.wiki/w/Imperial_district_teleport\" target=\"_blank\" rel=\"noopener\">Imperial district teleport</a> tablet for quick passage to <a href=\"https://runescape.wiki/w/Menaphos_Imperial_district\" target=\"_blank\" rel=\"noopener\">Menaphos Imperial district</a>",
+          "text": "Imperial district teleport tablet for quick passage to Menaphos Imperial district",
+          "alternatives": []
+        },
+        {
+          "id": "rec:kq6lq9",
+          "html": "<a href=\"https://runescape.wiki/w/Watchtower_Teleport\" target=\"_blank\" rel=\"noopener\">Watchtower Teleport</a> spell if <a href=\"https://runescape.wiki/w/Hard_Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">hard Ardougne achievements</a> are completed and altered teleport destination used, for quick passage to the <a href=\"https://runescape.wiki/w/Wizards%27_Guild\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Guild</a> in <a href=\"https://runescape.wiki/w/Yanille\" target=\"_blank\" rel=\"noopener\">Yanille</a>",
+          "text": "Watchtower Teleport spell if hard Ardougne achievements are completed and altered teleport destination used, for quick passage to the Wizards' Guild in Yanille",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "learning-about-orcus",
+      "title": "Learning about Orcus",
+      "anchor": "Learning_about_Orcus",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "learning-about-orcus:bring:6pef6u",
+              "html": "Restored <a href=\"https://runescape.wiki/w/Necromantic_focus\" target=\"_blank\" rel=\"noopener\">necromantic focus</a>",
+              "text": "Restored necromantic focus"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-orcus:1e472j6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Death in the City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-orcus:yavecp",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Kharid-et_Dig_Site\" target=\"_blank\" rel=\"noopener\">Kharid-et Dig Site</a> and talk to <a href=\"https://runescape.wiki/w/Dr_Nabanik\" target=\"_blank\" rel=\"noopener\">Dr Nabanik</a>.",
+          "text": "Teleport to Kharid-et Dig Site and talk to Dr Nabanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-orcus:x8ixij",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Exam_Centre\" target=\"_blank\" rel=\"noopener\">Exam Centre</a> and talk to the <a href=\"https://runescape.wiki/w/Head_of_Research\" target=\"_blank\" rel=\"noopener\">Head of Research</a> next to the <a href=\"https://runescape.wiki/w/Research_notes\" target=\"_blank\" rel=\"noopener\">research notes</a>, giving him a restored <a href=\"https://runescape.wiki/w/Necromantic_focus\" target=\"_blank\" rel=\"noopener\">necromantic focus</a> artefact.",
+          "text": "Head to the Exam Centre and talk to the Head of Research next to the research notes, giving him a restored necromantic focus artefact.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-orcus:1xuyzof",
+          "html": "Go through the first three (smoke and blood are the same) book dialogues, which requires talking to him multiple times.",
+          "text": "Go through the first three (smoke and blood are the same) book dialogues, which requires talking to him multiple times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "learning-about-orcus:1xuyzof:1jaeuxb",
+              "html": "",
+              "text": "",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Ice."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "learning-about-orcus:1xuyzof:1jaeuxb-2",
+              "html": "",
+              "text": "",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Smoke."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "learning-about-orcus:1xuyzof:1jaeuxb-3",
+              "html": "",
+              "text": "",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Shadow."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obtaining-the-books",
+      "title": "Obtaining the books",
+      "anchor": "Obtaining_the_books",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Book of Ice"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "obtaining-the-books:bring:wtaudg",
+              "html": "<a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a> spell",
+              "text": "Varrock Teleport spell"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:16mpnug",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a>, the librarian in <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace</a> to retrieve <a href=\"https://runescape.wiki/w/The_Book_of_Ice_(damaged)\" target=\"_blank\" rel=\"noopener\">the damaged Book of Ice</a>.",
+          "text": "Talk to Reldo, the librarian in Varrock Palace to retrieve the damaged Book of Ice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Book of Smoke"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "obtaining-the-books:bring:hhcwrr",
+              "html": "<a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a> spell &amp; <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a> or <a href=\"https://runescape.wiki/w/Infinity_ethereal_outfit\" target=\"_blank\" rel=\"noopener\">infinity ethereal outfit</a> for <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a> teleport",
+              "text": "Varrock Teleport spell & wicked hood or infinity ethereal outfit for Wizards' Tower teleport"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:z4ch70",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aubury\" target=\"_blank\" rel=\"noopener\">Aubury</a> at <a href=\"https://runescape.wiki/w/Aubury%27s_Rune_Shop\" target=\"_blank\" rel=\"noopener\">Aubury&#39;s Rune Shop</a>, south of <a href=\"https://runescape.wiki/w/Varrock_east_bank\" target=\"_blank\" rel=\"noopener\">Varrock east bank</a>.",
+          "text": "Talk to Aubury at Aubury's Rune Shop, south of Varrock east bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:1tm1iyh",
+          "html": "Head to the ground floor (UK) / 1<sup>st</sup> floor (US) of <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>, by fairy ring <b>D</b><b>I</b><b>S</b>, <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a>, or teleporting with <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>.",
+          "text": "Head to the ground floor (UK) / 1st floor (US) of Wizards' Tower, by fairy ring DIS, wicked hood, or teleporting with stardust.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:1nx3hpf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Borann\" target=\"_blank\" rel=\"noopener\">Wizard Borann</a> located on the west side of the ground floor (UK) / 1<sup>st</sup> floor (US) to retrieve <a href=\"https://runescape.wiki/w/The_Book_of_Smoke_(damaged)\" target=\"_blank\" rel=\"noopener\">the damaged Book of Smoke</a>.",
+          "text": "Talk to Wizard Borann located on the west side of the ground floor (UK) / 1st floor (US) to retrieve the damaged Book of Smoke.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:9gbcb3",
+          "html": "Continue the dialogue to ask him about the Book of Blood.",
+          "text": "Continue the dialogue to ask him about the Book of Blood.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Book of Blood"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "obtaining-the-books:bring:thh7jv",
+              "html": "<a href=\"https://runescape.wiki/w/Watchtower_Teleport\" target=\"_blank\" rel=\"noopener\">Watchtower Teleport</a> spell if <a href=\"https://runescape.wiki/w/Hard_Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">hard Ardougne achievements</a> are completed and destination altered, or activated <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a>",
+              "text": "Watchtower Teleport spell if hard Ardougne achievements are completed and destination altered, or activated Yanille lodestone"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:rurhjs",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Wizards%27_Guild\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Guild</a>.",
+          "text": "Head to Wizards' Guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:4c1qcj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Frumscone\" target=\"_blank\" rel=\"noopener\">Wizard Frumscone</a> in the basement of the guild to receive <a href=\"https://runescape.wiki/w/The_Book_of_Blood_(damaged)\" target=\"_blank\" rel=\"noopener\">the damaged Book of Blood</a>.",
+          "text": "Talk to Wizard Frumscone in the basement of the guild to receive the damaged Book of Blood.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Book of Shadow"
+        },
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "obtaining-the-books:bring:k2o7xr",
+              "html": "<a href=\"https://runescape.wiki/w/Imperial_district_teleport\" target=\"_blank\" rel=\"noopener\">Imperial district teleport</a> tablet",
+              "text": "Imperial district teleport tablet"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:16gbygm",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Menaphos_Imperial_district\" target=\"_blank\" rel=\"noopener\">Menaphos Imperial district</a>.",
+          "text": "Head to Menaphos Imperial district.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:kyqcab",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kohnen_the_librarian\" target=\"_blank\" rel=\"noopener\">Kohnen the librarian</a> in the <a href=\"https://runescape.wiki/w/Grand_Library_of_Menaphos\" target=\"_blank\" rel=\"noopener\">Grand Library of Menaphos</a>.",
+          "text": "Talk to Kohnen the librarian in the Grand Library of Menaphos.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-books:qxkkgh",
+          "html": "<i>Inspect</i> the <a href=\"https://runescape.wiki/w/Sundial_(Menaphos)#Grand_Library\" target=\"_blank\" rel=\"noopener\">sundial</a> in the middle of the bottom floor to retrieve <a href=\"https://runescape.wiki/w/The_Book_of_Shadow_(damaged)\" target=\"_blank\" rel=\"noopener\">the damaged Book of Shadow</a>.",
+          "text": "Inspect the sundial in the middle of the bottom floor to retrieve the damaged Book of Shadow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "handing-in-the-books",
+      "title": "Handing in the books",
+      "anchor": "Handing_in_the_books",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "handing-in-the-books:bring:11t2k9o",
+              "html": "120 <a href=\"https://runescape.wiki/w/Ancient_vis\" target=\"_blank\" rel=\"noopener\">ancient vis</a>",
+              "text": "120 ancient vis"
+            },
+            {
+              "id": "handing-in-the-books:bring:hdwp8m",
+              "html": "104 <a href=\"https://runescape.wiki/w/Blood_of_Orcus\" target=\"_blank\" rel=\"noopener\">blood of Orcus</a> and 80 <a href=\"https://runescape.wiki/w/Imperial_steel\" target=\"_blank\" rel=\"noopener\">imperial steel</a> in <a href=\"https://runescape.wiki/w/Material_storage_container\" target=\"_blank\" rel=\"noopener\">material storage container</a>",
+              "text": "104 blood of Orcus and 80 imperial steel in material storage container"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "handing-in-the-books:s4wk58",
+          "html": "Repair the books at any <a href=\"https://runescape.wiki/w/Archaeologist%27s_workbench\" target=\"_blank\" rel=\"noopener\">archaeologist&#39;s workbench</a>.",
+          "text": "Repair the books at any archaeologist's workbench.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "handing-in-the-books:1lamr4q",
+          "html": "Hand in to <a href=\"https://runescape.wiki/w/Head_of_Research\" target=\"_blank\" rel=\"noopener\">Head of Research</a>.",
+          "text": "Hand in to Head of Research.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "parsing-necromancy-glyphs",
+      "title": "Parsing necromancy glyphs",
+      "anchor": "Parsing_necromancy_glyphs",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "parsing-necromancy-glyphs:18i30z5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Death in City of Um.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "parsing-necromancy-glyphs:iqypgp",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ted\" target=\"_blank\" rel=\"noopener\">Ted</a> beside the <a href=\"https://runescape.wiki/w/Well_of_Souls\" target=\"_blank\" rel=\"noopener\">Well of Souls</a> at the ritual site.",
+          "text": "Talk to Ted beside the Well of Souls at the ritual site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "parsing-necromancy-glyphs:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Tomes_of_the_Warlock_reward.png?94510",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Tomes_of_the_Warlock_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "60,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Tomes_of_the_Warlock)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "60,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "40,000 experience <a href=\"https://runescape.wiki/w/Archaeology_XP_lamp_(Tomes_of_the_Warlock)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "40,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Ability to learn four ancient Necromancy <a href=\"https://runescape.wiki/w/Incantations\" target=\"_blank\" rel=\"noopener\">incantations</a> from the <a href=\"https://runescape.wiki/w/Well_of_Souls\" target=\"_blank\" rel=\"noopener\">Well of Souls</a>:",
+        "text": "Ability to learn four ancient Necromancy incantations from the Well of Souls:",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Darkness\" target=\"_blank\" rel=\"noopener\">Darkness</a>",
+          "<a href=\"https://runescape.wiki/w/Greater_Bone_Shield\" target=\"_blank\" rel=\"noopener\">Greater Bone Shield</a>",
+          "<a href=\"https://runescape.wiki/w/Invoke_Death\" target=\"_blank\" rel=\"noopener\">Invoke Death</a>",
+          "<a href=\"https://runescape.wiki/w/Life_Transfer\" target=\"_blank\" rel=\"noopener\">Life Transfer</a>"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    }
+  ]
+}

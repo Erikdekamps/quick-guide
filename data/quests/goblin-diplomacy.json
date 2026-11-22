@@ -1,0 +1,441 @@
+{
+  "format": 1,
+  "id": "goblin-diplomacy",
+  "title": "Goblin Diplomacy",
+  "page": "Goblin Diplomacy/Quick guide",
+  "rev": 37125656,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Go to the <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a> and talk to <a href=\"https://runescape.wiki/w/General_Bentnoze\" target=\"_blank\" rel=\"noopener\">General Bentnoze</a> or <a href=\"https://runescape.wiki/w/General_Wartface\" target=\"_blank\" rel=\"noopener\">General Wartface</a>.",
+    "startMap": null,
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1lb54vu",
+          "html": "3 suits of <a href=\"https://runescape.wiki/w/Goblin_mail\" target=\"_blank\" rel=\"noopener\">goblin mail</a> (can be obtained during quest)",
+          "text": "3 suits of goblin mail (can be obtained during quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:97l605",
+          "html": "<a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">Blue dye</a> (or 2 <a href=\"https://runescape.wiki/w/Woad_leaf\" target=\"_blank\" rel=\"noopener\">woad leaves</a> and 5 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> to obtain from <a href=\"https://runescape.wiki/w/Aggie\" target=\"_blank\" rel=\"noopener\">Aggie</a> or <a href=\"https://runescape.wiki/w/Rana_the_dyer\" target=\"_blank\" rel=\"noopener\">Rana the dyer</a>)",
+          "text": "Blue dye (or 2 woad leaves and 5 coins to obtain from Aggie or Rana the dyer)",
+          "alternatives": []
+        },
+        {
+          "id": "req:d5o1nz",
+          "html": "<a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">Red dye</a> (or 3 <a href=\"https://runescape.wiki/w/Redberries\" target=\"_blank\" rel=\"noopener\">redberries</a> and 5 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> to obtain from <a href=\"https://runescape.wiki/w/Aggie\" target=\"_blank\" rel=\"noopener\">Aggie</a> or <a href=\"https://runescape.wiki/w/Rana_the_dyer\" target=\"_blank\" rel=\"noopener\">Rana the dyer</a>)",
+          "text": "Red dye (or 3 redberries and 5 coins to obtain from Aggie or Rana the dyer)",
+          "alternatives": []
+        },
+        {
+          "id": "req:b3wcnw",
+          "html": "<a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">Yellow dye</a> (or 2 <a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">onions</a> and 5 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> to obtain from <a href=\"https://runescape.wiki/w/Aggie\" target=\"_blank\" rel=\"noopener\">Aggie</a> or <a href=\"https://runescape.wiki/w/Rana_the_dyer\" target=\"_blank\" rel=\"noopener\">Rana the dyer</a>)",
+          "text": "Yellow dye (or 2 onions and 5 coins to obtain from Aggie or Rana the dyer)",
+          "alternatives": []
+        },
+        {
+          "id": "req:fratvv",
+          "html": "<a href=\"https://runescape.wiki/w/Orange_dye\" target=\"_blank\" rel=\"noopener\">Orange dye</a> (or mix <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">red dye</a> and <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">yellow dye</a>)",
+          "text": "Orange dye (or mix red dye and yellow dye)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1kqa8vm",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology_teleport\" target=\"_blank\" rel=\"noopener\">Archaeology teleport</a> to teleport to General Bentnoze and General Wartface",
+          "text": "Archaeology teleport to teleport to General Bentnoze and General Wartface",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The locations of the crates containing goblin mails (the entrance one is located up the ladder)",
+          "lat": 3507,
+          "lon": 2954,
+          "zoom": 3,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2959,
+                  3517,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<span class=\"floornumber\" data-sort-value=\"1\"><span class=\"floornumber-gb\">ground&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"British convention; floor 1 in the US. Click to configure preference.\">UK</span>&#93;</sup></span><span class=\"floornumber-us noexcerpt\">1<sup class=\"floornumber-ordinal-suffix\">st</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"US convention; ground floor in the UK. Click to configure preference.\">US</span>&#93;</sup></span></span>",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ],
+                "title": "Crate"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2949,
+                  3507,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<span class=\"floornumber\" data-sort-value=\"1\"><span class=\"floornumber-gb\">ground&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"British convention; floor 1 in the US. Click to configure preference.\">UK</span>&#93;</sup></span><span class=\"floornumber-us noexcerpt\">1<sup class=\"floornumber-ordinal-suffix\">st</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"US convention; ground floor in the UK. Click to configure preference.\">US</span>&#93;</sup></span></span>",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ],
+                "title": "Crate"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2955,
+                  3497,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<span class=\"floornumber\" data-sort-value=\"2\"><span class=\"floornumber-gb\">1<sup class=\"floornumber-ordinal-suffix\">st</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"British convention; floor 2 in the US. Click to configure preference.\">UK</span>&#93;</sup></span><span class=\"floornumber-us noexcerpt\">2<sup class=\"floornumber-ordinal-suffix\">nd</sup>&#160;floor<sup class=\"floornumber-help noexcerpt\">&#91;<span class=\"fact-text floor-convention\" title=\"US convention; floor 1 in the UK. Click to configure preference.\">US</span>&#93;</sup></span></span>",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ],
+                "title": "Crate"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Goblin_Diplomacy/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:mdq3gi",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> and run north along the road to the <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a>.",
+          "text": "Teleport to Falador and run north along the road to the Goblin Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1rzlfuv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/General_Bentnoze\" target=\"_blank\" rel=\"noopener\">General Bentnoze</a> or <a href=\"https://runescape.wiki/w/General_Wartface\" target=\"_blank\" rel=\"noopener\">General Wartface</a>, both of whom are located in the hut.",
+          "text": "Talk to General Bentnoze or General Wartface, both of whom are located in the hut.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So how is life for the goblins?"
+                },
+                {
+                  "key": "2",
+                  "text": "Do you want me to pick an armour colour for you?"
+                },
+                {
+                  "key": "3",
+                  "text": "What about a different colour?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1bgj42p",
+          "html": "If you need goblin mail, you can grab three suits of goblin mail from the following crates:",
+          "text": "If you need goblin mail, you can grab three suits of goblin mail from the following crates:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:1bgj42p:aznwo1",
+              "html": "Behind the generals&#39; hut.",
+              "text": "Behind the generals' hut.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:1bgj42p:19nimj5",
+              "html": "Behind the western hut.",
+              "text": "Behind the western hut.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:1bgj42p:19ak604",
+              "html": "Up a ladder in the middle of the gate entrance of the camp.",
+              "text": "Up a ladder in the middle of the gate entrance of the camp.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:10abqwj",
+              "html": "<a href=\"https://runescape.wiki/w/Orange_dye\" target=\"_blank\" rel=\"noopener\">Orange dye</a> (Combine <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">Red dye</a> and <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">Yellow dye</a>)",
+              "text": "Orange dye (Combine Red dye and Yellow dye)"
+            },
+            {
+              "id": "finishing-up:bring:1k58rkf",
+              "html": "<a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">Blue dye</a>",
+              "text": "Blue dye"
+            },
+            {
+              "id": "finishing-up:bring:9jumgb",
+              "html": "3 suits of <a href=\"https://runescape.wiki/w/Goblin_mail\" target=\"_blank\" rel=\"noopener\">goblin mail</a>",
+              "text": "3 suits of goblin mail"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1do4mf3",
+          "html": "Dye one goblin mail blue and another orange.",
+          "text": "Dye one goblin mail blue and another orange.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1nq48ed",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Orange_goblin_mail\" target=\"_blank\" rel=\"noopener\">orange goblin mail</a> on one of the generals.",
+          "text": "Use the orange goblin mail on one of the generals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1itj4vy",
+          "html": "After the cutscene, use the <a href=\"https://runescape.wiki/w/Blue_goblin_mail\" target=\"_blank\" rel=\"noopener\">blue goblin mail</a> on one of them.",
+          "text": "After the cutscene, use the blue goblin mail on one of them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1yeqku",
+          "html": "Use a normal <a href=\"https://runescape.wiki/w/Goblin_mail\" target=\"_blank\" rel=\"noopener\">goblin mail</a> on one of them.",
+          "text": "Use a normal goblin mail on one of them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Goblin_Diplomacy_reward.png?ef6c8",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Goblin_Diplomacy_reward.png"
+    },
+    "items": [
+      {
+        "html": "5 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "5 quest points",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bar</a>",
+        "text": "A gold bar",
+        "subs": []
+      },
+      {
+        "html": "200 experience <a href=\"https://runescape.wiki/w/Crafting_XP_lamp_(Goblin_Diplomacy)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "200 experience lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Another_Slice_of_H.A.M./Quick_guide\" target=\"_blank\" rel=\"noopener\">Another Slice of H.A.M.</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_the_Goblin_Generals/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing the Goblin Generals</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Land_of_the_Goblins/Quick_guide\" target=\"_blank\" rel=\"noopener\">Land of the Goblins</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Chosen_Commander/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Chosen Commander</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

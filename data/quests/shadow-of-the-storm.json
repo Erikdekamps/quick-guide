@@ -1,0 +1,722 @@
+{
+  "format": 1,
+  "id": "shadow-of-the-storm",
+  "title": "Shadow of the Storm",
+  "page": "Shadow of the Storm/Quick guide",
+  "rev": 37161532,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Father_Reen\" target=\"_blank\" rel=\"noopener\">Father Reen</a> just south of <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a> bank.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3158,
+      "lon": 3270,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Shadow_of_the_Storm/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Demon Slayer",
+        "depth": 1
+      },
+      {
+        "text": "The Golem",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Agrith Naar (level 84)",
+        "name": "Agrith Naar",
+        "count": null,
+        "level": "84",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:m45wgz",
+          "html": "<a href=\"https://runescape.wiki/w/Silverlight\" target=\"_blank\" rel=\"noopener\">Silverlight</a> (If you do not have the sword, it can be re-obtained during the quest)",
+          "text": "Silverlight (If you do not have the sword, it can be re-obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1e146j",
+          "html": "<a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">Silver bar</a> (<a href=\"https://runescape.wiki/w/Metal_bank\" target=\"_blank\" rel=\"noopener\">metal bank</a> works)",
+          "text": "Silver bar (metal bank works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:16mh2qk",
+          "html": "Empty <a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">vial</a> (To dye Silverlight/clothing black if you have not done so already)",
+          "text": "Empty vial (To dye Silverlight/clothing black if you have not done so already)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1h1y65i",
+          "html": "3 pieces of a black outfit (see <a href=\"https://runescape.wiki/w/Shadow_of_the_Storm#Blending_into_the_dark\" target=\"_blank\" rel=\"noopener\">Blending into the dark</a>; you can also dye the <a href=\"https://runescape.wiki/w/Desert_robe\" target=\"_blank\" rel=\"noopener\">desert robe</a> and <a href=\"https://runescape.wiki/w/Desert_shirt\" target=\"_blank\" rel=\"noopener\">desert shirt</a> during the quest for two of the pieces)",
+          "text": "3 pieces of a black outfit (see Blending into the dark; you can also dye the desert robe and desert shirt during the quest for two of the pieces)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1nm2w4r",
+          "html": "The <a href=\"https://runescape.wiki/w/Strange_implement\" target=\"_blank\" rel=\"noopener\">strange implement</a> (If lost, it can be re-obtained during the quest)",
+          "text": "The strange implement (If lost, it can be re-obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:c5yb08",
+          "html": "About 1,000 coins to cover expenses",
+          "text": "About 1,000 coins to cover expenses",
+          "alternatives": []
+        },
+        {
+          "id": "rec:cked1z",
+          "html": "<a href=\"https://runescape.wiki/w/Waterskin\" target=\"_blank\" rel=\"noopener\">Waterskins</a> (approximately 5 full waterskins) or an <a href=\"https://runescape.wiki/w/Enchanted_water_tiara\" target=\"_blank\" rel=\"noopener\">enchanted water tiara</a>.",
+          "text": "Waterskins (approximately 5 full waterskins) or an enchanted water tiara.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1lc6lfv",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a> and <a href=\"https://runescape.wiki/w/Herblore#Potions\" target=\"_blank\" rel=\"noopener\">potions</a> for lower levelled players",
+          "text": "Food and potions for lower levelled players",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gobu54",
+          "html": "<a href=\"https://runescape.wiki/w/Desert_clothing\" target=\"_blank\" rel=\"noopener\">Desert clothing</a>",
+          "text": "Desert clothing",
+          "alternatives": []
+        },
+        {
+          "id": "rec:xnqzox",
+          "html": "<a href=\"https://runescape.wiki/w/Energy_potions\" target=\"_blank\" rel=\"noopener\">Energy potions</a>",
+          "text": "Energy potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1uwfibm",
+          "html": "A charged <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">amulet of glory</a>, <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a>, a <a href=\"https://runescape.wiki/w/Broomstick\" target=\"_blank\" rel=\"noopener\">broomstick</a> for teleporting to <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a> or an activated <a href=\"https://runescape.wiki/w/Al_Kharid_lodestone\" target=\"_blank\" rel=\"noopener\">Al Kharid lodestone</a> could be useful",
+          "text": "A charged amulet of glory, ring of duelling, a broomstick for teleporting to Al Kharid or an activated Al Kharid lodestone could be useful",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1bptj78",
+          "html": "A <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a> for faster travel to <a href=\"https://runescape.wiki/w/Uzer\" target=\"_blank\" rel=\"noopener\">Uzer</a>",
+          "text": "A traveller's necklace for faster travel to Uzer",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Start point of the quest",
+          "lat": 3158,
+          "lon": 3271,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3266.5,
+                      3153.5
+                    ],
+                    [
+                      3266.5,
+                      3163.5
+                    ],
+                    [
+                      3276.5,
+                      3163.5
+                    ],
+                    [
+                      3276.5,
+                      3153.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Shadow_of_the_Storm/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "starting-out:8cccfg",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Father_Reen\" target=\"_blank\" rel=\"noopener\">Father Reen</a> south of Al Kharid bank.",
+          "text": "Talk to Father Reen south of Al Kharid bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:8cccfg:hpu1oa",
+              "html": "He will give you <a href=\"https://runescape.wiki/w/Silverlight\" target=\"_blank\" rel=\"noopener\">Silverlight</a> if you&#39;ve dyed or destroyed it.",
+              "text": "He will give you Silverlight if you've dyed or destroyed it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1di1i9i",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Father_Badden\" target=\"_blank\" rel=\"noopener\">Father Badden</a> at <a href=\"https://runescape.wiki/w/Uzer\" target=\"_blank\" rel=\"noopener\">Uzer</a>, east of Shantay Pass. (Optional: take the magic carpet to Uzer)",
+          "text": "Talk to Father Badden at Uzer, east of Shantay Pass. (Optional: take the magic carpet to Uzer)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Reen sent me."
+                },
+                {
+                  "key": "3",
+                  "text": "So what do you want me to do?"
+                },
+                {
+                  "key": "1",
+                  "text": "How can I do that?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1rxq13t",
+          "html": "Pick and grind a <a href=\"https://runescape.wiki/w/Black_mushroom\" target=\"_blank\" rel=\"noopener\">black mushroom</a> (the closest is just south-east of the stairs east of <a href=\"https://runescape.wiki/w/Father_Badden\" target=\"_blank\" rel=\"noopener\">Father Badden</a>). Use it to dye Silverlight black. You can find some beside the staircase, downstairs east of the stairwell, or in the north east corner of the room, east of <a href=\"https://runescape.wiki/w/Evil_Dave\" target=\"_blank\" rel=\"noopener\">Evil Dave</a>.",
+          "text": "Pick and grind a black mushroom (the closest is just south-east of the stairs east of Father Badden). Use it to dye Silverlight black. You can find some beside the staircase, downstairs east of the stairwell, or in the north east corner of the room, east of Evil Dave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1t5q3au",
+          "html": "Go down the stairs.",
+          "text": "Go down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:1t5q3au:ri4jv3",
+              "html": "If you do not have the <a href=\"https://runescape.wiki/w/Strange_implement\" target=\"_blank\" rel=\"noopener\">strange implement</a> from <a href=\"https://runescape.wiki/w/The_Golem\" target=\"_blank\" rel=\"noopener\">The Golem</a> quest, you can pick it up from the ground in the northwest room.",
+              "text": "If you do not have the strange implement from The Golem quest, you can pick it up from the ground in the northwest room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:dr6a65",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Evil_Dave\" target=\"_blank\" rel=\"noopener\">Evil Dave</a> wearing your three black items and your dyed Silverlight. He is standing at the entrance to Agrith Naar&#39;s demonic temple in the underground Uzer ruins.",
+          "text": "Talk to Evil Dave wearing your three black items and your dyed Silverlight. He is standing at the entrance to Agrith Naar's demonic temple in the underground Uzer ruins.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I want to join your group."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm evil!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ritual",
+      "title": "Ritual",
+      "anchor": "Ritual",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "ritual:15gody4",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Denath\" target=\"_blank\" rel=\"noopener\">Denath</a>.",
+          "text": "Talk to Denath.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What do I have to do?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:tebq2l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jennifer\" target=\"_blank\" rel=\"noopener\">Jennifer</a> to get a <a href=\"https://runescape.wiki/w/Demonic_sigil_mould\" target=\"_blank\" rel=\"noopener\">demonic sigil mould</a>.",
+          "text": "Talk to Jennifer to get a demonic sigil mould.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you have the demonic sigil mould?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:1q3ehuw",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Matthew\" target=\"_blank\" rel=\"noopener\">Matthew</a>.",
+          "text": "Talk to Matthew.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you know what happened to Josef?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:au03hm",
+          "html": "Go to any furnace and smelt a <a href=\"https://runescape.wiki/w/Demonic_sigil\" target=\"_blank\" rel=\"noopener\">demonic sigil</a>.",
+          "text": "Go to any furnace and smelt a demonic sigil.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Make Demonic sigil"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ritual:au03hm:18cxirv",
+              "html": "Your black outfit can be discarded at this point and replaced with combat gear. Keep Silverlight for the duration of the quest.",
+              "text": "Your black outfit can be discarded at this point and replaced with combat gear. Keep Silverlight for the duration of the quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ritual:1hd9vz6",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Clay_golem\" target=\"_blank\" rel=\"noopener\">clay golem</a> outside the ruins about last night.",
+          "text": "Talk to the clay golem outside the ruins about last night.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Did you see anything happen last night?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:p9hbzp",
+          "html": "<i>Look in</i> the nearby Broken kilns for a book until you have found the <a href=\"https://runescape.wiki/w/Demonic_tome\" target=\"_blank\" rel=\"noopener\">Demonic tome</a> (there&#39;s a broken kiln north of the Rug Merchant and one behind the walls east of the staircase that are easy to miss).",
+          "text": "Look in the nearby Broken kilns for a book until you have found the Demonic tome (there's a broken kiln north of the Rug Merchant and one behind the walls east of the staircase that are easy to miss).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:19d2jqt",
+          "html": "Talk to Matthew back in the lair.",
+          "text": "Talk to Matthew back in the lair.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:lg0qmx",
+          "html": "Go north to talk to Denath and write down the incantation he tells you.",
+          "text": "Go north to talk to Denath and write down the incantation he tells you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": ""
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:163r4qr",
+          "html": "Complete the circle and click the sigil to chant the incantation. Be sure to remember it, as you’ll need it again later in the quest.",
+          "text": "Complete the circle and click the sigil to chant the incantation. Be sure to remember it, as you’ll need it again later in the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:gw64a7",
+          "html": "Be sure to take the sigil from the floor, or you will have to make a new one at a furnace.",
+          "text": "Be sure to take the sigil from the floor, or you will have to make a new one at a furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:2cjzwf",
+          "html": "<i>Enter</i> the portal and take Tanya&#39;s sigil.",
+          "text": "Enter the portal and take Tanya's sigil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:1spdrvz",
+          "html": "Tell Evil Dave to return to the lair - you should have 4 sigils now.",
+          "text": "Tell Evil Dave to return to the lair - you should have 4 sigils now.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You've got to get back to the throne room!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "rallying-the-troops",
+      "title": "Rallying the troops",
+      "anchor": "Rallying_the_troops",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "rallying-the-troops:17dra6j",
+          "html": "Go up the stairs, talk to <a href=\"https://runescape.wiki/w/Father_Badden\" target=\"_blank\" rel=\"noopener\">Father Badden</a> and <a href=\"https://runescape.wiki/w/Father_Reen\" target=\"_blank\" rel=\"noopener\">Father Reen</a>.",
+          "text": "Go up the stairs, talk to Father Badden and Father Reen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Oh, don't be so simple-minded!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rallying-the-troops:9trvwr",
+          "html": "Talk to the golem.",
+          "text": "Talk to the golem.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "[use strange implement]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-final-fight",
+      "title": "The final fight",
+      "anchor": "The_final_fight",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-final-fight:165azcu",
+          "html": "Return to the throne room downstairs.",
+          "text": "Return to the throne room downstairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:bqrev8",
+          "html": "Talk to Matthew to start the incantation.",
+          "text": "Talk to Matthew to start the incantation.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:1ljbiv0",
+          "html": "Form the circle and <i>Chant</i> demonic sigil and say the incantation in reverse. (If you have forgotten the incantation, it can be found on page 6 of the <a href=\"https://runescape.wiki/w/Demonic_tome\" target=\"_blank\" rel=\"noopener\">demonic tome</a>.)",
+          "text": "Form the circle and Chant demonic sigil and say the incantation in reverse. (If you have forgotten the incantation, it can be found on page 6 of the demonic tome.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:mfw6f5",
+          "html": "Kill the demon with the <a href=\"https://runescape.wiki/w/Silverlight_(dyed)\" target=\"_blank\" rel=\"noopener\">Silverlight (dyed)</a>. After defeating it, you will have the Darklight equipped.",
+          "text": "Kill the demon with the Silverlight (dyed). After defeating it, you will have the Darklight equipped.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-final-fight:mfw6f5:vajfhg",
+              "html": "You can damage the demon with any combat style, but you must equip the Silverlight (dyed) as it dies.",
+              "text": "You can damage the demon with any combat style, but you must equip the Silverlight (dyed) as it dies.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Shadow_of_the_Storm_reward.png?d9257",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Shadow_of_the_Storm_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience, as a <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(Shadow_of_the_Storm)\" target=\"_blank\" rel=\"noopener\">combat XP lamp</a>, in one of: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>",
+        "text": "10,000 experience, as a combat XP lamp, in one of: Attack, Strength, Defence, Constitution, Ranged, Magic or Necromancy",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Demonic_sigil\" target=\"_blank\" rel=\"noopener\">Demonic sigil</a> (can be used to chant any number of times even after the quest)",
+        "text": "Demonic sigil (can be used to chant any number of times even after the quest)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Demonic_tome\" target=\"_blank\" rel=\"noopener\">Demonic tome</a> (updated in the <a href=\"https://runescape.wiki/w/Bookcase\" target=\"_blank\" rel=\"noopener\">bookcases</a>)",
+        "text": "Demonic tome (updated in the bookcases)",
+        "subs": []
+      },
+      {
+        "html": "Silverlight turns into <a href=\"https://runescape.wiki/w/Darklight\" target=\"_blank\" rel=\"noopener\">Darklight</a>: It is even more powerful against demons. If a player loses Darklight, it can be retrieved by talking to <a href=\"https://runescape.wiki/w/Gideon_Bede\" target=\"_blank\" rel=\"noopener\">Gideon Bede</a> at Varrock&#39;s north church. You must have him replace Silverlight for you first.",
+        "text": "Silverlight turns into Darklight: It is even more powerful against demons. If a player loses Darklight, it can be retrieved by talking to Gideon Bede at Varrock's north church. You must have him replace Silverlight for you first.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Incantation",
+      "where": ""
+    },
+    {
+      "name": "Grip of the Talon",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Demon_Slayer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Demon Slayer</a>",
+        "<a href=\"https://runescape.wiki/w/Do_No_Evil/Quick_guide\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Evil_Dave/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Evil Dave</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    }
+  ]
+}

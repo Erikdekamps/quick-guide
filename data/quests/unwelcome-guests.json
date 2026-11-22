@@ -1,0 +1,565 @@
+{
+  "format": 1,
+  "id": "unwelcome-guests",
+  "title": "Unwelcome Guests",
+  "page": "Unwelcome Guests/Quick guide",
+  "rev": 37195158,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> of <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3541,
+      "lon": 3319,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Unwelcome_Guests/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Murder on the Border",
+        "depth": 1
+      },
+      {
+        "text": "New Foundations",
+        "depth": 2
+      },
+      {
+        "text": "Build Town Hall (Tier 1)",
+        "depth": 2
+      },
+      {
+        "text": "Build Command Centre (Tier 1)",
+        "depth": 2
+      },
+      {
+        "text": "Build Workshop (Tier 1)",
+        "depth": 2
+      },
+      {
+        "text": "Build Chapel (Tier 1)",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 10,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 40,
+        "note": "(If chopping maple logs for the planks)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "20 fetid zombies (level 66)",
+        "name": "fetid zombies",
+        "count": 20,
+        "level": "66",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Wilderness</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1y4yth5",
+          "html": "14 <a href=\"https://runescape.wiki/w/Maple_frame\" target=\"_blank\" rel=\"noopener\">maple frames</a>",
+          "text": "14 maple frames",
+          "alternatives": [
+            "168 <a href=\"https://runescape.wiki/w/Maple_plank\" target=\"_blank\" rel=\"noopener\">maple planks</a>"
+          ]
+        },
+        {
+          "id": "req:swobre",
+          "html": "6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+          "text": "6 stone wall segments",
+          "alternatives": [
+            "24 <a href=\"https://runescape.wiki/w/Limestone_brick\" target=\"_blank\" rel=\"noopener\">limestone bricks</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "starting-off:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "starting-off:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-off:1eoxz4q",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> at <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+          "text": "Talk to Overseer Siv in the Command Centre at Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about 'Unwelcome Guests'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:1pp5g06",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>, west of the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a>.",
+          "text": "Talk to the Raptor, west of the Command Centre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:ootefu",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Gates_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">northern gates</a> and open them.",
+          "text": "Go to the northern gates and open them.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:1rxx6fw",
+          "html": "Head west and slay ten <a href=\"https://runescape.wiki/w/Fetid_zombie\" target=\"_blank\" rel=\"noopener\">fetid zombies</a>.",
+          "text": "Head west and slay ten fetid zombies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:b2thsn",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a> located south-west of the Fort once back inside.",
+          "text": "Talk to the Raptor located south-west of the Fort once back inside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "strengthening-the-fortifications",
+      "title": "Strengthening the fortifications",
+      "anchor": "Strengthening_the_fortifications",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "strengthening-the-fortifications:kdzs1p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a>.",
+          "text": "Talk to Bill.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Unwelcome Guests'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strengthening-the-fortifications:1ycr0zy",
+          "html": "Leave via the <a href=\"https://runescape.wiki/w/Gates_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">northern gates</a> into the <a href=\"https://runescape.wiki/w/Wilderness\" target=\"_blank\" rel=\"noopener\">Wilderness</a>.",
+          "text": "Leave via the northern gates into the Wilderness.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I understand the restrictions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strengthening-the-fortifications:12wyrs5",
+          "html": "Fully construct defences at the <a href=\"https://runescape.wiki/w/Building_supplies\" target=\"_blank\" rel=\"noopener\">building supplies</a> along the walls. Turning off auto-retaliate is recommended, otherwise construction will be interrupted when you are attacked.",
+          "text": "Fully construct defences at the building supplies along the walls. Turning off auto-retaliate is recommended, otherwise construction will be interrupted when you are attacked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "strengthening-the-fortifications:12wyrs5:1niryov",
+              "html": "Three just outside the western walls of the fort.",
+              "text": "Three just outside the western walls of the fort.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "strengthening-the-fortifications:12wyrs5:1tvfue3",
+              "html": "Two just outside the northern walls of the fort.",
+              "text": "Two just outside the northern walls of the fort.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "strengthening-the-fortifications:12wyrs5:1egv37d",
+              "html": "One just outside the eastern walls of the fort.",
+              "text": "One just outside the eastern walls of the fort.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "building-the-guardhouse",
+      "title": "Building the Guardhouse",
+      "anchor": "Building_the_Guardhouse",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "building-the-guardhouse:bring:1y4yth5",
+              "html": "14 <a href=\"https://runescape.wiki/w/Maple_frame\" target=\"_blank\" rel=\"noopener\">maple frames</a>",
+              "text": "14 maple frames"
+            },
+            {
+              "id": "building-the-guardhouse:bring:swobre",
+              "html": "6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+              "text": "6 stone wall segments"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:my7rtj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a>.",
+          "text": "Talk to Overseer Siv in the Command Centre.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about 'Unwelcome Guests'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:kdzs1p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a>.",
+          "text": "Talk to Bill.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Unwelcome Guests'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:2mczgx",
+          "html": "Start building the Guardhouse at the <a href=\"https://runescape.wiki/w/Fort_Forinthry_blueprints\" target=\"_blank\" rel=\"noopener\">Fort Forinthry blueprints</a> table.",
+          "text": "Start building the Guardhouse at the Fort Forinthry blueprints table.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:1bgo2z9",
+          "html": "Head to the Guardhouse near <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>.",
+          "text": "Head to the Guardhouse near the Raptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:qmorgf",
+          "html": "Build at the <a href=\"https://runescape.wiki/w/Construction_hotspot\" target=\"_blank\" rel=\"noopener\">Construction hotspots</a> within the Guardhouse until it is complete.",
+          "text": "Build at the Construction hotspots within the Guardhouse until it is complete.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-the-guardhouse:qmorgf:1tx66m2",
+              "html": "Players can speed up this process by building at the <a href=\"https://runescape.wiki/w/Optimal_Construction_hotspot\" target=\"_blank\" rel=\"noopener\">optimal Construction hotspots</a>.",
+              "text": "Players can speed up this process by building at the optimal Construction hotspots.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-the-guardhouse:1esx7ze",
+          "html": "Talk to the Raptor or Overseer Siv to trigger a dialogue and watch the cutscene.",
+          "text": "Talk to the Raptor or Overseer Siv to trigger a dialogue and watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "investigating-the-crypt",
+      "title": "Investigating the crypt",
+      "anchor": "Investigating_the_crypt",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "investigating-the-crypt:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "investigating-the-crypt:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-crypt:ootefu",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Gates_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">northern gates</a> and open them.",
+          "text": "Go to the northern gates and open them.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-crypt:1dwholp",
+          "html": "Head west and slay another ten <a href=\"https://runescape.wiki/w/Fetid_zombie\" target=\"_blank\" rel=\"noopener\">fetid zombies</a>.",
+          "text": "Head west and slay another ten fetid zombies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-crypt:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-crypt:1m78a02",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a> at the <a href=\"https://runescape.wiki/w/Guardhouse\" target=\"_blank\" rel=\"noopener\">Guardhouse</a>.",
+          "text": "Talk to the Raptor at the Guardhouse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-crypt:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Unwelcome_Guests_reward.png?9555a",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Unwelcome_Guests_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Ability to build all three tiers of the Fort Forinthry <a href=\"https://runescape.wiki/w/Guardhouse\" target=\"_blank\" rel=\"noopener\">Guardhouse</a> and <a href=\"https://runescape.wiki/w/Grove\" target=\"_blank\" rel=\"noopener\">Grove</a>.",
+        "text": "Ability to build all three tiers of the Fort Forinthry Guardhouse and Grove.",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">The Raptor</a> will operate as a <a href=\"https://runescape.wiki/w/Slayer_Masters\" target=\"_blank\" rel=\"noopener\">Slayer master</a> inside <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+        "text": "The Raptor will operate as a Slayer master inside Fort Forinthry.",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Crypt_(Wilderness)\" target=\"_blank\" rel=\"noopener\">crypt</a> north of Fort Forinthry, containing two new slayer monsters:",
+        "text": "Access to the crypt north of Fort Forinthry, containing two new slayer monsters:",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Risen_ghost\" target=\"_blank\" rel=\"noopener\">Risen ghost</a>, requiring 85 Slayer.",
+          "<a href=\"https://runescape.wiki/w/Armoured_phantom\" target=\"_blank\" rel=\"noopener\">Armoured phantom</a>, requiring 113 Slayer."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Unwelcome_Guests_(achievement)\" target=\"_blank\" rel=\"noopener\">Unwelcome Guests</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dead_and_Buried/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dead and Buried</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ancient_Awakening/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ancient Awakening</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_Forinthry/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of Forinthry</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    }
+  ]
+}

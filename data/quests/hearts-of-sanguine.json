@@ -1,0 +1,1150 @@
+{
+  "format": 1,
+  "id": "hearts-of-sanguine",
+  "title": "Hearts of Sanguine",
+  "page": "Hearts of Sanguine/Quick guide",
+  "rev": 37227553,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Adam\" target=\"_blank\" rel=\"noopener\">Adam</a> at his house in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1571,
+      "lon": 3482,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Hearts_of_Sanguine/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Visions of Havenhythe",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "2 hedgehogs (no combat level)",
+        "name": "2 hedgehogs (no combat level)",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Sanguine heart (level 500)",
+        "name": "Sanguine heart",
+        "count": null,
+        "level": "500",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Havenhythe</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Havenhythe</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1q8pd1o",
+          "html": "A few <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+          "text": "A few coins",
+          "alternatives": []
+        },
+        {
+          "id": "req:1lt00cy",
+          "html": "10 <a href=\"https://runescape.wiki/w/Copper_ore\" target=\"_blank\" rel=\"noopener\">copper ore</a> (obtainable during quest)",
+          "text": "10 copper ore (obtainable during quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:16kh2a0",
+          "html": "10 <a href=\"https://runescape.wiki/w/Tin_ore\" target=\"_blank\" rel=\"noopener\">tin ore</a> (obtainable during quest)",
+          "text": "10 tin ore (obtainable during quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:v801md",
+          "html": "<a href=\"https://runescape.wiki/w/Wendlewick_ale\" target=\"_blank\" rel=\"noopener\">Wendlewick ale</a> (obtainable during quest)",
+          "text": "Wendlewick ale (obtainable during quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1tuhenh",
+          "html": "<a href=\"https://runescape.wiki/w/Melee\" target=\"_blank\" rel=\"noopener\">Melee</a> armour",
+          "text": "Melee armour",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1lpi0d",
+          "html": "Fixed <a href=\"https://runescape.wiki/w/Canoe_station_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">canoe stations</a> for quicker travel (members-only, requires 20 <a href=\"https://runescape.wiki/w/Construction\" target=\"_blank\" rel=\"noopener\">Construction</a>)",
+          "text": "Fixed canoe stations for quicker travel (members-only, requires 20 Construction)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "creepy-behind",
+      "title": "Creepy behind",
+      "anchor": "Creepy_behind",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "creepy-behind:p2cdmh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Adam\" target=\"_blank\" rel=\"noopener\">Adam</a> in his house in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>, north of the well.",
+          "text": "Talk to Adam in his house in Wendlewick, north of the well.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creepy-behind:1igaxc4",
+          "html": "Go north-east into the <a href=\"https://runescape.wiki/w/Highweald_Forest\" target=\"_blank\" rel=\"noopener\">Highweald Forest</a> and talk to <a href=\"https://runescape.wiki/w/Raz\" target=\"_blank\" rel=\"noopener\">Raz</a> in her cabin at the bottom of the river.",
+          "text": "Go north-east into the Highweald Forest and talk to Raz in her cabin at the bottom of the river.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creepy-behind:119gu8e",
+          "html": "Go north along the east side of the river and inspect the <a href=\"https://runescape.wiki/w/Dead_bear\" target=\"_blank\" rel=\"noopener\">dead bear</a>.",
+          "text": "Go north along the east side of the river and inspect the dead bear.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creepy-behind:d8e89h",
+          "html": "Talk to Raz.",
+          "text": "Talk to Raz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Raz&#39;s location"
+        },
+        {
+          "type": "text",
+          "html": "Location of the dead bear"
+        }
+      ]
+    },
+    {
+      "id": "local-gossip",
+      "title": "Local gossip",
+      "anchor": "Local_gossip",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "local-gossip:1p6s0zw",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bartender_Gefen\" target=\"_blank\" rel=\"noopener\">Bartender Gefen</a> inside the <a href=\"https://runescape.wiki/w/Burnt_Lobster_Tavern\" target=\"_blank\" rel=\"noopener\">Burnt Lobster Tavern</a> south-east of the <a href=\"https://runescape.wiki/w/Wendlewick_lodestone\" target=\"_blank\" rel=\"noopener\">Wendlewick lodestone</a>.",
+          "text": "Talk to Bartender Gefen inside the Burnt Lobster Tavern south-east of the Wendlewick lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "local-gossip:1p6s0zw:1jhpd19",
+              "html": "(Optional) You can purchase a <a href=\"https://runescape.wiki/w/Wendlewick_ale\" target=\"_blank\" rel=\"noopener\">Wendlewick ale</a> from the bartender if you didn&#39;t bring your own.",
+              "text": "(Optional) You can purchase a Wendlewick ale from the bartender if you didn't bring your own.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "local-gossip:zx405b",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Matthew_(Wendlewick)\" target=\"_blank\" rel=\"noopener\">Matthew</a> and give him a Wendlewick ale. He is sitting alone at the table in the north-western corner of the tavern.",
+          "text": "Talk to Matthew and give him a Wendlewick ale. He is sitting alone at the table in the north-western corner of the tavern.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "local-gossip:3lbmg",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Miriam\" target=\"_blank\" rel=\"noopener\">Miriam</a>, the musician outside.",
+          "text": "Talk to Miriam, the musician outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "local-gossip:d3wksh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jacob\" target=\"_blank\" rel=\"noopener\">Jacob</a>, sitting alone outside.",
+          "text": "Talk to Jacob, sitting alone outside.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "local-gossip:kaeda8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bartender_Gefen\" target=\"_blank\" rel=\"noopener\">Bartender Gefen</a>.",
+          "text": "Talk to Bartender Gefen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "local-gossip:1827kev",
+          "html": "Go back and talk to <a href=\"https://runescape.wiki/w/Adam\" target=\"_blank\" rel=\"noopener\">Adam</a>.",
+          "text": "Go back and talk to Adam.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "to-the-farm",
+      "title": "To the farm",
+      "anchor": "To_the_farm",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "to-the-farm:o9h03g",
+          "html": "Go south-east to <a href=\"https://runescape.wiki/w/Eastfold_Farm\" target=\"_blank\" rel=\"noopener\">Eastfold Farm</a> (can be reached via <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>B</b><b>K</b><b>S</b>) and talk to <a href=\"https://runescape.wiki/w/Farmer_Rachel\" target=\"_blank\" rel=\"noopener\">Farmer Rachel</a>.",
+          "text": "Go south-east to Eastfold Farm (can be reached via fairy ring BKS) and talk to Farmer Rachel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-the-farm:1do0kxj",
+          "html": "Investigate the <a href=\"https://runescape.wiki/w/Bloodsplatter\" target=\"_blank\" rel=\"noopener\">bloodsplatter</a> to the north at the broken fence.",
+          "text": "Investigate the bloodsplatter to the north at the broken fence.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-the-farm:1e5tz8v",
+          "html": "Follow the blood trail to the north-east and enter the cave entrance.",
+          "text": "Follow the blood trail to the north-east and enter the cave entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-the-farm:pvi9m1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Anya\" target=\"_blank\" rel=\"noopener\">Anya</a>.",
+          "text": "Talk to Anya.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What are we dealing with? (Continue Quest)"
+                },
+                {
+                  "key": "2",
+                  "text": "What do I need to do? (Continue Quest)"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-the-farm:1to4ww3",
+          "html": "Teleport to the Wendlewick lodestone, go to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the lighthouse to the south, and talk to <a href=\"https://runescape.wiki/w/Esther\" target=\"_blank\" rel=\"noopener\">Esther</a>.",
+          "text": "Teleport to the Wendlewick lodestone, go to the 1st floor (UK) / 2nd floor (US) of the lighthouse to the south, and talk to Esther.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                },
+                {
+                  "key": "2",
+                  "text": "(Continue Quest)"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "to-the-farm:1to4ww3:o064dj",
+              "html": "Be sure to finish the second set of dialogue with Esther before continuing.",
+              "text": "Be sure to finish the second set of dialogue with Esther before continuing.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gathering-ingredients",
+      "title": "Gathering ingredients",
+      "anchor": "Gathering_ingredients",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Hearts_of_Sanguine_-_Picking_poppies.png/300px-Hearts_of_Sanguine_-_Picking_poppies.png?d3048",
+          "width": 300,
+          "height": 159,
+          "alt": "",
+          "caption": "Picking the poppies",
+          "href": "https://runescape.wiki/w/File:Hearts_of_Sanguine_-_Picking_poppies.png"
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:1yx475a",
+          "html": "Go south-east, then west up the hill and pick the <a href=\"https://runescape.wiki/w/Poppies_(Hearts_of_Sanguine)\" target=\"_blank\" rel=\"noopener\">poppies</a> next to the <a href=\"https://runescape.wiki/w/Cardinal_marker\" target=\"_blank\" rel=\"noopener\">cardinal marker</a> at the top of the cliff to obtain a <a href=\"https://runescape.wiki/w/Wendlewick_poppy\" target=\"_blank\" rel=\"noopener\">Wendlewick poppy</a>.",
+          "text": "Go south-east, then west up the hill and pick the poppies next to the cardinal marker at the top of the cliff to obtain a Wendlewick poppy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:1o28j53",
+          "html": "To the south-west of the <a href=\"https://runescape.wiki/w/Shrine_of_Inanna\" target=\"_blank\" rel=\"noopener\">Shrine of Inanna</a>, near the jackalope burrows, kill a <a href=\"https://runescape.wiki/w/Hedgehog\" target=\"_blank\" rel=\"noopener\">hedgehog</a> and pick up the <a href=\"https://runescape.wiki/w/Hedgehog_spines\" target=\"_blank\" rel=\"noopener\">hedgehog spines</a>.",
+          "text": "To the south-west of the Shrine of Inanna, near the jackalope burrows, kill a hedgehog and pick up the hedgehog spines.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:1g35dtu",
+          "html": "East of the shrine, pick the <a href=\"https://runescape.wiki/w/Wolf%27s_tongue_mushrooms\" target=\"_blank\" rel=\"noopener\">wolf&#39;s tongue mushrooms</a> near the fairy ring to obtain <a href=\"https://runescape.wiki/w/Wolf%27s_tongue\" target=\"_blank\" rel=\"noopener\">wolf&#39;s tongue</a>.",
+          "text": "East of the shrine, pick the wolf's tongue mushrooms near the fairy ring to obtain wolf's tongue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:gsnsdr",
+          "html": "Return to Esther.",
+          "text": "Return to Esther.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "anti-sanguine-scientifically",
+      "title": "Anti-sanguine scientifically",
+      "anchor": "Anti-sanguine_scientifically",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "Complete the following steps, in order, to craft an <a href=\"https://runescape.wiki/w/Antisanguine_(Hearts_of_Sanguine)\" target=\"_blank\" rel=\"noopener\">antisanguine</a> potion; if you end up with a black <a href=\"https://runescape.wiki/w/Ruined_potion\" target=\"_blank\" rel=\"noopener\">ruined potion</a> after any step, you must start over from the beginning."
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:1pyalqc",
+          "html": "1. Take a vial from the <a href=\"https://runescape.wiki/w/Vial_cabinet\" target=\"_blank\" rel=\"noopener\">vial cabinet</a> in the north.",
+          "text": "1. Take a vial from the vial cabinet in the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:petkyx",
+          "html": "2. Fill it with oil from the <a href=\"https://runescape.wiki/w/Vat_of_oil\" target=\"_blank\" rel=\"noopener\">vat of oil</a> in the south.",
+          "text": "2. Fill it with oil from the vat of oil in the south.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:1je69qe",
+          "html": "3. Sterilise the <a href=\"https://runescape.wiki/w/Vial_of_oil\" target=\"_blank\" rel=\"noopener\">vial of oil</a> at the <a href=\"https://runescape.wiki/w/Fireplace_(Wendlewick_lighthouse)\" target=\"_blank\" rel=\"noopener\">fireplace</a> in the north-east.",
+          "text": "3. Sterilise the vial of oil at the fireplace in the north-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:aeilod",
+          "html": "4. Take hedgehog spines from the <a href=\"https://runescape.wiki/w/Bucket_of_hedgehog_spines\" target=\"_blank\" rel=\"noopener\">bucket of hedgehog spines</a> in the east.",
+          "text": "4. Take hedgehog spines from the bucket of hedgehog spines in the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:ehjapi",
+          "html": "5. Grind the spines, and mix the <a href=\"https://runescape.wiki/w/Vial_of_oil_(s)\" target=\"_blank\" rel=\"noopener\">vial of oil (s)</a> with the <a href=\"https://runescape.wiki/w/Crushed_hedgehog_spines\" target=\"_blank\" rel=\"noopener\">crushed hedgehog spines</a>.",
+          "text": "5. Grind the spines, and mix the vial of oil (s) with the crushed hedgehog spines.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:o0waiz",
+          "html": "6. Take a <a href=\"https://runescape.wiki/w/Wendlewick_poppy\" target=\"_blank\" rel=\"noopener\">Wendlewick poppy</a> from the <a href=\"https://runescape.wiki/w/Sack_of_flowers\" target=\"_blank\" rel=\"noopener\">sack of flowers</a> in the south-east.",
+          "text": "6. Take a Wendlewick poppy from the sack of flowers in the south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:1ujlwen",
+          "html": "7. Press ingredient on the <a href=\"https://runescape.wiki/w/Table_(Wendlewick_lighthouse)\" target=\"_blank\" rel=\"noopener\">table</a> in the centre.",
+          "text": "7. Press ingredient on the table in the centre.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Press Wendlewick poppy."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:vrvssg",
+          "html": "8. Mix the <a href=\"https://runescape.wiki/w/Vial_of_oil_(crushed_hedgehog_spine)\" target=\"_blank\" rel=\"noopener\">vial of oil (crushed hedgehog spine)</a> with the <a href=\"https://runescape.wiki/w/Pressed_Wendlewick_poppy\" target=\"_blank\" rel=\"noopener\">pressed Wendlewick poppy</a>.",
+          "text": "8. Mix the vial of oil (crushed hedgehog spine) with the pressed Wendlewick poppy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:gh7wqv",
+          "html": "9. Take <a href=\"https://runescape.wiki/w/Wolf%27s_tongue\" target=\"_blank\" rel=\"noopener\">wolf&#39;s tongue</a> from the <a href=\"https://runescape.wiki/w/Sack_of_mushrooms\" target=\"_blank\" rel=\"noopener\">sack of mushrooms</a> in the south.",
+          "text": "9. Take wolf's tongue from the sack of mushrooms in the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:wjfllx",
+          "html": "10. Weigh ingredient on the desk in the north-west, weigh out 30g.",
+          "text": "10. Weigh ingredient on the desk in the north-west, weigh out 30g.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Weigh wolf's tongue."
+                },
+                {
+                  "key": "1",
+                  "text": "Weigh out 30g."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anti-sanguine-scientifically:177ifq9",
+          "html": "11. Mix the <a href=\"https://runescape.wiki/w/Vial_of_oil_(crushed_hedgehog_spine,_pressed_Wendlewick_poppy)\" target=\"_blank\" rel=\"noopener\">vial of oil (crushed hedgehog spine, pressed Wendlewick poppy)</a> with the <a href=\"https://runescape.wiki/w/Wolf%27s_tongue_(30g)\" target=\"_blank\" rel=\"noopener\">wolf&#39;s tongue (30g)</a>.",
+          "text": "11. Mix the vial of oil (crushed hedgehog spine, pressed Wendlewick poppy) with the wolf's tongue (30g).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "animal-experiments",
+      "title": "Animal experiments",
+      "anchor": "Animal_experiments",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "animal-experiments:14op7j",
+          "html": "Talk to Esther.",
+          "text": "Talk to Esther.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "animal-experiments:1e16aqo",
+          "html": "Go to the lake south of the Shrine of Inanna and <i>test antisanguine</i> on the <a href=\"https://runescape.wiki/w/Hedgehog#NPC\" target=\"_blank\" rel=\"noopener\">hedgehog</a> (only the non-attackable hedgehog in this area will work).",
+          "text": "Go to the lake south of the Shrine of Inanna and test antisanguine on the hedgehog (only the non-attackable hedgehog in this area will work).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "animal-experiments:1e16aqo:1a33rs",
+              "html": "Kill it.",
+              "text": "Kill it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "animal-experiments:rvbkeu",
+          "html": "Go to the south-east side of the spring-fed pond (on the east side of the stepping stones) and <i>test antisanguine</i> on the <a href=\"https://runescape.wiki/w/Duck_(Hearts_of_Sanguine)\" target=\"_blank\" rel=\"noopener\">duck</a>.",
+          "text": "Go to the south-east side of the spring-fed pond (on the east side of the stepping stones) and test antisanguine on the duck.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "animal-experiments:v3mb4",
+          "html": "Go north-east and <i>test antisanguine</i> on the <a href=\"https://runescape.wiki/w/Badger#Hearts_of_Sanguine\" target=\"_blank\" rel=\"noopener\">badger</a>.",
+          "text": "Go north-east and test antisanguine on the badger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-a-havensilver-weapon",
+      "title": "Getting a havensilver weapon",
+      "anchor": "Getting_a_havensilver_weapon",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-a-havensilver-weapon:bring:7728dv",
+              "html": "10 copper ore and 10 tin ore (un-noted), or 20 free inventory spots",
+              "text": "10 copper ore and 10 tin ore (un-noted), or 20 free inventory spots"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:1i15of6",
+          "html": "Go back to <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a> and talk to <a href=\"https://runescape.wiki/w/Liat\" target=\"_blank\" rel=\"noopener\">Liat</a> inside the smithy to the east. If someone left the door open, she may wander outside.",
+          "text": "Go back to Wendlewick and talk to Liat inside the smithy to the east. If someone left the door open, she may wander outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:q2kogb",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Highweald_mine\" target=\"_blank\" rel=\"noopener\">Highweald mine</a> (head directly north from the smithy) and talk to <a href=\"https://runescape.wiki/w/Gidon\" target=\"_blank\" rel=\"noopener\">Gidon</a>.",
+          "text": "Go to the Highweald mine (head directly north from the smithy) and talk to Gidon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-a-havensilver-weapon:q2kogb:1sfi2si",
+              "html": "(Optional) You can mine 10 <a href=\"https://runescape.wiki/w/Copper_ore\" target=\"_blank\" rel=\"noopener\">copper ores</a> and 10 <a href=\"https://runescape.wiki/w/Tin_ore\" target=\"_blank\" rel=\"noopener\">tin ores</a> from the rocks near Gidon if you did not bring your own.",
+              "text": "(Optional) You can mine 10 copper ores and 10 tin ores from the rocks near Gidon if you did not bring your own.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:cb5jks",
+          "html": "Return to Wendlewick and give Liat 10 copper and 10 tin ores, these must be un-noted.",
+          "text": "Return to Wendlewick and give Liat 10 copper and 10 tin ores, these must be un-noted.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:16oasev",
+          "html": "Return to the mine and enter the cave entrance.",
+          "text": "Return to the mine and enter the cave entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:ibpsy9",
+          "html": "Talk to Gidon.",
+          "text": "Talk to Gidon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:7ww573",
+          "html": "Mine 4 <a href=\"https://runescape.wiki/w/Havensilver_ore\" target=\"_blank\" rel=\"noopener\">havensilver ore</a>.",
+          "text": "Mine 4 havensilver ore.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:aky141",
+          "html": "Return and talk to Liat.",
+          "text": "Return and talk to Liat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:i3y7rt",
+          "html": "Smelt the ores at the furnace into <a href=\"https://runescape.wiki/w/Havensilver_bar\" target=\"_blank\" rel=\"noopener\">havensilver bars</a>.",
+          "text": "Smelt the ores at the furnace into havensilver bars.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-havensilver-weapon:10ydei4",
+          "html": "Smith them at the forge and anvil into a <a href=\"https://runescape.wiki/w/Havensilver_greatsword\" target=\"_blank\" rel=\"noopener\">havensilver greatsword</a>.",
+          "text": "Smith them at the forge and anvil into a havensilver greatsword.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fight",
+      "title": "Fight",
+      "anchor": "Fight",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "fight:bring:i4532v",
+              "html": "Havensilver greatsword and antisanguine",
+              "text": "Havensilver greatsword and antisanguine"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "This is a safe encounter for the <a href=\"https://runescape.wiki/w/Ironman_Mode\" target=\"_blank\" rel=\"noopener\">Hardcore Ironman Mode</a> players and they will not lose their HCIM status if they die."
+        },
+        {
+          "type": "step",
+          "id": "fight:z7p2at",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Havensilver_greatsword\" target=\"_blank\" rel=\"noopener\">Havensilver greatsword</a>.",
+          "text": "Equip the Havensilver greatsword.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fight:z7p2at:edd0x9",
+              "html": "Unequip armour that decreases melee accuracy (e.g. necromancy armour) or use melee armour.",
+              "text": "Unequip armour that decreases melee accuracy (e.g. necromancy armour) or use melee armour.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fight:85neat",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Blighted_Cave\" target=\"_blank\" rel=\"noopener\">Blighted Cave</a> east of the <a href=\"https://runescape.wiki/w/Marigold_Farm\" target=\"_blank\" rel=\"noopener\">Marigold Farm</a> and talk to Anya outside of it.",
+          "text": "Return to the Blighted Cave east of the Marigold Farm and talk to Anya outside of it.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fight:85neat:1ps4mi0",
+              "html": "<a href=\"https://runescape.wiki/w/Canoe_station_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">Canoe station</a> option 2 is a nearby quick travel spot to the cave.",
+              "text": "Canoe station option 2 is a nearby quick travel spot to the cave.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fight:10lvzba",
+          "html": "Enter the cave, drink the <a href=\"https://runescape.wiki/w/Antisanguine\" target=\"_blank\" rel=\"noopener\">antisanguine</a>.",
+          "text": "Enter the cave, drink the antisanguine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fight:10lvzba:141keyg",
+              "html": "You may reclaim it from Anya.",
+              "text": "You may reclaim it from Anya.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fight:9n3o84",
+          "html": "Attack the <a href=\"https://runescape.wiki/w/Sanguine_heart\" target=\"_blank\" rel=\"noopener\">Sanguine heart</a>.",
+          "text": "Attack the Sanguine heart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fight:9n3o84:3i6v6b",
+              "html": "It will spawn <a href=\"https://runescape.wiki/w/Sanguine_tumour\" target=\"_blank\" rel=\"noopener\">sanguine tumours</a> 3 times during the fight which will make the heart immune to damage until they are destroyed.",
+              "text": "It will spawn sanguine tumours 3 times during the fight which will make the heart immune to damage until they are destroyed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "fight:9n3o84:p389zf",
+              "html": "It will periodically launch an exploding pustule to the tile you are standing on, you need to move before it explodes to avoid damage and removal of antisanguine protection effect.",
+              "text": "It will periodically launch an exploding pustule to the tile you are standing on, you need to move before it explodes to avoid damage and removal of antisanguine protection effect.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "fight:9n3o84:cp348s",
+              "html": "It may be beneficial to take additional doses of antisanguine during the fight if damaged.",
+              "text": "It may be beneficial to take additional doses of antisanguine during the fight if damaged.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "fight:9n3o84:ottzs6",
+              "html": "Death here is safe, placing you outside the cave.",
+              "text": "Death here is safe, placing you outside the cave.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fight:6c3xrw",
+          "html": "Once the heart reaches 1 life point, attack it again.",
+          "text": "Once the heart reaches 1 life point, attack it again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fight:i7twtj",
+          "html": "Leave the cave exit and talk to Anya again.",
+          "text": "Leave the cave exit and talk to Anya again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fight:1pwb98e",
+          "html": "Return to Wendlewick and talk to Adam.",
+          "text": "Return to Wendlewick and talk to Adam.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hearts of Sanguine'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fight:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Hearts_of_Sanguine_reward.png?8f353",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Hearts_of_Sanguine_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Herblore_XP_lamp_(Hearts_of_Sanguine)\" target=\"_blank\" rel=\"noopener\">Herblore XP lamp</a> (granting 250 experience)",
+        "text": "Herblore XP lamp (granting 250 experience)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Smithing_XP_lamp_(Hearts_of_Sanguine)\" target=\"_blank\" rel=\"noopener\">Smithing XP lamp</a> (granting 250 experience)",
+        "text": "Smithing XP lamp (granting 250 experience)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Elegant_parasol\" target=\"_blank\" rel=\"noopener\">Elegant parasol</a>",
+        "text": "Elegant parasol",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Havensilver_bar\" target=\"_blank\" rel=\"noopener\">havensilver smithing</a>",
+        "text": "Access to havensilver smithing",
+        "subs": []
+      },
+      {
+        "html": "Ability to mix <a href=\"https://runescape.wiki/w/Antisanguine\" target=\"_blank\" rel=\"noopener\">antisanguine</a> potions (members)",
+        "text": "Ability to mix antisanguine potions (members)",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Silverquill,_the_Dreadhog\" target=\"_blank\" rel=\"noopener\">Silverquill, the Dreadhog</a> (members)",
+        "text": "Access to Silverquill, the Dreadhog (members)",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Complete the achievement <a href=\"https://runescape.wiki/w/Silver_Lining\" target=\"_blank\" rel=\"noopener\">Silver Lining</a> to smith more weapons and weapon upgrades",
+            "text": "Complete the achievement Silver Lining to smith more weapons and weapon upgrades",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Sanguine Heart",
+      "where": ""
+    },
+    {
+      "name": "Sanguine Suffering",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Secrets_of_Amberfell/Quick_guide\" target=\"_blank\" rel=\"noopener\">Secrets of Amberfell</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heralds_of_Crimson/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heralds of Crimson</a>"
+      ]
+    }
+  ]
+}

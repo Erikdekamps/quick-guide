@@ -1,0 +1,1140 @@
+{
+  "format": 1,
+  "id": "ghosts-ahoy",
+  "title": "Ghosts Ahoy",
+  "page": "Ghosts Ahoy/Quick guide",
+  "rev": 37134587,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Velorina\" target=\"_blank\" rel=\"noopener\">Velorina</a> in <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3509,
+      "lon": 3679,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Ghosts_Ahoy/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Restless Ghost",
+        "depth": 1
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 25,
+        "note": ""
+      },
+      {
+        "skill": "Cooking",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Giant lobster (level 42)",
+        "name": "Giant lobster",
+        "count": null,
+        "level": "42",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1l0rpyd",
+          "html": "A way to get into <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a> three times (either <a href=\"https://runescape.wiki/w/Charter_ship\" target=\"_blank\" rel=\"noopener\">charter ships</a> or the 2 <a href=\"https://runescape.wiki/w/Ecto-token\" target=\"_blank\" rel=\"noopener\">ecto-token</a> toll)",
+          "text": "A way to get into Port Phasmatys three times (either charter ships or the 2 ecto-token toll)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1hok2t8",
+          "html": "Around 1,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> (more or less, depending on your luck)",
+          "text": "Around 1,000 coins (more or less, depending on your luck)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1t2znv5",
+          "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a>",
+          "text": "Thread",
+          "alternatives": []
+        },
+        {
+          "id": "req:156vnb8",
+          "html": "<a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">Silk</a>",
+          "text": "Silk",
+          "alternatives": []
+        },
+        {
+          "id": "req:7qaf82",
+          "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a> (tool belt will not work)",
+          "text": "Spade (tool belt will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1hnqvys",
+          "html": "<a href=\"https://runescape.wiki/w/Oak_longbow\" target=\"_blank\" rel=\"noopener\">Oak longbow</a>",
+          "text": "Oak longbow",
+          "alternatives": []
+        },
+        {
+          "id": "req:1ymbeju",
+          "html": "<a href=\"https://runescape.wiki/w/Nettle_tea\" target=\"_blank\" rel=\"noopener\">Nettle tea</a> (a <a href=\"https://runescape.wiki/w/Bowl_of_water\" target=\"_blank\" rel=\"noopener\">bowl of water</a> and any pair of gloves will be required if you brew the nettle tea during the quest)",
+          "text": "Nettle tea (a bowl of water and any pair of gloves will be required if you brew the nettle tea during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1e03n8z",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">Bucket of milk</a>",
+          "text": "Bucket of milk",
+          "alternatives": []
+        },
+        {
+          "id": "req:15zkpyc",
+          "html": "<a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">Ghostspeak amulet</a>",
+          "text": "Ghostspeak amulet",
+          "alternatives": []
+        },
+        {
+          "id": "req:jccofs",
+          "html": "3 randomly chosen <a href=\"https://runescape.wiki/w/Dyes#Standard_dyes\" target=\"_blank\" rel=\"noopener\">standard dyes</a> (to save time, bring three of each primary colour to mix as needed):",
+          "text": "3 randomly chosen standard dyes (to save time, bring three of each primary colour to mix as needed):",
+          "alternatives": [
+            "3 <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">red dye</a>",
+            "3 <a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">blue dye</a>",
+            "3 <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">yellow dye</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:15zcyie",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_slime\" target=\"_blank\" rel=\"noopener\">Bucket of slime</a> (can be obtained during the quest)",
+          "text": "Bucket of slime (can be obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "ghostly-trouble",
+      "title": "Ghostly trouble",
+      "anchor": "Ghostly_trouble",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ghostly-trouble:bring:15zkpyc",
+              "html": "<a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">Ghostspeak amulet</a>",
+              "text": "Ghostspeak amulet"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:su39dm",
+          "html": "To enter <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>, either pay two <a href=\"https://runescape.wiki/w/Ecto-token\" target=\"_blank\" rel=\"noopener\">ecto-tokens</a> as an entrance fee to pass the <a href=\"https://runescape.wiki/w/Energy_Barrier_(Port_Phasmatys)\" target=\"_blank\" rel=\"noopener\">energy barrier</a> or <a href=\"https://runescape.wiki/w/Charter_ship\" target=\"_blank\" rel=\"noopener\">charter a ship</a> to reach the town. Each entry through the barrier, until the end of the quest, will cost two ecto-tokens.",
+          "text": "To enter Port Phasmatys, either pay two ecto-tokens as an entrance fee to pass the energy barrier or charter a ship to reach the town. Each entry through the barrier, until the end of the quest, will cost two ecto-tokens.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:47wkj5",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">ghostspeak amulet</a>. You need to equip the amulet when you talk to the ghost residents in the town.",
+          "text": "Equip the ghostspeak amulet. You need to equip the amulet when you talk to the ghost residents in the town.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:3ifg3w",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Velorina\" target=\"_blank\" rel=\"noopener\">Velorina</a> at Port Phasmatys, in the northernmost building just east of the entrance.",
+          "text": "Talk to Velorina at Port Phasmatys, in the northernmost building just east of the entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Why, what is the matter?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I do. It is a very sad story."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:1cdlaud",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Necrovarus\" target=\"_blank\" rel=\"noopener\">Necrovarus</a> at the <a href=\"https://runescape.wiki/w/Ectofuntus\" target=\"_blank\" rel=\"noopener\">Ectofuntus</a> just outside the town, to the north.",
+          "text": "Talk to Necrovarus at the Ectofuntus just outside the town, to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:b5tfol",
+          "html": "If you do not already have a <a href=\"https://runescape.wiki/w/Bucket_of_slime\" target=\"_blank\" rel=\"noopener\">bucket of slime</a>, obtain it now for later use in the quest.",
+          "text": "If you do not already have a bucket of slime, obtain it now for later use in the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ghostly-trouble:b5tfol:ttbtvs",
+              "html": "Open and climb down the <a href=\"https://runescape.wiki/w/Trapdoor_(Ectofuntus)\" target=\"_blank\" rel=\"noopener\">trapdoor</a> on the west side of the Ectofuntus to enter the basement. You do not need a bucket to obtain one.",
+              "text": "Open and climb down the trapdoor on the west side of the Ectofuntus to enter the basement. You do not need a bucket to obtain one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "ghostly-trouble:b5tfol:n6yrjd",
+              "html": "If you intend to proceed with the quest <a href=\"https://runescape.wiki/w/Vessel_of_the_Harbinger\" target=\"_blank\" rel=\"noopener\">Vessel of the Harbinger</a> after this quest, obtain the second one.",
+              "text": "If you intend to proceed with the quest Vessel of the Harbinger after this quest, obtain the second one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ghostly-trouble:1p882rm",
+          "html": "Talk to Velorina.",
+          "text": "Talk to Velorina.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you know where this woman can be found?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-help",
+      "title": "Getting help",
+      "anchor": "Getting_help",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-help:bring:y25f61",
+              "html": "<a href=\"https://runescape.wiki/w/Nettle_tea\" target=\"_blank\" rel=\"noopener\">Nettle tea</a>",
+              "text": "Nettle tea"
+            },
+            {
+              "id": "getting-help:bring:156vnb8",
+              "html": "<a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">Silk</a>",
+              "text": "Silk"
+            },
+            {
+              "id": "getting-help:bring:1t2znv5",
+              "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a>",
+              "text": "Thread"
+            },
+            {
+              "id": "getting-help:bring:1e03n8z",
+              "html": "<a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">Bucket of milk</a>",
+              "text": "Bucket of milk"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:14mt91d",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a>.",
+          "text": "Teleport to Canifis lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:6wd76i",
+          "html": "If you haven&#39;t already made nettle tea, pick some <a href=\"https://runescape.wiki/w/Nettles_(scenery)\" target=\"_blank\" rel=\"noopener\">nettles</a> just east. Use the <a href=\"https://runescape.wiki/w/Nettles\" target=\"_blank\" rel=\"noopener\">nettles</a> on the <a href=\"https://runescape.wiki/w/Bowl_of_water\" target=\"_blank\" rel=\"noopener\">bowl of water</a> to get <a href=\"https://runescape.wiki/w/Nettle-water\" target=\"_blank\" rel=\"noopener\">nettle-water</a>.",
+          "text": "If you haven't already made nettle tea, pick some nettles just east. Use the nettles on the bowl of water to get nettle-water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:1xoxla6",
+          "html": "Head north-west to Netty&#39;s house which is on the east side of the <a href=\"https://runescape.wiki/w/Slayer_Tower\" target=\"_blank\" rel=\"noopener\">Slayer Tower</a>, talk to <a href=\"https://runescape.wiki/w/Netty\" target=\"_blank\" rel=\"noopener\">Netty</a> in her house.",
+          "text": "Head north-west to Netty's house which is on the east side of the Slayer Tower, talk to Netty in her house.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "You are doing so much for me - is there anything I can do for you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:hkm1og",
+          "html": "If you haven&#39;t already made nettle tea, run south of Netty&#39;s house and cut down a <a href=\"https://runescape.wiki/w/Swamp_tree\" target=\"_blank\" rel=\"noopener\">swamp tree</a> for <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a>. Light a <a href=\"https://runescape.wiki/w/Fire\" target=\"_blank\" rel=\"noopener\">fire</a> and use the nettle-water on it to get nettle tea. It is possible to accidentally boil your tea over.",
+          "text": "If you haven't already made nettle tea, run south of Netty's house and cut down a swamp tree for logs. Light a fire and use the nettle-water on it to get nettle tea. It is possible to accidentally boil your tea over.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:11isxnn",
+          "html": "Talk to Netty to get her <a href=\"https://runescape.wiki/w/Porcelain_cup\" target=\"_blank\" rel=\"noopener\">porcelain cup</a>.",
+          "text": "Talk to Netty to get her porcelain cup.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here about Necrovarus."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:1w91mlq",
+          "html": "<i>Use</i> your <a href=\"https://runescape.wiki/w/Nettle_tea\" target=\"_blank\" rel=\"noopener\">nettle tea</a> on her cup, and <i>use</i> your <a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">bucket of milk</a> on it.",
+          "text": "Use your nettle tea on her cup, and use your bucket of milk on it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:1kov8xa",
+          "html": "Talk to Netty again.",
+          "text": "Talk to Netty again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here about Necrovarus."
+                },
+                {
+                  "key": "1",
+                  "text": "You are doing so much for me - is there anything I can do for you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-help:3mt6q9",
+          "html": "Repair the <a href=\"https://runescape.wiki/w/Model_ship\" target=\"_blank\" rel=\"noopener\">model ship</a> with the silk. Bring <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a> just in case.",
+          "text": "Repair the model ship with the silk. Bring thread just in case.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-map",
+      "title": "The map",
+      "anchor": "The_map",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-map:bring:vitoz3",
+              "html": "3 <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">red dye</a>",
+              "text": "3 red dye"
+            },
+            {
+              "id": "the-map:bring:17vzt5g",
+              "html": "3 <a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">blue dye</a>",
+              "text": "3 blue dye"
+            },
+            {
+              "id": "the-map:bring:zb75r8",
+              "html": "3 <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">yellow dye</a>",
+              "text": "3 yellow dye"
+            },
+            {
+              "id": "the-map:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:j8prs1",
+          "html": "Go inside the shipwreck just north of <a href=\"https://runescape.wiki/w/Alice%27s_farm\" target=\"_blank\" rel=\"noopener\">Alice&#39;s farm</a>, east of the <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a>.",
+          "text": "Go inside the shipwreck just north of Alice's farm, east of the Canifis lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:sj9ch9",
+          "html": "Climb the ladders to reach the top deck (there is a ladder on the outer cabin wall).",
+          "text": "Climb the ladders to reach the top deck (there is a ladder on the outer cabin wall).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dyeing the ship"
+        },
+        {
+          "type": "step",
+          "id": "the-map:1jnwzxp",
+          "html": "Wait for the &quot;wind speed&quot; to become &quot;low&quot;, which is shown on the top of the screen. Search the mast to determine the colours and their positions. You need to search for 3 different results, take note if needed.",
+          "text": "Wait for the \"wind speed\" to become \"low\", which is shown on the top of the screen. Search the mast to determine the colours and their positions. You need to search for 3 different results, take note if needed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:159j96a",
+          "html": "Dye the model ship with the same colours and position as the mast. Orange dye is made from red and yellow; green dye is made from blue and yellow; purple dye is made from red and blue dye. If you make a mistake when painting, simply paint over the piece again.",
+          "text": "Dye the model ship with the same colours and position as the mast. Orange dye is made from red and yellow; green dye is made from blue and yellow; purple dye is made from red and blue dye. If you make a mistake when painting, simply paint over the piece again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Notes on colours<br>Top half<br>Red<br>Blue<br>Yellow<br>Orange<br>Green<br>Purple<br>Bottom half<br>Red<br>Blue<br>Yellow<br>Orange<br>Green<br>Purple<br>Skull emblem<br>Red<br>Blue<br>Yellow<br>Orange<br>Green<br>Purple"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Collecting the map scraps"
+        },
+        {
+          "type": "step",
+          "id": "the-map:6dqi7u",
+          "html": "Climb down a ladder and enter the captain&#39;s cabin.",
+          "text": "Climb down a ladder and enter the captain's cabin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:quqals",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Old_man\" target=\"_blank\" rel=\"noopener\">old man</a>.",
+          "text": "Talk to the old man.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Is this your toy boat?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:5xdtn2",
+          "html": "Use the key on the chest by the Captain and open it for a <a href=\"https://runescape.wiki/w/Map_scrap_(1)\" target=\"_blank\" rel=\"noopener\">map scrap</a>.",
+          "text": "Use the key on the chest by the Captain and open it for a map scrap.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:eqt235",
+          "html": "On the ground floor (UK) / 1<sup>st</sup> floor (US) of the ship, open and search all unlocked chest in the eastern end of the ship until a <a href=\"https://runescape.wiki/w/Giant_lobster_(Ghosts_Ahoy)\" target=\"_blank\" rel=\"noopener\">giant lobster</a> spawns.",
+          "text": "On the ground floor (UK) / 1st floor (US) of the ship, open and search all unlocked chest in the eastern end of the ship until a giant lobster spawns.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:1yhwahg",
+          "html": "Kill the giant lobster.",
+          "text": "Kill the giant lobster.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-map:1yhwahg:6mzlw2",
+              "html": "You can safespot the lobster by moving all the way east.",
+              "text": "You can safespot the lobster by moving all the way east.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-map:6lyw62",
+          "html": "Search the chest again for a <a href=\"https://runescape.wiki/w/Map_scrap_(3)\" target=\"_blank\" rel=\"noopener\">map scrap</a>.",
+          "text": "Search the chest again for a map scrap.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:10vjux8",
+          "html": "On the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the ship, go to the northwest part of the ship&#39;s deck.",
+          "text": "On the 1st floor (UK) / 2nd floor (US) of the ship, go to the northwest part of the ship's deck.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:1o4yoxn",
+          "html": "Cross the gangplank to the rocks.",
+          "text": "Cross the gangplank to the rocks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:15f0f54",
+          "html": "Jump to the rocks on your side until you find a chest. Open it for another <a href=\"https://runescape.wiki/w/Map_scrap_(2)\" target=\"_blank\" rel=\"noopener\">map scrap</a>.",
+          "text": "Jump to the rocks on your side until you find a chest. Open it for another map scrap.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-map:bh6d1k",
+          "html": "Put the pieces together to get the map.",
+          "text": "Put the pieces together to get the map.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "dragontooth-island",
+      "title": "Dragontooth Island",
+      "anchor": "Dragontooth_Island",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Book_of_haricanto_location.png/300px-Book_of_haricanto_location.png?2f7a3",
+          "width": 300,
+          "height": 300,
+          "alt": "",
+          "caption": "The dig location of the book of haricanto",
+          "href": "https://runescape.wiki/w/File:Book_of_haricanto_location.png"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "dragontooth-island:bring:1d6ps5w",
+              "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a> in the backpack",
+              "text": "Spade in the backpack"
+            },
+            {
+              "id": "dragontooth-island:bring:1hm0e7m",
+              "html": "<a href=\"https://runescape.wiki/w/Treasure_map\" target=\"_blank\" rel=\"noopener\">Treasure map</a>",
+              "text": "Treasure map"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "dragontooth-island:wo536e",
+          "html": "Go back to Port Phasmatys.",
+          "text": "Go back to Port Phasmatys.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dragontooth-island:1a7dx6r",
+          "html": "Right-click and choose &quot;Travel (Dragontooth Island)&quot; on the <a href=\"https://runescape.wiki/w/Ghost_captain\" target=\"_blank\" rel=\"noopener\">ghost captain</a> on the south-east docks (the one with the smaller boat, not the one directly east of Velorina) to get a ride to <a href=\"https://runescape.wiki/w/Dragontooth_Island\" target=\"_blank\" rel=\"noopener\">Dragontooth Island</a>.",
+          "text": "Right-click and choose \"Travel (Dragontooth Island)\" on the ghost captain on the south-east docks (the one with the smaller boat, not the one directly east of Velorina) to get a ride to Dragontooth Island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dragontooth-island:cr65w9",
+          "html": "Dig with a <a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">spade</a> at the location (Show map) shown to the right to obtain the <a href=\"https://runescape.wiki/w/Book_of_haricanto\" target=\"_blank\" rel=\"noopener\">book of haricanto</a>.",
+          "text": "Dig with a spade at the location (Show map) shown to the right to obtain the book of haricanto.",
+          "dialogue": [],
+          "images": [
+            {
+              "type": "map",
+              "caption": "Show map",
+              "lat": 3530,
+              "lon": 3803,
+              "zoom": 2,
+              "plane": 0,
+              "mapId": 28,
+              "version": "",
+              "features": [],
+              "href": "https://runescape.wiki/w/Ghosts_Ahoy/Quick_guide"
+            }
+          ],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dragontooth-island:1573s7k",
+          "html": "Right-click and choose &quot;Travel&quot; on the ghost captain to go back Port Phasmatys.",
+          "text": "Right-click and choose \"Travel\" on the ghost captain to go back Port Phasmatys.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "translation",
+      "title": "Translation",
+      "anchor": "Translation",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "translation:bring:1hnqvys",
+              "html": "<a href=\"https://runescape.wiki/w/Oak_longbow\" target=\"_blank\" rel=\"noopener\">Oak longbow</a>",
+              "text": "Oak longbow"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "translation:fbyo80",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ak-Haranu\" target=\"_blank\" rel=\"noopener\">Ak-Haranu</a> (who is not a ghost) around the docks.",
+          "text": "Talk to Ak-Haranu (who is not a ghost) around the docks.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Okay, wait here - I'll get you your bow."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "translation:lcsmh8",
+          "html": "Go to the inn and talk to <a href=\"https://runescape.wiki/w/Robin\" target=\"_blank\" rel=\"noopener\">Robin</a>.",
+          "text": "Go to the inn and talk to Robin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about something else."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'll give you a game."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "translation:52tgbh",
+          "html": "Win 4 games of <a href=\"https://runescape.wiki/w/Rune-Draw\" target=\"_blank\" rel=\"noopener\">Rune-Draw</a> against him to get a <a href=\"https://runescape.wiki/w/Signed_oak_longbow\" target=\"_blank\" rel=\"noopener\">signed oak longbow</a>. The easiest method is to choose &quot;draw&quot; until one player loses by drawing a death rune and repeating this until you have four wins total.",
+          "text": "Win 4 games of Rune-Draw against him to get a signed oak longbow. The easiest method is to choose \"draw\" until one player loses by drawing a death rune and repeating this until you have four wins total.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "translation:52tgbh:1ip7whd",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Robin\" target=\"_blank\" rel=\"noopener\">Robin</a> every time you finish a game.",
+              "text": "Talk to Robin every time you finish a game.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about something else."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, I'll give you a game."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "translation:1e463ed",
+          "html": "Talk to Ak-Haranu to get the <a href=\"https://runescape.wiki/w/Translation_manual\" target=\"_blank\" rel=\"noopener\">translation manual</a>.",
+          "text": "Talk to Ak-Haranu to get the translation manual.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "revolution",
+      "title": "Revolution",
+      "anchor": "Revolution",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "revolution:bring:aa56nk",
+              "html": "<a href=\"https://runescape.wiki/w/Bucket_of_slime\" target=\"_blank\" rel=\"noopener\">Bucket of slime</a>",
+              "text": "Bucket of slime"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "revolution:nivnsr",
+          "html": "Ask the <a href=\"https://runescape.wiki/w/Ghost_innkeeper\" target=\"_blank\" rel=\"noopener\">ghost innkeeper</a>, who is located in the pub, for a job to get a <a href=\"https://runescape.wiki/w/Bedsheet\" target=\"_blank\" rel=\"noopener\">bedsheet</a>.",
+          "text": "Ask the ghost innkeeper, who is located in the pub, for a job to get a bedsheet.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Do you have any jobs I can do?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'd be delighted."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "revolution:nivnsr:1azr7ye",
+              "html": "Don&#39;t give it to Robin like he asks.",
+              "text": "Don't give it to Robin like he asks.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "revolution:1ji46f9",
+          "html": "Use your <a href=\"https://runescape.wiki/w/Bucket_of_slime\" target=\"_blank\" rel=\"noopener\">bucket of slime</a> on the bedsheet or dip it into the <a href=\"https://runescape.wiki/w/Pool_of_Slime\" target=\"_blank\" rel=\"noopener\">Pool of Slime</a>. You cannot re-enter Port Phasmatys via charter ship if you have <a href=\"https://runescape.wiki/w/Bedsheet_(ectoplasm)\" target=\"_blank\" rel=\"noopener\">dipped bedsheet</a> in the backpack.",
+          "text": "Use your bucket of slime on the bedsheet or dip it into the Pool of Slime. You cannot re-enter Port Phasmatys via charter ship if you have dipped bedsheet in the backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:1xx2nq6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gravingas\" target=\"_blank\" rel=\"noopener\">Gravingas</a> west of the inn to get a <a href=\"https://runescape.wiki/w/Petition_form\" target=\"_blank\" rel=\"noopener\">petition form</a>.",
+          "text": "Talk to Gravingas west of the inn to get a petition form.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "After hearing Velorina's story I will be happy to help out."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:15aheb1",
+          "html": "Wear your bedsheet.",
+          "text": "Wear your bedsheet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:1d9hatg",
+          "html": "Ask the <a href=\"https://runescape.wiki/w/Ghost_villager\" target=\"_blank\" rel=\"noopener\">ghost villager</a> for signatures until you have 10.",
+          "text": "Ask the ghost villager for signatures until you have 10.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "revolution:1d9hatg:1a4bq56",
+              "html": "You can get multiple signatures from the same ghost if you ask another ghost first.",
+              "text": "You can get multiple signatures from the same ghost if you ask another ghost first.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "revolution:1d9hatg:1te69rx",
+              "html": "Some will resist. Just ask others.",
+              "text": "Some will resist. Just ask others.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "revolution:1d9hatg:10epoth",
+              "html": "If a ghost ask for <a href=\"https://runescape.wiki/w/Ecto-tokens\" target=\"_blank\" rel=\"noopener\">ecto-tokens</a>, simply leave the conversation and ask the same ghost again.",
+              "text": "If a ghost ask for ecto-tokens, simply leave the conversation and ask the same ghost again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "revolution:3isfpw",
+          "html": "After you collected 10 signatures, remove your bedsheet.",
+          "text": "After you collected 10 signatures, remove your bedsheet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:hbtxvs",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Necrovarus\" target=\"_blank\" rel=\"noopener\">Necrovarus</a> at the <a href=\"https://runescape.wiki/w/Ectofuntus\" target=\"_blank\" rel=\"noopener\">Ectofuntus</a>. Take the <a href=\"https://runescape.wiki/w/Bone_key_(Ghosts_Ahoy)\" target=\"_blank\" rel=\"noopener\">bone key</a> he drops on the floor.",
+          "text": "Talk to Necrovarus at the Ectofuntus. Take the bone key he drops on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:1ciavb4",
+          "html": "Head upstairs, and use the key on the door on the south-west side. Then open the door.",
+          "text": "Head upstairs, and use the key on the door on the south-west side. Then open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "revolution:18xrnoz",
+          "html": "Open and search the <a href=\"https://runescape.wiki/w/Coffin_(Necrovarus)\" target=\"_blank\" rel=\"noopener\">coffin</a> for Necrovarus&#39; <a href=\"https://runescape.wiki/w/Mystical_robes\" target=\"_blank\" rel=\"noopener\">mystical robes</a>.",
+          "text": "Open and search the coffin for Necrovarus' mystical robes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "persuasion-techniques",
+      "title": "Persuasion techniques",
+      "anchor": "Persuasion_techniques",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "persuasion-techniques:22d635",
+          "html": "Head north-west of the <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a> and talk to <a href=\"https://runescape.wiki/w/Netty\" target=\"_blank\" rel=\"noopener\">Netty</a> in her shack (east of the Slayer Tower).",
+          "text": "Head north-west of the Canifis lodestone and talk to Netty in her shack (east of the Slayer Tower).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "persuasion-techniques:luaed3",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Ghostspeak_amulet_(enchanted)\" target=\"_blank\" rel=\"noopener\">enchanted ghostspeak amulet</a>.",
+          "text": "Equip the enchanted ghostspeak amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "persuasion-techniques:1cma2t5",
+          "html": "Talk to Necrovarus near the Ectofuntus. Once you have talked to Necrovarus, you will be able to enter Port Phasmatys freely. You can pass the energy barrier without needing to pay ecto-tokens.",
+          "text": "Talk to Necrovarus near the Ectofuntus. Once you have talked to Necrovarus, you will be able to enter Port Phasmatys freely. You can pass the energy barrier without needing to pay ecto-tokens.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let any ghost who so wishes pass on into the next world."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "persuasion-techniques:1hajlgu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Velorina\" target=\"_blank\" rel=\"noopener\">Velorina</a> in northern Port Phasmatys.",
+          "text": "Talk to Velorina in northern Port Phasmatys.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "persuasion-techniques:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Ghosts_Ahoy_reward.png?44d8b",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Ghosts_Ahoy_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "2,400 experience",
+        "text": "2,400 experience",
+        "subs": []
+      },
+      {
+        "html": "Free passage into <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>",
+        "text": "Free passage into Port Phasmatys",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">ectophial</a>, which provides a reusable one-click teleport to the <a href=\"https://runescape.wiki/w/Ectofuntus\" target=\"_blank\" rel=\"noopener\">Ectofuntus</a>",
+        "text": "The ectophial, which provides a reusable one-click teleport to the Ectofuntus",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Dragontooth Island",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Ghosts_Ahoy_(achievement)\" target=\"_blank\" rel=\"noopener\">Ghosts Ahoy</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Poor_Imitation\" target=\"_blank\" rel=\"noopener\">Poor Imitation</a> (5) – Disgruntle an inhabitant of Um by wearing a bedsheet.",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Vessel_of_the_Harbinger/Quick_guide\" target=\"_blank\" rel=\"noopener\">Vessel of the Harbinger</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Hermy and Bass</a>",
+        "<a href=\"https://runescape.wiki/w/The_Spirit_of_War/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Spirit of War</a>",
+        "<a href=\"https://runescape.wiki/w/Tomes_of_the_Warlock/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tomes of the Warlock</a>"
+      ]
+    }
+  ]
+}

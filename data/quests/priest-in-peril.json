@@ -1,0 +1,573 @@
+{
+  "format": 1,
+  "id": "priest-in-peril",
+  "title": "Priest in Peril",
+  "page": "Priest in Peril/Quick guide",
+  "rev": 37159968,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/King_Roald\" target=\"_blank\" rel=\"noopener\">King Roald</a> in the <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3472,
+      "lon": 3221,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Priest_in_Peril/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Cerberus (level 33)",
+        "name": "Cerberus",
+        "count": null,
+        "level": "33",
+        "note": ""
+      },
+      {
+        "text": "Monk of Zamorak (level 23)",
+        "name": "Monk of Zamorak",
+        "count": null,
+        "level": "23",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:hqch92",
+          "html": "50 <a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> or 25 <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a> (the essence <i>must</i> be un-noted)",
+          "text": "50 rune essence or 25 pure essence (the essence must be un-noted)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1uw5ap6",
+          "html": "A <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">bucket</a>",
+          "text": "A bucket",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:jabflg",
+          "html": "3 or more <a href=\"https://runescape.wiki/w/Varrock_teleport\" target=\"_blank\" rel=\"noopener\">Varrock teleports</a>",
+          "text": "3 or more Varrock teleports",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13bqrvj",
+          "html": "A familiar to carry any essence that you are unable to fit into your inventory.",
+          "text": "A familiar to carry any essence that you are unable to fit into your inventory.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1t1vqa9",
+          "html": "The <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> gained after completing the <a href=\"https://runescape.wiki/w/Archaeology_tutorial\" target=\"_blank\" rel=\"noopener\">Archaeology tutorial</a> can teleport you relatively close to the temple, or alternatively using the <a href=\"https://runescape.wiki/w/Fort_Forinthry_lodestone\" target=\"_blank\" rel=\"noopener\">Fort Forinthry lodestone</a> if unlocked.",
+          "text": "The Archaeology journal gained after completing the Archaeology tutorial can teleport you relatively close to the temple, or alternatively using the Fort Forinthry lodestone if unlocked.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1duk6hy",
+          "html": "<a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">Invitation box</a> to teleport near the temple (requires completion of <a href=\"https://runescape.wiki/w/Missing,_Presumed_Death\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a>).",
+          "text": "Invitation box to teleport near the temple (requires completion of Missing, Presumed Death).",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "a-missing-monk",
+      "title": "A missing monk",
+      "anchor": "A_missing_monk",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Start point of the quest",
+          "lat": 3476,
+          "lon": 3222,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3217.5,
+                      3471.5
+                    ],
+                    [
+                      3217.5,
+                      3481.5
+                    ],
+                    [
+                      3227.5,
+                      3481.5
+                    ],
+                    [
+                      3227.5,
+                      3471.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Priest_in_Peril/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:4i6e1m",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Roald\" target=\"_blank\" rel=\"noopener\">King Roald</a> in <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace</a>.",
+          "text": "Talk to King Roald in Varrock Palace.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Greet the king."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            },
+            {
+              "when": "If New Foundations is started",
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Greet the king."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:gbqd7a",
+          "html": "Go to the temple in <a href=\"https://runescape.wiki/w/Silvarea\" target=\"_blank\" rel=\"noopener\">Silvarea</a> which is east of the <a href=\"https://runescape.wiki/w/Earth_altar\" target=\"_blank\" rel=\"noopener\">earth altar</a>.",
+          "text": "Go to the temple in Silvarea which is east of the earth altar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-missing-monk:gbqd7a:1dkm5b8",
+              "html": "Players with an <a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">invitation box</a> can teleport twice to arrive outside the temple.",
+              "text": "Players with an invitation box can teleport twice to arrive outside the temple.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:xins67",
+          "html": "Knock at the large door of the temple.",
+          "text": "Knock at the large door of the temple.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Knock at the door."
+                },
+                {
+                  "key": "1",
+                  "text": "Roald sent me to check on Drezel."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:mydyuo",
+          "html": "Go north and enter the mausoleum.",
+          "text": "Go north and enter the mausoleum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:1pv8cy",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Cerberus\" target=\"_blank\" rel=\"noopener\">Cerberus</a>.",
+          "text": "Kill Cerberus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:z4a03n",
+          "html": "Teleport to Varrock.",
+          "text": "Teleport to Varrock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-missing-monk:1nm0zmt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Roald\" target=\"_blank\" rel=\"noopener\">King Roald</a>.",
+          "text": "Talk to King Roald.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Priest in Peril."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "making-things-right",
+      "title": "Making things right",
+      "anchor": "Making_things_right",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "making-things-right:bring:1uw5ap6",
+              "html": "A <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">bucket</a>",
+              "text": "A bucket"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:1ofrlb7",
+          "html": "At this time you can bring the 25 unnoted pure essence to save a trip later.",
+          "text": "At this time you can bring the 25 unnoted pure essence to save a trip later.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:1g49jhe",
+          "html": "Enter the Temple and kill a level 23 <a href=\"https://runescape.wiki/w/Monk_of_Zamorak\" target=\"_blank\" rel=\"noopener\">Monk of Zamorak</a> to obtain a golden key.",
+          "text": "Enter the Temple and kill a level 23 Monk of Zamorak to obtain a golden key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:1dpk0r7",
+          "html": "Go outside and enter the Mausoleum to the north and through the gate.",
+          "text": "Go outside and enter the Mausoleum to the north and through the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:1ildskv",
+          "html": "Study the monuments.",
+          "text": "Study the monuments.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:arh4tm",
+          "html": "Use the golden key on the one that has the <a href=\"https://runescape.wiki/w/Iron_key\" target=\"_blank\" rel=\"noopener\">iron key</a>.",
+          "text": "Use the golden key on the one that has the iron key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-things-right:nt3olo",
+          "html": "Fill a <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">bucket</a> with water from the well in the centre of the monument room.",
+          "text": "Fill a bucket with water from the well in the centre of the monument room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "saradomin-s-blessing",
+      "title": "Saradomin's blessing",
+      "anchor": "Saradomin's_blessing",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "saradomin-s-blessing:bring:13gyvmw",
+              "html": "Iron key",
+              "text": "Iron key"
+            },
+            {
+              "id": "saradomin-s-blessing:bring:8rtwsz",
+              "html": "<a href=\"https://runescape.wiki/w/Bucket_of_murky_water\" target=\"_blank\" rel=\"noopener\">Bucket of murky water</a>",
+              "text": "Bucket of murky water"
+            },
+            {
+              "id": "saradomin-s-blessing:bring:xxnhxi",
+              "html": "50 unnoted <a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> or 25 unnoted <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a>",
+              "text": "50 unnoted rune essence or 25 unnoted pure essence"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:15d44bi",
+          "html": "Go back to the temple and climb to the top floor.",
+          "text": "Go back to the temple and climb to the top floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:1yiz0t6",
+          "html": "Use the iron key on the cell door and talk to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a>.",
+          "text": "Use the iron key on the cell door and talk to Drezel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:oaj2ei",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Bucket_of_blessed_water\" target=\"_blank\" rel=\"noopener\">bucket of blessed water</a> on the <a href=\"https://runescape.wiki/w/Morytania_coffin\" target=\"_blank\" rel=\"noopener\">Morytania coffin</a>.",
+          "text": "Use the bucket of blessed water on the Morytania coffin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:1fx6hrt",
+          "html": "Return to the mausoleum, enter the monument room, and speak with Drezel.",
+          "text": "Return to the mausoleum, enter the monument room, and speak with Drezel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:1qmityd",
+          "html": "Talk to him again to give him 50 unnoted <a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> or 25 unnoted <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a>.",
+          "text": "Talk to him again to give him 50 unnoted rune essence or 25 unnoted pure essence.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-s-blessing:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Priest_in_Peril_reward.png?7c515",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Priest_in_Peril_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1,406 experience <a href=\"https://runescape.wiki/w/Prayer_XP_lamp_(Priest_in_Peril)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,406 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "The blessed <a href=\"https://runescape.wiki/w/Wolfbane\" target=\"_blank\" rel=\"noopener\">Wolfbane</a> dagger",
+        "text": "The blessed Wolfbane dagger",
+        "subs": []
+      },
+      {
+        "html": "Talk to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a> at the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> to receive 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">Kudos</a>",
+        "text": "Talk to Historian Minas at the Varrock Museum to receive 5 Kudos",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/All_Fired_Up/Quick_guide\" target=\"_blank\" rel=\"noopener\">All Fired Up</a>",
+        "<a href=\"https://runescape.wiki/w/Nature_Spirit/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nature Spirit</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_I_-_Growing_Pains/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale I - Growing Pains</a>",
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_II_-_Cure_a_Queen/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale II - Cure a Queen</a>",
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a>",
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/In_Aid_of_the_Myreque/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Aid of the Myreque</a>",
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/In_Search_of_the_Myreque/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Search of the Myreque</a>",
+        "<a href=\"https://runescape.wiki/w/Legacy_of_Seergaze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legacy of Seergaze</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>",
+        "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Darkness_of_Hallowvale/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Darkness of Hallowvale</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a> (full comprehension)"
+      ]
+    }
+  ]
+}

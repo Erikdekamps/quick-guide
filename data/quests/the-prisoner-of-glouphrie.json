@@ -1,0 +1,748 @@
+{
+  "format": 1,
+  "id": "the-prisoner-of-glouphrie",
+  "title": "The Prisoner of Glouphrie",
+  "page": "The Prisoner of Glouphrie/Quick guide",
+  "rev": 36924942,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Golrie\" target=\"_blank\" rel=\"noopener\">Golrie</a> in his cave beneath the <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 4450,
+      "lon": 2579,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Prisoner_of_Glouphrie/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Path of Glouphrie",
+        "depth": 1
+      },
+      {
+        "text": "The Eyes of Glouphrie",
+        "depth": 2
+      },
+      {
+        "text": "The Grand Tree",
+        "depth": 3
+      },
+      {
+        "text": "Tree Gnome Village",
+        "depth": 2
+      },
+      {
+        "text": "Waterfall Quest",
+        "depth": 2
+      },
+      {
+        "text": "Roving Elves",
+        "depth": 1
+      },
+      {
+        "text": "Regicide",
+        "depth": 2
+      },
+      {
+        "text": "Underground Pass",
+        "depth": 3
+      },
+      {
+        "text": "Biohazard",
+        "depth": 4
+      },
+      {
+        "text": "Plague City",
+        "depth": 5
+      },
+      {
+        "text": "Waterfall Quest",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 64,
+        "note": ""
+      },
+      {
+        "skill": "Construction",
+        "level": 62,
+        "note": ""
+      },
+      {
+        "skill": "Runecrafting",
+        "level": 61,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 64,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Tirannwn</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:orhz63",
+          "html": "Runes for <a href=\"https://runescape.wiki/w/Ourania_teleport\" target=\"_blank\" rel=\"noopener\">Ourania teleport</a> (optional, if you have 71 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> and are using <a href=\"https://runescape.wiki/w/Lunar_spells\" target=\"_blank\" rel=\"noopener\">Lunar spells</a>, 1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a>, 2 <a href=\"https://runescape.wiki/w/Astral_rune\" target=\"_blank\" rel=\"noopener\">astral runes</a>, 6 <a href=\"https://runescape.wiki/w/Earth_rune\" target=\"_blank\" rel=\"noopener\">earth runes</a> or <a href=\"https://runescape.wiki/w/Ardougne_easy_tasks\" target=\"_blank\" rel=\"noopener\">Ardougne easy tasks</a> for <a href=\"https://runescape.wiki/w/Kandarin_monastery_Teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery Teleport</a>)",
+          "text": "Runes for Ourania teleport (optional, if you have 71 Magic and are using Lunar spells, 1 law rune, 2 astral runes, 6 earth runes or Ardougne easy tasks for Kandarin monastery Teleport)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:zunqn1",
+          "html": "A <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a> or an activated <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a> for quick access to the observatory",
+          "text": "A ring of duelling or an activated Yanille lodestone for quick access to the observatory",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1he8o5p",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+          "text": "Rope",
+          "alternatives": []
+        },
+        {
+          "id": "rec:fr1u8f",
+          "html": "<a href=\"https://runescape.wiki/w/Chipped_Watchtower_teleport\" target=\"_blank\" rel=\"noopener\">Chipped Watchtower teleport</a>",
+          "text": "Chipped Watchtower teleport",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:15mh2cm",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Golrie\" target=\"_blank\" rel=\"noopener\">Golrie</a> in the <a href=\"https://runescape.wiki/w/Gnome_Village_Dungeon\" target=\"_blank\" rel=\"noopener\">Gnome Village Dungeon</a>. (Note: If you run into a bug where you can&#39;t click the X to close the letter without it moving your character, right-click on the X and click &quot;Close&quot; or press &quot;Esc&quot; on your keyboard to close the note.)",
+          "text": "Speak to Golrie in the Gnome Village Dungeon. (Note: If you run into a bug where you can't click the X to close the letter without it moving your character, right-click on the X and click \"Close\" or press \"Esc\" on your keyboard to close the note.)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "[Look at the letter]"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "4",
+                  "text": "What should we do next?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:g5iglz",
+          "html": "After asking what is next, you will be transported to the surface for a conversation with <a href=\"https://runescape.wiki/w/Golrana\" target=\"_blank\" rel=\"noopener\">Golrana</a>.",
+          "text": "After asking what is next, you will be transported to the surface for a conversation with Golrana.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1urs68o",
+          "html": "Talk with <a href=\"https://runescape.wiki/w/Golrana\" target=\"_blank\" rel=\"noopener\">Golrana</a> inside the <a href=\"https://runescape.wiki/w/Gnome_Village\" target=\"_blank\" rel=\"noopener\">Gnome Village</a>.",
+          "text": "Talk with Golrana inside the Gnome Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1fem8av",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a> (or follow Elkoy out of the maze) and head to the highlighted area north of the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">Observatory</a> and south of the Ourania altar (just north-east of the crystal tree). Make sure to pass the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">Observatory</a> on its eastern side, alternatively use a <a href=\"https://runescape.wiki/w/%27Chipped%27_Watchtower_teleport\" target=\"_blank\" rel=\"noopener\">&#39;Chipped&#39; Watchtower teleport</a> to teleport directly there.",
+          "text": "Teleport to Castle Wars (or follow Elkoy out of the maze) and head to the highlighted area north of the Observatory and south of the Ourania altar (just north-east of the crystal tree). Make sure to pass the Observatory on its eastern side, alternatively use a 'Chipped' Watchtower teleport to teleport directly there.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1dk84rr",
+          "html": "Make sure to dismiss your pet/follower. Talk to <a href=\"https://runescape.wiki/w/Golrana\" target=\"_blank\" rel=\"noopener\">Golrana</a>.",
+          "text": "Make sure to dismiss your pet/follower. Talk to Golrana.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1o1l0z4",
+          "html": "Walk up the path north-west until you reach a large dead tree. <i>Search</i> it, then <i>climb-through</i> it.",
+          "text": "Walk up the path north-west until you reach a large dead tree. Search it, then climb-through it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:10p99j1",
+          "html": "<i>Investigate</i> the ledge on the south end of the chasm (the wall near the rocks at the south of the room), continue the conversation with Golrana, she then will cross the chasm and throw a rope for you to cross.",
+          "text": "Investigate the ledge on the south end of the chasm (the wall near the rocks at the south of the room), continue the conversation with Golrana, she then will cross the chasm and throw a rope for you to cross.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:10p99j1:nf45vs",
+              "html": "If you encounter a bug in which Golrana disappears, simply re-log and continue from two steps prior.",
+              "text": "If you encounter a bug in which Golrana disappears, simply re-log and continue from two steps prior.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1kpkj4b",
+          "html": "Move south and continue through the cave by jumping across gaps.",
+          "text": "Move south and continue through the cave by jumping across gaps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1ycenau",
+          "html": "Travel north-west until reaching a water stream with stepping stones, but do not cross yet.",
+          "text": "Travel north-west until reaching a water stream with stepping stones, but do not cross yet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1qabuyb",
+          "html": "Before crossing the set of stepping stones, <i>investigate</i> the small crevice in the south wall to your immediate east.",
+          "text": "Before crossing the set of stepping stones, investigate the small crevice in the south wall to your immediate east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:4xxxlo",
+          "html": "Golrana will enter the crevice and emerge on the other side, she then will move a stone for you to complete the jumping part.",
+          "text": "Golrana will enter the crevice and emerge on the other side, she then will move a stone for you to complete the jumping part.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:6rohds",
+          "html": "Cross the stepping stones, head southwest until you reach a crevice, then <i>climb-through</i> and out of the cave.",
+          "text": "Cross the stepping stones, head southwest until you reach a crevice, then climb-through and out of the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1ejy7mv",
+          "html": "Go west to the ledge overlooking Lletya and <i>investigate</i> the sturdy tree, then <i>climb-down</i> it.",
+          "text": "Go west to the ledge overlooking Lletya and investigate the sturdy tree, then climb-down it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "bolrie-s-lab",
+      "title": "Bolrie's Lab",
+      "anchor": "Bolrie's_Lab",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:1aciym1",
+          "html": "After a cutscene, take the <a href=\"https://runescape.wiki/w/A_handwritten_book_(The_Prisoner_of_Glouphrie)\" target=\"_blank\" rel=\"noopener\">handwritten book</a> on the crate next to you and read it.",
+          "text": "After a cutscene, take the handwritten book on the crate next to you and read it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:18z9k9j",
+          "html": "Search all crates, lamps, shelves and the picture in the room. You will be notified when you have gathered everything in the room.",
+          "text": "Search all crates, lamps, shelves and the picture in the room. You will be notified when you have gathered everything in the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:dq56c2",
+          "html": "<i>Build</i> the crate at the desk north of the ladder, then <i>calibrate</i> it.",
+          "text": "Build the crate at the desk north of the ladder, then calibrate it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:1c0py8d",
+          "html": "Note down the number and colour value for all three.",
+          "text": "Note down the number and colour value for all three.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:uu3bz4",
+          "html": "Use the calculator below to get a working pair of shapes for each of the three value pairs. Note down the pair of shapes for each.",
+          "text": "Use the calculator below to get a working pair of shapes for each of the three value pairs. Note down the pair of shapes for each.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "template = tpogc form = tpogcF result = tpogcR param = target|Target intensity||int|0-100 param = colour|Target colour|Cyan|select|Cyan,Magenta,Yellow"
+        },
+        {
+          "type": "table",
+          "label": "Calculator",
+          "head": [
+            "Calculator"
+          ],
+          "rows": [
+            [
+              "Please wait for the form to load."
+            ],
+            [
+              "Result"
+            ],
+            [
+              "Please submit the form."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "html": "Obtaining shapes"
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:7o58z",
+          "html": "Clear any <a href=\"https://runescape.wiki/w/Skyboxes_and_filters\" target=\"_blank\" rel=\"noopener\">Skyboxes and filters</a> to see the plain colours for this next part.",
+          "text": "Clear any Skyboxes and filters to see the plain colours for this next part.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:190cgcx",
+          "html": "To change the colour, <i>rotate</i> the prism near the singing bowl until it reaches the desired colour.",
+          "text": "To change the colour, rotate the prism near the singing bowl until it reaches the desired colour.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:w42c3k",
+          "html": "To change the shape, right-click <i>fill</i> or <i>empty</i> the singing bowl. Every time you fill or empty the bowl, the crystal will respectively gain or lose a side.",
+          "text": "To change the shape, right-click fill or empty the singing bowl. Every time you fill or empty the bowl, the crystal will respectively gain or lose a side.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:1se1h8t",
+          "html": "To finalise the crystal into the shape, <i>sing-glass</i> on the singing bowl.",
+          "text": "To finalise the crystal into the shape, sing-glass on the singing bowl.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:1a5zeav",
+          "html": "To obtain more <a href=\"https://runescape.wiki/w/Minute_crystal_seed\" target=\"_blank\" rel=\"noopener\">minute crystal seeds</a>, search the crate just next to the bowl.",
+          "text": "To obtain more minute crystal seeds, search the crate just next to the bowl.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:ok7bts",
+          "html": "Once you sing all 6 desired shapes, <i>calibrate</i> the device then insert the correct shapes into their corresponding slots.",
+          "text": "Once you sing all 6 desired shapes, calibrate the device then insert the correct shapes into their corresponding slots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bolrie-s-lab:1q3tu6t",
+          "html": "Click the green tick mark at the bottom to complete the puzzle.",
+          "text": "Click the green tick mark at the bottom to complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "arposandra",
+      "title": "Arposandra",
+      "anchor": "Arposandra",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "arposandra:1lqa08t",
+          "html": "Climb up the ladder and talk to Golrana underneath the steps just to the east of Lletya centre. (If you teleport to Lletya instead of leaving via the ladder, she will not appear. You can return to the lab from a trapdoor in the sheep pen in the northwest Lletya.)",
+          "text": "Climb up the ladder and talk to Golrana underneath the steps just to the east of Lletya centre. (If you teleport to Lletya instead of leaving via the ladder, she will not appear. You can return to the lab from a trapdoor in the sheep pen in the northwest Lletya.)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:10nd4w6",
+          "html": "Once back up on the ledge, walk past the large boulder to the east, and Golrana should spot an air vent.",
+          "text": "Once back up on the ledge, walk past the large boulder to the east, and Golrana should spot an air vent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:y4hevc",
+          "html": "<i>Open</i> the air vent on the rock wall just south of the boulder, then <i>climb-down</i> it.",
+          "text": "Open the air vent on the rock wall just south of the boulder, then climb-down it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:1g6oj15",
+          "html": "After the cutscene <i>Climb-up</i> the stairs just next to you.",
+          "text": "After the cutscene Climb-up the stairs just next to you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:a1hl7d",
+          "html": "Head east to the prison and <i>rotate</i> the watcher once.",
+          "text": "Head east to the prison and rotate the watcher once.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:7l5kby",
+          "html": "Enter the prison through the metal doors. Talk to the guard.",
+          "text": "Enter the prison through the metal doors. Talk to the guard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:11l4wv8",
+          "html": "<i>Pick-lock</i> on the northwest cell door. Talk to Bolrie.",
+          "text": "Pick-lock on the northwest cell door. Talk to Bolrie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I fell down the shaft and we got separated."
+                },
+                {
+                  "key": "2",
+                  "text": "Ilfeen."
+                },
+                {
+                  "key": "3",
+                  "text": "Gena."
+                },
+                {
+                  "key": "3",
+                  "text": "42."
+                },
+                {
+                  "key": "1",
+                  "text": "The Grand Tree."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:6pllzd",
+          "html": "Lead Bolrie out of the jail and west to the corridor behind the stairs you just came up.",
+          "text": "Lead Bolrie out of the jail and west to the corridor behind the stairs you just came up.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:cd0xes",
+          "html": "Continue through the door in the end and watch the cutscene.",
+          "text": "Continue through the door in the end and watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:60t26n",
+          "html": "After the cutscene, stand north of the big boulder and <i>push</i> it southward to block the air vent.",
+          "text": "After the cutscene, stand north of the big boulder and push it southward to block the air vent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:1yjj1v6",
+          "html": "Talk to the gnomes for a cutscene.",
+          "text": "Talk to the gnomes for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:1dx1xjj",
+          "html": "Talk to them again to watch a second cutscene.",
+          "text": "Talk to them again to watch a second cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arposandra:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Prisoner_of_Glouphrie_reward.png?c1924",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Prisoner_of_Glouphrie_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "60,000 experience",
+        "text": "60,000 experience",
+        "subs": []
+      },
+      {
+        "html": "60,000 experience",
+        "text": "60,000 experience",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience",
+        "text": "50,000 experience",
+        "subs": []
+      },
+      {
+        "html": "45,000 experience",
+        "text": "45,000 experience",
+        "subs": []
+      },
+      {
+        "html": "A new <a href=\"https://runescape.wiki/w/Glider\" target=\"_blank\" rel=\"noopener\">glider</a> just outside <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>",
+        "text": "A new glider just outside Tree Gnome Village",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Golrana\" target=\"_blank\" rel=\"noopener\">Golrana</a> will now store <a href=\"https://runescape.wiki/w/Spirit_tree_seed\" target=\"_blank\" rel=\"noopener\">spirit tree seeds</a> for you",
+        "text": "Golrana will now store spirit tree seeds for you",
+        "subs": []
+      },
+      {
+        "html": "Ability to plant up to two <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit trees</a> at a time with 86 <a href=\"https://runescape.wiki/w/Farming\" target=\"_blank\" rel=\"noopener\">Farming</a>.",
+        "text": "Ability to plant up to two spirit trees at a time with 86 Farming.",
+        "subs": []
+      },
+      {
+        "html": "Ability to teleport to the <a href=\"https://runescape.wiki/w/Prifddinas\" target=\"_blank\" rel=\"noopener\">Prifddinas</a> <a href=\"https://runescape.wiki/w/Spirit_Tree\" target=\"_blank\" rel=\"noopener\">Spirit Tree</a> (after talking to <a href=\"https://runescape.wiki/w/Glouron\" target=\"_blank\" rel=\"noopener\">Glouron</a> next to the tree itself and with 89 <a href=\"https://runescape.wiki/w/Farming\" target=\"_blank\" rel=\"noopener\">Farming</a>), plus a <a href=\"https://runescape.wiki/w/Farming_XP_lamp_(Prifddinas)\" target=\"_blank\" rel=\"noopener\">Farming XP lamp</a>.",
+        "text": "Ability to teleport to the Prifddinas Spirit Tree (after talking to Glouron next to the tree itself and with 89 Farming), plus a Farming XP lamp.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Lletya\" target=\"_blank\" rel=\"noopener\">Lletya</a> via a passageway through the mountain range",
+        "text": "Access to Lletya via a passageway through the mountain range",
+        "subs": []
+      },
+      {
+        "html": "Easier access to crystal seed enchantment (<a href=\"https://runescape.wiki/w/Ilfeen\" target=\"_blank\" rel=\"noopener\">Ilfeen</a> can be found wandering Lletya shortly after starting the quest)",
+        "text": "Easier access to crystal seed enchantment (Ilfeen can be found wandering Lletya shortly after starting the quest)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Cage Against the Machine",
+      "where": ""
+    },
+    {
+      "name": "Reunion",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/The_Prisoner_of_Glouphrie_(achievement)\" target=\"_blank\" rel=\"noopener\">The Prisoner of Glouphrie</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Power_of_Three_Spirits\" target=\"_blank\" rel=\"noopener\">Power of Three Spirits</a> (10) – Unlock the ability to grow three spirit trees at once.",
+    "<b><a href=\"https://runescape.wiki/w/Tirannwn_achievements\" target=\"_blank\" rel=\"noopener\">Tirannwn achievements</a></b>"
+  ],
+  "requiredFor": []
+}

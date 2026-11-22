@@ -1,0 +1,151 @@
+{
+  "format": 1,
+  "id": "father-and-son-miniquest",
+  "title": "Father and Son (miniquest)",
+  "page": "Father and Son (miniquest)/Quick guide",
+  "rev": 35949975,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Irwinsson\" target=\"_blank\" rel=\"noopener\">Irwinsson</a>, located on <a href=\"https://runescape.wiki/w/Anachronia\" target=\"_blank\" rel=\"noopener\">Anachronia</a>, found south of the <a href=\"https://runescape.wiki/w/Anachronia_lodestone\" target=\"_blank\" rel=\"noopener\">Anachronia lodestone</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2330,
+      "lon": 5429,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Father_and_Son_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Anachronia base camp tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Anachronia</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1prmyno",
+          "html": "<a href=\"https://runescape.wiki/w/Enchanted_lyre\" target=\"_blank\" rel=\"noopener\">Enchanted lyre</a> for quick teleport to <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>",
+          "text": "Enchanted lyre for quick teleport to Rellekka",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:rgusqq",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Irwinsson\" target=\"_blank\" rel=\"noopener\">Irwinsson</a>.",
+          "text": "Talk to Irwinsson.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Tell me more about yourself."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:4q54xt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sigli_the_Huntsman\" target=\"_blank\" rel=\"noopener\">Sigli the Huntsman</a> located at the main gate of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>.",
+          "text": "Talk to Sigli the Huntsman located at the main gate of Rellekka.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:2fesrk",
+          "html": "Head back to Anachronia and give Irwinsson his <a href=\"https://runescape.wiki/w/Irwinsson%27s_greatbow\" target=\"_blank\" rel=\"noopener\">greatbow</a>.",
+          "text": "Head back to Anachronia and give Irwinsson his greatbow.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Sigli."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Father_and_Son_%28miniquest%29_reward.png?6d6b2",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Father_and_Son_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Hunter_XP_lamp_(Father_and_Son)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

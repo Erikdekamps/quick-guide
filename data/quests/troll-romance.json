@@ -1,0 +1,914 @@
+{
+  "format": 1,
+  "id": "troll-romance",
+  "title": "Troll Romance",
+  "page": "Troll Romance/Quick guide",
+  "rev": 37184046,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Ug\" target=\"_blank\" rel=\"noopener\">Ug</a> at the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>. (via the first location → the second location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 10065,
+      "lon": 2826,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Troll_Romance/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Troll Stronghold",
+        "depth": 1
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 28,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 40,
+        "note": "(for maple logs)"
+      },
+      {
+        "skill": "Mining",
+        "level": 10,
+        "note": "(to mine iron ore)"
+      },
+      {
+        "skill": "Smithing",
+        "level": 10,
+        "note": "(to smelt an iron bar)"
+      }
+    ],
+    "otherReqs": [
+      "If <a href=\"https://runescape.wiki/w/Death_Plateau\" target=\"_blank\" rel=\"noopener\">Death Plateau</a> was completed prior to the <a href=\"https://runescape.wiki/w/Update:Troll_Warzone\" target=\"_blank\" rel=\"noopener\">Troll Warzone update</a>, it must be completed again before Troll Romance can be completed."
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Arrg (level 77)",
+        "name": "Arrg",
+        "count": null,
+        "level": "77",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Havenhythe</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:17jxzbi",
+          "html": "<a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">Iron bar</a>",
+          "text": "Iron bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:1iob8l3",
+          "html": "<a href=\"https://runescape.wiki/w/Maple_logs\" target=\"_blank\" rel=\"noopener\">Maple</a> or <a href=\"https://runescape.wiki/w/Yew_logs\" target=\"_blank\" rel=\"noopener\">yew logs</a>",
+          "text": "Maple or yew logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:1he8o5p",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+          "text": "Rope",
+          "alternatives": []
+        },
+        {
+          "id": "req:1l5li1i",
+          "html": "<a href=\"https://runescape.wiki/w/Cake_tin\" target=\"_blank\" rel=\"noopener\">Cake tin</a>",
+          "text": "Cake tin",
+          "alternatives": []
+        },
+        {
+          "id": "req:1t2htz8",
+          "html": "<a href=\"https://runescape.wiki/w/Swamp_tar\" target=\"_blank\" rel=\"noopener\">Swamp tar</a>",
+          "text": "Swamp tar",
+          "alternatives": []
+        },
+        {
+          "id": "req:fm5sih",
+          "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a> (or <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a> or <a href=\"https://runescape.wiki/w/Trollheim_tablet\" target=\"_blank\" rel=\"noopener\">Trollheim tablet</a>)",
+          "text": "Climbing boots (or Trollheim Teleport or Trollheim tablet)",
+          "alternatives": []
+        },
+        {
+          "id": "req:ndtn9w",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_wax\" target=\"_blank\" rel=\"noopener\">Bucket of wax</a>",
+          "text": "Bucket of wax",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1a5bpap",
+          "html": "61 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> for teleporting:",
+          "text": "61 Magic for teleporting:",
+          "alternatives": [
+            "4 sets of runes or tablets for <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a> (with <a href=\"https://runescape.wiki/w/Eadgar%27s_Ruse\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s Ruse</a>)",
+            "1 set of runes for <a href=\"https://runescape.wiki/w/God_Wars_Dungeon_Teleport\" target=\"_blank\" rel=\"noopener\">God Wars Dungeon Teleport</a> (with <a href=\"https://runescape.wiki/w/The_Mighty_Fall\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>)"
+          ]
+        },
+        {
+          "id": "rec:1g0vxcr",
+          "html": "43 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> to climb the <a href=\"https://runescape.wiki/w/Cliffside_(Trollheim_medium)\" target=\"_blank\" rel=\"noopener\">cliffside</a>",
+          "text": "43 Agility to climb the cliffside",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pja39z",
+          "html": "43 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> is useful for <a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a>",
+          "text": "43 Prayer is useful for Protect from Melee",
+          "alternatives": []
+        },
+        {
+          "id": "rec:g4ha3j",
+          "html": "<a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a> to reduce damage taken from troll ranged attacks",
+          "text": "Fremennik round shield to reduce damage taken from troll ranged attacks",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "hitch",
+      "title": "Hitch",
+      "anchor": "Hitch",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "hitch:bring:fm5sih",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a> (or <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a> or <a href=\"https://runescape.wiki/w/Trollheim_tablet\" target=\"_blank\" rel=\"noopener\">Trollheim tablet</a>)",
+              "text": "Climbing boots (or Trollheim Teleport or Trollheim tablet)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "The entrances to the Troll Stronghold",
+          "lat": 3663,
+          "lon": 2838,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2847.5,
+                  3688.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Cave entrance<br /><b>Object ID</b>: 34395<br /><b>Notes</b>: To Troll Stronghold",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2829.5,
+                  3638.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Secret Entrance<br /><b>Object ID</b>: 3762<br /><b>Notes</b>: To Troll Stronghold",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2820.5,
+                  3743.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Cave entrance<br /><b>Object ID</b>: 5007<br /><b>Notes</b>: To Trollweiss",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Troll_Romance/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "hitch:ietugj",
+          "html": "Go to the middle level of the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>.",
+          "text": "Go to the middle level of the Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "hitch:ietugj:s2vjhs",
+              "html": "Enter the <a href=\"https://runescape.wiki/w/Cave_entrance_(Troll_Country)\" target=\"_blank\" rel=\"noopener\">cave entrance</a> from <a href=\"https://runescape.wiki/w/Trollheim\" target=\"_blank\" rel=\"noopener\">Trollheim</a> and go down one level.",
+              "text": "Enter the cave entrance from Trollheim and go down one level.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "hitch:ietugj:ujkkrm",
+              "html": "Otherwise, enter the <a href=\"https://runescape.wiki/w/Secret_Entrance_(Troll_Stronghold)\" target=\"_blank\" rel=\"noopener\">secret entrance</a> from the entrance to <a href=\"https://runescape.wiki/w/Fremennik_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">Fremennik Slayer Dungeon</a> (fairy ring code <b>A</b><b>J</b><b>R</b>) or <a href=\"https://runescape.wiki/w/Death_Plateau_(location)\" target=\"_blank\" rel=\"noopener\">Death Plateau</a> and go up one level.",
+              "text": "Otherwise, enter the secret entrance from the entrance to Fremennik Slayer Dungeon (fairy ring code AJR) or Death Plateau and go up one level.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "hitch:110dqy2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ug\" target=\"_blank\" rel=\"noopener\">Ug</a> on the middle level of the Troll Stronghold. Offer him your help.",
+          "text": "Talk to Ug on the middle level of the Troll Stronghold. Offer him your help.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Awww, you poor troll. What seems to be the problem?"
+                },
+                {
+                  "key": "3",
+                  "text": "Don't worry now. I'll see what I can do."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hitch:jt0bdd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aga\" target=\"_blank\" rel=\"noopener\">Aga</a> in the room to the north.",
+          "text": "Talk to Aga in the room to the north.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "So... how's your... um... love life?"
+                },
+                {
+                  "key": "1",
+                  "text": "Errr... I've got to go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hitch:107v9e1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Arrg\" target=\"_blank\" rel=\"noopener\">Arrg</a> in the same room.",
+          "text": "Talk to Arrg in the same room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Your girlfriend said you know where to find Trollweiss?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "hitch:1blx9sy",
+          "html": "Talk to Ug again.",
+          "text": "Talk to Ug again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "survival-techniques",
+      "title": "Survival techniques",
+      "anchor": "Survival_techniques",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "survival-techniques:bring:3vy59s",
+              "html": "1 <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a>",
+              "text": "1 rope"
+            },
+            {
+              "id": "survival-techniques:bring:1pewqa5",
+              "html": "1 <a href=\"https://runescape.wiki/w/Maple_logs\" target=\"_blank\" rel=\"noopener\">maple logs</a> or <a href=\"https://runescape.wiki/w/Yew_logs\" target=\"_blank\" rel=\"noopener\">yew logs</a>",
+              "text": "1 maple logs or yew logs"
+            },
+            {
+              "id": "survival-techniques:bring:mylsp3",
+              "html": "1 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bar</a>",
+              "text": "1 iron bar"
+            },
+            {
+              "id": "survival-techniques:bring:i96drr",
+              "html": "1 <a href=\"https://runescape.wiki/w/Swamp_tar\" target=\"_blank\" rel=\"noopener\">swamp tar</a>",
+              "text": "1 swamp tar"
+            },
+            {
+              "id": "survival-techniques:bring:1njzpcy",
+              "html": "1 <a href=\"https://runescape.wiki/w/Cake_tin\" target=\"_blank\" rel=\"noopener\">cake tin</a> and 1 <a href=\"https://runescape.wiki/w/Bucket_of_wax\" target=\"_blank\" rel=\"noopener\">bucket of wax</a>",
+              "text": "1 cake tin and 1 bucket of wax"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Freda's house",
+          "lat": 3556,
+          "lon": 2820,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2815.5,
+                      3551.5
+                    ],
+                    [
+                      2815.5,
+                      3561.5
+                    ],
+                    [
+                      2825.5,
+                      3561.5
+                    ],
+                    [
+                      2825.5,
+                      3551.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Troll_Romance/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "survival-techniques:1qh06eo",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a> and talk to <a href=\"https://runescape.wiki/w/Freda\" target=\"_blank\" rel=\"noopener\">Freda</a> in the plateaus west of Burthorpe.",
+          "text": "Teleport to Burthorpe and talk to Freda in the plateaus west of Burthorpe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you know where I can find Trollweiss?"
+                },
+                {
+                  "key": "?",
+                  "text": "That's all, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "survival-techniques:ymr35c",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dunstan\" target=\"_blank\" rel=\"noopener\">Dunstan</a> east of the Burthorpe lodestone about a sled.",
+          "text": "Talk to Dunstan east of the Burthorpe lodestone about a sled.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need a sled!!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "survival-techniques:g7jfqm",
+          "html": "Talk to him again to give him a rope, maple or yew logs, and an iron bar.",
+          "text": "Talk to him again to give him a rope, maple or yew logs, and an iron bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "survival-techniques:nwcjf6",
+          "html": "Use swamp tar on a wax bucket (with a cake tin in your inventory).",
+          "text": "Use swamp tar on a wax bucket (with a cake tin in your inventory).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "survival-techniques:16y9jsz",
+          "html": "Use your wax on the sled.",
+          "text": "Use your wax on the sled.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sledding",
+      "title": "Sledding",
+      "anchor": "Sledding",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "sledding:bring:fm5sih",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a> (or <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a> or <a href=\"https://runescape.wiki/w/Trollheim_tablet\" target=\"_blank\" rel=\"noopener\">Trollheim tablet</a>)",
+              "text": "Climbing boots (or Trollheim Teleport or Trollheim tablet)"
+            },
+            {
+              "id": "sledding:bring:1vo1qkl",
+              "html": "1 <a href=\"https://runescape.wiki/w/Sled_(waxed)\" target=\"_blank\" rel=\"noopener\">waxed sled</a>",
+              "text": "1 waxed sled"
+            },
+            {
+              "id": "sledding:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "sledding:bring:1yq7jbd",
+              "html": "Eventual food for next quest step",
+              "text": "Eventual food for next quest step"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Cave entrance to the tunnels to Trollweiss",
+          "lat": 3743,
+          "lon": 2820,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2847.5,
+                  3688.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Cave entrance<br /><b>Object ID</b>: 34395<br /><b>Notes</b>: To Troll Stronghold",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2829.5,
+                  3638.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Secret Entrance<br /><b>Object ID</b>: 3762<br /><b>Notes</b>: To Troll Stronghold",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2820.5,
+                  3743.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Cave entrance<br /><b>Object ID</b>: 5007<br /><b>Notes</b>: To Trollweiss",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Troll_Romance/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "sledding:10ybu18",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Cave_entrance_(Trollweiss_Dungeon)\" target=\"_blank\" rel=\"noopener\">cave entrance</a> opposite the <a href=\"https://runescape.wiki/w/Ice_gate\" target=\"_blank\" rel=\"noopener\">ice gate</a>, which is located north-west of the main entrance to Troll Stronghold.",
+          "text": "Enter the cave entrance opposite the ice gate, which is located north-west of the main entrance to Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sledding:10ybu18:183hi5m",
+              "html": "Preferably use Trollheim Teleport here if you have it.",
+              "text": "Preferably use Trollheim Teleport here if you have it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "sledding:10ybu18:1ngs6p7",
+              "html": "Otherwise, you need to go through the Troll Stronghold and past Trollheim.",
+              "text": "Otherwise, you need to go through the Troll Stronghold and past Trollheim.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sledding:16bh6nr",
+          "html": "Head north-west and exit the cave through the crevasse.",
+          "text": "Head north-west and exit the cave through the crevasse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sledding:15n9fdu",
+          "html": "Head south, equip your sled and slide through the slope.",
+          "text": "Head south, equip your sled and slide through the slope.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sledding:vux39i",
+          "html": "After the end of the first part of the ride, pick the Trollweiss flowers west of your location. Do not sled any further south at this point or you will have to climb the mountain again.",
+          "text": "After the end of the first part of the ride, pick the Trollweiss flowers west of your location. Do not sled any further south at this point or you will have to climb the mountain again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sledding:1pdp5mq",
+          "html": "Go back and talk to Ug.",
+          "text": "Go back and talk to Ug.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-things-we-do-for-love",
+      "title": "The things we do for love...",
+      "anchor": "The_things_we_do_for_love...",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-things-we-do-for-love:bring:k4tmhb",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a>",
+              "text": "Climbing boots"
+            },
+            {
+              "id": "the-things-we-do-for-love:bring:csefuk",
+              "html": "1 <a href=\"https://runescape.wiki/w/Trollweiss\" target=\"_blank\" rel=\"noopener\">Trollweiss</a>",
+              "text": "1 Trollweiss"
+            },
+            {
+              "id": "the-things-we-do-for-love:bring:7cbiov",
+              "html": "Combat gear and food",
+              "text": "Combat gear and food"
+            },
+            {
+              "id": "the-things-we-do-for-love:bring:b7eat7",
+              "html": "7 backpack spaces for reward",
+              "text": "7 backpack spaces for reward"
+            },
+            {
+              "id": "the-things-we-do-for-love:bring:1gczw48",
+              "html": "Reward will be dropped on floor if there is not enough space",
+              "text": "Reward will be dropped on floor if there is not enough space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-things-we-do-for-love:5834m0",
+          "html": "Talk to Arrg and tell him you&#39;re here to kill him. The fight will start immediately after that. Arrg also attacks immediately after the teleport, so be prepared.",
+          "text": "Talk to Arrg and tell him you're here to kill him. The fight will start immediately after that. Arrg also attacks immediately after the teleport, so be prepared.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I am here to kill you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-things-we-do-for-love:6zitcj",
+          "html": "Kill Arrg.",
+          "text": "Kill Arrg.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-things-we-do-for-love:1pf30xy",
+          "html": "Return to Ug and talk to him.",
+          "text": "Return to Ug and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-things-we-do-for-love:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Troll_Romance_reward.png?510f7",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Troll_Romance_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "4,000 experience",
+        "text": "4,000 experience",
+        "subs": []
+      },
+      {
+        "html": "A handful of <a href=\"https://runescape.wiki/w/Uncut_gem\" target=\"_blank\" rel=\"noopener\">uncut gems</a> from <a href=\"https://runescape.wiki/w/Ug\" target=\"_blank\" rel=\"noopener\">Ug</a> (1 <a href=\"https://runescape.wiki/w/Uncut_diamond\" target=\"_blank\" rel=\"noopener\">uncut diamond</a>, 2 <a href=\"https://runescape.wiki/w/Uncut_ruby\" target=\"_blank\" rel=\"noopener\">uncut rubies</a> and 4 <a href=\"https://runescape.wiki/w/Uncut_emerald\" target=\"_blank\" rel=\"noopener\">uncut emeralds</a>)",
+        "text": "A handful of uncut gems from Ug (1 uncut diamond, 2 uncut rubies and 4 uncut emeralds)",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Sled\" target=\"_blank\" rel=\"noopener\">sled</a>",
+        "text": "A sled",
+        "subs": []
+      },
+      {
+        "html": "Unlocks sledding route from <a href=\"https://runescape.wiki/w/Trollweiss_Mountain\" target=\"_blank\" rel=\"noopener\">Trollweiss</a>",
+        "text": "Unlocks sledding route from Trollweiss",
+        "subs": []
+      },
+      {
+        "html": "A new colour of wieldable <a href=\"https://runescape.wiki/w/Trollweiss\" target=\"_blank\" rel=\"noopener\">flowers</a>",
+        "text": "A new colour of wieldable flowers",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Romancing the Crone",
+      "where": "Unlocked at the top of Trollweiss Mountain"
+    },
+    {
+      "name": "Hell's Bells",
+      "where": "Unlocked when the player is about to start sledding"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

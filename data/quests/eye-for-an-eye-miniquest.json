@@ -1,0 +1,486 @@
+{
+  "format": 1,
+  "id": "eye-for-an-eye-miniquest",
+  "title": "Eye for an Eye (miniquest)",
+  "page": "Eye for an Eye (miniquest)/Quick guide",
+  "rev": 36510063,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Ichi\" target=\"_blank\" rel=\"noopener\">Ichi</a> on the eastern side of <a href=\"https://runescape.wiki/w/Cyclosis\" target=\"_blank\" rel=\"noopener\">Cyclosis</a>. (<a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a>, south-east of the <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">Port Sarim pub</a>, can sail you to Cyclosis in the <a href=\"https://runescape.wiki/w/Arc\" target=\"_blank\" rel=\"noopener\">Arc</a> region of the <a href=\"https://runescape.wiki/w/Wushanko_Isles\" target=\"_blank\" rel=\"noopener\">Wushanko Isles</a>.)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11199,
+      "lon": 2337,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Jed Hunter (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Flag Fall (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Head of the Family (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Spiritual Enlightenment (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 3
+      },
+      {
+        "text": "Discover the island of Cyclosis in player-owned port",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 90,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "27 Zyclopes (level 93)",
+        "name": "Zyclopes",
+        "count": 27,
+        "level": "93",
+        "note": ""
+      },
+      {
+        "text": "Undead Jed",
+        "name": "Undead Jed",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1tmf3gd",
+          "html": "30 <a href=\"https://runescape.wiki/w/Sea_salt\" target=\"_blank\" rel=\"noopener\">sea salt</a> or <a href=\"https://runescape.wiki/w/Alaea_sea_salt\" target=\"_blank\" rel=\"noopener\">alaea sea salt</a> (untradeable)",
+          "text": "30 sea salt or alaea sea salt (untradeable)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8w69bo",
+          "html": "Food and combat equipment",
+          "text": "Food and combat equipment",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "starting-out:bring:1p1pncj",
+              "html": "Combat gear &amp; food (prepare to kill enemies weak to fire spells)",
+              "text": "Combat gear & food (prepare to kill enemies weak to fire spells)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ubeavv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ichi\" target=\"_blank\" rel=\"noopener\">Ichi</a> on the east side of Cyclosis island (if you have just completed the <a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)\" target=\"_blank\" rel=\"noopener\">Jed Hunter miniquest</a> you may need to relog for the chat option to show up).",
+          "text": "Talk to Ichi on the east side of Cyclosis island (if you have just completed the Jed Hunter miniquest you may need to relog for the chat option to show up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ulm08t",
+          "html": "Talk to Lookout Ekahi.",
+          "text": "Talk to Lookout Ekahi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "night-watch",
+      "title": "Night watch",
+      "anchor": "Night_watch",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "night-watch:bring:6fbeym",
+              "html": "30 <a href=\"https://runescape.wiki/w/Alaea\" target=\"_blank\" rel=\"noopener\">alaea</a> or regular <a href=\"https://runescape.wiki/w/Sea_salt\" target=\"_blank\" rel=\"noopener\">sea salt</a>",
+              "text": "30 alaea or regular sea salt"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:12wsaob",
+          "html": "Talk to Lookout Ekahi again, in the centre of the island.",
+          "text": "Talk to Lookout Ekahi again, in the centre of the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:v38xdo",
+          "html": "Kill all 27 <a href=\"https://runescape.wiki/w/Zyclops\" target=\"_blank\" rel=\"noopener\">Zyclopes</a>.",
+          "text": "Kill all 27 Zyclopes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1ulm08t",
+          "html": "Talk to Lookout Ekahi.",
+          "text": "Talk to Lookout Ekahi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1wjb1ut",
+          "html": "Talk to Lookout Ekahi again.",
+          "text": "Talk to Lookout Ekahi again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1jj6uj7",
+          "html": "Talk to Ichi.",
+          "text": "Talk to Ichi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1jkp7x0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/See\" target=\"_blank\" rel=\"noopener\">See</a> in the south-west corner of the island.",
+          "text": "Talk to See in the south-west corner of the island.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you know anything about zyclopes?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:thl577",
+          "html": "Mine 30 <a href=\"https://runescape.wiki/w/Sea_salt\" target=\"_blank\" rel=\"noopener\">sea salt</a> crystals from the <a href=\"https://runescape.wiki/w/Salty_crabletine\" target=\"_blank\" rel=\"noopener\">salty crabletines</a> on the north-west beach if you don&#39;t have them already.",
+          "text": "Mine 30 sea salt crystals from the salty crabletines on the north-west beach if you don't have them already.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:d1edgo",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sinuman_(food_merchant)\" target=\"_blank\" rel=\"noopener\">Sinuman</a> in the north-east corner for a bag of <a href=\"https://runescape.wiki/w/Crushed_salt\" target=\"_blank\" rel=\"noopener\">crushed salt</a>.",
+          "text": "Talk to Sinuman in the north-east corner for a bag of crushed salt.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1muf2te",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Daya\" target=\"_blank\" rel=\"noopener\">Daya</a> on the west side of the island to receive a bag of <a href=\"https://runescape.wiki/w/Blessed_salt\" target=\"_blank\" rel=\"noopener\">blessed salt</a>.",
+          "text": "Talk to Daya on the west side of the island to receive a bag of blessed salt.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you know anything about zyclopes?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "night-watch:1srpxrj",
+          "html": "Return to Ichi east on the island.",
+          "text": "Return to Ichi east on the island.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "searching-for-lookout-ekahi",
+      "title": "Searching for Lookout Ekahi",
+      "anchor": "Searching_for_Lookout_Ekahi",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "searching-for-lookout-ekahi:100q632",
+          "html": "Go along the northern coast and speak to <a href=\"https://runescape.wiki/w/Undead_Jed\" target=\"_blank\" rel=\"noopener\">Undead Jed</a>. Do not click anywhere until Undead Jed becomes attackable.",
+          "text": "Go along the northern coast and speak to Undead Jed. Do not click anywhere until Undead Jed becomes attackable.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "searching-for-lookout-ekahi:1hshaw1",
+          "html": "Kill Undead Jed.",
+          "text": "Kill Undead Jed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "searching-for-lookout-ekahi:1ulm08t",
+          "html": "Talk to Lookout Ekahi.",
+          "text": "Talk to Lookout Ekahi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "searching-for-lookout-ekahi:1wjb1ut",
+          "html": "Talk to Lookout Ekahi again.",
+          "text": "Talk to Lookout Ekahi again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Eye for an Eye miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Eye_for_an_Eye_%28miniquest%29_reward.png?5466a",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Eye_for_an_Eye_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "250 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "250 chimes",
+        "subs": []
+      },
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "1 taijitu",
+        "subs": []
+      },
+      {
+        "html": "25 <a href=\"https://runescape.wiki/w/Alaea_sea_salt\" target=\"_blank\" rel=\"noopener\">alaea sea salt</a>",
+        "text": "25 alaea sea salt",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Prayer_XP_lamp_(The_Arc)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Banky_crablet\" target=\"_blank\" rel=\"noopener\">Banky crablet</a> and <a href=\"https://runescape.wiki/w/Cyclosis_teleport\" target=\"_blank\" rel=\"noopener\">Cyclosis teleport</a> tablet unlocked in the <a href=\"https://runescape.wiki/w/Waiko_Reward_Shop\" target=\"_blank\" rel=\"noopener\">Waiko Reward Shop</a>",
+        "text": "Banky crablet and Cyclosis teleport tablet unlocked in the Waiko Reward Shop",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Eye for an Eye",
+      "where": ""
+    },
+    {
+      "name": "March of the Zyclops",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    }
+  ]
+}

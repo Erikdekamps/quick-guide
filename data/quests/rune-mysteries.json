@@ -1,0 +1,818 @@
+{
+  "format": 1,
+  "id": "rune-mysteries",
+  "title": "Rune Mysteries",
+  "page": "Rune Mysteries/Quick guide",
+  "rev": 37284301,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> in the lobby of the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>, south of <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+    "startMap": null,
+    "members": false,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [
+      "<a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">Standard spells</a> equipped <i>or</i> the ability to cast <a href=\"https://runescape.wiki/w/Spellbook_Swap\" target=\"_blank\" rel=\"noopener\">Spellbook Swap</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Magical vortex (no level)",
+        "name": "Magical vortex (no level)",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:564naq",
+          "html": "Some free inventory spaces.",
+          "text": "Some free inventory spaces.",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1endysr",
+          "html": "<a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">Wicked hood</a> or <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a> for teleports to Wizards&#39; Tower",
+          "text": "Wicked hood or stardust for teleports to Wizards' Tower",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the Wizards' Tower",
+          "lat": 3158,
+          "lon": 3101,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [],
+          "href": "https://runescape.wiki/w/Rune_Mysteries/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1jnzdwp",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> in the entrance to <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+          "text": "Talk to Ariane in the entrance to Wizards' Tower.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's happening here?"
+                },
+                {
+                  "key": "2",
+                  "text": "What can I do to help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:kuoeks",
+          "html": "Head into the tower, pick up the <a href=\"https://runescape.wiki/w/Tower_mindspike\" target=\"_blank\" rel=\"noopener\">Tower mindspike</a> and attack the vortex with any spell. You must unequip any ranged, melee, or necromancy armour or you may not be able to lure the vortex.",
+          "text": "Head into the tower, pick up the Tower mindspike and attack the vortex with any spell. You must unequip any ranged, melee, or necromancy armour or you may not be able to lure the vortex.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:n5n8mg",
+          "html": "Lure the vortex into the energy beam.",
+          "text": "Lure the vortex into the energy beam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-old-tower",
+      "title": "The old tower",
+      "anchor": "The_old_tower",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-old-tower:175k29u",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> on the bridge outside.",
+          "text": "Talk to Ariane on the bridge outside.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What do you want me to do?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll get on it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-old-tower:1ngjg75",
+          "html": "Ascend the beam twice, and talk to <a href=\"https://runescape.wiki/w/Wizard_Traiborn\" target=\"_blank\" rel=\"noopener\">Wizard Traiborn</a> in the northwestern room.",
+          "text": "Ascend the beam twice, and talk to Wizard Traiborn in the northwestern room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Have you seen anything unusual lately?"
+                },
+                {
+                  "key": "2",
+                  "text": "In the power beam?"
+                },
+                {
+                  "key": "2",
+                  "text": "Where do these things come from?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-old-tower:1i7zk93",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Archmage_Sedridor\" target=\"_blank\" rel=\"noopener\">Archmage Sedridor</a> in the southern room.",
+          "text": "Talk to Archmage Sedridor in the southern room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Ariane says the tower is in danger."
+                },
+                {
+                  "key": "3",
+                  "text": "What are you going to do?"
+                },
+                {
+                  "key": "4",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-old-tower:1i7zk93:16o8bjc",
+              "html": "If <a href=\"https://runescape.wiki/w/Love_Story\" target=\"_blank\" rel=\"noopener\">Love Story</a> has been completed.",
+              "text": "If Love Story has been completed.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Ariane says the tower is in danger."
+                    },
+                    {
+                      "key": "3",
+                      "text": "What are you going to do?"
+                    },
+                    {
+                      "key": "4",
+                      "text": "Goodbye."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-old-tower:1wnbzh0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Ellaron\" target=\"_blank\" rel=\"noopener\">Wizard Ellaron</a> in the northeastern room.",
+          "text": "Talk to Wizard Ellaron in the northeastern room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ariane says the tower is in danger."
+                },
+                {
+                  "key": "2",
+                  "text": "Thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-old-tower:1uayy6e",
+          "html": "Descend the beam twice or right-click and select <i>bottom floor</i> back to the ground floor (UK) / 1<sup>st</sup> floor (US).",
+          "text": "Descend the beam twice or right-click and select bottom floor back to the ground floor (UK) / 1st floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-old-tower:18qvf9u",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I've spoken to some of the wizards..."
+                },
+                {
+                  "key": "3",
+                  "text": "Wizard Traiborn said something came through the library floor."
+                },
+                {
+                  "key": "2",
+                  "text": "Then let's get down there and investigate!"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll get right on it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-hidden-key",
+      "title": "The hidden key",
+      "anchor": "The_hidden_key",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-hidden-key:129sy3v",
+          "html": "Ascend the beam twice.",
+          "text": "Ascend the beam twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:13ipbuc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Ellaron\" target=\"_blank\" rel=\"noopener\">Wizard Ellaron</a>.",
+          "text": "Talk to Wizard Ellaron.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How can I get into the old tower?"
+                },
+                {
+                  "key": "3",
+                  "text": "You do know, though?"
+                },
+                {
+                  "key": "3",
+                  "text": "You mean the rumour about Water Surge?"
+                },
+                {
+                  "key": "3",
+                  "text": "What do you mean, the key lies in understanding Water Surge?"
+                },
+                {
+                  "key": "2",
+                  "text": "It's such a pity you couldn't help me, Maybe I'll visit the library."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:1ymktrt",
+          "html": "Go back to the ground floor (UK) / 1<sup>st</sup> floor (US) and search the easternmost bookcase for <a href=\"https://runescape.wiki/w/The_Harmony_of_the_Runes\" target=\"_blank\" rel=\"noopener\">The Harmony of the Runes</a> and <a href=\"https://runescape.wiki/w/The_Runes_of_the_Spells_of_Water\" target=\"_blank\" rel=\"noopener\">The Runes of the Spells of Water</a>.",
+          "text": "Go back to the ground floor (UK) / 1st floor (US) and search the easternmost bookcase for The Harmony of the Runes and The Runes of the Spells of Water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:1t05fdm",
+          "html": "Read the books.",
+          "text": "Read the books.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:1vkcy0o",
+          "html": "Play the organ at the southern end of the ground floor (UK) / 1<sup>st</sup> floor (US).",
+          "text": "Play the organ at the southern end of the ground floor (UK) / 1st floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:1e3xemc",
+          "html": "Press the organ keys in the following order: 10x &quot;B&quot;, 7x &quot;A#&quot;, 1x &quot;G#&quot;, and 1x &quot;G&quot;. (small black keys are # notes)",
+          "text": "Press the organ keys in the following order: 10x \"B\", 7x \"A#\", 1x \"G#\", and 1x \"G\". (small black keys are # notes)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-key:5516zb",
+          "html": "Take the organ key.",
+          "text": "Take the organ key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "descent",
+      "title": "Descent",
+      "anchor": "Descent",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "descent:qpl6ce",
+          "html": "Head to the north side of the island and talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>, then head east and enter the door on the seashore.",
+          "text": "Head to the north side of the island and talk to Ariane, then head east and enter the door on the seashore.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I've got the key to the ruins."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:1dtzhs8",
+          "html": "Talk to Ariane",
+          "text": "Talk to Ariane",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "We should keep our minds on the job."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, it's inspiring."
+                },
+                {
+                  "key": "2",
+                  "text": "Okay, what should we do now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:1unlw5w",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Rune_guardian_(Rune_Mysteries)\" target=\"_blank\" rel=\"noopener\">rune guardian</a> and answer the questions any way.",
+          "text": "Talk to the rune guardian and answer the questions any way.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm ready to be tested."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "descent:1unlw5w:sm8ldq",
+              "html": "The options you pick only dictate the <a href=\"https://runescape.wiki/w/Title\" target=\"_blank\" rel=\"noopener\">title</a> you&#39;re given. See the full guide to learn more.",
+              "text": "The options you pick only dictate the title you're given. See the full guide to learn more.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "descent:1hsavgw",
+          "html": "Enter the door behind the rune guardian.",
+          "text": "Enter the door behind the rune guardian.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:meb6vo",
+          "html": "Walk down the stairs to the gap in front of <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "Walk down the stairs to the gap in front of Ariane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:1bwblqu",
+          "html": "Climb behind the statue (on the wall above the gap).",
+          "text": "Climb behind the statue (on the wall above the gap).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm making us a bridge."
+                },
+                {
+                  "key": "1",
+                  "text": "Do you have a better idea?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:fym8q7",
+          "html": "Cross the statue (gap) and climb down the staircase.",
+          "text": "Cross the statue (gap) and climb down the staircase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:18qvf9u",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "Talk to Ariane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I wish I could have seen it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:1jkt7z3",
+          "html": "Use magic to lure a vortex into Ariane&#39;s circle, and keep it there until the circle disappears. You can lure them by attacking them.",
+          "text": "Use magic to lure a vortex into Ariane's circle, and keep it there until the circle disappears. You can lure them by attacking them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "descent:3rdqjy",
+          "html": "Talk to Ariane again.",
+          "text": "Talk to Ariane again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Never mind the history, what does that mean for us?"
+                },
+                {
+                  "key": "2",
+                  "text": "Okay, so what do we do?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, I'll do that now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:h4v7id",
+          "html": "Exit the ruins.",
+          "text": "Exit the ruins.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:k30usz",
+          "html": "Head back to the organ on the main floor of the tower and play any of the notes multiple times from the lowest set of keys to trigger several cutscenes.",
+          "text": "Head back to the organ on the main floor of the tower and play any of the notes multiple times from the lowest set of keys to trigger several cutscenes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ofr8gs",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a> (east side of the island at the entrance to the lower tower).",
+          "text": "Talk to Ariane (east side of the island at the entrance to the lower tower).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Is there a reward?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Rune_Mysteries_reward.png?460e4",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Rune_Mysteries_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "250 experience <a href=\"https://runescape.wiki/w/Magic_lamp_(Rune_Mysteries)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "250 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "250 experience",
+        "text": "250 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tower_mindspike\" target=\"_blank\" rel=\"noopener\">Tower mindspike</a>",
+        "text": "Tower mindspike",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/First_tower_hat\" target=\"_blank\" rel=\"noopener\">First tower hat</a>",
+        "text": "First tower hat",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Air_talisman\" target=\"_blank\" rel=\"noopener\">Air talisman</a>",
+        "text": "Air talisman",
+        "subs": []
+      },
+      {
+        "html": "70 <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">Mind runes</a>",
+        "text": "70 Mind runes",
+        "subs": []
+      },
+      {
+        "html": "Four new titles (speak to the Rune Guardian to retrieve the title):",
+        "text": "Four new titles (speak to the Rune Guardian to retrieve the title):",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/The_Blue\" target=\"_blank\" rel=\"noopener\">[Name] the Blue</a>",
+          "<a href=\"https://runescape.wiki/w/The_Red\" target=\"_blank\" rel=\"noopener\">[Name] the Red</a>",
+          "<a href=\"https://runescape.wiki/w/The_Green\" target=\"_blank\" rel=\"noopener\">[Name] the Green</a>",
+          "<a href=\"https://runescape.wiki/w/The_Grey\" target=\"_blank\" rel=\"noopener\">[Name] the Grey</a>"
+        ]
+      },
+      {
+        "html": "If you are a member, you can talk to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a> in the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> to receive 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">Kudos</a>",
+        "text": "If you are a member, you can talk to Historian Minas in the Varrock Museum to receive 5 Kudos",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Harmony of the Runes",
+      "where": "Outside the Wizards' Tower"
+    },
+    {
+      "name": "Blue Wizards",
+      "where": "Entering the Wizards' Tower"
+    },
+    {
+      "name": "Inner Secret",
+      "where": "Entering the Ruins"
+    },
+    {
+      "name": "Forgotten Orders",
+      "where": "Entering the Ruins after completing the quest"
+    },
+    {
+      "name": "Bloody Foundation",
+      "where": "During the final section of the quest"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Rune_Memories/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rune Memories</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

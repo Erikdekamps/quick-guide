@@ -1,0 +1,582 @@
+{
+  "format": 1,
+  "id": "eye-of-het-i",
+  "title": "Eye of Het I",
+  "page": "Eye of Het I/Quick guide",
+  "rev": 36631835,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a> at the entrance to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3237,
+      "lon": 3322,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Eye_of_Het_I/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "City of Senntisten",
+        "depth": 1
+      },
+      {
+        "text": "Battle of the Monolith",
+        "depth": 2
+      },
+      {
+        "text": "Azzanadra's Quest",
+        "depth": 3
+      },
+      {
+        "text": "The Vault of Shadows",
+        "depth": 4
+      },
+      {
+        "text": "Raksha, the Shadow Colossus",
+        "depth": 4
+      },
+      {
+        "text": "Anachronia base camp tutorial",
+        "depth": 5
+      },
+      {
+        "text": "Desperate Creatures",
+        "depth": 4
+      },
+      {
+        "text": "Desperate Measures…",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 65,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Impossible</span>"
+      },
+      {
+        "label": "League notes",
+        "html": "This quest can&#39;t be completed, as the prerequisite quest City of Senntisten can&#39;t be completed. The quest itself requires <span class=\"reg\">Desert</span>."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ohsbr3",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a> for quick access to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>.",
+          "text": "Ring of duelling for quick access to Het's Oasis.",
+          "alternatives": [
+            "Alternatively, the <a href=\"https://runescape.wiki/w/Al_Kharid_lodestone\" target=\"_blank\" rel=\"noopener\">Al Kharid lodestone</a>, <a href=\"https://runescape.wiki/w/Fire_altar_teleport\" target=\"_blank\" rel=\"noopener\">fire altar teleport</a> to <a href=\"https://runescape.wiki/w/Fire_altar\" target=\"_blank\" rel=\"noopener\">fire altar</a>, or <a href=\"https://runescape.wiki/w/Master_archaeologist%27s_outfit\" target=\"_blank\" rel=\"noopener\">master archaeologist&#39;s outfit</a> to <a href=\"https://runescape.wiki/w/Kharid-et_Dig_Site\" target=\"_blank\" rel=\"noopener\">Kharid-et Dig Site</a> can be used.",
+            "Another alternative, <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a>, teleport to <a href=\"https://runescape.wiki/w/Dig_sites_map\" target=\"_blank\" rel=\"noopener\">dig sites map</a> to teleport to Kharid-et Dig Site to go there."
+          ]
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "earthquake-aftermath",
+      "title": "Earthquake aftermath",
+      "anchor": "Earthquake_aftermath",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "earthquake-aftermath:1lyavrj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a> at the entrance to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>.",
+          "text": "Talk to Icthlarin at the entrance to Het's Oasis.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "4",
+                  "text": "Continue..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "clearing-the-rubble",
+      "title": "Clearing the rubble",
+      "anchor": "Clearing_the_rubble",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "clearing-the-rubble:d4nhch",
+          "html": "Clear the <a href=\"https://runescape.wiki/w/Fallen_masonry\" target=\"_blank\" rel=\"noopener\">fallen masonry</a> at points along the <a href=\"https://runescape.wiki/w/Het%27s_Oasis_Agility_Course\" target=\"_blank\" rel=\"noopener\">agility course</a>. If you have already cleared it, this will be mentioned in the chat and you can start closing the rifts.",
+          "text": "Clear the fallen masonry at points along the agility course. If you have already cleared it, this will be mentioned in the chat and you can start closing the rifts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "clearing-the-rubble:d4nhch:eh8gx6",
+              "html": "At the start of the course.",
+              "text": "At the start of the course.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "clearing-the-rubble:d4nhch:1r0qe55",
+              "html": "At the bottom of the rope ladder next to the <a href=\"https://runescape.wiki/w/Statue_of_Het\" target=\"_blank\" rel=\"noopener\">Statue of Het</a>.",
+              "text": "At the bottom of the rope ladder next to the Statue of Het.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "clearing-the-rubble:d4nhch:v3qsep",
+              "html": "On a walkway on the eastern side of the course.",
+              "text": "On a walkway on the eastern side of the course.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "clearing-the-rubble:d4nhch:1fgzma3",
+              "html": "At the end of a walkway further along the southern-most part of the course to the west.",
+              "text": "At the end of a walkway further along the southern-most part of the course to the west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "clearing-the-rubble:fotgeb",
+          "html": "Finish the course or teleport back to the Het&#39;s Oasis. A <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a> is the fastest teleport method back.",
+          "text": "Finish the course or teleport back to the Het's Oasis. A ring of duelling is the fastest teleport method back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "clearing-the-rubble:ahm486",
+          "html": "Talk to Icthlarin.",
+          "text": "Talk to Icthlarin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "closing-the-rifts",
+      "title": "Closing the rifts",
+      "anchor": "Closing_the_rifts",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Locations of the rifts.",
+          "lat": 3233,
+          "lon": 3352,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3376,
+                  3232,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "X,Y: 3376,3232",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3386,
+                  3254,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "X,Y: 3386,3254",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3382,
+                  3212,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "X,Y: 3382,3212",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3318,
+                  3233,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "X,Y: 3318,3233",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Eye_of_Het_I/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "closing-the-rifts:19czwa1",
+          "html": "Close the <a href=\"https://runescape.wiki/w/Rift_(Eye_of_Het_I)\" target=\"_blank\" rel=\"noopener\">rifts</a> around Het&#39;s Oasis. They must be cleared in this particular order. (When closing a rift, it will direct you to the next one. Alternatively, refer to the map here.)",
+          "text": "Close the rifts around Het's Oasis. They must be cleared in this particular order. (When closing a rift, it will direct you to the next one. Alternatively, refer to the map here.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "closing-the-rifts:19czwa1:ie5vmh",
+              "html": "Next to Icthlarin.",
+              "text": "Next to Icthlarin.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "closing-the-rifts:19czwa1:1vc863g",
+              "html": "North-eastern corner of the Het&#39;s Oasis.",
+              "text": "North-eastern corner of the Het's Oasis.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "closing-the-rifts:19czwa1:86eyge",
+              "html": "South-eastern corner of the Het&#39;s Oasis.",
+              "text": "South-eastern corner of the Het's Oasis.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "closing-the-rifts:19czwa1:2kzs1e",
+              "html": "Behind the statue of Het in the middle of Het&#39;s Oasis. (Can do the agility course to get there.)",
+              "text": "Behind the statue of Het in the middle of Het's Oasis. (Can do the agility course to get there.)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "closing-the-rifts:1tkqn1q",
+          "html": "Finish the agility course or teleport back to the Het&#39;s Oasis with a ring of duelling.",
+          "text": "Finish the agility course or teleport back to the Het's Oasis with a ring of duelling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "stabilise-the-rifts",
+      "title": "Stabilise the rifts",
+      "anchor": "Stabilise_the_rifts",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:b9shp4",
+          "html": "Talk to Icthlarin again",
+          "text": "Talk to Icthlarin again",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:dltuo8",
+          "html": "Stabilise the three unstable rifts that spawn.",
+          "text": "Stabilise the three unstable rifts that spawn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:xfbmu4",
+          "html": "Talk to Icthlarin after stabilising the rifts.",
+          "text": "Talk to Icthlarin after stabilising the rifts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:5ock8",
+          "html": "Pry the hidden door at the back of the statue of Het.",
+          "text": "Pry the hidden door at the back of the statue of Het.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "stabilise-the-rifts:5ock8:1u165am",
+              "html": "Right-clicking the door brings up two options. Ensure you click just below the statue.",
+              "text": "Right-clicking the door brings up two options. Ensure you click just below the statue.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "stabilise-the-rifts:5ock8:1hmdpt9",
+              "html": "Choose &quot;Pry open hidden door&quot;.",
+              "text": "Choose \"Pry open hidden door\".",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:131aw58",
+          "html": "If you have completed <a href=\"https://runescape.wiki/w/Our_Man_in_the_North\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a> and have level 80 Strength, the <a href=\"https://runescape.wiki/w/Eye_of_Het\" target=\"_blank\" rel=\"noopener\">Eye of Het</a> can be found in the statue&#39;s left hand inside the tomb. Take the eye.",
+          "text": "If you have completed Our Man in the North and have level 80 Strength, the Eye of Het can be found in the statue's left hand inside the tomb. Take the eye.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "stabilise-the-rifts:131aw58:vq5lbs",
+              "html": "If you don&#39;t meet these requirements, the relic will simply be placed into your inventory upon attempting to enter.",
+              "text": "If you don't meet these requirements, the relic will simply be placed into your inventory upon attempting to enter.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:1do2pvp",
+          "html": "Talk to Icthlarin at the entrance of Het&#39;s Oasis. Talking to Icthlarin at Het&#39;s statue does not work.",
+          "text": "Talk to Icthlarin at the entrance of Het's Oasis. Talking to Icthlarin at Het's statue does not work.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "stabilise-the-rifts:1do2pvp:h6kihj",
+              "html": "Note: If you encounter a bug where Icthlarin says you still need to find the relic after you have obtained it, either teleport out or log out and back in and talk to Icthlarin near the bonfire.",
+              "text": "Note: If you encounter a bug where Icthlarin says you still need to find the relic after you have obtained it, either teleport out or log out and back in and talk to Icthlarin near the bonfire.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "stabilise-the-rifts:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Eye_of_Het_I_reward.png?f67d8",
+      "width": 510,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Eye_of_Het_I_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Medium_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Medium XP lamp</a>",
+        "text": "Medium XP lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,564 @@
+{
+  "format": 1,
+  "id": "ernest-the-chicken",
+  "title": "Ernest the Chicken",
+  "page": "Ernest the Chicken/Quick guide",
+  "rev": 37188089,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Veronica\" target=\"_blank\" rel=\"noopener\">Veronica</a>, south of <a href=\"https://runescape.wiki/w/Draynor_Manor\" target=\"_blank\" rel=\"noopener\">Draynor Manor</a> gates.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3329,
+      "lon": 3112,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Ernest_the_Chicken/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [
+      "None, but watch out for those trees in the manor grounds."
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Skeleton (level 11, optional)",
+        "name": "Skeleton",
+        "count": null,
+        "level": "11, optional",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1yxfqg0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Veronica\" target=\"_blank\" rel=\"noopener\">Veronica</a> located just inside the gate to <a href=\"https://runescape.wiki/w/Draynor_Manor\" target=\"_blank\" rel=\"noopener\">Draynor Manor</a>.",
+          "text": "Talk to Veronica located just inside the gate to Draynor Manor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:b1jvh7",
+          "html": "Enter the manor.",
+          "text": "Enter the manor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "obtaining-the-items",
+      "title": "Obtaining the items",
+      "anchor": "Obtaining_the_items",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Pressure gauge"
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1osuxko",
+          "html": "On the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US), grab the <a href=\"https://runescape.wiki/w/Fish_food_(Ernest_the_Chicken)\" target=\"_blank\" rel=\"noopener\">fish food</a> in the room south of the staircase.",
+          "text": "On the 1st floor (UK) / 2nd floor (US), grab the fish food in the room south of the staircase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1d7kmhr",
+          "html": "On the ground floor (UK) / 1<sup>st</sup> floor (US), take the <a href=\"https://runescape.wiki/w/Poison_(Ernest_the_Chicken)\" target=\"_blank\" rel=\"noopener\">poison</a> from the room south of the kitchen, in the northwest of the manor.",
+          "text": "On the ground floor (UK) / 1st floor (US), take the poison from the room south of the kitchen, in the northwest of the manor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:8bdnb3",
+          "html": "Use the poison on the fish food.",
+          "text": "Use the poison on the fish food.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:twvdm2",
+          "html": "Exit the manor through the eastern-most room (or teleport to the Draynor lodestone) and walk to the fountain in the southwest corner of the yard.",
+          "text": "Exit the manor through the eastern-most room (or teleport to the Draynor lodestone) and walk to the fountain in the southwest corner of the yard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:19k89uu",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Poisoned_fish_food\" target=\"_blank\" rel=\"noopener\">poisoned fish food</a> on the fountain.",
+          "text": "Use the poisoned fish food on the fountain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1ii5sq0",
+          "html": "Search the fountain for the <a href=\"https://runescape.wiki/w/Pressure_gauge\" target=\"_blank\" rel=\"noopener\">pressure gauge</a>.",
+          "text": "Search the fountain for the pressure gauge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Rubber tube"
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:sfd59d",
+          "html": "Walk along the west side of the manor until a compost heap is found.",
+          "text": "Walk along the west side of the manor until a compost heap is found.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1cgisu7",
+          "html": "Search it for a <a href=\"https://runescape.wiki/w/Grimy_key\" target=\"_blank\" rel=\"noopener\">grimy key</a>.",
+          "text": "Search it for a grimy key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:g7bz2z",
+          "html": "Go inside the manor and enter the small room behind the staircase.",
+          "text": "Go inside the manor and enter the small room behind the staircase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1m88e9x",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Rubber_tube\" target=\"_blank\" rel=\"noopener\">rubber tube</a>.",
+          "text": "Take the rubber tube.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Oil can"
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:zlgofj",
+          "html": "Return to the entrance hall of the manor and go into the room to the west.",
+          "text": "Return to the entrance hall of the manor and go into the room to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:2j38oo",
+          "html": "Search the candle sconce on the western wall to open the wall.",
+          "text": "Search the candle sconce on the western wall to open the wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:z1o5uu",
+          "html": "Climb down the trap door ladder to the north in the new room.",
+          "text": "Climb down the trap door ladder to the north in the new room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:70nk57",
+          "html": "There will be a puzzle with the solution as follows.",
+          "text": "There will be a puzzle with the solution as follows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Puzzle solution"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/IQ-Testing_Room.png/450px-IQ-Testing_Room.png?b6722",
+          "width": 450,
+          "height": 203,
+          "alt": "",
+          "caption": "The oil can puzzle",
+          "href": "https://runescape.wiki/w/File:IQ-Testing_Room.png"
+        },
+        {
+          "type": "text",
+          "html": "All levers start in the &quot;down&quot; position."
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:cbfawb",
+          "html": "Pull levers A, B up",
+          "text": "Pull levers A, B up",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:144if9g",
+          "html": "Enter Door 1",
+          "text": "Enter Door 1",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:ao01n3",
+          "html": "Pull lever D up",
+          "text": "Pull lever D up",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:144if9g-2",
+          "html": "Enter Door 1",
+          "text": "Enter Door 1",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:l5d7ge",
+          "html": "Pull levers A, B down",
+          "text": "Pull levers A, B down",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:lbmowq",
+          "html": "Enter Doors 3, 4 &amp; 5",
+          "text": "Enter Doors 3, 4 & 5",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:11nvq77",
+          "html": "Pull levers E, F up",
+          "text": "Pull levers E, F up",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:48lia9",
+          "html": "Enter Doors 6 &amp; 7",
+          "text": "Enter Doors 6 & 7",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:9al8w8",
+          "html": "Pull lever C up",
+          "text": "Pull lever C up",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:1b4smht",
+          "html": "Enter Doors 7 &amp; 6",
+          "text": "Enter Doors 7 & 6",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:t3y7p3",
+          "html": "Pull lever E down",
+          "text": "Pull lever E down",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:v35kjx",
+          "html": "Enter Doors 6, 8 &amp; 3",
+          "text": "Enter Doors 6, 8 & 3",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-items:131up6a",
+          "html": "Go through Door 9 and obtain the <a href=\"https://runescape.wiki/w/Oil_can\" target=\"_blank\" rel=\"noopener\">oil can</a>.",
+          "text": "Go through Door 9 and obtain the oil can.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:17g46vu",
+          "html": "Leave the basement.",
+          "text": "Leave the basement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:17t6d0z",
+          "html": "Pull the lever on the eastern wall.",
+          "text": "Pull the lever on the eastern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:639n22",
+          "html": "Go up the stairs, then up the ladder, and talk to Professor Oddenstein in the room to the east.",
+          "text": "Go up the stairs, then up the ladder, and talk to Professor Oddenstein in the room to the east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm looking for a guy called Ernest."
+                },
+                {
+                  "key": "2",
+                  "text": "Change him back this instant!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:14tdu7w",
+          "html": "Talk to him again.",
+          "text": "Talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Ernest_the_Chicken_reward.png?d0a3f",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Ernest_the_Chicken_reward.png"
+    },
+    "items": [
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "4 quest points",
+        "subs": []
+      },
+      {
+        "html": "3,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+        "text": "3,000 coins",
+        "subs": []
+      },
+      {
+        "html": "10 <a href=\"https://runescape.wiki/w/Egg\" target=\"_blank\" rel=\"noopener\">eggs</a>",
+        "text": "10 eggs",
+        "subs": []
+      },
+      {
+        "html": "300 <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feathers</a>",
+        "text": "300 feathers",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Killerwatt_plane\" target=\"_blank\" rel=\"noopener\">killerwatt plane</a> (members-only)",
+        "text": "Access to the killerwatt plane (members-only)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Tiptoe",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Animal_Magnetism/Quick_guide\" target=\"_blank\" rel=\"noopener\">Animal Magnetism</a>",
+        "<a href=\"https://runescape.wiki/w/Back_to_the_Freezer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Back to the Freezer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Do_No_Evil/Quick_guide\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Flashback/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Flashback</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a>"
+      ]
+    }
+  ]
+}

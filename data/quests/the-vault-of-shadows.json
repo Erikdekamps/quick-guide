@@ -1,0 +1,1223 @@
+{
+  "format": 1,
+  "id": "the-vault-of-shadows",
+  "title": "The Vault of Shadows",
+  "page": "The Vault of Shadows/Quick guide",
+  "rev": 37287540,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Dr_Nabanik\" target=\"_blank\" rel=\"noopener\">Dr Nabanik</a> outside the <a href=\"https://runescape.wiki/w/Kharid-et_Dig_Site\" target=\"_blank\" rel=\"noopener\">Kharid-et Dig Site</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3195,
+      "lon": 3352,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Vault_of_Shadows/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Archaeology",
+        "level": 58,
+        "note": ""
+      },
+      {
+        "skill": "Divination",
+        "level": 60,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "<a href=\"https://runescape.wiki/w/Time_Served\" target=\"_blank\" rel=\"noopener\">Time Served</a> <i>or</i><br> An <a href=\"https://runescape.wiki/w/Ancient_timepiece\" target=\"_blank\" rel=\"noopener\">ancient timepiece</a> to complete <a href=\"https://runescape.wiki/w/Time_Served\" target=\"_blank\" rel=\"noopener\">Time Served</a>",
+      "All eight <a href=\"https://runescape.wiki/w/Shadow_anchor\" target=\"_blank\" rel=\"noopener\">shadow anchors</a> powered <i>or</i><br> Under the effect of <a href=\"https://runescape.wiki/w/Protection_of_Zaros\" target=\"_blank\" rel=\"noopener\">Protection of Zaros</a> (only required for one step)"
+    ],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1fxfta0",
+          "html": "<a href=\"https://runescape.wiki/w/Ancient_timepiece\" target=\"_blank\" rel=\"noopener\">Ancient timepiece</a> (if <a href=\"https://runescape.wiki/w/Time_Served\" target=\"_blank\" rel=\"noopener\">Time Served</a> is not completed)",
+          "text": "Ancient timepiece (if Time Served is not completed)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1tpndrh",
+          "html": "<a href=\"https://runescape.wiki/w/Pontifex_signet_ring\" target=\"_blank\" rel=\"noopener\">Pontifex signet ring</a> (can be on the tool belt)",
+          "text": "Pontifex signet ring (can be on the tool belt)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1fvyaym",
+          "html": "500 <a href=\"https://runescape.wiki/w/Memory\" target=\"_blank\" rel=\"noopener\">Divination memories</a>, <a href=\"https://runescape.wiki/w/Vibrant_memory\" target=\"_blank\" rel=\"noopener\">vibrant</a> or better (collected after <a href=\"https://runescape.wiki/w/Shadow_engrammeter_(depleted)\" target=\"_blank\" rel=\"noopener\">shadow engrammeter (depleted)</a> has been obtained)",
+          "text": "500 Divination memories, vibrant or better (collected after shadow engrammeter (depleted) has been obtained)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1easeg4",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">Ring of visibility</a> or <a href=\"https://runescape.wiki/w/Sliske%27s_gift\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s gift</a> (post-mystery completion for extra rewards)",
+          "text": "Ring of visibility or Sliske's gift (post-mystery completion for extra rewards)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:i2jzpa",
+          "html": "<a href=\"https://runescape.wiki/w/%27Animate_Dead%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Animate Dead&#39; spell scroll</a> (alternatively players can use an <a href=\"https://runescape.wiki/w/%27Animate_Dead%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Animate Dead&#39; spell scroll (loaned)</a> given by Dr Nabanik)",
+          "text": "'Animate Dead' spell scroll (alternatively players can use an 'Animate Dead' spell scroll (loaned) given by Dr Nabanik)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ezfubm",
+          "html": "<a href=\"https://runescape.wiki/w/%27Exsanguinate%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Exsanguinate&#39; spell scroll</a> (alternatively players can use an <a href=\"https://runescape.wiki/w/%27Exsanguinate%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Exsanguinate&#39; spell scroll (loaned)</a> given by Dr Nabanik)",
+          "text": "'Exsanguinate' spell scroll (alternatively players can use an 'Exsanguinate' spell scroll (loaned) given by Dr Nabanik)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:l2refw",
+          "html": "<a href=\"https://runescape.wiki/w/%27Incite_Fear%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Incite Fear&#39; spell scroll</a> (alternatively players can use an <a href=\"https://runescape.wiki/w/%27Incite_Fear%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Incite Fear&#39; spell scroll (loaned)</a> given by Dr Nabanik)",
+          "text": "'Incite Fear' spell scroll (alternatively players can use an 'Incite Fear' spell scroll (loaned) given by Dr Nabanik)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:qgj5le",
+          "html": "<a href=\"https://runescape.wiki/w/%27Smoke_Cloud%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Smoke Cloud&#39; spell scroll</a> (alternatively players can use a <a href=\"https://runescape.wiki/w/%27Smoke_Cloud%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Smoke Cloud&#39; spell scroll (loaned)</a> given by Dr Nabanik)",
+          "text": "'Smoke Cloud' spell scroll (alternatively players can use a 'Smoke Cloud' spell scroll (loaned) given by Dr Nabanik)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:fdwdqa",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dr_Nabanik\" target=\"_blank\" rel=\"noopener\">Dr Nabanik</a> near the bank chest at <a href=\"https://runescape.wiki/w/Kharid-et_Dig_Site\" target=\"_blank\" rel=\"noopener\">Kharid-et Dig Site</a>. He will &quot;loan&quot; you any of the spell scrolls that you are unable to obtain.",
+          "text": "Talk to Dr Nabanik near the bank chest at Kharid-et Dig Site. He will \"loan\" you any of the spell scrolls that you are unable to obtain.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1wevyco",
+          "html": "You will need to activate four buttons within the dig site. After activating each button you will be able to enter the corresponding door and complete a puzzle. While the buttons may be activated in any order, the puzzles are always received in the same order.",
+          "text": "You will need to activate four buttons within the dig site. After activating each button you will be able to enter the corresponding door and complete a puzzle. While the buttons may be activated in any order, the puzzles are always received in the same order.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:mykuy0",
+          "html": "You will need to activate all <a href=\"https://runescape.wiki/w/Shadow_anchor\" target=\"_blank\" rel=\"noopener\">shadow anchors</a> or wait until the Pylon is active to do the 4th puzzle. If you don&#39;t have a <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> or have the <a href=\"https://runescape.wiki/w/Ring_of_visibility#Sliske&#39;s_gift\" target=\"_blank\" rel=\"noopener\">ability to permanently see the Shadow Realm</a>, this is also required for a step after gathering 500 divination memories.",
+          "text": "You will need to activate all shadow anchors or wait until the Pylon is active to do the 4th puzzle. If you don't have a ring of visibility or have the ability to permanently see the Shadow Realm, this is also required for a step after gathering 500 divination memories.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:mykuy0:iyfs3u",
+              "html": "You will need 80 batteries to charge all eight anchors. You can get these batteries by excavating in Kharid-et Dig Site or by doing <a href=\"https://runescape.wiki/w/Zarosian_I\" target=\"_blank\" rel=\"noopener\">Zarosian I</a> collection for <a href=\"https://runescape.wiki/w/Soran,_Emissary_of_Zaros\" target=\"_blank\" rel=\"noopener\">Soran, Emissary of Zaros</a> in Varrock. He will give you 20 batteries each time you repeat the collection (after the first time).",
+              "text": "You will need 80 batteries to charge all eight anchors. You can get these batteries by excavating in Kharid-et Dig Site or by doing Zarosian I collection for Soran, Emissary of Zaros in Varrock. He will give you 20 batteries each time you repeat the collection (after the first time).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ice-button",
+      "title": "Ice button",
+      "anchor": "Ice_button",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ice-button:bring:1v8a60i",
+              "html": "<a href=\"https://runescape.wiki/w/Pontifex_signet_ring\" target=\"_blank\" rel=\"noopener\">Pontifex signet ring</a>",
+              "text": "Pontifex signet ring"
+            },
+            {
+              "id": "ice-button:bring:1hz4e2r",
+              "html": "<a href=\"https://runescape.wiki/w/%27Incite_Fear%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Incite Fear&#39; spell scroll</a> (or <a href=\"https://runescape.wiki/w/%27Incite_Fear%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Incite Fear&#39; spell scroll (loaned)</a>)",
+              "text": "'Incite Fear' spell scroll (or 'Incite Fear' spell scroll (loaned))"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:99luii",
+          "html": "Head into the prison block section of the dig site.",
+          "text": "Head into the prison block section of the dig site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:4dyngk",
+          "html": "Enter the eastern door which leads to the solitary confinement area.",
+          "text": "Enter the eastern door which leads to the solitary confinement area.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ice-button:4dyngk:1rak9jn",
+              "html": "If you haven&#39;t completed <a href=\"https://runescape.wiki/w/Time_Served\" target=\"_blank\" rel=\"noopener\">Time Served</a> but you have the repaired artefact in your inventory, then just inspect the ancient mechanism to the North. Insert the artefact and then the eastern door will open.",
+              "text": "If you haven't completed Time Served but you have the repaired artefact in your inventory, then just inspect the ancient mechanism to the North. Insert the artefact and then the eastern door will open.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ice-button:1yzxjuk",
+          "html": "Go down to the southern end of the corridor, there will be an inactive dial on the west wall, just before the last empty room.",
+          "text": "Go down to the southern end of the corridor, there will be an inactive dial on the west wall, just before the last empty room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:114ka2g",
+          "html": "Cast an <a href=\"https://runescape.wiki/w/%27Incite_Fear%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Incite Fear&#39; spell scroll</a> whilst standing next to the dial.",
+          "text": "Cast an 'Incite Fear' spell scroll whilst standing next to the dial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:qc5xgk",
+          "html": "Press the ice button and enter the vault",
+          "text": "Press the ice button and enter the vault",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:9d2npt",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Praetor%27s_log_page_1\" target=\"_blank\" rel=\"noopener\">praetor&#39;s log page 1</a> and right click Transcribe.",
+          "text": "Pick up the praetor's log page 1 and right click Transcribe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "First puzzle"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/The_Vault_of_Shadows_puzzle_orientation_and_dial_commands.png/300px-The_Vault_of_Shadows_puzzle_orientation_and_dial_commands.png?3dcbb",
+          "width": 300,
+          "height": 300,
+          "alt": "",
+          "caption": "The first puzzle grid",
+          "href": "https://runescape.wiki/w/File:The_Vault_of_Shadows_puzzle_orientation_and_dial_commands.png"
+        },
+        {
+          "type": "step",
+          "id": "ice-button:14fnzkz",
+          "html": "Set your compass to face north (so the central vault is on the east of the screen).",
+          "text": "Set your compass to face north (so the central vault is on the east of the screen).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:1rfns8e",
+          "html": "Using the image, press each button in order. Backwards turns are denoted by &#39;. For example, SW&#39; means turn south-west back.",
+          "text": "Using the image, press each button in order. Backwards turns are denoted by '. For example, SW' means turn south-west back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:1dh7dju",
+          "html": "You may <b>cancel</b> pressing the wrong direction (e.g. SW instead of SW&#39;) by pressing the same button in the other direction (e.g. SW&#39;). You can then proceed with the right move (e.g.SW&#39;).",
+          "text": "You may cancel pressing the wrong direction (e.g. SW instead of SW') by pressing the same button in the other direction (e.g. SW'). You can then proceed with the right move (e.g.SW').",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:owjbu5",
+          "html": "If you make a mistake, you can leave and return via the button on the western wall to reset the puzzle.",
+          "text": "If you make a mistake, you can leave and return via the button on the western wall to reset the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:e9xdbs",
+          "html": "NE, E, NE&#39;, SW&#39;, S, S",
+          "text": "NE, E, NE', SW', S, S",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:8l9bf1",
+          "html": "SE, SE, C, N&#39;",
+          "text": "SE, SE, C, N'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:19y8xb",
+          "html": "S&#39;, W, NW",
+          "text": "S', W, NW",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:1eg2o3h",
+          "html": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "text": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:mpzcnv",
+          "html": "The door will open, and you will automatically receive <a href=\"https://runescape.wiki/w/Praetor%27s_log_page_2\" target=\"_blank\" rel=\"noopener\">praetor&#39;s log page 2</a>, transcribe the page.",
+          "text": "The door will open, and you will automatically receive praetor's log page 2, transcribe the page.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-button:3tcwkt",
+          "html": "To leave, you can use the Vault exit to the south-west.",
+          "text": "To leave, you can use the Vault exit to the south-west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "blood-button",
+      "title": "Blood button",
+      "anchor": "Blood_button",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "blood-button:bring:1v8a60i",
+              "html": "<a href=\"https://runescape.wiki/w/Pontifex_signet_ring\" target=\"_blank\" rel=\"noopener\">Pontifex signet ring</a>",
+              "text": "Pontifex signet ring"
+            },
+            {
+              "id": "blood-button:bring:1y5an0v",
+              "html": "<a href=\"https://runescape.wiki/w/%27Exsanguinate%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Exsanguinate&#39; spell scroll</a> (or <a href=\"https://runescape.wiki/w/%27Exsanguinate%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Exsanguinate&#39; spell scroll (loaned)</a>)",
+              "text": "'Exsanguinate' spell scroll (or 'Exsanguinate' spell scroll (loaned))"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:w5k986",
+          "html": "Head to the Main Fortress of the Kharid-et Dig Site (first room) and go to the south-east corner (the chapel).",
+          "text": "Head to the Main Fortress of the Kharid-et Dig Site (first room) and go to the south-east corner (the chapel).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1nke1va",
+          "html": "Pass the Pontifex barrier and find the inactive dial on the northern wall, directly north of the Orcus altar.",
+          "text": "Pass the Pontifex barrier and find the inactive dial on the northern wall, directly north of the Orcus altar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:jd30bw",
+          "html": "Cast a <a href=\"https://runescape.wiki/w/%27Exsanguinate%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Exsanguinate&#39; spell scroll</a> whilst standing next to the dial.",
+          "text": "Cast a 'Exsanguinate' spell scroll whilst standing next to the dial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1q4d7mp",
+          "html": "Press the Blood button and enter the vault",
+          "text": "Press the Blood button and enter the vault",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Second puzzle"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/The_Vault_of_Shadows_-_blood_puzzle.png/300px-The_Vault_of_Shadows_-_blood_puzzle.png?aaa01",
+          "width": 300,
+          "height": 184,
+          "alt": "",
+          "caption": "Second puzzle grid",
+          "href": "https://runescape.wiki/w/File:The_Vault_of_Shadows_-_blood_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "blood-button:25iwx3",
+          "html": "Set your compass to face north (so the central vault is on the north of the screen).",
+          "text": "Set your compass to face north (so the central vault is on the north of the screen).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:id0ys",
+          "html": "Using the image, press each button in order.",
+          "text": "Using the image, press each button in order.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:h4etrb",
+          "html": "Backwards turns are denoted by &#39;. For example, SW&#39; means turn south-west back.",
+          "text": "Backwards turns are denoted by '. For example, SW' means turn south-west back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:yzmcuo",
+          "html": "SW&#39;, C, NW, NW, SW&#39;",
+          "text": "SW', C, NW, NW, SW'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1iox61y",
+          "html": "C&#39;, C&#39;, NE, SE, C&#39;",
+          "text": "C', C', NE, SE, C'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:csjcxh",
+          "html": "NE&#39;, NE&#39;, C&#39;, C&#39;, NE&#39;",
+          "text": "NE', NE', C', C', NE'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:17d5tbj",
+          "html": "C&#39;, SW&#39;, SE, C, SE",
+          "text": "C', SW', SE, C, SE",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1mrgt8o",
+          "html": "C, SE, SW, C, SW&#39;",
+          "text": "C, SE, SW, C, SW'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:ad8c2f",
+          "html": "C, C",
+          "text": "C, C",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1eg2o3h",
+          "html": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "text": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:1defxmo",
+          "html": "The door will open and you will automatically receive <a href=\"https://runescape.wiki/w/Praetor%27s_log_page_3\" target=\"_blank\" rel=\"noopener\">praetor&#39;s log page 3</a>, transcribe the page.",
+          "text": "The door will open and you will automatically receive praetor's log page 3, transcribe the page.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blood-button:se3xlz",
+          "html": "To leave, you can use the Vault exit to the south-east.",
+          "text": "To leave, you can use the Vault exit to the south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "smoke-button",
+      "title": "Smoke button",
+      "anchor": "Smoke_button",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "smoke-button:bring:1v8a60i",
+              "html": "<a href=\"https://runescape.wiki/w/Pontifex_signet_ring\" target=\"_blank\" rel=\"noopener\">Pontifex signet ring</a>",
+              "text": "Pontifex signet ring"
+            },
+            {
+              "id": "smoke-button:bring:rk78if",
+              "html": "<a href=\"https://runescape.wiki/w/%27Smoke_Cloud%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Smoke Cloud&#39; spell scroll</a> (or <a href=\"https://runescape.wiki/w/%27Smoke_Cloud%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Smoke Cloud&#39; spell scroll (loaned)</a>)",
+              "text": "'Smoke Cloud' spell scroll (or 'Smoke Cloud' spell scroll (loaned))"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1t00hh4",
+          "html": "Return to the main fortress of the Kharid-et Dig Site and go directly north of the Pontifex barrier, by the oven.",
+          "text": "Return to the main fortress of the Kharid-et Dig Site and go directly north of the Pontifex barrier, by the oven.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1ox9fn7",
+          "html": "Find the inactive dial on the wall immediately south-west of the oven.",
+          "text": "Find the inactive dial on the wall immediately south-west of the oven.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1sushte",
+          "html": "Cast a <a href=\"https://runescape.wiki/w/%27Smoke_Cloud%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Smoke Cloud&#39; spell scroll</a> whilst standing next to the dial.",
+          "text": "Cast a 'Smoke Cloud' spell scroll whilst standing next to the dial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:x4onia",
+          "html": "Press the smoke button and enter the vault",
+          "text": "Press the smoke button and enter the vault",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Third puzzle"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/The_Vault_of_Shadows_-_smoke_puzzle.png/300px-The_Vault_of_Shadows_-_smoke_puzzle.png?1b202",
+          "width": 300,
+          "height": 227,
+          "alt": "",
+          "caption": "Third puzzle grid",
+          "href": "https://runescape.wiki/w/File:The_Vault_of_Shadows_-_smoke_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:psxu9z",
+          "html": "Walk to the large door and stand in the centre of the control dials.",
+          "text": "Walk to the large door and stand in the centre of the control dials.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1as86il",
+          "html": "This time, set your compass facing west (unlike the other puzzles), making you face the big door.",
+          "text": "This time, set your compass facing west (unlike the other puzzles), making you face the big door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:id0ys",
+          "html": "Using the image, press each button in order.",
+          "text": "Using the image, press each button in order.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:fn8lt9",
+          "html": "Backward turns are denoted by &#39;. For example, 5&#39; means turn 5 back.",
+          "text": "Backward turns are denoted by '. For example, 5' means turn 5 back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:v8jrwd",
+          "html": "5&#39;, 2, 7&#39;, 3, 3, 4&#39; - Top row complete (all pink)",
+          "text": "5', 2, 7', 3, 3, 4' - Top row complete (all pink)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:15y3x9w",
+          "html": "2, 7&#39;, 2&#39;",
+          "text": "2, 7', 2'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1a5cdk4",
+          "html": "1, 1, 8&#39;, 1, 1",
+          "text": "1, 1, 8', 1, 1",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:qbximc",
+          "html": "3, 3, 8, 3, 3 - Second row complete (all red)",
+          "text": "3, 3, 8, 3, 3 - Second row complete (all red)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1c1hl76",
+          "html": "7&#39;, 4, 8, 4&#39; - Puzzle complete",
+          "text": "7', 4, 8, 4' - Puzzle complete",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:1eg2o3h",
+          "html": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "text": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:emo1k9",
+          "html": "The door will open and you will automatically receive <a href=\"https://runescape.wiki/w/Praetor%27s_log_page_4\" target=\"_blank\" rel=\"noopener\">praetor&#39;s log page 4</a>, transcribe the page.",
+          "text": "The door will open and you will automatically receive praetor's log page 4, transcribe the page.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smoke-button:3w57v",
+          "html": "To leave, you can use the Vault exit to the east.",
+          "text": "To leave, you can use the Vault exit to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "shadow-button",
+      "title": "Shadow button",
+      "anchor": "Shadow_button",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "shadow-button:bring:1ucbrak",
+              "html": "All eight <a href=\"https://runescape.wiki/w/Shadow_anchors\" target=\"_blank\" rel=\"noopener\">Shadow anchors</a> active, or <a href=\"https://runescape.wiki/w/Pylon\" target=\"_blank\" rel=\"noopener\">Pylon</a> active",
+              "text": "All eight Shadow anchors active, or Pylon active"
+            },
+            {
+              "id": "shadow-button:bring:ey8lpf",
+              "html": "<a href=\"https://runescape.wiki/w/%27Animate_Dead%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Animate Dead&#39; spell scroll</a> (or <a href=\"https://runescape.wiki/w/%27Animate_Dead%27_spell_scroll_(loaned)\" target=\"_blank\" rel=\"noopener\">&#39;Animate Dead&#39; spell scroll (loaned)</a>)",
+              "text": "'Animate Dead' spell scroll (or 'Animate Dead' spell scroll (loaned))"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:17ny9pe",
+          "html": "For the shadow button, you will either need to have activated all the <a href=\"https://runescape.wiki/w/Shadow_anchor\" target=\"_blank\" rel=\"noopener\">shadow anchors</a> or wait until the Kharid-et pylons are active.",
+          "text": "For the shadow button, you will either need to have activated all the shadow anchors or wait until the Kharid-et pylons are active.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:y3nfh2",
+          "html": "You will need 80 batteries in total to charge all 8 shadow anchors.",
+          "text": "You will need 80 batteries in total to charge all 8 shadow anchors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:1gb797i",
+          "html": "To quickly obtain batteries, you can repeatedly complete the <a href=\"https://runescape.wiki/w/Zarosian_I\" target=\"_blank\" rel=\"noopener\">Zarosian I</a> collection for <a href=\"https://runescape.wiki/w/Soran,_Emissary_of_Zaros\" target=\"_blank\" rel=\"noopener\">Soran, Emissary of Zaros</a> in Varrock. He will give you 20 batteries each time you repeat the collection (after the first time).",
+          "text": "To quickly obtain batteries, you can repeatedly complete the Zarosian I collection for Soran, Emissary of Zaros in Varrock. He will give you 20 batteries each time you repeat the collection (after the first time).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:19p7zc0",
+          "html": "Normally, it&#39;s best to charge the shadow anchors first (since you will have to charge it sooner or later anyway, you might as well do it now).",
+          "text": "Normally, it's best to charge the shadow anchors first (since you will have to charge it sooner or later anyway, you might as well do it now).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:11xn3pc",
+          "html": "However, if the power tower is about to activate (90% or higher), you can consider waiting. Even so, you should use all the batteries (10 of each) to charge the shadow anchor instead of the pylon (because 10 batteries only increase the activation progress by 0.01%), just in case you cannot complete the charging within 30 minutes.",
+          "text": "However, if the power tower is about to activate (90% or higher), you can consider waiting. Even so, you should use all the batteries (10 of each) to charge the shadow anchor instead of the pylon (because 10 batteries only increase the activation progress by 0.01%), just in case you cannot complete the charging within 30 minutes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:107skgk",
+          "html": "Return to the Main Fortress of the Kharid-et Dig Site and enter the war room by clicking the <a href=\"https://runescape.wiki/w/Praetorium_war_table\" target=\"_blank\" rel=\"noopener\">praetorium war table</a> (middle of the Main Fortress)",
+          "text": "Return to the Main Fortress of the Kharid-et Dig Site and enter the war room by clicking the praetorium war table (middle of the Main Fortress)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:1w77bca",
+          "html": "Find the inactive dial on the western wall in the small western room.",
+          "text": "Find the inactive dial on the western wall in the small western room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:vnjcst",
+          "html": "Cast an <a href=\"https://runescape.wiki/w/%27Animate_Dead%27_spell_scroll\" target=\"_blank\" rel=\"noopener\">&#39;Animate Dead&#39; spell scroll</a> whilst standing next to the dial.",
+          "text": "Cast an 'Animate Dead' spell scroll whilst standing next to the dial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:1u5zos3",
+          "html": "Press the Shadow button and enter the vault",
+          "text": "Press the Shadow button and enter the vault",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fourth puzzle"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/The_Vault_of_Shadows_-_shadow_puzzle.png/300px-The_Vault_of_Shadows_-_shadow_puzzle.png?28760",
+          "width": 300,
+          "height": 186,
+          "alt": "",
+          "caption": "Fourth puzzle grid",
+          "href": "https://runescape.wiki/w/File:The_Vault_of_Shadows_-_shadow_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:2fhe59",
+          "html": "Set your compass so that it is facing south (so the central vault is at the top of the screen).",
+          "text": "Set your compass so that it is facing south (so the central vault is at the top of the screen).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:id0ys",
+          "html": "Using the image, press each button in order.",
+          "text": "Using the image, press each button in order.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:fn8lt9",
+          "html": "Backward turns are denoted by &#39;. For example, 5&#39; means turn 5 back.",
+          "text": "Backward turns are denoted by '. For example, 5' means turn 5 back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:xp8xe1",
+          "html": "3, 3, 1&#39;, 3, 3",
+          "text": "3, 3, 1', 3, 3",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:smgd93",
+          "html": "1&#39;, 5&#39;, 2, 2, 4",
+          "text": "1', 5', 2, 2, 4",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:ibunln",
+          "html": "1&#39;, 3&#39;, 1, 5&#39;, 3",
+          "text": "1', 3', 1, 5', 3",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:gxwy6z",
+          "html": "3, 5, 2&#39;, 3&#39;, 2&#39;",
+          "text": "3, 5, 2', 3', 2'",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:ln2wlx",
+          "html": "3, 3, 4, 4, 3, 3",
+          "text": "3, 3, 4, 4, 3, 3",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:1eg2o3h",
+          "html": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "text": "The final combination of the dials on the wall is, from top to bottom: shadow, blood, smoke, ice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "shadow-button:13w0qjs",
+          "html": "The door and now the vault will open.",
+          "text": "The door and now the vault will open.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1grhg4l",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Shadow_engrammeter_(depleted)\" target=\"_blank\" rel=\"noopener\">shadow engrammeter (depleted)</a> from the centre of the vault.",
+          "text": "Pick up the shadow engrammeter (depleted) from the centre of the vault.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ho17ke",
+          "html": "Collect 500 divination <a href=\"https://runescape.wiki/w/Memories\" target=\"_blank\" rel=\"noopener\">memories</a> (vibrant tier or higher). <i>Recharge</i> the Shadow engrammeter when you have an inventory full of memories to charge it. Enriched memories count as double.",
+          "text": "Collect 500 divination memories (vibrant tier or higher). Recharge the Shadow engrammeter when you have an inventory full of memories to charge it. Enriched memories count as double.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:14k0n1a",
+          "html": "Return to the centre of the vault via any of the dials and <i>Operate</i> the engrammeter.",
+          "text": "Return to the centre of the vault via any of the dials and Operate the engrammeter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:azvwyp",
+          "html": "Take <a href=\"https://runescape.wiki/w/Trindine%27s_memory\" target=\"_blank\" rel=\"noopener\">Trindine&#39;s memory</a> to Dr Nabanik.",
+          "text": "Take Trindine's memory to Dr Nabanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I want to talk about mysteries."
+                },
+                {
+                  "key": "?",
+                  "text": "The Vault of Shadows."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:azvwyp:ndbf8w",
+              "html": "You will receive the memory as a <a href=\"https://runescape.wiki/w/Trindine%27s_memory_(book)\" target=\"_blank\" rel=\"noopener\">book</a>, and be granted 25,000 Divination experience.",
+              "text": "You will receive the memory as a book, and be granted 25,000 Divination experience.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:8unv58",
+          "html": "Return to the vault using any of the dials.",
+          "text": "Return to the vault using any of the dials.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:3rs0bu",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Praetor_Trindine\" target=\"_blank\" rel=\"noopener\">Praetor Trindine</a> in the centre. This will complete <a href=\"https://runescape.wiki/w/The_Vault_of_Shadows_(Archaeology_achievement)\" target=\"_blank\" rel=\"noopener\">The Vault of Shadows mystery</a>.",
+          "text": "Speak to Praetor Trindine in the centre. This will complete The Vault of Shadows mystery.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:3rs0bu:1z08vne",
+              "html": "If the shadow anchors weren&#39;t activated, or Pylon isn&#39;t active, you will need to wear a <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> or have the <a href=\"https://runescape.wiki/w/Ring_of_visibility#Sliske&#39;s_gift\" target=\"_blank\" rel=\"noopener\">ability to permanently see the Shadow Realm</a>.",
+              "text": "If the shadow anchors weren't activated, or Pylon isn't active, you will need to wear a ring of visibility or have the ability to permanently see the Shadow Realm.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1lltnge",
+          "html": "Return to and speak to Dr Nabanik.",
+          "text": "Return to and speak to Dr Nabanik.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:f6qzoz",
+          "html": "Speak to him again after the cutscene.",
+          "text": "Speak to him again after the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Vault_of_Shadows_reward.png?5bf23",
+      "width": 371,
+      "height": 140,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Vault_of_Shadows_reward.png"
+    },
+    "items": [],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Two <a href=\"https://runescape.wiki/w/Ghost_praetorian\" target=\"_blank\" rel=\"noopener\">ghost praetorians</a> may now be found by the smoke and shadow buttons. The <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> must be equipped or <a href=\"https://runescape.wiki/w/Sliske%27s_gift\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s gift</a> must be unlocked, and each of the <a href=\"https://runescape.wiki/w/Shadow_anchor\" target=\"_blank\" rel=\"noopener\">shadow anchors</a> must be activated. Speak to each of them to receive:",
+            "text": "Two ghost praetorians may now be found by the smoke and shadow buttons. The ring of visibility must be equipped or Sliske's gift must be unlocked, and each of the shadow anchors must be activated. Speak to each of them to receive:",
+            "subs": [
+              "80 <a href=\"https://runescape.wiki/w/Ancient_vis\" target=\"_blank\" rel=\"noopener\">Ancient vis</a>",
+              "80 <a href=\"https://runescape.wiki/w/Samite_silk\" target=\"_blank\" rel=\"noopener\">Samite silk</a>",
+              "80 <a href=\"https://runescape.wiki/w/Blood_of_Orcus\" target=\"_blank\" rel=\"noopener\">Blood of Orcus</a>",
+              "80 <a href=\"https://runescape.wiki/w/Zarosian_insignia\" target=\"_blank\" rel=\"noopener\">Zarosian insignias</a>",
+              "80 <a href=\"https://runescape.wiki/w/Third_Age_iron\" target=\"_blank\" rel=\"noopener\">Third Age iron</a>",
+              "80 <a href=\"https://runescape.wiki/w/Vellum\" target=\"_blank\" rel=\"noopener\">Vellum</a>"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

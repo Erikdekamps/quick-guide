@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "id": "damage-control-miniquest",
+  "title": "Damage Control (miniquest)",
+  "page": "Damage Control (miniquest)/Quick guide",
+  "rev": 37102508,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Bosun_Higgs\" target=\"_blank\" rel=\"noopener\">Bosun Higgs</a> on the docks near the <a href=\"https://runescape.wiki/w/Sarim%27s_Revenge\" target=\"_blank\" rel=\"noopener\">Sarim&#39;s Revenge</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 12013,
+      "lon": 1760,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Harbinger (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Eye for an Eye (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 3
+      },
+      {
+        "text": "Jed Hunter (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 4
+      },
+      {
+        "text": "Flag Fall (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Head of the Family (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Spiritual Enlightenment (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 5
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 5
+      },
+      {
+        "text": "Discover the island of Cyclosis in player-owned port",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:dfhfer",
+          "html": "2,500 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+          "text": "2,500 chimes",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1uy48ju",
+          "html": "Seven empty backpack slots",
+          "text": "Seven empty backpack slots",
+          "alternatives": []
+        },
+        {
+          "id": "rec:g731gh",
+          "html": "Access to a <a href=\"https://runescape.wiki/w/Spa\" target=\"_blank\" rel=\"noopener\">Spa</a>, either from <a href=\"https://runescape.wiki/w/As_A_First_Resort\" target=\"_blank\" rel=\"noopener\">As A First Resort</a>, at the <a href=\"https://runescape.wiki/w/Anachronia_Base_Camp\" target=\"_blank\" rel=\"noopener\">Anachronia Base Camp</a>, or the <a href=\"https://runescape.wiki/w/Endurance\" target=\"_blank\" rel=\"noopener\">Endurance</a> relic power.",
+          "text": "Access to a Spa, either from As A First Resort, at the Anachronia Base Camp, or the Endurance relic power.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Damage_Control_%28miniquest%29_map.png/400px-Damage_Control_%28miniquest%29_map.png?86fea",
+          "width": 400,
+          "height": 271,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Damage_Control_(miniquest)_map.png"
+        },
+        {
+          "type": "step",
+          "id": "starting-out:5a18hb",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a>.",
+          "text": "Travel to Waiko.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:cu8grg",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bosun_Higgs\" target=\"_blank\" rel=\"noopener\">Bosun Higgs</a> who is next to your ship (if you have just completed the <a href=\"https://runescape.wiki/w/Harbinger_(miniquest)\" target=\"_blank\" rel=\"noopener\">Harbinger miniquest</a> you may need to relog for the chat option to show up).",
+          "text": "Talk to Bosun Higgs who is next to your ship (if you have just completed the Harbinger miniquest you may need to relog for the chat option to show up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Damage Control miniquest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:jmdeg0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rosie_(supplies)\" target=\"_blank\" rel=\"noopener\">Rosie</a> in the Waiko marketplace for a <a href=\"https://runescape.wiki/w/Ship_repair_kit\" target=\"_blank\" rel=\"noopener\">ship repair kit</a> in exchange for 2,500 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>.",
+          "text": "Talk to Rosie in the Waiko marketplace for a ship repair kit in exchange for 2,500 chimes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:8pox97",
+          "html": "Talk to Bosun Higgs to set sail.",
+          "text": "Talk to Bosun Higgs to set sail.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Damage Control miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "cannon-parts",
+      "title": "Cannon parts",
+      "anchor": "Cannon_parts",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "cannon-parts:m1mxua",
+          "html": "Talk to Bosun Higgs when you arrive on Goshima",
+          "text": "Talk to Bosun Higgs when you arrive on Goshima",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-parts:t7ctur",
+          "html": "Collect the 6 cannon parts at the locations shown, while avoiding the <a href=\"https://runescape.wiki/w/Malignant_entity\" target=\"_blank\" rel=\"noopener\">malignant entity</a>.",
+          "text": "Collect the 6 cannon parts at the locations shown, while avoiding the malignant entity.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-parts:mxtafo",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Goshima_note\" target=\"_blank\" rel=\"noopener\">Goshima note</a> hanging on the left wooden pillar next to the gate entrance.",
+          "text": "Take the Goshima note hanging on the left wooden pillar next to the gate entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-parts:re1t3x",
+          "html": "Talk to Bosun Higgs.",
+          "text": "Talk to Bosun Higgs.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Damage Control miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Damage_Control_%28miniquest%29_reward.png?3091e",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Damage_Control_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "3,000 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "3,000 chimes",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "2 taijitu",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Thieving_XP_lamp_(The_Arc)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Fully armed and prepared ship",
+        "text": "Fully armed and prepared ship",
+        "subs": []
+      },
+      {
+        "html": "Whereabouts of Stan&#39;s stolen property and Jacob",
+        "text": "Whereabouts of Stan's stolen property and Jacob",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,972 @@
+{
+  "format": 1,
+  "id": "eye-of-het-ii",
+  "title": "Eye of Het II",
+  "page": "Eye of Het II/Quick guide",
+  "rev": 37164913,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a> at the entrance to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3237,
+      "lon": 3321,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Eye_of_Het_II/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Eye of Het I",
+        "depth": 1
+      },
+      {
+        "text": "City of Senntisten",
+        "depth": 2
+      },
+      {
+        "text": "Battle of the Monolith",
+        "depth": 3
+      },
+      {
+        "text": "Azzanadra's Quest",
+        "depth": 4
+      },
+      {
+        "text": "The Vault of Shadows",
+        "depth": 5
+      },
+      {
+        "text": "Raksha, the Shadow Colossus …",
+        "depth": 5
+      },
+      {
+        "text": "Desperate Creatures…",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Impossible</span>"
+      },
+      {
+        "label": "League notes",
+        "html": "This quest can&#39;t be completed, as the prerequisite quest Eye of Het I can&#39;t be completed. The quest itself requires <span class=\"reg\">Desert</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1t9yrsg",
+          "html": "<a href=\"https://runescape.wiki/w/Pontifex_shadow_ring\" target=\"_blank\" rel=\"noopener\">Pontifex shadow ring</a> (for quick access to the <a href=\"https://runescape.wiki/w/Cathedral_(Senntisten)\" target=\"_blank\" rel=\"noopener\">Senntisten cathedral</a>)",
+          "text": "Pontifex shadow ring (for quick access to the Senntisten cathedral)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1idb7xm",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a> (for quick access to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>)",
+          "text": "Ring of duelling (for quick access to Het's Oasis)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:94k8vv",
+          "html": "<a href=\"https://runescape.wiki/w/Shard_of_Erebus\" target=\"_blank\" rel=\"noopener\">Shard of Erebus</a> (to make <a href=\"https://runescape.wiki/w/Glacor\" target=\"_blank\" rel=\"noopener\">glacors</a> non-aggressive)",
+          "text": "Shard of Erebus (to make glacors non-aggressive)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1k2qsk0",
+          "html": "The <a href=\"https://runescape.wiki/w/Boss_portal_(War%27s_Retreat)\" target=\"_blank\" rel=\"noopener\">boss portal in War&#39;s Retreat</a> or the <a href=\"https://runescape.wiki/w/Boss_portal_(Max_Guild)\" target=\"_blank\" rel=\"noopener\">Boss portal in Max Guild</a> attuned to the <a href=\"https://runescape.wiki/w/Arch-Glacor\" target=\"_blank\" rel=\"noopener\">Arch-Glacor</a>",
+          "text": "The boss portal in War's Retreat or the Boss portal in Max Guild attuned to the Arch-Glacor",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1lyavrj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a> at the entrance to <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>.",
+          "text": "Talk to Icthlarin at the entrance to Het's Oasis.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gather-more-information",
+      "title": "Gather more information",
+      "anchor": "Gather_more_information",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the stranger.",
+          "lat": 3274,
+          "lon": 3386,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3386.5,
+                  3274.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Stranger",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Eye_of_Het_II/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "gather-more-information:g8xjvi",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Stranger_(Het%27s_Oasis)\" target=\"_blank\" rel=\"noopener\">stranger</a> near the tents north-east of the oasis.",
+          "text": "Talk to the stranger near the tents north-east of the oasis.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gather-more-information:1aux7av",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Chest_(Eye_of_Het_II)\" target=\"_blank\" rel=\"noopener\">chest</a> just outside of the tent with the <a href=\"https://runescape.wiki/w/Bank_chest\" target=\"_blank\" rel=\"noopener\">bank chest</a> to find some <a href=\"https://runescape.wiki/w/Badly-hidden_notes\" target=\"_blank\" rel=\"noopener\">badly-hidden notes</a>.",
+          "text": "Search the chest just outside of the tent with the bank chest to find some badly-hidden notes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gather-more-information:1aux7av:m80mo",
+              "html": "It is located to the left near the red tent.",
+              "text": "It is located to the left near the red tent.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gather-more-information:1c5cpvm",
+          "html": "Read the badly-hidden notes.",
+          "text": "Read the badly-hidden notes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gather-more-information:1c5cpvm:1npa9hc",
+              "html": "Make sure to proceed through all the dialogue, or you won&#39;t be able to progress.",
+              "text": "Make sure to proceed through all the dialogue, or you won't be able to progress.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gather-more-information:14g9v27",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Azzanadra\" target=\"_blank\" rel=\"noopener\">Azzanadra</a> at the <a href=\"https://runescape.wiki/w/Glacor_Front\" target=\"_blank\" rel=\"noopener\">Glacor Front</a> (south of the <a href=\"https://runescape.wiki/w/Cathedral_(Senntisten)\" target=\"_blank\" rel=\"noopener\">cathedral</a> in <a href=\"https://runescape.wiki/w/Senntisten\" target=\"_blank\" rel=\"noopener\">Senntisten</a>).",
+          "text": "Talk to Azzanadra at the Glacor Front (south of the cathedral in Senntisten).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the Duel Arena."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gather-more-information:14g9v27:f6os71",
+              "html": "Wearing the <a href=\"https://runescape.wiki/w/Shard_of_Erebus\" target=\"_blank\" rel=\"noopener\">shard of Erebus</a> will keep <a href=\"https://runescape.wiki/w/Glacor\" target=\"_blank\" rel=\"noopener\">glacors</a> from attacking along the way.",
+              "text": "Wearing the shard of Erebus will keep glacors from attacking along the way.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gather-more-information:14g9v27:kipkjr",
+              "html": "You can teleport to <a href=\"https://runescape.wiki/w/Arch-Glacor\" target=\"_blank\" rel=\"noopener\">Arch-Glacor</a> (and <a href=\"https://runescape.wiki/w/Azzanadra\" target=\"_blank\" rel=\"noopener\">Azzanadra</a>) using an attuned <a href=\"https://runescape.wiki/w/Boss_portal\" target=\"_blank\" rel=\"noopener\">boss portal</a> at <a href=\"https://runescape.wiki/w/War%27s_Retreat\" target=\"_blank\" rel=\"noopener\">War&#39;s Retreat</a>, or by using the grouping system.",
+              "text": "You can teleport to Arch-Glacor (and Azzanadra) using an attuned boss portal at War's Retreat, or by using the grouping system.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gather-more-information:d9eguk",
+          "html": "Head to the cathedral and talk to the gods. (You can use the <a href=\"https://runescape.wiki/w/Pontifex_shadow_ring\" target=\"_blank\" rel=\"noopener\">pontifex shadow ring</a> to teleport directly to the cathedral.)",
+          "text": "Head to the cathedral and talk to the gods. (You can use the pontifex shadow ring to teleport directly to the cathedral.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "gather-more-information:d9eguk:1el6g4h",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Seren\" target=\"_blank\" rel=\"noopener\">Seren</a>.",
+              "text": "Talk to Seren.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Talk about the Duel Arena."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gather-more-information:d9eguk:7psk6t",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Zamorak\" target=\"_blank\" rel=\"noopener\">Zamorak</a>.",
+              "text": "Talk to Zamorak.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Talk about the Duel Arena."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gather-more-information:d9eguk:1tcrl2o",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Armadyl\" target=\"_blank\" rel=\"noopener\">Armadyl</a>.",
+              "text": "Talk to Armadyl.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Talk about the Duel Arena."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "gather-more-information:d9eguk:o2tud2",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Saradomin\" target=\"_blank\" rel=\"noopener\">Saradomin</a>.",
+              "text": "Talk to Saradomin.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Talk about the Duel Arena."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "following-trindine",
+      "title": "Following Trindine",
+      "anchor": "Following_Trindine",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Eye_of_Het_II\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 1213,
+          "lon": 1776,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": 735,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1758.5,
+                  1112.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "iconAnchor": [
+                  8,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Azzanadra#Hardmode_(toggled_off)\" title=\"Azzanadra\">Azzanadra</a>",
+                "iconSize": [
+                  16,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Azzanadra_%28deity%29_chathead.png?c643b",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  1248.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "iconAnchor": [
+                  9,
+                  12
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Seren#Senntisten\" title=\"Seren\">Seren</a>",
+                "iconSize": [
+                  18,
+                  24
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Seren_%28with_Eluned%29_chathead.png?c691b",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  1256.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "iconAnchor": [
+                  13.5,
+                  8.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Zamorak#Senntisten\" title=\"Zamorak\">Zamorak</a>",
+                "iconSize": [
+                  27,
+                  17
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Zamorak_chathead.png?01ae4",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1767.5,
+                  1248.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "iconAnchor": [
+                  9,
+                  12
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Armadyl#Senntisten\" title=\"Armadyl\">Armadyl</a>",
+                "iconSize": [
+                  18,
+                  24
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Armadyl_chathead.png?e53e8",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  1240.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "iconAnchor": [
+                  6.5,
+                  13.5
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Saradomin#Senntisten\" title=\"Saradomin\">Saradomin</a>",
+                "iconSize": [
+                  13,
+                  27
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Saradomin_%28crownless%29_chathead.png?0d7c7",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  1267.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "description": "North entrance to the cathedral",
+                "iconAnchor": [
+                  11.5,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  23,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Trindine_chathead.png?ad6a8",
+                "title": "<a href=\"/w/Trindine\" title=\"Trindine\">Trindine</a> (pos 1)"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1718.5,
+                  1256.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "description": "West near <a href=\"/w/Nex\" title=\"Nex\">Nex</a> at the stairs near the <a href=\"/w/Nodon_front\" class=\"mw-redirect\" title=\"Nodon front\">Nodon front</a>",
+                "iconAnchor": [
+                  11.5,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  23,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Trindine_chathead.png?ad6a8",
+                "title": "<a href=\"/w/Trindine\" title=\"Trindine\">Trindine</a> (pos 2)"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1758.5,
+                  1217.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "description": "South beside <a href=\"/w/Helwyr\" title=\"Helwyr\">Helwyr</a> at the <a href=\"/w/Glacor_front\" class=\"mw-redirect\" title=\"Glacor front\">Glacor front</a>",
+                "iconAnchor": [
+                  11.5,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  23,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Trindine_chathead.png?ad6a8",
+                "title": "<a href=\"/w/Trindine\" title=\"Trindine\">Trindine</a> (pos 3)"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1835.5,
+                  1249.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "description": "East over the bridge at the <a href=\"/w/Croesus_Front\" title=\"Croesus Front\">Croesus Front</a>",
+                "iconAnchor": [
+                  11.5,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  23,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Trindine_chathead.png?ad6a8",
+                "title": "<a href=\"/w/Trindine\" title=\"Trindine\">Trindine</a> (pos 4)"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1788.5,
+                  1308.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "description": "Underneath the scaffolding at the Senntisten Dig Site bank chest",
+                "iconAnchor": [
+                  11.5,
+                  13
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  23,
+                  26
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Trindine_chathead.png?ad6a8",
+                "title": "<a href=\"/w/Trindine\" title=\"Trindine\">Trindine</a> (pos 5)"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1762.5,
+                  1267.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "label": "1",
+                "direction": "right",
+                "class": "large-label lbl-bg-green",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1721.5,
+                  1256.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "label": "2",
+                "direction": "right",
+                "class": "large-label lbl-bg-green",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  1217.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "label": "3",
+                "direction": "right",
+                "class": "large-label lbl-bg-green",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1832.5,
+                  1249.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "label": "4",
+                "direction": "left",
+                "class": "large-label lbl-bg-green",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1791.5,
+                  1308.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "735",
+                "label": "5",
+                "direction": "right",
+                "class": "large-label lbl-bg-green",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Eye_of_Het_II/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "following-trindine:10squkl",
+          "html": "XX<br>Order of <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Trindine&#39;s</a> locations",
+          "text": "XXOrder of Trindine's locations",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Eye_of_Het_II\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Eye_of_Het_II\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Eye_of_Het_II?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "following-trindine:164fhf4",
+          "html": "Attempt to talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Trindine</a> in the following locations.",
+          "text": "Attempt to talk to Trindine in the following locations.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "following-trindine:164fhf4:ry7pc3",
+              "html": "At the northern entrance to the cathedral.",
+              "text": "At the northern entrance to the cathedral.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "following-trindine:164fhf4:16e1epv",
+              "html": "West near <a href=\"https://runescape.wiki/w/Nex\" target=\"_blank\" rel=\"noopener\">Nex</a> at the stairs near the <a href=\"https://runescape.wiki/w/Nodon_Front\" target=\"_blank\" rel=\"noopener\">Nodon Front</a>.",
+              "text": "West near Nex at the stairs near the Nodon Front.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "following-trindine:164fhf4:jv79xs",
+              "html": "South beside <a href=\"https://runescape.wiki/w/Helwyr\" target=\"_blank\" rel=\"noopener\">Helwyr</a> at the Glacor Front.",
+              "text": "South beside Helwyr at the Glacor Front.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "following-trindine:164fhf4:19sh99x",
+              "html": "East over the bridge at the <a href=\"https://runescape.wiki/w/Croesus_Front\" target=\"_blank\" rel=\"noopener\">Croesus Front</a>.",
+              "text": "East over the bridge at the Croesus Front.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "following-trindine:164fhf4:l8cj5m",
+              "html": "North of the <a href=\"https://runescape.wiki/w/Senntisten_Dig_Site\" target=\"_blank\" rel=\"noopener\">Senntisten Dig Site</a>&#39;s archaeologist&#39;s workbench.",
+              "text": "North of the Senntisten Dig Site's archaeologist's workbench.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Gather Everyone."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "following-trindine:18pi9ht",
+          "html": "Talk to any god in the cathedral. (Select who you want to accuse)",
+          "text": "Talk to any god in the cathedral. (Select who you want to accuse)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "following-trindine:1q6an05",
+          "html": "Talk to Azzanadra. (If the player logs out or teleports out during this sequence, they can speak to Azzanadra at the Glacor Front to resume it.)",
+          "text": "Talk to Azzanadra. (If the player logs out or teleports out during this sequence, they can speak to Azzanadra at the Glacor Front to resume it.)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:n3ccjb",
+          "html": "Talk to Icthlarin at the entrance to Het&#39;s Oasis again.",
+          "text": "Talk to Icthlarin at the entrance to Het's Oasis again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Eye_of_Het_II_reward.png?398ba",
+      "width": 509,
+      "height": 333,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Eye_of_Het_II_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Medium_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Medium XP lamp</a>",
+        "text": "Medium XP lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Eye_of_Het_(broken)\" target=\"_blank\" rel=\"noopener\">Eye of Het (broken)</a>, a <a href=\"https://runescape.wiki/w/Relic\" target=\"_blank\" rel=\"noopener\">relic</a> which can be offered to the <a href=\"https://runescape.wiki/w/Mysterious_monolith\" target=\"_blank\" rel=\"noopener\">mysterious monolith</a> to unlock the <a href=\"https://runescape.wiki/w/Blessing_of_Het\" target=\"_blank\" rel=\"noopener\">Blessing of Het</a> <a href=\"https://runescape.wiki/w/Relic_power\" target=\"_blank\" rel=\"noopener\">relic power</a>. (The relic doesn&#39;t require repairing.)",
+        "text": "Eye of Het (broken), a relic which can be offered to the mysterious monolith to unlock the Blessing of Het relic power. (The relic doesn't require repairing.)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

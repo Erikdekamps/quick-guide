@@ -1,0 +1,1859 @@
+{
+  "format": 1,
+  "id": "the-mighty-fall",
+  "title": "The Mighty Fall",
+  "page": "The Mighty Fall/Quick guide",
+  "rev": 37218928,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Ur-tag\" target=\"_blank\" rel=\"noopener\">Ur-tag</a> in <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5363,
+      "lon": 2733,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Mighty_Fall/Quick_guide"
+    },
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Chosen Commander",
+        "depth": 1
+      },
+      {
+        "text": "Land of the Goblins",
+        "depth": 2
+      },
+      {
+        "text": "Another Slice of H.A.M.",
+        "depth": 3
+      },
+      {
+        "text": "Death to the Dorgeshuun",
+        "depth": 4
+      },
+      {
+        "text": "The Lost Tribe",
+        "depth": 5
+      },
+      {
+        "text": "Goblin Diplomacy",
+        "depth": 4
+      },
+      {
+        "text": "The Giant Dwarf",
+        "depth": 4
+      },
+      {
+        "text": "Fishing Contest",
+        "depth": 3
+      },
+      {
+        "text": "Missing, Presumed Death",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Attack",
+        "level": 79,
+        "note": ""
+      },
+      {
+        "skill": "Constitution",
+        "level": 78,
+        "note": ""
+      },
+      {
+        "skill": "Defence",
+        "level": 72,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 69,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 79,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "My Arm's Big Adventure",
+      "Eadgar's Ruse",
+      "Druidic Ritual",
+      "Troll Stronghold…",
+      "Rescue Mad Eadgar from the Troll Stronghold area",
+      "Jungle Potion",
+      "The Hunt for Surok (miniquest)",
+      "What Lies Below"
+    ],
+    "enemies": [
+      {
+        "text": "5 human infiltrators (levels 98-112)",
+        "name": "human infiltrators",
+        "count": 5,
+        "level": "98-112",
+        "note": ""
+      },
+      {
+        "text": "Yelps (level 84)",
+        "name": "Yelps",
+        "count": null,
+        "level": "84",
+        "note": ""
+      },
+      {
+        "text": "5 Yelps's bodyguards (level 112)",
+        "name": "Yelps's bodyguards",
+        "count": 5,
+        "level": "112",
+        "note": ""
+      },
+      {
+        "text": "Lol (level 110)",
+        "name": "Lol",
+        "count": null,
+        "level": "110",
+        "note": ""
+      },
+      {
+        "text": "General Graardor (level 210)",
+        "name": "General Graardor",
+        "count": null,
+        "level": "210",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1aqsd9c",
+          "html": "<a href=\"https://runescape.wiki/w/Light_sources\" target=\"_blank\" rel=\"noopener\">Light source</a>",
+          "text": "Light source",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:o42r7m",
+          "html": "Combat equipment, potions and food",
+          "text": "Combat equipment, potions and food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:2k8iwp",
+          "html": "<a href=\"https://runescape.wiki/w/Goblin_village_sphere\" target=\"_blank\" rel=\"noopener\">Goblin village spheres</a> or <a href=\"https://runescape.wiki/w/Mind_altar_teleport\" target=\"_blank\" rel=\"noopener\">mind altar teleports</a> or a <a href=\"https://runescape.wiki/w/Bandosian_token\" target=\"_blank\" rel=\"noopener\">Bandosian token</a>",
+          "text": "Goblin village spheres or mind altar teleports or a Bandosian token",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13goue9",
+          "html": "<a href=\"https://runescape.wiki/w/Dorgesh-kaan_sphere\" target=\"_blank\" rel=\"noopener\">Dorgesh-kaan spheres</a>",
+          "text": "Dorgesh-kaan spheres",
+          "alternatives": []
+        },
+        {
+          "id": "rec:15wd1ub",
+          "html": "<a href=\"https://runescape.wiki/w/Water_altar_teleport\" target=\"_blank\" rel=\"noopener\">Water altar teleport</a> for quick access to <a href=\"https://runescape.wiki/w/Lumbridge_Swamp\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp</a>",
+          "text": "Water altar teleport for quick access to Lumbridge Swamp",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "graardor-s-march",
+      "title": "Graardor's march",
+      "anchor": "Graardor's_march",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "graardor-s-march:bring:1aqsd9c",
+              "html": "<a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">Light source</a>",
+              "text": "Light source"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "graardor-s-march:1hnemud",
+          "html": "Speak to councillor <a href=\"https://runescape.wiki/w/Ur-tag\" target=\"_blank\" rel=\"noopener\">Ur-tag</a> in the north-easternmost house on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a>.",
+          "text": "Speak to councillor Ur-tag in the north-easternmost house on the 1st floor (UK) / 2nd floor (US) of Dorgesh-Kaan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How can I help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "bandosian-congregation",
+      "title": "Bandosian congregation",
+      "anchor": "Bandosian_congregation",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "bandosian-congregation:bring:1aqsd9c",
+              "html": "<a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">Light source</a>",
+              "text": "Light source"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "bandosian-congregation:1ung02e",
+          "html": "<i>Climb-down</i> the <a href=\"https://runescape.wiki/w/Dark_hole_under_tree\" target=\"_blank\" rel=\"noopener\">dark hole under tree</a> in the <a href=\"https://runescape.wiki/w/Lumbridge_Swamp\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp</a>. It is northwest of the <a href=\"https://runescape.wiki/w/Water_altar#Entrance\" target=\"_blank\" rel=\"noopener\">water ruins</a>.",
+          "text": "Climb-down the dark hole under tree in the Lumbridge Swamp. It is northwest of the water ruins.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bandosian-congregation:1hhghfr",
+          "html": "Head to the north-east in the caves and speak to the group of leaders.",
+          "text": "Head to the north-east in the caves and speak to the group of leaders.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "5",
+                  "text": "Enough questions."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "I'm done here."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bandosian-congregation:1kwnd8i",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a> and speak to Zanik, who is standing near Ur-tag back at the quest start.",
+          "text": "Return to Dorgesh-Kaan and speak to Zanik, who is standing near Ur-tag back at the quest start.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "They don't stand a chance!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bandosian-congregation:1hjwh65",
+          "html": "Travel to the Bandosian camp on the east side of the <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a> and talk to Zanik once more (a <a href=\"https://runescape.wiki/w/Goblin_Village_sphere\" target=\"_blank\" rel=\"noopener\">Goblin Village sphere</a> can be used).",
+          "text": "Travel to the Bandosian camp on the east side of the Goblin Village and talk to Zanik once more (a Goblin Village sphere can be used).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do you mean, dying?"
+                },
+                {
+                  "key": "2",
+                  "text": "Go on."
+                },
+                {
+                  "key": "1",
+                  "text": "Don't say that. We can still save them."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bandosian-congregation:1gpwonh",
+          "html": "Prepare for combat before proceeding to the next step.",
+          "text": "Prepare for combat before proceeding to the next step.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "return-to-yu-biusk",
+      "title": "Return to Yu'biusk",
+      "anchor": "Return_to_Yu'biusk",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Bandos%27_Arena_(Yu%27biusk)\" target=\"_blank\" rel=\"noopener\">Bandos&#39; Arena (Yu&#39;biusk)</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 139,
+          "lon": 128,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 668,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  173.5,
+                  185.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  180.5,
+                  150.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  177.5,
+                  119.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  151.5,
+                  93.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  138.5,
+                  120.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  161.5,
+                  134.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  145.5,
+                  145.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  157.5,
+                  170.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  133.5,
+                  144.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  110.5,
+                  140.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  110.5,
+                  149.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  89.5,
+                  154.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  87.5,
+                  135.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Bandos_chronicle\" title=\"Bandos chronicle\">Bandos chronicle</a>",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  166.5,
+                  161.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Zarador\" title=\"Zarador\">Zarador</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  177.5,
+                  182.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  174.5,
+                  118.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  143.5,
+                  156.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  130.5,
+                  141.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  107.5,
+                  138.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  85.5,
+                  151.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "plane": 0,
+                "title": "<a href=\"/w/Human_infiltrator\" title=\"Human infiltrator\">Human infiltrators</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  179,
+                  151.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  164,
+                  161.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  147,
+                  112.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  138,
+                  121.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  130,
+                  145.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  82,
+                  140.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Bank_map_icon.png?cb35b",
+                "icon": "bankchest",
+                "title": "<a href=\"/w/Bank_chest\" title=\"Bank chest\">Bank chest</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  150,
+                  181.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_map_icon.png?73368",
+                "icon": "dungeon entrance 2",
+                "title": "<a href=\"/w/Bandos%27s_Tower\" title=\"Bandos&#39;s Tower\">Portal to Bandos' Tower</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  150,
+                  181.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "<a href=\"/w/Bandos%27s_Tower\" title=\"Bandos&#39;s Tower\">Portal</a>",
+                "direction": "left",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  175.5,
+                  186.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Troll Tower",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  179.5,
+                  155.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Ogre Tower",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  153.5,
+                  160.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Bandos' Arena",
+                "direction": "center",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  132.5,
+                  138.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Ork Tower<br />(Bork's Camp)",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  110.5,
+                  141.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Your Camp",
+                "direction": "left",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  82.5,
+                  155.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "668",
+                "label": "Goblin Camp",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Mighty_Fall/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:y6jbp",
+          "html": "<a href=\"https://runescape.wiki/w/Bandos_chronicle\" target=\"_blank\" rel=\"noopener\">Bandos chronicle</a>",
+          "text": "Bandos chronicle",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:614cqm",
+          "html": "<a href=\"https://runescape.wiki/w/Zarador\" target=\"_blank\" rel=\"noopener\">Zarador</a>",
+          "text": "Zarador",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1eagyfr",
+          "html": "<a href=\"https://runescape.wiki/w/Human_infiltrator\" target=\"_blank\" rel=\"noopener\">Human infiltrators</a>",
+          "text": "Human infiltrators",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Bandos%27_Arena_(Yu%27biusk)\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Bandos%27_Arena_(Yu%27biusk)\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Bandos%27_Arena_(Yu%27biusk)?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "return-to-yu-biusk:bring:e1p3ub",
+              "html": "Weapon(s)",
+              "text": "Weapon(s)"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "return-to-yu-biusk:bring:1u1sbxl",
+              "html": "Armour",
+              "text": "Armour"
+            },
+            {
+              "id": "return-to-yu-biusk:bring:8542db",
+              "html": "Melee weapons (otherwise damage will be greatly reduced)",
+              "text": "Melee weapons (otherwise damage will be greatly reduced)"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:a7ttzr",
+          "html": "Enter the portal to travel to <a href=\"https://runescape.wiki/w/Yu%27biusk\" target=\"_blank\" rel=\"noopener\">Yu&#39;biusk</a>.",
+          "text": "Enter the portal to travel to Yu'biusk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1cffiiq",
+          "html": "Go around the mountain, up one ladder and follow the path south until you reach <a href=\"https://runescape.wiki/w/Zarador\" target=\"_blank\" rel=\"noopener\">Zarador</a>. Talk to him.",
+          "text": "Go around the mountain, up one ladder and follow the path south until you reach Zarador. Talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I have no more rules questions."
+                },
+                {
+                  "key": "3",
+                  "text": "I have no more questions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1hcanfu",
+          "html": "Head to your camp (travel west, down 2 ladders into a small room with a cooking pot). Talk to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a> or <a href=\"https://runescape.wiki/w/My_Arm\" target=\"_blank\" rel=\"noopener\">My Arm</a>.",
+          "text": "Head to your camp (travel west, down 2 ladders into a small room with a cooking pot). Talk to Burntmeat or My Arm.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Enough questions."
+                },
+                {
+                  "key": "1",
+                  "text": "Great, thanks!"
+                },
+                {
+                  "key": "1",
+                  "text": "That sure is a mystery."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1fs965o",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Human_infiltrator\" target=\"_blank\" rel=\"noopener\">human infiltrator</a> when he appears.",
+          "text": "Kill the human infiltrator when he appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "return-to-yu-biusk:1fs965o:1uqse2f",
+              "html": "If <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a> doesn&#39;t suggest searching his body, check the normal guide for possible solutions to progress the quest.",
+              "text": "If Burntmeat doesn't suggest searching his body, check the normal guide for possible solutions to progress the quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1c2v45y",
+          "html": "Return east to Zarador.",
+          "text": "Return east to Zarador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'll get right on it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-yu-biusk:1nj8v07",
+          "html": "Talk to the following goblins and kill them.",
+          "text": "Talk to the following goblins and kill them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Goblin guard, climb up the ladder south of Zarador, then south-east next to a big chest. (1•2•3•1)<br>Goblin guard at the crossroads west of Zarador. (1•2•3•1)<br>Goblin guard in the Troll tower east of the entrance. (1•2•3•1)<br>Goblin ork, in the Ork Tower next to Bork. (1•2•3•1)<br>Goblin cleaner in the Goblin camp to the west, near Yelps. (1•2•3•1•~)"
+        }
+      ]
+    },
+    {
+      "id": "the-kyzaj-tournament",
+      "title": "The Kyzaj tournament",
+      "anchor": "The_Kyzaj_tournament",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-kyzaj-tournament:bring:e1p3ub",
+              "html": "Weapon(s)",
+              "text": "Weapon(s)"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "the-kyzaj-tournament:bring:1u1sbxl",
+              "html": "Armour",
+              "text": "Armour"
+            },
+            {
+              "id": "the-kyzaj-tournament:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "the-kyzaj-tournament:bring:dql8qj",
+              "html": "Potions",
+              "text": "Potions"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "If you die during the tournament, your gravestone will appear outside the Yu&#39;biusk portal."
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:1kgvx6q",
+          "html": "Return to Zarador once all infiltrators have been dealt with.",
+          "text": "Return to Zarador once all infiltrators have been dealt with.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:8cz523",
+          "html": "Use the bank chest beside Zarador to bank any forbidden items. He will also explain the rules of the tournament.",
+          "text": "Use the bank chest beside Zarador to bank any forbidden items. He will also explain the rules of the tournament.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:10eozmk",
+          "html": "Talk to him once more to begin the tournament.",
+          "text": "Talk to him once more to begin the tournament.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Just bring it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Yelps"
+        },
+        {
+          "type": "text",
+          "html": "See also: <a href=\"https://runescape.wiki/w/The_Mighty_Fall#Yelps\" target=\"_blank\" rel=\"noopener\">The Mighty Fall#Yelps</a>"
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:due66o",
+          "html": "After defeating Yelps, you can choose to kill or spare him.",
+          "text": "After defeating Yelps, you can choose to kill or spare him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:jf7tte",
+          "html": "After you have made your choice speak to Zanik outside of the portal.",
+          "text": "After you have made your choice speak to Zanik outside of the portal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "3",
+                  "text": "I need to get back to the tournament."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Lol"
+        },
+        {
+          "type": "text",
+          "html": "See also: <a href=\"https://runescape.wiki/w/The_Mighty_Fall#Lol\" target=\"_blank\" rel=\"noopener\">The Mighty Fall#Lol</a>"
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:1ssgt5g",
+          "html": "Return to Zarador after talking to Zanik. He will inform you that your next opponent is <a href=\"https://runescape.wiki/w/Lol\" target=\"_blank\" rel=\"noopener\">Lol</a>, the <a href=\"https://runescape.wiki/w/Troll\" target=\"_blank\" rel=\"noopener\">troll</a> champion.",
+          "text": "Return to Zarador after talking to Zanik. He will inform you that your next opponent is Lol, the troll champion.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Just bring it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:1ssgt5g:14cmohv",
+              "html": "<b>Suggested items:</b> Stat-boosting potions such as overloads, extreme potions, or super potions, prayer potions, Enhanced Excalibur (or another good weapon), and lots of good food.",
+              "text": "Suggested items: Stat-boosting potions such as overloads, extreme potions, or super potions, prayer potions, Enhanced Excalibur (or another good weapon), and lots of good food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:1ssgt5g:xryfj6",
+              "html": "<b>Forbidden items:</b> You cannot wear armour, including pocket items and jewellery.",
+              "text": "Forbidden items: You cannot wear armour, including pocket items and jewellery.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:hee599",
+          "html": "After Lol has been defeated, you must once again choose to kill or spare him.",
+          "text": "After Lol has been defeated, you must once again choose to kill or spare him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "General Graardor"
+        },
+        {
+          "type": "text",
+          "html": "See also: <a href=\"https://runescape.wiki/w/The_Mighty_Fall#General_Graardor\" target=\"_blank\" rel=\"noopener\">The Mighty Fall#General Graardor</a>"
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:mv8ugd",
+          "html": "Talk to Zarador again and, after some dialogue, he will give you a weapon known as the <a href=\"https://runescape.wiki/w/Kyzaj\" target=\"_blank\" rel=\"noopener\">Kyzaj</a>, the namesake of the tournament. He will tell you that you must use it against your final opponent, <a href=\"https://runescape.wiki/w/General_Graardor\" target=\"_blank\" rel=\"noopener\">General Graardor</a>, the champion of the <a href=\"https://runescape.wiki/w/Ourg\" target=\"_blank\" rel=\"noopener\">ourgs</a>.",
+          "text": "Talk to Zarador again and, after some dialogue, he will give you a weapon known as the Kyzaj, the namesake of the tournament. He will tell you that you must use it against your final opponent, General Graardor, the champion of the ourgs.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Enough questions, give me the Kyzaj so I can practice with it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:mv8ugd:12nnvse",
+              "html": "If the Kyzaj isn&#39;t in your inventory after finishing the dialogue with Zarador, speak with Zarador to reclaim it.",
+              "text": "If the Kyzaj isn't in your inventory after finishing the dialogue with Zarador, speak with Zarador to reclaim it.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "I'd like to reclaim my Kyzaj."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:105bw67",
+          "html": "Talk to Zanik outside of the portal and she will teach you how to wield and use the Kyzaj.",
+          "text": "Talk to Zanik outside of the portal and she will teach you how to wield and use the Kyzaj.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I need you to tell me about the Kyzaj."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-kyzaj-tournament:h0ligg",
+          "html": "When you are ready to begin the final battle, return to Zarador and talk to him.",
+          "text": "When you are ready to begin the final battle, return to Zarador and talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Just bring it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:h0ligg:5jjl44",
+              "html": "<b>Rules for this round:</b> You may not bring in your own weapons (you must use the Kyzaj, a tier 70 weapon), and prayer is disabled. You may equip armour and jewellery, although runes and non-combat items (excluding food) are forbidden.",
+              "text": "Rules for this round: You may not bring in your own weapons (you must use the Kyzaj, a tier 70 weapon), and prayer is disabled. You may equip armour and jewellery, although runes and non-combat items (excluding food) are forbidden.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:h0ligg:1p4ndae",
+              "html": "The Kyzaj will automatically equip itself once the fight starts; you will not be able to equip it beforehand.",
+              "text": "The Kyzaj will automatically equip itself once the fight starts; you will not be able to equip it beforehand.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-kyzaj-tournament:h0ligg:1ypd30",
+              "html": "Fighting General Graardor he has three main mechanics.",
+              "text": "Fighting General Graardor he has three main mechanics.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "the-kyzaj-tournament:h0ligg:1ypd30:ucq263",
+                  "html": "The first one is a ground smash that affects the centre of the arena. Being in the centre makes you get hit for up to 5k damage.",
+                  "text": "The first one is a ground smash that affects the centre of the arena. Being in the centre makes you get hit for up to 5k damage.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-kyzaj-tournament:h0ligg:1ypd30:nafaea",
+                  "html": "The second attack is a cleave animation with no warning. Sidestep a few tiles and go back to attacking.",
+                  "text": "The second attack is a cleave animation with no warning. Sidestep a few tiles and go back to attacking.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-kyzaj-tournament:h0ligg:1ypd30:g84lb2",
+                  "html": "The third mechanic he will destroy a section of the outer ring. This will hit for 5k damage if you do not move to another outer ring.",
+                  "text": "The third mechanic he will destroy a section of the outer ring. This will hit for 5k damage if you do not move to another outer ring.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-new-big-high-war-god",
+      "title": "The new Big High War God",
+      "anchor": "The_new_Big_High_War_God",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-new-big-high-war-god:1fzrrur",
+          "html": "Zarador throws Zanik into the arena, giving you two choices: you may either slay Zanik or spare her.",
+          "text": "Zarador throws Zanik into the arena, giving you two choices: you may either slay Zanik or spare her.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Enough questions. I need to speak to Zanik"
+                },
+                {
+                  "key": "3",
+                  "text": "I'm ready."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-new-big-high-war-god:1fzrrur:1f62u0n",
+              "html": "Your Kyzaj appearance will initially depend upon your decision to kill or spare Zanik (you receive the <a href=\"https://runescape.wiki/w/Bloodied_kyzaj\" target=\"_blank\" rel=\"noopener\">Bloodied kyzaj</a> if you kill her or the <a href=\"https://runescape.wiki/w/Honourable_kyzaj\" target=\"_blank\" rel=\"noopener\">Honourable kyzaj</a> if you spare her), but these can be freely exchanged after the quest.",
+              "text": "Your Kyzaj appearance will initially depend upon your decision to kill or spare Zanik (you receive the Bloodied kyzaj if you kill her or the Honourable kyzaj if you spare her), but these can be freely exchanged after the quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-new-big-high-war-god:11t4wg0",
+          "html": "<b>If you chose to kill Zanik</b>, you must speak to General Graardor to find out his plans (Graardor can be found by going south from Zarador, up the ladder, and taking the first pathway to the west to the bank spot).",
+          "text": "If you chose to kill Zanik, you must speak to General Graardor to find out his plans (Graardor can be found by going south from Zarador, up the ladder, and taking the first pathway to the west to the bank spot).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-new-big-high-war-god:14hk08g",
+          "html": "<b>If you chose to spare Zanik</b>, you must speak to her and find out her plans (Zanik is standing next to Zarador).",
+          "text": "If you chose to spare Zanik, you must speak to her and find out her plans (Zanik is standing next to Zarador).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-new-big-high-war-god:17eqqbl",
+          "html": "Return to Ur-tag in Dorgesh-Kaan.",
+          "text": "Return to Ur-tag in Dorgesh-Kaan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-new-big-high-war-god:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Mighty_Fall_reward.png?ae390",
+      "width": 512,
+      "height": 417,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Mighty_Fall_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "75,000 experience <a href=\"https://runescape.wiki/w/Lamp_(The_Mighty_Fall,_75k)\" target=\"_blank\" rel=\"noopener\">lamp</a> used for any combat skill (including Summoning, Prayer and Slayer, but excluding Necromancy) at or above level 79",
+        "text": "75,000 experience lamp used for any combat skill (including Summoning, Prayer and Slayer, but excluding Necromancy) at or above level 79",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Lamp_(The_Mighty_Fall,_50k)\" target=\"_blank\" rel=\"noopener\">lamp</a> used for any combat skill (including Summoning, Prayer and Slayer, but excluding Necromancy) at or above level 69",
+        "text": "50,000 experience lamp used for any combat skill (including Summoning, Prayer and Slayer, but excluding Necromancy) at or above level 69",
+        "subs": []
+      },
+      {
+        "html": "80,000 experience",
+        "text": "80,000 experience",
+        "subs": []
+      },
+      {
+        "html": "80,000 experience",
+        "text": "80,000 experience",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Kyzaj\" target=\"_blank\" rel=\"noopener\">Kyzaj</a>, to which you can add a <a href=\"https://runescape.wiki/w/Bandos_hilt\" target=\"_blank\" rel=\"noopener\">Bandos hilt</a> to increase its stats from tier 70 to tier 75.",
+        "text": "A Kyzaj, to which you can add a Bandos hilt to increase its stats from tier 70 to tier 75.",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Kyzaj_(Honourable)\" target=\"_blank\" rel=\"noopener\">Honourable Kyzaj</a> and the <a href=\"https://runescape.wiki/w/Kyzaj_(Bloodied)\" target=\"_blank\" rel=\"noopener\">Bloodied Kyzaj</a> cosmetic overrides for mauls",
+        "text": "Honourable Kyzaj and the Bloodied Kyzaj cosmetic overrides for mauls",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/The_Champion\" target=\"_blank\" rel=\"noopener\">[Name] the Champion</a> title",
+        "text": "The [Name] the Champion title",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Bandos%27s_Memories\" target=\"_blank\" rel=\"noopener\">Bandos&#39;s Memories</a> book. Additional pages come in the form of 13 green <a href=\"https://runescape.wiki/w/Bandos_chronicle\" target=\"_blank\" rel=\"noopener\">Bandos chronicles</a>, which can be found while exploring Yu&#39;biusk. They are similar to <a href=\"https://runescape.wiki/w/Chronicle_fragment\" target=\"_blank\" rel=\"noopener\">Chronicle fragments</a> from <a href=\"https://runescape.wiki/w/Divination\" target=\"_blank\" rel=\"noopener\">Divination</a>, and will only appear when you come within close range of them, granting 10 Divination experience when caught.",
+        "text": "Bandos's Memories book. Additional pages come in the form of 13 green Bandos chronicles, which can be found while exploring Yu'biusk. They are similar to Chronicle fragments from Divination, and will only appear when you come within close range of them, granting 10 Divination experience when caught.",
+        "subs": []
+      },
+      {
+        "html": "Ability to use the <a href=\"https://runescape.wiki/w/God_Wars_Dungeon_Teleport\" target=\"_blank\" rel=\"noopener\">God Wars Dungeon Teleport</a> spell (requires level 61 Magic)",
+        "text": "Ability to use the God Wars Dungeon Teleport spell (requires level 61 Magic)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Yelps%27s_very_own_cash_bag\" target=\"_blank\" rel=\"noopener\">Yelps&#39;s very own cash bag</a> and <a href=\"https://runescape.wiki/w/Expired_spin_ticket\" target=\"_blank\" rel=\"noopener\">expired spin ticket</a>. These can be reclaimed by speaking to Yelps (if spared), or by searching his chest (if killed).",
+        "text": "Yelps's very own cash bag and expired spin ticket. These can be reclaimed by speaking to Yelps (if spared), or by searching his chest (if killed).",
+        "subs": []
+      },
+      {
+        "html": "You can speak to Zarador after the quest to change your Kyzaj from an <a href=\"https://runescape.wiki/w/Honourable_kyzaj\" target=\"_blank\" rel=\"noopener\">honourable</a> to a <a href=\"https://runescape.wiki/w/Bloodied_kyzaj\" target=\"_blank\" rel=\"noopener\">bloodied one</a>, and vice versa. This effect is purely cosmetic.",
+        "text": "You can speak to Zarador after the quest to change your Kyzaj from an honourable to a bloodied one, and vice versa. This effect is purely cosmetic.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Yu'biusk",
+      "where": ""
+    },
+    {
+      "name": "Bandosian Tournament",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,567 @@
+{
+  "format": 1,
+  "id": "a-shadow-over-ashdale",
+  "title": "A Shadow over Ashdale",
+  "page": "A Shadow over Ashdale/Quick guide",
+  "rev": 37168640,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Gudrik\" target=\"_blank\" rel=\"noopener\">Gudrik</a>, who can be found east of <a href=\"https://runescape.wiki/w/Gerrant%27s_Fishy_Business\" target=\"_blank\" rel=\"noopener\">Gerrant&#39;s Fishy Business</a> in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3229,
+      "lon": 3029,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/A_Shadow_over_Ashdale/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Several Crassian scouts (scales with your stats; some may be avoided)• Agoroth (scales with your stats)",
+        "name": "Several Crassian scouts (scales with your stats; some may be avoided)• Agoroth (scales with your stats)",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:2wi0u3",
+          "html": "Decent <a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">armour</a>, some <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> and a <a href=\"https://runescape.wiki/w/Gem_bag\" target=\"_blank\" rel=\"noopener\">gem bag</a>.",
+          "text": "Decent armour, some food and a gem bag.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gub6dr",
+          "html": "<a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> or <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> weapons to deal damage from a distance.",
+          "text": "Ranged or Magic weapons to deal damage from a distance.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "return-to-ashdale",
+      "title": "Return to Ashdale",
+      "anchor": "Return_to_Ashdale",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "return-to-ashdale:bring:3yus4k",
+              "html": "Decent armour",
+              "text": "Decent armour"
+            },
+            {
+              "id": "return-to-ashdale:bring:4p0zcb",
+              "html": "Some food",
+              "text": "Some food"
+            },
+            {
+              "id": "return-to-ashdale:bring:16taakd",
+              "html": "A <a href=\"https://runescape.wiki/w/Gem_bag\" target=\"_blank\" rel=\"noopener\">gem bag</a>",
+              "text": "A gem bag"
+            },
+            {
+              "id": "return-to-ashdale:bring:6f8i6",
+              "html": "Weapons to deal damage from a distance",
+              "text": "Weapons to deal damage from a distance"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "return-to-ashdale:1o10imj",
+          "html": "To start, talk to <a href=\"https://runescape.wiki/w/Gudrik\" target=\"_blank\" rel=\"noopener\">Gudrik</a>, east of Gerrant&#39;s Fishy Business in Port Sarim.",
+          "text": "To start, talk to Gudrik, east of Gerrant's Fishy Business in Port Sarim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about A Shadow over Ashdale."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-ashdale:14tdu7w",
+          "html": "Talk to him again.",
+          "text": "Talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Can you take me to the island of Ashdale?"
+                },
+                {
+                  "key": "1",
+                  "text": "Ashdale by night (A Shadow over Ashdale)."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-ashdale:tklgpn",
+          "html": "Once you arrive at Ashdale, head north into <a href=\"https://runescape.wiki/w/Lucy_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">Lucy</a>&#39;s house to speak with her.",
+          "text": "Once you arrive at Ashdale, head north into Lucy's house to speak with her.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here to help."
+                },
+                {
+                  "key": "3",
+                  "text": "Why haven't you tried to leave?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "return-to-ashdale:67zqyc",
+          "html": "<i>Enter</i> the <a href=\"https://runescape.wiki/w/Storm_drain\" target=\"_blank\" rel=\"noopener\">storm drain</a> just west of the house.",
+          "text": "Enter the storm drain just west of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sewer-raider",
+      "title": "Sewer raider",
+      "anchor": "Sewer_raider",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "sewer-raider:1d1n76p",
+          "html": "Go through in the sewer, killing or running past crassians.",
+          "text": "Go through in the sewer, killing or running past crassians.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sewer-raider:my53l5",
+          "html": "Climb up the ladder at the end of the sewer.",
+          "text": "Climb up the ladder at the end of the sewer.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sewer-raider:1bryos5",
+          "html": "Run west, then south up the stairs. Continue south through Ashdale, through the gate and into the house.",
+          "text": "Run west, then south up the stairs. Continue south through Ashdale, through the gate and into the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sewer-raider:1rgs34n",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Bust\" target=\"_blank\" rel=\"noopener\">bust</a> by the fireplace.",
+          "text": "Inspect the bust by the fireplace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sewer-raider:1sslczi",
+          "html": "<i>Climb down</i> the staircase.",
+          "text": "Climb down the staircase.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "smuggler-s-cavern",
+      "title": "Smuggler's cavern",
+      "anchor": "Smuggler's_cavern",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:r9cu0c",
+          "html": "Ignore the crassians and enter the eastern room.",
+          "text": "Ignore the crassians and enter the eastern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:1t2ckqc",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Valve_outer_wheel\" target=\"_blank\" rel=\"noopener\">valve outer wheel</a>, <a href=\"https://runescape.wiki/w/Valve_inner_wheel\" target=\"_blank\" rel=\"noopener\">valve inner wheel</a> and <a href=\"https://runescape.wiki/w/Pitch\" target=\"_blank\" rel=\"noopener\">pitch</a>.",
+          "text": "Pick up the valve outer wheel, valve inner wheel and pitch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:vwnr0u",
+          "html": "<i>Repair</i> the <a href=\"https://runescape.wiki/w/Pipe_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">pipe</a> on the ground.",
+          "text": "Repair the pipe on the ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:9cxjmm",
+          "html": "Combine the valve parts to create a <a href=\"https://runescape.wiki/w/Valve_wheel_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">valve wheel</a>.",
+          "text": "Combine the valve parts to create a valve wheel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:bwenp1",
+          "html": "<i>Repair</i> the <a href=\"https://runescape.wiki/w/Socket\" target=\"_blank\" rel=\"noopener\">socket</a> on the central <a href=\"https://runescape.wiki/w/Barrel_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">barrel</a>.",
+          "text": "Repair the socket on the central barrel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:9csr52",
+          "html": "<i>Turn</i> the valve wheel on the filled barrel, repeating this process on each of the barrels to move the water through the pipes to open the door.",
+          "text": "Turn the valve wheel on the filled barrel, repeating this process on each of the barrels to move the water through the pipes to open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:cyj891",
+          "html": "Continue through and kill the crassian scouts in the next room to open the barrier.",
+          "text": "Continue through and kill the crassian scouts in the next room to open the barrier.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:1p7egtx",
+          "html": "<i>Pull</i> the <a href=\"https://runescape.wiki/w/Lever_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">lever</a> to the south when the <a href=\"https://runescape.wiki/w/Crassian_warrior\" target=\"_blank\" rel=\"noopener\">crassian warrior</a> isn&#39;t looking.",
+          "text": "Pull the lever to the south when the crassian warrior isn't looking.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "smuggler-s-cavern:1p7egtx:132mzpk",
+              "html": "If seen, simply try again.",
+              "text": "If seen, simply try again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:r8xzv1",
+          "html": "Do the same with each crassian warrior guarding a lever to kill them.",
+          "text": "Do the same with each crassian warrior guarding a lever to kill them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:wqeput",
+          "html": "Optionally loot the <a href=\"https://runescape.wiki/w/Chest_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">chests</a> along the path for some <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> and uncut gems.",
+          "text": "Optionally loot the chests along the path for some coins and uncut gems.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "smuggler-s-cavern:398bgq",
+          "html": "Run past the scouts.",
+          "text": "Run past the scouts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "release-the-kraken",
+      "title": "Release the Kraken",
+      "anchor": "Release_the_Kraken",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "release-the-kraken:mfm9r4",
+          "html": "Climb on the ship.",
+          "text": "Climb on the ship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "release-the-kraken:17ogcnm",
+          "html": "Kill the 4 tentacles, moving to avoid their attacks.",
+          "text": "Kill the 4 tentacles, moving to avoid their attacks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "release-the-kraken:1gsmnkx",
+          "html": "Kill Agoroth, ideally from a distance.",
+          "text": "Kill Agoroth, ideally from a distance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "release-the-kraken:1fzqy1",
+          "html": "Continue dialogue with Lucy and agree to return to Port Sarim.",
+          "text": "Continue dialogue with Lucy and agree to return to Port Sarim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "release-the-kraken:3dkcmz",
+          "html": "Continue dialogue with Gudrik and ask for a reward.",
+          "text": "Continue dialogue with Gudrik and ask for a reward.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about A Shadow over Ashdale."
+                },
+                {
+                  "key": "1",
+                  "text": "Is there a reward?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "release-the-kraken:3dkcmz:1cnzuz",
+              "html": "The reward requires seven free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces.",
+              "text": "The reward requires seven free backpack spaces.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "release-the-kraken:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/A_Shadow_over_Ashdale_reward.png?59a4f",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:A_Shadow_over_Ashdale_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "300 experience <a href=\"https://runescape.wiki/w/Attack_XP_lamp_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "300 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "300 experience <a href=\"https://runescape.wiki/w/Strength_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "300 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "300 experience <a href=\"https://runescape.wiki/w/Defence_XP_lamp_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "300 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "300 experience <a href=\"https://runescape.wiki/w/Constitution_XP_lamp_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "300 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Black_pearl_(A_Shadow_over_Ashdale)\" target=\"_blank\" rel=\"noopener\">black pearls</a>",
+        "text": "3 black pearls",
+        "subs": [
+          "May break one per day to receive bonus experience in any skill equal to that of a <a href=\"https://runescape.wiki/w/Large_fallen_star\" target=\"_blank\" rel=\"noopener\">large fallen star</a>"
+        ]
+      },
+      {
+        "html": "Access to the dead man&#39;s chest in the <a href=\"https://runescape.wiki/w/Ashdale_Caves\" target=\"_blank\" rel=\"noopener\">Ashdale Caves</a> to repeat the battle against Agoroth, giving a <a href=\"https://runescape.wiki/w/Black_pearl\" target=\"_blank\" rel=\"noopener\">black pearl</a> (or coins) with bonus experience in any skill equal to that of a <a href=\"https://runescape.wiki/w/Medium_fallen_star\" target=\"_blank\" rel=\"noopener\">medium fallen star</a>. This can be done once per week for free players or twice a week for members.",
+        "text": "Access to the dead man's chest in the Ashdale Caves to repeat the battle against Agoroth, giving a black pearl (or coins) with bonus experience in any skill equal to that of a medium fallen star. This can be done once per week for free players or twice a week for members.",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "<a href=\"https://runescape.wiki/w/Shadow_Hanging_Over_Me\" target=\"_blank\" rel=\"noopener\">Shadow Hanging Over Me</a> (5) – Claim all treasure from the chests during &#39;A Shadow over Ashdale&#39;, or talk to Gudrik to claim them afterwards.",
+            "text": "Shadow Hanging Over Me (5) – Claim all treasure from the chests during 'A Shadow over Ashdale', or talk to Gudrik to claim them afterwards.",
+            "subs": [
+              "757 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>, four <a href=\"https://runescape.wiki/w/Uncut_sapphire\" target=\"_blank\" rel=\"noopener\">uncut sapphires</a> and an <a href=\"https://runescape.wiki/w/Uncut_emerald\" target=\"_blank\" rel=\"noopener\">uncut emerald</a>, for searching the chests in the dungeon"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Scape Dark",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

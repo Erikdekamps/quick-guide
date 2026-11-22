@@ -1,0 +1,1163 @@
+{
+  "format": 1,
+  "id": "evil-daves-big-day-out",
+  "title": "Evil Dave's Big Day Out",
+  "page": "Evil Dave's Big Day Out/Quick guide",
+  "rev": 37238450,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Evil_Dave\" target=\"_blank\" rel=\"noopener\">Evil Dave</a> in his <a href=\"https://runescape.wiki/w/Basement_of_Doom\" target=\"_blank\" rel=\"noopener\">Basement of Doom</a> in <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9890,
+      "lon": 3080,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 31,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Evil_Dave's_Big_Day_Out/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Recipe for Disaster: Freeing Evil Dave",
+        "depth": 1
+      },
+      {
+        "text": "Recipe for Disaster: Another Cook's Quest",
+        "depth": 2
+      },
+      {
+        "text": "Cook's Assistant",
+        "depth": 3
+      },
+      {
+        "text": "Gertrude's Cat",
+        "depth": 2
+      },
+      {
+        "text": "Shadow of the Storm",
+        "depth": 2
+      },
+      {
+        "text": "Demon Slayer",
+        "depth": 3
+      },
+      {
+        "text": "The Golem",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Cooking",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Dishonour among Thieves",
+      "Hazeel Cult",
+      "Missing, Presumed Death",
+      "Koschei's Troubles (miniquest)…",
+      "The Chosen Commander…",
+      "Ritual of the Mahjarrat…",
+      "The World Wakes…",
+      "The Death of Chivalry…",
+      "Ability to enter Morytania",
+      "Nomad's Requiem",
+      "King's Ransom…",
+      "Complete the Knight Waves in Camelot",
+      "Complete the Soul Wars tutorial",
+      "Nadir (saga)",
+      "Find and free Skaldrun from the frozen floors in Daemonheim"
+    ],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:14p3d7z",
+          "html": "An empty <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a>.",
+          "text": "An empty backpack.",
+          "alternatives": []
+        },
+        {
+          "id": "req:110t3ir",
+          "html": "No <a href=\"https://runescape.wiki/w/Familiar\" target=\"_blank\" rel=\"noopener\">familiar</a> or pet summoned.",
+          "text": "No familiar or pet summoned.",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:3aaqtq",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Basement_of_Doom\" target=\"_blank\" rel=\"noopener\">Basement of Doom</a>, located under a house west of <a href=\"https://runescape.wiki/w/Edgeville#Bank\" target=\"_blank\" rel=\"noopener\">Edgeville bank</a>.",
+          "text": "Go to the Basement of Doom, located under a house west of Edgeville bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:lq2jue",
+          "html": "Talk to Evil Dave.",
+          "text": "Talk to Evil Dave.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Evil Dave's big day out."
+                },
+                {
+                  "key": "1",
+                  "text": "I was looking for a quest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1j8huz",
+          "html": "After the cutscene, admire the mirror to the west.",
+          "text": "After the cutscene, admire the mirror to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:10y0nd",
+          "html": "Go upstairs and talk to Doris.",
+          "text": "Go upstairs and talk to Doris.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "chores-of-doom",
+      "title": "Chores of doom",
+      "anchor": "Chores_of_doom",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "chores-of-doom:s2kd6v",
+          "html": "Do your chores.",
+          "text": "Do your chores.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:894c9l",
+              "html": "Search the wardrobe for a broom and bed bug cleaner.",
+              "text": "Search the wardrobe for a broom and bed bug cleaner.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:y6xmwk",
+              "html": "Sweep the rug.",
+              "text": "Sweep the rug.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:d6ktj",
+              "html": "Search the shelf for a bar of soap.",
+              "text": "Search the shelf for a bar of soap.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:118a90e",
+              "html": "Wash the dishes in the sink.",
+              "text": "Wash the dishes in the sink.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:1l9oca1",
+              "html": "Choose the <i>take knife</i> option on the sink.",
+              "text": "Choose the take knife option on the sink.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:axoing",
+              "html": "Chop the vegetables.",
+              "text": "Chop the vegetables.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "chores-of-doom:s2kd6v:br8vxh",
+              "html": "Go downstairs and clean your bed.",
+              "text": "Go downstairs and clean your bed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:182uqdx",
+          "html": "After the cutscene go back upstairs and talk to Doris.",
+          "text": "After the cutscene go back upstairs and talk to Doris.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:1eevetd",
+          "html": "Go back downstairs and search the bookcase by the stairs.",
+          "text": "Go back downstairs and search the bookcase by the stairs.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "No, I need to find the spellbook."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:15bbwu",
+          "html": "Search behind the boiler in the southeast corner.",
+          "text": "Search behind the boiler in the southeast corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:gvi90g",
+          "html": "Search the drapes by the bed.",
+          "text": "Search the drapes by the bed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:xv42kj",
+          "html": "Investigate Dave&#39;s spellbook.",
+          "text": "Investigate Dave's spellbook.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chores-of-doom:12rn7a",
+          "html": "Investigate it again to teleport to the <a href=\"https://runescape.wiki/w/Makeover_Mage\" target=\"_blank\" rel=\"noopener\">Makeover Mage</a>. (If you interact with Dave&#39;s spellbook again and get the message &quot;I don&#39;t need to use the spellbook right now&quot;, interact with the drapes once more and the option to teleport to Makeover Mage will appear.)",
+          "text": "Investigate it again to teleport to the Makeover Mage. (If you interact with Dave's spellbook again and get the message \"I don't need to use the spellbook right now\", interact with the drapes once more and the option to teleport to Makeover Mage will appear.)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "making-a-withdrawal",
+      "title": "Making a withdrawal",
+      "anchor": "Making_a_withdrawal",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "making-a-withdrawal:kxxk5y",
+          "html": "Talk to one of the bankers and withdraw the law rune, emergency flask of stew, and old rug from Dave&#39;s bank.",
+          "text": "Talk to one of the bankers and withdraw the law rune, emergency flask of stew, and old rug from Dave's bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-a-withdrawal:pv5389",
+          "html": "Talk to one of the Grand Exchange clerks.",
+          "text": "Talk to one of the Grand Exchange clerks.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Air runes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-a-withdrawal:1u1ta6r",
+          "html": "Drink the stew and refill the flask from any of the water fountains around the Grand Exchange.",
+          "text": "Drink the stew and refill the flask from any of the water fountains around the Grand Exchange.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "making-a-withdrawal:4nc6vf",
+          "html": "Go to one of the Exchange clerks (<a href=\"https://runescape.wiki/w/Clark\" target=\"_blank\" rel=\"noopener\">Clark</a> or <a href=\"https://runescape.wiki/w/Kent_(Evil_Dave%27s_Big_Day_Out)\" target=\"_blank\" rel=\"noopener\">Kent</a>) to exchange the water flask for an air rune.",
+          "text": "Go to one of the Exchange clerks (Clark or Kent) to exchange the water flask for an air rune.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "double-trouble",
+      "title": "Double trouble",
+      "anchor": "Double_trouble",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "double-trouble:b4ofnv",
+          "html": "Teleport to the makeover mage and ask to turn into a girl..",
+          "text": "Teleport to the makeover mage and ask to turn into a girl..",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:b0ep40",
+          "html": "After you teleport back, talk to Doris.",
+          "text": "After you teleport back, talk to Doris.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:o1m9od",
+          "html": "Attempt to redo the following chores.",
+          "text": "Attempt to redo the following chores.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "double-trouble:o1m9od:y6xmwk",
+              "html": "Sweep the rug.",
+              "text": "Sweep the rug.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "double-trouble:o1m9od:sbx7",
+              "html": "Wash the dishes.",
+              "text": "Wash the dishes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "double-trouble:o1m9od:axoing",
+              "html": "Chop the vegetables.",
+              "text": "Chop the vegetables.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:baktq2",
+          "html": "Open the door and go north to the general store and speak to the shopkeeper.",
+          "text": "Open the door and go north to the general store and speak to the shopkeeper.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Go to the shops"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:6yw61e",
+          "html": "Return to the house and redo all the chores again.",
+          "text": "Return to the house and redo all the chores again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "double-trouble:6yw61e:y6xmwk",
+              "html": "Sweep the rug.",
+              "text": "Sweep the rug.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "double-trouble:6yw61e:sbx7",
+              "html": "Wash the dishes.",
+              "text": "Wash the dishes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "double-trouble:6yw61e:axoing",
+              "html": "Chop the vegetables.",
+              "text": "Chop the vegetables.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "double-trouble:6yw61e:br8vxh",
+              "html": "Go downstairs and clean your bed.",
+              "text": "Go downstairs and clean your bed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:1l9ragk",
+          "html": "After the cutscene, go upstairs and talk to Doris",
+          "text": "After the cutscene, go upstairs and talk to Doris",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "double-trouble:18wzbaw",
+          "html": "Open the door.",
+          "text": "Open the door.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Carry on with the Quest."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm ready to sneak in."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sneaking-in",
+      "title": "Sneaking in",
+      "anchor": "Sneaking_in",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "sneaking-in:8yks1d",
+          "html": "Pickup the hand-written note in front of you.",
+          "text": "Pickup the hand-written note in front of you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:1n4vcfx",
+          "html": "Search the suit of armour to the west for a <a href=\"https://runescape.wiki/w/Knight%27s_helmet\" target=\"_blank\" rel=\"noopener\">knight&#39;s helmet</a>.",
+          "text": "Search the suit of armour to the west for a knight's helmet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:h3lsa5",
+          "html": "Search the crates in the west for some gunpowder.",
+          "text": "Search the crates in the west for some gunpowder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:gagpmr",
+          "html": "Use the gunpowder on the helmet.",
+          "text": "Use the gunpowder on the helmet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:14w8ah9",
+          "html": "Use the hand-written note on the helmet.",
+          "text": "Use the hand-written note on the helmet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:12p9hgh",
+          "html": "Use the helmet with fuse on the torch on the wall.",
+          "text": "Use the helmet with fuse on the torch on the wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:1nfpskz",
+          "html": "Get close to the guard and throw the lit decoy bomb.",
+          "text": "Get close to the guard and throw the lit decoy bomb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:18azbtr",
+          "html": "Sneak past the guards and enter the door to the tower where you will meet a drunken Sir Amik (the easiest way is to go past them once the third guard turns east).",
+          "text": "Sneak past the guards and enter the door to the tower where you will meet a drunken Sir Amik (the easiest way is to go past them once the third guard turns east).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:1v7u9sl",
+          "html": "Talk to Sir Amik to determine you need to give him more to drink.",
+          "text": "Talk to Sir Amik to determine you need to give him more to drink.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:1ecg1m8",
+          "html": "Click the barrel to open the drinks menu and wait for the on screen prompt to show which drink you need. Take the drink and talk to Amik, as soon as the drink is removed from your inventory go back to the barrel and wait for the next on screen prompt. Repeat 5 times until Amik starts a new dialogue. (If you have trouble completing this part, take a drink, drop it, take one again and before the time runs out use loot area to grab them; you will be able to stack the drinks hence having more chance to complete this part.)",
+          "text": "Click the barrel to open the drinks menu and wait for the on screen prompt to show which drink you need. Take the drink and talk to Amik, as soon as the drink is removed from your inventory go back to the barrel and wait for the next on screen prompt. Repeat 5 times until Amik starts a new dialogue. (If you have trouble completing this part, take a drink, drop it, take one again and before the time runs out use loot area to grab them; you will be able to stack the drinks hence having more chance to complete this part.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sneaking-in:1g91yrt",
+          "html": "Talk to Doris.",
+          "text": "Talk to Doris.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "busted-again",
+      "title": "Busted again",
+      "anchor": "Busted_again",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "busted-again:wo14x4",
+          "html": "Redo your chores again.",
+          "text": "Redo your chores again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "busted-again:wo14x4:y6xmwk",
+              "html": "Sweep the rug.",
+              "text": "Sweep the rug.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "busted-again:wo14x4:118a90e",
+              "html": "Wash the dishes in the sink.",
+              "text": "Wash the dishes in the sink.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "busted-again:wo14x4:axoing",
+              "html": "Chop the vegetables.",
+              "text": "Chop the vegetables.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "busted-again:wo14x4:br8vxh",
+              "html": "Go downstairs and clean your bed.",
+              "text": "Go downstairs and clean your bed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infiltrating",
+      "title": "Infiltrating",
+      "anchor": "Infiltrating",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "infiltrating:1pepb0e",
+          "html": "Talk to Felicity or Margaret the hell-rats.",
+          "text": "Talk to Felicity or Margaret the hell-rats.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "infiltrating:1pepb0e:gxg3lo",
+              "html": "If they appear as normal hell-rats: go up the stairs for a dialogue and go back down.",
+              "text": "If they appear as normal hell-rats: go up the stairs for a dialogue and go back down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1vyygoq",
+          "html": "Recruit any 3 of the other hell-rats.",
+          "text": "Recruit any 3 of the other hell-rats.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1braknr",
+          "html": "Climb up the stairs to get to Shantay Pass.",
+          "text": "Climb up the stairs to get to Shantay Pass.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1k9l3jk",
+          "html": "Talk to Shantay.",
+          "text": "Talk to Shantay.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:cjxvmv",
+          "html": "Shake the <a href=\"https://runescape.wiki/w/Coconut_tree_(Shantay_Pass)\" target=\"_blank\" rel=\"noopener\">coconut tree</a> and pick up the coconut that falls out.",
+          "text": "Shake the coconut tree and pick up the coconut that falls out.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:xgb2hv",
+          "html": "Use the coconut on Shantay.",
+          "text": "Use the coconut on Shantay.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:16wgohv",
+          "html": "Click the empty shell to add a hell-rat to it.",
+          "text": "Click the empty shell to add a hell-rat to it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:j3sjob",
+          "html": "Climb up the rope on the northeastern wall and throw the <a href=\"https://runescape.wiki/w/Shell-rat\" target=\"_blank\" rel=\"noopener\">Shell-rat</a>.",
+          "text": "Climb up the rope on the northeastern wall and throw the Shell-rat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1az8sb3",
+          "html": "Climb back down and try to open the Jail door. You will then hand the Coconut drink to the Shady man inside.",
+          "text": "Climb back down and try to open the Jail door. You will then hand the Coconut drink to the Shady man inside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:68br4z",
+          "html": "Once inside, talk to him to receive a jewel.",
+          "text": "Once inside, talk to him to receive a jewel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1aty91a",
+          "html": "Search the barrel inside of the jail cell to take one.",
+          "text": "Search the barrel inside of the jail cell to take one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:gk55pj",
+          "html": "Talk to the border guards to exchange the jewel for a rope.",
+          "text": "Talk to the border guards to exchange the jewel for a rope.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1v5euw8",
+          "html": "Use the rope on the coconut tree.",
+          "text": "Use the rope on the coconut tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:134z8mi",
+          "html": "Click the barrel in your inventory to load the last hell-rat into it.",
+          "text": "Click the barrel in your inventory to load the last hell-rat into it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1ay8dzn",
+          "html": "Use the old rug (you got from the bank earlier) on the barrel.",
+          "text": "Use the old rug (you got from the bank earlier) on the barrel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1mxcql9",
+          "html": "Roll the barrel past the Shantay pass.",
+          "text": "Roll the barrel past the Shantay pass.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1k9l3jk-2",
+          "html": "Talk to Shantay.",
+          "text": "Talk to Shantay.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1or0brr",
+          "html": "Search the hole that has a slight twinkle to it.",
+          "text": "Search the hole that has a slight twinkle to it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:6lhxgh",
+          "html": "As a hell-rat, enter the sparkling holes. You can also hover your mouse over the holes until you spot the hole with a little rat icon next to it. You will have to repeat this 4 times.",
+          "text": "As a hell-rat, enter the sparkling holes. You can also hover your mouse over the holes until you spot the hole with a little rat icon next to it. You will have to repeat this 4 times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:z3hnr8",
+          "html": "Attempt to enter the mysterious entrance as a hell-rat.",
+          "text": "Attempt to enter the mysterious entrance as a hell-rat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1uogtuk",
+          "html": "Enter the mysterious entrance.",
+          "text": "Enter the mysterious entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:v8i3rv",
+          "html": "Grab Dave from the empty cooking range south-east.",
+          "text": "Grab Dave from the empty cooking range south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:1hsa0vh",
+          "html": "Select the Clean Bed option.",
+          "text": "Select the Clean Bed option.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating:7tlgou",
+          "html": "Gather 5 hell-rats. If cutscene does not begin, gather the sixth hell-rat.",
+          "text": "Gather 5 hell-rats. If cutscene does not begin, gather the sixth hell-rat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1g91yrt",
+          "html": "Talk to Doris.",
+          "text": "Talk to Doris.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Evil_Dave%27s_Big_Day_Out_reward.png?05dbb",
+      "width": 512,
+      "height": 447,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Evil_Dave%27s_Big_Day_Out_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Magic_XP_lamp_(Evil_Dave%27s_Big_Day_Out)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "50,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience <a href=\"https://runescape.wiki/w/Herblore_XP_lamp_(Evil_Dave%27s_Big_Day_Out)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "20,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience <a href=\"https://runescape.wiki/w/Agility_XP_lamp_(Evil_Dave%27s_Big_Day_Out)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "20,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience <a href=\"https://runescape.wiki/w/Cooking_XP_lamp_(Evil_Dave%27s_Big_Day_Out)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "20,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Ability to catch <a href=\"https://runescape.wiki/w/Hell-Rat\" target=\"_blank\" rel=\"noopener\">Hell-Rats</a> bare handed.",
+        "text": "Ability to catch Hell-Rats bare handed.",
+        "subs": []
+      },
+      {
+        "html": "Eating <a href=\"https://runescape.wiki/w/Spicy_stew\" target=\"_blank\" rel=\"noopener\">spicy stew</a> has a better chance to give positive stats and is guaranteed to boost stats by 2-6 levels.",
+        "text": "Eating spicy stew has a better chance to give positive stats and is guaranteed to boost stats by 2-6 levels.",
+        "subs": []
+      },
+      {
+        "html": "Ability to chip teleport tablets to alternate teleport destination by using the tablet on <a href=\"https://runescape.wiki/w/Dave%27s_spellbook\" target=\"_blank\" rel=\"noopener\">Dave&#39;s spellbook</a>.",
+        "text": "Ability to chip teleport tablets to alternate teleport destination by using the tablet on Dave's spellbook.",
+        "subs": []
+      },
+      {
+        "html": "Dave&#39;s spellbook that holds up to 1000 charges of chipped teleports. Talk to Dave after the quest to receive it.",
+        "text": "Dave's spellbook that holds up to 1000 charges of chipped teleports. Talk to Dave after the quest to receive it.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Evil Dave's Theme",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

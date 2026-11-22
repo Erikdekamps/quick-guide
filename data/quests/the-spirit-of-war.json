@@ -1,0 +1,440 @@
+{
+  "format": 1,
+  "id": "the-spirit-of-war",
+  "title": "The Spirit of War",
+  "page": "The Spirit of War/Quick guide",
+  "rev": 37049803,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Kharen\" target=\"_blank\" rel=\"noopener\">Kharen</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1810,
+      "lon": 1080,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Spirit_of_War/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 1
+      },
+      {
+        "text": "Rune Mythos",
+        "depth": 2
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 3
+      },
+      {
+        "text": "Ghosts Ahoy",
+        "depth": 2
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 3
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 3
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 65,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Hermod, the Spirit of War (level 732)",
+        "name": "Hermod, the Spirit of War",
+        "count": null,
+        "level": "732",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "Full completion",
+        "html": "<i>For full completion and unlocking additional rewards, the following is required.</i><br>Quests:<br>• Full completion of The Spirit of War<br>• Kili Row<br>• Necromancy!<br>• Collect a set of necromancer robes from Sostratus"
+      },
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1ws5rkl",
+          "html": "Necromancy combat gear",
+          "text": "Necromancy combat gear",
+          "alternatives": []
+        },
+        {
+          "id": "req:4xa694",
+          "html": "Two backpack spaces",
+          "text": "Two backpack spaces",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:4pto6r",
+          "html": "<a href=\"https://runescape.wiki/w/Powerburst_of_acceleration\" target=\"_blank\" rel=\"noopener\">Powerburst of acceleration</a>",
+          "text": "Powerburst of acceleration",
+          "alternatives": []
+        },
+        {
+          "id": "rec:krvi2o",
+          "html": "Food for battle",
+          "text": "Food for battle",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "rescuing-wayward-souls",
+      "title": "Rescuing Wayward Souls",
+      "anchor": "Rescuing_Wayward_Souls",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "rescuing-wayward-souls:1k2ezm1",
+          "html": "Interact with <a href=\"https://runescape.wiki/w/Kharen\" target=\"_blank\" rel=\"noopener\">Kharen</a> on the docks in the north-western <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>, close to the transportation icon.",
+          "text": "Interact with Kharen on the docks in the north-western City of Um, close to the transportation icon.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescuing-wayward-souls:tcrlsa",
+          "html": "Either:",
+          "text": "Either:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "rescuing-wayward-souls:tcrlsa:1eyto6t",
+              "html": "Speak to <a href=\"https://runescape.wiki/w/Ed\" target=\"_blank\" rel=\"noopener\">Ed</a> in a building to the north-east to rent a boat.",
+              "text": "Speak to Ed in a building to the north-east to rent a boat.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Take a boat out onto the lake."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "rescuing-wayward-souls:tcrlsa:1mu0ltw",
+              "html": "Or choose the option <i>Rent boat</i> on Ed.",
+              "text": "Or choose the option Rent boat on Ed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "rescuing-wayward-souls:is3tsk",
+          "html": "<i>Rescue</i> four <a href=\"https://runescape.wiki/w/Wayward_Soul_(City_of_Um)\" target=\"_blank\" rel=\"noopener\">Wayward Souls</a>. They are ghastly sphere shapes floating above the <a href=\"https://runescape.wiki/w/Lake_Mnemosyne\" target=\"_blank\" rel=\"noopener\">Lake Mnemosyne</a> in each of the four corners of the map. Some may be a good distance away from the coastline.",
+          "text": "Rescue four Wayward Souls. They are ghastly sphere shapes floating above the Lake Mnemosyne in each of the four corners of the map. Some may be a good distance away from the coastline.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "rescuing-wayward-souls:is3tsk:13isrrp",
+              "html": "<a href=\"https://runescape.wiki/w/High_contrast\" target=\"_blank\" rel=\"noopener\">High contrast</a> mode is beneficial for spotting them.",
+              "text": "High contrast mode is beneficial for spotting them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "rescuing-wayward-souls:is3tsk:1csoozx",
+              "html": "<a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a> and <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">Surge</a> can be used to speed up movement. The <a href=\"https://runescape.wiki/w/Mobile\" target=\"_blank\" rel=\"noopener\">Mobile</a> perk (must be on an armour piece, as both hands must be free) and using a <a href=\"https://runescape.wiki/w/Powerburst_of_acceleration\" target=\"_blank\" rel=\"noopener\">powerburst of acceleration</a> will also help.",
+              "text": "Dive and Surge can be used to speed up movement. The Mobile perk (must be on an armour piece, as both hands must be free) and using a powerburst of acceleration will also help.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "rescuing-wayward-souls:is3tsk:8hphwa",
+              "html": "(Optional) Talk to <a href=\"https://runescape.wiki/w/Deano\" target=\"_blank\" rel=\"noopener\">Deano</a> and <a href=\"https://runescape.wiki/w/Sammy\" target=\"_blank\" rel=\"noopener\">Sammy</a> when you see them for a reward of 25 <a href=\"https://runescape.wiki/w/Soul_(Well_of_Souls)\" target=\"_blank\" rel=\"noopener\">souls</a> each.",
+              "text": "(Optional) Talk to Deano and Sammy when you see them for a reward of 25 souls each.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "rescuing-wayward-souls:z6jty",
+          "html": "Return back to the docks and disembark in the <a href=\"https://runescape.wiki/w/Dock\" target=\"_blank\" rel=\"noopener\">dock</a> south of Kharen. (Or teleport out of the rowboat.)",
+          "text": "Return back to the docks and disembark in the dock south of Kharen. (Or teleport out of the rowboat.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fighting-hermod-the-spirit-of-war",
+      "title": "Fighting Hermod, the Spirit of War",
+      "anchor": "Fighting_Hermod,_the_Spirit_of_War",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:8wo0lw",
+          "html": "Prepare for combat and don&#39;t forget to re-equip your weapons.",
+          "text": "Prepare for combat and don't forget to re-equip your weapons.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:184wov2",
+          "html": "Interact with Kharen.",
+          "text": "Interact with Kharen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:ngpdab",
+          "html": "Go through the dialogue to travel to <a href=\"https://runescape.wiki/w/Rasial%27s_Citadel\" target=\"_blank\" rel=\"noopener\">Rasial&#39;s Citadel</a>.",
+          "text": "Go through the dialogue to travel to Rasial's Citadel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:104c322",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Rasial,_the_First_Necromancer#NPC\" target=\"_blank\" rel=\"noopener\">Rasial, the First Necromancer</a>.",
+          "text": "Speak to Rasial, the First Necromancer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:bauy5e",
+          "html": "Fight <a href=\"https://runescape.wiki/w/Hermod,_the_Spirit_of_War\" target=\"_blank\" rel=\"noopener\">Hermod, the Spirit of War</a> in <a href=\"https://runescape.wiki/w/Story_mode\" target=\"_blank\" rel=\"noopener\">story mode</a>.",
+          "text": "Fight Hermod, the Spirit of War in story mode.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fighting-hermod-the-spirit-of-war:bauy5e:yto1qe",
+              "html": "Kill minions when they appear, otherwise Hermod will be immune to damage",
+              "text": "Kill minions when they appear, otherwise Hermod will be immune to damage",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fighting-hermod-the-spirit-of-war:1dmyd1k",
+          "html": "Speak to Rasial, the First Necromancer once more.",
+          "text": "Speak to Rasial, the First Necromancer once more.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1vq877s",
+          "html": "Return and interact with <a href=\"https://runescape.wiki/w/Kharen\" target=\"_blank\" rel=\"noopener\">Kharen</a> with two free inventory spots.",
+          "text": "Return and interact with Kharen with two free inventory spots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Spirit_of_War_reward.png?e5c57",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Spirit_of_War_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "45,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(The_Spirit_of_War)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "45,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Hermodic_plate\" target=\"_blank\" rel=\"noopener\">Hermodic plate</a>",
+        "text": "Hermodic plate",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Hermod,_the_Spirit_of_War\" target=\"_blank\" rel=\"noopener\">Hermod, the Spirit of War</a> boss encounter",
+        "text": "Access to the Hermod, the Spirit of War boss encounter",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/City_of_Um_ferry_system\" target=\"_blank\" rel=\"noopener\">Kharen&#39;s ferry system</a> around Um",
+        "text": "Access to Kharen's ferry system around Um",
+        "subs": []
+      },
+      {
+        "html": "Ability to learn further <a href=\"https://runescape.wiki/w/Death_Skull_equipment\" target=\"_blank\" rel=\"noopener\">Death Skull</a> and <a href=\"https://runescape.wiki/w/Deathwarden_robe_armour\" target=\"_blank\" rel=\"noopener\">Deathwarden equipment</a> upgrades from <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a> (available after completion of <a href=\"https://runescape.wiki/w/Kili_Row\" target=\"_blank\" rel=\"noopener\">Kili Row</a>)",
+        "text": "Ability to learn further Death Skull and Deathwarden equipment upgrades from Kili (available after completion of Kili Row)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Spirit of War",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Hermy and Bass</a>",
+        "<a href=\"https://runescape.wiki/w/Tomes_of_the_Warlock/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tomes of the Warlock</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    }
+  ]
+}

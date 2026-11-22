@@ -1,0 +1,1282 @@
+{
+  "format": 1,
+  "id": "ode-of-the-devourer",
+  "title": "Ode of the Devourer",
+  "page": "Ode of the Devourer/Quick guide",
+  "rev": 37237765,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Check on <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a> at the <a href=\"https://runescape.wiki/w/Workshop_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Fort Forinthry workshop</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3558,
+      "lon": 3286,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Requiem for a Dragon",
+        "depth": 1
+      },
+      {
+        "text": "Battle of Forinthry",
+        "depth": 2
+      },
+      {
+        "text": "Ancient Awakening",
+        "depth": 3
+      },
+      {
+        "text": "Dead and Buried",
+        "depth": 4
+      },
+      {
+        "text": "Unwelcome Guests…",
+        "depth": 5
+      },
+      {
+        "text": "Build Grove cabin (Tier 1)",
+        "depth": 3
+      },
+      {
+        "text": "Build Botanist's Workbench (Tier 1)",
+        "depth": 3
+      },
+      {
+        "text": "Tomes of the Warlock",
+        "depth": 2
+      },
+      {
+        "text": "The Spirit of War",
+        "depth": 3
+      },
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 4
+      },
+      {
+        "text": "Rune Mythos…",
+        "depth": 5
+      },
+      {
+        "text": "Ghosts Ahoy…",
+        "depth": 5
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 4
+      },
+      {
+        "text": "The Jack of Spades",
+        "depth": 3
+      },
+      {
+        "text": "Diamond in the Rough",
+        "depth": 4
+      },
+      {
+        "text": "Stolen Hearts",
+        "depth": 5
+      },
+      {
+        "text": "Kili Row",
+        "depth": 2
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 3
+      },
+      {
+        "text": "Collect a set of necromancer robes from Sostratus",
+        "depth": 3
+      },
+      {
+        "text": "Soul Searching",
+        "depth": 1
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "4 feline akhs (level 109)",
+        "name": "feline akhs",
+        "count": 4,
+        "level": "109",
+        "note": ""
+      },
+      {
+        "text": "Several salawa akhs (level 81, optional)",
+        "name": "Several salawa akhs",
+        "count": null,
+        "level": "81, optional",
+        "note": ""
+      },
+      {
+        "text": "While avoiding telegraphed attacks:",
+        "name": "While avoiding telegraphed attacks:",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "The Gate of Elidinis (level 650)",
+        "name": "The Gate of Elidinis",
+        "count": null,
+        "level": "650",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Desert</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ko0ev4",
+          "html": "A quick way to reach <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a>",
+          "text": "A quick way to reach fairy rings",
+          "alternatives": []
+        },
+        {
+          "id": "rec:h1ghod",
+          "html": "Combat equipment",
+          "text": "Combat equipment",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "visiting-bill",
+      "title": "Visiting Bill",
+      "anchor": "Visiting_Bill",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "visiting-bill:km4bbs",
+          "html": "Read note on the <a href=\"https://runescape.wiki/w/Cabbage_dummy_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">cabbage dummy</a> at <a href=\"https://runescape.wiki/w/Workshop_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Fort Forinthry&#39;s Workshop</a>.",
+          "text": "Read note on the cabbage dummy at Fort Forinthry's Workshop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "visiting-bill:mzkve",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> to the south-east.",
+          "text": "Talk to Overseer Siv in the Command Centre to the south-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about quests."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-bill",
+      "title": "Finding Bill",
+      "anchor": "Finding_Bill",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-bill:bring:h1ghod",
+              "html": "<a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">Combat</a> equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-bill:z4jm61",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Ode_of_the_Devourer_(portal)\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a> portal west of the <a href=\"https://runescape.wiki/w/Al_Kharid_lodestone\" target=\"_blank\" rel=\"noopener\">Al Kharid lodestone</a>.",
+          "text": "Continue with the Ode of the Devourer portal west of the Al Kharid lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-bill:ubctpw",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Feline_akh_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">feline akhs</a> near the following civilians, then save them by fully finishing their dialogue:",
+          "text": "Kill the feline akhs near the following civilians, then save them by fully finishing their dialogue:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-bill:ubctpw:1dyuzkj",
+              "html": "<a href=\"https://runescape.wiki/w/Ali_Morrisane\" target=\"_blank\" rel=\"noopener\">Ali Morrisane</a>, south of <a href=\"https://runescape.wiki/w/Ranael%27s_Super_Skirt_Store\" target=\"_blank\" rel=\"noopener\">Ranael&#39;s Super Skirt Store</a>.",
+              "text": "Ali Morrisane, south of Ranael's Super Skirt Store.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-bill:ubctpw:9pjxf5",
+              "html": "<a href=\"https://runescape.wiki/w/Ayesha\" target=\"_blank\" rel=\"noopener\">Ayesha</a>, north of the tanner&#39;s building.",
+              "text": "Ayesha, north of the tanner's building.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-bill:ubctpw:1ho5lz4",
+              "html": "<a href=\"https://runescape.wiki/w/Zeke\" target=\"_blank\" rel=\"noopener\">Zeke</a>, between three tents, east of the silk stall.",
+              "text": "Zeke, between three tents, east of the silk stall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-bill:1p81m3s",
+          "html": "Crawl under the <a href=\"https://runescape.wiki/w/Cart_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">cart</a> south of the <a href=\"https://runescape.wiki/w/Al_Kharid_bank\" target=\"_blank\" rel=\"noopener\">Al Kharid bank</a>.",
+          "text": "Crawl under the cart south of the Al Kharid bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-bill:s0ezqp",
+          "html": "Kill the feline akh.",
+          "text": "Kill the feline akh.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-bill:kdzs1p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a>.",
+          "text": "Talk to Bill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "icthlarin-and-zemouregal",
+      "title": "Icthlarin and Zemouregal",
+      "anchor": "Icthlarin_and_Zemouregal",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the gondola at the City of Um",
+          "lat": 1821,
+          "lon": 1080,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 742,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1080,
+                  1821,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "742",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:tah6vv",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> northern docks.",
+          "text": "Head to the City of Um northern docks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:1mu0pky",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Gondola#Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">gondola</a> that&#39;s located next to where the <a href=\"https://runescape.wiki/w/Suspicious_Stranger\" target=\"_blank\" rel=\"noopener\">Suspicious Stranger</a> was sitting.",
+          "text": "Take the gondola that's located next to where the Suspicious Stranger was sitting.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:br9qvn",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Ode_of_the_Devourer_(portal)\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a> portal outside the <a href=\"https://runescape.wiki/w/Sanctum_of_Rebirth\" target=\"_blank\" rel=\"noopener\">Sanctum of Rebirth</a>.",
+          "text": "Continue with the Ode of the Devourer portal outside the Sanctum of Rebirth.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:ahm486",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a>.",
+          "text": "Talk to Icthlarin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Continue Quest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:19fv666",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Floor_hatch\" target=\"_blank\" rel=\"noopener\">floor hatch</a> in <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a> (outside the eastern wall of the Command Centre).",
+          "text": "Enter the floor hatch in Fort Forinthry (outside the eastern wall of the Command Centre).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "icthlarin-and-zemouregal:p6qag3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Find the idol of Amascut."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-the-objects",
+      "title": "Finding the objects",
+      "anchor": "Finding_the_objects",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Idol of Amascut"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-the-objects:bring:qz7y3i",
+              "html": "1 free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "1 free backpack space"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "finding-the-objects:bring:lpklb8",
+              "html": "4 free backpack space to save banking for next section",
+              "text": "4 free backpack space to save banking for next section"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:15pcogz",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Ode_of_the_Devourer_(portal)\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a> portal south-west of the <a href=\"https://runescape.wiki/w/Kalphite_Hive\" target=\"_blank\" rel=\"noopener\">Kalphite Hive</a> (Fairy code <b>B</b><b>I</b><b>Q</b>).",
+          "text": "Continue with the Ode of the Devourer portal south-west of the Kalphite Hive (Fairy code BIQ).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "What's he talking about?"
+                },
+                {
+                  "key": "3",
+                  "text": "Not much. Tell me the abridged version."
+                },
+                {
+                  "key": "3",
+                  "text": "Continue Conversation."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:13q6z7z",
+          "html": "Continue with the Ode of the Devourer portal outside <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a>&#39;s north-eastern entrance by the <a href=\"https://runescape.wiki/w/Het%27s_Oasis\" target=\"_blank\" rel=\"noopener\">Het&#39;s Oasis</a>. If the game is bugging out and there is green fog everywhere then change the skybox.",
+          "text": "Continue with the Ode of the Devourer portal outside Al Kharid's north-eastern entrance by the Het's Oasis. If the game is bugging out and there is green fog everywhere then change the skybox.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:1fhkf45",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Father_Salman\" target=\"_blank\" rel=\"noopener\">Father Salman</a> just north of <a href=\"https://runescape.wiki/w/Zeke%27s_Superior_Scimitars\" target=\"_blank\" rel=\"noopener\">Zeke&#39;s Superior Scimitars</a>.",
+          "text": "Talk to Father Salman just north of Zeke's Superior Scimitars.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:b3zq45",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ali_Morrisane\" target=\"_blank\" rel=\"noopener\">Ali Morrisane</a> north-east.",
+          "text": "Talk to Ali Morrisane north-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Look for a different option."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:kv9i32",
+          "html": "Walk five <a href=\"https://runescape.wiki/w/Game_square\" target=\"_blank\" rel=\"noopener\">game squares</a> away.",
+          "text": "Walk five game squares away.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:p6qag3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:chid5x",
+          "html": "Talk to any 5 citizens around the city with an option to spread rumours about Ali Morrisane.",
+          "text": "Talk to any 5 citizens around the city with an option to spread rumours about Ali Morrisane.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Spread rumours about Ali Morrisane."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:w555qk",
+          "html": "Talk to Ali Morrisane.",
+          "text": "Talk to Ali Morrisane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:183suwo",
+          "html": "Talk to Father Salman.",
+          "text": "Talk to Father Salman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Shard of the Gate"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-the-objects:bring:pzgeb4",
+              "html": "3 free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "3 free backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:tnnw7g",
+          "html": "If you haven&#39;t completed <a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>:",
+          "text": "If you haven't completed Ritual of the Mahjarrat:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-the-objects:tnnw7g:1hdrifm",
+              "html": "Return to Fort Forinthry.",
+              "text": "Return to Fort Forinthry.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-the-objects:tnnw7g:p6qag3",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>.",
+              "text": "Talk to Zemouregal.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Talk about 'Ode of the Devourer'."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Travel to the ritual site."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:18huz1l",
+          "html": "If you have completed <a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>:",
+          "text": "If you have completed Ritual of the Mahjarrat:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-the-objects:18huz1l:449nk5",
+              "html": "Use fairy ring <b>D</b><b>K</b><b>Q</b> to travel to the <a href=\"https://runescape.wiki/w/Glacor_Cave\" target=\"_blank\" rel=\"noopener\">Glacor Cave</a>, leave via the exit to the north-east, then run north-west.",
+              "text": "Use fairy ring DKQ to travel to the Glacor Cave, leave via the exit to the north-east, then run north-west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-the-objects:18huz1l:13oz9rb",
+              "html": "Continue with the <a href=\"https://runescape.wiki/w/Ode_of_the_Devourer_(portal)\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a> portal near the <a href=\"https://runescape.wiki/w/Ritual_marker\" target=\"_blank\" rel=\"noopener\">ritual marker</a>.",
+              "text": "Continue with the Ode of the Devourer portal near the ritual marker.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:ahm486",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a>.",
+          "text": "Talk to Icthlarin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Continue Conversation."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:srej26",
+          "html": "Search the north-western and south-eastern <a href=\"https://runescape.wiki/w/Forgotten_warrior_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">forgotten warriors</a>.",
+          "text": "Search the north-western and south-eastern forgotten warriors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:p6qag3-2",
+          "html": "Talk to Zemouregal.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:1eccjel",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Absorption_rune\" target=\"_blank\" rel=\"noopener\">absorption rune</a> on the ritual marker twice.",
+          "text": "Use the absorption rune on the ritual marker twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:9k94vi",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Ceremonial_dagger\" target=\"_blank\" rel=\"noopener\">ceremonial dagger</a> on the ritual marker to receive <a href=\"https://runescape.wiki/w/Shard_of_the_Gate\" target=\"_blank\" rel=\"noopener\">Shard of the Gate</a>.",
+          "text": "Use the ceremonial dagger on the ritual marker to receive Shard of the Gate.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-the-objects:p6qag3-3",
+          "html": "Talk to Zemouregal.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "cleansing-the-gate-of-elidinis",
+      "title": "Cleansing The Gate of Elidinis",
+      "anchor": "Cleansing_The_Gate_of_Elidinis",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "cleansing-the-gate-of-elidinis:bring:1n6cleq",
+              "html": "<a href=\"https://runescape.wiki/w/Idol_of_Amascut\" target=\"_blank\" rel=\"noopener\">Idol of Amascut</a> and <a href=\"https://runescape.wiki/w/Shard_of_the_Gate\" target=\"_blank\" rel=\"noopener\">shard of the Gate</a>",
+              "text": "Idol of Amascut and shard of the Gate"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "cleansing-the-gate-of-elidinis:bring:1s4p61f",
+              "html": "Combat equipment for the next part",
+              "text": "Combat equipment for the next part"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:11a465j",
+          "html": "Carry an almost empty <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> and your best <a href=\"https://runescape.wiki/w/Mining\" target=\"_blank\" rel=\"noopener\">mining</a> equipment, plus 10 pieces of food and a <a href=\"https://runescape.wiki/w/Beast_of_burden\" target=\"_blank\" rel=\"noopener\">beast of burden</a>.",
+          "text": "Carry an almost empty backpack and your best mining equipment, plus 10 pieces of food and a beast of burden.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:11a465j:8p5jgd",
+              "html": "Optionally follow The Gate of Elidinis <a href=\"https://runescape.wiki/w/The_Gate_of_Elidinis/Strategies#Gearing\" target=\"_blank\" rel=\"noopener\">strategy article</a> for help on gear setup.",
+              "text": "Optionally follow The Gate of Elidinis strategy article for help on gear setup.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:br9qvn",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Ode_of_the_Devourer_(portal)\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a> portal outside the <a href=\"https://runescape.wiki/w/Sanctum_of_Rebirth\" target=\"_blank\" rel=\"noopener\">Sanctum of Rebirth</a>.",
+          "text": "Continue with the Ode of the Devourer portal outside the Sanctum of Rebirth.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:ahm486",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a>.",
+          "text": "Talk to Icthlarin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:1ttksch",
+          "html": "Receive blessing on the <a href=\"https://runescape.wiki/w/Idol_of_Amascut\" target=\"_blank\" rel=\"noopener\">idol of Amascut</a> or the <a href=\"https://runescape.wiki/w/Shard_of_the_Gate\" target=\"_blank\" rel=\"noopener\">shard of the Gate</a>.",
+          "text": "Receive blessing on the idol of Amascut or the shard of the Gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:147bl9b",
+          "html": "Enter <a href=\"https://runescape.wiki/w/The_Gate_of_Elidinis_(scenery)\" target=\"_blank\" rel=\"noopener\">The Gate of Elidinis stream</a>.",
+          "text": "Enter The Gate of Elidinis stream.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cleansing-the-gate-of-elidinis:1xtiho2",
+          "html": "Cleanse <a href=\"https://runescape.wiki/w/The_Gate_of_Elidinis\" target=\"_blank\" rel=\"noopener\">The Gate of Elidinis</a>.",
+          "text": "Cleanse The Gate of Elidinis.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:9zdb9h",
+              "html": "Begin the encounter. Staying south of the <a href=\"https://runescape.wiki/w/Moonstone_conduit\" target=\"_blank\" rel=\"noopener\">moonstone conduits</a> will make learning The Gate of Elidinis encounter easier.",
+              "text": "Begin the encounter. Staying south of the moonstone conduits will make learning The Gate of Elidinis encounter easier.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:s7ud8z",
+              "html": "Gather 25-40 <a href=\"https://runescape.wiki/w/Moonstone_fragments\" target=\"_blank\" rel=\"noopener\">moonstone fragments</a> from nearby <a href=\"https://runescape.wiki/w/Moonstone_(The_Gate_of_Elidinis)\" target=\"_blank\" rel=\"noopener\">moonstone</a> outcrops. Moonstone fragments provide 10% barrier strength per repair action on any of the moonstone conduits. Moonstone fragments also deal 7,500 damage per throw to summoned <a href=\"https://runescape.wiki/w/Feline_akh_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">feline akhs</a> by clicking on the feline akhs.",
+              "text": "Gather 25-40 moonstone fragments from nearby moonstone outcrops. Moonstone fragments provide 10% barrier strength per repair action on any of the moonstone conduits. Moonstone fragments also deal 7,500 damage per throw to summoned feline akhs by clicking on the feline akhs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:1cw2drp",
+              "html": "Repair any of the moonstone conduits located in the middle of the encounter with moonstone fragments until the barrier&#39;s strength reaches at least 30%. Staying south of the moonstone conduits will use their barrier strength to reduce the damage taken from each &quot;Begone!&quot; mechanic proportional to the barrier&#39;s strength. This mechanic also depletes up to 30% of the barriers strength.",
+              "text": "Repair any of the moonstone conduits located in the middle of the encounter with moonstone fragments until the barrier's strength reaches at least 30%. Staying south of the moonstone conduits will use their barrier strength to reduce the damage taken from each \"Begone!\" mechanic proportional to the barrier's strength. This mechanic also depletes up to 30% of the barriers strength.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:1n5b1o6",
+              "html": "Transmute any <a href=\"https://runescape.wiki/w/Corrupt_shard_of_Elidinis\" target=\"_blank\" rel=\"noopener\">corrupt shard of Elidinis</a> until it becomes a <a href=\"https://runescape.wiki/w/Cleansed_shard_of_Elidinis\" target=\"_blank\" rel=\"noopener\">cleansed shard of Elidinis</a>. Transmuting adds corruption stacks which increases the damage the player takes over time in the encounter.",
+              "text": "Transmute any corrupt shard of Elidinis until it becomes a cleansed shard of Elidinis. Transmuting adds corruption stacks which increases the damage the player takes over time in the encounter.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:110eksi",
+              "html": "Mine the <a href=\"https://runescape.wiki/w/Cleansed_shard_of_Elidinis\" target=\"_blank\" rel=\"noopener\">cleansed shard of Elidinis</a> to obtain <a href=\"https://runescape.wiki/w/Cleansed_statue_shard\" target=\"_blank\" rel=\"noopener\">cleansed statue shards</a>.",
+              "text": "Mine the cleansed shard of Elidinis to obtain cleansed statue shards.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:1s6sbgj",
+              "html": "Activate the action button once 10+ cleansed statue shards have been collected to ask <a href=\"https://runescape.wiki/w/Icthlarin\" target=\"_blank\" rel=\"noopener\">Icthlarin</a> for aid. This will spawn pillars to help the player jump up to The Gate of Elidinis, consuming all the cleansed statue shards on them and applying a damage bonus depending on how quick the player performed all the jumps. Corruption stacks decrease by the amount of cleansed statue shards consumed with the jump.",
+              "text": "Activate the action button once 10+ cleansed statue shards have been collected to ask Icthlarin for aid. This will spawn pillars to help the player jump up to The Gate of Elidinis, consuming all the cleansed statue shards on them and applying a damage bonus depending on how quick the player performed all the jumps. Corruption stacks decrease by the amount of cleansed statue shards consumed with the jump.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:1w73g4y",
+              "html": "Stand within Icthlarin&#39;s protective shield after performing all the jumps. Icthlarin&#39;s shield will mitigate the incoming attack. The attack also depletes all the barrier strength from the moonstone conduits.",
+              "text": "Stand within Icthlarin's protective shield after performing all the jumps. Icthlarin's shield will mitigate the incoming attack. The attack also depletes all the barrier strength from the moonstone conduits.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "cleansing-the-gate-of-elidinis:1xtiho2:wht8ql",
+              "html": "Keep collecting cleansed statue shards by transmuting corrupt shards of Elidinis and mining cleansed shards of Elidinis, using the action button as needed, repairing the moonstone conduits as needed, and clicking on summoned feline akhs to throw moonstone fragments at them.",
+              "text": "Keep collecting cleansed statue shards by transmuting corrupt shards of Elidinis and mining cleansed shards of Elidinis, using the action button as needed, repairing the moonstone conduits as needed, and clicking on summoned feline akhs to throw moonstone fragments at them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-shadowsands",
+      "title": "The Shadowsands",
+      "anchor": "The_Shadowsands",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-shadowsands:1arg7uc",
+          "html": "Carry your highest level <a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">combat</a> equipment, food and potions.",
+          "text": "Carry your highest level combat equipment, food and potions.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-shadowsands:1hnby8t",
+          "html": "Proceed through the cutscene.",
+          "text": "Proceed through the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Meow."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-shadowsands:qyilnq",
+          "html": "Kill the four waves of monsters.",
+          "text": "Kill the four waves of monsters.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-shadowsands:qyilnq:1btvt4w",
+              "html": "Pray against melee. The easiest way to beat this is to stay close to Icthlarin constantly, and attack the monsters that come near you.",
+              "text": "Pray against melee. The easiest way to beat this is to stay close to Icthlarin constantly, and attack the monsters that come near you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-shadowsands:qyilnq:1fiw52k",
+              "html": "Stay inside the green barrier to avoid instant kills occurring when the timer at the top runs out.",
+              "text": "Stay inside the green barrier to avoid instant kills occurring when the timer at the top runs out.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aftermath",
+      "title": "Aftermath",
+      "anchor": "Aftermath",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "aftermath:bring:1fjsiqs",
+              "html": "7 free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "7 free backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:1egdhtz",
+          "html": "Proceed through the dialogue.",
+          "text": "Proceed through the dialogue.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "We all got what we wanted."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:p6qag3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Send Zemouregal to the Fort Forinthry Prison."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:qc668v",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Floor_hatch\" target=\"_blank\" rel=\"noopener\">floor hatch</a> in Fort Forinthry.",
+          "text": "Enter the floor hatch in Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:kdzs1p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a>.",
+          "text": "Talk to Bill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Ode_of_the_Devourer_reward.png?90ba7",
+      "width": 512,
+      "height": 432,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Ode_of_the_Devourer_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Amulet_of_Offerings\" target=\"_blank\" rel=\"noopener\">Amulet of Offerings</a>",
+        "text": "Amulet of Offerings",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Mining_XP_lamp_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 60 or higher)",
+        "text": "50,000 experience lamp (Skill must be level 60 or higher)",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Agility_XP_lamp_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 60 or higher)",
+        "text": "50,000 experience lamp (Skill must be level 60 or higher)",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Divination_XP_lamp_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 60 or higher)",
+        "text": "50,000 experience lamp (Skill must be level 60 or higher)",
+        "subs": []
+      },
+      {
+        "html": "50,000 experience <a href=\"https://runescape.wiki/w/Crafting_XP_lamp_(Ode_of_the_Devourer)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 60 or higher)",
+        "text": "50,000 experience lamp (Skill must be level 60 or higher)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Elidinian_Mysteries_I\" target=\"_blank\" rel=\"noopener\">Elidinian Mysteries I</a>",
+        "text": "Elidinian Mysteries I",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Elidinian_Mysteries_II\" target=\"_blank\" rel=\"noopener\">Elidinian Mysteries II</a>",
+        "text": "Elidinian Mysteries II",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/The_Gate_of_Elidinis\" target=\"_blank\" rel=\"noopener\">the Gate of Elidinis</a> skilling boss.",
+        "text": "Access to the Gate of Elidinis skilling boss.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Crimson Moonlight",
+      "where": ""
+    },
+    {
+      "name": "Icthlarin's Lament",
+      "where": ""
+    },
+    {
+      "name": "Ode of the Devourer",
+      "where": "music track"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    }
+  ]
+}

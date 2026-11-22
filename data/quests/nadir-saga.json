@@ -1,0 +1,944 @@
+{
+  "format": 1,
+  "id": "nadir-saga",
+  "title": "Nadir (saga)",
+  "page": "Nadir (saga)/Quick guide",
+  "rev": 37229698,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Find the <a href=\"https://runescape.wiki/w/Damaged_device\" target=\"_blank\" rel=\"noopener\">damaged device</a> while raiding the 18-22 furnished floors of <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a>, then ask <a href=\"https://runescape.wiki/w/Skaldrun\" target=\"_blank\" rel=\"noopener\">Skaldrun</a> south-west of the Daemonheim entrance to share their story.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3699,
+      "lon": 3429,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Nadir_(saga)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Find and free Skaldrun from the frozen floors in Daemonheim",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Dungeoneering",
+        "level": 35,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Ritual of the Mahjarrat",
+      "The Temple at Senntisten",
+      "Devious Minds…",
+      "Desert Treasure…",
+      "The Curse of Arrav…",
+      "125 Kudos",
+      "While Guthix Sleeps",
+      "Defender of Varrock…",
+      "Dream Mentor…",
+      "Shilo Village…",
+      "Temple of Ikov",
+      "Legends' Quest…",
+      "The Path of Glouphrie…",
+      "Tears of Guthix",
+      "Wanted!…",
+      "The Hunt for Surok (miniquest)…",
+      "Ability to enter the Warriors' Guild",
+      "Nature Spirit…",
+      "Hazeel Cult",
+      "Enakhra's Lament",
+      "The Slug Menace",
+      "Sea Slug",
+      "A Fairy Tale II - Cure a Queen",
+      "A Fairy Tale I - Growing Pains…",
+      "Cabin Fever",
+      "Pirate's Treasure",
+      "Rum Deal…",
+      "A Tail of Two Cats",
+      "Icthlarin's Little Helper…",
+      "Fight Arena",
+      "The General's Shadow (miniquest)",
+      "Curse of the Empty Lord (miniquest)…"
+    ],
+    "enemies": [
+      {
+        "text": "Several soldiers (level 21 and 62) (appearance and number of the former depends on answering questions correctly)",
+        "name": "Several soldiers",
+        "count": null,
+        "level": "21 and 62",
+        "note": "(appearance and number of the former depends on answering questions correctly)"
+      },
+      {
+        "text": "Several rangers (level 21 and 62) (appearance of the former depends on answering questions correctly)",
+        "name": "Several rangers",
+        "count": null,
+        "level": "21 and 62",
+        "note": "(appearance of the former depends on answering questions correctly)"
+      },
+      {
+        "text": "Several mages (level 21 and 62)",
+        "name": "Several mages",
+        "count": null,
+        "level": "21 and 62",
+        "note": ""
+      },
+      {
+        "text": "Necrolord Yudura (level 62)",
+        "name": "Necrolord Yudura",
+        "count": null,
+        "level": "62",
+        "note": ""
+      },
+      {
+        "text": "Two necromancers (level 105) (appearance depends on answering questions correctly), which will summon",
+        "name": "Two necromancers",
+        "count": null,
+        "level": "105",
+        "note": "(appearance depends on answering questions correctly), which will summon"
+      },
+      {
+        "text": "Hooved mage (level 103)",
+        "name": "Hooved mage",
+        "count": null,
+        "level": "103",
+        "note": ""
+      },
+      {
+        "text": "Two hellhounds (level 21)",
+        "name": "Two hellhounds",
+        "count": null,
+        "level": "21",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Wilderness</span>"
+      }
+    ],
+    "notes": [
+      "This guide is for 100% completion and to receive the unabridged tome. Having audio turned on helps. You cannot switch it during the quest so it is recommended to turn all audio on beforehand."
+    ]
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:q2osmu",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">Ring of kinship</a> to find the damaged device",
+          "text": "Ring of kinship to find the damaged device",
+          "alternatives": []
+        },
+        {
+          "id": "req:jvtt4j",
+          "html": "<a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">Standard spells</a> must be used for completing this saga",
+          "text": "Standard spells must be used for completing this saga",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1b9i358",
+          "html": "<a href=\"https://runescape.wiki/w/Persistent_Rage\" target=\"_blank\" rel=\"noopener\">Persistent Rage</a> relic power may trivialise some of this content",
+          "text": "Persistent Rage relic power may trivialise some of this content",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1kv12t5",
+          "html": "60 <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>",
+          "text": "60 Attack",
+          "alternatives": []
+        },
+        {
+          "id": "rec:levy9d",
+          "html": "55 <a href=\"https://runescape.wiki/w/Dungeoneering\" target=\"_blank\" rel=\"noopener\">Dungeoneering</a>",
+          "text": "55 Dungeoneering",
+          "alternatives": []
+        },
+        {
+          "id": "rec:gdh3ne",
+          "html": "45 <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a>",
+          "text": "45 Thieving",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1nux0h4",
+          "html": "Start by finding a <a href=\"https://runescape.wiki/w/Damaged_device\" target=\"_blank\" rel=\"noopener\">damaged device</a> on Daemonheim floors 18-22.",
+          "text": "Start by finding a damaged device on Daemonheim floors 18-22.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:1nux0h4:12rhtzt",
+              "html": "You might need to talk to Skaldrun to check whether the Nadir saga is already unlocked.",
+              "text": "You might need to talk to Skaldrun to check whether the Nadir saga is already unlocked.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:12lbauo",
+          "html": "Then start saga with Skaldrun south-west of the Daemonheim entrance.",
+          "text": "Then start saga with Skaldrun south-west of the Daemonheim entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-ritual-site",
+      "title": "The Ritual Site",
+      "anchor": "The_Ritual_Site",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-ritual-site:cmb81",
+          "html": "Wait approximately one minute for Zemouregal and Lucien to finish their conversation.",
+          "text": "Wait approximately one minute for Zemouregal and Lucien to finish their conversation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual-site:1moqem3",
+          "html": "Finish the dialogue and cutscene then continue north to interrogate the merchant.",
+          "text": "Finish the dialogue and cutscene then continue north to interrogate the merchant.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual-site:1rronox",
+          "html": "Hunt for 3 memories (having sound turned on helps a lot here).",
+          "text": "Hunt for 3 memories (having sound turned on helps a lot here).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-ritual-site:1rronox:1yihjfv",
+              "html": "Move your mouse around until the orange circle rapidly pulses THREE times per second on a location, and click, as this is a correct spot. There are three speeds--you want to click at the fastest, highest-pitched ping. Repeat until all three memories are recovered.",
+              "text": "Move your mouse around until the orange circle rapidly pulses THREE times per second on a location, and click, as this is a correct spot. There are three speeds--you want to click at the fastest, highest-pitched ping. Repeat until all three memories are recovered.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-ritual-site:1rronox:1xlmks9",
+              "html": "If only half the memory is recovered, you did not do this step correctly and as a result an unabridged tome will not be awarded, you can lobby to restart the saga.",
+              "text": "If only half the memory is recovered, you did not do this step correctly and as a result an unabridged tome will not be awarded, you can lobby to restart the saga.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-ritual-site:1rronox:dqp5du",
+              "html": "A pinging sound will play if game sounds are turned on: a slow hum (level 1), a moderately fast ping (level 2, indicating you are close to the correct position), and a fast, high-frequency ping that plays ~2 times a second. <b>This</b> is the correct location for full memory retrieval.",
+              "text": "A pinging sound will play if game sounds are turned on: a slow hum (level 1), a moderately fast ping (level 2, indicating you are close to the correct position), and a fast, high-frequency ping that plays ~2 times a second. This is the correct location for full memory retrieval.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-ritual-site:1rronox:14jtrvs",
+              "html": "The correct location does not always correspond to the centre of a memory you can see. It can also be an empty space.",
+              "text": "The correct location does not always correspond to the centre of a memory you can see. It can also be an empty space.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-ritual-site:1rronox:1eixvpa",
+              "html": "Note: On mobile, there is a bug, read the full article to find out how to deal with this.",
+              "text": "Note: On mobile, there is a bug, read the full article to find out how to deal with this.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-ritual-site:11lciqo",
+          "html": "Continue north and climb down the dungeon entrance.",
+          "text": "Continue north and climb down the dungeon entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "frozen-floors",
+      "title": "Frozen floors",
+      "anchor": "Frozen_floors",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "frozen-floors:1yto8ox",
+          "html": "Continue east through the door.",
+          "text": "Continue east through the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "frozen-floors:gy25v",
+          "html": "Attempt to pass the captain.",
+          "text": "Attempt to pass the captain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "frozen-floors:1vtpxkf",
+          "html": "Probe 3 memories again.",
+          "text": "Probe 3 memories again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "frozen-floors:2kxm8e",
+          "html": "Continue through the east door, then the south door.",
+          "text": "Continue through the east door, then the south door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "frozen-floors:2kxm8e:1i5bbzi",
+              "html": "You will enter a room full of guards. After some dialogues, enter the south room.",
+              "text": "You will enter a room full of guards. After some dialogues, enter the south room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "furnished-floors",
+      "title": "Furnished floors",
+      "anchor": "Furnished_floors",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "The questions posed by soldiers and necrolords must be answered correctly to get 100% completion of the saga. The order of the answers is randomised for each playthrough, so take care to read them and select the right one.<br>The correct options do not appear if the memory puzzle has not been completed perfectly."
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:bi00bl",
+          "html": "Head north through the door and about half way into the room to get a dialogue interface, then leave the same way.",
+          "text": "Head north through the door and about half way into the room to get a dialogue interface, then leave the same way.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:198ceum",
+          "html": "Continue south through the door and finish dialogue with the soldier.",
+          "text": "Continue south through the door and finish dialogue with the soldier.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "furnished-floors:198ceum:w2iu6z",
+              "html": "Select &quot;Got something to get off your chest, soldier? Be my guest.&quot;",
+              "text": "Select \"Got something to get off your chest, soldier? Be my guest.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:16pzdoj",
+          "html": "Continue south and then west and finish dialogue with the mage.",
+          "text": "Continue south and then west and finish dialogue with the mage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "furnished-floors:16pzdoj:qb7qn2",
+              "html": "Select &quot;Ask me later, Druf. I have no time for you right now.&quot;",
+              "text": "Select \"Ask me later, Druf. I have no time for you right now.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:198ceum-2",
+          "html": "Continue south through the door and finish dialogue with the soldier.",
+          "text": "Continue south through the door and finish dialogue with the soldier.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "furnished-floors:198ceum-2:1ffhut2",
+              "html": "Select &quot;Tell them to wait there, and no practice until I return.&quot;",
+              "text": "Select \"Tell them to wait there, and no practice until I return.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:ie4vo5",
+          "html": "Continue east.",
+          "text": "Continue east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "furnished-floors:ie4vo5:5zcn3z",
+              "html": "If you enter combat in this room then you have failed the dialogue options above, restart from checkpoint.",
+              "text": "If you enter combat in this room then you have failed the dialogue options above, restart from checkpoint.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:8bvx0c",
+          "html": "Continue east, south, and south.",
+          "text": "Continue east, south, and south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:1vtpxkf",
+          "html": "Probe 3 memories again.",
+          "text": "Probe 3 memories again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "furnished-floors:16gmf1z",
+          "html": "Kill the necrolord and continue south.",
+          "text": "Kill the necrolord and continue south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "occult-floors",
+      "title": "Occult floors",
+      "anchor": "Occult_floors",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "The questions posed by soldiers and necrolords must be answered correctly to get 100% completion of the saga. The order of the answers is randomised for each playthrough, so take care to read them and select the right one.<br>The correct options do not appear if the memory puzzle has been failed."
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:tkbupl",
+          "html": "Head east and east again. Walk into the centre of the room with bodies. Continue west to view a cutscene.",
+          "text": "Head east and east again. Walk into the centre of the room with bodies. Continue west to view a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:1xi5cfk",
+          "html": "Exit the room and continue south, then finish the dialogue with the necrolord.",
+          "text": "Exit the room and continue south, then finish the dialogue with the necrolord.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "occult-floors:1xi5cfk:1n7fjc6",
+              "html": "Select &quot;Cut off their hands.&quot;",
+              "text": "Select \"Cut off their hands.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:1gusp0h",
+          "html": "Continue south, west and finish dialogue with the necrolord again.",
+          "text": "Continue south, west and finish dialogue with the necrolord again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "occult-floors:1gusp0h:174kh0g",
+              "html": "Select &quot;Kill him, or I will kill you.&quot;",
+              "text": "Select \"Kill him, or I will kill you.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:crosqk",
+          "html": "Continue west and move into the room. You will move toward both portals and drain their power.",
+          "text": "Continue west and move into the room. You will move toward both portals and drain their power.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:18a60vb",
+          "html": "Continue south and finish the dialogue with the necrolord.",
+          "text": "Continue south and finish the dialogue with the necrolord.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "occult-floors:18a60vb:1pzx4s6",
+              "html": "Select &quot;His body is on the floor above. Fetch it yourself, I am busy.&quot;",
+              "text": "Select \"His body is on the floor above. Fetch it yourself, I am busy.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:ie4vo5",
+          "html": "Continue east.",
+          "text": "Continue east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "occult-floors:ie4vo5:5zcn3z",
+              "html": "If you enter combat in this room then you have failed the dialogue options above, restart from checkpoint.",
+              "text": "If you enter combat in this room then you have failed the dialogue options above, restart from checkpoint.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:689h60",
+          "html": "Continue east and drain BOTH portals.",
+          "text": "Continue east and drain BOTH portals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:3ww8j",
+          "html": "Continue south, then east.",
+          "text": "Continue south, then east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:14b3a4w",
+          "html": "Kill the Hooved Mage and then drain the portal.",
+          "text": "Kill the Hooved Mage and then drain the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "occult-floors:1as91c",
+          "html": "Continue east, kill the four soldiers and two rangers, and then continue east.",
+          "text": "Continue east, kill the four soldiers and two rangers, and then continue east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "warped-floors",
+      "title": "Warped floors",
+      "anchor": "Warped_floors",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "warped-floors:bring:k6132n",
+              "html": "Active <a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">standard spellbook</a>",
+              "text": "Active standard spellbook"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "Do <b>not</b> let your <a href=\"https://runescape.wiki/w/Adrenaline\" target=\"_blank\" rel=\"noopener\">adrenaline</a> or <a href=\"https://runescape.wiki/w/Weapon_Special_Attack#Legacy_combat_mode\" target=\"_blank\" rel=\"noopener\">Special Attack Energy</a> (<a href=\"https://runescape.wiki/w/Classic_Modes#Combat\" target=\"_blank\" rel=\"noopener\">Classic Combat mode</a>) run out, otherwise you will not receive an unabridged tome. Restart from last checkpoint if you happen to fail. The <a href=\"https://runescape.wiki/w/Persistent_Rage\" target=\"_blank\" rel=\"noopener\">Persistent Rage</a> relic power will recharge your adrenaline if you are out of combat. Select a spell to autocast."
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:bvdx8o",
+          "html": "Drain the power from the portal, then head south and kill the two rangers and three soldiers.",
+          "text": "Drain the power from the portal, then head south and kill the two rangers and three soldiers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:1i1k8xz",
+          "html": "Head east, drain the north west portal and unlock the silver shield door.",
+          "text": "Head east, drain the north west portal and unlock the silver shield door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:f2ry9y",
+          "html": "Continue east and kill the three soldiers, one ranger, and one mage. Drain the portal power.",
+          "text": "Continue east and kill the three soldiers, one ranger, and one mage. Drain the portal power.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:3eaj2e",
+          "html": "Continue south, drain the portal.",
+          "text": "Continue south, drain the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:galht2",
+          "html": "Continue south, kill the two hellhounds and two soldiers, drain the portal, then unlock the green pentagon door.",
+          "text": "Continue south, kill the two hellhounds and two soldiers, drain the portal, then unlock the green pentagon door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:9u6x7y",
+          "html": "Continue west and kill the three soldiers, one ranger, and one mage. Drain both portals.",
+          "text": "Continue west and kill the three soldiers, one ranger, and one mage. Drain both portals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:1v21zqo",
+          "html": "Continue west and watch the cutscene.",
+          "text": "Continue west and watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "warped-floors:1v21zqo:15cmpt7",
+              "html": "Your adrenaline will stay constant and will no longer drain. Your adrenaline may drain during the following cutscene, but full completion is still awarded.",
+              "text": "Your adrenaline will stay constant and will no longer drain. Your adrenaline may drain during the following cutscene, but full completion is still awarded.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:pr2cpi",
+          "html": "Continue east, continue dialogue and investigate the ritual marker.",
+          "text": "Continue east, continue dialogue and investigate the ritual marker.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:8ug05",
+          "html": "Talk to Bilrach.",
+          "text": "Talk to Bilrach.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Why is the Ritual Marker here?"
+                },
+                {
+                  "key": "4",
+                  "text": "What is this place? What is it for?"
+                },
+                {
+                  "key": "3",
+                  "text": "How long have you been here?"
+                },
+                {
+                  "key": "2",
+                  "text": "Tell me of the portals and their power."
+                },
+                {
+                  "key": "1",
+                  "text": "How did you know I was talking to Lucien?"
+                },
+                {
+                  "key": "5",
+                  "text": "What happens now?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped-floors:d8gvur",
+          "html": "Saga complete!",
+          "text": "Saga complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Nadir_%28saga%29_reward.png?9db33",
+      "width": 424,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Nadir_(saga)_reward.png"
+    },
+    "items": [
+      {
+        "html": "3,750 experience",
+        "text": "3,750 experience",
+        "subs": []
+      },
+      {
+        "html": "375 <a href=\"https://runescape.wiki/w/Dungeoneering_token\" target=\"_blank\" rel=\"noopener\">Dungeoneering tokens</a>",
+        "text": "375 Dungeoneering tokens",
+        "subs": []
+      },
+      {
+        "html": "Ability to purchase <a href=\"https://runescape.wiki/w/Furniture_plans:_Tied_ritual_marker\" target=\"_blank\" rel=\"noopener\">Furniture plans: Tied ritual marker</a> from the <a href=\"https://runescape.wiki/w/Daemonheim_Rewards\" target=\"_blank\" rel=\"noopener\">Daemonheim Rewards</a> shop for 50,000 tokens (requires having purchased <a href=\"https://runescape.wiki/w/Furniture_plans:_Ritual_marker\" target=\"_blank\" rel=\"noopener\">Furniture plans: Ritual marker</a> at level 75 <a href=\"https://runescape.wiki/w/Construction\" target=\"_blank\" rel=\"noopener\">Construction</a>)",
+        "text": "Ability to purchase Furniture plans: Tied ritual marker from the Daemonheim Rewards shop for 50,000 tokens (requires having purchased Furniture plans: Ritual marker at level 75 Construction)",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "",
+        "items": [
+          {
+            "html": "21,670 experience",
+            "text": "21,670 experience",
+            "subs": []
+          },
+          {
+            "html": "2,167 <a href=\"https://runescape.wiki/w/Dungeoneering_token\" target=\"_blank\" rel=\"noopener\">Dungeoneering tokens</a>",
+            "text": "2,167 Dungeoneering tokens",
+            "subs": []
+          },
+          {
+            "html": "11,660 experience or 37,080 experience",
+            "text": "11,660 experience or 37,080 experience",
+            "subs": []
+          },
+          {
+            "html": "Ability to purchase <a href=\"https://runescape.wiki/w/Furniture_plans:_Warped_ritual_marker\" target=\"_blank\" rel=\"noopener\">Furniture plans: Warped ritual marker</a> from the <a href=\"https://runescape.wiki/w/Daemonheim_Rewards\" target=\"_blank\" rel=\"noopener\">Daemonheim Rewards</a> shop for 100,000 tokens (requires having purchased <a href=\"https://runescape.wiki/w/Furniture_plans:_Ritual_marker\" target=\"_blank\" rel=\"noopener\">Furniture plans: Ritual marker</a> at level 75 <a href=\"https://runescape.wiki/w/Construction\" target=\"_blank\" rel=\"noopener\">Construction</a>)",
+            "text": "Ability to purchase Furniture plans: Warped ritual marker from the Daemonheim Rewards shop for 100,000 tokens (requires having purchased Furniture plans: Ritual marker at level 75 Construction)",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "<b>Abridged</b>: An <a href=\"https://runescape.wiki/w/Nadir_(abridged)\" target=\"_blank\" rel=\"noopener\">abridged book</a>, which when read, gives",
+      "<b>Unabridged</b>: Together, with the above rewards, an <a href=\"https://runescape.wiki/w/Nadir_(unabridged)\" target=\"_blank\" rel=\"noopener\">unabridged book</a>, which when read, gives"
+    ]
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

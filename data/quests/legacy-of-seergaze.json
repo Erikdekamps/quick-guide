@@ -1,0 +1,1423 @@
+{
+  "format": 1,
+  "id": "legacy-of-seergaze",
+  "title": "Legacy of Seergaze",
+  "page": "Legacy of Seergaze/Quick guide",
+  "rev": 37173121,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Mercenary_adventurer\" target=\"_blank\" rel=\"noopener\">mercenary adventurer</a> east of <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a> in <a href=\"https://runescape.wiki/w/Morytania\" target=\"_blank\" rel=\"noopener\">Morytania</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Darkness of Hallowvale",
+        "depth": 1
+      },
+      {
+        "text": "In Aid of the Myreque",
+        "depth": 2
+      },
+      {
+        "text": "In Search of the Myreque",
+        "depth": 3
+      },
+      {
+        "text": "Nature Spirit",
+        "depth": 4
+      },
+      {
+        "text": "Priest in Peril",
+        "depth": 5
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 5
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 29,
+        "note": ""
+      },
+      {
+        "skill": "Construction",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 49,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 35,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 31,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "Partial completion of <a href=\"https://runescape.wiki/w/Shades_of_Mort%27ton\" target=\"_blank\" rel=\"noopener\">Shades of Mort&#39;ton</a> (to make <a href=\"https://runescape.wiki/w/Teak_pyre_logs\" target=\"_blank\" rel=\"noopener\">teak pyre logs</a>)"
+    ],
+    "followsEvents": [
+      "Shades of Mort'ton",
+      "Ability to enter Morytania",
+      "Desert Treasure",
+      "The Dig Site",
+      "Troll Stronghold",
+      "Death Plateau"
+    ],
+    "enemies": [
+      {
+        "text": "Fistandantilus – level 77",
+        "name": "Fistandantilus – level 77",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Zaromark Sliver – level 77",
+        "name": "Zaromark Sliver – level 77",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Vyrewatch – level 72",
+        "name": "Vyrewatch – level 72",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> <span class=\"reg\">Tirannwn</span> <span class=\"reg\">Wilderness</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1leztcg",
+          "html": "<a href=\"https://runescape.wiki/w/Teak_pyre_logs\" target=\"_blank\" rel=\"noopener\">Teak</a> or higher-level pyre logs",
+          "text": "Teak or higher-level pyre logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:k4a5mw",
+          "html": "Combat gear (Necromancy or two different combat styles recommended for lower-level players)",
+          "text": "Combat gear (Necromancy or two different combat styles recommended for lower-level players)",
+          "alternatives": []
+        },
+        {
+          "id": "req:tqlvde",
+          "html": "10 <a href=\"https://runescape.wiki/w/Nails\" target=\"_blank\" rel=\"noopener\">nails</a> (obtained during quest from Flaygian)",
+          "text": "10 nails (obtained during quest from Flaygian)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1bytzv7",
+          "html": "1 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (can be obtained during the quest)",
+          "text": "1 coal (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1d0d23z",
+          "html": "Items to use <a href=\"https://runescape.wiki/w/Lvl-2_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-2 Enchant</a>:",
+          "text": "Items to use Lvl-2 Enchant:",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Lvl-2_enchant_(item)\" target=\"_blank\" rel=\"noopener\">Lvl-2 enchant</a> tablet (if not on the <a href=\"https://runescape.wiki/w/Standard_spellbook\" target=\"_blank\" rel=\"noopener\">standard spellbook</a>) or;",
+            "1 <a href=\"https://runescape.wiki/w/Cosmic_rune\" target=\"_blank\" rel=\"noopener\">cosmic rune</a> and 3 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air runes</a> (can be obtained during the quest)"
+          ]
+        },
+        {
+          "id": "req:1wcki9l",
+          "html": "1 <a href=\"https://runescape.wiki/w/Mithril_bar\" target=\"_blank\" rel=\"noopener\">mithril bar</a> (can be obtained during the quest, metal bank works)",
+          "text": "1 mithril bar (can be obtained during the quest, metal bank works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:qlqzop",
+          "html": "1 <a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">silver bar</a> (can be obtained during the quest, metal bank works)",
+          "text": "1 silver bar (can be obtained during the quest, metal bank works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1j07r6r",
+          "html": "1 <a href=\"https://runescape.wiki/w/Silver_sickle_(b)\" target=\"_blank\" rel=\"noopener\">silver sickle (b)</a> (can be obtained during the quest)",
+          "text": "1 silver sickle (b) (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:6wvsqa",
+          "html": "1 <a href=\"https://runescape.wiki/w/Emerald\" target=\"_blank\" rel=\"noopener\">emerald</a> (can be obtained during the quest)",
+          "text": "1 emerald (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:xc19eu",
+          "html": "1 <a href=\"https://runescape.wiki/w/Saw\" target=\"_blank\" rel=\"noopener\">saw</a> (cannot use the default one on the tool belt, one can be obtained during the quest)",
+          "text": "1 saw (cannot use the default one on the tool belt, one can be obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:14x3hri",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Canifis\" target=\"_blank\" rel=\"noopener\">Canifis</a> (<a href=\"https://runescape.wiki/w/Kharyrll_Teleport\" target=\"_blank\" rel=\"noopener\">Kharyrll Teleport</a> or teleport tablets/runes for <a href=\"https://runescape.wiki/w/Canifis_portal\" target=\"_blank\" rel=\"noopener\">Canifis portal</a> in a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a>) or an activated <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a>",
+          "text": "Teleport to Canifis (Kharyrll Teleport or teleport tablets/runes for Canifis portal in a player-owned house) or an activated Canifis lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:lkxqsx",
+          "html": "<a href=\"https://runescape.wiki/w/Invitation_box\" target=\"_blank\" rel=\"noopener\">Invitation box</a> for fast transportation to <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a>",
+          "text": "Invitation box for fast transportation to Paterdomus",
+          "alternatives": []
+        },
+        {
+          "id": "rec:18av858",
+          "html": "<a href=\"https://runescape.wiki/w/Shortcut_key\" target=\"_blank\" rel=\"noopener\">Shortcut key</a> (can be stored on a <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a>, if not planning on using the mines method to return to the <a href=\"https://runescape.wiki/w/Myreque_Hideout\" target=\"_blank\" rel=\"noopener\">Myreque Hideout</a> in <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a>)",
+          "text": "Shortcut key (can be stored on a steel key ring, if not planning on using the mines method to return to the Myreque Hideout in Meiyerditch)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:183g42b",
+          "html": "<a href=\"https://runescape.wiki/w/Druid_pouch\" target=\"_blank\" rel=\"noopener\">Druid pouches</a> or <a href=\"https://runescape.wiki/w/Ouroboros_pouch\" target=\"_blank\" rel=\"noopener\">ouroboros pouch</a> (if carrying food through the swamp)",
+          "text": "Druid pouches or ouroboros pouch (if carrying food through the swamp)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1bwa4qz",
+          "html": "Food (<a href=\"https://runescape.wiki/w/Monkfish\" target=\"_blank\" rel=\"noopener\">monkfish</a> or higher recommended if you are a low level)",
+          "text": "Food (monkfish or higher recommended if you are a low level)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:2bmk01",
+          "html": "<a href=\"https://runescape.wiki/w/Rod_of_Ivandis\" target=\"_blank\" rel=\"noopener\">Rod of Ivandis</a> (in case you need to defeat <a href=\"https://runescape.wiki/w/Juvinate\" target=\"_blank\" rel=\"noopener\">juvinate</a> during the <a href=\"https://runescape.wiki/w/Burgh_de_Rott_Ramble\" target=\"_blank\" rel=\"noopener\">Burgh de Rott Ramble</a>)",
+          "text": "Rod of Ivandis (in case you need to defeat juvinate during the Burgh de Rott Ramble)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "an-evil-conspiracy",
+      "title": "An evil conspiracy",
+      "anchor": "An_evil_conspiracy",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "an-evil-conspiracy:bring:7bfa7i",
+              "html": "<a href=\"https://runescape.wiki/w/Rod_of_Ivandis\" target=\"_blank\" rel=\"noopener\">Rod of Ivandis</a>, or another silver weapon",
+              "text": "Rod of Ivandis, or another silver weapon"
+            },
+            {
+              "id": "an-evil-conspiracy:bring:1t11mrr",
+              "html": "2 backpack space",
+              "text": "2 backpack space"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "an-evil-conspiracy:bring:7kastr",
+              "html": "2 different combat styles and equipment",
+              "text": "2 different combat styles and equipment"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:ba1i16",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Mercenary_Adventurer\" target=\"_blank\" rel=\"noopener\">Mercenary Adventurer</a> at the <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Temple Trekking</a> ending point (west of <a href=\"https://runescape.wiki/w/Canifis\" target=\"_blank\" rel=\"noopener\">Canifis</a>). <b>C</b><b>K</b><b>S</b> or the <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a> are good options to reach the area quickly.",
+          "text": "Talk to the Mercenary Adventurer at the Temple Trekking ending point (west of Canifis). CKS or the Canifis lodestone are good options to reach the area quickly.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:jhlq0v",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Paterdomus#Mausoleum\" target=\"_blank\" rel=\"noopener\">Mausoleum</a> west of the Adventurer.",
+          "text": "Enter the Mausoleum west of the Adventurer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:1d9zwo2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a>.",
+          "text": "Talk to Drezel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Who do you think these suspicious people are?"
+                },
+                {
+                  "key": "4",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:77p9lc",
+          "html": "Go through the gate west of Drezel and climb down the stairs north of the well.",
+          "text": "Go through the gate west of Drezel and climb down the stairs north of the well.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:1fm9d7v",
+          "html": "Search the sparkling wall storage unit a few steps east of the stairs, then go back up the stairs.",
+          "text": "Search the sparkling wall storage unit a few steps east of the stairs, then go back up the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:ulc738",
+          "html": "Exit the Mausoleum via the west entrance ladder, enter the <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a> temple and head to the top floor.",
+          "text": "Exit the Mausoleum via the west entrance ladder, enter the Paterdomus temple and head to the top floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:hu1uj4",
+          "html": "After the cutscene, kill <a href=\"https://runescape.wiki/w/Fistandantilus\" target=\"_blank\" rel=\"noopener\">Fistandantilus</a> and <a href=\"https://runescape.wiki/w/Zaromark_Sliver\" target=\"_blank\" rel=\"noopener\">Zaromark Sliver</a> (or wait until they time out and teleport away).",
+          "text": "After the cutscene, kill Fistandantilus and Zaromark Sliver (or wait until they time out and teleport away).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "an-evil-conspiracy:hu1uj4:1f6b4w0",
+              "html": "Both enemies have 2,750 <a href=\"https://runescape.wiki/w/Life_points\" target=\"_blank\" rel=\"noopener\">life points</a>, a <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a> of 77, and a max hit of 220 in magic and ranged. These enemies will use prayer to become immune to your combat style, but do not protect against necromancy. Necromancy or multiple combat styles are recommended for this fight.",
+              "text": "Both enemies have 2,750 life points, a combat level of 77, and a max hit of 220 in magic and ranged. These enemies will use prayer to become immune to your combat style, but do not protect against necromancy. Necromancy or multiple combat styles are recommended for this fight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:ik9ei",
+          "html": "Search the crude table in the north-west corner of the room.",
+          "text": "Search the crude table in the north-west corner of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:pk5pzm",
+          "html": "Return to Drezel.",
+          "text": "Return to Drezel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you think this has anything to do with the Guthixian Edicts?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:1qwlo1z",
+          "html": "Talk to the Mercenary Adventurer and escort him the same way as any <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Burgh de Rott Ramble</a>.",
+          "text": "Talk to the Mercenary Adventurer and escort him the same way as any Burgh de Rott Ramble.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "You still want to go to Burgh de Rott?"
+                },
+                {
+                  "key": "1",
+                  "text": "I can take you to Burgh de Rott."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "an-evil-conspiracy:1qwlo1z:vvrr38",
+              "html": "Easy path recommended for least time and effort. Be sure to remove any melee-reducing equipment like ranged and magic armour. If you encounter <a href=\"https://runescape.wiki/w/Juvinate\" target=\"_blank\" rel=\"noopener\">juvinates</a>, you will require your <a href=\"https://runescape.wiki/w/Rod_of_Ivandis\" target=\"_blank\" rel=\"noopener\">Rod of Ivandis</a> or another silver weapon.",
+              "text": "Easy path recommended for least time and effort. Be sure to remove any melee-reducing equipment like ranged and magic armour. If you encounter juvinates, you will require your Rod of Ivandis or another silver weapon.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "an-evil-conspiracy:vdslhw",
+          "html": "Once in <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a>, if the dialogue does not automatically start, talk to the Mercenary Adventurer.",
+          "text": "Once in Burgh de Rott, if the dialogue does not automatically start, talk to the Mercenary Adventurer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "an-evil-conspiracy:vdslhw:zw0h1p",
+              "html": "If no one with that name is present in Burgh de Rott, skip to the next step.",
+              "text": "If no one with that name is present in Burgh de Rott, skip to the next step.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-myreque-s-task",
+      "title": "The Myreque's task",
+      "anchor": "The_Myreque's_task",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:xo0q8j",
+          "html": "Climb over the wall inside the Pub and then climb down the <a href=\"https://runescape.wiki/w/Trapdoor_(Burgh_de_Rott_cellar)\" target=\"_blank\" rel=\"noopener\">trapdoor</a> to the cellar.",
+          "text": "Climb over the wall inside the Pub and then climb down the trapdoor to the cellar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:7z5kv4",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Veliaf_Hurtz\" target=\"_blank\" rel=\"noopener\">Veliaf Hurtz</a> until he gives you a crate.",
+          "text": "Talk to Veliaf Hurtz until he gives you a crate.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you have a job for me?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:de8246",
+          "html": "Climb up the ladder.",
+          "text": "Climb up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:13l9c7k",
+          "html": "Go south of Burgh de Rott and take the boat to <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a>.",
+          "text": "Go south of Burgh de Rott and take the boat to Meiyerditch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:1rbt0ox",
+          "html": "Go to the Meiyerditch Myreque base. Refer to the <a href=\"https://runescape.wiki/w/Meiyerditch_shortcut_guide\" target=\"_blank\" rel=\"noopener\">Meiyerditch shortcut guide</a> for help. Being caught by the <a href=\"https://runescape.wiki/w/Vyrewatch\" target=\"_blank\" rel=\"noopener\">vyrewatch</a> and sent to mines provides a fast and reliable route.",
+          "text": "Go to the Meiyerditch Myreque base. Refer to the Meiyerditch shortcut guide for help. Being caught by the vyrewatch and sent to mines provides a fast and reliable route.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-myreque-s-task:wx1tgx",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Flaygian_Screwte\" target=\"_blank\" rel=\"noopener\">Flaygian Screwte</a>, in the north room, and offer him your help.",
+          "text": "Talk to Flaygian Screwte, in the north room, and offer him your help.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "How's the research going?"
+                },
+                {
+                  "key": "4",
+                  "text": "Can I help in some way?"
+                },
+                {
+                  "key": "5",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "in-search-of-the-weapon",
+      "title": "In search of the weapon",
+      "anchor": "In_search_of_the_weapon",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the furnace",
+          "lat": 3320,
+          "lon": 3635,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3630,
+                      3315
+                    ],
+                    [
+                      3630,
+                      3325
+                    ],
+                    [
+                      3640,
+                      3325
+                    ],
+                    [
+                      3640,
+                      3315
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Legacy_of_Seergaze/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:10opbhu",
+          "html": "Ask <a href=\"https://runescape.wiki/w/Andiess_Juip\" target=\"_blank\" rel=\"noopener\">Andiess Juip</a> or <a href=\"https://runescape.wiki/w/Kael_Forshaw\" target=\"_blank\" rel=\"noopener\">Kael Forshaw</a> in the same room about weapons.",
+          "text": "Ask Andiess Juip or Kael Forshaw in the same room about weapons.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Hi there, I was wondering if I could ask some questions?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:132znau",
+          "html": "Go to the next room south (near Mekritus A&#39;hara) and search the middle bunk bed on the eastern half of the north wall for a book.",
+          "text": "Go to the next room south (near Mekritus A'hara) and search the middle bunk bed on the eastern half of the north wall for a book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:cfqdjg",
+          "html": "Read it and remember which page mentioned flails.",
+          "text": "Read it and remember which page mentioned flails.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:u3frr2",
+          "html": "Give the book to Flaygian, giving him the proper page number. He will give you 10 nails and a hammer. (You can drop the hammer)",
+          "text": "Give the book to Flaygian, giving him the proper page number. He will give you 10 nails and a hammer. (You can drop the hammer)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:jxnqju",
+          "html": "Head to the northernmost part of <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a> and enter the house <b>south</b> of the house with the furnace (&quot;mass of debris&quot;).",
+          "text": "Head to the northernmost part of Meiyerditch and enter the house south of the house with the furnace (\"mass of debris\").",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:11emnbm",
+          "html": "Use the Make-ladder option on the centre post.",
+          "text": "Use the Make-ladder option on the centre post.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1cip93o",
+          "html": "Climb up the post.",
+          "text": "Climb up the post.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:17n5j8r",
+          "html": "Jump across the floorboards to the east, then to the north.",
+          "text": "Jump across the floorboards to the east, then to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1018x77",
+          "html": "Jump west through the damaged wall.",
+          "text": "Jump west through the damaged wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:7wgcsx",
+          "html": "Climb up the ladder and <i>search</i> the trough.",
+          "text": "Climb up the ladder and search the trough.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1ug7f9j",
+          "html": "Take a piece of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> from the coal barrel.",
+          "text": "Take a piece of coal from the coal barrel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:12v8xaa",
+          "html": "Go to the bottom floor and select &quot;dig&quot; on the mass of debris <i>(right click)</i>.",
+          "text": "Go to the bottom floor and select \"dig\" on the mass of debris (right click).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "in-search-of-the-weapon:12v8xaa:1ycqzxq",
+              "html": "If the &quot;dig&quot; option doesn&#39;t appear, you must go back to the top floor and <i>search</i> the trough",
+              "text": "If the \"dig\" option doesn't appear, you must go back to the top floor and search the trough",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:eeiqla",
+          "html": "Use the coal on the furnace, then light the furnace.",
+          "text": "Use the coal on the furnace, then light the furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1g6rje5",
+          "html": "Return and talk to Flaygian, then in the same room;",
+          "text": "Return and talk to Flaygian, then in the same room;",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "in-search-of-the-weapon:1g6rje5:1d2c52k",
+              "html": "Take 2 <a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">silver</a> and 2 <a href=\"https://runescape.wiki/w/Mithril_bar\" target=\"_blank\" rel=\"noopener\">mithril bars</a> from the barrel on the northern wall.",
+              "text": "Take 2 silver and 2 mithril bars from the barrel on the northern wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "in-search-of-the-weapon:1g6rje5:30kssf",
+              "html": "Take a <a href=\"https://runescape.wiki/w/Silver_sickle_(b)\" target=\"_blank\" rel=\"noopener\">blessed sickle</a> from the shelf on the south-western wall.",
+              "text": "Take a blessed sickle from the shelf on the south-western wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:5unnbz",
+          "html": "Go to the room to the east of the entrance ladder.",
+          "text": "Go to the room to the east of the entrance ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1osotnx",
+          "html": "Search the crate for a <a href=\"https://runescape.wiki/w/Chain_link_mould\" target=\"_blank\" rel=\"noopener\">chain link mould</a> and add it to your <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>.",
+          "text": "Search the crate for a chain link mould and add it to your tool belt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1qbr4rq",
+          "html": "Return to the furnace and make the <a href=\"https://runescape.wiki/w/Silvthril_chain\" target=\"_blank\" rel=\"noopener\">Silvthril chain</a>. It can be found by clicking on the <a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">silver bar</a> in the smithing interface (scroll with down arrow next to &quot;Casting Metals &amp; Glass&quot;).",
+          "text": "Return to the furnace and make the Silvthril chain. It can be found by clicking on the silver bar in the smithing interface (scroll with down arrow next to \"Casting Metals & Glass\").",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "in-search-of-the-weapon:1qbr4rq:10wq6bu",
+              "html": "You do not need to make 2, you will have 1 bar of each type left. These are not used at any point in the quest so you can safely deposit them into your metal bank.",
+              "text": "You do not need to make 2, you will have 1 bar of each type left. These are not used at any point in the quest so you can safely deposit them into your metal bank.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:1ghwe1o",
+          "html": "Talk to Flaygian, then use the blessed sickle on him.",
+          "text": "Talk to Flaygian, then use the blessed sickle on him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How about using this as the head for the flail?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-search-of-the-weapon:iumxil",
+          "html": "Talk to Safalaan.",
+          "text": "Talk to Safalaan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "back-to-the-lab",
+      "title": "Back to the lab",
+      "anchor": "Back_to_the_lab",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "back-to-the-lab:17uzrno",
+          "html": "Proceed to the laboratory; the building south-east of the furnace, third from the top on the east wall and through the slashed tapestry.",
+          "text": "Proceed to the laboratory; the building south-east of the furnace, third from the top on the east wall and through the slashed tapestry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-lab:12zidep",
+          "html": "Dismiss any followers and climb down the stairs.",
+          "text": "Dismiss any followers and climb down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-lab:1muafbk",
+          "html": "After the cutscene, Look at one of the bodies in the north-west corner.",
+          "text": "After the cutscene, Look at one of the bodies in the north-west corner.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Is there anything I can do?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-lab:d3bgfm",
+          "html": "Search the door to the south and use the saw in your tool belt.",
+          "text": "Search the door to the south and use the saw in your tool belt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-lab:14zotmo",
+          "html": "Climb-through the door, then after the cutscene continue down the long and winding tunnel.",
+          "text": "Climb-through the door, then after the cutscene continue down the long and winding tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-lab:1oku9gz",
+          "html": "Continue north on the path to the large chamber where the strange stones are.",
+          "text": "Continue north on the path to the large chamber where the strange stones are.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "vyrewatch-and-the-ivandis-flail",
+      "title": "Vyrewatch and the Ivandis flail",
+      "anchor": "Vyrewatch_and_the_Ivandis_flail",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:145rgj1",
+          "html": "If you need runes for the <a href=\"https://runescape.wiki/w/Lvl-2_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-2 Enchant</a> spell, search the corpse next to the rocks before continuing.",
+          "text": "If you need runes for the Lvl-2 Enchant spell, search the corpse next to the rocks before continuing.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "vyrewatch-and-the-ivandis-flail:145rgj1:1fulmhx",
+              "html": "Searching the corpse will complete the <a href=\"https://runescape.wiki/w/Bloodstained_Treasure\" target=\"_blank\" rel=\"noopener\">Bloodstained Treasure</a> achievement, if not already completed.",
+              "text": "Searching the corpse will complete the Bloodstained Treasure achievement, if not already completed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:1pdmmz6",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Strange_stones\" target=\"_blank\" rel=\"noopener\">strange stones</a> in the northern part of the cavern.",
+          "text": "Search the strange stones in the northern part of the cavern.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:1fgahwa",
+          "html": "Talk to Safalaan. There will be a cutscene and a fight against <a href=\"https://runescape.wiki/w/Vyrewatch\" target=\"_blank\" rel=\"noopener\">vyrewatches</a> in which you cannot deal any damage, but the fight will end in another cutscene with Safalaan being attacked.",
+          "text": "Talk to Safalaan. There will be a cutscene and a fight against vyrewatches in which you cannot deal any damage, but the fight will end in another cutscene with Safalaan being attacked.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:d7ua2z",
+          "html": "Make sure you have 4 free backpack spaces, then talk to Safalaan.",
+          "text": "Make sure you have 4 free backpack spaces, then talk to Safalaan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:10zz53f",
+          "html": "Use the emerald on the sickle (right click, don&#39;t accidentally make bolt tips).",
+          "text": "Use the emerald on the sickle (right click, don't accidentally make bolt tips).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:l6a6vf",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Lvl-2_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-2 Enchant</a> spell on it.",
+          "text": "Use the Lvl-2 Enchant spell on it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:1pcruue",
+          "html": "Use the chain on it.",
+          "text": "Use the chain on it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:iumxil",
+          "html": "Talk to Safalaan.",
+          "text": "Talk to Safalaan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:r9tjfa",
+          "html": "Go to the surface, equip the <a href=\"https://runescape.wiki/w/Ivandis_flail\" target=\"_blank\" rel=\"noopener\">Ivandis flail</a>, kill a vyrewatch, and pick up its corpse.",
+          "text": "Go to the surface, equip the Ivandis flail, kill a vyrewatch, and pick up its corpse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "vyrewatch-and-the-ivandis-flail:1nkkad9",
+          "html": "Return to Safalaan.",
+          "text": "Return to Safalaan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "back-to-the-columbarium",
+      "title": "Back to the Columbarium",
+      "anchor": "Back_to_the_Columbarium",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "back-to-the-columbarium:bring:1c0vdsq",
+              "html": "<a href=\"https://runescape.wiki/w/Teak_pyre_logs\" target=\"_blank\" rel=\"noopener\">Teak pyre logs</a> or <a href=\"https://runescape.wiki/w/Shades_of_Mort%27ton_(minigame)#Creating_The_Pyre_Logs\" target=\"_blank\" rel=\"noopener\">better</a>",
+              "text": "Teak pyre logs or better"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:1pcm1cb",
+          "html": "Return to the basement of the pub in <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a> and talk to <a href=\"https://runescape.wiki/w/Veliaf\" target=\"_blank\" rel=\"noopener\">Veliaf</a>. Ask him what to do. Ensure your quest log updates to say to speak to Drezel.",
+          "text": "Return to the basement of the pub in Burgh de Rott and talk to Veliaf. Ask him what to do. Ensure your quest log updates to say to speak to Drezel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The Flail of Ivandis kills Vyrewatch!"
+                },
+                {
+                  "key": "4",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "5",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:k4bvpg",
+          "html": "Return to and talk to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a> at the Mausoleum.",
+          "text": "Return to and talk to Drezel at the Mausoleum.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Veliaf asked me to bring this Vyrewatch corpse to you."
+                },
+                {
+                  "key": "4",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:1idly3k",
+          "html": "Go through the west gate, then down the stairs north of the well.",
+          "text": "Go through the west gate, then down the stairs north of the well.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:1ulqqpa",
+          "html": "Use the pyre logs on a funeral pyre, then the vyre corpse. Light it.",
+          "text": "Use the pyre logs on a funeral pyre, then the vyre corpse. Light it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:s56adg",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Ornate_tomb_key\" target=\"_blank\" rel=\"noopener\">ornate tomb key</a> from the pedestal.",
+          "text": "Take the ornate tomb key from the pedestal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:1123js5",
+          "html": "Use it on the wall storage unit from the beginning of the quest on the north-eastern side of the room (the same one that is still sparkling) to acquire a blood talisman.",
+          "text": "Use it on the wall storage unit from the beginning of the quest on the north-eastern side of the room (the same one that is still sparkling) to acquire a blood talisman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:bd76ga",
+          "html": "After the cutscene, go upstairs and ask Drezel what to do. If you still have the library key:",
+          "text": "After the cutscene, go upstairs and ask Drezel what to do. If you still have the library key:",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks."
+                }
+              ]
+            },
+            {
+              "when": "Otherwise, to bypass getting a new key",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about items."
+                },
+                {
+                  "key": "2",
+                  "text": "What should I do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:u9wzx1",
+          "html": "Report to Veliaf in the Burgh de Rott pub basement.",
+          "text": "Report to Veliaf in the Burgh de Rott pub basement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-columbarium:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Legacy_of_Seergaze_reward.png?2a3c8",
+      "width": 512,
+      "height": 537,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Legacy_of_Seergaze_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tome_of_xp_2nd_ed\" target=\"_blank\" rel=\"noopener\">Tome of xp 2nd ed</a>, giving 2,500 experience each in any skill that&#39;s at least level 35, up to 3 times in total, or 1,250 experience when used on an elite skill.",
+        "text": "Tome of xp 2nd ed, giving 2,500 experience each in any skill that's at least level 35, up to 3 times in total, or 1,250 experience when used on an elite skill.",
+        "subs": []
+      },
+      {
+        "html": "3,000 experience",
+        "text": "3,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "4,000 experience",
+        "text": "4,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Ivandis_flail\" target=\"_blank\" rel=\"noopener\">Ivandis flail</a>",
+        "text": "Ivandis flail",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Blood_talisman\" target=\"_blank\" rel=\"noopener\">Blood talisman</a>",
+        "text": "Blood talisman",
+        "subs": []
+      },
+      {
+        "html": "Ability to craft <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood runes</a> at the <a href=\"https://runescape.wiki/w/Blood_altar\" target=\"_blank\" rel=\"noopener\">blood altar</a> with 77 <a href=\"https://runescape.wiki/w/Runecrafting\" target=\"_blank\" rel=\"noopener\">Runecrafting</a>.",
+        "text": "Ability to craft blood runes at the blood altar with 77 Runecrafting.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Meiyerditch_tunnels\" target=\"_blank\" rel=\"noopener\">Meiyerditch tunnels</a> including <a href=\"https://runescape.wiki/w/Skeletal_hand\" target=\"_blank\" rel=\"noopener\">skeletal hands</a>, <a href=\"https://runescape.wiki/w/Zombie_hand\" target=\"_blank\" rel=\"noopener\">zombie hands</a>, <a href=\"https://runescape.wiki/w/Bloodveld\" target=\"_blank\" rel=\"noopener\">bloodvelds</a> and <a href=\"https://runescape.wiki/w/Mutated_bloodveld\" target=\"_blank\" rel=\"noopener\">mutated bloodvelds</a>, as well as a <a href=\"https://runescape.wiki/w/Jutting_wall_(Meiyerditch_tunnels)\" target=\"_blank\" rel=\"noopener\">jutting wall</a> shortcut (requires 65 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>) between Canifis and Meiyerditch.",
+        "text": "Access to Meiyerditch tunnels including skeletal hands, zombie hands, bloodvelds and mutated bloodvelds, as well as a jutting wall shortcut (requires 65 Agility) between Canifis and Meiyerditch.",
+        "subs": []
+      },
+      {
+        "html": "Access to a <a href=\"https://runescape.wiki/w/Furnace_(Legacy_of_Seergaze)\" target=\"_blank\" rel=\"noopener\">furnace</a> in Meiyerditch.",
+        "text": "Access to a furnace in Meiyerditch.",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Columbarium\" target=\"_blank\" rel=\"noopener\">columbarium</a> beneath <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a> and the ability to cremate the <a href=\"https://runescape.wiki/w/Vyre_corpse\" target=\"_blank\" rel=\"noopener\">vyre corpse</a> for rewards.",
+        "text": "Access to the columbarium beneath Paterdomus and the ability to cremate the vyre corpse for rewards.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Vyrewatch_(Temple_Trekking)\" target=\"_blank\" rel=\"noopener\">vyrewatch</a> event in <a href=\"https://runescape.wiki/w/Temple_Trekking\" target=\"_blank\" rel=\"noopener\">Temple Trekking</a>.",
+        "text": "Access to vyrewatch event in Temple Trekking.",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "The Vyrewatch",
+        "items": [
+          {
+            "html": "<a href=\"https://runescape.wiki/w/Conspiracy:_Part_1\" target=\"_blank\" rel=\"noopener\">Conspiracy: Part 1</a> – during the <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a> temple cut scene",
+            "text": "Conspiracy: Part 1 – during the Paterdomus temple cut scene",
+            "subs": []
+          },
+          {
+            "html": "<a href=\"https://runescape.wiki/w/Conspiracy:_Part_2\" target=\"_blank\" rel=\"noopener\">Conspiracy: Part 2</a> – during the same cut scene",
+            "text": "Conspiracy: Part 2 – during the same cut scene",
+            "subs": []
+          },
+          {
+            "html": "<a href=\"https://runescape.wiki/w/The_Terrible_Tunnels\" target=\"_blank\" rel=\"noopener\">The Terrible Tunnels</a> – in the <a href=\"https://runescape.wiki/w/Meiyerditch\" target=\"_blank\" rel=\"noopener\">Meiyerditch</a> secret laboratory",
+            "text": "The Terrible Tunnels – in the Meiyerditch secret laboratory",
+            "subs": []
+          },
+          {
+            "html": "<a href=\"https://runescape.wiki/w/The_Terrible_Caverns\" target=\"_blank\" rel=\"noopener\">The Terrible Caverns</a> – in the long tunnel before entering <a href=\"https://runescape.wiki/w/Mutated_bloodveld\" target=\"_blank\" rel=\"noopener\">Mutated Bloodveld</a>&#39;s lair",
+            "text": "The Terrible Caverns – in the long tunnel before entering Mutated Bloodveld's lair",
+            "subs": []
+          },
+          {
+            "html": "<a href=\"https://runescape.wiki/w/The_Columbarium\" target=\"_blank\" rel=\"noopener\">The Columbarium</a> – during burning the <a href=\"https://runescape.wiki/w/Vyre_corpse\" target=\"_blank\" rel=\"noopener\">Vyre corpse</a>",
+            "text": "The Columbarium – during burning the Vyre corpse",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "The jingle that plays when the Vyrewatch appear."
+    ]
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Legacy_of_Seergaze_(achievement)\" target=\"_blank\" rel=\"noopener\">Legacy of Seergaze</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Bloodstained_Treasure\" target=\"_blank\" rel=\"noopener\">Bloodstained Treasure</a> (15) – Obtain hidden runes from Meiyerditch laboratory and blood altar ruins. (X/2)",
+    "<a href=\"https://runescape.wiki/w/Ivan_is_Flailing\" target=\"_blank\" rel=\"noopener\">Ivan is Flailing</a> (10) – Unlock the full power of the ivandis flail by burning vyre corpses in the Columbarium. (X/500)",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Tirannwn_achievements\" target=\"_blank\" rel=\"noopener\">Tirannwn achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

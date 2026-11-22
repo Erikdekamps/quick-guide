@@ -1,0 +1,191 @@
+{
+  "format": 1,
+  "id": "borics-task-iii-miniquest",
+  "title": "Boric's Task III (miniquest)",
+  "page": "Boric's Task III (miniquest)/Quick guide",
+  "rev": 37283841,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Boric\" target=\"_blank\" rel=\"noopener\">Boric</a> in the workshop accessed from the stairs in <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">Doric&#39;s hut</a>, just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5987,
+      "lon": 1560,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Boric's_Task_III_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Boric's Task II (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Boric's Task I (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 60,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wwnn77",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a> or activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador Teleport or activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "mining-for-the-guild",
+      "title": "Mining for the Guild",
+      "anchor": "Mining_for_the_Guild",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mining-for-the-guild:195k11i",
+          "html": "Head down the stairs at Doric&#39;s workshop to speak to Boric.",
+          "text": "Head down the stairs at Doric's workshop to speak to Boric.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any Mining tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-for-the-guild:ddl6zm",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Mining_guild\" target=\"_blank\" rel=\"noopener\">Mining guild</a>. You must speak with one of the dwarves at the guild before mining.",
+          "text": "Head to the Mining guild. You must speak with one of the dwarves at the guild before mining.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Boric sent me here to mine some ores."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mining-for-the-guild:1h23gg8",
+          "html": "Mine 10 <a href=\"https://runescape.wiki/w/Runite_ore\" target=\"_blank\" rel=\"noopener\">runite ore</a> and 15 <a href=\"https://runescape.wiki/w/Orichalcite_ore\" target=\"_blank\" rel=\"noopener\">orichalcite ore</a>.",
+          "text": "Mine 10 runite ore and 15 orichalcite ore.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mining-for-the-guild:1h23gg8:wxdz5r",
+              "html": "Boosts and perks such as <a href=\"https://runescape.wiki/w/Runite_stone_spirit\" target=\"_blank\" rel=\"noopener\">runite</a> and <a href=\"https://runescape.wiki/w/Orichalcite_stone_spirit\" target=\"_blank\" rel=\"noopener\">orichalcite stone spirits</a>, <a href=\"https://runescape.wiki/w/Varrock_armour\" target=\"_blank\" rel=\"noopener\">Varrock armour</a>, <a href=\"https://runescape.wiki/w/Shooting_Star\" target=\"_blank\" rel=\"noopener\">Shooting Star</a>, and extra ore gained from levelling benefits do count towards the 25 total ores.",
+              "text": "Boosts and perks such as runite and orichalcite stone spirits, Varrock armour, Shooting Star, and extra ore gained from levelling benefits do count towards the 25 total ores.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mining-for-the-guild:1ccz9s9",
+          "html": "Return to Boric with the ore in your inventory (cannot be noted or in an ore box).",
+          "text": "Return to Boric with the ore in your inventory (cannot be noted or in an ore box).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest Complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Boric%27s_Task_III_%28miniquest%29_reward.png?0a3ad",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Boric%27s_Task_III_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "24,000 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "24,000 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

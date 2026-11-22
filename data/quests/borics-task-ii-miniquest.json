@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "id": "borics-task-ii-miniquest",
+  "title": "Boric's Task II (miniquest)",
+  "page": "Boric's Task II (miniquest)/Quick guide",
+  "rev": 36022337,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Boric\" target=\"_blank\" rel=\"noopener\">Boric</a> in the workshop accessed from the stairs in <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">Doric&#39;s hut</a>, just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5987,
+      "lon": 1560,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Boric's_Task_II_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Boric's Task I (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "5 living rock brawlers (level 1)",
+        "name": "living rock brawlers",
+        "count": 5,
+        "level": "1",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Karamja</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wwnn77",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a> or activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador Teleport or activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "having-a-brawl",
+      "title": "Having a brawl",
+      "anchor": "Having_a_brawl",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "having-a-brawl:195k11i",
+          "html": "Head down the stairs at Doric&#39;s workshop to speak to <a href=\"https://runescape.wiki/w/Boric\" target=\"_blank\" rel=\"noopener\">Boric</a>.",
+          "text": "Head down the stairs at Doric's workshop to speak to Boric.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any Mining tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "having-a-brawl:7jfe2q",
+          "html": "Head to the following mining locations and mine any ore. Multiple ores may need to be mined. A living rock brawler will spawn, kill it. The locations are:",
+          "text": "Head to the following mining locations and mine any ore. Multiple ores may need to be mined. A living rock brawler will spawn, kill it. The locations are:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "having-a-brawl:7jfe2q:1dsgs1f",
+              "html": "<a href=\"https://runescape.wiki/w/Legends%27_Guild_south-west_mine\" target=\"_blank\" rel=\"noopener\">Legends&#39; Guild south-west mine</a>",
+              "text": "Legends' Guild south-west mine",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "having-a-brawl:7jfe2q:k3v7vc",
+              "html": "<a href=\"https://runescape.wiki/w/Al_Kharid_mine\" target=\"_blank\" rel=\"noopener\">Al Kharid mine</a>",
+              "text": "Al Kharid mine",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "having-a-brawl:7jfe2q:tbe0hm",
+              "html": "<a href=\"https://runescape.wiki/w/Karamja_north-west_mine\" target=\"_blank\" rel=\"noopener\">Karamja north-west mine</a>",
+              "text": "Karamja north-west mine",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "having-a-brawl:7jfe2q:1k4huci",
+              "html": "<a href=\"https://runescape.wiki/w/Lumbridge_south-west_mine\" target=\"_blank\" rel=\"noopener\">Lumbridge south-west mine</a>",
+              "text": "Lumbridge south-west mine",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "having-a-brawl:7jfe2q:1lmq0t0",
+              "html": "<a href=\"https://runescape.wiki/w/Agility_Pyramid_north-west_mine\" target=\"_blank\" rel=\"noopener\">Agility Pyramid north-west mine</a>",
+              "text": "Agility Pyramid north-west mine",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "having-a-brawl:65ly2z",
+          "html": "Head back and talk to Boric.",
+          "text": "Head back and talk to Boric.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest Complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Boric%27s_Task_II_%28miniquest%29_reward.png?1b753",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Boric%27s_Task_II_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "3,500 experience",
+        "text": "3,500 experience",
+        "subs": []
+      },
+      {
+        "html": "10,500 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "10,500 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Boric%27s_Task_III_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Boric&#39;s Task III (miniquest)</a>"
+      ]
+    }
+  ]
+}

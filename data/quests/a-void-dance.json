@@ -1,0 +1,1490 @@
+{
+  "format": 1,
+  "id": "a-void-dance",
+  "title": "A Void Dance",
+  "page": "A Void Dance/Quick guide",
+  "rev": 37282027,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Commodore_Tyr\" target=\"_blank\" rel=\"noopener\">Commodore Tyr</a> at the <a href=\"https://runescape.wiki/w/Void_Knights%27_Outpost\" target=\"_blank\" rel=\"noopener\">Void Knights&#39; Outpost</a>, accessible from the <a href=\"https://runescape.wiki/w/Squire_(Void_Knights)\" target=\"_blank\" rel=\"noopener\">squire</a> at <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> docks.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2667,
+      "lon": 2676,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/A_Void_Dance/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Quiet Before the Swarm",
+        "depth": 1
+      },
+      {
+        "text": "Imp Catcher",
+        "depth": 2
+      },
+      {
+        "text": "Wanted!",
+        "depth": 2
+      },
+      {
+        "text": "Recruitment Drive",
+        "depth": 3
+      },
+      {
+        "text": "Enter the Abyss (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 49,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 46,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Summoning",
+        "level": 48,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 54,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 52,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Black Knight guardian (level 77) (heals by draining your prayer)",
+        "name": "Black Knight guardian",
+        "count": null,
+        "level": "77",
+        "note": "(heals by draining your prayer)"
+      },
+      {
+        "text": "Black Knight guardian (level 110) (heals by draining your prayer)",
+        "name": "Black Knight guardian",
+        "count": null,
+        "level": "110",
+        "note": "(heals by draining your prayer)"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Karamja</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:2jpu4t",
+          "html": "<a href=\"https://runescape.wiki/w/Commorb\" target=\"_blank\" rel=\"noopener\">Commorb</a> (obtained during the quest, <a href=\"https://runescape.wiki/w/Commorb_v2\" target=\"_blank\" rel=\"noopener\">Commorb v2</a> will not work, nor will the Commorb from <a href=\"https://runescape.wiki/w/Wanted!\" target=\"_blank\" rel=\"noopener\">Wanted!</a>)",
+          "text": "Commorb (obtained during the quest, Commorb v2 will not work, nor will the Commorb from Wanted!)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1fyf75k",
+          "html": "<a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">Onion</a> (can be obtained during the quest)",
+          "text": "Onion (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:w9brq3",
+          "html": "65 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> (or fewer with <a href=\"https://runescape.wiki/w/Karamja_gloves_3\" target=\"_blank\" rel=\"noopener\">Karamja gloves 3</a>, <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">Ring of charos (a)</a>, or <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a>)",
+          "text": "65 coins (or fewer with Karamja gloves 3, Ring of charos (a), or Amulet of glory)",
+          "alternatives": []
+        },
+        {
+          "id": "req:bsd4qn",
+          "html": "16 free inventory spaces are needed for a section of the quest",
+          "text": "16 free inventory spaces are needed for a section of the quest",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1pyf8y7",
+          "html": "<a href=\"https://runescape.wiki/w/Explorer%27s_ring\" target=\"_blank\" rel=\"noopener\">Explorer&#39;s ring</a>, <a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">skills necklace</a>, <a href=\"https://runescape.wiki/w/Falador_teleport_(item)\" target=\"_blank\" rel=\"noopener\">Falador teleport tablet</a>, or access to the <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>.",
+          "text": "Explorer's ring, skills necklace, Falador teleport tablet, or access to the Falador lodestone.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1isjhhb",
+          "html": "Good combat weapon (preferably <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">magic</a>) and <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> (<a href=\"https://runescape.wiki/w/Lobster\" target=\"_blank\" rel=\"noopener\">lobsters</a> or higher) (food is optional if one is using <a href=\"https://runescape.wiki/w/Ice_spells\" target=\"_blank\" rel=\"noopener\">ice magic</a> and/or <a href=\"https://runescape.wiki/w/Soul_Split\" target=\"_blank\" rel=\"noopener\">Soul Split</a> against the boss)",
+          "text": "Good combat weapon (preferably magic) and food (lobsters or higher) (food is optional if one is using ice magic and/or Soul Split against the boss)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting",
+      "title": "Starting",
+      "anchor": "Starting",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting:1m4b2mw",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Commodore_Tyr\" target=\"_blank\" rel=\"noopener\">Commodore Tyr</a> at the <a href=\"https://runescape.wiki/w/Void_Knights%27_Outpost\" target=\"_blank\" rel=\"noopener\">Void Knights&#39; Outpost</a>.",
+          "text": "Speak with Commodore Tyr at the Void Knights' Outpost.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Why do you need me?"
+                },
+                {
+                  "key": "1",
+                  "text": "Wait, you're sending Jessika?"
+                },
+                {
+                  "key": "2",
+                  "text": "Where should I start?"
+                },
+                {
+                  "key": "3",
+                  "text": "I'm on my way."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting:6vnrmo",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Captain_Korasi\" target=\"_blank\" rel=\"noopener\">Captain Korasi</a>.",
+          "text": "Speak with Captain Korasi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "pest-y-business",
+      "title": "Pest-y business",
+      "anchor": "Pest-y_business",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/A_Void_Dance_Port_Sarim_goo_trail_map.png?57eab",
+          "width": 270,
+          "height": 289,
+          "alt": "",
+          "caption": "The path to take during this part of the quest.",
+          "href": "https://runescape.wiki/w/File:A_Void_Dance_Port_Sarim_goo_trail_map.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/A_Void_Dance_Barrel_puzzle.png/300px-A_Void_Dance_Barrel_puzzle.png?75216",
+          "width": 300,
+          "height": 213,
+          "alt": "",
+          "caption": "The barrels should be kicked into the positions as shown.",
+          "href": "https://runescape.wiki/w/File:A_Void_Dance_Barrel_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:wyhi5l",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> docks and speak to <a href=\"https://runescape.wiki/w/Korasi\" target=\"_blank\" rel=\"noopener\">Korasi</a>, south-east of the lodestone.",
+          "text": "Head to the Port Sarim docks and speak to Korasi, south-east of the lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "On my way."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:oyrvu6",
+          "html": "Right-click talk to <a href=\"https://runescape.wiki/w/Captain_Tobias\" target=\"_blank\" rel=\"noopener\">Captain Tobias</a>, just north of Korasi.",
+          "text": "Right-click talk to Captain Tobias, just north of Korasi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "No, thank you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:7kclzq",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Gerrant\" target=\"_blank\" rel=\"noopener\">Gerrant</a> in the fishing shop.",
+          "text": "Speak with Gerrant in the fishing shop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm tracking an escaped animal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "pest-y-business:7kclzq:1r0dmyr",
+              "html": "Or, if <a href=\"https://runescape.wiki/w/Heroes%27_Quest\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Quest</a> is complete",
+              "text": "Or, if Heroes' Quest is complete",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "I'm tracking an escaped animal."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:w2bk9g",
+          "html": "Follow the path pictured right, searching the bushes, plants, and stones.",
+          "text": "Follow the path pictured right, searching the bushes, plants, and stones.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:tstp4",
+          "html": "Finally check the mound.",
+          "text": "Finally check the mound.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:y3089j",
+          "html": "Return to Captain Korasi at the docks.",
+          "text": "Return to Captain Korasi at the docks.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "See you there."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:ew280v",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Bartender_(Rusty_Anchor)\" target=\"_blank\" rel=\"noopener\">Bartender</a> in Port Sarim&#39;s <a href=\"https://runescape.wiki/w/Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">pub</a>.",
+          "text": "Talk to the Bartender in Port Sarim's pub.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Bye then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "pest-y-business:ew280v:l4cz53",
+              "html": "Or, if <a href=\"https://runescape.wiki/w/Rocking_Out\" target=\"_blank\" rel=\"noopener\">Rocking Out</a> is complete",
+              "text": "Or, if Rocking Out is complete",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Bye, then."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:1yn3zmv",
+          "html": "Search the piles of junk on the floor at the north-east corner for a <a href=\"https://runescape.wiki/w/Rusty_anchor_cellar_key\" target=\"_blank\" rel=\"noopener\">key</a>.",
+          "text": "Search the piles of junk on the floor at the north-east corner for a key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:1hphan8",
+          "html": "Go down the trapdoor in the north-west corner of the pub.",
+          "text": "Go down the trapdoor in the north-west corner of the pub.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:1kuuqqf",
+          "html": "Inspect the suspicious-looking wall on the north side wall.",
+          "text": "Inspect the suspicious-looking wall on the north side wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:9gf9es",
+          "html": "Open the door to the room south.",
+          "text": "Open the door to the room south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pest-y-business:16h3d6j",
+          "html": "Complete the puzzle (follow the steps below, or alternatively, use the image on the right to position the barrels in order to push out the barrow along the red-line path):",
+          "text": "Complete the puzzle (follow the steps below, or alternatively, use the image on the right to position the barrels in order to push out the barrow along the red-line path):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-barrel-puzzle",
+      "title": "The Barrel Puzzle",
+      "anchor": "The_Barrel_Puzzle",
+      "blocks": [
+        {
+          "type": "table",
+          "label": "Table",
+          "head": [],
+          "rows": [
+            [
+              "Kick the barrel south of you twice (Barrel #1)"
+            ],
+            [
+              "Walk 1 south, then 1 east, kick the barrel south of you (Barrel #2)"
+            ],
+            [
+              "Walk 1 south, kick the barrel west of you (Barrel #1)"
+            ],
+            [
+              "Walk 1 west, kick the barrel south of you (Barrel #3)"
+            ],
+            [
+              "Walk 1 south-west, kick the barrel west of you (Barrel #8)"
+            ],
+            [
+              "Walk 1 north-west, kick the barrel east of you twice (Barrel #1)"
+            ],
+            [
+              "Walk 1 north-west, kick the barrel north of you (Barrel #7)"
+            ],
+            [
+              "Walk 1 north, kick the barrel west of you twice (Barrel #12)"
+            ],
+            [
+              "Walk 1 west, kick the barrel south of you thrice (Barrel #13)"
+            ],
+            [
+              "Walk 1 west, kick the barrel south of you (Barrel #14)"
+            ],
+            [
+              "Run around to the other side of the crates (3 east, 1 south), kick the barrel west of you twice (Barrel #8)"
+            ],
+            [
+              "Kick the south-westernmost barrel south (Barrel #15)"
+            ],
+            [
+              "Kick the southernmost center barrel to the east twice (Barrel #10)"
+            ],
+            [
+              "Walk 1 east and 2 north, kick the barrel north twice (Barrel #4)"
+            ],
+            [
+              "Walk 1 north and 1 north-west and kick the barrel east (Barrel #4)"
+            ],
+            [
+              "Walk to the east side of the southern middle barrel, kick it west, then kick it north twice from the south side. (Barrel #9)"
+            ],
+            [
+              "Refer to image pictured right to move the empty barrel out."
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-barrel-puzzle:14kyamz",
+          "html": "After completing the puzzle, leave the room.",
+          "text": "After completing the puzzle, leave the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-barrel-puzzle:k3s1qz",
+          "html": "Speak with the <a href=\"https://runescape.wiki/w/Bartender_(Rusty_Anchor)\" target=\"_blank\" rel=\"noopener\">Bartender</a> again.",
+          "text": "Speak with the Bartender again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "At some circumstances you may still be stuck inside the room even after the empty barrel is out, you may hop worlds and climb down the trapdoor again or right click the whistle in your inventory and reset puzzle."
+        }
+      ]
+    },
+    {
+      "id": "getting-hotter",
+      "title": "Getting hotter...",
+      "anchor": "Getting_hotter...",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/A_Void_Dance_Karamja_goo_trail_map.png?91543",
+          "width": 170,
+          "height": 130,
+          "alt": "",
+          "caption": "The path to take during this part of the quest",
+          "href": "https://runescape.wiki/w/File:A_Void_Dance_Karamja_goo_trail_map.png"
+        },
+        {
+          "type": "text",
+          "html": "Toggle high contrast mode using the world map to see the highlighted trail better."
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:1jvin42",
+          "html": "Speak to Korasi on the dock.",
+          "text": "Speak to Korasi on the dock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "To Musa Point, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:pm2g1u",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Musa_Point\" target=\"_blank\" rel=\"noopener\">Musa Point</a> by paying <a href=\"https://runescape.wiki/w/Captain_Tobias\" target=\"_blank\" rel=\"noopener\">Captain Tobias</a>, just north of Korasi.",
+          "text": "Travel to Musa Point by paying Captain Tobias, just north of Korasi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:iwox8r",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Zembo\" target=\"_blank\" rel=\"noopener\">Zembo</a> in the <a href=\"https://runescape.wiki/w/Karamja_Wines,_Spirits,_and_Beers\" target=\"_blank\" rel=\"noopener\">pub</a>.",
+          "text": "Speak with Zembo in the pub.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Seen anything odd lately?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:yjtj2r",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Shopkeeper_Kofi\" target=\"_blank\" rel=\"noopener\">Shopkeeper Kofi</a> in the <a href=\"https://runescape.wiki/w/Karamja_General_Store\" target=\"_blank\" rel=\"noopener\">general store</a> directly west of the pub.",
+          "text": "Speak with Shopkeeper Kofi in the general store directly west of the pub.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:17eneaq",
+          "html": "<i>Take-from</i> the table in the south-west corner of the shop.",
+          "text": "Take-from the table in the south-west corner of the shop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:11wiual",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Chisel\" target=\"_blank\" rel=\"noopener\">chisel</a> on the <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">plank</a> to make a <a href=\"https://runescape.wiki/w/Jointed_plank\" target=\"_blank\" rel=\"noopener\">jointed plank</a> and a <a href=\"https://runescape.wiki/w/Jointed_log\" target=\"_blank\" rel=\"noopener\">jointed log</a>.",
+          "text": "Use the chisel on the plank to make a jointed plank and a jointed log.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:1u55bpm",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Jointed_plank\" target=\"_blank\" rel=\"noopener\">jointed plank</a> on the <a href=\"https://runescape.wiki/w/Jointed_log\" target=\"_blank\" rel=\"noopener\">jointed log</a> to make a <a href=\"https://runescape.wiki/w/Joist\" target=\"_blank\" rel=\"noopener\">joist</a>.",
+          "text": "Use the jointed plank on the jointed log to make a joist.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:dlnaw",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Joist\" target=\"_blank\" rel=\"noopener\">joist</a> on the Shop wall on the north end of the shop.",
+          "text": "Use the joist on the Shop wall on the north end of the shop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:17y0gx9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kofi\" target=\"_blank\" rel=\"noopener\">Kofi</a> for a cutscene.",
+          "text": "Talk to Kofi for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:b2j4ld",
+          "html": "Follow the trail just like the one at Port Sarim.",
+          "text": "Follow the trail just like the one at Port Sarim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:6rmnhh",
+          "html": "After Korasi and <a href=\"https://runescape.wiki/w/Jessika\" target=\"_blank\" rel=\"noopener\">Jessika</a> appear, search the mound again to get <a href=\"https://runescape.wiki/w/Wood_shards\" target=\"_blank\" rel=\"noopener\">wood shards</a>.",
+          "text": "After Korasi and Jessika appear, search the mound again to get wood shards.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:170mxjs",
+          "html": "Finish dialogue with them.",
+          "text": "Finish dialogue with them.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Onwards, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:wx36re",
+          "html": "With at least 16 free inventory spaces, head to <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+          "text": "With at least 16 free inventory spaces, head to Rimmington.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-hotter:wyy7ay",
+          "html": "Ask <a href=\"https://runescape.wiki/w/Rommik\" target=\"_blank\" rel=\"noopener\">Rommik</a> in the crafting shop about the waxwood.",
+          "text": "Ask Rommik in the crafting shop about the waxwood.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to ask you about waxwood."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gooey-analysis",
+      "title": "Gooey analysis",
+      "anchor": "Gooey_analysis",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "gooey-analysis:eg5eyy",
+          "html": "Go to westernmost building in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a> (Chemists&#39;s House, long with a green <a href=\"https://runescape.wiki/w/Taskmasters\" target=\"_blank\" rel=\"noopener\">Taskmaster</a> asterisk in it).",
+          "text": "Go to westernmost building in Rimmington (Chemists's House, long with a green Taskmaster asterisk in it).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gooey-analysis:108xvaf",
+          "html": "Inside, on the Eastern wall, talk to Korasi.",
+          "text": "Inside, on the Eastern wall, talk to Korasi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'll see about this experiment, then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gooey-analysis:12btz4i",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Chemist\" target=\"_blank\" rel=\"noopener\">Chemist</a>.",
+          "text": "Talk to the Chemist.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Ask about A Void Dance."
+                },
+                {
+                  "key": "1",
+                  "text": "Analyse the sample."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gooey-analysis:17kd0bq",
+          "html": "Analyse the sample by keeping the power and heat at an OK level and keeping the current ingredient as the desired one.",
+          "text": "Analyse the sample by keeping the power and heat at an OK level and keeping the current ingredient as the desired one.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Analyse the sample."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gooey-analysis:1e8jdu",
+          "html": "When you start to analyse the sample, the in-game table in the top-right shows the combination for how to make each sample. Put the correct secondary sample in the hopper to get the desired sample (top left table).",
+          "text": "When you start to analyse the sample, the in-game table in the top-right shows the combination for how to make each sample. Put the correct secondary sample in the hopper to get the desired sample (top left table).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Controls layout",
+          "head": [],
+          "rows": [
+            [
+              "<i>Take-from</i><br><b>Component box</b><br>As you run out of samples",
+              "",
+              "<b>Sample hopper</b><br><i>Use</i> correct secondary sample on hopper"
+            ],
+            [
+              "<i>Increase-power</i><br><b>Flywheel</b><br>If <i>power</i> is <i>low</i>",
+              "",
+              "<i>Stoke</i><br><b>Furnace</b><br>If <i>heat</i> is <i>low</i>"
+            ],
+            [
+              "<i>Apply-brake</i><br><b>Flywheel brake</b><br>If <i>power</i> is <i>high</i>",
+              "",
+              "<i>Open</i><br><b>Furnace vent</b><br>If <i>heat</i> is <i>high</i>"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "gooey-analysis:1u25p84",
+          "html": "If you are struggling refer to the <a href=\"https://runescape.wiki/w/A_Void_Dance#Gooey_analysis\" target=\"_blank\" rel=\"noopener\">full guide</a> for more details.",
+          "text": "If you are struggling refer to the full guide for more details.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "predicament",
+      "title": "Predicament",
+      "anchor": "Predicament",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "predicament:1gzld1w",
+          "html": "Accept Jessika&#39;s offer to teleport you to <a href=\"https://runescape.wiki/w/Falador_Park\" target=\"_blank\" rel=\"noopener\">Falador Park</a>.",
+          "text": "Accept Jessika's offer to teleport you to Falador Park.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Go with Jessika."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:1683l7o",
+          "html": "Talk to Korasi or Jessika.",
+          "text": "Talk to Korasi or Jessika.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:woddg1",
+          "html": "South of the east <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> bank, talk to <a href=\"https://runescape.wiki/w/Ali_Tist\" target=\"_blank\" rel=\"noopener\">Ali Tist</a>.",
+          "text": "South of the east Falador bank, talk to Ali Tist.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I would."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:11h8ouh",
+          "html": "<i>Attempt-puzzle</i> with the <a href=\"https://runescape.wiki/w/Puzzle_box_(A_Void_Dance)\" target=\"_blank\" rel=\"noopener\">puzzle box</a>.",
+          "text": "Attempt-puzzle with the puzzle box.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:i2jul0",
+          "html": "Return to Korasi or Jessika.",
+          "text": "Return to Korasi or Jessika.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:1rkn8om",
+          "html": "Propose a solution to open the box.",
+          "text": "Propose a solution to open the box.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:b53xb3",
+          "html": "Talk to Ali Tist and then to Korasi or Jessika.",
+          "text": "Talk to Ali Tist and then to Korasi or Jessika.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:1ilt7fa",
+          "html": "On the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of the western tower of <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a>, talk to <a href=\"https://runescape.wiki/w/Sir_Amik_Varze\" target=\"_blank\" rel=\"noopener\">Sir Amik Varze</a>.",
+          "text": "On the 2nd floor (UK) / 3rd floor (US) of the western tower of White Knights' Castle, talk to Sir Amik Varze.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Speak about the A Void Dance quest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "predicament:12g92j1",
+          "html": "With the <a href=\"https://runescape.wiki/w/Search_warrant\" target=\"_blank\" rel=\"noopener\">search warrant</a> he gives, go back and talk to Ali Tist.",
+          "text": "With the search warrant he gives, go back and talk to Ali Tist.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I want to examine your stock."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "whodunnit",
+      "title": "Whodunnit?",
+      "anchor": "Whodunnit?",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "whodunnit:bring:6m5vw6",
+              "html": "<a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">Onion</a>",
+              "text": "Onion"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "An onion can be picked from the field nearby the wandering man with a walking stick at the location of Clue #2."
+        },
+        {
+          "type": "step",
+          "id": "whodunnit:veceq",
+          "html": "Speak with Korasi or Jessika to get a <a href=\"https://runescape.wiki/w/Commorb_(A_Void_Dance)\" target=\"_blank\" rel=\"noopener\">commorb</a>.",
+          "text": "Speak with Korasi or Jessika to get a commorb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "whodunnit:jge5m0",
+          "html": "You can right click the clue scroll to dig.",
+          "text": "You can right click the clue scroll to dig.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Location · Map",
+          "head": [
+            "Location",
+            "Map",
+            "Clue details"
+          ],
+          "rows": [
+            [
+              "<a href=\"https://runescape.wiki/w/File:A_Void_Dance_clue_1.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/A_Void_Dance_clue_1.png/200px-A_Void_Dance_clue_1.png?e1ef4\" alt=\"\" width=\"200\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              "",
+              "<i><b>Clue #1</b></i><br>South of the wheat field, west of Falador, south of Taverley, and north of <a href=\"https://runescape.wiki/w/Nora_T._Hagg\" target=\"_blank\" rel=\"noopener\">Nora T. Hagg</a>&#39;s house."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:A_Void_Dance_clue_2.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/A_Void_Dance_clue_2.png/230px-A_Void_Dance_clue_2.png?929cb\" alt=\"\" width=\"230\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              "",
+              "<i><b>Clue #2</b></i><br>Go east of the <a href=\"https://runescape.wiki/w/Crafting_Guild\" target=\"_blank\" rel=\"noopener\">Crafting Guild</a> and find the <a href=\"https://runescape.wiki/w/Man_(A_Void_Dance)\" target=\"_blank\" rel=\"noopener\">man</a> wandering with a walking stick around the area. <i>Use</i> an <a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">onion</a> on him then select #3 wave (<i><img src=\"https://runescape.wiki/images/Quick_Chat_icon.png?b50ba\" alt=\"Chat\" width=\"11\" height=\"11\" loading=\"lazy\" decoding=\"async\"></i> 3) to receive another clue. (There is an onion field nearby if you need one.)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:A_Void_Dance_clue_3.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/A_Void_Dance_clue_3.png/200px-A_Void_Dance_clue_3.png?0be8c\" alt=\"\" width=\"200\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              "",
+              "<i><b>Clue #3</b></i><br>Enter the farmhouse south of Falador and search the crate just beside the lobby entrance to receive another clue."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:A_Void_Dance_clue_4.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/A_Void_Dance_clue_4.png/190px-A_Void_Dance_clue_4.png?0d258\" alt=\"\" width=\"190\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              "",
+              "<i><b>Clue #4</b></i><br>Go to the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a>. Dig on the red flower north of the north-eastern fountain."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/File:A_Void_Dance_clue_5.png\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/A_Void_Dance_clue_5.png/220px-A_Void_Dance_clue_5.png?b02f8\" alt=\"\" width=\"220\" height=\"200\" loading=\"lazy\" decoding=\"async\"></a>",
+              "",
+              "<i><b>Clue #5</b></i><br>Go to the hatchway south-west of the <a href=\"https://runescape.wiki/w/Black_Knights%27_Fortress_(building)\" target=\"_blank\" rel=\"noopener\">Black Knights&#39; Fortress</a> and try to enter it."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quick-thinking",
+      "title": "Quick thinking",
+      "anchor": "Quick_thinking",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "quick-thinking:bring:5ti11n",
+              "html": "Bring combat equipment to avoid banking before the next section",
+              "text": "Bring combat equipment to avoid banking before the next section"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:dyt3tv",
+          "html": "Try to enter the hatchway and then again to enter the hideout.",
+          "text": "Try to enter the hatchway and then again to enter the hideout.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:ifka6o",
+          "html": "Talk to Korasi or Jessika for a second cutscene.",
+          "text": "Talk to Korasi or Jessika for a second cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:at761y",
+          "html": "Talk to Korasi or Jessika again for a <a href=\"https://runescape.wiki/w/Void_drone_%27bug%27\" target=\"_blank\" rel=\"noopener\">void drone &#39;bug&#39;</a>.",
+          "text": "Talk to Korasi or Jessika again for a void drone 'bug'.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:nexo0m",
+          "html": "Investigate the low box near the door without being caught by the workers to place the drone.",
+          "text": "Investigate the low box near the door without being caught by the workers to place the drone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:10f33n3",
+          "html": "Wait until some workers go by, a cutscene will play.",
+          "text": "Wait until some workers go by, a cutscene will play.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:oml5k8",
+          "html": "Investigate the low box to retrieve the drone.",
+          "text": "Investigate the low box to retrieve the drone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:k7fmms",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jessika\" target=\"_blank\" rel=\"noopener\">Jessika</a>.",
+          "text": "Talk to Jessika.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:69njar",
+          "html": "<i>Pick-pocket</i> a worker walking south from the guarded door.",
+          "text": "Pick-pocket a worker walking south from the guarded door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:miyk9t",
+          "html": "Knock on the guarded door.",
+          "text": "Knock on the guarded door.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:1mavg3n",
+          "html": "Talk to Korasi.",
+          "text": "Talk to Korasi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quick-thinking:1c7fn6l",
+          "html": "Enter the next room then right-click <i>murder</i> any indentured worker.",
+          "text": "Enter the next room then right-click murder any indentured worker.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:ij6b13",
+          "html": "The enemies in next room can <b>drain your prayer points</b> to heal themselves.",
+          "text": "The enemies in next room can drain your prayer points to heal themselves.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1dbrhrs",
+          "html": "Enter the next door. Kill the <a href=\"https://runescape.wiki/w/Black_Knight_Guardian\" target=\"_blank\" rel=\"noopener\">Black Knight Guardian</a> on your side.",
+          "text": "Enter the next door. Kill the Black Knight Guardian on your side.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1kom5y7",
+          "html": "Talk to the pest cage (<a href=\"https://runescape.wiki/w/Void_leech\" target=\"_blank\" rel=\"noopener\">void leech</a>).",
+          "text": "Talk to the pest cage (void leech).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Enough of this."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1q15grs",
+          "html": "Accept the teleport to the <a href=\"https://runescape.wiki/w/Void_Knights%27_Outpost\" target=\"_blank\" rel=\"noopener\">Void Knights&#39; Outpost</a>.",
+          "text": "Accept the teleport to the Void Knights' Outpost.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Go with Korasi."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:95lqc0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Commodore_Tyr\" target=\"_blank\" rel=\"noopener\">Commodore Tyr</a> for a cutscene.",
+          "text": "Talk to Commodore Tyr for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:95lqc0:11pv7n5",
+              "html": "If you cancel the cutscene, you may need to lobby.",
+              "text": "If you cancel the cutscene, you may need to lobby.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/A_Void_Dance_reward.png?fcbf8",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:A_Void_Dance_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Void_knight_commendation\" target=\"_blank\" rel=\"noopener\">Void knight commendation</a> (can be given to a <a href=\"https://runescape.wiki/w/Void_Knight\" target=\"_blank\" rel=\"noopener\">Void Knight</a> for 50 <a href=\"https://runescape.wiki/w/Void_Knight_commendation_points\" target=\"_blank\" rel=\"noopener\">Void Knight commendation points</a>)",
+        "text": "A Void knight commendation (can be given to a Void Knight for 50 Void Knight commendation points)",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "All for the Pest",
+      "where": ""
+    },
+    {
+      "name": "Chain Reaction",
+      "where": ""
+    },
+    {
+      "name": "Out of Control",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/The_Void_Stares_Back/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Void Stares Back</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

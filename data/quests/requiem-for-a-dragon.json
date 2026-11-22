@@ -1,0 +1,1247 @@
+{
+  "format": 1,
+  "id": "requiem-for-a-dragon",
+  "title": "Requiem for a Dragon",
+  "page": "Requiem for a Dragon/Quick guide",
+  "rev": 37225048,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> in the <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a> townhall.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3570,
+      "lon": 3302,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Battle of Forinthry",
+        "depth": 1
+      },
+      {
+        "text": "Ancient Awakening",
+        "depth": 2
+      },
+      {
+        "text": "Dead and Buried",
+        "depth": 3
+      },
+      {
+        "text": "Unwelcome Guests",
+        "depth": 4
+      },
+      {
+        "text": "Murder on the Border…",
+        "depth": 5
+      },
+      {
+        "text": "Build Grove cabin (Tier 1)",
+        "depth": 2
+      },
+      {
+        "text": "Build Botanist's Workbench (Tier 1)",
+        "depth": 2
+      },
+      {
+        "text": "Tomes of the Warlock",
+        "depth": 1
+      },
+      {
+        "text": "The Spirit of War",
+        "depth": 2
+      },
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 3
+      },
+      {
+        "text": "Rune Mythos",
+        "depth": 4
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 5
+      },
+      {
+        "text": "Ghosts Ahoy",
+        "depth": 4
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 5
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 5
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 3
+      },
+      {
+        "text": "The Jack of Spades",
+        "depth": 2
+      },
+      {
+        "text": "Diamond in the Rough",
+        "depth": 3
+      },
+      {
+        "text": "Stolen Hearts",
+        "depth": 4
+      },
+      {
+        "text": "Kili Row",
+        "depth": 1
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 2
+      },
+      {
+        "text": "Collect a set of necromancer robes from Sostratus",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 80,
+        "note": "(b)"
+      },
+      {
+        "skill": "Necromancy",
+        "level": 80,
+        "note": "(b)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Vorkath (level 789, optional)",
+        "name": "Vorkath",
+        "count": null,
+        "level": "789, optional",
+        "note": ""
+      },
+      {
+        "text": "8 Zamorakian scouts (level 85, optional)",
+        "name": "Zamorakian scouts",
+        "count": 8,
+        "level": "85, optional",
+        "note": ""
+      },
+      {
+        "text": "Translator (level 75)",
+        "name": "Translator",
+        "count": null,
+        "level": "75",
+        "note": ""
+      },
+      {
+        "text": "Vengeance (level 300)",
+        "name": "Vengeance",
+        "count": null,
+        "level": "300",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1nha0oh",
+          "html": "30 <a href=\"https://runescape.wiki/w/White_marble\" target=\"_blank\" rel=\"noopener\">white marble</a> (material storage works)",
+          "text": "30 white marble (material storage works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:ldhe4f",
+          "html": "30 <a href=\"https://runescape.wiki/w/White_oak\" target=\"_blank\" rel=\"noopener\">white oak</a> (material storage works)",
+          "text": "30 white oak (material storage works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1fxjs3z",
+          "html": "5 <a href=\"https://runescape.wiki/w/Greater_ensouled_bar\" target=\"_blank\" rel=\"noopener\">greater ensouled bars</a>",
+          "text": "5 greater ensouled bars",
+          "alternatives": []
+        },
+        {
+          "id": "req:qerv6u",
+          "html": "Ink and candles for two level 75 Necromancy <a href=\"https://runescape.wiki/w/Rituals\" target=\"_blank\" rel=\"noopener\">rituals</a> (assuming no glyphs or light sources are present at the <a href=\"https://runescape.wiki/w/Um_ritual_site\" target=\"_blank\" rel=\"noopener\">Um ritual site</a>):",
+          "text": "Ink and candles for two level 75 Necromancy rituals (assuming no glyphs or light sources are present at the Um ritual site):",
+          "alternatives": [
+            "4 <a href=\"https://runescape.wiki/w/Basic_ghostly_ink\" target=\"_blank\" rel=\"noopener\">basic ghostly ink</a>",
+            "10 <a href=\"https://runescape.wiki/w/Regular_ghostly_ink\" target=\"_blank\" rel=\"noopener\">regular ghostly ink</a>",
+            "16 <a href=\"https://runescape.wiki/w/Greater_ghostly_ink\" target=\"_blank\" rel=\"noopener\">greater ghostly ink</a>",
+            "12 <a href=\"https://runescape.wiki/w/Basic_ritual_candle\" target=\"_blank\" rel=\"noopener\">basic ritual candle</a> or better"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:b55u8o",
+          "html": "80 <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> <sup>(b)</sup> (to make <a href=\"https://runescape.wiki/w/Greater_ensouled_bar\" target=\"_blank\" rel=\"noopener\">greater ensouled bars</a>)",
+          "text": "80 Necromancy (b) (to make greater ensouled bars)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1qhg8ey",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a>",
+          "text": "Archaeology journal",
+          "alternatives": []
+        },
+        {
+          "id": "rec:15sw0ol",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology\" target=\"_blank\" rel=\"noopener\">Archaeology</a> equipment",
+          "text": "Archaeology equipment",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1dxwcwi",
+          "html": "<a href=\"https://runescape.wiki/w/Sixth-Age_circuit\" target=\"_blank\" rel=\"noopener\">Sixth-Age circuit</a>",
+          "text": "Sixth-Age circuit",
+          "alternatives": []
+        },
+        {
+          "id": "rec:h1ghod",
+          "html": "<a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">Combat</a> equipment",
+          "text": "Combat equipment",
+          "alternatives": []
+        },
+        {
+          "id": "rec:sebhwm",
+          "html": "<a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">Super restore</a>",
+          "text": "Super restore",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:v7qeg6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> in the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Fort Forinthry Town Hall</a>.",
+          "text": "Talk to Aster in the Fort Forinthry Town Hall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about quests..."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about 'Requiem for a Dragon'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "approaching-vorkath",
+      "title": "Approaching Vorkath",
+      "anchor": "Approaching_Vorkath",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "approaching-vorkath:bring:1nxwbsz",
+              "html": "5 free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+              "text": "5 free backpack spaces"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "approaching-vorkath:bring:h1ghod",
+              "html": "<a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">Combat</a> equipment",
+              "text": "Combat equipment"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1lnjh8p",
+          "html": "Head east to the <a href=\"https://runescape.wiki/w/Rowboat_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">rowboat</a> docked next to the <a href=\"https://runescape.wiki/w/Grove\" target=\"_blank\" rel=\"noopener\">Grove</a> cabin.",
+          "text": "Head east to the rowboat docked next to the Grove cabin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1qlqxc",
+          "html": "Interact with the rowboat to travel to <a href=\"https://runescape.wiki/w/Ungael\" target=\"_blank\" rel=\"noopener\">Ungael</a>.",
+          "text": "Interact with the rowboat to travel to Ungael.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "approaching-vorkath:1qlqxc:1630hnd",
+              "html": "You will spawn next to hostile <a href=\"https://runescape.wiki/w/Zamorakian_scout\" target=\"_blank\" rel=\"noopener\">Zamorakian scouts</a>; praying against <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> can be helpful. This is a safe encounter, and you will respawn outside of the rowboat upon death.",
+              "text": "You will spawn next to hostile Zamorakian scouts; praying against Ranged can be helpful. This is a safe encounter, and you will respawn outside of the rowboat upon death.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:o09802",
+          "html": "Run north-west past the scouts and enter the <a href=\"https://runescape.wiki/w/Colossal_cave\" target=\"_blank\" rel=\"noopener\">colossal cave</a>.",
+          "text": "Run north-west past the scouts and enter the colossal cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:ke8l0y",
+          "html": "Head north-west and approach <a href=\"https://runescape.wiki/w/Vorkath\" target=\"_blank\" rel=\"noopener\">Vorkath</a>.",
+          "text": "Head north-west and approach Vorkath.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Reach out your hand. (friendly)"
+                },
+                {
+                  "key": "2",
+                  "text": "Keep your hand extended. (friendly)"
+                },
+                {
+                  "key": "2",
+                  "text": "Encourage Vorkath. (friendly)"
+                },
+                {
+                  "key": "2",
+                  "text": "Try not to shiver. (friendly)"
+                },
+                {
+                  "key": "1",
+                  "text": "Study the creature. (neutral)"
+                },
+                {
+                  "key": "2",
+                  "text": "Lay the dragon's soul to rest. (Necromancy)"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1tqqvle",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Crystal_shard\" target=\"_blank\" rel=\"noopener\">crystal shard</a> in the backpack.",
+          "text": "Inspect the crystal shard in the backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:4hdsse",
+          "html": "Return to the Ungael beach, this time travel up the north-east path, up the hill and interact with the <a href=\"https://runescape.wiki/w/Ruins_Entrance\" target=\"_blank\" rel=\"noopener\">Ruins Entrance</a> to enter.",
+          "text": "Return to the Ungael beach, this time travel up the north-east path, up the hill and interact with the Ruins Entrance to enter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:gt9jjg",
+          "html": "Head north, just in front of the <a href=\"https://runescape.wiki/w/Imposing_Statue\" target=\"_blank\" rel=\"noopener\">Imposing Statue</a>, and interact with the <a href=\"https://runescape.wiki/w/Doorway_(Ungael)\" target=\"_blank\" rel=\"noopener\">doorway</a> to the south.",
+          "text": "Head north, just in front of the Imposing Statue, and interact with the doorway to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1fie6eb",
+          "html": "Follow the path south-west and kill the <a href=\"https://runescape.wiki/w/Translator\" target=\"_blank\" rel=\"noopener\">translator</a>.",
+          "text": "Follow the path south-west and kill the translator.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1y7i8vn",
+          "html": "Pick up the dropped <a href=\"https://runescape.wiki/w/Zamorakian_translator%27s_notes\" target=\"_blank\" rel=\"noopener\">Zamorakian translator&#39;s notes</a> and read them.",
+          "text": "Pick up the dropped Zamorakian translator's notes and read them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1s5f4yw",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Bookcase_(Ungael)\" target=\"_blank\" rel=\"noopener\">bookcase</a> on the northern wall for <a href=\"https://runescape.wiki/w/Zorgoth%27s_Journal\" target=\"_blank\" rel=\"noopener\">Zorgoth&#39;s Journal</a>.",
+          "text": "Search the bookcase on the northern wall for Zorgoth's Journal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:wmgvqx",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Shelves_(Requiem_for_a_Dragon)\" target=\"_blank\" rel=\"noopener\">shelves</a> immediately southeast for a <a href=\"https://runescape.wiki/w/Broken_focus\" target=\"_blank\" rel=\"noopener\">broken focus</a>.",
+          "text": "Search the shelves immediately southeast for a broken focus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1yn7bw",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Dragonkin_mural_(Requiem_for_a_Dragon)\" target=\"_blank\" rel=\"noopener\">dragonkin mural</a> on the western wall.",
+          "text": "Inspect the dragonkin mural on the western wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1bpcdzy",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Congealed_potion\" target=\"_blank\" rel=\"noopener\">congealed potion</a> in the south-eastern corner.",
+          "text": "Pick up the congealed potion in the south-eastern corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "approaching-vorkath:1in34wv",
+          "html": "Listen to the <a href=\"https://runescape.wiki/w/Archivist_(Ungael)\" target=\"_blank\" rel=\"noopener\">Archivist</a> about all findings.",
+          "text": "Listen to the Archivist about all findings.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The wall mural."
+                },
+                {
+                  "key": "2",
+                  "text": "The congealed potion."
+                },
+                {
+                  "key": "3",
+                  "text": "The broken focus."
+                },
+                {
+                  "key": "4",
+                  "text": "The crystal shard."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "investigating-vorkath-s-corruption",
+      "title": "Investigating Vorkath's corruption",
+      "anchor": "Investigating_Vorkath's_corruption",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fort Forinthry"
+        },
+        {
+          "type": "step",
+          "id": "investigating-vorkath-s-corruption:ob236p",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a> and enter the <a href=\"https://runescape.wiki/w/Floor_hatch\" target=\"_blank\" rel=\"noopener\">floor hatch</a> east of the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> (south-east).",
+          "text": "Return to Fort Forinthry and enter the floor hatch east of the Command Centre (south-east).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-vorkath-s-corruption:p6qag3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>.",
+          "text": "Talk to Zemouregal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "investigating-vorkath-s-corruption:p6qag3:1i0td2j",
+              "html": "If your <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> level is 120, you can skip most of the conversation",
+              "text": "If your Necromancy level is 120, you can skip most of the conversation",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Show off your mastery of necromancy."
+                    },
+                    {
+                      "key": "3",
+                      "text": "What did you do to Vorkath?"
+                    },
+                    {
+                      "key": "4",
+                      "text": "I've heard enough."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-vorkath-s-corruption:p6qag3:1wmf2xk",
+              "html": "Otherwise, you must follow further dialogue options",
+              "text": "Otherwise, you must follow further dialogue options",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Mock his skeletal form."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Remind him of the other times you've defeated him."
+                    },
+                    {
+                      "key": "1",
+                      "text": "I have a soul and you don't."
+                    },
+                    {
+                      "key": "3",
+                      "text": "What did you do to Vorkath?"
+                    },
+                    {
+                      "key": "4",
+                      "text": "I've heard enough."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "City of Um"
+        },
+        {
+          "type": "step",
+          "id": "investigating-vorkath-s-corruption:1kdab43",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> and talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a>.",
+          "text": "Head to the City of Um and talk to Death.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "3",
+                  "text": "Just tell me what the lead is."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-focus",
+      "title": "Finding focus",
+      "anchor": "Finding_focus",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Tree of Balance"
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:1jfomog",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Tree_of_Balance\" target=\"_blank\" rel=\"noopener\">Tree of Balance</a>, south of the <a href=\"https://runescape.wiki/w/Archaeology_Guild\" target=\"_blank\" rel=\"noopener\">Archaeology Guild</a>.",
+          "text": "Talk to the Tree of Balance, south of the Archaeology Guild.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Continue Requiem for a Dragon."
+                },
+                {
+                  "key": "3",
+                  "text": "Let's get straight to the point."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Memorial to Guthix"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-focus:bring:1yqitq8",
+              "html": "<a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">Backpack</a> space to excavate two <a href=\"https://runescape.wiki/w/Artefacts\" target=\"_blank\" rel=\"noopener\">artefacts</a>",
+              "text": "Backpack space to excavate two artefacts"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "finding-focus:bring:15sw0ol",
+              "html": "<a href=\"https://runescape.wiki/w/Archaeology\" target=\"_blank\" rel=\"noopener\">Archaeology</a> equipment",
+              "text": "Archaeology equipment"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:1tctdoj",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Memorial_to_Guthix\" target=\"_blank\" rel=\"noopener\">Memorial to Guthix</a> (do not enter the <a href=\"https://runescape.wiki/w/Hall_of_Memories\" target=\"_blank\" rel=\"noopener\">Hall of Memories</a>)",
+          "text": "Head to Memorial to Guthix (do not enter the Hall of Memories)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-focus:1tctdoj:16z67xn",
+              "html": "You can teleport directly there using <a href=\"https://runescape.wiki/w/Memory_strand\" target=\"_blank\" rel=\"noopener\">memory strand</a> or <a href=\"https://runescape.wiki/w/Sixth-Age_circuit\" target=\"_blank\" rel=\"noopener\">Sixth-Age circuit</a>, otherwise teleport to <a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak lodestone</a> and run north-west",
+              "text": "You can teleport directly there using memory strand or Sixth-Age circuit, otherwise teleport to Eagles' Peak lodestone and run north-west",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:zz53ak",
+          "html": "South-east outside the memorial, uncover both <a href=\"https://runescape.wiki/w/Fertile_soil_(Requiem_for_a_Dragon)\" target=\"_blank\" rel=\"noopener\">fertile soil</a> spots",
+          "text": "South-east outside the memorial, uncover both fertile soil spots",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:om3mze",
+          "html": "Excavate both halves of the soul beacon from the uncovered <a href=\"https://runescape.wiki/w/Standing_stone_debris\" target=\"_blank\" rel=\"noopener\">standing stone debris</a> and <a href=\"https://runescape.wiki/w/Runic_debris\" target=\"_blank\" rel=\"noopener\">runic debris</a>. There is a <a href=\"https://runescape.wiki/w/Material_storage_container\" target=\"_blank\" rel=\"noopener\">material storage container</a> just north of the spots.",
+          "text": "Excavate both halves of the soul beacon from the uncovered standing stone debris and runic debris. There is a material storage container just north of the spots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-focus:om3mze:i2ofbr",
+              "html": "<a href=\"https://runescape.wiki/w/Damaged_soul_beacon_(base)\" target=\"_blank\" rel=\"noopener\">Damaged soul beacon (base)</a>",
+              "text": "Damaged soul beacon (base)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-focus:om3mze:1rrh8vl",
+              "html": "<a href=\"https://runescape.wiki/w/Damaged_soul_beacon_(core)\" target=\"_blank\" rel=\"noopener\">Damaged soul beacon (core)</a>",
+              "text": "Damaged soul beacon (core)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Restoring the beacon"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-focus:bring:i2ofbr",
+              "html": "<a href=\"https://runescape.wiki/w/Damaged_soul_beacon_(base)\" target=\"_blank\" rel=\"noopener\">Damaged soul beacon (base)</a>",
+              "text": "Damaged soul beacon (base)"
+            },
+            {
+              "id": "finding-focus:bring:1rrh8vl",
+              "html": "<a href=\"https://runescape.wiki/w/Damaged_soul_beacon_(core)\" target=\"_blank\" rel=\"noopener\">Damaged soul beacon (core)</a>",
+              "text": "Damaged soul beacon (core)"
+            },
+            {
+              "id": "finding-focus:bring:1nha0oh",
+              "html": "30 <a href=\"https://runescape.wiki/w/White_marble\" target=\"_blank\" rel=\"noopener\">white marble</a> (material storage works)",
+              "text": "30 white marble (material storage works)"
+            },
+            {
+              "id": "finding-focus:bring:ldhe4f",
+              "html": "30 <a href=\"https://runescape.wiki/w/White_oak\" target=\"_blank\" rel=\"noopener\">white oak</a> (material storage works)",
+              "text": "30 white oak (material storage works)"
+            },
+            {
+              "id": "finding-focus:bring:1fxjs3z",
+              "html": "5 <a href=\"https://runescape.wiki/w/Greater_ensouled_bar\" target=\"_blank\" rel=\"noopener\">greater ensouled bars</a>",
+              "text": "5 greater ensouled bars"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:qet8bs",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Tree_of_Balance\" target=\"_blank\" rel=\"noopener\">Tree of Balance</a> with the two damaged parts.",
+          "text": "Return to the Tree of Balance with the two damaged parts.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Continue Requiem for a Dragon."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:l00z0k",
+          "html": "Head to any <a href=\"https://runescape.wiki/w/Archaeologist%27s_workbench\" target=\"_blank\" rel=\"noopener\">archaeologist&#39;s workbench</a> to restore the <a href=\"https://runescape.wiki/w/Damaged_soul_beacon\" target=\"_blank\" rel=\"noopener\">damaged soul beacon</a>.",
+          "text": "Head to any archaeologist's workbench to restore the damaged soul beacon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-focus:ugl79d",
+          "html": "Return to the Tree of Balance with the restored <a href=\"https://runescape.wiki/w/Soul_beacon\" target=\"_blank\" rel=\"noopener\">soul beacon</a>. Chat options can vary, but the correct order is: Change, Elemental, Commune, Change.",
+          "text": "Return to the Tree of Balance with the restored soul beacon. Chat options can vary, but the correct order is: Change, Elemental, Commune, Change.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Continue Requiem for a Dragon."
+                },
+                {
+                  "key": "1",
+                  "text": "Deduce the glyph order."
+                },
+                {
+                  "key": "?",
+                  "text": "Change"
+                },
+                {
+                  "key": "?",
+                  "text": "Elemental"
+                },
+                {
+                  "key": "?",
+                  "text": "Commune"
+                },
+                {
+                  "key": "?",
+                  "text": "Change"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "soulfaring",
+      "title": "Soulfaring",
+      "anchor": "Soulfaring",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "City of Um"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "soulfaring:bring:1u69a34",
+              "html": "<a href=\"https://runescape.wiki/w/Soul_beacon\" target=\"_blank\" rel=\"noopener\">Soul beacon</a> and ingredients to perform a <a href=\"https://runescape.wiki/w/Soulfarer_(ritual)\" target=\"_blank\" rel=\"noopener\">soulfarer</a> ritual",
+              "text": "Soul beacon and ingredients to perform a soulfarer ritual"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:1bozu5r",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> and talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a>.",
+          "text": "Return to the City of Um and talk to Death.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:6yluyf",
+          "html": "Complete a soulfarer ritual at the Um ritual site.",
+          "text": "Complete a soulfarer ritual at the Um ritual site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Ungael"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "soulfaring:bring:1u69a34-2",
+              "html": "<a href=\"https://runescape.wiki/w/Soul_beacon\" target=\"_blank\" rel=\"noopener\">Soul beacon</a> and ingredients to perform a <a href=\"https://runescape.wiki/w/Soulfarer_(ritual)\" target=\"_blank\" rel=\"noopener\">soulfarer</a> ritual",
+              "text": "Soul beacon and ingredients to perform a soulfarer ritual"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "soulfaring:bring:h1ghod",
+              "html": "<a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">Combat</a> equipment",
+              "text": "Combat equipment"
+            },
+            {
+              "id": "soulfaring:bring:sebhwm",
+              "html": "<a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">Super restore</a>",
+              "text": "Super restore"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:1194fb1",
+          "html": "Travel to Fort Forinthry and take the boat back to Ungael.",
+          "text": "Travel to Fort Forinthry and take the boat back to Ungael.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:1x67cyp",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Colossal_cave\" target=\"_blank\" rel=\"noopener\">colossal cave</a> in <a href=\"https://runescape.wiki/w/Ungael\" target=\"_blank\" rel=\"noopener\">Ungael</a> and head north.",
+          "text": "Return to the colossal cave in Ungael and head north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:vs96yu",
+          "html": "Repair the 13 spots of the ruined ritual site, just east of <a href=\"https://runescape.wiki/w/Vorkath\" target=\"_blank\" rel=\"noopener\">Vorkath</a>.",
+          "text": "Repair the 13 spots of the ruined ritual site, just east of Vorkath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:11nmqwj",
+          "html": "Set up the <a href=\"https://runescape.wiki/w/Soulfarer_(ritual)\" target=\"_blank\" rel=\"noopener\">soulfarer</a> ritual.",
+          "text": "Set up the soulfarer ritual.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:bhvq26",
+          "html": "Perform the ritual. A cutscene will begin.",
+          "text": "Perform the ritual. A cutscene will begin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "soulfaring:bhvq26:lze1du",
+              "html": "Note that this is a safe encounter, and you will respawn outside of the rowboat upon death.",
+              "text": "Note that this is a safe encounter, and you will respawn outside of the rowboat upon death.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:1xbtuio",
+          "html": "Perform the ritual again, pausing to:",
+          "text": "Perform the ritual again, pausing to:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "soulfaring:1xbtuio:1x68zfv",
+              "html": "Kill <a href=\"https://runescape.wiki/w/The_Forgotten_Warrior\" target=\"_blank\" rel=\"noopener\">Vengeance</a> whenever she appears. Vengeance can drastically drain your stats so <a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">super restores</a> can be useful. <a href=\"https://runescape.wiki/w/Deathtouched_dart\" target=\"_blank\" rel=\"noopener\">Deathtouched darts</a> can be used. If you use <a href=\"https://runescape.wiki/w/Speed_III\" target=\"_blank\" rel=\"noopener\">speed III</a> on spare ritual space, and <a href=\"https://runescape.wiki/w/Speed_II\" target=\"_blank\" rel=\"noopener\">speed II</a> or higher in <a href=\"https://runescape.wiki/w/Necromancy_cape\" target=\"_blank\" rel=\"noopener\">necromancy cape</a>, and never miss a shadow rift, you will only have to kill Vengeance once.",
+              "text": "Kill Vengeance whenever she appears. Vengeance can drastically drain your stats so super restores can be useful. Deathtouched darts can be used. If you use speed III on spare ritual space, and speed II or higher in necromancy cape, and never miss a shadow rift, you will only have to kill Vengeance once.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "soulfaring:1xbtuio:6gp93k",
+              "html": "Close any <a href=\"https://runescape.wiki/w/Shadow_Rift\" target=\"_blank\" rel=\"noopener\">Shadow Rifts</a> as soon as they appear. Continuing the ritual while a Shadow Rift is open will reverse the ritual&#39;s progress meter.",
+              "text": "Close any Shadow Rifts as soon as they appear. Continuing the ritual while a Shadow Rift is open will reverse the ritual's progress meter.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soulfaring:1oap39i",
+          "html": "Head west and inspect <a href=\"https://runescape.wiki/w/Vorkath\" target=\"_blank\" rel=\"noopener\">Vorkath</a>.",
+          "text": "Head west and inspect Vorkath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "aftermath",
+      "title": "Aftermath",
+      "anchor": "Aftermath",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "City of Um"
+        },
+        {
+          "type": "step",
+          "id": "aftermath:18i30z5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Death in City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:mdduby",
+          "html": "Head south-east, south of <a href=\"https://runescape.wiki/w/Selene\" target=\"_blank\" rel=\"noopener\">Selene</a> and directly north of the <a href=\"https://runescape.wiki/w/Large_cave_opening_(City_of_Um)\" target=\"_blank\" rel=\"noopener\">large cave opening</a> in the southern part of the city and approach <a href=\"https://runescape.wiki/w/Vorkath\" target=\"_blank\" rel=\"noopener\">Vorkath</a>.",
+          "text": "Head south-east, south of Selene and directly north of the large cave opening in the southern part of the city and approach Vorkath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Confronting Zemouregal"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "aftermath:bring:dm6qtb",
+              "html": "Three empty <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+              "text": "Three empty backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:qxr94f",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a> and enter the <a href=\"https://runescape.wiki/w/Floor_hatch\" target=\"_blank\" rel=\"noopener\">floor hatch</a> east of the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a>.",
+          "text": "Return to Fort Forinthry and enter the floor hatch east of the Command Centre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "aftermath:bwdnl0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a> to complete the quest.",
+          "text": "Talk to Zemouregal to complete the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Requiem_for_a_Dragon_reward.png?d98e5",
+      "width": 512,
+      "height": 402,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Requiem_for_a_Dragon_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Requiem_for_a_Dragon)\" target=\"_blank\" rel=\"noopener\">Necromancy XP lamp</a> (100,000 experience – requires level 75)",
+        "text": "Necromancy XP lamp (100,000 experience – requires level 75)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Archaeology_XP_lamp_(Requiem_for_a_Dragon)\" target=\"_blank\" rel=\"noopener\">Archaeology XP lamp</a> (100,000 experience – requires level 86)",
+        "text": "Archaeology XP lamp (100,000 experience – requires level 86)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Zorgoth%27s_ring\" target=\"_blank\" rel=\"noopener\">Zorgoth&#39;s ring</a>",
+        "text": "Zorgoth's ring",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Soulfarer\" target=\"_blank\" rel=\"noopener\">Soulfarer</a> title",
+        "text": "Soulfarer title",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Ungael_ritual_site\" target=\"_blank\" rel=\"noopener\">Ungael ritual site</a>",
+        "text": "Access to the Ungael ritual site",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Ungael_Teleport\" target=\"_blank\" rel=\"noopener\">Ungael Teleport</a> incantation (requires completion of <a href=\"https://runescape.wiki/w/Rune_Mythos\" target=\"_blank\" rel=\"noopener\">Rune Mythos</a>)",
+        "text": "Ungael Teleport incantation (requires completion of Rune Mythos)",
+        "subs": []
+      },
+      {
+        "html": "Ability to teleport to the Ungael ritual site using the <a href=\"https://runescape.wiki/w/Underworld_Grimoire_2\" target=\"_blank\" rel=\"noopener\">Underworld Grimoire 2</a>",
+        "text": "Ability to teleport to the Ungael ritual site using the Underworld Grimoire 2",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Vorkath's Fall",
+      "where": ""
+    },
+    {
+      "name": "Vorkath's Reprise",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    }
+  ]
+}

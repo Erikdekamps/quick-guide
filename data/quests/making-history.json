@@ -1,0 +1,873 @@
+{
+  "format": 1,
+  "id": "making-history",
+  "title": "Making History",
+  "page": "Making History/Quick guide",
+  "rev": 36914139,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a> in the outpost south of the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>, north-west of <a href=\"https://runescape.wiki/w/West_Ardougne\" target=\"_blank\" rel=\"noopener\">West Ardougne</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3348,
+      "lon": 2438,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Making_History/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Restless Ghost",
+        "depth": 1
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 24,
+        "note": "(if making your own sapphire amulet)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Morytania</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:telonk",
+          "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a> (or the <a href=\"https://runescape.wiki/w/Meerkats\" target=\"_blank\" rel=\"noopener\">meerkats</a> familiar; the spade can be purchased from <a href=\"https://runescape.wiki/w/Richard%27s_Farming_Shop\" target=\"_blank\" rel=\"noopener\">Richard&#39;s Farming Shop</a> during the quest)",
+          "text": "Spade (or the meerkats familiar; the spade can be purchased from Richard's Farming Shop during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1q2ncfc",
+          "html": "2,600 coins (1,300 coins after <a href=\"https://runescape.wiki/w/Cabin_Fever\" target=\"_blank\" rel=\"noopener\">Cabin Fever</a>) to charter ships from <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> to <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>, or 2 <a href=\"https://runescape.wiki/w/Ecto-token\" target=\"_blank\" rel=\"noopener\">ecto-tokens</a> (or completion of <a href=\"https://runescape.wiki/w/Ghosts_Ahoy\" target=\"_blank\" rel=\"noopener\">Ghosts Ahoy</a>)",
+          "text": "2,600 coins (1,300 coins after Cabin Fever) to charter ships from Port Sarim to Port Phasmatys, or 2 ecto-tokens (or completion of Ghosts Ahoy)",
+          "alternatives": []
+        },
+        {
+          "id": "req:8ful5f",
+          "html": "A strung, un-enchanted <a href=\"https://runescape.wiki/w/Sapphire_amulet\" target=\"_blank\" rel=\"noopener\">sapphire amulet</a>",
+          "text": "A strung, un-enchanted sapphire amulet",
+          "alternatives": []
+        },
+        {
+          "id": "req:19lz74n",
+          "html": "A <a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">ghostspeak amulet</a> or <a href=\"https://runescape.wiki/w/Cramulet\" target=\"_blank\" rel=\"noopener\">cramulet</a> (not required if you have completed the <a href=\"https://runescape.wiki/w/Hard_Morytania_achievements\" target=\"_blank\" rel=\"noopener\">hard Morytania achievements</a>)",
+          "text": "A ghostspeak amulet or cramulet (not required if you have completed the hard Morytania achievements)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:12j5lrv",
+          "html": "A <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a>",
+          "text": "A traveller's necklace",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1xhc9qi",
+          "html": "An <a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">ectophial</a> (requires <a href=\"https://runescape.wiki/w/Ghosts_Ahoy\" target=\"_blank\" rel=\"noopener\">Ghosts Ahoy</a>) or 2 <a href=\"https://runescape.wiki/w/Ecto-token\" target=\"_blank\" rel=\"noopener\">ecto-tokens</a>",
+          "text": "An ectophial (requires Ghosts Ahoy) or 2 ecto-tokens",
+          "alternatives": []
+        },
+        {
+          "id": "rec:qg6n77",
+          "html": "<a href=\"https://runescape.wiki/w/Energy_potion\" target=\"_blank\" rel=\"noopener\">Energy</a> or <a href=\"https://runescape.wiki/w/Super_energy\" target=\"_blank\" rel=\"noopener\">super energy</a> potions",
+          "text": "Energy or super energy potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:9ascmf",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne</a> and <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestones</a>",
+          "text": "Activated Ardougne and Fremennik Province lodestones",
+          "alternatives": []
+        },
+        {
+          "id": "rec:m1n8mn",
+          "html": "A <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a>",
+          "text": "A ring of duelling",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pgsj2w",
+          "html": "A <a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">dramen</a> or <a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">lunar staff</a> for the use of fairy rings, unless you&#39;ve completed <a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a>",
+          "text": "A dramen or lunar staff for the use of fairy rings, unless you've completed A Fairy Tale III - Battle at Ork's Rift",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-the-quest",
+      "title": "Starting the quest",
+      "anchor": "Starting_the_quest",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of the outpost",
+          "lat": 3346,
+          "lon": 2436,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2431,
+                      3341
+                    ],
+                    [
+                      2431,
+                      3351
+                    ],
+                    [
+                      2441,
+                      3351
+                    ],
+                    [
+                      2441,
+                      3341
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Making_History/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "starting-the-quest:iz56ju",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Outpost\" target=\"_blank\" rel=\"noopener\">Outpost</a>; an old, now-derelict tower to the north of <a href=\"https://runescape.wiki/w/West_Ardougne\" target=\"_blank\" rel=\"noopener\">West Ardougne</a>.",
+          "text": "Go to the Outpost; an old, now-derelict tower to the north of West Ardougne.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-the-quest:iz56ju:ytpio6",
+              "html": "<a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">Traveller&#39;s necklace</a> teleports directly to the Outpost.",
+              "text": "Traveller's necklace teleports directly to the Outpost.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "starting-the-quest:iz56ju:idjr8h",
+              "html": "<a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak lodestone</a> and run south, then south east.",
+              "text": "Eagles' Peak lodestone and run south, then south east.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-the-quest:1lhiysd",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a> for a cutscene.",
+          "text": "Speak with Jorral for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Tell me more."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-the-quest:1yvljpc",
+          "html": "After the cutscene, agree to help.",
+          "text": "After the cutscene, agree to help.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "erin",
+      "title": "Erin",
+      "anchor": "Erin",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location to dig for the chest.",
+          "lat": 3139,
+          "lon": 2442,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2438,
+                      3135
+                    ],
+                    [
+                      2438,
+                      3143
+                    ],
+                    [
+                      2446,
+                      3143
+                    ],
+                    [
+                      2446,
+                      3135
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Making_History/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "erin:bring:1c2jw8m",
+              "html": "A spade (the one in your tool belt will not work)",
+              "text": "A spade (the one in your tool belt will not work)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "erin:r71vwj",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Silver_merchant\" target=\"_blank\" rel=\"noopener\">silver merchant</a> in the <a href=\"https://runescape.wiki/w/East_Ardougne\" target=\"_blank\" rel=\"noopener\">East Ardougne</a> marketplace.",
+          "text": "Talk to the silver merchant in the East Ardougne marketplace.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Ask about the outpost."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "erin:r71vwj:x9txrc",
+              "html": "Do not steal from the stall otherwise the merchant will not talk with you.",
+              "text": "Do not steal from the stall otherwise the merchant will not talk with you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "erin:n88558",
+          "html": "Ring of dueling to <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a>, run north and cross the bridge south of the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">Observatory</a>.",
+          "text": "Ring of dueling to Castle Wars, run north and cross the bridge south of the Observatory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "erin:n88558:1m8fk9d",
+              "html": "West of fairy ring <b>C</b><b>I</b><b>Q</b> and north-west of <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a>.",
+              "text": "West of fairy ring CIQ and north-west of Yanille lodestone.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "erin:17p90w9",
+          "html": "When you&#39;re just north of the bridge, play hot-and-cold by feeling the key and walking around until it feels <i>steaming hot</i>, and use the spade to dig. (Between the two trees)",
+          "text": "When you're just north of the bridge, play hot-and-cold by feeling the key and walking around until it feels steaming hot, and use the spade to dig. (Between the two trees)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "erin:1bkn755",
+          "html": "<i>Use</i> the key on the chest to unlock it.",
+          "text": "Use the key on the chest to unlock it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "droalak",
+      "title": "Droalak",
+      "anchor": "Droalak",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Melina and Droalak location",
+          "lat": 3474,
+          "lon": 3666,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3658,
+                  3464,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "Droalak",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3674,
+                  3484,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "Melina",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Making_History/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "droalak:bring:15zkpyc",
+              "html": "Ghostspeak amulet",
+              "text": "Ghostspeak amulet"
+            },
+            {
+              "id": "droalak:bring:42q2cv",
+              "html": "Sapphire amulet",
+              "text": "Sapphire amulet"
+            },
+            {
+              "id": "droalak:bring:t3406m",
+              "html": "Two ecto tokens or enough money to buy a charter boat to Port Phasmatys if Ghosts Ahoy has not been completed",
+              "text": "Two ecto tokens or enough money to buy a charter boat to Port Phasmatys if Ghosts Ahoy has not been completed"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "droalak:16j6lcy",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Droalak\" target=\"_blank\" rel=\"noopener\">Droalak</a> south of the General Store in <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>.",
+          "text": "Speak to Droalak south of the General Store in Port Phasmatys.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "droalak:16j6lcy:jweyt9",
+              "html": "Ectophial or Port Sarim lodestone and charter ship to Port Phasmatys.",
+              "text": "Ectophial or Port Sarim lodestone and charter ship to Port Phasmatys.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "droalak:16j6lcy:7rg0ys",
+              "html": "Wear the <a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">ghostspeak amulet</a>.",
+              "text": "Wear the ghostspeak amulet.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "droalak:jfmlyh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Melina\" target=\"_blank\" rel=\"noopener\">Melina</a> in the building east of the General Store with a <a href=\"https://runescape.wiki/w/Sapphire_amulet\" target=\"_blank\" rel=\"noopener\">sapphire amulet</a> in your inventory.",
+          "text": "Talk to Melina in the building east of the General Store with a sapphire amulet in your inventory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "droalak:1vghmvj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Droalak\" target=\"_blank\" rel=\"noopener\">Droalak</a> again for the scroll.",
+          "text": "Talk to Droalak again for the scroll.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "dron",
+      "title": "Dron",
+      "anchor": "Dron",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Blanin and Dron location",
+          "lat": 3685,
+          "lon": 2666,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2675,
+                  3671,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ],
+                "title": "Blanin"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2658,
+                  3700,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ],
+                "title": "Dron"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Making_History/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "dron:2ib0ex",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Blanin\" target=\"_blank\" rel=\"noopener\">Blanin</a>, west of the cow pen in <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>.",
+          "text": "Talk to Blanin, west of the cow pen in Rellekka.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dron:3kp91t",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dron\" target=\"_blank\" rel=\"noopener\">Dron</a>, west of the helmet shop.",
+          "text": "Talk to Dron, west of the helmet shop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm after important answers."
+                },
+                {
+                  "key": "2",
+                  "text": "Why you're the famous warrior Dron!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dron:15k3t2i",
+          "html": "Answer his quiz.",
+          "text": "Answer his quiz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "An iron mace."
+                },
+                {
+                  "key": "1",
+                  "text": "Breakfast."
+                },
+                {
+                  "key": "2",
+                  "text": "Lunch."
+                },
+                {
+                  "key": "1",
+                  "text": "Bunnies."
+                },
+                {
+                  "key": "2",
+                  "text": "Red."
+                },
+                {
+                  "key": "2",
+                  "text": "36."
+                },
+                {
+                  "key": "1",
+                  "text": "8."
+                },
+                {
+                  "key": "3",
+                  "text": "Fifth and Fourth."
+                },
+                {
+                  "key": "3",
+                  "text": "Northeast side of town."
+                },
+                {
+                  "key": "1",
+                  "text": "Blanin."
+                },
+                {
+                  "key": "1",
+                  "text": "Fluffy."
+                },
+                {
+                  "key": "1",
+                  "text": "12, but what does that have to do with anything?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "jorral",
+      "title": "Jorral",
+      "anchor": "Jorral",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "jorral:bring:d01n2w",
+              "html": "<a href=\"https://runescape.wiki/w/Journal_(Making_History)\" target=\"_blank\" rel=\"noopener\">Journal</a>",
+              "text": "Journal"
+            },
+            {
+              "id": "jorral:bring:ai6wr0",
+              "html": "<a href=\"https://runescape.wiki/w/Scroll_(Making_History)\" target=\"_blank\" rel=\"noopener\">Scroll</a>",
+              "text": "Scroll"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "jorral:1pagzba",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Jorral\" target=\"_blank\" rel=\"noopener\">Jorral</a> at the outpost, talk to him until he gives you a Letter.",
+          "text": "Return to Jorral at the outpost, talk to him until he gives you a Letter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jorral:1uimk4l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Lathas\" target=\"_blank\" rel=\"noopener\">King Lathas</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of <a href=\"https://runescape.wiki/w/Ardougne_Castle\" target=\"_blank\" rel=\"noopener\">Ardougne Castle</a>. (Remove Mourner Outfit if equipped)",
+          "text": "Talk to King Lathas on the 1st floor (UK) / 2nd floor (US) of Ardougne Castle. (Remove Mourner Outfit if equipped)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jorral:k3voes",
+          "html": "Return to Jorral.",
+          "text": "Return to Jorral.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jorral:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Making_History_reward.png?83c26",
+      "width": 512,
+      "height": 387,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Making_History_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "750 coins",
+        "text": "750 coins",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Enchanted_key_(Making_History)\" target=\"_blank\" rel=\"noopener\">enchanted key</a>, allowing you to go on your own treasure digs until it disappears; see the <a href=\"https://runescape.wiki/w/Enchanted_key_(lore_activity)\" target=\"_blank\" rel=\"noopener\">enchanted key lore activity</a>",
+        "text": "The enchanted key, allowing you to go on your own treasure digs until it disappears; see the enchanted key lore activity",
+        "subs": []
+      },
+      {
+        "html": "Access to the museum in the <a href=\"https://runescape.wiki/w/Outpost\" target=\"_blank\" rel=\"noopener\">Outpost</a>",
+        "text": "Access to the museum in the Outpost",
+        "subs": []
+      },
+      {
+        "html": "You can read an incomplete list of all your exploits during the quest on the bookcase at the Outpost, but cannot take it away.",
+        "text": "You can read an incomplete list of all your exploits during the quest on the bookcase at the Outpost, but cannot take it away.",
+        "subs": []
+      },
+      {
+        "html": "You can return to Droalak in Port Phasmatys after the quest and upon learning of what happened, he will finally be at peace and will disappear. Doing so is a requirement for obtaining the <a href=\"https://runescape.wiki/w/Master_quest_cape\" target=\"_blank\" rel=\"noopener\">master quest cape</a>.",
+        "text": "You can return to Droalak in Port Phasmatys after the quest and upon learning of what happened, he will finally be at peace and will disappear. Doing so is a requirement for obtaining the master quest cape.",
+        "subs": []
+      },
+      {
+        "html": "You can talk to Historian Minas in the Varrock Museum to receive 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">Kudos</a> and an <a href=\"https://runescape.wiki/w/Antique_lamp_(Kudos)\" target=\"_blank\" rel=\"noopener\">antique lamp</a> that gives 1,000 experience in a skill of level 20 or above.",
+        "text": "You can talk to Historian Minas in the Varrock Museum to receive 5 Kudos and an antique lamp that gives 1,000 experience in a skill of level 20 or above.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Enchanted_key_(lore_activity)\" target=\"_blank\" rel=\"noopener\">Enchanted key (lore activity)</a>",
+        "<a href=\"https://runescape.wiki/w/Meeting_History/Quick_guide\" target=\"_blank\" rel=\"noopener\">Meeting History</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

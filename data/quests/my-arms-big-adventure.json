@@ -1,0 +1,834 @@
+{
+  "format": 1,
+  "id": "my-arms-big-adventure",
+  "title": "My Arm's Big Adventure",
+  "page": "My Arm's Big Adventure/Quick guide",
+  "rev": 37222095,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a> in the <a href=\"https://runescape.wiki/w/Troll_kitchen\" target=\"_blank\" rel=\"noopener\">kitchen</a> of the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>. (via the first location → the second location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 10058,
+      "lon": 2845,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/My_Arm's_Big_Adventure/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Eadgar's Ruse",
+        "depth": 1
+      },
+      {
+        "text": "Druidic Ritual",
+        "depth": 2
+      },
+      {
+        "text": "Troll Stronghold",
+        "depth": 2
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 3
+      },
+      {
+        "text": "Rescue Mad Eadgar from the Troll Stronghold area",
+        "depth": 2
+      },
+      {
+        "text": "Jungle Potion",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Farming",
+        "level": 29,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 10,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Baby Roc (level 56)",
+        "name": "Baby Roc",
+        "count": null,
+        "level": "56",
+        "note": ""
+      },
+      {
+        "text": "Giant Roc (level 77)",
+        "name": "Giant Roc",
+        "count": null,
+        "level": "77",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Karamja</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Asgarnia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:7y97eg",
+          "html": "3 buckets of <a href=\"https://runescape.wiki/w/Ugthanki_dung\" target=\"_blank\" rel=\"noopener\">ugthanki dung</a> (camel dung)",
+          "text": "3 buckets of ugthanki dung (camel dung)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1j4lgan",
+          "html": "Some <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+          "text": "Some coins",
+          "alternatives": []
+        },
+        {
+          "id": "req:n5ezps",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">Bucket</a> (may be obtained during the quest)",
+          "text": "Bucket (may be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1umxlt3",
+          "html": "<a href=\"https://runescape.wiki/w/Climbing_Boots\" target=\"_blank\" rel=\"noopener\">Climbing Boots</a> or <a href=\"https://runescape.wiki/w/Rock_climbing_boots\" target=\"_blank\" rel=\"noopener\">rock climbing boots</a> or <a href=\"https://runescape.wiki/w/Trollheim_teleport\" target=\"_blank\" rel=\"noopener\">Trollheim teleport</a>",
+          "text": "Climbing Boots or rock climbing boots or Trollheim teleport",
+          "alternatives": []
+        },
+        {
+          "id": "req:lm5o9g",
+          "html": "7 <a href=\"https://runescape.wiki/w/Supercompost\" target=\"_blank\" rel=\"noopener\">supercompost</a>",
+          "text": "7 supercompost",
+          "alternatives": []
+        },
+        {
+          "id": "req:v0cd70",
+          "html": "<a href=\"https://runescape.wiki/w/Rake\" target=\"_blank\" rel=\"noopener\">Rake</a> (can&#39;t be on the tool belt, may be obtained during the quest)",
+          "text": "Rake (can't be on the tool belt, may be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:10tj7ro",
+          "html": "<a href=\"https://runescape.wiki/w/Seed_dibber\" target=\"_blank\" rel=\"noopener\">Seed dibber</a> (can&#39;t be on the tool belt, may be obtained during the quest)",
+          "text": "Seed dibber (can't be on the tool belt, may be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:t3fnje",
+          "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a> (can&#39;t be on the tool belt, may be obtained during the quest)",
+          "text": "Spade (can't be on the tool belt, may be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:o13ll8",
+          "html": "<a href=\"https://runescape.wiki/w/Plant_cure\" target=\"_blank\" rel=\"noopener\">Plant cure</a> (or an additional supercompost; <a href=\"https://runescape.wiki/w/Cure_Plant\" target=\"_blank\" rel=\"noopener\">Cure Plant</a> from the Lunar Spellbook will not work, may be obtained during the quest)",
+          "text": "Plant cure (or an additional supercompost; Cure Plant from the Lunar Spellbook will not work, may be obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1xt2n8x",
+          "html": "61 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> and runes for <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a>",
+          "text": "61 Magic and runes for Trollheim Teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1u1sbxl",
+          "html": "<a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">Armour</a>",
+          "text": "Armour",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ezgtb5",
+          "html": "<a href=\"https://runescape.wiki/w/Weapon\" target=\"_blank\" rel=\"noopener\">Weapon</a>",
+          "text": "Weapon",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1dye901",
+          "html": "A bucket of <a href=\"https://runescape.wiki/w/Compost\" target=\"_blank\" rel=\"noopener\">compost</a> or an additional <a href=\"https://runescape.wiki/w/Supercompost\" target=\"_blank\" rel=\"noopener\">supercompost</a>",
+          "text": "A bucket of compost or an additional supercompost",
+          "alternatives": []
+        },
+        {
+          "id": "rec:10g2yxs",
+          "html": "<a href=\"https://runescape.wiki/w/Tai_bwo_wannai_teleport\" target=\"_blank\" rel=\"noopener\">Tai bwo wannai teleport</a>",
+          "text": "Tai bwo wannai teleport",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-adventurer",
+      "title": "The adventurer",
+      "anchor": "The_adventurer",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "the-adventurer:bring:18ifi6o",
+              "html": "Bring all items required for the next step",
+              "text": "Bring all items required for the next step"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-adventurer:t8410r",
+          "html": "Go to the Troll Stronghold, head south then downstairs into the kitchen.",
+          "text": "Go to the Troll Stronghold, head south then downstairs into the kitchen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-adventurer:1wkmijg",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a>.",
+          "text": "Speak to Burntmeat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "2",
+                  "text": "Alright, I'll lend him a hand."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-adventurer:1p82ifc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/My_Arm\" target=\"_blank\" rel=\"noopener\">My Arm</a>, east of Burntmeat.",
+          "text": "Talk to My Arm, east of Burntmeat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-the-goutweed",
+      "title": "Getting the goutweed",
+      "anchor": "Getting_the_goutweed",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-the-goutweed:bring:k4tmhb",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a>",
+              "text": "Climbing boots"
+            },
+            {
+              "id": "getting-the-goutweed:bring:1hvhqkv",
+              "html": "3 buckets of <a href=\"https://runescape.wiki/w/Ugthanki_dung\" target=\"_blank\" rel=\"noopener\">Ugthanki dung</a>",
+              "text": "3 buckets of Ugthanki dung"
+            },
+            {
+              "id": "getting-the-goutweed:bring:1i9rmrc",
+              "html": "7 buckets of <a href=\"https://runescape.wiki/w/Supercompost\" target=\"_blank\" rel=\"noopener\">supercompost</a>",
+              "text": "7 buckets of supercompost"
+            },
+            {
+              "id": "getting-the-goutweed:bring:3dnanx",
+              "html": "1 empty <a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">bucket</a>",
+              "text": "1 empty bucket"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:17qm4tt",
+          "html": "Travel to Burthorpe and head north-west past Troll Invasion.",
+          "text": "Travel to Burthorpe and head north-west past Troll Invasion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:dk04wo",
+          "html": "Climb the rocks and head east past the <a href=\"https://runescape.wiki/w/Thrower_trolls\" target=\"_blank\" rel=\"noopener\">thrower trolls</a> to reach the <a href=\"https://runescape.wiki/w/Death_Plateau_(location)\" target=\"_blank\" rel=\"noopener\">Death Plateau</a>.",
+          "text": "Climb the rocks and head east past the thrower trolls to reach the Death Plateau.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:1ykne3l",
+          "html": "<i>Search</i> the <a href=\"https://runescape.wiki/w/Cooking_pot_(Death_Plateau)\" target=\"_blank\" rel=\"noopener\">cooking pot</a> to obtain a <a href=\"https://runescape.wiki/w/Goutweedy_lump\" target=\"_blank\" rel=\"noopener\">goutweedy lump</a>.",
+          "text": "Search the cooking pot to obtain a goutweedy lump.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-the-goutweed:1ykne3l:1jjxc7y",
+              "html": "If you receive the message &quot;... but you can&#39;t reach very far into it.&quot;, use an empty bucket on the cooking pot.",
+              "text": "If you receive the message \"... but you can't reach very far into it.\", use an empty bucket on the cooking pot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:16s6y38",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a> kitchen and speak to My Arm.",
+          "text": "Return to the Troll Stronghold kitchen and speak to My Arm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:1dw9pb5",
+          "html": "Once on the surface, talk to him near the farming patch.",
+          "text": "Once on the surface, talk to him near the farming patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:12s74d2",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Farming_manual\" target=\"_blank\" rel=\"noopener\">farming manual</a> he gives you, then talk to him again.",
+          "text": "Read the farming manual he gives you, then talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:c40q5g",
+          "html": "<i>Use</i> the 3 buckets of <a href=\"https://runescape.wiki/w/Ugthanki_dung\" target=\"_blank\" rel=\"noopener\">ugthanki dung</a> and 7 buckets of <a href=\"https://runescape.wiki/w/Supercompost\" target=\"_blank\" rel=\"noopener\">supercompost</a> on the <a href=\"https://runescape.wiki/w/New_farming_patch#Soil_patch\" target=\"_blank\" rel=\"noopener\">soil patch</a>.",
+          "text": "Use the 3 buckets of ugthanki dung and 7 buckets of supercompost on the soil patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-goutweed:1cn0lju",
+          "html": "Talk to My Arm for a cutscene.",
+          "text": "Talk to My Arm for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "This is My Arm. We'd like to go to Karamja."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-the-tubers",
+      "title": "Getting the tubers",
+      "anchor": "Getting_the_tubers",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-the-tubers:bring:13eknwh",
+              "html": "At least 1 free inventory space to receive the gout tubers",
+              "text": "At least 1 free inventory space to receive the gout tubers"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-tubers:18q6fkl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Barnaby\" target=\"_blank\" rel=\"noopener\">Captain Barnaby</a> if you find yourself in <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>.",
+          "text": "Talk to Captain Barnaby if you find yourself in Ardougne.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-tubers:1lks7u9",
+          "html": "Talk to My Arm south-east of the <a href=\"https://runescape.wiki/w/Karamja_lodestone\" target=\"_blank\" rel=\"noopener\">Karamja lodestone</a>. He is east of <a href=\"https://runescape.wiki/w/Jiminua%27s_Jungle_Store\" target=\"_blank\" rel=\"noopener\">Jiminua&#39;s Jungle Store</a>.",
+          "text": "Talk to My Arm south-east of the Karamja lodestone. He is east of Jiminua's Jungle Store.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-tubers:s2unp9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Murcaily\" target=\"_blank\" rel=\"noopener\">Murcaily</a>, guarding the tree grove north-east of Tai Bwo Wannai.",
+          "text": "Talk to Murcaily, guarding the tree grove north-east of Tai Bwo Wannai.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "A troll called My Arm wants a favour..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-tubers:l8tl8s",
+          "html": "A cutscene will play. Go through the dialogue.",
+          "text": "A cutscene will play. Go through the dialogue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-tubers:t199gh",
+          "html": "Talk to My Arm south-east of the <a href=\"https://runescape.wiki/w/Karamja_lodestone\" target=\"_blank\" rel=\"noopener\">Karamja lodestone</a>. Continue through the dialogue while on the boat.",
+          "text": "Talk to My Arm south-east of the Karamja lodestone. Continue through the dialogue while on the boat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "teaching-a-troll-to-farm",
+      "title": "Teaching a troll to farm",
+      "anchor": "Teaching_a_troll_to_farm",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "teaching-a-troll-to-farm:bring:1hqz8z6",
+              "html": "<a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">Spade</a>",
+              "text": "Spade"
+            },
+            {
+              "id": "teaching-a-troll-to-farm:bring:8jyhio",
+              "html": "<a href=\"https://runescape.wiki/w/Rake\" target=\"_blank\" rel=\"noopener\">Rake</a>",
+              "text": "Rake"
+            },
+            {
+              "id": "teaching-a-troll-to-farm:bring:14umq7f",
+              "html": "<a href=\"https://runescape.wiki/w/Hardy_gout_tubers\" target=\"_blank\" rel=\"noopener\">Hardy gout tubers</a>",
+              "text": "Hardy gout tubers"
+            },
+            {
+              "id": "teaching-a-troll-to-farm:bring:13gze5k",
+              "html": "<a href=\"https://runescape.wiki/w/Seed_dibber\" target=\"_blank\" rel=\"noopener\">Seed dibber</a>",
+              "text": "Seed dibber"
+            },
+            {
+              "id": "teaching-a-troll-to-farm:bring:10vaelf",
+              "html": "<a href=\"https://runescape.wiki/w/Plant_cure\" target=\"_blank\" rel=\"noopener\">Plant cure</a>",
+              "text": "Plant cure"
+            },
+            {
+              "id": "teaching-a-troll-to-farm:bring:1blr18d",
+              "html": "Combat equipment to fight a level 56 and 77",
+              "text": "Combat equipment to fight a level 56 and 77"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "teaching-a-troll-to-farm:bring:1ibc8kb",
+              "html": "Supercompost",
+              "text": "Supercompost"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:1omfa9w",
+          "html": "Return to the roof of the <a href=\"https://runescape.wiki/w/Troll_Stronghold\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a> where the soil patch was.",
+          "text": "Return to the roof of the Troll Stronghold where the soil patch was.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:1jbj9fc",
+          "html": "If you don&#39;t already have the farming tools, right-click talk to the <a href=\"https://runescape.wiki/w/Tool_Leprechaun\" target=\"_blank\" rel=\"noopener\">Tool Leprechaun</a> to buy some.",
+          "text": "If you don't already have the farming tools, right-click talk to the Tool Leprechaun to buy some.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Would you like to trade?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:wkymj2",
+          "html": "Talk to My Arm.",
+          "text": "Talk to My Arm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:1j4v5os",
+          "html": "<i>Use</i> the following items on him in order:",
+          "text": "Use the following items on him in order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "teaching-a-troll-to-farm:1j4v5os:db5ye1",
+              "html": "<a href=\"https://runescape.wiki/w/Rake\" target=\"_blank\" rel=\"noopener\">Rake</a> (twice as he breaks it)",
+              "text": "Rake (twice as he breaks it)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "teaching-a-troll-to-farm:1j4v5os:db5ye1:1kl17ud",
+                  "html": "Pick up and use the <a href=\"https://runescape.wiki/w/Rake_head\" target=\"_blank\" rel=\"noopener\">rake head</a> on the <a href=\"https://runescape.wiki/w/Rake_handle\" target=\"_blank\" rel=\"noopener\">rake handle</a>, give him the assembled rake again.",
+                  "text": "Pick up and use the rake head on the rake handle, give him the assembled rake again.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "teaching-a-troll-to-farm:1j4v5os:4o9htw",
+              "html": "<a href=\"https://runescape.wiki/w/Supercompost\" target=\"_blank\" rel=\"noopener\">Supercompost</a> (optional but recommended). Without supercompost, the patch may become diseased and require curing. Regular compost and ultracompost have no effect.",
+              "text": "Supercompost (optional but recommended). Without supercompost, the patch may become diseased and require curing. Regular compost and ultracompost have no effect.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "teaching-a-troll-to-farm:1j4v5os:14umq7f",
+              "html": "<a href=\"https://runescape.wiki/w/Hardy_gout_tubers\" target=\"_blank\" rel=\"noopener\">Hardy gout tubers</a>",
+              "text": "Hardy gout tubers",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "teaching-a-troll-to-farm:1j4v5os:13gze5k",
+              "html": "<a href=\"https://runescape.wiki/w/Seed_dibber\" target=\"_blank\" rel=\"noopener\">Seed dibber</a>",
+              "text": "Seed dibber",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "teaching-a-troll-to-farm:1j4v5os:19m57y6",
+              "html": "If the patch becomes diseased, a <a href=\"https://runescape.wiki/w/Plant_cure\" target=\"_blank\" rel=\"noopener\">plant cure</a>",
+              "text": "If the patch becomes diseased, a plant cure",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:1pr9x1o",
+          "html": "Defeat the <a href=\"https://runescape.wiki/w/Baby_Roc\" target=\"_blank\" rel=\"noopener\">Baby Roc</a> after the cutscene.",
+          "text": "Defeat the Baby Roc after the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:u9ozqh",
+          "html": "Make sure to have a spade or buy one from the <a href=\"https://runescape.wiki/w/Tool_Leprechaun_(Larry)\" target=\"_blank\" rel=\"noopener\">tool leprechaun</a> now, to avoid any extra steps after the next cutscene.",
+          "text": "Make sure to have a spade or buy one from the tool leprechaun now, to avoid any extra steps after the next cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:wkymj2-2",
+          "html": "Talk to My Arm.",
+          "text": "Talk to My Arm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teaching-a-troll-to-farm:asdrho",
+          "html": "Defeat the <a href=\"https://runescape.wiki/w/Giant_Roc\" target=\"_blank\" rel=\"noopener\">Giant Roc</a> that appears after the cutscene.",
+          "text": "Defeat the Giant Roc that appears after the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-end",
+      "title": "The end?",
+      "anchor": "The_end?",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-end:wkymj2",
+          "html": "Talk to My Arm.",
+          "text": "Talk to My Arm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-end:1g9b7i1",
+          "html": "Use a <a href=\"https://runescape.wiki/w/Spade\" target=\"_blank\" rel=\"noopener\">spade</a> on him.",
+          "text": "Use a spade on him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-end:1g9b7i1:1xsm2ix",
+              "html": "If needed, you can get the leprechaun to come back by climbing the ladder down and up again.",
+              "text": "If needed, you can get the leprechaun to come back by climbing the ladder down and up again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-end:1ug0soq",
+          "html": "Return to Burntmeat in the stronghold&#39;s kitchen and talk to him.",
+          "text": "Return to Burntmeat in the stronghold's kitchen and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-end:ub7dob",
+          "html": "Return to My Arm and speak with him.",
+          "text": "Return to My Arm and speak with him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-end:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/My_Arm%27s_Big_Adventure_reward.png?a7128",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:My_Arm%27s_Big_Adventure_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience (as well as 495 more, when My Arm harvests the goutweed)",
+        "text": "5,000 experience (as well as 495 more, when My Arm harvests the goutweed)",
+        "subs": []
+      },
+      {
+        "html": "1-28 <a href=\"https://runescape.wiki/w/Burnt_meat\" target=\"_blank\" rel=\"noopener\">burnt meat</a>",
+        "text": "1-28 burnt meat",
+        "subs": []
+      },
+      {
+        "html": "Access to a disease-free <a href=\"https://runescape.wiki/w/Herb_patch_(Trollheim)\" target=\"_blank\" rel=\"noopener\">herb patch</a> on top of the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>.",
+        "text": "Access to a disease-free herb patch on top of the Troll Stronghold.",
+        "subs": []
+      },
+      {
+        "html": "Giant Roc is unlocked in <a href=\"https://runescape.wiki/w/Dominion_Tower\" target=\"_blank\" rel=\"noopener\">Dominion Tower</a>.",
+        "text": "Giant Roc is unlocked in Dominion Tower.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "My Arm's Journey",
+      "where": ""
+    },
+    {
+      "name": "Roc and Roll",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

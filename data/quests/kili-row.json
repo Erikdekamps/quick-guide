@@ -1,0 +1,306 @@
+{
+  "format": 1,
+  "id": "kili-row",
+  "title": "Kili Row",
+  "page": "Kili Row/Quick guide",
+  "rev": 37216238,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>&#39;s smithy.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1807,
+      "lon": 1148,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Kili_Row/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Necromancy!",
+        "depth": 1
+      },
+      {
+        "text": "Collect a set of necromancer robes from Sostratus",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Optional; 5 chickens (level 1, must be damaged with Necromancy)",
+        "name": "Optional; 5 chickens",
+        "count": null,
+        "level": "1, must be damaged with Necromancy",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1oywxzk",
+          "html": "2 <a href=\"https://runescape.wiki/w/Regular_ghostly_ink\" target=\"_blank\" rel=\"noopener\">regular ghostly ink</a> for drawing <a href=\"https://runescape.wiki/w/Glyphs\" target=\"_blank\" rel=\"noopener\">glyphs</a>, or having the required glyphs already drawn",
+          "text": "2 regular ghostly ink for drawing glyphs, or having the required glyphs already drawn",
+          "alternatives": []
+        },
+        {
+          "id": "req:vv0ufd",
+          "html": "7 <a href=\"https://runescape.wiki/w/Basic_ghostly_ink\" target=\"_blank\" rel=\"noopener\">basic ghostly ink</a> for drawing glyphs, or having the required glyphs already drawn",
+          "text": "7 basic ghostly ink for drawing glyphs, or having the required glyphs already drawn",
+          "alternatives": []
+        },
+        {
+          "id": "req:sahwvn",
+          "html": "4 <a href=\"https://runescape.wiki/w/Rituals#Light_sources\" target=\"_blank\" rel=\"noopener\">light sources</a> for <a href=\"https://runescape.wiki/w/Rituals\" target=\"_blank\" rel=\"noopener\">rituals</a>, or having them already set up",
+          "text": "4 light sources for rituals, or having them already set up",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:qkh4m2",
+          "html": "11 more <a href=\"https://runescape.wiki/w/Basic_ghostly_ink\" target=\"_blank\" rel=\"noopener\">basic ghostly ink</a> and <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a> for conducting a <a href=\"https://runescape.wiki/w/Lesser_communion\" target=\"_blank\" rel=\"noopener\">lesser communion</a> ritual, if doing this instead of killing <a href=\"https://runescape.wiki/w/Chicken\" target=\"_blank\" rel=\"noopener\">chickens</a> and if not having already drawn the required glyphs",
+          "text": "11 more basic ghostly ink and bones for conducting a lesser communion ritual, if doing this instead of killing chickens and if not having already drawn the required glyphs",
+          "alternatives": []
+        },
+        {
+          "id": "rec:8ox6js",
+          "html": "<a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> weapons for killing <a href=\"https://runescape.wiki/w/Chicken\" target=\"_blank\" rel=\"noopener\">chickens</a>, if doing this instead of a <a href=\"https://runescape.wiki/w/Lesser_communion\" target=\"_blank\" rel=\"noopener\">lesser communion</a> ritual",
+          "text": "Necromancy weapons for killing chickens, if doing this instead of a lesser communion ritual",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:1di0xyi",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a> by the <a href=\"https://runescape.wiki/w/Anvil\" target=\"_blank\" rel=\"noopener\">anvils</a> in north-eastern corner of the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Talk to Kili by the anvils in north-eastern corner of the City of Um.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "lesser-ensoul-material-ritual",
+      "title": "Lesser ensoul material ritual",
+      "anchor": "Lesser_ensoul_material_ritual",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "lesser-ensoul-material-ritual:yeol7z",
+          "html": "Go to the ritual site in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>.",
+          "text": "Go to the ritual site in the City of Um.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lesser-ensoul-material-ritual:8n6gto",
+          "html": "Select the <a href=\"https://runescape.wiki/w/Lesser_ensoul_material_(Kili_Row)\" target=\"_blank\" rel=\"noopener\">Lesser ensoul material (Kili Row)</a> with the <a href=\"https://runescape.wiki/w/Pedestal_(rituals)\" target=\"_blank\" rel=\"noopener\">pedestal</a>.",
+          "text": "Select the Lesser ensoul material (Kili Row) with the pedestal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lesser-ensoul-material-ritual:4467o6",
+          "html": "Complete the ritual. (requires <a href=\"https://runescape.wiki/w/Change_I\" target=\"_blank\" rel=\"noopener\">Change I</a> glyph which requires two inkwells of <a href=\"https://runescape.wiki/w/Regular_ghostly_ink\" target=\"_blank\" rel=\"noopener\">regular ghostly ink</a> and one inkwell of <a href=\"https://runescape.wiki/w/Basic_ghostly_ink\" target=\"_blank\" rel=\"noopener\">basic ghostly ink</a> to draw)",
+          "text": "Complete the ritual. (requires Change I glyph which requires two inkwells of regular ghostly ink and one inkwell of basic ghostly ink to draw)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lesser-ensoul-material-ritual:1mtxt5a",
+          "html": "Withdraw <a href=\"https://runescape.wiki/w/Kili%27s_tools_(ensouled)\" target=\"_blank\" rel=\"noopener\">Kili&#39;s tools</a> from the <a href=\"https://runescape.wiki/w/Ritual_chest\" target=\"_blank\" rel=\"noopener\">ritual chest</a> on the ritual site.",
+          "text": "Withdraw Kili's tools from the ritual chest on the ritual site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "soul-urn",
+      "title": "Soul urn",
+      "anchor": "Soul_urn",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "soul-urn:bs2sx2",
+          "html": "Go back to <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a> to get a <a href=\"https://runescape.wiki/w/Soul_urn_(Kili_Row)\" target=\"_blank\" rel=\"noopener\">soul urn</a>.",
+          "text": "Go back to Kili to get a soul urn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "soul-urn:1jzdab2",
+          "html": "Kill five <a href=\"https://runescape.wiki/w/Chicken\" target=\"_blank\" rel=\"noopener\">chickens</a> using <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> anywhere or perform a <a href=\"https://runescape.wiki/w/Lesser_communion\" target=\"_blank\" rel=\"noopener\">lesser communion</a> ritual at the ritual site.",
+          "text": "Kill five chickens using Necromancy anywhere or perform a lesser communion ritual at the ritual site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1ol8z73",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a>.",
+          "text": "Talk to Kili.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Kili_Row_reward.png?14e9a",
+      "width": 512,
+      "height": 343,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Kili_Row_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Lesser_ensoul_material\" target=\"_blank\" rel=\"noopener\">lesser</a>, <a href=\"https://runescape.wiki/w/Ensoul_material\" target=\"_blank\" rel=\"noopener\">regular</a>, and <a href=\"https://runescape.wiki/w/Greater_ensoul_material\" target=\"_blank\" rel=\"noopener\">greater ensoul material</a> rituals",
+        "text": "Access to lesser, regular, and greater ensoul material rituals",
+        "subs": []
+      },
+      {
+        "html": "Ability to upgrade <a href=\"https://runescape.wiki/w/Death_Skull_equipment\" target=\"_blank\" rel=\"noopener\">Death Skull equipment</a> and <a href=\"https://runescape.wiki/w/Deathwarden_robe_armour\" target=\"_blank\" rel=\"noopener\">deathwarden robe armour</a> to tier 20",
+        "text": "Ability to upgrade Death Skull equipment and deathwarden robe armour to tier 20",
+        "subs": []
+      },
+      {
+        "html": "Ability to learn further equipment upgrades from <a href=\"https://runescape.wiki/w/Kili\" target=\"_blank\" rel=\"noopener\">Kili</a>",
+        "text": "Ability to learn further equipment upgrades from Kili",
+        "subs": []
+      },
+      {
+        "html": "Ability to access <a href=\"https://runescape.wiki/w/Thalmund\" target=\"_blank\" rel=\"noopener\">Thalmund</a> and <a href=\"https://runescape.wiki/w/Thalmund%27s_Wares\" target=\"_blank\" rel=\"noopener\">Thalmund&#39;s Wares</a>",
+        "text": "Ability to access Thalmund and Thalmund's Wares",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Kili_Row_(achievement)\" target=\"_blank\" rel=\"noopener\">Kili Row</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Easy_Underworld_achievements\" target=\"_blank\" rel=\"noopener\">Easy Underworld achievements</a></b> - <a href=\"https://runescape.wiki/w/Basic_Soul_Forgery\" target=\"_blank\" rel=\"noopener\">Basic Soul Forgery</a> (5) – Upgrade a piece of Death Skull or Deathwarden equipment to tier 20."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>",
+        "<a href=\"https://runescape.wiki/w/The_Spirit_of_War/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Spirit of War</a> (full completion)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Hermy and Bass</a>",
+        "<a href=\"https://runescape.wiki/w/Tomes_of_the_Warlock/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tomes of the Warlock</a>"
+      ]
+    }
+  ]
+}

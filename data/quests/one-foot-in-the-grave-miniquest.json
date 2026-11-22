@@ -1,0 +1,497 @@
+{
+  "format": 1,
+  "id": "one-foot-in-the-grave-miniquest",
+  "title": "One Foot in the Grave (miniquest)",
+  "page": "One Foot in the Grave (miniquest)/Quick guide",
+  "rev": 37026733,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Zavistic_Rarve\" target=\"_blank\" rel=\"noopener\">Zavistic Rarve</a> at the <a href=\"https://runescape.wiki/w/Wizards%27_Guild\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Guild</a> with <a href=\"https://runescape.wiki/w/Hand_(Back_to_my_Roots)\" target=\"_blank\" rel=\"noopener\">Clarence&#39;s hand</a> in your backpack.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3085,
+      "lon": 2598,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/One_Foot_in_the_Grave_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Hand in the Sand",
+        "depth": 1
+      },
+      {
+        "text": "Partial completion of Back to my Roots",
+        "depth": 1
+      },
+      {
+        "text": "The Hand in the Sand",
+        "depth": 2
+      },
+      {
+        "text": "Tribal Totem",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Monsters in the jade vine maze (level 42 to level 84)",
+        "name": "Monsters in the jade vine maze",
+        "count": null,
+        "level": "42 to level 84",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Karamja</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:19y2ghb",
+          "html": "<a href=\"https://runescape.wiki/w/Hand_(Back_to_my_Roots)\" target=\"_blank\" rel=\"noopener\">Hand</a> (from the <a href=\"https://runescape.wiki/w/Back_to_my_Roots\" target=\"_blank\" rel=\"noopener\">Back to my Roots</a> quest)",
+          "text": "Hand (from the Back to my Roots quest)",
+          "alternatives": [
+            "If lost, you can get a new one as a drop from creatures at the <a href=\"https://runescape.wiki/w/Jade_vine_maze\" target=\"_blank\" rel=\"noopener\">jade vine maze</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:d9n86f",
+          "html": "<a href=\"https://runescape.wiki/w/Magic_armour\" target=\"_blank\" rel=\"noopener\">Magic armour</a> and runes to cast fire spells.",
+          "text": "Magic armour and runes to cast fire spells.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:180jjih",
+          "html": "<a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">Antipoison</a> (for some monsters in the <a href=\"https://runescape.wiki/w/Jade_vine_maze\" target=\"_blank\" rel=\"noopener\">jade vine maze</a>)",
+          "text": "Antipoison (for some monsters in the jade vine maze)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pvxr9r",
+          "html": "<a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a> unlocked",
+          "text": "Yanille lodestone unlocked",
+          "alternatives": []
+        },
+        {
+          "id": "rec:z6e4r5",
+          "html": "<a href=\"https://runescape.wiki/w/Nature_altar_teleport\" target=\"_blank\" rel=\"noopener\">Nature altar teleport</a>",
+          "text": "Nature altar teleport",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "off-to-see-the-wizard",
+      "title": "Off to see the wizard",
+      "anchor": "Off_to_see_the_wizard",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "off-to-see-the-wizard:k0xrrl",
+          "html": "Check your bank for a <a href=\"https://runescape.wiki/w/Hand_(Back_to_my_Roots)\" target=\"_blank\" rel=\"noopener\">Hand</a>.",
+          "text": "Check your bank for a Hand.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "off-to-see-the-wizard:k0xrrl:jvijrh",
+              "html": "You may obtain one from an <a href=\"https://runescape.wiki/w/RPDT_employee\" target=\"_blank\" rel=\"noopener\">RPDT employee</a> in <a href=\"https://runescape.wiki/w/East_Ardougne\" target=\"_blank\" rel=\"noopener\">East Ardougne</a> or by killing creatures in the <a href=\"https://runescape.wiki/w/Jade_vine_maze\" target=\"_blank\" rel=\"noopener\">jade vine maze</a> (at least one empty backpack space is required to obtain it as a drop).",
+              "text": "You may obtain one from an RPDT employee in East Ardougne or by killing creatures in the jade vine maze (at least one empty backpack space is required to obtain it as a drop).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "off-to-see-the-wizard:7vljbi",
+          "html": "With the hand, head to the <a href=\"https://runescape.wiki/w/Wizards%27_Guild\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Guild</a> in <a href=\"https://runescape.wiki/w/Yanille\" target=\"_blank\" rel=\"noopener\">Yanille</a> and <i>ring</i> the <a href=\"https://runescape.wiki/w/Bell_(Wizards%27_Guild)\" target=\"_blank\" rel=\"noopener\">bell</a> outside on the eastern side of the guild.",
+          "text": "With the hand, head to the Wizards' Guild in Yanille and ring the bell outside on the eastern side of the guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "off-to-see-the-wizard:suonll",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Zavistic_Rarve\" target=\"_blank\" rel=\"noopener\">Zavistic Rarve</a>.",
+          "text": "Speak to Zavistic Rarve.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I have a rather sandy problem that I'd like to palm off on you"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "back-to-your-roots",
+      "title": "Back to your roots",
+      "anchor": "Back_to_your_roots",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "back-to-your-roots:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:33qac6",
+          "html": "Before you begin, search your bank for already-obtained body parts listed below and withdraw them now.",
+          "text": "Before you begin, search your bank for already-obtained body parts listed below and withdraw them now.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:12wx3ja",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Jade_vine_maze\" target=\"_blank\" rel=\"noopener\">Jade vine maze</a> on Karamja.",
+          "text": "Go to the Jade vine maze on Karamja.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:3vj2ga",
+          "html": "Kill creatures inside the maze until you receive the six body parts. These do not show up on area loot, the pieces drop in order and you must pick up the piece prior to the next drop or duplicates drop. Ensure your backpack is never full as pieces cannot drop if it is.",
+          "text": "Kill creatures inside the maze until you receive the six body parts. These do not show up on area loot, the pieces drop in order and you must pick up the piece prior to the next drop or duplicates drop. Ensure your backpack is never full as pieces cannot drop if it is.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:1c4wuk9",
+              "html": "<a href=\"https://runescape.wiki/w/Foot\" target=\"_blank\" rel=\"noopener\">Foot</a>",
+              "text": "Foot",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:ff1rvo",
+              "html": "<a href=\"https://runescape.wiki/w/Torso_(Back_to_my_Roots)\" target=\"_blank\" rel=\"noopener\">Torso</a>",
+              "text": "Torso",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:re98bu",
+              "html": "<a href=\"https://runescape.wiki/w/Left_arm\" target=\"_blank\" rel=\"noopener\">Left arm</a>",
+              "text": "Left arm",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:8vslgv",
+              "html": "<a href=\"https://runescape.wiki/w/Right_arm\" target=\"_blank\" rel=\"noopener\">Right arm</a>",
+              "text": "Right arm",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:256odo",
+              "html": "<a href=\"https://runescape.wiki/w/Left_leg\" target=\"_blank\" rel=\"noopener\">Left leg</a>",
+              "text": "Left leg",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "back-to-your-roots:3vj2ga:lik6ih",
+              "html": "<a href=\"https://runescape.wiki/w/Right_leg\" target=\"_blank\" rel=\"noopener\">Right leg</a>",
+              "text": "Right leg",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "Certain monsters in the maze drop the parts, with the exception of <a href=\"https://runescape.wiki/w/Monkey\" target=\"_blank\" rel=\"noopener\">monkeys</a>, ordered from most likely to least likely to drop body parts:"
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:1yna87d",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_ant_soldier\" target=\"_blank\" rel=\"noopener\">Giant ant soldier</a>",
+          "text": "Giant ant soldier",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:8g73t3",
+          "html": "<a href=\"https://runescape.wiki/w/Frog\" target=\"_blank\" rel=\"noopener\">Frog</a>",
+          "text": "Frog",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:176ypor",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_ant_worker\" target=\"_blank\" rel=\"noopener\">Giant ant worker</a>",
+          "text": "Giant ant worker",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:5axpt6",
+          "html": "<a href=\"https://runescape.wiki/w/Pernicious_parrot\" target=\"_blank\" rel=\"noopener\">Pernicious parrot</a>",
+          "text": "Pernicious parrot",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:jx7poq",
+          "html": "<a href=\"https://runescape.wiki/w/Tenacious_toucan\" target=\"_blank\" rel=\"noopener\">Tenacious toucan</a>",
+          "text": "Tenacious toucan",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:t3ifzt",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_wasp\" target=\"_blank\" rel=\"noopener\">Giant wasp</a>",
+          "text": "Giant wasp",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-your-roots:1c0v09p",
+          "html": "<a href=\"https://runescape.wiki/w/Jungle_spider\" target=\"_blank\" rel=\"noopener\">Jungle spider</a>",
+          "text": "Jungle spider",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Notes"
+        }
+      ]
+    },
+    {
+      "id": "sandy-s-diary",
+      "title": "Sandy's diary",
+      "anchor": "Sandy's_diary",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "sandy-s-diary:owphpq",
+          "html": "Go back to the Wizards&#39; Guild and ring the bell to speak to Zavistic Rarve.",
+          "text": "Go back to the Wizards' Guild and ring the bell to speak to Zavistic Rarve.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I have a rather sandy problem that I'd like to palm off on you."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'm ready to go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sandy-s-diary:1j0xlhf",
+          "html": "Search <a href=\"https://runescape.wiki/w/Sandy%27s_Desk\" target=\"_blank\" rel=\"noopener\">Sandy&#39;s desk</a> to receive a locked diary.",
+          "text": "Search Sandy's desk to receive a locked diary.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sandy-s-diary:1q7ndtu",
+          "html": "Click on the locked diary to unlock it.",
+          "text": "Click on the locked diary to unlock it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sandy-s-diary:1q7ndtu:1d24m5t",
+              "html": "There is a rare chance that you may trigger a trap so it is advised you do this in a safe area as it can cause over 8,000 damage.",
+              "text": "There is a rare chance that you may trigger a trap so it is advised you do this in a safe area as it can cause over 8,000 damage.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remembrance-of-clarence",
+      "title": "Remembrance of Clarence",
+      "anchor": "Remembrance_of_Clarence",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "remembrance-of-clarence:5dr0rb",
+          "html": "Return to the Wizards&#39; Guild and ring the bell to speak to Zavistic Rarve.",
+          "text": "Return to the Wizards' Guild and ring the bell to speak to Zavistic Rarve.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I have a rather sandy problem that I'd like to palm off on you."
+                },
+                {
+                  "key": "1",
+                  "text": "Sure, I'd be honoured to attend."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/One_Foot_in_the_Grave_%28miniquest%29_reward.png?445df",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:One_Foot_in_the_Grave_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "10,000 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> experience",
+        "text": "10,000 Magic experience",
+        "subs": []
+      },
+      {
+        "html": "200 <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood runes</a>",
+        "text": "200 blood runes",
+        "subs": []
+      },
+      {
+        "html": "100 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law runes</a>",
+        "text": "100 law runes",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/One_Foot_in_the_Grave_(miniquest)_(achievement)\" target=\"_blank\" rel=\"noopener\">One Foot in the Grave (miniquest)</a> (15) – Complete this miniquest."
+  ],
+  "requiredFor": []
+}

@@ -1,0 +1,1369 @@
+{
+  "format": 1,
+  "id": "some-like-it-cold",
+  "title": "Some Like It Cold",
+  "page": "Some Like It Cold/Quick guide",
+  "rev": 37106610,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Chuck\" target=\"_blank\" rel=\"noopener\">Chuck</a> at <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3258,
+      "lon": 2615,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Some_Like_It_Cold/Quick_guide"
+    },
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Hunt for Red Raktuber",
+        "depth": 1
+      },
+      {
+        "text": "Cold War",
+        "depth": 2
+      },
+      {
+        "text": "Sea Slug",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 56,
+        "note": ""
+      },
+      {
+        "skill": "Fishing",
+        "level": 65,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1qa1e0a",
+          "html": "<a href=\"https://runescape.wiki/w/Clockwork_suit\" target=\"_blank\" rel=\"noopener\">Clockwork suit</a> (if not using the <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_3\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench</a> in <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a> to make the costumes)",
+          "text": "Clockwork suit (if not using the clockmaker's bench in player-owned house to make the costumes)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1srs7pw",
+          "html": "At least 5 backpack spaces for the <a href=\"https://runescape.wiki/w/Ransom_letter\" target=\"_blank\" rel=\"noopener\">ransom letter</a> and materials to make costumes for <a href=\"https://runescape.wiki/w/Ping\" target=\"_blank\" rel=\"noopener\">Ping</a> and <a href=\"https://runescape.wiki/w/Pong\" target=\"_blank\" rel=\"noopener\">Pong</a>",
+          "text": "At least 5 backpack spaces for the ransom letter and materials to make costumes for Ping and Pong",
+          "alternatives": []
+        },
+        {
+          "id": "req:y1ni6h",
+          "html": "You will be required to deposit all your items and worn items at some point during the quest.",
+          "text": "You will be required to deposit all your items and worn items at some point during the quest.",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:h9sxjh",
+          "html": "<a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_3\" target=\"_blank\" rel=\"noopener\">Clockmaker&#39;s bench 3</a> in your <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a>",
+          "text": "Clockmaker's bench 3 in your player-owned house",
+          "alternatives": []
+        },
+        {
+          "id": "rec:sfgxlf",
+          "html": "<a href=\"https://runescape.wiki/w/Teleport_to_house\" target=\"_blank\" rel=\"noopener\">Teleport to house</a>",
+          "text": "Teleport to house",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rlq6i6",
+          "html": "<a href=\"https://runescape.wiki/w/Enchanted_Lyre\" target=\"_blank\" rel=\"noopener\">Enchanted Lyre</a> for teleports to <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>",
+          "text": "Enchanted Lyre for teleports to Rellekka",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:h5bwqd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Chuck\" target=\"_blank\" rel=\"noopener\">Chuck</a> the polar bear in <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>.",
+          "text": "Talk to Chuck the polar bear in Ardougne Zoo.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1oido7y",
+          "html": "Speak to him again.",
+          "text": "Speak to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Some Like It Cold Quest"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:z0bmx4",
+          "html": "Speak to him a final time to be teleported",
+          "text": "Speak to him a final time to be teleported",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Some Like It Cold Quest"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-seal",
+      "title": "The seal",
+      "anchor": "The_seal",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-seal:1cpc7uk",
+          "html": "After being teleported by Chuck, head west to the seals.",
+          "text": "After being teleported by Chuck, head west to the seals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:1p6gvon",
+          "html": "<i>Wake up</i> the seal that can be interacted with.",
+          "text": "Wake up the seal that can be interacted with.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm looking for a polar bear."
+                },
+                {
+                  "key": "1",
+                  "text": "How can I entertain you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:midxbq",
+          "html": "Perform the <a href=\"https://runescape.wiki/w/Dance\" target=\"_blank\" rel=\"noopener\">Dance</a> or <a href=\"https://runescape.wiki/w/Jump_For_Joy\" target=\"_blank\" rel=\"noopener\">Jump For Joy</a> <a href=\"https://runescape.wiki/w/Emote\" target=\"_blank\" rel=\"noopener\">emote</a>.",
+          "text": "Perform the Dance or Jump For Joy emote.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:1erlxsq",
+          "html": "Talk to the seal.",
+          "text": "Talk to the seal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's wrong with penguins?"
+                },
+                {
+                  "key": "2",
+                  "text": "Where does your band live?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:3hlfhl",
+          "html": "<i>Travel-Iceberg</i> the smaller boat to the north-east.",
+          "text": "Travel-Iceberg the smaller boat to the north-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:13azxc7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ping_%26_Pong\" target=\"_blank\" rel=\"noopener\">Ping &amp; Pong</a>. You don&#39;t need to be in your tuxedo for this.",
+          "text": "Talk to Ping & Pong. You don't need to be in your tuxedo for this.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:4bl8fm",
+          "html": "After receiving the items from them, do one of the following:",
+          "text": "After receiving the items from them, do one of the following:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-seal:4bl8fm:1acroyo",
+              "html": "Option one",
+              "text": "Option one",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:1acroyo:19vcro",
+                  "html": "Use a <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_4\" target=\"_blank\" rel=\"noopener\">Clockmaker&#39;s bench 4</a> in a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a> to make their <a href=\"https://runescape.wiki/w/Rock_costume\" target=\"_blank\" rel=\"noopener\">rock costume</a>.",
+                  "text": "Use a Clockmaker's bench 4 in a player-owned house to make their rock costume.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:1acroyo:8gx31u",
+                  "html": "To return, use the <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a> and head north to board the ship to <a href=\"https://runescape.wiki/w/Iceberg\" target=\"_blank\" rel=\"noopener\">iceberg</a>.",
+                  "text": "To return, use the Fremennik Province lodestone and head north to board the ship to iceberg.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "the-seal:4bl8fm:a8zziu",
+              "html": "Option two",
+              "text": "Option two",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:a8zziu:vp3s4z",
+                  "html": "Head to the north-east corner of the Iceberg and right-click <a href=\"https://runescape.wiki/w/Jim\" target=\"_blank\" rel=\"noopener\">Jim</a>, a well disguised polar bear next to the stepping stones, and select &#39;tuxedo-time&#39;.",
+                  "text": "Head to the north-east corner of the Iceberg and right-click Jim, a well disguised polar bear next to the stepping stones, and select 'tuxedo-time'.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:a8zziu:znf4jn",
+                  "html": "Head to the north-west and investigate the avalanche of snow. Follow the main hall to the end and talk to the <a href=\"https://runescape.wiki/w/KGP_agent\" target=\"_blank\" rel=\"noopener\">KGP agent</a> in the booth.",
+                  "text": "Head to the north-west and investigate the avalanche of snow. Follow the main hall to the end and talk to the KGP agent in the booth.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:a8zziu:16zjiui",
+                  "html": "After proceeding through the door, head east and then follow the western wall in the war-room to the western workbench. Craft Ping &amp; Pong&#39;s costumes there.",
+                  "text": "After proceeding through the door, head east and then follow the western wall in the war-room to the western workbench. Craft Ping & Pong's costumes there.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:a8zziu:f28ypb",
+                  "html": "Head back outside. To get back in to the hallway, <i>Push</i> the <a href=\"https://runescape.wiki/w/Big_button?action=edit&amp;redlink=1\" target=\"_blank\" rel=\"noopener\">big button</a> west of the gate.",
+                  "text": "Head back outside. To get back in to the hallway, Push the big button west of the gate.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-seal:4bl8fm:a8zziu:154tm4m",
+                  "html": "Return to Jim, the polar bear, to get out of tuxedo.",
+                  "text": "Return to Jim, the polar bear, to get out of tuxedo.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-seal:wp8oav",
+          "html": "Give Ping &amp; Pong their costumes.",
+          "text": "Give Ping & Pong their costumes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:4sqw74",
+          "html": "Board the nearby boat to return to the seals.",
+          "text": "Board the nearby boat to return to the seals.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-seal:ymw472",
+          "html": "<i>Wake up</i> the seal, bank any items, including your <a href=\"https://runescape.wiki/w/Clockwork_suit\" target=\"_blank\" rel=\"noopener\">clockwork suit</a>, and head to the camp. There is a deposit box option when talking to the seal.",
+          "text": "Wake up the seal, bank any items, including your clockwork suit, and head to the camp. There is a deposit box option when talking to the seal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "prisoner-of-walrus-camp",
+      "title": "Prisoner of Walrus Camp",
+      "anchor": "Prisoner_of_Walrus_Camp",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1j53xy2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Teddy\" target=\"_blank\" rel=\"noopener\">Teddy</a>, the polar bear in a clown costume, in the centre of the camp.",
+          "text": "Talk to Teddy, the polar bear in a clown costume, in the centre of the camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:ur3w1c",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Larry\" target=\"_blank\" rel=\"noopener\">Larry</a>, north of Teddy",
+          "text": "Talk to Larry, north of Teddy",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:16j62uo",
+          "html": "Talk to Teddy again.",
+          "text": "Talk to Teddy again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:onyor0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Noodle\" target=\"_blank\" rel=\"noopener\">Noodle</a> outside the south-west building.",
+          "text": "Talk to Noodle outside the south-west building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:mv9b2h",
+          "html": "Try to open the door to the southern building where the <a href=\"https://runescape.wiki/w/Walrus\" target=\"_blank\" rel=\"noopener\">Walrus</a> is in.",
+          "text": "Try to open the door to the southern building where the Walrus is in.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1mlajz",
+          "html": "<i>Take bat-in-box</i> the <a href=\"https://runescape.wiki/w/Bat-in-box\" target=\"_blank\" rel=\"noopener\">bat-in-box</a> (slightly west of the door where the walrus is) from the front of the building.",
+          "text": "Take bat-in-box the bat-in-box (slightly west of the door where the walrus is) from the front of the building.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:xq0j5b",
+          "html": "Encourage Teddy, Ping, Pong, and <a href=\"https://runescape.wiki/w/Bouncer_(Some_Like_It_Cold)\" target=\"_blank\" rel=\"noopener\">Bouncer</a> to make noise by clicking on them repeatedly in turn. Click Ping, then Pong, then Bouncer, then Teddy until a cutscene starts. Their bars should all be blue, so it&#39;s a good idea to walk in circles.",
+          "text": "Encourage Teddy, Ping, Pong, and Bouncer to make noise by clicking on them repeatedly in turn. Click Ping, then Pong, then Bouncer, then Teddy until a cutscene starts. Their bars should all be blue, so it's a good idea to walk in circles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:85z31e",
+          "html": "When the Walrus is outside, enter his building and steal from the table to receive an <a href=\"https://runescape.wiki/w/Egg_(Some_Like_It_Cold)\" target=\"_blank\" rel=\"noopener\">egg</a>.",
+          "text": "When the Walrus is outside, enter his building and steal from the table to receive an egg.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:hs4gux",
+          "html": "Talk to Larry in the north with the egg.",
+          "text": "Talk to Larry in the north with the egg.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1r5alb8",
+          "html": "Talk to Teddy.",
+          "text": "Talk to Teddy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:hjuehw",
+          "html": "Talk to all six of the unnamed penguins. (Four in the courtyard, one between the north and north-west buildings and one, hard to see depending on camera angle, on the <a href=\"https://runescape.wiki/w/Fishing_hole?action=edit&amp;redlink=1\" target=\"_blank\" rel=\"noopener\">fishing hole</a> in the north-east corner).",
+          "text": "Talk to all six of the unnamed penguins. (Four in the courtyard, one between the north and north-west buildings and one, hard to see depending on camera angle, on the fishing hole in the north-east corner).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1r5alb8-2",
+          "html": "Talk to Teddy.",
+          "text": "Talk to Teddy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:18movtb",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Plaza\" target=\"_blank\" rel=\"noopener\">Plaza</a> outside the easternmost building.",
+          "text": "Talk to Plaza outside the easternmost building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:kkr6zp",
+          "html": "Collect the following items:",
+          "text": "Collect the following items:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:kkr6zp:an8c30",
+              "html": "Fish the fishing hole in the north-east until you receive a <a href=\"https://runescape.wiki/w/Shark_tooth_(Some_Like_It_Cold)\" target=\"_blank\" rel=\"noopener\">shark tooth</a> and <a href=\"https://runescape.wiki/w/Squid\" target=\"_blank\" rel=\"noopener\">squid</a>.",
+              "text": "Fish the fishing hole in the north-east until you receive a shark tooth and squid.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:kkr6zp:oq22zq",
+              "html": "Take a <a href=\"https://runescape.wiki/w/Board\" target=\"_blank\" rel=\"noopener\">board</a> from the wood scrap pile north of the easternmost building.",
+              "text": "Take a board from the wood scrap pile north of the easternmost building.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:kkr6zp:1f6cj37",
+              "html": "Search the shelves in the easternmost building for <a href=\"https://runescape.wiki/w/Olive_oil_(Some_Like_It_Cold)\" target=\"_blank\" rel=\"noopener\">olive oil</a>, <a href=\"https://runescape.wiki/w/Popsicle_tray\" target=\"_blank\" rel=\"noopener\">popsicle tray</a>, and a <a href=\"https://runescape.wiki/w/Rock_carving_hammer\" target=\"_blank\" rel=\"noopener\">rock carving hammer</a>.",
+              "text": "Search the shelves in the easternmost building for olive oil, popsicle tray, and a rock carving hammer.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:kkr6zp:sara1i",
+              "html": "Right click Teddy and <i>Tear off fabric</i>.",
+              "text": "Right click Teddy and Tear off fabric.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:kkr6zp:xvxwld",
+              "html": "Search the shelves in the south-west building for <a href=\"https://runescape.wiki/w/Lye\" target=\"_blank\" rel=\"noopener\">lye</a> and a <a href=\"https://runescape.wiki/w/Cork_screw\" target=\"_blank\" rel=\"noopener\">cork screw</a>.",
+              "text": "Search the shelves in the south-west building for lye and a cork screw.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "If you lose any of your supplies, talk to Teddy to reclaim them."
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1pbe9na",
+          "html": "Once all of the supplies are obtained:",
+          "text": "Once all of the supplies are obtained:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:1pbe9na:1c3sfk4",
+              "html": "Use the lye on the olive oil.",
+              "text": "Use the lye on the olive oil.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:1pbe9na:kfkzqo",
+              "html": "Use the unmoulded soap on the popsicle tray.",
+              "text": "Use the unmoulded soap on the popsicle tray.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:1pbe9na:1k5xtyq",
+              "html": "Use the squid on the popsicle tray.",
+              "text": "Use the squid on the popsicle tray.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:1pbe9na:lof2s",
+              "html": "Use the hammer on the soap.",
+              "text": "Use the hammer on the soap.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:1pbe9na:17dvvvk",
+              "html": "With a shark tooth in your backpack, use the ripped fabric on the board.",
+              "text": "With a shark tooth in your backpack, use the ripped fabric on the board.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1domrj4",
+          "html": "Talk to Plaza.",
+          "text": "Talk to Plaza.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:1r5alb8-3",
+          "html": "Talk to Teddy.",
+          "text": "Talk to Teddy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prisoner-of-walrus-camp:14keoby",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Astoria\" target=\"_blank\" rel=\"noopener\">Astoria</a> outside the easternmost building.",
+          "text": "Talk to Astoria outside the easternmost building.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "prisoner-of-walrus-camp:14keoby:1iq4mo0",
+              "html": "If you are not prompted to start the game, talk to Teddy again.",
+              "text": "If you are not prompted to start the game, talk to Teddy again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reparations",
+      "title": "Reparations",
+      "anchor": "Reparations",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "reparations:1xpoogu",
+          "html": "Defeat Astoria in a game of Battlefish.",
+          "text": "Defeat Astoria in a game of Battlefish.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "reparations:1xpoogu:11k58u8",
+              "html": "Place your fish anywhere on the board.",
+              "text": "Place your fish anywhere on the board.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:1xpoogu:1qjwihl",
+              "html": "You can click on the &quot;HIT&quot; and &quot;MISS&quot; notifications to speed up this section considerably. But beware spam clicking may exit the game making you start over.",
+              "text": "You can click on the \"HIT\" and \"MISS\" notifications to speed up this section considerably. But beware spam clicking may exit the game making you start over.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:1xpoogu:1ldelv0",
+              "html": "Solution:",
+              "text": "Solution:",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "label": "Astoria's ship locations",
+          "head": [
+            "",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J"
+          ],
+          "rows": [
+            [
+              "1",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "8",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "9",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "reparations:ajcgro",
+          "html": "In the small building just south-east, take from the circus prop crate on the northern wall.",
+          "text": "In the small building just south-east, take from the circus prop crate on the northern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "reparations:1r5alb8",
+          "html": "Talk to Teddy.",
+          "text": "Talk to Teddy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "reparations:q8u9lq",
+          "html": "To repair the engine:",
+          "text": "To repair the engine:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:12aaz5e",
+              "html": "Use Bowling pin -&gt; lever opening",
+              "text": "Use Bowling pin -> lever opening",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:moml4r",
+              "html": "Use Hula hoop -&gt; broken valve wheel",
+              "text": "Use Hula hoop -> broken valve wheel",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:11zrv76",
+              "html": "Use Circus plate -&gt; pressure gauge",
+              "text": "Use Circus plate -> pressure gauge",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:8i2qdz",
+              "html": "Use Foam finger -&gt; pressure gauge",
+              "text": "Use Foam finger -> pressure gauge",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:w1a7b2",
+              "html": "Use Balloon -&gt; metal wire",
+              "text": "Use Balloon -> metal wire",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:1tnl9s7",
+              "html": "Use Insulated wire -&gt; wirebox",
+              "text": "Use Insulated wire -> wirebox",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "reparations:q8u9lq:1mjkjcw",
+              "html": "Use Cloth -&gt; cracked pipe",
+              "text": "Use Cloth -> cracked pipe",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "escape",
+      "title": "Escape",
+      "anchor": "Escape",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "escape:1r5alb8",
+          "html": "Talk to Teddy.",
+          "text": "Talk to Teddy.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "No, I know what needs to be done."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "escape:1clptgb",
+          "html": "Defeat the seals in Battlefish (if you accidentally exit, click on the periscope through the door to the left).",
+          "text": "Defeat the seals in Battlefish (if you accidentally exit, click on the periscope through the door to the left).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "escape:1clptgb:1ldelv0",
+              "html": "Solution:",
+              "text": "Solution:",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "label": "Seals' ship locations",
+          "head": [
+            "",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J"
+          ],
+          "rows": [
+            [
+              "1",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">"
+            ],
+            [
+              "2",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "8",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "9",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "<img src=\"https://runescape.wiki/images/X_mark.svg?d03a7\" alt=\"Red X\" width=\"17\" height=\"17\" loading=\"lazy\" decoding=\"async\">",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "escape:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Some_Like_It_Cold_reward.png?8e1f7",
+      "width": 512,
+      "height": 402,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Some_Like_It_Cold_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "40,000 experience",
+        "text": "40,000 experience",
+        "subs": []
+      },
+      {
+        "html": "40,000 experience",
+        "text": "40,000 experience",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to a new thieving event in the <a href=\"https://runescape.wiki/w/Balthazar_Beauregard%27s_Big_Top_Bonanza\" target=\"_blank\" rel=\"noopener\">Circus</a>",
+        "text": "Access to a new thieving event in the Circus",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Rock_costume\" target=\"_blank\" rel=\"noopener\">Rock</a> and <a href=\"https://runescape.wiki/w/Pop_costume\" target=\"_blank\" rel=\"noopener\">Pop costumes</a> for clockwork penguin",
+        "text": "Rock and Pop costumes for clockwork penguin",
+        "subs": []
+      },
+      {
+        "html": "Extension to <a href=\"https://runescape.wiki/w/Penguin_Hide_and_Seek\" target=\"_blank\" rel=\"noopener\">Penguin Hide and Seek</a>, which consists of a 3-point Penguin Spy that requires the seeker to be wearing a <a href=\"https://runescape.wiki/w/Ring_of_visibility\" target=\"_blank\" rel=\"noopener\">ring of visibility</a> to be able to spot it. The penguin randomly teleports every few minutes. It can also travel across the water and over mountains to any part of the Gielinor surface.",
+        "text": "Extension to Penguin Hide and Seek, which consists of a 3-point Penguin Spy that requires the seeker to be wearing a ring of visibility to be able to spot it. The penguin randomly teleports every few minutes. It can also travel across the water and over mountains to any part of the Gielinor surface.",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Early bird bonus",
+        "items": [
+          {
+            "html": "<a href=\"https://runescape.wiki/w/Early_bird_tome_(Some_Like_It_Cold)\" target=\"_blank\" rel=\"noopener\">Early bird tome</a> for players who completed the quest before 23:59 UTC on <a href=\"https://runescape.wiki/w/28_August\" target=\"_blank\" rel=\"noopener\">28 August</a> <a href=\"https://runescape.wiki/w/2012\" target=\"_blank\" rel=\"noopener\">2012</a>.",
+            "text": "Early bird tome for players who completed the quest before 23:59 UTC on 28 August 2012.",
+            "subs": [
+              "40,000 experience",
+              "40,000 experience",
+              "10,000 experience",
+              "10,000 experience"
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Penguin Prison",
+      "where": ""
+    },
+    {
+      "name": "Sub Way",
+      "where": ""
+    },
+    {
+      "name": "Death",
+      "where": "If you have not already unlocked it"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Back_to_the_Freezer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Back to the Freezer</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1461 @@
+{
+  "format": 1,
+  "id": "blood-runs-deep",
+  "title": "Blood Runs Deep",
+  "page": "Blood Runs Deep/Quick guide",
+  "rev": 37061567,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a> on <a href=\"https://runescape.wiki/w/Lunar_Isle\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3928,
+      "lon": 2088,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Blood_Runs_Deep/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Horror from the Deep",
+        "depth": 1
+      },
+      {
+        "text": "Bar Crawl (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Dream Mentor",
+        "depth": 1
+      },
+      {
+        "text": "Lunar Diplomacy",
+        "depth": 2
+      },
+      {
+        "text": "The Fremennik Trials",
+        "depth": 3
+      },
+      {
+        "text": "Lost City",
+        "depth": 3
+      },
+      {
+        "text": "Glorious Memories",
+        "depth": 1
+      },
+      {
+        "text": "Mountain Daughter",
+        "depth": 2
+      },
+      {
+        "text": "The Fremennik Isles",
+        "depth": 2
+      },
+      {
+        "text": "The Fremennik Trials",
+        "depth": 3
+      },
+      {
+        "text": "Royal Trouble",
+        "depth": 2
+      },
+      {
+        "text": "Throne of Miscellania",
+        "depth": 3
+      },
+      {
+        "text": "The Fremennik Trials",
+        "depth": 4
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Attack",
+        "level": 75,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 65,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 75,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "At least 50 dagannoths (level 78)",
+        "name": "At least 50 dagannoths",
+        "count": null,
+        "level": "78",
+        "note": ""
+      },
+      {
+        "text": "2 Dagannoth sentinels (level 98)",
+        "name": "Dagannoth sentinels",
+        "count": 2,
+        "level": "98",
+        "note": ""
+      },
+      {
+        "text": "Dagannoth Mother (level 102)",
+        "name": "Dagannoth Mother",
+        "count": null,
+        "level": "102",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1lpetqi",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a> (obtained during the quest)",
+          "text": "Rope (obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1kzcd55",
+          "html": "Weapons for the <a href=\"https://runescape.wiki/w/Melee\" target=\"_blank\" rel=\"noopener\">Melee</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> and <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> combat styles",
+          "text": "Weapons for the Melee, Ranged and Magic combat styles",
+          "alternatives": []
+        },
+        {
+          "id": "req:bm0xgy",
+          "html": "All four elemental spells: <a href=\"https://runescape.wiki/w/Blast_spells\" target=\"_blank\" rel=\"noopener\">Blast</a>, <a href=\"https://runescape.wiki/w/Wave_spells\" target=\"_blank\" rel=\"noopener\">Wave</a>, or <a href=\"https://runescape.wiki/w/Surge_spells\" target=\"_blank\" rel=\"noopener\">Surge spells</a> recommended",
+          "text": "All four elemental spells: Blast, Wave, or Surge spells recommended",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1k29dxi",
+          "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer potions</a>",
+          "text": "Prayer potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:h8hmx7",
+          "html": "<a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">Armour</a> that provides minimal penalties to Ranged or Magic but still has good defensive properties. <a href=\"https://runescape.wiki/w/Armour/Hybrid_armour\" target=\"_blank\" rel=\"noopener\">Hybrid armour</a> is recommended because style switching is required",
+          "text": "Armour that provides minimal penalties to Ranged or Magic but still has good defensive properties. Hybrid armour is recommended because style switching is required",
+          "alternatives": []
+        },
+        {
+          "id": "rec:bgcsy7",
+          "html": "<a href=\"https://runescape.wiki/w/Dwarf_multicannon\" target=\"_blank\" rel=\"noopener\">Dwarf multicannon</a>",
+          "text": "Dwarf multicannon",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-sick-man-s-dream-world",
+      "title": "The sick man's dream world",
+      "anchor": "The_sick_man's_dream_world",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-sick-man-s-dream-world:bring:wipa41",
+              "html": "One free inventory space",
+              "text": "One free inventory space"
+            },
+            {
+              "id": "the-sick-man-s-dream-world:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "the-sick-man-s-dream-world:bring:1h1387v",
+              "html": "Magic or Ranged or Necromancy combat equipment and food for all parts of the quest",
+              "text": "Magic or Ranged or Necromancy combat equipment and food for all parts of the quest"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:3hpbgb",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Baba_Yaga\" target=\"_blank\" rel=\"noopener\">Baba Yaga</a> on <a href=\"https://runescape.wiki/w/Lunar_Isle\" target=\"_blank\" rel=\"noopener\">Lunar Isle</a> about the man in the bed.",
+          "text": "Talk to Baba Yaga on Lunar Isle about the man in the bed.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the man in the bed."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Is there anything we can do?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes?"
+                },
+                {
+                  "key": "1",
+                  "text": "An excellent idea!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:1upwuu2",
+          "html": "Talk to Baba Yaga again to go to the Dream World.",
+          "text": "Talk to Baba Yaga again to go to the Dream World.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the man in the bed."
+                },
+                {
+                  "key": "1",
+                  "text": "I am ready."
+                },
+                {
+                  "key": "1",
+                  "text": "I've no idea."
+                },
+                {
+                  "key": "1",
+                  "text": "I think I've got it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:v4l4x0",
+          "html": "<i>Listen</i> <a href=\"https://runescape.wiki/w/Silas\" target=\"_blank\" rel=\"noopener\">Silas</a>.",
+          "text": "Listen Silas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "He's crazy."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:fomnim",
+          "html": "Search the bookcase to obtain a <a href=\"https://runescape.wiki/w/Prophecy_tablet_(lighthouse)\" target=\"_blank\" rel=\"noopener\">prophecy tablet</a>.",
+          "text": "Search the bookcase to obtain a prophecy tablet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:1uy0mw1",
+          "html": "Climb the stairs.",
+          "text": "Climb the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:trt8g0",
+          "html": "<i>Eavesdrop-on</i> Silas and continue through the tunnel.",
+          "text": "Eavesdrop-on Silas and continue through the tunnel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "She didn't count on us finding out."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:wp2ape",
+          "html": "Talk to Silas.",
+          "text": "Talk to Silas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm a friend of your nephew."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sick-man-s-dream-world:5j62ta",
+          "html": "Read <a href=\"https://runescape.wiki/w/Our_Lives\" target=\"_blank\" rel=\"noopener\">Our Lives</a>.",
+          "text": "Read Our Lives.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do you mean, 'not working'?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-sick-man-s-dream-world:5j62ta:d33f1m",
+              "html": "Prepare to face multiple (4-7) <a href=\"https://runescape.wiki/w/Dagannoth\" target=\"_blank\" rel=\"noopener\">Dagannoth</a> and <a href=\"https://runescape.wiki/w/Wallasalki\" target=\"_blank\" rel=\"noopener\">Wallasalki</a> at a time. This will go on for a few minutes.",
+              "text": "Prepare to face multiple (4-7) Dagannoth and Wallasalki at a time. This will go on for a few minutes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-sick-man-s-dream-world:5j62ta:1evzcx",
+              "html": "Do not use your <a href=\"https://runescape.wiki/w/Dwarf_multicannon\" target=\"_blank\" rel=\"noopener\">dwarf multicannon</a> in this area or you will lose it.",
+              "text": "Do not use your dwarf multicannon in this area or you will lose it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-dagannoth-attack",
+      "title": "The Dagannoth attack",
+      "anchor": "The_Dagannoth_attack",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-dagannoth-attack:b1ia8q",
+          "html": "Talk to Baba Yaga to be teleported to Rellekka.",
+          "text": "Talk to Baba Yaga to be teleported to Rellekka.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the man in the bed."
+                },
+                {
+                  "key": "1",
+                  "text": "What is?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'm ready. What's your trick?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-dagannoth-attack:b1ia8q:6et9yt",
+              "html": "Prepare to face many Dagannoth.",
+              "text": "Prepare to face many Dagannoth.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-dagannoth-attack:1kqfrvb",
+          "html": "After killing sufficient Dagannoth, <a href=\"https://runescape.wiki/w/Brundt_the_Chieftain\" target=\"_blank\" rel=\"noopener\">Brundt the Chieftain</a> will command you to get onto his boat.",
+          "text": "After killing sufficient Dagannoth, Brundt the Chieftain will command you to get onto his boat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dagannoth-attack:st20oo",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Queen_Sigrid\" target=\"_blank\" rel=\"noopener\">Queen Sigrid</a>.",
+          "text": "Talk to Queen Sigrid.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What is the matter, Your Majesty?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll set out right away."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dagannoth-attack:mfpqph",
+          "html": "Talk to Brundt to get another <a href=\"https://runescape.wiki/w/Seal_of_passage\" target=\"_blank\" rel=\"noopener\">seal of passage</a>.",
+          "text": "Talk to Brundt to get another seal of passage.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'll go with you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "saving-king-vargas",
+      "title": "Saving King Vargas",
+      "anchor": "Saving_King_Vargas",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "saving-king-vargas:1szlh5y",
+          "html": "Bank before teleporting to Waterbirth. Bring prayer potions and a full load of food. Leave 1 space empty.",
+          "text": "Bank before teleporting to Waterbirth. Bring prayer potions and a full load of food. Leave 1 space empty.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:syehhl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jarvald\" target=\"_blank\" rel=\"noopener\">Jarvald</a> (on the western pier) and select the option Travel-Waterbirth to head to <a href=\"https://runescape.wiki/w/Waterbirth_Island\" target=\"_blank\" rel=\"noopener\">Waterbirth Island</a>. If he says he&#39;s not taking you, you will have to talk to him first and get to the option where you ask &quot;Can I come?&quot;",
+          "text": "Talk to Jarvald (on the western pier) and select the option Travel-Waterbirth to head to Waterbirth Island. If he says he's not taking you, you will have to talk to him first and get to the option where you ask \"Can I come?\"",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:1ib5ua",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bardur\" target=\"_blank\" rel=\"noopener\">Bardur</a> near the cave entrance for a rope.",
+          "text": "Talk to Bardur near the cave entrance for a rope.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What kind of voices?"
+                },
+                {
+                  "key": "1",
+                  "text": "Could it be an old man echoing from underground?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:1pro6lu",
+          "html": "Make your way to the southwestern tip of the island and tie the rope on the hole.",
+          "text": "Make your way to the southwestern tip of the island and tie the rope on the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:szheg6",
+          "html": "Climb-down the hole.",
+          "text": "Climb-down the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:qls45r",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Vargas\" target=\"_blank\" rel=\"noopener\">King Vargas</a>.",
+          "text": "Talk to King Vargas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "We aren't out yet."
+                },
+                {
+                  "key": "1",
+                  "text": "Come on, this isn't the King Vargas I'm used to."
+                },
+                {
+                  "key": "1",
+                  "text": "No, I can imagine."
+                },
+                {
+                  "key": "1",
+                  "text": "Certainly, I've got some here."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:190vpn9",
+          "html": "Lead King Vargas down the path to the north-east and go down the ladder.",
+          "text": "Lead King Vargas down the path to the north-east and go down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "saving-king-vargas:190vpn9:kkhf72",
+              "html": "Don&#39;t get too far ahead of King Vargas in the tunnels, or the dagannoth will get him and return him to the first chamber meaning you will have to start over. Staying close to King Vargas also ensures he will not be attacked so you won&#39;t have to feed him any food. It&#39;s recommended to turn off run while escorting King Vargas.",
+              "text": "Don't get too far ahead of King Vargas in the tunnels, or the dagannoth will get him and return him to the first chamber meaning you will have to start over. Staying close to King Vargas also ensures he will not be attacked so you won't have to feed him any food. It's recommended to turn off run while escorting King Vargas.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:9cb1a0",
+          "html": "Continue to the far-east side of the next tunnel, past the <a href=\"https://runescape.wiki/w/Small_obelisk\" target=\"_blank\" rel=\"noopener\">small obelisk</a>, and climb up the ladder.",
+          "text": "Continue to the far-east side of the next tunnel, past the small obelisk, and climb up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:1jty6jq",
+          "html": "The next ladder to climb up is to the west, in this short tunnel dagannoth will spawn that prioritise attacking King Vargas, make sure you attack them so they will focus their attacks on you instead.",
+          "text": "The next ladder to climb up is to the west, in this short tunnel dagannoth will spawn that prioritise attacking King Vargas, make sure you attack them so they will focus their attacks on you instead.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saving-king-vargas:1iq3rbx",
+          "html": "Make your way through the last two short tunnels with rock lobsters and climb up the ladder.",
+          "text": "Make your way through the last two short tunnels with rock lobsters and climb up the ladder.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Well, as quickly as you can, please."
+                },
+                {
+                  "key": "1",
+                  "text": "Don't touch anything!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fremennik-spiritual-realm",
+      "title": "Fremennik spiritual realm",
+      "anchor": "Fremennik_spiritual_realm",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:1cirzwu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eir\" target=\"_blank\" rel=\"noopener\">Eir</a>.",
+          "text": "Talk to Eir.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Pardon?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm not supposed to be here?"
+                },
+                {
+                  "key": "1",
+                  "text": "Can you at least explain where I am?"
+                },
+                {
+                  "key": "1",
+                  "text": "How do I get back then?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:dlu2j7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Nial_Swiftfling\" target=\"_blank\" rel=\"noopener\">Nial Swiftfling</a>.",
+          "text": "Talk to Nial Swiftfling.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Say nothing]"
+                },
+                {
+                  "key": "1",
+                  "text": "The dagannoths are mounting a massive attack on nearby settlements."
+                },
+                {
+                  "key": "1",
+                  "text": "It's nothing I can't handle."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:9ui2v8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Asleif_Hamalsdotter\" target=\"_blank\" rel=\"noopener\">Asleif Hamalsdotter</a>.",
+          "text": "Talk to Asleif Hamalsdotter.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Just passing through."
+                },
+                {
+                  "key": "1",
+                  "text": "You realise they're waiting for a huge battle?"
+                },
+                {
+                  "key": "1",
+                  "text": "I don't recall that working out so well last time."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:1cirzwu-2",
+          "html": "Talk to Eir.",
+          "text": "Talk to Eir.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, please."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fremennik-spiritual-realm:1cirzwu-2:ei83jb",
+              "html": "If the spiritual realm sequence is interrupted, speak with Brundt in the long hall in Rellekka to obtain a <a href=\"https://runescape.wiki/w/Letter_(Blood_Runs_Deep)\" target=\"_blank\" rel=\"noopener\">letter</a>. Read the letter to return.",
+              "text": "If the spiritual realm sequence is interrupted, speak with Brundt in the long hall in Rellekka to obtain a letter. Read the letter to return.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:zyvbkb",
+          "html": "Speak to Brundt the Chieftain.",
+          "text": "Speak to Brundt the Chieftain.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:qls45r",
+          "html": "Talk to King Vargas.",
+          "text": "Talk to King Vargas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "[Cut to the chase]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:emcs5h",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Princess_Astrid\" target=\"_blank\" rel=\"noopener\">Princess Astrid</a> or <a href=\"https://runescape.wiki/w/Prince_Brand\" target=\"_blank\" rel=\"noopener\">Prince Brand</a>.",
+          "text": "Talk to Princess Astrid or Prince Brand.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-spiritual-realm:b0xbak",
+          "html": "Talk to Brundt to continue and bank.",
+          "text": "Talk to Brundt to continue and bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Actually, could you drop me off at the bank on Etceteria?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fremennik-spiritual-realm:b0xbak:189tcja",
+              "html": "Prepare for a fight with <a href=\"https://runescape.wiki/w/Dagannoth_sentinel\" target=\"_blank\" rel=\"noopener\">Dagannoth sentinels</a> and the <a href=\"https://runescape.wiki/w/Dagannoth_Mother_(Blood_Runs_Deep)\" target=\"_blank\" rel=\"noopener\">Dagannoth Mother</a>.",
+              "text": "Prepare for a fight with Dagannoth sentinels and the Dagannoth Mother.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "If the spiritual realm sequence is interrupted, speak with Brundt in the long hall in Rellekka to return."
+        }
+      ]
+    },
+    {
+      "id": "waterbirth",
+      "title": "Waterbirth",
+      "anchor": "Waterbirth",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "waterbirth:bring:dv0j0t",
+              "html": "<a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a>",
+              "text": "Balmung"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "waterbirth:bring:1aruezy",
+              "html": "Combat equipment for Melee",
+              "text": "Combat equipment for Melee"
+            },
+            {
+              "id": "waterbirth:bring:1l5l4pe",
+              "html": "Ancient Magic (smoke, shadow, ice, &amp; blood spells) and Ranged styles",
+              "text": "Ancient Magic (smoke, shadow, ice, & blood spells) and Ranged styles"
+            },
+            {
+              "id": "waterbirth:bring:x36rx5",
+              "html": "A way to teleport out - as you cannot leave the room while in combat",
+              "text": "A way to teleport out - as you cannot leave the room while in combat"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:17pfu1c",
+          "html": "Talk to Brundt in the long hall in Rellekka when you are ready.",
+          "text": "Talk to Brundt in the long hall in Rellekka when you are ready.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ask about the war against the daggermouths."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, let's go now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:su0a2w",
+          "html": "Talk to Baba Yaga on the boat.",
+          "text": "Talk to Baba Yaga on the boat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Say nothing]"
+                },
+                {
+                  "key": "2",
+                  "text": "What do you think?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have."
+                },
+                {
+                  "key": "1",
+                  "text": "No, of course not!"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:169rrra",
+          "html": "Climb down the hole on the southwestern tip of the island.",
+          "text": "Climb down the hole on the southwestern tip of the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:1fqd1t6",
+          "html": "Enter the southern tunnel.",
+          "text": "Enter the southern tunnel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "That sounds reasonable."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:89hjm",
+          "html": "Enter the next tunnel to fight the Dagannoth sentinels.",
+          "text": "Enter the next tunnel to fight the Dagannoth sentinels.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Good luck."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "waterbirth:89hjm:b761ay",
+              "html": "After defeating the sentinels, you can go to bank to get more food. You don&#39;t need to fight the sentinels again. Also you don&#39;t need the tablets or the seal of passage for the fights (saves you a few slots for food).",
+              "text": "After defeating the sentinels, you can go to bank to get more food. You don't need to fight the sentinels again. Also you don't need the tablets or the seal of passage for the fights (saves you a few slots for food).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:747lrw",
+          "html": "Alternate attacks between the dagannoth, keeping their health within approximately 500 life points to prevent them from healing each other.",
+          "text": "Alternate attacks between the dagannoth, keeping their health within approximately 500 life points to prevent them from healing each other.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "waterbirth:747lrw:3ayu0i",
+              "html": "High level players with good equipment can just kill one then the other, it is easy to deal more damage than the amount that they are healed.",
+              "text": "High level players with good equipment can just kill one then the other, it is easy to deal more damage than the amount that they are healed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "waterbirth:747lrw:p34djs",
+              "html": "There is a common glitch that prevents you from attacking the second sentinel. In this case stand on top of the sentinel you cannot attack. This will prevent it from attacking or healing the first sentinel.",
+              "text": "There is a common glitch that prevents you from attacking the second sentinel. In this case stand on top of the sentinel you cannot attack. This will prevent it from attacking or healing the first sentinel.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Tunnel_before_Dagannoth_mother.jpg/300px-Tunnel_before_Dagannoth_mother.jpg?050ac",
+          "width": 300,
+          "height": 268,
+          "alt": "",
+          "caption": "Follow the red line. You need to climb over some obstruction, go west for a bit, enter the tunnel inside the wall (takes you to the other side) and then go south.",
+          "href": "https://runescape.wiki/w/File:Tunnel_before_Dagannoth_mother.jpg"
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:1hqftwf",
+          "html": "Continue to the next tunnel.",
+          "text": "Continue to the next tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:1vwgttl",
+          "html": "Go to the south-east intersection and enter the tunnel entrance.",
+          "text": "Go to the south-east intersection and enter the tunnel entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "waterbirth:1vwgttl:auyju9",
+              "html": "Use the picture on the right for reference.",
+              "text": "Use the picture on the right for reference.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:141oghc",
+          "html": "Proceed south and enter the tunnel.",
+          "text": "Proceed south and enter the tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:dh78ib",
+          "html": "Go through the next tunnel and select either chat option.",
+          "text": "Go through the next tunnel and select either chat option.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:qzujv7",
+          "html": "Start the battle with Balmung (the special weapon you received from Brundt) and kill the Dagannoth Mother, switching styles according to her colour.",
+          "text": "Start the battle with Balmung (the special weapon you received from Brundt) and kill the Dagannoth Mother, switching styles according to her colour.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "waterbirth:qzujv7:bx857j",
+              "html": "If you have trouble telling between the colours (specially red/orange/yellow), you can use the chatbox. It will say &quot;The dagannoth changes to red...&quot; etc.",
+              "text": "If you have trouble telling between the colours (specially red/orange/yellow), you can use the chatbox. It will say \"The dagannoth changes to red...\" etc.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "label": "Colour · Weakness",
+          "head": [
+            "Colour",
+            "Weakness"
+          ],
+          "rows": [
+            [
+              "<b>White</b>",
+              "Air spells, including <a href=\"https://runescape.wiki/w/Smoke_spells\" target=\"_blank\" rel=\"noopener\">Smoke spells</a>"
+            ],
+            [
+              "<b>Blue</b>",
+              "Water spells, including <a href=\"https://runescape.wiki/w/Ice_spells\" target=\"_blank\" rel=\"noopener\">Ice spells</a>"
+            ],
+            [
+              "<b>Brown</b>",
+              "Earth spells, including <a href=\"https://runescape.wiki/w/Shadow_spells\" target=\"_blank\" rel=\"noopener\">Shadow spells</a>"
+            ],
+            [
+              "<b>Red</b>",
+              "Fire spells, including <a href=\"https://runescape.wiki/w/Blood_spells\" target=\"_blank\" rel=\"noopener\">Blood spells</a>"
+            ],
+            [
+              "<b>Orange</b>",
+              "<a href=\"https://runescape.wiki/w/Melee\" target=\"_blank\" rel=\"noopener\">Melee</a> attacks with <a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a> or any slashing weapon"
+            ],
+            [
+              "<b>Green</b>",
+              "<a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> attacks (officially weak to <a href=\"https://runescape.wiki/w/Thrown\" target=\"_blank\" rel=\"noopener\">thrown</a>)"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:1abevlf",
+          "html": "After the Dagannoth Mother has been defeated, go back to the previous room, collect the pickaxe, plank, and tinderbox and use them to collapse one of the pillars.",
+          "text": "After the Dagannoth Mother has been defeated, go back to the previous room, collect the pickaxe, plank, and tinderbox and use them to collapse one of the pillars.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:1cirzwu",
+          "html": "Talk to Eir.",
+          "text": "Talk to Eir.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I seem to have died again."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I am."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:bqt7dk",
+          "html": "Check the bodies and finish chat.",
+          "text": "Check the bodies and finish chat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:eeb1ny",
+          "html": "Talk with Baba Yaga and <a href=\"https://runescape.wiki/w/Koschei\" target=\"_blank\" rel=\"noopener\">Koschei</a>.",
+          "text": "Talk with Baba Yaga and Koschei.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:vb5g8m",
+          "html": "Attempt to climb up the rope.",
+          "text": "Attempt to climb up the rope.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "waterbirth:zoaxrd",
+          "html": "Speak to Brundt to receive your reward.",
+          "text": "Speak to Brundt to receive your reward.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ask about the war against the daggermouths."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Blood_Runs_Deep_reward.png?8d235",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Blood_Runs_Deep_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Balmung\" target=\"_blank\" rel=\"noopener\">Balmung</a>, a two-handed melee weapon with special passive abilities when used against dagannoths (enhanced through the <a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles</a> miniquest);",
+        "text": "The Balmung, a two-handed melee weapon with special passive abilities when used against dagannoths (enhanced through the Koschei's Troubles miniquest);",
+        "subs": [
+          "25% (45%) extra damage with auto attacks (15% (35%) against Dagannoth Supreme)",
+          "12.5% (22.5%) extra damage with with abilities (7.5% (17.5%) against Dagannoth Supreme)",
+          "30% (45%) increase in hit chance"
+        ]
+      },
+      {
+        "html": "450,000 experience (3x 150,000 experience) in either <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> (Skill must be level 75 or higher; speak to <a href=\"https://runescape.wiki/w/Chieftain_Brundt\" target=\"_blank\" rel=\"noopener\">Chieftain Brundt</a> to receive this)",
+        "text": "450,000 experience (3x 150,000 experience) in either Attack, Defence, Strength, Constitution, Ranged, Magic or Prayer (Skill must be level 75 or higher; speak to Chieftain Brundt to receive this)",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Dagannoth_guardian\" target=\"_blank\" rel=\"noopener\">Dagannoth guardians</a>",
+        "text": "Access to Dagannoth guardians",
+        "subs": []
+      },
+      {
+        "html": "Both the <a href=\"https://runescape.wiki/w/Dagannoth_Mother_(Blood_Runs_Deep)\" target=\"_blank\" rel=\"noopener\">Dagannoth Mother</a> and her <a href=\"https://runescape.wiki/w/Dagannoth_sentinel\" target=\"_blank\" rel=\"noopener\">sentinels</a> can be faced in the <a href=\"https://runescape.wiki/w/Dominion_Tower\" target=\"_blank\" rel=\"noopener\">Dominion Tower</a>",
+        "text": "Both the Dagannoth Mother and her sentinels can be faced in the Dominion Tower",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Fallen Hero",
+      "where": ""
+    },
+    {
+      "name": "Jaws of the Dagannoth",
+      "where": ""
+    },
+    {
+      "name": "Maiasaura",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

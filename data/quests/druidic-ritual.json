@@ -1,0 +1,383 @@
+{
+  "format": 1,
+  "id": "druidic-ritual",
+  "title": "Druidic Ritual",
+  "page": "Druidic Ritual/Quick guide",
+  "rev": 37157580,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Kaqemeex\" target=\"_blank\" rel=\"noopener\">Kaqemeex</a> at the stone circle north of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> south of the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3484,
+      "lon": 2924,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Druidic_Ritual/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:gk1eb5",
+          "html": "1 coin",
+          "text": "1 coin",
+          "alternatives": []
+        },
+        {
+          "id": "req:1du5r3b",
+          "html": "<a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">Vial</a> (given by <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a> if none are in your backpack)",
+          "text": "Vial (given by Sanfew if none are in your backpack)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Start point of the quest",
+          "lat": 3484,
+          "lon": 2924,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2919.5,
+                      3479.5
+                    ],
+                    [
+                      2919.5,
+                      3489.5
+                    ],
+                    [
+                      2929.5,
+                      3489.5
+                    ],
+                    [
+                      2929.5,
+                      3479.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Druidic_Ritual/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1928goe",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kaqemeex\" target=\"_blank\" rel=\"noopener\">Kaqemeex</a> south of the <a href=\"https://runescape.wiki/w/Heroes%27_Guild\" target=\"_blank\" rel=\"noopener\">Heroes&#39; Guild</a>.",
+          "text": "Talk to Kaqemeex south of the Heroes' Guild.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Druidic Ritual."
+                },
+                {
+                  "key": "1",
+                  "text": "What do you need help with?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm pretty sure I've heard that before."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:rt934j",
+          "html": "Run directly south and enter the last house on the west near the Herblore icon.",
+          "text": "Run directly south and enter the last house on the west near the Herblore icon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ncuzhu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a>.",
+          "text": "Talk to Sanfew.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've been sent to help make an ointment of imbalance for Kaqemeex."
+                },
+                {
+                  "key": "4",
+                  "text": "Ok, I'll do that then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gathering-ingredients",
+      "title": "Gathering ingredients",
+      "anchor": "Gathering_ingredients",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Untainted living water"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "gathering-ingredients:bring:t7f4st",
+              "html": "<a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">Vial</a>",
+              "text": "Vial"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:1jzm33b",
+          "html": "Go north and enter the <a href=\"https://runescape.wiki/w/Burthorpe_Slayer_Cave\" target=\"_blank\" rel=\"noopener\">Burthorpe Slayer Cave</a> directly east of the crayfish pond.",
+          "text": "Go north and enter the Burthorpe Slayer Cave directly east of the crayfish pond.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:16xrp3n",
+          "html": "Head south and <i>fill</i> your vial at the <a href=\"https://runescape.wiki/w/Subterranean_spring\" target=\"_blank\" rel=\"noopener\">subterranean spring</a> for a vial of <a href=\"https://runescape.wiki/w/Living_water\" target=\"_blank\" rel=\"noopener\">living water</a>.",
+          "text": "Head south and fill your vial at the subterranean spring for a vial of living water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:1ys85u7",
+          "html": "Exit the cave.",
+          "text": "Exit the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Wandering wyrmwood"
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:4lmbr3",
+          "html": "Head south until you find <a href=\"https://runescape.wiki/w/Wandering_wyrmwood\" target=\"_blank\" rel=\"noopener\">wandering wyrmwood</a>, then <i>take-from</i> one of them for <a href=\"https://runescape.wiki/w/Wandering_wyrmwood_(item)\" target=\"_blank\" rel=\"noopener\">wandering wyrmwood</a>.",
+          "text": "Head south until you find wandering wyrmwood, then take-from one of them for wandering wyrmwood.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Stone scales"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "gathering-ingredients:bring:17db4ok",
+              "html": "One coin",
+              "text": "One coin"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:11ld744",
+          "html": "At the west part of the lake, <i>bait</i> the <a href=\"https://runescape.wiki/w/Sparkling_Fishing_Spot\" target=\"_blank\" rel=\"noopener\">Sparkling Fishing Spot</a>.",
+          "text": "At the west part of the lake, bait the Sparkling Fishing Spot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-ingredients:j4zzt2",
+          "html": "<i>Gather-scales</i> from the <a href=\"https://runescape.wiki/w/Stone_fish\" target=\"_blank\" rel=\"noopener\">stone fish</a>, choosing the chisel option.",
+          "text": "Gather-scales from the stone fish, choosing the chisel option.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:x9iori",
+          "html": "Talk to Sanfew for a cutscene.",
+          "text": "Talk to Sanfew for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Druidic_Ritual_reward.png?70f17",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Druidic_Ritual_reward.png"
+    },
+    "items": [
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "4 quest points",
+        "subs": []
+      },
+      {
+        "html": "250 experience",
+        "text": "250 experience",
+        "subs": []
+      },
+      {
+        "html": "15 <a href=\"https://runescape.wiki/w/Note\" target=\"_blank\" rel=\"noopener\">noted</a> <a href=\"https://runescape.wiki/w/Grimy_guam\" target=\"_blank\" rel=\"noopener\">grimy guams</a> and <a href=\"https://runescape.wiki/w/Eye_of_newt\" target=\"_blank\" rel=\"noopener\">eye of newt</a>",
+        "text": "15 noted grimy guams and eye of newt",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Eadgar%27s_Ruse/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s Ruse</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/My_Arm%27s_Big_Adventure/Quick_guide\" target=\"_blank\" rel=\"noopener\">My Arm&#39;s Big Adventure</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

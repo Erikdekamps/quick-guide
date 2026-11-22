@@ -1,0 +1,560 @@
+{
+  "format": 1,
+  "id": "murder-mystery",
+  "title": "Murder Mystery",
+  "page": "Murder Mystery/Quick guide",
+  "rev": 36965322,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Guard_(Sinclair_Mansion)\" target=\"_blank\" rel=\"noopener\">guard</a> at the <a href=\"https://runescape.wiki/w/Sinclair_Mansion\" target=\"_blank\" rel=\"noopener\">Sinclair Mansion</a> situated north of <a href=\"https://runescape.wiki/w/Camelot\" target=\"_blank\" rel=\"noopener\">Camelot</a> and north-east of <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3565,
+      "lon": 2742,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Murder_Mystery/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:6mdcmh",
+          "html": "An <a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">empty pot</a> to fill during the quest, or 7 <a href=\"https://runescape.wiki/w/Pot_of_flour\" target=\"_blank\" rel=\"noopener\">pots of flour</a> if you prefer",
+          "text": "An empty pot to fill during the quest, or 7 pots of flour if you prefer",
+          "alternatives": []
+        },
+        {
+          "id": "req:7acg73",
+          "html": "11–16 empty <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+          "text": "11–16 empty backpack spaces",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:12ejsaz",
+          "html": "Talk to a <a href=\"https://runescape.wiki/w/Guard_(Sinclair_Mansion)\" target=\"_blank\" rel=\"noopener\">guard</a> on the <a href=\"https://runescape.wiki/w/Sinclair_Mansion\" target=\"_blank\" rel=\"noopener\">Sinclair Mansion</a> property which is located north of <a href=\"https://runescape.wiki/w/Camelot_Castle\" target=\"_blank\" rel=\"noopener\">Camelot Castle</a>.",
+          "text": "Talk to a guard on the Sinclair Mansion property which is located north of Camelot Castle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:12ejsaz:153aeld",
+              "html": "You can use fairy ring <b>C</b><b>J</b><b>R</b>, then walk south-east to the mansion entrance.",
+              "text": "You can use fairy ring CJR, then walk south-east to the mansion entrance.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "house-of-crime",
+      "title": "House of crime",
+      "anchor": "House_of_crime",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "house-of-crime:cxc9v3",
+          "html": "Inside the mansion, go to the crime scene in the room on the east side with the <a href=\"https://runescape.wiki/w/Criminal%27s_dagger\" target=\"_blank\" rel=\"noopener\">criminal&#39;s dagger</a> and <a href=\"https://runescape.wiki/w/Pungent_pot\" target=\"_blank\" rel=\"noopener\">pungent pot</a> on the floor.",
+          "text": "Inside the mansion, go to the crime scene in the room on the east side with the criminal's dagger and pungent pot on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "house-of-crime:18ogrk8",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Pungent_pot\" target=\"_blank\" rel=\"noopener\">pungent pot</a> and <a href=\"https://runescape.wiki/w/Criminal%27s_dagger\" target=\"_blank\" rel=\"noopener\">criminal&#39;s dagger</a> and investigate the window to find a <a href=\"https://runescape.wiki/w/Criminal%27s_thread\" target=\"_blank\" rel=\"noopener\">criminal&#39;s thread</a>.",
+          "text": "Take the pungent pot and criminal's dagger and investigate the window to find a criminal's thread.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "house-of-crime:1ypi9iw",
+          "html": "Search the barrels in the bedrooms owned by the following two suspects for two silver items.",
+          "text": "Search the barrels in the bedrooms owned by the following two suspects for two silver items.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "house-of-crime:1ypi9iw:1jn9coo",
+              "html": "If the thread is red, search the barrels belonging to <a href=\"https://runescape.wiki/w/Bob_(Sinclair)\" target=\"_blank\" rel=\"noopener\">Bob</a> to the west and <a href=\"https://runescape.wiki/w/Carol\" target=\"_blank\" rel=\"noopener\">Carol</a> upstairs for a <a href=\"https://runescape.wiki/w/Silver_cup\" target=\"_blank\" rel=\"noopener\">silver cup</a> and <a href=\"https://runescape.wiki/w/Silver_bottle\" target=\"_blank\" rel=\"noopener\">silver bottle</a>.",
+              "text": "If the thread is red, search the barrels belonging to Bob to the west and Carol upstairs for a silver cup and silver bottle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "house-of-crime:1ypi9iw:22gt9u",
+              "html": "If the thread is green, search the barrels belonging to <a href=\"https://runescape.wiki/w/Anna\" target=\"_blank\" rel=\"noopener\">Anna</a> downstairs and <a href=\"https://runescape.wiki/w/David\" target=\"_blank\" rel=\"noopener\">David</a> upstairs for a <a href=\"https://runescape.wiki/w/Silver_necklace\" target=\"_blank\" rel=\"noopener\">silver necklace</a> and <a href=\"https://runescape.wiki/w/Silver_book\" target=\"_blank\" rel=\"noopener\">silver book</a>.",
+              "text": "If the thread is green, search the barrels belonging to Anna downstairs and David upstairs for a silver necklace and silver book.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "house-of-crime:1ypi9iw:ctr2xi",
+              "html": "If the thread is blue, search the barrels belonging to <a href=\"https://runescape.wiki/w/Elizabeth\" target=\"_blank\" rel=\"noopener\">Elizabeth</a> and <a href=\"https://runescape.wiki/w/Frank_(Sinclair)\" target=\"_blank\" rel=\"noopener\">Frank</a> upstairs for a <a href=\"https://runescape.wiki/w/Silver_needle\" target=\"_blank\" rel=\"noopener\">silver needle</a> and <a href=\"https://runescape.wiki/w/Silver_pot\" target=\"_blank\" rel=\"noopener\">silver pot</a>.",
+              "text": "If the thread is blue, search the barrels belonging to Elizabeth and Frank upstairs for a silver needle and silver pot.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-evidence",
+      "title": "The evidence",
+      "anchor": "The_evidence",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-evidence:1x3trtz",
+          "html": "Fill the <a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">empty pots</a> from the <a href=\"https://runescape.wiki/w/Barrel_of_flour\" target=\"_blank\" rel=\"noopener\">barrel of flour</a> from the kitchen.",
+          "text": "Fill the empty pots from the barrel of flour from the kitchen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:1yhah90",
+          "html": "Go to the gardener&#39;s shed in the very north-west of the mansion and take three <a href=\"https://runescape.wiki/w/Flypaper\" target=\"_blank\" rel=\"noopener\">flypapers</a> from the sack.",
+          "text": "Go to the gardener's shed in the very north-west of the mansion and take three flypapers from the sack.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, it might be useful."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-evidence:1yhah90:1egm203",
+              "html": "You must click the sack 3 times.",
+              "text": "You must click the sack 3 times.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:dizsg9",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Pot_of_flour\" target=\"_blank\" rel=\"noopener\">pot of flour</a> on the dagger.",
+          "text": "Use the pot of flour on the dagger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:c688ht",
+          "html": "Use the flypaper on the dagger to lift the fingerprint.",
+          "text": "Use the flypaper on the dagger to lift the fingerprint.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:zqab86",
+          "html": "Repeat with the two silver objects.",
+          "text": "Repeat with the two silver objects.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:19imi59",
+          "html": "Compare each fingerprint by <i>using</i> each suspect&#39;s print with the <a href=\"https://runescape.wiki/w/Unknown_print\" target=\"_blank\" rel=\"noopener\">unknown print</a>. The unknown print will then turn to the <a href=\"https://runescape.wiki/w/Killer%27s_print\" target=\"_blank\" rel=\"noopener\">killer&#39;s print</a>.",
+          "text": "Compare each fingerprint by using each suspect's print with the unknown print. The unknown print will then turn to the killer's print.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:msaksk",
+          "html": "Go to the mansion&#39;s gate and talk to <a href=\"https://runescape.wiki/w/Gossip\" target=\"_blank\" rel=\"noopener\">Gossip</a>.",
+          "text": "Go to the mansion's gate and talk to Gossip.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Who do you think was responsible?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-evidence:1jwtrwy",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Forester%27s_Arms\" target=\"_blank\" rel=\"noopener\">Forester&#39;s Arms</a> in Seers&#39; Village and talk to the <a href=\"https://runescape.wiki/w/Poison_Salesman\" target=\"_blank\" rel=\"noopener\">Poison Salesman</a> (to get there quickly, teleport to the Seers&#39; Village lodestone).",
+          "text": "Go to the Forester's Arms in Seers' Village and talk to the Poison Salesman (to get there quickly, teleport to the Seers' Village lodestone).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Who did you sell Poison to at the house?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-evidence:1jwtrwy:ubduvm",
+              "html": "Or if &quot;<a href=\"https://runescape.wiki/w/The_Fremennik_Trials\" target=\"_blank\" rel=\"noopener\">The Fremennik Trials</a>&quot; is started or finished.",
+              "text": "Or if \"The Fremennik Trials\" is started or finished.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Talk about the Murder Mystery Quest."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Who did you sell Poison to at the house?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a-criminal-revealed",
+      "title": "A criminal revealed",
+      "anchor": "A_criminal_revealed",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "a-criminal-revealed:6alwkq",
+          "html": "Return to the mansion and talk to the suspect with the matching fingerprint.",
+          "text": "Return to the mansion and talk to the suspect with the matching fingerprint.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Why'd you buy poison the other day?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:6alwkq:3g5cgv",
+              "html": "Or if the player still has the criminal&#39;s thread with them",
+              "text": "Or if the player still has the criminal's thread with them",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Why'd you buy poison the other day?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "a-criminal-revealed:mvv4gk",
+          "html": "Find evidence. If your quest log says you have conclusive evidence and to talk to a guard, you may skip this step.",
+          "text": "Find evidence. If your quest log says you have conclusive evidence and to talk to a guard, you may skip this step.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:4hf0ry",
+              "html": "If the prints match Bob, search the beehive in the cow pen.",
+              "text": "If the prints match Bob, search the beehive in the cow pen.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:qho1fl",
+              "html": "If the prints match Carol, search the drain on the wall directly north of the row of potatoes.",
+              "text": "If the prints match Carol, search the drain on the wall directly north of the row of potatoes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:1lshtcw",
+              "html": "If the prints match Anna, search the compost heap.",
+              "text": "If the prints match Anna, search the compost heap.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:tcbtzt",
+              "html": "If the prints match David, search the spider web upstairs between the two south rooms.",
+              "text": "If the prints match David, search the spider web upstairs between the two south rooms.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:1vi3qgr",
+              "html": "If the prints match Elizabeth, search the fountain.",
+              "text": "If the prints match Elizabeth, search the fountain.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "a-criminal-revealed:mvv4gk:1qpe453",
+              "html": "If the prints match Frank, search the family crest on the outside of the manor building to the east of the entrance.",
+              "text": "If the prints match Frank, search the family crest on the outside of the manor building to the east of the entrance.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:cxesmw",
+          "html": "Talk to a guard.",
+          "text": "Talk to a guard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I know who did it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Murder_Mystery_reward.png?7e23b",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Murder_Mystery_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "2,000 coins",
+        "text": "2,000 coins",
+        "subs": []
+      },
+      {
+        "html": "1,406 experience",
+        "text": "1,406 experience",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Monarch Waltz",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/King%27s_Ransom/Quick_guide\" target=\"_blank\" rel=\"noopener\">King&#39;s Ransom</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Requiem/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Requiem</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

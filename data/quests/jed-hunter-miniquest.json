@@ -1,0 +1,624 @@
+{
+  "format": 1,
+  "id": "jed-hunter-miniquest",
+  "title": "Jed Hunter (miniquest)",
+  "page": "Jed Hunter (miniquest)/Quick guide",
+  "rev": 37085489,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Lookout_Ekahi\" target=\"_blank\" rel=\"noopener\">Lookout Ekahi</a> who is on the northern dock on <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a> near <a href=\"https://runescape.wiki/w/Sarim%27s_Revenge\" target=\"_blank\" rel=\"noopener\">Sarim&#39;s Revenge</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11651,
+      "lon": 1804,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Flag Fall (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Head of the Family (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Spiritual Enlightenment (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Impressing the Locals",
+        "depth": 2
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 91,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 90,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Deadliest Catch",
+      "Tower of Life"
+    ],
+    "enemies": [
+      {
+        "text": "3 Gu ronin (level 119, scale to your level)",
+        "name": "Gu ronin",
+        "count": 3,
+        "level": "119, scale to your level",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:7jnyli",
+          "html": "10 <a href=\"https://runescape.wiki/w/Driftwood\" target=\"_blank\" rel=\"noopener\">driftwood</a>",
+          "text": "10 driftwood",
+          "alternatives": []
+        },
+        {
+          "id": "req:c3h9fi",
+          "html": "5 <a href=\"https://runescape.wiki/w/Sea_shell\" target=\"_blank\" rel=\"noopener\">sea shells</a>",
+          "text": "5 sea shells",
+          "alternatives": []
+        },
+        {
+          "id": "req:nt17w4",
+          "html": "2 <a href=\"https://runescape.wiki/w/Tortle_shell_bowl\" target=\"_blank\" rel=\"noopener\">tortle shell bowls</a>",
+          "text": "2 tortle shell bowls",
+          "alternatives": []
+        },
+        {
+          "id": "req:15t5qng",
+          "html": "1 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+          "text": "1 taijitu",
+          "alternatives": []
+        },
+        {
+          "id": "req:j55po",
+          "html": "200+ <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a> (for supplies)",
+          "text": "200+ chimes (for supplies)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1onk1zr",
+          "html": "<a href=\"https://runescape.wiki/w/Uncharted_island_map\" target=\"_blank\" rel=\"noopener\">Uncharted island map</a> (to kill 3 <a href=\"https://runescape.wiki/w/Gu_ronin\" target=\"_blank\" rel=\"noopener\">Gu ronin</a>)",
+          "text": "Uncharted island map (to kill 3 Gu ronin)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "lookout-ekahi",
+      "title": "Lookout Ekahi",
+      "anchor": "Lookout_Ekahi",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "lookout-ekahi:1m2bo38",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lookout_Ekahi\" target=\"_blank\" rel=\"noopener\">Lookout Ekahi</a> beside your ship in either Waiko or Aminishi.",
+          "text": "Talk to Lookout Ekahi beside your ship in either Waiko or Aminishi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I promise."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lookout-ekahi:1m2bo38:89cq4n",
+              "html": "If you have just completed the <a href=\"https://runescape.wiki/w/Head_of_the_Family_(miniquest)\" target=\"_blank\" rel=\"noopener\">Head of the Family miniquest</a> then you may need to relog for this option to appear.",
+              "text": "If you have just completed the Head of the Family miniquest then you may need to relog for this option to appear.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bosun-higgs",
+      "title": "Bosun Higgs",
+      "anchor": "Bosun_Higgs",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "bosun-higgs:bring:g29u1e",
+              "html": "<a href=\"https://runescape.wiki/w/Uncharted_island_map\" target=\"_blank\" rel=\"noopener\">Uncharted island map</a>",
+              "text": "Uncharted island map"
+            },
+            {
+              "id": "bosun-higgs:bring:17xfr3u",
+              "html": "Combat gear &amp; food",
+              "text": "Combat gear & food"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "bosun-higgs:t0tr0s",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bosun_Higgs\" target=\"_blank\" rel=\"noopener\">Bosun Higgs</a> beside your ship.",
+          "text": "Talk to Bosun Higgs beside your ship.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bosun-higgs:4euake",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sojobo_(contracts)\" target=\"_blank\" rel=\"noopener\">Sojobo</a> in the centre of Waiko marketplace.",
+          "text": "Talk to Sojobo in the centre of Waiko marketplace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bosun-higgs:14v260p",
+          "html": "Kill 3 <a href=\"https://runescape.wiki/w/Gu_ronin\" target=\"_blank\" rel=\"noopener\">Gu ronin</a> on uncharted isles.",
+          "text": "Kill 3 Gu ronin on uncharted isles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bosun-higgs:1a3fvco",
+          "html": "Return to Sojobo on Waiko.",
+          "text": "Return to Sojobo on Waiko.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bosun-higgs:1pyidvt",
+          "html": "Return to Bosun Higgs with the <a href=\"https://runescape.wiki/w/Tetsu_set\" target=\"_blank\" rel=\"noopener\">Tetsu set</a>.",
+          "text": "Return to Bosun Higgs with the Tetsu set.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "navigator-jemi",
+      "title": "Navigator Jemi",
+      "anchor": "Navigator_Jemi",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "navigator-jemi:bring:nt17w4",
+              "html": "2 <a href=\"https://runescape.wiki/w/Tortle_shell_bowl\" target=\"_blank\" rel=\"noopener\">tortle shell bowls</a>",
+              "text": "2 tortle shell bowls"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "navigator-jemi:fv1e3h",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Navigator_Jemi\" target=\"_blank\" rel=\"noopener\">Navigator Jemi</a> beside your ship.",
+          "text": "Talk to Navigator Jemi beside your ship.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigator-jemi:1vukp16",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sea_Witch_Kaula\" target=\"_blank\" rel=\"noopener\">Sea Witch Kaula</a> on the north-western shore of <a href=\"https://runescape.wiki/w/Whale%27s_Maw\" target=\"_blank\" rel=\"noopener\">Whale&#39;s Maw</a>.",
+          "text": "Talk to Sea Witch Kaula on the north-western shore of Whale's Maw.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Ask about communicating with the Thalassus."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "navigator-jemi:1vukp16:1c2fqfz",
+              "html": "You may have to speak to her twice to give her the tortle shell bowls.",
+              "text": "You may have to speak to her twice to give her the tortle shell bowls.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "navigator-jemi:1o42cgd",
+          "html": "Talk to Navigator Jemi while standing next to Kaula.",
+          "text": "Talk to Navigator Jemi while standing next to Kaula.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "navigator-jemi:1abgfr2",
+          "html": "Go back to the ship and talk to Navigator Jemi.",
+          "text": "Go back to the ship and talk to Navigator Jemi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "quartermaster-gully",
+      "title": "Quartermaster Gully",
+      "anchor": "Quartermaster_Gully",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "quartermaster-gully:bring:7jnyli",
+              "html": "10 <a href=\"https://runescape.wiki/w/Driftwood\" target=\"_blank\" rel=\"noopener\">driftwood</a>",
+              "text": "10 driftwood"
+            },
+            {
+              "id": "quartermaster-gully:bring:c3h9fi",
+              "html": "5 <a href=\"https://runescape.wiki/w/Sea_shell\" target=\"_blank\" rel=\"noopener\">sea shells</a>",
+              "text": "5 sea shells"
+            },
+            {
+              "id": "quartermaster-gully:bring:15t5qng",
+              "html": "1 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+              "text": "1 taijitu"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "quartermaster-gully:p7s7ns",
+          "html": "Talk to Quartermaster Gully beside your ship.",
+          "text": "Talk to Quartermaster Gully beside your ship.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quartermaster-gully:3atmd7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rosie_(supplies)\" target=\"_blank\" rel=\"noopener\">Rosie</a> in the centre of Waiko.",
+          "text": "Talk to Rosie in the centre of Waiko.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quartermaster-gully:1rnoasc",
+          "html": "Talk to Rosie again.",
+          "text": "Talk to Rosie again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "quartermaster-gully:12477rg",
+          "html": "Deliver the <a href=\"https://runescape.wiki/w/Buoyancy_materials\" target=\"_blank\" rel=\"noopener\">buoyancy materials</a> back to Quartermaster Gully.",
+          "text": "Deliver the buoyancy materials back to Quartermaster Gully.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finale",
+      "title": "Finale",
+      "anchor": "Finale",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finale:1ulm08t",
+          "html": "Talk to Lookout Ekahi.",
+          "text": "Talk to Lookout Ekahi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finale:3e4d4a",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Yuehanxun_the_Dealer\" target=\"_blank\" rel=\"noopener\">Yuehanxun the Dealer</a> in the south-east of Waiko. She is at the last hut in the South of Waiko, north of the water barrel.",
+          "text": "Talk to Yuehanxun the Dealer in the south-east of Waiko. She is at the last hut in the South of Waiko, north of the water barrel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finale:g4gm2j",
+          "html": "Talk to Lookout Ekahi at the boat to set sail.",
+          "text": "Talk to Lookout Ekahi at the boat to set sail.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Jed Hunter miniquest."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finale:1oqh7ds",
+          "html": "Once on the ship, talk to Lookout Ekahi again.",
+          "text": "Once on the ship, talk to Lookout Ekahi again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finale:87gspp",
+          "html": "Once on the other ship, unlock the hold in the centre of the ship.",
+          "text": "Once on the other ship, unlock the hold in the centre of the ship.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Jed_Hunter_%28miniquest%29_reward.png?8fa7d",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Jed_Hunter_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "2,000 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "2,000 chimes",
+        "subs": []
+      },
+      {
+        "html": "10 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "10 taijitu",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Hunter_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    }
+  ]
+}

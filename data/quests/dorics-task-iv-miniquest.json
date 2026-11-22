@@ -1,0 +1,293 @@
+{
+  "format": 1,
+  "id": "dorics-task-iv-miniquest",
+  "title": "Doric's Task IV (miniquest)",
+  "page": "Doric's Task IV (miniquest)/Quick guide",
+  "rev": 37221017,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_IV_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task III (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Doric's Task II (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Doric's Task I (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "What's Mine is Yours",
+        "depth": 4
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:xrd3di",
+          "html": "48 <a href=\"https://runescape.wiki/w/Adamant_bar\" target=\"_blank\" rel=\"noopener\">adamant bars</a> or a set of",
+          "text": "48 adamant bars or a set of",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Adamant_full_helm_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant full helm +2</a>",
+            "<a href=\"https://runescape.wiki/w/Adamant_platelegs_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant platelegs +2</a>",
+            "<a href=\"https://runescape.wiki/w/Adamant_platebody_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant platebody +2</a>",
+            "<a href=\"https://runescape.wiki/w/Adamant_armoured_boots_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant armoured boots +2</a>",
+            "<a href=\"https://runescape.wiki/w/Adamant_gauntlets_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant gauntlets +2</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ipw3m0",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "burial-armour",
+      "title": "Burial armour",
+      "anchor": "Burial_armour",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "burial-armour:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "burial-armour:25kgr2",
+          "html": "Make an <a href=\"https://runescape.wiki/w/Adamant_burial_set\" target=\"_blank\" rel=\"noopener\">adamant burial set</a> in the <a href=\"https://runescape.wiki/w/Artisans%27_Workshop\" target=\"_blank\" rel=\"noopener\">Artisans&#39; Workshop</a> located in southeast Falador.",
+          "text": "Make an adamant burial set in the Artisans' Workshop located in southeast Falador.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "burial-armour:25kgr2:1nve6rx",
+              "html": "You must make the &quot;burial set&quot; and not make the burial items individually.",
+              "text": "You must make the \"burial set\" and not make the burial items individually.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "burial-armour:25kgr2:171rl86",
+              "html": "If the player has never made burial armour before they must first talk to <a href=\"https://runescape.wiki/w/Suak\" target=\"_blank\" rel=\"noopener\">Suak</a>.. To make a burial set the player first needs to acquire:",
+              "text": "If the player has never made burial armour before they must first talk to Suak.. To make a burial set the player first needs to acquire:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "How can I make burial armour?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "burial-armour:25kgr2:171rl86:1wo8e69",
+                  "html": "<a href=\"https://runescape.wiki/w/Adamant_full_helm_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant full helm +2</a>.",
+                  "text": "Adamant full helm +2.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "burial-armour:25kgr2:171rl86:1m508nj",
+                  "html": "<a href=\"https://runescape.wiki/w/Adamant_platelegs_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant platelegs +2</a>.",
+                  "text": "Adamant platelegs +2.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "burial-armour:25kgr2:171rl86:1nq35hm",
+                  "html": "<a href=\"https://runescape.wiki/w/Adamant_platebody_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant platebody +2</a>.",
+                  "text": "Adamant platebody +2.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "burial-armour:25kgr2:171rl86:1rewkgc",
+                  "html": "<a href=\"https://runescape.wiki/w/Adamant_armoured_boots_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant armoured boots +2</a>.",
+                  "text": "Adamant armoured boots +2.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "burial-armour:25kgr2:171rl86:ntgy69",
+                  "html": "<a href=\"https://runescape.wiki/w/Adamant_gauntlets_%2B2\" target=\"_blank\" rel=\"noopener\">Adamant gauntlets +2</a>.",
+                  "text": "Adamant gauntlets +2.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "burial-armour:25kgr2:gdmk0o",
+              "html": "It is possible to buy all five armour pieces on the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a> to complete this task.",
+              "text": "It is possible to buy all five armour pieces on the Grand Exchange to complete this task.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "burial-armour:1cghvle",
+          "html": "Talk to Suak.",
+          "text": "Talk to Suak.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_IV_%28miniquest%29_reward.png?11af3",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_IV_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "4,500 charges on the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "4,500 charges on the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_V_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task V (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VI_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VI (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

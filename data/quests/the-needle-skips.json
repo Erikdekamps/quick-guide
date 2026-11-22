@@ -1,0 +1,572 @@
+{
+  "format": 1,
+  "id": "the-needle-skips",
+  "title": "The Needle Skips",
+  "page": "The Needle Skips/Quick guide",
+  "rev": 37222237,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Find <a href=\"https://runescape.wiki/w/The_Needle\" target=\"_blank\" rel=\"noopener\">the Needle</a> on the hill west of <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3658,
+      "lon": 2224,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Needle_Skips/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1qgnhwx",
+          "html": "Four empty <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+          "text": "Four empty backpack spaces",
+          "alternatives": []
+        },
+        {
+          "id": "rec:3rajbt",
+          "html": "<a href=\"https://runescape.wiki/w/Phoenix_Lair_Teleport\" target=\"_blank\" rel=\"noopener\">Phoenix Lair Teleport</a>, access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>A</b><b>K</b><b>Q</b>, or <a href=\"https://runescape.wiki/w/Memory_strands\" target=\"_blank\" rel=\"noopener\">memory strands</a> for quick access to the quest area",
+          "text": "Phoenix Lair Teleport, access to the fairy ring AKQ, or memory strands for quick access to the quest area",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of the Needle.",
+          "lat": 3655,
+          "lon": 2221,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2221,
+                  3655,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_cyan.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Needle_Skips/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "starting-out:dyxujb",
+          "html": "Start off using the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> code <b>A</b><b>K</b><b>Q</b> or a <a href=\"https://runescape.wiki/w/Phoenix_Lair_Teleport\" target=\"_blank\" rel=\"noopener\">Phoenix Lair Teleport</a> scroll. You can also use the teleport from the <a href=\"https://runescape.wiki/w/Memory_strand\" target=\"_blank\" rel=\"noopener\">memory strand</a> in the currency pouch. Alternatively, teleport to <a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak lodestone</a> and run north then west.",
+          "text": "Start off using the fairy ring code AKQ or a Phoenix Lair Teleport scroll. You can also use the teleport from the memory strand in the currency pouch. Alternatively, teleport to Eagles' Peak lodestone and run north then west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1h49nx7",
+          "html": "Run west of the <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris Fishing Colony</a> until you find a house.",
+          "text": "Run west of the Piscatoris Fishing Colony until you find a house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1j2wi8o",
+          "html": "Cross the water eastward over the rocks and go east to search <a href=\"https://runescape.wiki/w/The_Needle\" target=\"_blank\" rel=\"noopener\">the Needle</a>.",
+          "text": "Cross the water eastward over the rocks and go east to search the Needle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:n6annd",
+          "html": "<i>Search</i> the Needle to obtain the <a href=\"https://runescape.wiki/w/Shard_of_the_needle\" target=\"_blank\" rel=\"noopener\">shard of the needle</a>.",
+          "text": "Search the Needle to obtain the shard of the needle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1s5eii9",
+          "html": "After the cutscene, <i>investigate</i> the <a href=\"https://runescape.wiki/w/Mysterious_body\" target=\"_blank\" rel=\"noopener\">mysterious body</a> on the ground.",
+          "text": "After the cutscene, investigate the mysterious body on the ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "chapter-1",
+      "title": "Chapter 1",
+      "anchor": "Chapter_1",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "chapter-1:1jp8f82",
+          "html": "<i>Commune</i> with the shard.",
+          "text": "Commune with the shard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chapter-1:16zupa4",
+          "html": "Enter the word <b>fire</b>.",
+          "text": "Enter the word fire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chapter-1:97xpmp",
+          "html": "Go into the house to the north-west and <i>explore</i> the fireplace.",
+          "text": "Go into the house to the north-west and explore the fireplace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "chapter-1:97xpmp:1pd9pdz",
+              "html": "For full completion, find all of the other words listed on <a href=\"https://runescape.wiki/w/The_Needle_Skips#Chapter_1\" target=\"_blank\" rel=\"noopener\">The Needle Skips#Chapter 1</a>.",
+              "text": "For full completion, find all of the other words listed on The Needle Skips#Chapter 1.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "chapter-1:1quu3yq",
+          "html": "Go back to where the Needle is on the hill to the south-east.",
+          "text": "Go back to where the Needle is on the hill to the south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chapter-1:1mzzno4",
+          "html": "<i>Enter</i> the temporal portal.",
+          "text": "Enter the temporal portal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Continue to Chapter 2"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "chapter-2",
+      "title": "Chapter 2",
+      "anchor": "Chapter_2",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "chapter-2:otwxnp",
+          "html": "Commune with the shard again and enter the word <b>birthday</b>.",
+          "text": "Commune with the shard again and enter the word birthday.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "chapter-2:otwxnp:1fxqdaw",
+              "html": "For full completion, find all of the other words listed on <a href=\"https://runescape.wiki/w/The_Needle_Skips#Chapter_2\" target=\"_blank\" rel=\"noopener\">The Needle Skips#Chapter 2</a>.",
+              "text": "For full completion, find all of the other words listed on The Needle Skips#Chapter 2.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "chapter-2:kpyvak",
+          "html": "Descend the stairs to the east and go back to the Needle.",
+          "text": "Descend the stairs to the east and go back to the Needle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "chapter-2:1mzzno4",
+          "html": "Enter the temporal portal.",
+          "text": "Enter the temporal portal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes. Continue to Chapter 3"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "chapter-3",
+      "title": "Chapter 3",
+      "anchor": "Chapter_3",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "chapter-3:u45tjh",
+          "html": "Commune with the shard again and enter the word <b>wenla</b>.",
+          "text": "Commune with the shard again and enter the word wenla.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "chapter-3:u45tjh:1pdg0dx",
+              "html": "For full completion, find all of the other words listed on <a href=\"https://runescape.wiki/w/The_Needle_Skips#Chapter_3\" target=\"_blank\" rel=\"noopener\">The Needle Skips#Chapter 3</a>.",
+              "text": "For full completion, find all of the other words listed on The Needle Skips#Chapter 3.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "chapter-3:1v2q703",
+          "html": "Go back to the Needle and search it.",
+          "text": "Go back to the Needle and search it.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Continue to the finale"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-finale",
+      "title": "The finale",
+      "anchor": "The_finale",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-finale:y7bf8u",
+          "html": "Run back towards the house and harvest the buckthorn bush near the river.",
+          "text": "Run back towards the house and harvest the buckthorn bush near the river.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:ej7rmw",
+          "html": "Grind and crush both the <a href=\"https://runescape.wiki/w/Buckthorn_leaf\" target=\"_blank\" rel=\"noopener\">leaf</a> and <a href=\"https://runescape.wiki/w/Buckthorn_berry\" target=\"_blank\" rel=\"noopener\">berry</a>.",
+          "text": "Grind and crush both the leaf and berry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:1k12i6",
+          "html": "Go upstairs in the house and give <a href=\"https://runescape.wiki/w/Primrose\" target=\"_blank\" rel=\"noopener\">Primrose</a> the smelling salts.",
+          "text": "Go upstairs in the house and give Primrose the smelling salts.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:17xw1c5",
+          "html": "Go back downstairs, search the bookcase to the north-east.",
+          "text": "Go back downstairs, search the bookcase to the north-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:sfqdse",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Megan\" target=\"_blank\" rel=\"noopener\">Megan</a> and name the demon &#39;Metum&#39;.",
+          "text": "Talk to Megan and name the demon 'Metum'.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Name the demon"
+                },
+                {
+                  "key": "?",
+                  "text": "Metum"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:593mx5",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Bottle_of_crushed_berries\" target=\"_blank\" rel=\"noopener\">bottle of crushed berries</a> on the stove on the west side of the house.",
+          "text": "Use the bottle of crushed berries on the stove on the west side of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:1m829sx",
+          "html": "Return back to the Needle and use the <a href=\"https://runescape.wiki/w/Buckthorn_salve\" target=\"_blank\" rel=\"noopener\">buckthorn salve</a> on <a href=\"https://runescape.wiki/w/Gail\" target=\"_blank\" rel=\"noopener\">Gail</a>. Finish the dialogue and you will be teleported back to the house.",
+          "text": "Return back to the Needle and use the buckthorn salve on Gail. Finish the dialogue and you will be teleported back to the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:1lb6srv",
+          "html": "Finish the dialogue with Megan and go back to the Needle and pick up the <a href=\"https://runescape.wiki/w/Note_from_gail\" target=\"_blank\" rel=\"noopener\">note from gail</a>.",
+          "text": "Finish the dialogue with Megan and go back to the Needle and pick up the note from gail.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:119hb6h",
+          "html": "Read the note then return to Megan inside the house.",
+          "text": "Read the note then return to Megan inside the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-finale:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Needle_Skips_reward.png?b5336",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Needle_Skips_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Small_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">small XP lamp</a>",
+        "text": "1 small XP lamp",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Discover all chapters to claim a <a href=\"https://runescape.wiki/w/Medium_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">medium lamp</a>.",
+            "text": "Discover all chapters to claim a medium lamp.",
+            "subs": []
+          },
+          {
+            "html": "For full completion, players can find all of the words in each chapter. After the quest is completed, players can replay chapters by searching <a href=\"https://runescape.wiki/w/The_Needle\" target=\"_blank\" rel=\"noopener\">the Needle</a> (or the rubble that remains after <a href=\"https://runescape.wiki/w/Desperate_Times\" target=\"_blank\" rel=\"noopener\">Desperate Times</a>). To get the <a href=\"https://runescape.wiki/w/Large_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">large XP lamp</a> you need to speak with <a href=\"https://runescape.wiki/w/Megan\" target=\"_blank\" rel=\"noopener\">Megan</a> outside of the quest replays.",
+            "text": "For full completion, players can find all of the words in each chapter. After the quest is completed, players can replay chapters by searching the Needle (or the rubble that remains after Desperate Times). To get the large XP lamp you need to speak with Megan outside of the quest replays.",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Needle",
+      "where": ""
+    },
+    {
+      "name": "Megan's Tale",
+      "where": ""
+    },
+    {
+      "name": "Temporal Threads",
+      "where": ""
+    },
+    {
+      "name": "Darker Threads",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

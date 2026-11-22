@@ -1,0 +1,434 @@
+{
+  "format": 1,
+  "id": "osseous-rex",
+  "title": "Osseous Rex",
+  "page": "Osseous Rex/Quick guide",
+  "rev": 37168909,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/%27Calm%27_Archaeologist\" target=\"_blank\" rel=\"noopener\">&#39;calm&#39; Archaeologist</a> in <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">Anachronia base camp</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 4246,
+      "lon": 3911,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Osseous_Rex/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Anachronia base camp tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Archaeology",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Anachronia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Anachronia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1y7ee8h",
+          "html": "20 <a href=\"https://runescape.wiki/w/Orthenglass\" target=\"_blank\" rel=\"noopener\">orthenglass</a> (some obtainable during the quest, can be in material storage; players with low Archaeology levels will likely obtain all during the quest)",
+          "text": "20 orthenglass (some obtainable during the quest, can be in material storage; players with low Archaeology levels will likely obtain all during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:rttu51",
+          "html": "<a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> (for easy teleport to an <a href=\"https://runescape.wiki/w/Archaeologist%27s_workbench\" target=\"_blank\" rel=\"noopener\">archaeologist&#39;s workbench</a>)",
+          "text": "Archaeology journal (for easy teleport to an archaeologist's workbench)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:9kcfdc",
+          "html": "The best <a href=\"https://runescape.wiki/w/Mattocks\" target=\"_blank\" rel=\"noopener\">mattock</a> you own to excavate from the <a href=\"https://runescape.wiki/w/Crystallised_rubble\" target=\"_blank\" rel=\"noopener\">crystallised rubble</a>",
+          "text": "The best mattock you own to excavate from the crystallised rubble",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "learning-about-osseous",
+      "title": "Learning about Osseous",
+      "anchor": "Learning_about_Osseous",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of the teleportation device.",
+          "lat": 4261,
+          "lon": 4027,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  4027.5,
+                  4261.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Teleportation device<br /><b>Object ID</b>: 119683",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Osseous_Rex/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "learning-about-osseous:16u89mr",
+          "html": "<i>Talk to</i> the <a href=\"https://runescape.wiki/w/%27Calm%27_Archaeologist\" target=\"_blank\" rel=\"noopener\">&#39;Calm&#39; Archaeologist</a> at the <a href=\"https://runescape.wiki/w/Rex_skeleton\" target=\"_blank\" rel=\"noopener\">rex skeleton</a> in <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">Anachronia base camp</a> to begin the quest.",
+          "text": "Talk to the 'Calm' Archaeologist at the rex skeleton in Anachronia base camp to begin the quest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-osseous:xqt7wx",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Teleportation_device\" target=\"_blank\" rel=\"noopener\">teleportation device</a> in the <a href=\"https://runescape.wiki/w/Spirit_grove\" target=\"_blank\" rel=\"noopener\">spirit grove</a>.",
+          "text": "Head to the teleportation device in the spirit grove.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-osseous:buc4tv",
+          "html": "<i>Activate</i> the teleportation device.",
+          "text": "Activate the teleportation device.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "learning-about-osseous:a4jqah",
+          "html": "Head east and <i>talk to</i> the &#39;Calm&#39; Archaeologist.",
+          "text": "Head east and talk to the 'Calm' Archaeologist.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-a-teleportation-crystal",
+      "title": "Finding a teleportation crystal",
+      "anchor": "Finding_a_teleportation_crystal",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-a-teleportation-crystal:bring:1v64i4i",
+              "html": "Free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space to excavate an artefact",
+              "text": "Free backpack space to excavate an artefact"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "finding-a-teleportation-crystal:bring:1f0nq2b",
+              "html": "Excavation equipment such as mattock",
+              "text": "Excavation equipment such as mattock"
+            },
+            {
+              "id": "finding-a-teleportation-crystal:bring:jfqy3o",
+              "html": "Archaeology outfit",
+              "text": "Archaeology outfit"
+            },
+            {
+              "id": "finding-a-teleportation-crystal:bring:3627c6",
+              "html": "Porters",
+              "text": "Porters"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Osseous_Rex_trajectory.png/300px-Osseous_Rex_trajectory.png?0c599",
+          "width": 300,
+          "height": 307,
+          "alt": "",
+          "caption": "Map of the dunegeon",
+          "href": "https://runescape.wiki/w/File:Osseous_Rex_trajectory.png"
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:1z0bkko",
+          "html": "Go north-east towards the Matriarch lair entrance, and then through the archway to the north and follow the path anti-clockwise until you reach an <a href=\"https://runescape.wiki/w/Ancient_Artefact_(Inactive)\" target=\"_blank\" rel=\"noopener\">Ancient Artefact (Inactive)</a>.",
+          "text": "Go north-east towards the Matriarch lair entrance, and then through the archway to the north and follow the path anti-clockwise until you reach an Ancient Artefact (Inactive).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:16k2wg4",
+          "html": "<i>Activate</i> the Ancient Artefact (Inactive) to unlock the first <a href=\"https://runescape.wiki/w/Gate_(Rex_Matriarch_lair)\" target=\"_blank\" rel=\"noopener\">gate</a>.",
+          "text": "Activate the Ancient Artefact (Inactive) to unlock the first gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:re2wii",
+          "html": "Go back to the area near the archaeologist and <i>Pass Through</i> the gate.",
+          "text": "Go back to the area near the archaeologist and Pass Through the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:1hpvchh",
+          "html": "Go south, then east, then north through the arch, and <i>activate</i> the second Ancient Artefact (Inactive).",
+          "text": "Go south, then east, then north through the arch, and activate the second Ancient Artefact (Inactive).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:ydw8ui",
+          "html": "A cutscene ensues, unlocking two more gates.",
+          "text": "A cutscene ensues, unlocking two more gates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:q37h6i",
+          "html": "Go south, looping around to the immediate west and <i>Pass Through</i> the gate.",
+          "text": "Go south, looping around to the immediate west and Pass Through the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:7tlo3o",
+          "html": "Go east, following the path south and around anti-clockwise up a hill.",
+          "text": "Go east, following the path south and around anti-clockwise up a hill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:1ma4z6h",
+          "html": "<i>Pass Through</i> the gate.",
+          "text": "Pass Through the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:1phfqqd",
+          "html": "<i>Uncover</i> the <a href=\"https://runescape.wiki/w/Soil_(Rex_Matriarch_lair)\" target=\"_blank\" rel=\"noopener\">soil</a>.",
+          "text": "Uncover the soil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-teleportation-crystal:1lcakvs",
+          "html": "<i>Excavate</i> the <a href=\"https://runescape.wiki/w/Crystallised_rubble\" target=\"_blank\" rel=\"noopener\">crystallised rubble</a> for a <a href=\"https://runescape.wiki/w/Teleportation_crystal_(damaged)\" target=\"_blank\" rel=\"noopener\">teleportation crystal (damaged)</a>.",
+          "text": "Excavate the crystallised rubble for a teleportation crystal (damaged).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:g3ztir",
+              "html": "<a href=\"https://runescape.wiki/w/Teleportation_crystal_(damaged)\" target=\"_blank\" rel=\"noopener\">Teleportation crystal (damaged)</a>",
+              "text": "Teleportation crystal (damaged)"
+            },
+            {
+              "id": "finishing-up:bring:f376cn",
+              "html": "20 <a href=\"https://runescape.wiki/w/Orthenglass\" target=\"_blank\" rel=\"noopener\">orthenglass</a> in material storage container",
+              "text": "20 orthenglass in material storage container"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:64m6fm",
+          "html": "<i>Restore</i> the <a href=\"https://runescape.wiki/w/Teleportation_crystal_(damaged)\" target=\"_blank\" rel=\"noopener\">teleportation crystal (damaged)</a> at an <a href=\"https://runescape.wiki/w/Archaeologist%27s_workbench\" target=\"_blank\" rel=\"noopener\">archaeologist&#39;s workbench</a>.",
+          "text": "Restore the teleportation crystal (damaged) at an archaeologist's workbench.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:b4mw98",
+          "html": "<i>Talk to</i> the &#39;Calm&#39; Archaeologist in the <a href=\"https://runescape.wiki/w/Rex_Matriarch_lair\" target=\"_blank\" rel=\"noopener\">Rex Matriarch lair</a> with the restored <a href=\"https://runescape.wiki/w/Teleportation_crystal\" target=\"_blank\" rel=\"noopener\">teleportation crystal</a>.",
+          "text": "Talk to the 'Calm' Archaeologist in the Rex Matriarch lair with the restored teleportation crystal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Osseous_Rex_reward.png?e8d00",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Osseous_Rex_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Osseous\" target=\"_blank\" rel=\"noopener\">Osseous</a> boss fight",
+        "text": "Access to the Osseous boss fight",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Rex Matriarchs",
+      "where": "if not already unlocked"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

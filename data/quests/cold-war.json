@@ -1,0 +1,1417 @@
+{
+  "format": 1,
+  "id": "cold-war",
+  "title": "Cold War",
+  "page": "Cold War/Quick guide",
+  "rev": 37118850,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Larry\" target=\"_blank\" rel=\"noopener\">Larry</a> at <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Construction",
+        "level": 34,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 10,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 15,
+        "note": "(b) or access to Zanaris (to acquire cowbells) (not required to start)"
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 20,
+        "note": "(to smelt steel bar for clockwork), there is also a bar spawn in Wilderness West Ruins"
+      },
+      {
+        "skill": "Fishing",
+        "level": 23,
+        "note": "(to catch a raw cod) or Creature of Fenkenstrain completed"
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 60,
+        "note": "(to chop mahogany logs for the plank)"
+      }
+    ],
+    "otherReqs": [
+      "Alternatively, <a href=\"https://runescape.wiki/w/Carnillean_Rising\" target=\"_blank\" rel=\"noopener\">Carnillean Rising</a> rewards 10 mahogany planks",
+      "<a href=\"https://runescape.wiki/w/Mahogany_logs\" target=\"_blank\" rel=\"noopener\">Mahogany logs</a> or <a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">mahogany planks</a> may also be obtained as drops from various sources"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "1-2 icelords (level 42)",
+        "name": "1-2 icelords",
+        "count": null,
+        "level": "42",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Fremennik</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1a6kk57",
+          "html": "Access to a <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_3\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench 3</a> or <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_4\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench 4</a> (you can use a friend&#39;s house if you&#39;re not an ironman)",
+          "text": "Access to a clockmaker's bench 3 or clockmaker's bench 4 (you can use a friend's house if you're not an ironman)",
+          "alternatives": [
+            "Alternatively, 12 <a href=\"https://runescape.wiki/w/Oak_plank\" target=\"_blank\" rel=\"noopener\">oak planks</a> and 3 <a href=\"https://runescape.wiki/w/Molten_glass\" target=\"_blank\" rel=\"noopener\">molten glass</a> to make the clockmaker&#39;s bench 3 from scratch"
+          ]
+        },
+        {
+          "id": "req:1l2ol4n",
+          "html": "10 <a href=\"https://runescape.wiki/w/Oak_plank\" target=\"_blank\" rel=\"noopener\">oak planks</a> (<a href=\"https://runescape.wiki/w/Protean_plank\" target=\"_blank\" rel=\"noopener\">protean planks</a> and <a href=\"https://runescape.wiki/w/Plank_box\" target=\"_blank\" rel=\"noopener\">plank box</a> will not work)",
+          "text": "10 oak planks (protean planks and plank box will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:oushou",
+          "html": "10 <a href=\"https://runescape.wiki/w/Steel_nail\" target=\"_blank\" rel=\"noopener\">steel nails</a>",
+          "text": "10 steel nails",
+          "alternatives": []
+        },
+        {
+          "id": "req:7hznze",
+          "html": "<a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">Plank</a> (protean and other types of planks do not work)",
+          "text": "Plank (protean and other types of planks do not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:i5o1oe",
+          "html": "<a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">Mahogany plank</a> (protean does not work)",
+          "text": "Mahogany plank (protean does not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:156vnb8",
+          "html": "<a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">Silk</a>",
+          "text": "Silk",
+          "alternatives": []
+        },
+        {
+          "id": "req:1emfv8a",
+          "html": "<a href=\"https://runescape.wiki/w/Clockwork\" target=\"_blank\" rel=\"noopener\">Clockwork</a> (or a <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bar</a> to craft one)",
+          "text": "Clockwork (or a steel bar to craft one)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1t2htz8",
+          "html": "<a href=\"https://runescape.wiki/w/Swamp_tar\" target=\"_blank\" rel=\"noopener\">Swamp tar</a>",
+          "text": "Swamp tar",
+          "alternatives": []
+        },
+        {
+          "id": "req:v4nnvp",
+          "html": "5 <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feathers</a> (coloured ones won&#39;t work)",
+          "text": "5 feathers (coloured ones won't work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1b6ofk6",
+          "html": "<a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">Leather</a>",
+          "text": "Leather",
+          "alternatives": []
+        },
+        {
+          "id": "req:xbrxch",
+          "html": "<a href=\"https://runescape.wiki/w/Raw_cod\" target=\"_blank\" rel=\"noopener\">Raw cod</a> <b>or</b> a <a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">ring of charos</a> (inactivated works)",
+          "text": "Raw cod or a ring of charos (inactivated works)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:oiqazx",
+          "html": "<a href=\"https://runescape.wiki/w/House_teleport\" target=\"_blank\" rel=\"noopener\">House teleport</a> runes and activated <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province</a>, <a href=\"https://runescape.wiki/w/Lumbridge_lodestone\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> and <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>",
+          "text": "House teleport runes and activated Fremennik Province, Lumbridge and Varrock lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:128377x",
+          "html": "Gained access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a>",
+          "text": "Gained access to the fairy rings",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1hfl15l",
+          "html": "<a href=\"https://runescape.wiki/w/Kandarin_monastery_teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery teleport</a> unlocked for faster access to <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>",
+          "text": "Kandarin monastery teleport unlocked for faster access to Ardougne Zoo",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1vyqo2f",
+          "html": "Food for the agility course",
+          "text": "Food for the agility course",
+          "alternatives": []
+        },
+        {
+          "id": "rec:kvy9ml",
+          "html": "A weapon to kill the <a href=\"https://runescape.wiki/w/Icelord\" target=\"_blank\" rel=\"noopener\">icelords</a>",
+          "text": "A weapon to kill the icelords",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "penguin-spotting",
+      "title": "Penguin spotting",
+      "anchor": "Penguin_spotting",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "penguin-spotting:bring:ewn59a",
+              "html": "10 <a href=\"https://runescape.wiki/w/Oak_planks\" target=\"_blank\" rel=\"noopener\">oak planks</a> and 10 <a href=\"https://runescape.wiki/w/Steel_nails\" target=\"_blank\" rel=\"noopener\">steel nails</a>",
+              "text": "10 oak planks and 10 steel nails"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:6sdvsm",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Larry\" target=\"_blank\" rel=\"noopener\">Larry</a> near the penguin enclosure in the <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>.",
+          "text": "Talk to Larry near the penguin enclosure in the Ardougne Zoo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cold War"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:1trx8dc",
+          "html": "Talk to Larry again when carrying 10 oak planks and 10 steel nails.",
+          "text": "Talk to Larry again when carrying 10 oak planks and 10 steel nails.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cold War"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have all the materials."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:1akqnwd",
+          "html": "Use an oak plank on the <a href=\"https://runescape.wiki/w/Firm_snow_patch\" target=\"_blank\" rel=\"noopener\">firm snow patch</a>.",
+          "text": "Use an oak plank on the firm snow patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:fkp6hq",
+          "html": "Attempt to enter the <a href=\"https://runescape.wiki/w/Bird_hide_structure\" target=\"_blank\" rel=\"noopener\">bird hide structure</a> to cover it in snow with spade.",
+          "text": "Attempt to enter the bird hide structure to cover it in snow with spade.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:19o282g",
+          "html": "Enter <a href=\"https://runescape.wiki/w/Snowy_bird_hide\" target=\"_blank\" rel=\"noopener\">snowy bird hide</a>.",
+          "text": "Enter snowy bird hide.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:x7hcj1",
+          "html": "Take note of the emotes the left penguin is doing. The snowy bird hide can be re-entered to watch again if needed. You can check the quest journal later in the quest if you aren&#39;t sure.",
+          "text": "Take note of the emotes the left penguin is doing. The snowy bird hide can be re-entered to watch again if needed. You can check the quest journal later in the quest if you aren't sure.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:1y59lnc",
+          "html": "Talk to Larry.",
+          "text": "Talk to Larry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:1lxxl69",
+          "html": "Travel using the nearby boat.",
+          "text": "Travel using the nearby boat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "penguin-spotting:110eubs",
+          "html": "Talk to Larry once on the dock.",
+          "text": "Talk to Larry once on the dock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "clockwork-penguin",
+      "title": "Clockwork penguin",
+      "anchor": "Clockwork_penguin",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "clockwork-penguin:bring:lpcomo",
+              "html": "<a href=\"https://runescape.wiki/w/Clockwork\" target=\"_blank\" rel=\"noopener\">Clockwork</a> (or a <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bar</a> to make one)",
+              "text": "Clockwork (or a steel bar to make one)"
+            },
+            {
+              "id": "clockwork-penguin:bring:1k71t1",
+              "html": "<a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">Silk</a> and <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">plank</a> (+1 of each material if you wish to make a suit for the subsequent quests now)",
+              "text": "Silk and plank (+1 of each material if you wish to make a suit for the subsequent quests now)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "clockwork-penguin:62laer",
+          "html": "Make a <a href=\"https://runescape.wiki/w/Clockwork_suit\" target=\"_blank\" rel=\"noopener\">clockwork suit</a> on Clockmaker&#39;s bench 3 or 4 in a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a>, which requires a <a href=\"https://runescape.wiki/w/Clockwork\" target=\"_blank\" rel=\"noopener\">clockwork</a>, <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">regular plank</a>, and some <a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">silk</a>.",
+          "text": "Make a clockwork suit on Clockmaker's bench 3 or 4 in a player-owned house, which requires a clockwork, regular plank, and some silk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "clockwork-penguin:62laer:5kz05f",
+              "html": "Making an extra suit at this point is optional for the subsequent quests.",
+              "text": "Making an extra suit at this point is optional for the subsequent quests.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "clockwork-penguin:zdt89u",
+          "html": "Return to Larry (in Ardougne Zoo or north of <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a>).",
+          "text": "Return to Larry (in Ardougne Zoo or north of Fremennik Province lodestone).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cold War"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have it."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "clockwork-penguin:192ekyd",
+          "html": "Talk to Larry on the iceberg.",
+          "text": "Talk to Larry on the iceberg.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "It looks like a warning message to keep us away."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "clockwork-penguin:192ekyd:t4dr5h",
+              "html": "Accept teleport to the Ardougne Zoo.",
+              "text": "Accept teleport to the Ardougne Zoo.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suit-up",
+      "title": "Suit up!",
+      "anchor": "Suit_up!",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "suit-up:bring:196mj5t",
+              "html": "Clockwork suit",
+              "text": "Clockwork suit"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "suit-up:19uacv9",
+          "html": "Unequip cape and weapons and use the <i>tuxedo-time</i> option on Larry.",
+          "text": "Unequip cape and weapons and use the tuxedo-time option on Larry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "suit-up:wvsbdq",
+          "html": "Enter the penguin pen and talk to the penguin.",
+          "text": "Enter the penguin pen and talk to the penguin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "suit-up:18ok0ef",
+          "html": "Use the greeting emotes from earlier. If you haven&#39;t noted down the emotes, look in your quest log after you&#39;ve talked to the penguin.",
+          "text": "Use the greeting emotes from earlier. If you haven't noted down the emotes, look in your quest log after you've talked to the penguin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "suit-up:1krhqg1",
+          "html": "Read the mission report and exit the penguin pen.",
+          "text": "Read the mission report and exit the penguin pen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "suit-up:1np3q78",
+          "html": "Talk to Larry twice.",
+          "text": "Talk to Larry twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cold War"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "incognito",
+      "title": "Incognito!",
+      "anchor": "Incognito!",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Fred's farm",
+          "lat": 3290,
+          "lon": 3206,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3201.5,
+                      3285.5
+                    ],
+                    [
+                      3201.5,
+                      3295.5
+                    ],
+                    [
+                      3211.5,
+                      3295.5
+                    ],
+                    [
+                      3211.5,
+                      3285.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Cold_War/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "incognito:bring:196mj5t",
+              "html": "Clockwork suit",
+              "text": "Clockwork suit"
+            },
+            {
+              "id": "incognito:bring:1qgofbv",
+              "html": "<a href=\"https://runescape.wiki/w/Raw_cod\" target=\"_blank\" rel=\"noopener\">Raw cod</a> (or a <a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">ring of charos</a>)",
+              "text": "Raw cod (or a ring of charos)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:13adr15",
+          "html": "Go to the west section of the <a href=\"https://runescape.wiki/w/Lumbridge_cow_field\" target=\"_blank\" rel=\"noopener\">Lumbridge cow field</a> by the gate and steal a <a href=\"https://runescape.wiki/w/Cowbell\" target=\"_blank\" rel=\"noopener\">cowbell</a> from a <a href=\"https://runescape.wiki/w/Dairy_cow\" target=\"_blank\" rel=\"noopener\">dairy cow</a> by using the steal-cowbell option for later on in the quest.",
+          "text": "Go to the west section of the Lumbridge cow field by the gate and steal a cowbell from a dairy cow by using the steal-cowbell option for later on in the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "incognito:13adr15:16nlvju",
+              "html": "Players without 15 Thieving can get a cowbell by talking to the dairy cow in <a href=\"https://runescape.wiki/w/Zanaris\" target=\"_blank\" rel=\"noopener\">Zanaris</a>.",
+              "text": "Players without 15 Thieving can get a cowbell by talking to the dairy cow in Zanaris.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "incognito:uqhgss",
+          "html": "Talk to Larry inside the sheep pen west of <a href=\"https://runescape.wiki/w/Fred_the_Farmer\" target=\"_blank\" rel=\"noopener\">Fred the Farmer</a>&#39;s house in Lumbridge.",
+          "text": "Talk to Larry inside the sheep pen west of Fred the Farmer's house in Lumbridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:zx7c32",
+          "html": "Enter penguin suit by right clicking Larry and selecting &#39;tuxedo time&#39; or using the clockwork suit on Larry and talk to the penguins disguised as a sheep (the sheep with flippers).",
+          "text": "Enter penguin suit by right clicking Larry and selecting 'tuxedo time' or using the clockwork suit on Larry and talk to the penguins disguised as a sheep (the sheep with flippers).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:1gko20v",
+          "html": "Do the greeting emotes.",
+          "text": "Do the greeting emotes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:15ktqv",
+          "html": "Talk to sheep penguin again.",
+          "text": "Talk to sheep penguin again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:1np3q78",
+          "html": "Talk to Larry twice.",
+          "text": "Talk to Larry twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:1ywlc4x",
+          "html": "Equip the ring of charos or have a raw cod in the inventory and use the tuxedo-time option on Larry and enter the penguin suit again once at Ardougne Zoo.",
+          "text": "Equip the ring of charos or have a raw cod in the inventory and use the tuxedo-time option on Larry and enter the penguin suit again once at Ardougne Zoo.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:lbib8a",
+          "html": "Enter penguin pen and talk to penguin.",
+          "text": "Enter penguin pen and talk to penguin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The penguins in Lumbridge refuse to talk to me."
+                },
+                {
+                  "key": "2",
+                  "text": "I must have left the outpost before they gave out the phrase."
+                },
+                {
+                  "key": "1",
+                  "text": "Sure!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "incognito:1np3q78-2",
+          "html": "Talk to Larry twice.",
+          "text": "Talk to Larry twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cold War"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "intelligence",
+      "title": "Intelligence",
+      "anchor": "Intelligence",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "intelligence:bring:196mj5t",
+              "html": "Clockwork suit",
+              "text": "Clockwork suit"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:enu1f7",
+          "html": "Go back to the Lumbridge sheep pen.",
+          "text": "Go back to the Lumbridge sheep pen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:18mvrr3",
+          "html": "Enter penguin suit by right clicking Larry and selecting &#39;tuxedo time&#39; or using the clockwork suit on Larry.",
+          "text": "Enter penguin suit by right clicking Larry and selecting 'tuxedo time' or using the clockwork suit on Larry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:oq34dr",
+          "html": "Talk to sheep penguin.",
+          "text": "Talk to sheep penguin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:1np3q78",
+          "html": "Talk to Larry twice.",
+          "text": "Talk to Larry twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:qqthw2",
+          "html": "Talk to Fred the Farmer nearby.",
+          "text": "Talk to Fred the Farmer nearby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need to talk to you about penguins."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "intelligence:qqthw2:1ly019g",
+              "html": "Note: Chat options may vary for some players. Choose the option for penguins.",
+              "text": "Note: Chat options may vary for some players. Choose the option for penguins.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "intelligence:1ept2br",
+          "html": "Enter penguin suit and talk to sheep penguin again.",
+          "text": "Enter penguin suit and talk to sheep penguin again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "intelligence:1np3q78-2",
+          "html": "Talk to Larry twice.",
+          "text": "Talk to Larry twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "surprise-surprise",
+      "title": "Surprise, surprise",
+      "anchor": "Surprise,_surprise",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "surprise-surprise:bring:196mj5t",
+              "html": "Clockwork suit",
+              "text": "Clockwork suit"
+            },
+            {
+              "id": "surprise-surprise:bring:1t2htz8",
+              "html": "<a href=\"https://runescape.wiki/w/Swamp_tar\" target=\"_blank\" rel=\"noopener\">Swamp tar</a>",
+              "text": "Swamp tar"
+            },
+            {
+              "id": "surprise-surprise:bring:1c90t70",
+              "html": "5 <a href=\"https://runescape.wiki/w/Feathers\" target=\"_blank\" rel=\"noopener\">feathers</a>",
+              "text": "5 feathers"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1psij71",
+          "html": "Dismiss any pets or followers.",
+          "text": "Dismiss any pets or followers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:16c2n6m",
+          "html": "Talk to Larry on the iceberg and get in the penguin suit again and talk to <a href=\"https://runescape.wiki/w/KGP_Agent\" target=\"_blank\" rel=\"noopener\">KGP Agent</a> north-west of Larry.",
+          "text": "Talk to Larry on the iceberg and get in the penguin suit again and talk to KGP Agent north-west of Larry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1gko20v",
+          "html": "Do the greeting emotes.",
+          "text": "Do the greeting emotes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:td2asb",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Noodle\" target=\"_blank\" rel=\"noopener\">Noodle</a> twice.",
+          "text": "Talk to Noodle twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yeah, I got it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1kb1qgf",
+          "html": "Talk to KGP Agent.",
+          "text": "Talk to KGP Agent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "surprise-surprise:1kb1qgf:1r1ibod",
+              "html": "Make sure you finish the dialogue or you won&#39;t be able to enter the penguin lair.",
+              "text": "Make sure you finish the dialogue or you won't be able to enter the penguin lair.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1ve9inq",
+          "html": "Investigate avalanche just north of KGP Agent.",
+          "text": "Investigate avalanche just north of KGP Agent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:16jw268",
+          "html": "Enter the first west room.",
+          "text": "Enter the first west room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1kb1qgf-2",
+          "html": "Talk to KGP Agent.",
+          "text": "Talk to KGP Agent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1xssefu",
+          "html": "Exit room through the west door and then through the north door.",
+          "text": "Exit room through the west door and then through the north door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "surprise-surprise:1fibse5",
+          "html": "Walk north to the <a href=\"https://runescape.wiki/w/Penguin_agility_course\" target=\"_blank\" rel=\"noopener\">agility course</a>.",
+          "text": "Walk north to the agility course.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "agility-course",
+      "title": "Agility course",
+      "anchor": "Agility_course",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Jump_penguin_Jump%21.png/300px-Jump_penguin_Jump%21.png?f6118",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "Jump, I say! Jump!",
+          "href": "https://runescape.wiki/w/File:Jump_penguin_Jump!.png"
+        },
+        {
+          "type": "step",
+          "id": "agility-course:oh1z4v",
+          "html": "Climb down the steps and into the water.",
+          "text": "Climb down the steps and into the water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "agility-course:oh1z4v:fmj6ef",
+              "html": "Stepping across the checkered flag should automatically drop you in water.",
+              "text": "Stepping across the checkered flag should automatically drop you in water.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "agility-course:ylilsh",
+          "html": "Avoid the moving ice in the water.",
+          "text": "Avoid the moving ice in the water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:7c6qj3",
+          "html": "Climb the stepping stone at the end.",
+          "text": "Climb the stepping stone at the end.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:1pr0fiy",
+          "html": "Jump across the next stones until you reach the other side.",
+          "text": "Jump across the next stones until you reach the other side.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:w57sab",
+          "html": "After crossing, continue on the path until you come to an arch covered in icicles. Use the <i>tread softly</i> option to pass. This must be repeated several times at each arch. Players who fail will be hit with a small amount of damage.",
+          "text": "After crossing, continue on the path until you come to an arch covered in icicles. Use the tread softly option to pass. This must be repeated several times at each arch. Players who fail will be hit with a small amount of damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:1swn74n",
+          "html": "Next, climb up the ice. This can be very annoying, as players lose 20 life points each time they fail, and the failure rate is surprisingly high. For players with low <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> levels, a small amount of food may help.",
+          "text": "Next, climb up the ice. This can be very annoying, as players lose 20 life points each time they fail, and the failure rate is surprisingly high. For players with low Agility levels, a small amount of food may help.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:199kv7i",
+          "html": "After that, a short cutscene will play of the player sliding down a hill.",
+          "text": "After that, a short cutscene will play of the player sliding down a hill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:9cqsvj",
+          "html": "Talk to the Agility Instructor to leave the gate.",
+          "text": "Talk to the Agility Instructor to leave the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-course:3dv62f",
+          "html": "Leave the outpost and talk to Larry on the iceberg (twice).",
+          "text": "Leave the outpost and talk to Larry on the iceberg (twice).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "berg-bards",
+      "title": "Berg bards",
+      "anchor": "Berg_bards",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "berg-bards:bring:196mj5t",
+              "html": "Clockwork suit",
+              "text": "Clockwork suit"
+            },
+            {
+              "id": "berg-bards:bring:1q7oger",
+              "html": "<a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">Mahogany plank</a>",
+              "text": "Mahogany plank"
+            },
+            {
+              "id": "berg-bards:bring:1b6ofk6",
+              "html": "<a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">Leather</a>",
+              "text": "Leather"
+            },
+            {
+              "id": "berg-bards:bring:186wd2h",
+              "html": "<a href=\"https://runescape.wiki/w/Cowbell\" target=\"_blank\" rel=\"noopener\">Cowbell</a>",
+              "text": "Cowbell"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:15rnagm",
+          "html": "Enter the penguin suit and return to the outpost.",
+          "text": "Enter the penguin suit and return to the outpost.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:143y329",
+          "html": "Enter the second east room and talk to <a href=\"https://runescape.wiki/w/Ping\" target=\"_blank\" rel=\"noopener\">Ping</a> and <a href=\"https://runescape.wiki/w/Pong\" target=\"_blank\" rel=\"noopener\">Pong</a>.",
+          "text": "Enter the second east room and talk to Ping and Pong.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:1yuhf08",
+          "html": "Return to Larry and exit penguin suit.",
+          "text": "Return to Larry and exit penguin suit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:srhkow",
+          "html": "Use a mahogany plank on the leather.",
+          "text": "Use a mahogany plank on the leather.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:1nrlvqx",
+          "html": "Enter penguin suit and return to Ping and Pong.",
+          "text": "Enter penguin suit and return to Ping and Pong.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:1p48rj0",
+          "html": "Talk to them again.",
+          "text": "Talk to them again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:1y451uj",
+          "html": "Operate the control panel in the north-west corner of the main hall.",
+          "text": "Operate the control panel in the north-west corner of the main hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "berg-bards:esnj2u",
+          "html": "Enter the War Room to the east.",
+          "text": "Enter the War Room to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "conclusive-evidence",
+      "title": "Conclusive evidence",
+      "anchor": "Conclusive_evidence",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "<b>Note</b>: Familiars, followers or pets cannot be summoned."
+        },
+        {
+          "type": "step",
+          "id": "conclusive-evidence:1j639ur",
+          "html": "Kill an <a href=\"https://runescape.wiki/w/Icelord\" target=\"_blank\" rel=\"noopener\">Icelord</a> and exit the pen.",
+          "text": "Kill an Icelord and exit the pen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "conclusive-evidence:1tuvpib",
+          "html": "Climb the chasm to the east in the room.",
+          "text": "Climb the chasm to the east in the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "conclusive-evidence:1y59lnc",
+          "html": "Talk to Larry.",
+          "text": "Talk to Larry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "conclusive-evidence:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Cold_War_reward.png?04a69",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Cold_War_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "Ability to make the <a href=\"https://runescape.wiki/w/Penguin_suit\" target=\"_blank\" rel=\"noopener\">penguin suit</a>. To enter the suit, you must talk to <a href=\"https://runescape.wiki/w/Larry\" target=\"_blank\" rel=\"noopener\">Larry</a> at the zoo, pier, farm or Iceberg.",
+        "text": "Ability to make the penguin suit. To enter the suit, you must talk to Larry at the zoo, pier, farm or Iceberg.",
+        "subs": []
+      },
+      {
+        "html": "Ability to train at the <a href=\"https://runescape.wiki/w/Penguin_Agility_Course\" target=\"_blank\" rel=\"noopener\">Penguin Agility Course</a>.",
+        "text": "Ability to train at the Penguin Agility Course.",
+        "subs": []
+      },
+      {
+        "html": "Players can also steal more cowbells and make more bongos to play while in a penguin suit.",
+        "text": "Players can also steal more cowbells and make more bongos to play while in a penguin suit.",
+        "subs": []
+      },
+      {
+        "html": "Ability to contact Larry through the <a href=\"https://runescape.wiki/w/NPC_Contact\" target=\"_blank\" rel=\"noopener\">NPC Contact</a> spell.",
+        "text": "Ability to contact Larry through the NPC Contact spell.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Espionage",
+      "where": ""
+    },
+    {
+      "name": "Have an Ice Day",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Hunt_for_Red_Raktuber/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hunt for Red Raktuber</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Back_to_the_Freezer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Back to the Freezer</a>",
+        "<a href=\"https://runescape.wiki/w/Some_Like_It_Cold/Quick_guide\" target=\"_blank\" rel=\"noopener\">Some Like It Cold</a>"
+      ]
+    }
+  ]
+}

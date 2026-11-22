@@ -10,7 +10,7 @@
 //   npm run check:version                  checks that package.json, index.html and CHANGELOG.md agree
 //   npm run check:version -- origin/main   also checks that a change to the app raised the version one step
 //   node tools/version.js notes [x.y.z]    prints what CHANGELOG.md says about a version (the release text)
-//   node tools/version.js site <folder>    copies the app, and only the app, to a folder (what GitHub Pages gets)
+//   node tools/version.js site <folder>    copies the app and data/, and nothing else, to a folder (what GitHub Pages gets)
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -21,6 +21,9 @@ const LEVELS = ['patch', 'minor', 'major'];
 // The app: the files GitHub Pages serves (.github/workflows/deploy.yml copies these, and nothing else). A change to
 // one of them is a new version. CLAUDE.md, DEVELOPING.md and the pull request template name the same list.
 const APP_FILES = ['index.html', 'style.css', 'appconfig.json', 'icon.svg', 'icon.png', 'js/', 'vendor/'];
+// The wiki's data goes on the site too, but is no part of the app's version: a build makes it every night
+// (tools/data/build.js), and a change to it needs no new version.
+const SITE_FILES = APP_FILES.concat(['data/']);
 // "## [1.2.3] - 2026-11-21" or "## [Unreleased]"
 const HEADING = /^## \[([^\]]+)\](?: - (\S+))?[ \t]*$/gm;
 
@@ -165,19 +168,20 @@ function bump(root, level, date) {
 }
 
 // ---------- the site ----------
-// Copies the app's files to a folder (made new, or emptied first): what goes on GitHub Pages. Not the designs, the
-// tests, the tools or the docs. Returns what it copied.
+// Copies the app's files and the data to a folder (made new, or emptied first): what goes on GitHub Pages. Not the
+// designs, the tests, the tools or the docs. Returns what it copied.
 function site(root, out) {
   root = root || ROOT;
   const to = path.resolve(root, out);
   if (to === root || root.startsWith(to + path.sep)) throw new Error('Not a folder for the site: ' + out);
   fs.rmSync(to, { recursive: true, force: true });
   fs.mkdirSync(to, { recursive: true });
-  for (const f of APP_FILES) fs.cpSync(path.join(root, f), path.join(to, f), { recursive: true });
-  return APP_FILES.slice();
+  const there = SITE_FILES.filter((f) => APP_FILES.includes(f) || fs.existsSync(path.join(root, f)));
+  for (const f of there) fs.cpSync(path.join(root, f), path.join(to, f), { recursive: true });
+  return there;
 }
 
-module.exports = { site, APP_FILES, parse, next, compare, isStep, isApp, cacheNumbers, localFiles, headings, notes, problems, stepProblems, bump };
+module.exports = { site, APP_FILES, SITE_FILES, parse, next, compare, isStep, isApp, cacheNumbers, localFiles, headings, notes, problems, stepProblems, bump };
 
 if (require.main === module) {
   const [cmd, arg] = process.argv.slice(2);

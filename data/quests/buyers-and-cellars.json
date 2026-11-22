@@ -1,0 +1,428 @@
+{
+  "format": 1,
+  "id": "buyers-and-cellars",
+  "title": "Buyers and Cellars",
+  "page": "Buyers and Cellars/Quick guide",
+  "rev": 36944529,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Darren_Lightfinger\" target=\"_blank\" rel=\"noopener\">Darren Lightfinger</a> in his cellar, accessed through a trapdoor next to a small house just north of the <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> furnace. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5903,
+      "lon": 4662,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Buyers_and_Cellars/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Thieving",
+        "level": 5,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:11tspfc",
+          "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a> (can be acquired during the quest)",
+          "text": "Logs (can be acquired during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of the Thieves' Guild",
+          "lat": 3268,
+          "lon": 3223,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      3218,
+                      3263
+                    ],
+                    [
+                      3218,
+                      3273
+                    ],
+                    [
+                      3228,
+                      3273
+                    ],
+                    [
+                      3228,
+                      3263
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Buyers_and_Cellars/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:uhznjx",
+          "html": "Talk to Guildmaster <a href=\"https://runescape.wiki/w/Darren_Lightfinger\" target=\"_blank\" rel=\"noopener\">Darren Lightfinger</a> in the <a href=\"https://runescape.wiki/w/Thieves%27_Guild\" target=\"_blank\" rel=\"noopener\">Thieves&#39; Guild</a> north of the house with a <a href=\"https://runescape.wiki/w/Furnace\" target=\"_blank\" rel=\"noopener\">furnace</a> in <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> (enter the trapdoor).",
+          "text": "Talk to Guildmaster Darren Lightfinger in the Thieves' Guild north of the house with a furnace in Lumbridge (enter the trapdoor).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What are you doing down here? (Skip speech.)"
+                },
+                {
+                  "key": "2",
+                  "text": "And what is it you need done? (Skip speech)"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "2",
+                  "text": "No, I think I've got the hang of this."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-chalice",
+      "title": "The chalice",
+      "anchor": "The_chalice",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-chalice:bring:1c254o7",
+              "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a> (or chop down a <a href=\"https://runescape.wiki/w/Swamp_tree\" target=\"_blank\" rel=\"noopener\">swamp tree</a>)",
+              "text": "Logs (or chop down a swamp tree)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:1f03vub",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Chief_Thief_Robin\" target=\"_blank\" rel=\"noopener\">Chief Thief Robin</a>, south of <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> inside the castle wall.",
+          "text": "Talk to Chief Thief Robin, south of Lumbridge Castle inside the castle wall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Go ahead."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:1hqcjsc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Father_Urhney\" target=\"_blank\" rel=\"noopener\">Father Urhney</a> in his house to the south in the <a href=\"https://runescape.wiki/w/Lumbridge_Swamp\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp</a>.",
+          "text": "Talk to Father Urhney in his house to the south in the Lumbridge Swamp.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Nice chalice."
+                },
+                {
+                  "key": "3",
+                  "text": "Can I have a look at it?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-chalice:1hqcjsc:1pzau76",
+              "html": "If <a href=\"https://runescape.wiki/w/The_Restless_Ghost\" target=\"_blank\" rel=\"noopener\">The Restless Ghost</a> has been completed,",
+              "text": "If The Restless Ghost has been completed,",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Nice chalice."
+                    },
+                    {
+                      "key": "3",
+                      "text": "Can I have a look at it?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:10euqde",
+          "html": "Light a fire outside one of Urhney&#39;s windows.",
+          "text": "Light a fire outside one of Urhney's windows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:1s2gixc",
+          "html": "Talk to Urhney and mention the chalice then the fire.",
+          "text": "Talk to Urhney and mention the chalice then the fire.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Nice chalice."
+                },
+                {
+                  "key": "4",
+                  "text": "Fire! Fire!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-chalice:1s2gixc:1pzau76",
+              "html": "If <a href=\"https://runescape.wiki/w/The_Restless_Ghost\" target=\"_blank\" rel=\"noopener\">The Restless Ghost</a> has been completed,",
+              "text": "If The Restless Ghost has been completed,",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Nice chalice."
+                    },
+                    {
+                      "key": "4",
+                      "text": "Fire! Fire!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:6d966s",
+          "html": "Pickpocket Urhney quickly to get a <a href=\"https://runescape.wiki/w/Complex_key\" target=\"_blank\" rel=\"noopener\">complex key</a>.",
+          "text": "Pickpocket Urhney quickly to get a complex key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-chalice:1qzyw52",
+          "html": "Open the <a href=\"https://runescape.wiki/w/Display_case_(Buyers_and_Cellars)\" target=\"_blank\" rel=\"noopener\">display case</a>.",
+          "text": "Open the display case.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:1wm1km1",
+              "html": "<a href=\"https://runescape.wiki/w/Golden_chalice\" target=\"_blank\" rel=\"noopener\">Golden chalice</a>",
+              "text": "Golden chalice"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1dj011h",
+          "html": "Return to Darren&#39;s cellar.",
+          "text": "Return to Darren's cellar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:icdkm9",
+          "html": "Use the chalice on Darren.",
+          "text": "Use the chalice on Darren.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Buyers_and_Cellars_reward.png?73c49",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Buyers_and_Cellars_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "A total of 1,025 experience:",
+        "text": "A total of 1,025 experience:",
+        "subs": [
+          "500 experience from quest completion",
+          "3 <a href=\"https://runescape.wiki/w/Thieves%27_guild_pamphlet\" target=\"_blank\" rel=\"noopener\">Thieves&#39; guild pamphlets</a> (each granting 175 for a total of 525 experience)"
+        ]
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Thieves%27_Guild\" target=\"_blank\" rel=\"noopener\">Thieves&#39; Guild</a>",
+        "text": "Access to the Thieves' Guild",
+        "subs": []
+      },
+      {
+        "html": "Ability to collect <a href=\"https://runescape.wiki/w/Hanky_points\" target=\"_blank\" rel=\"noopener\">hanky points</a>",
+        "text": "Ability to collect hanky points",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Thieves' Guild I - At the Thieves' Guild.",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/From_Tiny_Acorns_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">From Tiny Acorns (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Guild_of_Our_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Guild of Our Own (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Lost_Her_Marbles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Lost Her Marbles (miniquest)</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "format": 1,
+  "id": "head-of-the-family-miniquest",
+  "title": "Head of the Family (miniquest)",
+  "page": "Head of the Family (miniquest)/Quick guide",
+  "rev": 36933412,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the <a href=\"https://runescape.wiki/w/Waiko_moai\" target=\"_blank\" rel=\"noopener\">Waiko moai</a> on the hill north-east of <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a> market.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11642,
+      "lon": 1870,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Head_of_the_Family_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 91,
+        "note": ""
+      },
+      {
+        "skill": "Fishing",
+        "level": 90,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 90,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Cap'n Ekahi",
+        "name": "Cap'n Ekahi",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "2 Cyclops labourers",
+        "name": "2 Cyclops labourers",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:na1oif",
+          "html": "450 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+          "text": "450 chimes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1p2e89w",
+          "html": "5 <a href=\"https://runescape.wiki/w/Bamboo\" target=\"_blank\" rel=\"noopener\">bamboo</a>",
+          "text": "5 bamboo",
+          "alternatives": []
+        },
+        {
+          "id": "req:1nrhhcb",
+          "html": "15 <a href=\"https://runescape.wiki/w/Fish_oil\" target=\"_blank\" rel=\"noopener\">fish oil</a>",
+          "text": "15 fish oil",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "moai-transport",
+      "title": "Moai transport",
+      "anchor": "Moai_transport",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "moai-transport:bring:1nrhhcb",
+              "html": "15 <a href=\"https://runescape.wiki/w/Fish_oil\" target=\"_blank\" rel=\"noopener\">fish oil</a>",
+              "text": "15 fish oil"
+            },
+            {
+              "id": "moai-transport:bring:1p2e89w",
+              "html": "5 <a href=\"https://runescape.wiki/w/Bamboo\" target=\"_blank\" rel=\"noopener\">bamboo</a>",
+              "text": "5 bamboo"
+            },
+            {
+              "id": "moai-transport:bring:na1oif",
+              "html": "450 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+              "text": "450 chimes"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:1gk77yw",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Waiko_moai\" target=\"_blank\" rel=\"noopener\">Waiko moai</a> on the hill north-east of <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a> (if you have just completed <a href=\"https://runescape.wiki/w/Impressing_the_Locals\" target=\"_blank\" rel=\"noopener\">Impressing the Locals</a> you may need to relog for the chat options to appear).",
+          "text": "Talk to the Waiko moai on the hill north-east of Waiko (if you have just completed Impressing the Locals you may need to relog for the chat options to appear).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Hello. Who are you?"
+                },
+                {
+                  "key": "4",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:x9353n",
+          "html": "Charter a ship to <a href=\"https://runescape.wiki/w/Aminishi\" target=\"_blank\" rel=\"noopener\">Aminishi</a> (Use <a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a>).",
+          "text": "Charter a ship to Aminishi (Use Quartermaster Gully).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:kn1wkg",
+          "html": "Run north along the west coast and talk to <a href=\"https://runescape.wiki/w/Aminishi_moai\" target=\"_blank\" rel=\"noopener\">Aminishi moai</a>.",
+          "text": "Run north along the west coast and talk to Aminishi moai.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:2x0jbt",
+          "html": "Sail back to Waiko and talk to <a href=\"https://runescape.wiki/w/Rosie_(supplies)\" target=\"_blank\" rel=\"noopener\">Rosie</a> in the north-west section of the marketplace. Don&#39;t buy any supplies.",
+          "text": "Sail back to Waiko and talk to Rosie in the north-west section of the marketplace. Don't buy any supplies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:1bpp03d",
+          "html": "Run south-east past the bamboo stalks and talk to <a href=\"https://runescape.wiki/w/Yuehanxun_the_Dealer\" target=\"_blank\" rel=\"noopener\">Yuehanxun the Dealer</a>. Confirm the payment of 15 <a href=\"https://runescape.wiki/w/Fish_oil\" target=\"_blank\" rel=\"noopener\">fish oil</a>.",
+          "text": "Run south-east past the bamboo stalks and talk to Yuehanxun the Dealer. Confirm the payment of 15 fish oil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:nwjkjm",
+          "html": "Sail to <a href=\"https://runescape.wiki/w/Whale%27s_Maw\" target=\"_blank\" rel=\"noopener\">Whale&#39;s Maw</a> and on the north-west coast, talk to <a href=\"https://runescape.wiki/w/Sea_Witch_Kaula\" target=\"_blank\" rel=\"noopener\">Sea Witch Kaula</a>.",
+          "text": "Sail to Whale's Maw and on the north-west coast, talk to Sea Witch Kaula.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Tell me of the moai that travelled on water."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:4g9o14",
+          "html": "Return to Rosie for a soil bag. Don&#39;t buy any supplies.",
+          "text": "Return to Rosie for a soil bag. Don't buy any supplies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:18yeqy9",
+          "html": "Sail to Aminishi and fill the bag on the beach.",
+          "text": "Sail to Aminishi and fill the bag on the beach.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:hwn6x5",
+          "html": "Return to Rosie (with filled bag, 5 <a href=\"https://runescape.wiki/w/Bamboo\" target=\"_blank\" rel=\"noopener\">bamboo</a>, and 150 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>) and confirm the payment. Don&#39;t buy any supplies.",
+          "text": "Return to Rosie (with filled bag, 5 bamboo, and 150 chimes) and confirm the payment. Don't buy any supplies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:oldojo",
+          "html": "Sail to Aminishi, run east and talk to <a href=\"https://runescape.wiki/w/Cap%27n_Ekahi\" target=\"_blank\" rel=\"noopener\">Cap&#39;n Ekahi</a>. Confirm the payment of 300 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>.",
+          "text": "Sail to Aminishi, run east and talk to Cap'n Ekahi. Confirm the payment of 300 chimes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moai-transport:9euxej",
+          "html": "Talk to Aminishi moai, north of your ship.",
+          "text": "Talk to Aminishi moai, north of your ship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "an-eye-for-an-eye",
+      "title": "An eye for an eye",
+      "anchor": "An_eye_for_an_eye",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "an-eye-for-an-eye:bring:1yo2o0q",
+              "html": "Combat gear for a fight scaled to your combat level",
+              "text": "Combat gear for a fight scaled to your combat level"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "an-eye-for-an-eye:bring:1y0fozv",
+              "html": "Food &amp; potions",
+              "text": "Food & potions"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "an-eye-for-an-eye:wcf0it",
+          "html": "<i>Travel</i> by the Rowboat next to Cap&#39;n Ekahi on Aminishi.",
+          "text": "Travel by the Rowboat next to Cap'n Ekahi on Aminishi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-eye-for-an-eye:1gxjw55",
+          "html": "Enable <a href=\"https://runescape.wiki/w/Deflect_Melee\" target=\"_blank\" rel=\"noopener\">deflect Melee</a> and defeat the 3 cyclopes. There is a safespot behind the mast.",
+          "text": "Enable deflect Melee and defeat the 3 cyclopes. There is a safespot behind the mast.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-eye-for-an-eye:hsipbl",
+          "html": "Return to Waiko moai where you started the quest.",
+          "text": "Return to Waiko moai where you started the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "an-eye-for-an-eye:1eh5umu",
+          "html": "Miniquest complete!",
+          "text": "Miniquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Head_of_the_Family_%28miniquest%29_reward.png?70ed0",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Head_of_the_Family_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1,000 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a> (+ 300 of your original investment)",
+        "text": "1,000 chimes (+ 300 of your original investment)",
+        "subs": []
+      },
+      {
+        "html": "30 <a href=\"https://runescape.wiki/w/Fish_oil\" target=\"_blank\" rel=\"noopener\">fish oil</a>",
+        "text": "30 fish oil",
+        "subs": []
+      },
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Bundle_of_bamboo\" target=\"_blank\" rel=\"noopener\">bundles of bamboo</a>",
+        "text": "4 bundles of bamboo",
+        "subs": []
+      },
+      {
+        "html": "5 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "5 taijitu",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Agility_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Moai\" target=\"_blank\" rel=\"noopener\">Moai</a> decoration available in <a href=\"https://runescape.wiki/w/Waiko_Reward_Shop\" target=\"_blank\" rel=\"noopener\">Waiko Reward Shop</a>",
+        "text": "Moai decoration available in Waiko Reward Shop",
+        "subs": []
+      },
+      {
+        "html": "An additional crew member, <a href=\"https://runescape.wiki/w/Cap%27n_Ekahi\" target=\"_blank\" rel=\"noopener\">Cap&#39;n Ekahi</a>",
+        "text": "An additional crew member, Cap'n Ekahi",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    }
+  ]
+}

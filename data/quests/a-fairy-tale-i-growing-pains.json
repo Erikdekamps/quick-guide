@@ -1,0 +1,952 @@
+{
+  "format": 1,
+  "id": "a-fairy-tale-i-growing-pains",
+  "title": "A Fairy Tale I - Growing Pains",
+  "page": "A Fairy Tale I - Growing Pains/Quick guide",
+  "rev": 37201647,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Martin_the_Master_Gardener\" target=\"_blank\" rel=\"noopener\">Martin the Master Gardener</a> in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3258,
+      "lon": 3077,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/A_Fairy_Tale_I_-_Growing_Pains/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Lost City",
+        "depth": 1
+      },
+      {
+        "text": "Nature Spirit",
+        "depth": 1
+      },
+      {
+        "text": "Priest in Peril",
+        "depth": 2
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 2
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Tanglefoot (level 68)",
+        "name": "Tanglefoot",
+        "count": null,
+        "level": "68",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1naoygx",
+          "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen</a> or <a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">lunar staff</a>",
+          "text": "Dramen or lunar staff",
+          "alternatives": []
+        },
+        {
+          "id": "req:xbpqso",
+          "html": "<a href=\"https://runescape.wiki/w/Secateurs\" target=\"_blank\" rel=\"noopener\">Secateurs</a> (tool belt will not work, can be obtained during the quest from <a href=\"https://runescape.wiki/w/Vanessa\" target=\"_blank\" rel=\"noopener\">Vanessa</a> near <a href=\"https://runescape.wiki/w/Dantaera\" target=\"_blank\" rel=\"noopener\">Dantaera</a>)",
+          "text": "Secateurs (tool belt will not work, can be obtained during the quest from Vanessa near Dantaera)",
+          "alternatives": []
+        },
+        {
+          "id": "req:12q208u",
+          "html": "Three or four random items assigned individually for each player",
+          "text": "Three or four random items assigned individually for each player",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:10jmufc",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne</a>, <a href=\"https://runescape.wiki/w/Catherby_lodestone\" target=\"_blank\" rel=\"noopener\">Catherby</a>, <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis</a>, <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor</a>, <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador</a>, <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock</a> and <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a>",
+          "text": "Activated Ardougne, Catherby, Canifis, Draynor, Falador, Varrock and Yanille lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:14du38",
+          "html": "<a href=\"https://runescape.wiki/w/Explorer%27s_ring_3\" target=\"_blank\" rel=\"noopener\">Explorer&#39;s ring 3</a> or <a href=\"https://runescape.wiki/w/Explorer%27s_ring_4\" target=\"_blank\" rel=\"noopener\">4</a>",
+          "text": "Explorer's ring 3 or 4",
+          "alternatives": []
+        },
+        {
+          "id": "rec:eabvgf",
+          "html": "<a href=\"https://runescape.wiki/w/Cosmic_altar_teleport\" target=\"_blank\" rel=\"noopener\">Cosmic altar teleports</a>",
+          "text": "Cosmic altar teleports",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1m1zwv9",
+          "html": "<a href=\"https://runescape.wiki/w/Druid_pouch\" target=\"_blank\" rel=\"noopener\">Druid pouches</a> (to avoid getting hurt by the <a href=\"https://runescape.wiki/w/Ghast\" target=\"_blank\" rel=\"noopener\">ghasts</a> in the <a href=\"https://runescape.wiki/w/Mort_Myre_Swamp\" target=\"_blank\" rel=\"noopener\">Mort Myre Swamp</a>)",
+          "text": "Druid pouches (to avoid getting hurt by the ghasts in the Mort Myre Swamp)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:8rp537",
+          "html": "<a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">Skills necklace</a> (faster teleport to <a href=\"https://runescape.wiki/w/Dark_Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Dark Wizards&#39; Tower</a> and <a href=\"https://runescape.wiki/w/Malignius_Mortifer\" target=\"_blank\" rel=\"noopener\">Malignius Mortifer</a>)",
+          "text": "Skills necklace (faster teleport to Dark Wizards' Tower and Malignius Mortifer)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "g-a-g",
+      "title": "G.A.G",
+      "anchor": "G.A.G",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "g-a-g:14trp82",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Martin_the_Master_Gardener\" target=\"_blank\" rel=\"noopener\">Martin the Master Gardener</a> in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+          "text": "Talk to Martin the Master Gardener in Draynor Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "General Chat"
+                },
+                {
+                  "key": "1",
+                  "text": "Anything I can help with?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Now that I think about it, you're right!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "g-a-g:1ubqj8y",
+          "html": "Talk to 5 different <a href=\"https://runescape.wiki/w/Group_of_Advanced_Gardeners\" target=\"_blank\" rel=\"noopener\">gardeners</a> near farming patches around RuneScape. Easy options include:",
+          "text": "Talk to 5 different gardeners near farming patches around RuneScape. Easy options include:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "g-a-g:1ubqj8y:1q3vvih",
+              "html": "<a href=\"https://runescape.wiki/w/Frizzy\" target=\"_blank\" rel=\"noopener\">Frizzy</a>, on the other side of the wall, just west of Martin.",
+              "text": "Frizzy, on the other side of the wall, just west of Martin.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Are you a member of the Group of Advanced Gardeners?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:1ubqj8y:dzf9ui",
+              "html": "<a href=\"https://runescape.wiki/w/Elstan\" target=\"_blank\" rel=\"noopener\">Elstan</a>, to the north of Frizzy.",
+              "text": "Elstan, to the north of Frizzy.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Are you a member of the Group of Advanced Gardeners?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "g-a-g:1ubqj8y:dzf9ui:i9oql",
+                  "html": "If <a href=\"https://runescape.wiki/w/Garden_of_Tranquillity\" target=\"_blank\" rel=\"noopener\">Garden of Tranquillity</a> has been started.",
+                  "text": "If Garden of Tranquillity has been started.",
+                  "dialogue": [
+                    {
+                      "when": null,
+                      "options": [
+                        {
+                          "key": "1",
+                          "text": "Fairy Tale Part I - Growing Pains"
+                        }
+                      ]
+                    }
+                  ],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:1ubqj8y:efjwil",
+              "html": "<a href=\"https://runescape.wiki/w/Alain\" target=\"_blank\" rel=\"noopener\">Alain</a>, north of <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley lodestone</a>.",
+              "text": "Alain, north of Taverley lodestone.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Are you a member of the Group of Advanced Gardeners?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:1ubqj8y:xhwklu",
+              "html": "<a href=\"https://runescape.wiki/w/Dantaera\" target=\"_blank\" rel=\"noopener\">Dantaera</a>, north-west of <a href=\"https://runescape.wiki/w/Catherby_lodestone\" target=\"_blank\" rel=\"noopener\">Catherby lodestone</a>.",
+              "text": "Dantaera, north-west of Catherby lodestone.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Are you a member of the Group of Advanced Gardeners?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "g-a-g:1ubqj8y:xhwklu:i9oql",
+                  "html": "If Garden of Tranquillity has been started.",
+                  "text": "If Garden of Tranquillity has been started.",
+                  "dialogue": [
+                    {
+                      "when": null,
+                      "options": [
+                        {
+                          "key": "1",
+                          "text": "Fairy Tale Part I - Growing Pains"
+                        }
+                      ]
+                    }
+                  ],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "g-a-g:1ubqj8y:xhwklu:1p1v0m8",
+                  "html": "If you do not have secateurs yet, buy them from <a href=\"https://runescape.wiki/w/Vanessa%27s_Farming_Shop\" target=\"_blank\" rel=\"noopener\">Vanessa&#39;s Farming Shop</a> just to the south.",
+                  "text": "If you do not have secateurs yet, buy them from Vanessa's Farming Shop just to the south.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:1ubqj8y:p3v86y",
+              "html": "<a href=\"https://runescape.wiki/w/Ellena\" target=\"_blank\" rel=\"noopener\">Ellena</a>, east of the Catherby lodestone, beside the fruit tree patch on the beach.",
+              "text": "Ellena, east of the Catherby lodestone, beside the fruit tree patch on the beach.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Are you a member of the Group of Advanced Gardeners?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "g-a-g:5mjfn8",
+          "html": "Note that:",
+          "text": "Note that:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:qphng6",
+              "html": "<a href=\"https://runescape.wiki/w/Spirit_Tree_Patch\" target=\"_blank\" rel=\"noopener\">Spirit Tree Patch</a> gardeners all count as the same gardener.",
+              "text": "Spirit Tree Patch gardeners all count as the same gardener.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:32v0ke",
+              "html": "The gardeners in <a href=\"https://runescape.wiki/w/Prifddinas\" target=\"_blank\" rel=\"noopener\">Prifddinas</a> won&#39;t work.",
+              "text": "The gardeners in Prifddinas won't work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:xrtwwq",
+              "html": "The <a href=\"https://runescape.wiki/w/Zombie_farmer\" target=\"_blank\" rel=\"noopener\">zombie farmer</a> does not work.",
+              "text": "The zombie farmer does not work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:1ydw2w4",
+              "html": "<a href=\"https://runescape.wiki/w/Head_Farmer_Jones\" target=\"_blank\" rel=\"noopener\">Head Farmer Jones</a> in Taverley won&#39;t work.",
+              "text": "Head Farmer Jones in Taverley won't work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:rxufww",
+              "html": "<a href=\"https://runescape.wiki/w/Wyson_the_gardener\" target=\"_blank\" rel=\"noopener\">Wyson the gardener</a> in <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> won&#39;t work.",
+              "text": "Wyson the gardener in Falador won't work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "g-a-g:5mjfn8:qg9hzx",
+              "html": "<a href=\"https://runescape.wiki/w/Demetrius\" target=\"_blank\" rel=\"noopener\">Demetrius</a> in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a> won&#39;t work.",
+              "text": "Demetrius in Wendlewick won't work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "g-a-g:7hs7ge",
+          "html": "The fifth gardener you talk to will mention fairies.",
+          "text": "The fifth gardener you talk to will mention fairies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "g-a-g:unpi4b",
+          "html": "Talk to Martin again.",
+          "text": "Talk to Martin again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about farming problems."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-a-cure",
+      "title": "Finding a cure",
+      "anchor": "Finding_a_cure",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-a-cure:bring:1g9d58o",
+              "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a>",
+              "text": "Dramen staff"
+            },
+            {
+              "id": "finding-a-cure:bring:szqx1y",
+              "html": "<a href=\"https://runescape.wiki/w/Secateurs\" target=\"_blank\" rel=\"noopener\">Secateurs</a>",
+              "text": "Secateurs"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Malignius Mortifer's location",
+          "lat": 3267,
+          "lon": 3001,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2996.5,
+                      3262.5
+                    ],
+                    [
+                      2996.5,
+                      3272.5
+                    ],
+                    [
+                      3006.5,
+                      3272.5
+                    ],
+                    [
+                      3006.5,
+                      3262.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/A_Fairy_Tale_I_-_Growing_Pains/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:adrq8l",
+          "html": "Equip your <a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">dramen staff</a> or <a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">lunar staff</a> and head to the <a href=\"https://runescape.wiki/w/Lumbridge_Swamp\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp</a> to enter the <a href=\"https://runescape.wiki/w/Lost_City\" target=\"_blank\" rel=\"noopener\">Lost City</a> shed.",
+          "text": "Equip your dramen staff or lunar staff and head to the Lumbridge Swamp to enter the Lost City shed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:1lvssqc",
+          "html": "Run south and talk to the <a href=\"https://runescape.wiki/w/Fairy_Godfather\" target=\"_blank\" rel=\"noopener\">Fairy Godfather</a> (near <a href=\"https://runescape.wiki/w/Chaeldar\" target=\"_blank\" rel=\"noopener\">Chaeldar</a>, the Slayer master) about the Queen. Make sure to finish the whole dialogue.",
+          "text": "Run south and talk to the Fairy Godfather (near Chaeldar, the Slayer master) about the Queen. Make sure to finish the whole dialogue.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Where's the Fairy Queen?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:qz8tnz",
+          "html": "Run west to the bank, then go north a few steps and talk to <a href=\"https://runescape.wiki/w/Fairy_Nuff\" target=\"_blank\" rel=\"noopener\">Fairy Nuff</a>.",
+          "text": "Run west to the bank, then go north a few steps and talk to Fairy Nuff.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:1hvz3a1",
+          "html": "Travel to the <a href=\"https://runescape.wiki/w/Dark_Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Dark Wizards&#39; Tower</a>, west of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> (use the <a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">skills necklace</a> teleport to <a href=\"https://runescape.wiki/w/Crafting_Guild\" target=\"_blank\" rel=\"noopener\">Crafting Guild</a> or teleport to <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a>, and then run north-west).",
+          "text": "Travel to the Dark Wizards' Tower, west of Falador (use the skills necklace teleport to Crafting Guild or teleport to Port Sarim lodestone, and then run north-west).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:zjm987",
+          "html": "Climb to the top, talk to <a href=\"https://runescape.wiki/w/Zandar_Horfyre\" target=\"_blank\" rel=\"noopener\">Zandar Horfyre</a>.",
+          "text": "Climb to the top, talk to Zandar Horfyre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-a-cure:zjm987:hgbmro",
+              "html": "Player with low combat level should be aware of the aggressive <a href=\"https://runescape.wiki/w/Dark_wizard\" target=\"_blank\" rel=\"noopener\">dark wizards</a> inside the tower.",
+              "text": "Player with low combat level should be aware of the aggressive dark wizards inside the tower.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:1cti288",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> and talk to <a href=\"https://runescape.wiki/w/Malignius_Mortifer\" target=\"_blank\" rel=\"noopener\">Malignius Mortifer</a> (just north-west of <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>, pictured right) about a Tanglefoot.",
+          "text": "Teleport to Port Sarim and talk to Malignius Mortifer (just north-west of Port Sarim, pictured right) about a Tanglefoot.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need help with fighting a Tanglefoot."
+                }
+              ]
+            },
+            {
+              "when": "Or, if Swan Song has been completed",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need help with fighting a Tanglefoot."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-a-cure:1cti288:15ynq39",
+              "html": "Talking to Malignius at the Um ritual site will not work.",
+              "text": "Talking to Malignius at the Um ritual site will not work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:ype4z",
+          "html": "Head back to Draynor Village and enter the gates of Draynor Manor.",
+          "text": "Head back to Draynor Village and enter the gates of Draynor Manor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:1eu2v9y",
+          "html": "<i>Dig</i> the <a href=\"https://runescape.wiki/w/Gravestone_(A_Fairy_Tale_I_-_Growing_Pains)\" target=\"_blank\" rel=\"noopener\">gravestone</a> inside the fence, north of the manor, west of the gallows. It resembles a celtic cross.",
+          "text": "Dig the gravestone inside the fence, north of the manor, west of the gallows. It resembles a celtic cross.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:16cwsin",
+          "html": "Return to Malignius.",
+          "text": "Return to Malignius.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I was asking you about fighting a Tanglefoot..."
+                }
+              ]
+            },
+            {
+              "when": "Or, if Swan Song has been started",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I was asking you about fighting a Tanglefoot..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-cure:7rdzmp",
+          "html": "Fetch the items that Malignius requested (they will be listed in your quest journal), then make your way to the Nature Spirit.",
+          "text": "Fetch the items that Malignius requested (they will be listed in your quest journal), then make your way to the Nature Spirit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-a-cure:7rdzmp:1av8wt7",
+              "html": "Make sure to bring extra of any requested food items or bring a filled <a href=\"https://runescape.wiki/w/Druid_pouch\" target=\"_blank\" rel=\"noopener\">druid pouch</a> to ward off <a href=\"https://runescape.wiki/w/Ghast\" target=\"_blank\" rel=\"noopener\">ghasts</a>.",
+              "text": "Make sure to bring extra of any requested food items or bring a filled druid pouch to ward off ghasts.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-a-cure:7rdzmp:1gquzgk",
+              "html": "Make sure to clean any requested herbs.",
+              "text": "Make sure to clean any requested herbs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "magic-secateurs",
+      "title": "Magic secateurs",
+      "anchor": "Magic_secateurs",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "magic-secateurs:bring:szqx1y",
+              "html": "<a href=\"https://runescape.wiki/w/Secateurs\" target=\"_blank\" rel=\"noopener\">Secateurs</a>",
+              "text": "Secateurs"
+            },
+            {
+              "id": "magic-secateurs:bring:1rvcnsj",
+              "html": "Requested items",
+              "text": "Requested items"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "magic-secateurs:bring:1bmnc5p",
+              "html": "Teleport to <a href=\"https://runescape.wiki/w/Barrows\" target=\"_blank\" rel=\"noopener\">Barrows</a> or <a href=\"https://runescape.wiki/w/Burgh_de_Rott\" target=\"_blank\" rel=\"noopener\">Burgh de Rott</a> for quick access to <a href=\"https://runescape.wiki/w/Nature_Grotto\" target=\"_blank\" rel=\"noopener\">Nature Grotto</a>",
+              "text": "Teleport to Barrows or Burgh de Rott for quick access to Nature Grotto"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "magic-secateurs:1p7fcn",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Filliman_Tarlock#Nature_Spirit\" target=\"_blank\" rel=\"noopener\">Nature Spirit</a> in <a href=\"https://runescape.wiki/w/Mort_Myre_Swamp\" target=\"_blank\" rel=\"noopener\">Mort Myre Swamp</a> to receive <a href=\"https://runescape.wiki/w/Magic_secateurs\" target=\"_blank\" rel=\"noopener\">magic secateurs</a>.",
+          "text": "Talk to the Nature Spirit in Mort Myre Swamp to receive magic secateurs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-final-fight",
+      "title": "The final fight",
+      "anchor": "The_final_fight",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-final-fight:bring:1g9d58o",
+              "html": "<a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a>",
+              "text": "Dramen staff"
+            },
+            {
+              "id": "the-final-fight:bring:1nhpjd5",
+              "html": "<a href=\"https://runescape.wiki/w/Magic_secateurs\" target=\"_blank\" rel=\"noopener\">Magic secateurs</a>",
+              "text": "Magic secateurs"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "the-final-fight:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:13cpjwr",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Zanaris\" target=\"_blank\" rel=\"noopener\">Zanaris</a>, then enter the <a href=\"https://runescape.wiki/w/Shady_grove\" target=\"_blank\" rel=\"noopener\">shady grove</a> (dungeon icon) west of the <a href=\"https://runescape.wiki/w/Cosmic_altar\" target=\"_blank\" rel=\"noopener\">cosmic altar</a>.",
+          "text": "Return to Zanaris, then enter the shady grove (dungeon icon) west of the cosmic altar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-final-fight:13cpjwr:65akvz",
+              "html": "You can use a <a href=\"https://runescape.wiki/w/Cosmic_altar_teleport\" target=\"_blank\" rel=\"noopener\">cosmic altar teleport</a> to teleport to the cosmic altar.",
+              "text": "You can use a cosmic altar teleport to teleport to the cosmic altar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:145myc4",
+          "html": "Run south around the bend then north to the opening with the Tanglefoot.",
+          "text": "Run south around the bend then north to the opening with the Tanglefoot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:1hy1tts",
+          "html": "Equip your <a href=\"https://runescape.wiki/w/Magic_secateurs\" target=\"_blank\" rel=\"noopener\">magic secateurs</a> and kill <a href=\"https://runescape.wiki/w/Tanglefoot\" target=\"_blank\" rel=\"noopener\">Tanglefoot</a>.",
+          "text": "Equip your magic secateurs and kill Tanglefoot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-final-fight:1hy1tts:qolgox",
+              "html": "Off-hand weaponry will work here, but will only deal as much as the secateurs would.",
+              "text": "Off-hand weaponry will work here, but will only deal as much as the secateurs would.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:11v9pnw",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Queen%27s_secateurs\" target=\"_blank\" rel=\"noopener\">Queen&#39;s secateurs</a> (area loot will not work).",
+          "text": "Take the Queen's secateurs (area loot will not work).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:11490iy",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Fairy_Godfather\" target=\"_blank\" rel=\"noopener\">Fairy Godfather</a>, Next to the Slayer Master icon.",
+          "text": "Talk to the Fairy Godfather, Next to the Slayer Master icon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/A_Fairy_Tale_I_-_Growing_Pains_reward.png?ba8d7",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:A_Fairy_Tale_I_-_Growing_Pains_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "3,500 experience",
+        "text": "3,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Magic_secateurs\" target=\"_blank\" rel=\"noopener\">Magic secateurs</a>",
+        "text": "Magic secateurs",
+        "subs": [
+          "Wielding the magic secateurs, having them in the backpack or in the tool belt while harvesting <a href=\"https://runescape.wiki/w/Allotments\" target=\"_blank\" rel=\"noopener\">allotments</a>, <a href=\"https://runescape.wiki/w/Herbs\" target=\"_blank\" rel=\"noopener\">herbs</a>, <a href=\"https://runescape.wiki/w/Hops\" target=\"_blank\" rel=\"noopener\">hops</a> and <a href=\"https://runescape.wiki/w/Cave_nightshade\" target=\"_blank\" rel=\"noopener\">nightshades</a>, increases the chance of saving a <a href=\"https://runescape.wiki/w/Harvesting\" target=\"_blank\" rel=\"noopener\">harvest life</a> by 10%."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_I_-_Growing_Pains_(achievement)\" target=\"_blank\" rel=\"noopener\">A Fairy Tale I - Growing Pains</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_II_-_Cure_a_Queen/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale II - Cure a Queen</a>",
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2194 @@
+{
+  "format": 1,
+  "id": "the-path-of-glouphrie",
+  "title": "The Path of Glouphrie",
+  "page": "The Path of Glouphrie/Quick guide",
+  "rev": 37136049,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/King_Bolren\" target=\"_blank\" rel=\"noopener\">King Bolren</a> in the <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3167,
+      "lon": 2543,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Path_of_Glouphrie/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Eyes of Glouphrie",
+        "depth": 1
+      },
+      {
+        "text": "The Grand Tree",
+        "depth": 2
+      },
+      {
+        "text": "Tree Gnome Village",
+        "depth": 1
+      },
+      {
+        "text": "Waterfall Quest",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 45,
+        "note": ""
+      },
+      {
+        "skill": "Ranged",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 56,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 56,
+        "note": ""
+      },
+      {
+        "skill": "Fletching",
+        "level": 59,
+        "note": "(b) (to make a mithril grapple) or kill some dried zombies"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "3 Warped terrorbirds (level 82)",
+        "name": "Warped terrorbirds",
+        "count": 3,
+        "level": "82",
+        "note": ""
+      },
+      {
+        "text": "Evil creature (level 0)",
+        "name": "Evil creature",
+        "count": null,
+        "level": "0",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Tirannwn</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> <span class=\"reg\">Tirannwn</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1nt2hp2",
+          "html": "<a href=\"https://runescape.wiki/w/Small_crystal_seed\" target=\"_blank\" rel=\"noopener\">Small crystal seed</a> or <a href=\"https://runescape.wiki/w/Crystal_saw\" target=\"_blank\" rel=\"noopener\">crystal saw</a> (tools made from <a href=\"https://runescape.wiki/w/Crystal_tool_seed\" target=\"_blank\" rel=\"noopener\">crystal tool seeds</a> will <b>not</b> work)",
+          "text": "Small crystal seed or crystal saw (tools made from crystal tool seeds will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:2ggd37",
+          "html": "A <a href=\"https://runescape.wiki/w/Crossbow\" target=\"_blank\" rel=\"noopener\">crossbow</a> and <a href=\"https://runescape.wiki/w/Mithril_grapple\" target=\"_blank\" rel=\"noopener\">mithril grapple</a> (<a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> works)",
+          "text": "A crossbow and mithril grapple (tool belt works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:8pjcsv",
+          "html": "<a href=\"https://runescape.wiki/w/A_key\" target=\"_blank\" rel=\"noopener\">A key</a> (from the <a href=\"https://runescape.wiki/w/Waterfall_Quest\" target=\"_blank\" rel=\"noopener\">Waterfall Quest</a>; can be re-obtained during the quest)",
+          "text": "A key (from the Waterfall Quest; can be re-obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:xogt1z",
+          "html": "Good food and armour",
+          "text": "Good food and armour",
+          "alternatives": []
+        },
+        {
+          "id": "rec:e30bbr",
+          "html": "<a href=\"https://runescape.wiki/w/Super_energy_potion\" target=\"_blank\" rel=\"noopener\">Super energy potions</a>, unlimited run from the <a href=\"https://runescape.wiki/w/Oo%27glog\" target=\"_blank\" rel=\"noopener\">Oo&#39;glog</a> salt-water pool, or an <a href=\"https://runescape.wiki/w/Explorer%27s_ring\" target=\"_blank\" rel=\"noopener\">explorer&#39;s ring</a> for run recharge",
+          "text": "Super energy potions, unlimited run from the Oo'glog salt-water pool, or an explorer's ring for run recharge",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1s7a5ri",
+          "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer</a> or <a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">super restore</a> potions",
+          "text": "Prayer or super restore potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:h6fy1d",
+          "html": "A cooked <a href=\"https://runescape.wiki/w/Tangled_toad_legs\" target=\"_blank\" rel=\"noopener\">tangled toad legs</a> (optional for a <a href=\"https://runescape.wiki/w/Mint_cake\" target=\"_blank\" rel=\"noopener\">mint cake</a> reward; does not have to be cooked during the quest)",
+          "text": "A cooked tangled toad legs (optional for a mint cake reward; does not have to be cooked during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ux7aaz",
+          "html": "<a href=\"https://runescape.wiki/w/Earmuffs\" target=\"_blank\" rel=\"noopener\">Earmuffs</a>, <a href=\"https://runescape.wiki/w/Masked_earmuffs\" target=\"_blank\" rel=\"noopener\">masked earmuffs</a>, or a <a href=\"https://runescape.wiki/w/Slayer_helmet\" target=\"_blank\" rel=\"noopener\">slayer helmet</a> to reduce the strength of the terrorbirds&#39; ranged attacks",
+          "text": "Earmuffs, masked earmuffs, or a slayer helmet to reduce the strength of the terrorbirds' ranged attacks",
+          "alternatives": []
+        },
+        {
+          "id": "rec:nhlek",
+          "html": "Any remaining crystalline discs from <a href=\"https://runescape.wiki/w/The_Eyes_of_Glouphrie\" target=\"_blank\" rel=\"noopener\">The Eyes of Glouphrie</a>",
+          "text": "Any remaining crystalline discs from The Eyes of Glouphrie",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "evil-dumplings",
+      "title": "Evil dumplings",
+      "anchor": "Evil_dumplings",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "evil-dumplings:bring:1n1ndkt",
+              "html": "<a href=\"https://runescape.wiki/w/Crystal_saw\" target=\"_blank\" rel=\"noopener\">Crystal saw</a> or <a href=\"https://runescape.wiki/w/Small_crystal_seed\" target=\"_blank\" rel=\"noopener\">small crystal seed</a>",
+              "text": "Crystal saw or small crystal seed"
+            },
+            {
+              "id": "evil-dumplings:bring:qp26lb",
+              "html": "Drop or bring all crystalline discs if you have some of them",
+              "text": "Drop or bring all crystalline discs if you have some of them"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "evil-dumplings:bring:1qpifzl",
+              "html": "Around 10-14 backpack spaces to make room for crystalline discs",
+              "text": "Around 10-14 backpack spaces to make room for crystalline discs"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:ruiue5",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/King_Bolren\" target=\"_blank\" rel=\"noopener\">King Bolren</a> in the <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>.",
+          "text": "Speak to King Bolren in the Tree Gnome Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:11kz7bw",
+          "html": "Squeeze through the loose railing to the west.",
+          "text": "Squeeze through the loose railing to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:1pe6hld",
+          "html": "Climb down ladder to the east.",
+          "text": "Climb down ladder to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "evil-dumplings:1pe6hld:1khfrr5",
+              "html": "If you no longer have <a href=\"https://runescape.wiki/w/A_key\" target=\"_blank\" rel=\"noopener\">a key</a> from the Waterfall Quest, go to the east side of the cave and search the off-colour <a href=\"https://runescape.wiki/w/Crate_(Gnome_Village_Dungeon,_A_key)\" target=\"_blank\" rel=\"noopener\">crate</a> to get one.",
+              "text": "If you no longer have a key from the Waterfall Quest, go to the east side of the cave and search the off-colour crate to get one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "evil-dumplings:1pe6hld:12iy6qj",
+              "html": "Note that the identically named <a href=\"https://runescape.wiki/w/A_key_(Waterfall_Dungeon)\" target=\"_blank\" rel=\"noopener\">a key</a> also received from the Waterfall Quest will not work.",
+              "text": "Note that the identically named a key also received from the Waterfall Quest will not work.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:1ecd5r0",
+          "html": "Go to the west side of the cave and talk to Golrie.",
+          "text": "Go to the west side of the cave and talk to Golrie.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Anti-illusion devices"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:1c1b51r",
+          "html": "Use the key on the northern gate.",
+          "text": "Use the key on the northern gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:kdg4ff",
+          "html": "Search the chest to obtain crystalline discs.",
+          "text": "Search the chest to obtain crystalline discs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "evil-dumplings:kdg4ff:19w8ml0",
+              "html": "You may use <a href=\"https://runescape.wiki/w/Drop_trick\" target=\"_blank\" rel=\"noopener\">drop trick</a> to obtain more discs. You should drop all the discs to obtain a new batch of discs.",
+              "text": "You may use drop trick to obtain more discs. You should drop all the discs to obtain a new batch of discs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:5jvfow",
+          "html": "Talk to Golrie again.",
+          "text": "Talk to Golrie again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Anti-illusion devices"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "evil-dumplings:1wvb32i",
+          "html": "Go to the eastern part of the cave and crawl through the tunnel (followers must be dismissed).",
+          "text": "Go to the eastern part of the cave and crawl through the tunnel (followers must be dismissed).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "monolith-puzzle",
+      "title": "Monolith puzzle",
+      "anchor": "Monolith_puzzle",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "monolith-puzzle:fv9le9",
+          "html": "Push the monolith north.",
+          "text": "Push the monolith north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:1e7orzh",
+          "html": "Search chest to obtain more crystalline discs.",
+          "text": "Search chest to obtain more crystalline discs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monolith-puzzle:1e7orzh:19w8ml0",
+              "html": "You may use <a href=\"https://runescape.wiki/w/Drop_trick\" target=\"_blank\" rel=\"noopener\">drop trick</a> to obtain more discs. You should drop all the discs to obtain a new batch of discs.",
+              "text": "You may use drop trick to obtain more discs. You should drop all the discs to obtain a new batch of discs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:19pevt1",
+          "html": "Go to the next set of monoliths and push the south-western one north.",
+          "text": "Go to the next set of monoliths and push the south-western one north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:1co7i4o",
+          "html": "Push the north-west monolith east.",
+          "text": "Push the north-west monolith east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:1uqreto",
+          "html": "Search the western chest to the north.",
+          "text": "Search the western chest to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monolith-puzzle:1uqreto:9xmho0",
+              "html": "Be sure you receive <a href=\"https://runescape.wiki/w/A_key_to_a_chest\" target=\"_blank\" rel=\"noopener\">a key to a chest</a> and <a href=\"https://runescape.wiki/w/Yewnock%27s_notes\" target=\"_blank\" rel=\"noopener\">Yewnock&#39;s notes</a>.",
+              "text": "Be sure you receive a key to a chest and Yewnock's notes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:fyf7bk",
+          "html": "Push the small monolith south.",
+          "text": "Push the small monolith south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:16mw88z",
+          "html": "Right-click <i>sing-glass</i> on the singing bowl to transform the seed into a <a href=\"https://runescape.wiki/w/Crystal_chime\" target=\"_blank\" rel=\"noopener\">crystal chime</a>.",
+          "text": "Right-click sing-glass on the singing bowl to transform the seed into a crystal chime.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monolith-puzzle:16mw88z:19001l8",
+              "html": "If you have a <a href=\"https://runescape.wiki/w/Crystal_saw\" target=\"_blank\" rel=\"noopener\">crystal saw</a> instead of the <a href=\"https://runescape.wiki/w/Small_crystal_seed\" target=\"_blank\" rel=\"noopener\">small crystal seed</a>, right-click <i>revert-crystal</i> on the singing bowl.",
+              "text": "If you have a crystal saw instead of the small crystal seed, right-click revert-crystal on the singing bowl.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:1474fom",
+          "html": "Push the north-west monolith west.",
+          "text": "Push the north-west monolith west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:ndxibt",
+          "html": "Open the mahogany chest, then search it to obtain the <a href=\"https://runescape.wiki/w/Strongroom_key\" target=\"_blank\" rel=\"noopener\">strongroom key</a>.",
+          "text": "Open the mahogany chest, then search it to obtain the strongroom key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:h2ps7t",
+          "html": "Push the south-east monolith west and open the western gate.",
+          "text": "Push the south-east monolith west and open the western gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "monolith-puzzle:h2ps7t:oblf1x",
+              "html": "If you are stuck, exit using either of the tunnels.",
+              "text": "If you are stuck, exit using either of the tunnels.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "monolith-puzzle:h2ps7t:guuc3y",
+              "html": "Enter the tunnel again from the other side.",
+              "text": "Enter the tunnel again from the other side.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "monolith-puzzle:h2ps7t:1gvgj4s",
+              "html": "Push south-western monolith north.",
+              "text": "Push south-western monolith north.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "monolith-puzzle:h2ps7t:ejojyf",
+              "html": "Open the western gate.",
+              "text": "Open the western gate.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "monolith-puzzle:1lwqpzj",
+          "html": "Read the lectern (Chapter 1). Doing so unlocks a <a href=\"https://runescape.wiki/w/Bolrie%27s_Diary_(music_track)\" target=\"_blank\" rel=\"noopener\">music track</a>.",
+          "text": "Read the lectern (Chapter 1). Doing so unlocks a music track.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "oaknock-s-legacy",
+      "title": "Oaknock's legacy",
+      "anchor": "Oaknock's_legacy",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:6iiwg9",
+          "html": "Referencing the table below, insert discs on the left side of the machine to equal the values on the right side. Use <a href=\"https://runescape.wiki/w/Yewnock%27s_exchanger\" target=\"_blank\" rel=\"noopener\">Yewnock&#39;s exchanger</a> to obtain shapes of lesser values (if you are having trouble, see the full guide <a href=\"https://runescape.wiki/w/The_Path_of_Glouphrie#Oaknock&#39;s_legacy\" target=\"_blank\" rel=\"noopener\">here</a>).",
+          "text": "Referencing the table below, insert discs on the left side of the machine to equal the values on the right side. Use Yewnock's exchanger to obtain shapes of lesser values (if you are having trouble, see the full guide here).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Value of each shape",
+          "head": [
+            "Colour",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Circle",
+              "Triangle",
+              "Square",
+              "Pentagon"
+            ],
+            [
+              "<b>Red</b>",
+              "1",
+              "3",
+              "4",
+              "5"
+            ],
+            [
+              "<b>Orange</b>",
+              "2",
+              "6",
+              "8",
+              "10"
+            ],
+            [
+              "<b>Yellow</b>",
+              "3",
+              "9",
+              "12",
+              "15"
+            ],
+            [
+              "<b>Green</b>",
+              "4",
+              "12",
+              "16",
+              "20"
+            ],
+            [
+              "<b>Blue</b>",
+              "5",
+              "15",
+              "20",
+              "25"
+            ],
+            [
+              "<b>Indigo</b>",
+              "6",
+              "18",
+              "24",
+              "30"
+            ],
+            [
+              "<b>Violet</b>",
+              "7",
+              "21",
+              "28",
+              "35"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:xoprw7",
+          "html": "Drop all discs and &#39;A key to a chest&#39; as you no longer need them. They are not the same shapes that will be used in <a href=\"https://runescape.wiki/w/The_Prisoner_of_Glouphrie\" target=\"_blank\" rel=\"noopener\">The Prisoner of Glouphrie</a>.",
+          "text": "Drop all discs and 'A key to a chest' as you no longer need them. They are not the same shapes that will be used in The Prisoner of Glouphrie.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:1px6coi",
+          "html": "Exit through the way you came or teleport, returning to <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>.",
+          "text": "Exit through the way you came or teleport, returning to Tree Gnome Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:u5o0cw",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Evil_creature\" target=\"_blank\" rel=\"noopener\">evil creature</a> near <a href=\"https://runescape.wiki/w/King_Bolren\" target=\"_blank\" rel=\"noopener\">King Bolren</a>. (If it respawns, hop worlds and try again.)",
+          "text": "Kill the evil creature near King Bolren. (If it respawns, hop worlds and try again.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:1w1vahk",
+          "html": "Talk to the king.",
+          "text": "Talk to the king.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "oaknock-s-legacy:1y3ucdx",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Spirit_Tree\" target=\"_blank\" rel=\"noopener\">Spirit Tree</a> to travel to the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>.",
+          "text": "Use the Spirit Tree to travel to the Tree Gnome Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "anima-mundi",
+      "title": "Anima Mundi",
+      "anchor": "Anima_Mundi",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "anima-mundi:bring:1ytm1o1",
+              "html": "<a href=\"https://runescape.wiki/w/Crossbow\" target=\"_blank\" rel=\"noopener\">Crossbow</a>",
+              "text": "Crossbow"
+            },
+            {
+              "id": "anima-mundi:bring:cib61",
+              "html": "<a href=\"https://runescape.wiki/w/Mithril_grapple\" target=\"_blank\" rel=\"noopener\">Mithril grapple</a>",
+              "text": "Mithril grapple"
+            },
+            {
+              "id": "anima-mundi:bring:k0tbwl",
+              "html": "<a href=\"https://runescape.wiki/w/Crystal_chime\" target=\"_blank\" rel=\"noopener\">Crystal chime</a>",
+              "text": "Crystal chime"
+            },
+            {
+              "id": "anima-mundi:bring:16w8r8f",
+              "html": "Armour and food to fight 3 level 82 bosses.",
+              "text": "Armour and food to fight 3 level 82 bosses."
+            }
+          ],
+          "recommended": [
+            {
+              "id": "anima-mundi:bring:1k29dxi",
+              "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer potions</a>",
+              "text": "Prayer potions"
+            },
+            {
+              "id": "anima-mundi:bring:i17hw",
+              "html": "<a href=\"https://runescape.wiki/w/Super_energy\" target=\"_blank\" rel=\"noopener\">Super energy potions</a>",
+              "text": "Super energy potions"
+            },
+            {
+              "id": "anima-mundi:bring:fktbmp",
+              "html": "<a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">Ring of duelling</a> and <a href=\"https://runescape.wiki/w/Earmuffs\" target=\"_blank\" rel=\"noopener\">earmuffs</a>/<a href=\"https://runescape.wiki/w/Masked_earmuffs\" target=\"_blank\" rel=\"noopener\">masked earmuffs</a>/<a href=\"https://runescape.wiki/w/Slayer_helmet\" target=\"_blank\" rel=\"noopener\">slayer helmet</a>",
+              "text": "Ring of duelling and earmuffs/masked earmuffs/slayer helmet"
+            }
+          ]
+        },
+        {
+          "type": "map",
+          "caption": "Location of the Poison Waste Dungeon",
+          "lat": 3100,
+          "lon": 2321,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2316,
+                      3095
+                    ],
+                    [
+                      2316,
+                      3105
+                    ],
+                    [
+                      2326,
+                      3105
+                    ],
+                    [
+                      2326,
+                      3095
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Path_of_Glouphrie/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:11tnkwx",
+          "html": "Climb to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a>.",
+          "text": "Climb to the 1st floor (UK) / 2nd floor (US) of the Grand Tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:1qoenno",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gianne_Jnr\" target=\"_blank\" rel=\"noopener\">Gianne Jnr</a> in the north-west corner.",
+          "text": "Talk to Gianne Jnr in the north-west corner.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Longramble the explorer"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:bcxcxt",
+          "html": "Head south-west of Castle Wars until you reach a bridge crossing a river. Ring of dueling, or <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>B</b><b>K</b><b>P</b> and head north-west, or Yanille lodestone for quick access.",
+          "text": "Head south-west of Castle Wars until you reach a bridge crossing a river. Ring of dueling, or fairy ring BKP and head north-west, or Yanille lodestone for quick access.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:ikuq1r",
+          "html": "Just north-east of the bridge, <i>grapple</i> the tree to cross the river.",
+          "text": "Just north-east of the bridge, grapple the tree to cross the river.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:jpmqwv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Longramble\" target=\"_blank\" rel=\"noopener\">Longramble</a>.",
+          "text": "Talk to Longramble.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:16edxr3",
+          "html": "Head north and talk to the dying <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit tree</a>.",
+          "text": "Head north and talk to the dying spirit tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:1d0aewz",
+          "html": "After the cutscene, <i>use</i> the <a href=\"https://runescape.wiki/w/Crystal_chime\" target=\"_blank\" rel=\"noopener\">crystal chime</a> on the spirit tree, or ring the crystal chime when next to the spirit tree.",
+          "text": "After the cutscene, use the crystal chime on the spirit tree, or ring the crystal chime when next to the spirit tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "anima-mundi:1rr7xxa",
+          "html": "Go west into the large sewer entrance.",
+          "text": "Go west into the large sewer entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "warped",
+      "title": "Warped",
+      "anchor": "Warped",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Poison_Waste_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">Poison Waste Slayer Dungeon</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4224,
+          "lon": 2016,
+          "zoom": 2,
+          "plane": 1,
+          "mapId": 200,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2039.5,
+                  4178.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1996.5,
+                  4169.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1996.5,
+                  4176.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2000.5,
+                  4198.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2002.5,
+                  4188.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2011.5,
+                  4188.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2015.5,
+                  4199.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2017.5,
+                  4168.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2018.5,
+                  4216.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2021.5,
+                  4165.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2026.5,
+                  4189.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2031.5,
+                  4198.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2006.5,
+                  4259.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2011.5,
+                  4254.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_tortoise\" title=\"Warped tortoise\">Warped tortoise</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1999.5,
+                  4217.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2003.5,
+                  4215.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2007.5,
+                  4216.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2039.5,
+                  4172.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2039.5,
+                  4184.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1989.5,
+                  4191.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1990.5,
+                  4197.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1991.5,
+                  4186.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1992.5,
+                  4201.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1995.5,
+                  4204.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1996.5,
+                  4212.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1996.5,
+                  4220.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2005.5,
+                  4175.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2006.5,
+                  4170.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2007.5,
+                  4200.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2010.5,
+                  4166.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2013.5,
+                  4220.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2014.5,
+                  4173.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2015.5,
+                  4204.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2020.5,
+                  4188.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2023.5,
+                  4213.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2027.5,
+                  4175.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2028.5,
+                  4169.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2029.5,
+                  4201.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2033.5,
+                  4193.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2035.5,
+                  4171.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2043.5,
+                  4171.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1992.5,
+                  4255.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1999.5,
+                  4227.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1999.5,
+                  4236.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2004.5,
+                  4273.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2009.5,
+                  4271.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2010.5,
+                  4227.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2011.5,
+                  4239.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2025.5,
+                  4227.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2031.5,
+                  4238.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2037.5,
+                  4231.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/Warped_terrorbird\" title=\"Warped terrorbird\">Warped terrorbird</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2037.5,
+                  4256.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/The_path_of_glouphrie#Warped\" class=\"mw-redirect\" title=\"The path of glouphrie\">Terrorbird Guards no. 21 and 72</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2025.5,
+                  4261.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/The_path_of_glouphrie#Warped\" class=\"mw-redirect\" title=\"The path of glouphrie\">Warped terrorbird (quest)</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2027.5,
+                  4256.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/The_path_of_glouphrie#Warped\" class=\"mw-redirect\" title=\"The path of glouphrie\">Warped terrorbird (quest)</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2023.5,
+                  4250.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "plane": 1,
+                "title": "<a href=\"/w/The_path_of_glouphrie#Warped\" class=\"mw-redirect\" title=\"The path of glouphrie\">Warped terrorbird (quest)</a>",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1985.5,
+                  4173.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 1,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_exit_map_icon.png?73368",
+                "icon": "dungeon exit",
+                "title": "<a href=\"/w/Poison_Waste\" title=\"Poison Waste\">to Poison Waste</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1985.5,
+                  4172.5,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "200",
+                "label": "<a href=\"/w/Poison_Waste\" title=\"Poison Waste\">to Poison Waste</a>",
+                "direction": "right",
+                "shape": "Text",
+                "plane": 1
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Path_of_Glouphrie/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "warped:tzni89",
+          "html": "<a href=\"https://runescape.wiki/w/Warped_tortoise\" target=\"_blank\" rel=\"noopener\">Warped tortoise</a>",
+          "text": "Warped tortoise",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped:czgg2n",
+          "html": "<a href=\"https://runescape.wiki/w/Warped_terrorbird\" target=\"_blank\" rel=\"noopener\">Warped terrorbird</a>",
+          "text": "Warped terrorbird",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped:1p56m0g",
+          "html": "<a href=\"https://runescape.wiki/w/The_path_of_glouphrie#Warped\" target=\"_blank\" rel=\"noopener\">Terrorbird Guards no. 21 and 72</a>",
+          "text": "Terrorbird Guards no. 21 and 72",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped:tm55uq",
+          "html": "<a href=\"https://runescape.wiki/w/The_path_of_glouphrie#Warped\" target=\"_blank\" rel=\"noopener\">Warped terrorbird (quest)</a>",
+          "text": "Warped terrorbird (quest)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Poison_Waste_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Poison_Waste_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Poison_Waste_Slayer_Dungeon?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "warped:1a931z0",
+          "html": "Travel through the dungeon until you reach a room with 4 doors, 2 <a href=\"https://runescape.wiki/w/Warped_tortoises\" target=\"_blank\" rel=\"noopener\">warped tortoises</a>, and a pit in the centre. (You may want to kill a warped tortoise/terrorbird for the achievement at this point as it is convenient to do so.)",
+          "text": "Travel through the dungeon until you reach a room with 4 doors, 2 warped tortoises, and a pit in the centre. (You may want to kill a warped tortoise/terrorbird for the achievement at this point as it is convenient to do so.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "warped:1a931z0:15mho22",
+              "html": "Running through the tar will turn your run off - simply turn it back on.",
+              "text": "Running through the tar will turn your run off - simply turn it back on.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "warped:1a931z0:uqg4fp",
+              "html": "You can <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">Surge</a> or <a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a> across the tar to avoid being slowed down.",
+              "text": "You can Surge or Dive across the tar to avoid being slowed down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "warped:1ynhcqy",
+          "html": "Enter the east room and kill the 3 <a href=\"https://runescape.wiki/w/Warped_terrorbird\" target=\"_blank\" rel=\"noopener\">warped terrorbirds</a>.",
+          "text": "Enter the east room and kill the 3 warped terrorbirds.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "warped:1ynhcqy:rjbkzu",
+              "html": "If you die, you will have to recreate the <a href=\"https://runescape.wiki/w/Crystal_chime\" target=\"_blank\" rel=\"noopener\">crystal chime</a> after reobtaining the <a href=\"https://runescape.wiki/w/Small_crystal_seed\" target=\"_blank\" rel=\"noopener\">small crystal seed</a>.",
+              "text": "If you die, you will have to recreate the crystal chime after reobtaining the small crystal seed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "warped:la4f1d",
+          "html": "<i>Peek</i> through the hatch door on the east side of the room.",
+          "text": "Peek through the hatch door on the east side of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "warped:la4f1d:62sjps",
+              "html": "<b>People with sensitivity to light, seizures, or other ailments concerning flashing lights should be cautious during the escape scene (about 3–4 minutes). Recommended to hold spacebar and look away.</b> You <b>must</b> watch the cutscene. In the event you cancel it, simply re-enter the room.",
+              "text": "People with sensitivity to light, seizures, or other ailments concerning flashing lights should be cautious during the escape scene (about 3–4 minutes). Recommended to hold spacebar and look away. You must watch the cutscene. In the event you cancel it, simply re-enter the room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "warped:zdnnf",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Hazelmere\" target=\"_blank\" rel=\"noopener\">Hazelmere</a>.",
+          "text": "Speak to Hazelmere.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "warped:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Path_of_Glouphrie_reward.png?4421a",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Path_of_Glouphrie_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience",
+        "text": "30,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Poison_Waste_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">Poison Waste Slayer Dungeon</a>",
+        "text": "Access to Poison Waste Slayer Dungeon",
+        "subs": []
+      },
+      {
+        "html": "Access to a new <a href=\"https://runescape.wiki/w/Spirit_tree_(Incomitatus)\" target=\"_blank\" rel=\"noopener\">spirit tree</a>",
+        "text": "Access to a new spirit tree",
+        "subs": []
+      },
+      {
+        "html": "Ability to use the spirit trees for direct teleportation, skipping the route of travelling back to <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a>",
+        "text": "Ability to use the spirit trees for direct teleportation, skipping the route of travelling back to Tree Gnome Village",
+        "subs": []
+      },
+      {
+        "html": "Ability to add the <a href=\"https://runescape.wiki/w/Crystal_chime\" target=\"_blank\" rel=\"noopener\">crystal chime</a> to the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>.",
+        "text": "Ability to add the crystal chime to the tool belt.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Bolrie's Diary",
+      "where": "read Bolrie's Diary, which is attached to the lectern in Yewnock's machine room in the Gnome Village Dungeon; need to click on any chapter to unlock music"
+    },
+    {
+      "name": "Healin' Feelin'",
+      "where": "healing spirit tree at sewer entrance"
+    },
+    {
+      "name": "The Longramble Scramble",
+      "where": "west of Castle Wars across river"
+    },
+    {
+      "name": "Storeroom Shuffle",
+      "where": "Gnome Village Dungeon storeroom moving monoliths"
+    },
+    {
+      "name": "Terrorbird Tussle",
+      "where": "Cutscene after Warped terrorbird battle"
+    },
+    {
+      "name": "Waste Defaced",
+      "where": "Poison Waste Slayer Dungeon"
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/The_Path_of_Glouphrie_(achievement)\" target=\"_blank\" rel=\"noopener\">The Path of Glouphrie</a> (0) – Complete this quest.",
+    "<a href=\"https://runescape.wiki/w/Culinary_Exchange\" target=\"_blank\" rel=\"noopener\">Culinary Exchange</a> (5) – Deliver a serving of tangled toad&#39;s legs to Longramble during or after &#39;The Path of Glouphrie&#39;.",
+    "<b><a href=\"https://runescape.wiki/w/Tirannwn_achievements\" target=\"_blank\" rel=\"noopener\">Tirannwn achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/The_Prisoner_of_Glouphrie/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Prisoner of Glouphrie</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1770 @@
+{
+  "format": 1,
+  "id": "mournings-end-part-i",
+  "title": "Mourning's End Part I",
+  "page": "Mourning's End Part I/Quick guide",
+  "rev": 37175943,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Eluned\" target=\"_blank\" rel=\"noopener\">Eluned</a> in <a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a> in <a href=\"https://runescape.wiki/w/Tirannwn\" target=\"_blank\" rel=\"noopener\">Tirannwn</a> - either east of the current <a href=\"https://runescape.wiki/w/Tyras_Camp\" target=\"_blank\" rel=\"noopener\">Tyras Camp</a> or east of the remains of the former one. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3146,
+      "lon": 2290,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+    },
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Roving Elves",
+        "depth": 1
+      },
+      {
+        "text": "Regicide",
+        "depth": 2
+      },
+      {
+        "text": "Underground Pass",
+        "depth": 3
+      },
+      {
+        "text": "Biohazard",
+        "depth": 4
+      },
+      {
+        "text": "Plague City",
+        "depth": 5
+      },
+      {
+        "text": "Waterfall Quest",
+        "depth": 2
+      },
+      {
+        "text": "Sheep Herder",
+        "depth": 1
+      },
+      {
+        "text": "Big Chompy Bird Hunting",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Ranged",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 60,
+        "note": "(b) (to cut mahogany logs from a mahogany tree, unless obtained from another source such as Managing Miscellania)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Mourner (level 79-86)",
+        "name": "Mourner",
+        "count": null,
+        "level": "79-86",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Tirannwn</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Tirannwn</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:fgmgqy",
+          "html": "2 pieces of <a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">silk</a> (bring 4 if you plan on doing <a href=\"https://runescape.wiki/w/Within_the_Light\" target=\"_blank\" rel=\"noopener\">Within the Light</a>)",
+          "text": "2 pieces of silk (bring 4 if you plan on doing Within the Light)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1xus2vs",
+          "html": "1 <a href=\"https://runescape.wiki/w/Bucket_of_water\" target=\"_blank\" rel=\"noopener\">bucket of water</a>",
+          "text": "1 bucket of water",
+          "alternatives": []
+        },
+        {
+          "id": "req:68s8mr",
+          "html": "1 <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feather</a>",
+          "text": "1 feather",
+          "alternatives": []
+        },
+        {
+          "id": "req:10t0h9h",
+          "html": "1 piece of <a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">leather</a> (soft)",
+          "text": "1 piece of leather (soft)",
+          "alternatives": []
+        },
+        {
+          "id": "req:12sau0v",
+          "html": "1 <a href=\"https://runescape.wiki/w/Toad_crunchies\" target=\"_blank\" rel=\"noopener\">toad crunchies</a> (<a href=\"https://runescape.wiki/w/Premade_t%27d_crunch\" target=\"_blank\" rel=\"noopener\">premade ones</a> will work too, bring extras in case of errors)",
+          "text": "1 toad crunchies (premade ones will work too, bring extras in case of errors)",
+          "alternatives": []
+        },
+        {
+          "id": "req:uv88hw",
+          "html": "1 <a href=\"https://runescape.wiki/w/Mahogany_log\" target=\"_blank\" rel=\"noopener\">mahogany log</a>",
+          "text": "1 mahogany log",
+          "alternatives": []
+        },
+        {
+          "id": "req:1a7j1rh",
+          "html": "1 <a href=\"https://runescape.wiki/w/Barrel_of_naphtha\" target=\"_blank\" rel=\"noopener\">barrel of naphtha</a>",
+          "text": "1 barrel of naphtha",
+          "alternatives": []
+        },
+        {
+          "id": "req:hrodje",
+          "html": "1 piece of <a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">bear fur</a> †",
+          "text": "1 piece of bear fur †",
+          "alternatives": []
+        },
+        {
+          "id": "req:1mmd0vw",
+          "html": "<a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">Red</a>, <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">yellow</a>, <a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">blue</a>, and <a href=\"https://runescape.wiki/w/Green_dye\" target=\"_blank\" rel=\"noopener\">green dye</a> †",
+          "text": "Red, yellow, blue, and green dye †",
+          "alternatives": [
+            "Or at least 30 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> to buy them from Oronwen during the quest (it is advised to get 3-4 of each)"
+          ]
+        },
+        {
+          "id": "req:xzz8rs",
+          "html": "1 <a href=\"https://runescape.wiki/w/Rotten_apple\" target=\"_blank\" rel=\"noopener\">rotten apple</a> †",
+          "text": "1 rotten apple †",
+          "alternatives": []
+        },
+        {
+          "id": "req:1sfqsmh",
+          "html": "An empty <a href=\"https://runescape.wiki/w/Barrel\" target=\"_blank\" rel=\"noopener\">barrel</a> †",
+          "text": "An empty barrel †",
+          "alternatives": []
+        },
+        {
+          "id": "req:1385ewu",
+          "html": "<a href=\"https://runescape.wiki/w/Ogre_bellows\" target=\"_blank\" rel=\"noopener\">ogre bellows</a> †",
+          "text": "ogre bellows †",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1njxgw8",
+          "html": "Activated lodestone or other methods of getting to the following locations:",
+          "text": "Activated lodestone or other methods of getting to the following locations:",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>",
+            "<a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a>",
+            "<a href=\"https://runescape.wiki/w/West_Ardougne\" target=\"_blank\" rel=\"noopener\">West Ardougne</a>",
+            "<a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a>",
+            "<a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>",
+            "<a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>"
+          ]
+        },
+        {
+          "id": "rec:1e3zelx",
+          "html": "More toad crunchies for extra dialogue",
+          "text": "More toad crunchies for extra dialogue",
+          "alternatives": []
+        },
+        {
+          "id": "rec:52bvvn",
+          "html": "Something to cure <a href=\"https://runescape.wiki/w/Poison\" target=\"_blank\" rel=\"noopener\">poison</a>",
+          "text": "Something to cure poison",
+          "alternatives": []
+        },
+        {
+          "id": "rec:4942q1",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_Duelling\" target=\"_blank\" rel=\"noopener\">Ring of Duelling</a> For fast access to <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a>",
+          "text": "Ring of Duelling For fast access to Castle Wars",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "Food",
+          "text": "Food",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "meeting-the-rebels",
+      "title": "Meeting the rebels",
+      "anchor": "Meeting_the_rebels",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "meeting-the-rebels:1xccpem",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eluned\" target=\"_blank\" rel=\"noopener\">Eluned</a> in <a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a> and agree to get teleported.",
+          "text": "Talk to Eluned in Isafdar and agree to get teleported.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Mourning's End"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "meeting-the-rebels:1pmch6g",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Arianwyn\" target=\"_blank\" rel=\"noopener\">Arianwyn</a> in Lletya. If you leave the town, the fastest way back is to use the <a href=\"https://runescape.wiki/w/Crystal_teleport_seed\" target=\"_blank\" rel=\"noopener\">crystal teleport seed</a> you were given.",
+          "text": "Talk to Arianwyn in Lletya. If you leave the town, the fastest way back is to use the crystal teleport seed you were given.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "mourners-in-the-mountains",
+      "title": "Mourners in the mountains",
+      "anchor": "Mourners_in_the_mountains",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "mourners-in-the-mountains:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "mourners-in-the-mountains:bring:sdjsgi",
+              "html": "Two pieces of <a href=\"https://runescape.wiki/w/Silk\" target=\"_blank\" rel=\"noopener\">silk</a>",
+              "text": "Two pieces of silk"
+            },
+            {
+              "id": "mourners-in-the-mountains:bring:1lkrbjt",
+              "html": "<a href=\"https://runescape.wiki/w/Crystal_teleport_seed\" target=\"_blank\" rel=\"noopener\">Crystal teleport seed</a>",
+              "text": "Crystal teleport seed"
+            },
+            {
+              "id": "mourners-in-the-mountains:bring:1fp4bfo",
+              "html": "Some <a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">bear fur</a>",
+              "text": "Some bear fur"
+            },
+            {
+              "id": "mourners-in-the-mountains:bring:1ydn608",
+              "html": "A <a href=\"https://runescape.wiki/w/Bucket_of_water\" target=\"_blank\" rel=\"noopener\">bucket of water</a>",
+              "text": "A bucket of water"
+            },
+            {
+              "id": "mourners-in-the-mountains:bring:84uwv2",
+              "html": "8-14 free backpack spaces",
+              "text": "8-14 free backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:d1l9b",
+          "html": "Make your way to <a href=\"https://runescape.wiki/w/Arandar\" target=\"_blank\" rel=\"noopener\">Arandar</a>. Some ways of getting there are;",
+          "text": "Make your way to Arandar. Some ways of getting there are;",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:d1l9b:17vbzzi",
+              "html": "Teleporting to the <a href=\"https://runescape.wiki/w/World_Gate\" target=\"_blank\" rel=\"noopener\">World Gate</a> using the <a href=\"https://runescape.wiki/w/Sixth-Age_circuit\" target=\"_blank\" rel=\"noopener\">Sixth-Age circuit</a> or teleporting to <a href=\"https://runescape.wiki/w/Rune_dragon\" target=\"_blank\" rel=\"noopener\">rune dragons</a> with five <a href=\"https://runescape.wiki/w/Metallic_dragon_trinkets\" target=\"_blank\" rel=\"noopener\">metallic dragon trinkets</a>.",
+              "text": "Teleporting to the World Gate using the Sixth-Age circuit or teleporting to rune dragons with five metallic dragon trinkets.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:d1l9b:91nejy",
+              "html": "Heading to the entrance on the Kandarin side.",
+              "text": "Heading to the entrance on the Kandarin side.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:d1l9b:7ltmys",
+              "html": "Exiting Lletya and heading north on the Tirannwn side.",
+              "text": "Exiting Lletya and heading north on the Tirannwn side.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:d1l9b:1vi592g",
+              "html": "Using a Traveller&#39;s necklace to the Outpost and running west.",
+              "text": "Using a Traveller's necklace to the Outpost and running west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:d1l9b:ptzyob",
+              "html": "Using <a href=\"https://runescape.wiki/w/Home_Teleport\" target=\"_blank\" rel=\"noopener\">Home Teleport</a> to <a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak lodestone</a> and running south.",
+              "text": "Using Home Teleport to Eagles' Peak lodestone and running south.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1ds1df3",
+          "html": "Kill a <a href=\"https://runescape.wiki/w/Mourner\" target=\"_blank\" rel=\"noopener\">mourner</a>. Pick up all pieces of the <a href=\"https://runescape.wiki/w/Mourner_outfit\" target=\"_blank\" rel=\"noopener\">mourner outfit</a> including the <a href=\"https://runescape.wiki/w/Gas_mask\" target=\"_blank\" rel=\"noopener\">gas mask</a> and <a href=\"https://runescape.wiki/w/Mourner_letter\" target=\"_blank\" rel=\"noopener\">mourner letter</a>.",
+          "text": "Kill a mourner. Pick up all pieces of the mourner outfit including the gas mask and mourner letter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:1ds1df3:im3xbk",
+              "html": "You may now want to unequip and bank any combat equipment (unless you want to gather bear fur later) as you will not need it to progress the quest any longer.",
+              "text": "You may now want to unequip and bank any combat equipment (unless you want to gather bear fur later) as you will not need it to progress the quest any longer.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1w8hlw4",
+          "html": "Read the letter.",
+          "text": "Read the letter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1kwhhlo",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> and talk to <a href=\"https://runescape.wiki/w/Tegid\" target=\"_blank\" rel=\"noopener\">Tegid</a> at the southern lake, south of <a href=\"https://runescape.wiki/w/Jatix\" target=\"_blank\" rel=\"noopener\">Jatix</a>.",
+          "text": "Go to Taverley and talk to Tegid at the southern lake, south of Jatix.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1y6pzth",
+          "html": "Search the laundry basket near him to steal the soap.",
+          "text": "Search the laundry basket near him to steal the soap.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": ""
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1is5zh8",
+          "html": "Use it on the bloody mourner top with a bucket of water in your backpack.",
+          "text": "Use it on the bloody mourner top with a bucket of water in your backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:1n4mlv4",
+          "html": "Return to Lletya with your <a href=\"https://runescape.wiki/w/Crystal_teleport_seed\" target=\"_blank\" rel=\"noopener\">crystal teleport seed</a>.",
+          "text": "Return to Lletya with your crystal teleport seed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:r3g0vm",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Oronwen\" target=\"_blank\" rel=\"noopener\">Oronwen</a> in the clothing shop",
+          "text": "Talk to Oronwen in the clothing shop",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you mend clothes?"
+                }
+              ]
+            },
+            {
+              "when": "Talk again",
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I have all I need to mend my trousers."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:r3g0vm:1npi04g",
+              "html": "Be sure to bring your bear fur and silk. Kill a <a href=\"https://runescape.wiki/w/Grizzly_bear\" target=\"_blank\" rel=\"noopener\">grizzly bear</a> just west of Lletya if you need <a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">bear fur</a>.",
+              "text": "Be sure to bring your bear fur and silk. Kill a grizzly bear just west of Lletya if you need bear fur.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:r3g0vm:1hueimr",
+              "html": "This is an opportune time to trade with her and buy dyes while she is fixing the trousers. It is highly recommended you purchase at least 3 of each.",
+              "text": "This is an opportune time to trade with her and buy dyes while she is fixing the trousers. It is highly recommended you purchase at least 3 of each.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mourners-in-the-mountains:o4pyfw",
+          "html": "After one minute has elapsed, talk to her again for the trousers.",
+          "text": "After one minute has elapsed, talk to her again for the trousers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mourners-in-the-mountains:o4pyfw:axig3",
+              "html": "If your backpack is full, they will be dropped on the floor.",
+              "text": "If your backpack is full, they will be dropped on the floor.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amongst-the-death-guard",
+      "title": "Amongst the Death Guard",
+      "anchor": "Amongst_the_Death_Guard",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The Mourner headquarter",
+          "lat": 3327,
+          "lon": 2549,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2541,
+                      3319
+                    ],
+                    [
+                      2541,
+                      3335
+                    ],
+                    [
+                      2557,
+                      3335
+                    ],
+                    [
+                      2557,
+                      3319
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+        },
+        {
+          "type": "map",
+          "caption": "Head Mourner",
+          "lat": 4631,
+          "lon": 2042,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 211,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2037,
+                      4627
+                    ],
+                    [
+                      2037,
+                      4635
+                    ],
+                    [
+                      2047,
+                      4635
+                    ],
+                    [
+                      2047,
+                      4627
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "211",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "amongst-the-death-guard:bring:1tlj4eu",
+              "html": "Mourner gear",
+              "text": "Mourner gear"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:7925k6",
+              "html": "The mourner&#39;s letter",
+              "text": "The mourner's letter"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:uk304j",
+              "html": "A <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feather</a>",
+              "text": "A feather"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:qi74pb",
+              "html": "Some <a href=\"https://runescape.wiki/w/Toad_crunchies\" target=\"_blank\" rel=\"noopener\">toad crunchies</a>",
+              "text": "Some toad crunchies"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:1b6ofk6",
+              "html": "<a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">Leather</a>",
+              "text": "Leather"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:al1050",
+              "html": "A <a href=\"https://runescape.wiki/w/Mahogany_log\" target=\"_blank\" rel=\"noopener\">mahogany log</a>",
+              "text": "A mahogany log"
+            },
+            {
+              "id": "amongst-the-death-guard:bring:67dtgp",
+              "html": "One backpack space",
+              "text": "One backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:1rz7bus",
+          "html": "Unequip everything except the mourner suit and <a href=\"https://runescape.wiki/w/Gas_mask\" target=\"_blank\" rel=\"noopener\">gas mask</a>, head to the the Mourners&#39; headquarters (north-east corner inside of West Ardougne).",
+          "text": "Unequip everything except the mourner suit and gas mask, head to the the Mourners' headquarters (north-east corner inside of West Ardougne).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "amongst-the-death-guard:1rz7bus:yiiwcm",
+              "html": "If you cannot enter the headquarters, re-equip your mourner suit.",
+              "text": "If you cannot enter the headquarters, re-equip your mourner suit.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:1mugxy5",
+          "html": "Descend the trapdoor and talk to the <a href=\"https://runescape.wiki/w/Head_Mourner\" target=\"_blank\" rel=\"noopener\">Head Mourner</a> in the south-east room of the basement.",
+          "text": "Descend the trapdoor and talk to the Head Mourner in the south-east room of the basement.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "No"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:179yv6q",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Gnome_on_a_rack\" target=\"_blank\" rel=\"noopener\">gnome on a rack</a> in the west room.",
+          "text": "Talk to the gnome on a rack in the west room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "You said about toad crunchies and being tickled."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:13a4pns",
+          "html": "Use a feather on him twice with the toad crunchies in your backpack.",
+          "text": "Use a feather on him twice with the toad crunchies in your backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "amongst-the-death-guard:13a4pns:ftbbk4",
+              "html": "Do not use the toad crunchies on the gnome, or you will have to reobtain them.",
+              "text": "Do not use the toad crunchies on the gnome, or you will have to reobtain them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:tbvkc8",
+          "html": "Talk to the gnome again with a mahogany log and leather in your backpack.",
+          "text": "Talk to the gnome again with a mahogany log and leather in your backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:in3lxm",
+          "html": "<i>Release</i> him.",
+          "text": "Release him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "amongst-the-death-guard:1k0vg7j",
+          "html": "After one minute has elapsed, talk to the gnome again for a <a href=\"https://runescape.wiki/w/Fixed_device\" target=\"_blank\" rel=\"noopener\">fixed device</a>. If he disappeared, simply lobby.",
+          "text": "After one minute has elapsed, talk to the gnome again for a fixed device. If he disappeared, simply lobby.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "dyeing-the-non-dying",
+      "title": "Dyeing the non-dying",
+      "anchor": "Dyeing_the_non-dying",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "dyeing-the-non-dying:bring:2mm1ke",
+              "html": "<a href=\"https://runescape.wiki/w/Ogre_bellows\" target=\"_blank\" rel=\"noopener\">Ogre bellows</a>",
+              "text": "Ogre bellows"
+            },
+            {
+              "id": "dyeing-the-non-dying:bring:mn71td",
+              "html": "<a href=\"https://runescape.wiki/w/Fixed_device\" target=\"_blank\" rel=\"noopener\">Fixed device</a>",
+              "text": "Fixed device"
+            },
+            {
+              "id": "dyeing-the-non-dying:bring:1tlj4eu",
+              "html": "<a href=\"https://runescape.wiki/w/Mourner_gear\" target=\"_blank\" rel=\"noopener\">Mourner gear</a>",
+              "text": "Mourner gear"
+            },
+            {
+              "id": "dyeing-the-non-dying:bring:1pkg3ht",
+              "html": "At least one bottle of dye of each colour: <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">red</a>, <a href=\"https://runescape.wiki/w/Blue_dye\" target=\"_blank\" rel=\"noopener\">blue</a>, <a href=\"https://runescape.wiki/w/Yellow_dye\" target=\"_blank\" rel=\"noopener\">yellow</a>, and <a href=\"https://runescape.wiki/w/Green_dye\" target=\"_blank\" rel=\"noopener\">green</a>",
+              "text": "At least one bottle of dye of each colour: red, blue, yellow, and green"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "dyeing-the-non-dying:bring:1kahchd",
+              "html": "At least 3 of each dye (including green dye)",
+              "text": "At least 3 of each dye (including green dye)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep\" target=\"_blank\" rel=\"noopener\">Sick-looking sheep</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3370,
+          "lon": 2590,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2609.5,
+                  3344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3343.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3345.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2611.5,
+                  3384.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2612.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2616.5,
+                  3370.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2617.5,
+                  3371.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2618.5,
+                  3370.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2560.5,
+                  3389.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2561.5,
+                  3388.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2561.5,
+                  3390.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:c6npnv",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(1)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (red)</a>",
+          "text": "Sick-looking-sheep (red)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1wyutm4",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(4)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (yellow)</a>",
+          "text": "Sick-looking-sheep (yellow)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1flfhn",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(2)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (green)</a>",
+          "text": "Sick-looking-sheep (green)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:ydczfs",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(3)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (blue)</a>",
+          "text": "Sick-looking-sheep (blue)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Sick-looking-sheep\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Sick-looking-sheep\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Sick-looking-sheep?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:isrdps",
+          "html": "Travel to the <a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a> (fairy ring <b>A</b><b>K</b><b>S</b>).",
+          "text": "Travel to the Feldip Hills (fairy ring AKS).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:isrdps:1voqy63",
+              "html": "Fetch an <a href=\"https://runescape.wiki/w/Ogre_bellows\" target=\"_blank\" rel=\"noopener\">ogre bellows</a> from <a href=\"https://runescape.wiki/w/Rantz%27s_cave\" target=\"_blank\" rel=\"noopener\">Rantz&#39;s cave</a> if you need one. If you already have one, you won’t be able to obtain another from the chest.",
+              "text": "Fetch an ogre bellows from Rantz's cave if you need one. If you already have one, you won’t be able to obtain another from the chest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:16zoz19",
+          "html": "Go to the small swamp slightly south-west of Rantz and make the coloured toads.",
+          "text": "Go to the small swamp slightly south-west of Rantz and make the coloured toads.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:16zoz19:1o90vy9",
+              "html": "Do not fill up your <a href=\"https://runescape.wiki/w/Ogre_bellows\" target=\"_blank\" rel=\"noopener\">ogre bellows</a>, make sure it is empty. If you need to empty it, bloat toads until it is empty before following the next steps.",
+              "text": "Do not fill up your ogre bellows, make sure it is empty. If you need to empty it, bloat toads until it is empty before following the next steps.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:16zoz19:w901yb",
+              "html": "Use the bottle of dye on your ogre bellows.",
+              "text": "Use the bottle of dye on your ogre bellows.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:16zoz19:1dih6ea",
+              "html": "Use your ogre bellows on a <a href=\"https://runescape.wiki/w/Swamp_toad_(creature)\" target=\"_blank\" rel=\"noopener\">swamp toad</a>.",
+              "text": "Use your ogre bellows on a swamp toad.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:16zoz19:a0p5m3",
+              "html": "Repeat the process for each bottle of dye.",
+              "text": "Repeat the process for each bottle of dye.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:16zoz19:ua59tc",
+              "html": "It is highly recommended that you make multiple of each toad.",
+              "text": "It is highly recommended that you make multiple of each toad.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1e48zn1",
+          "html": "Teleport to the Ardougne lodestone, and head to where <a href=\"https://runescape.wiki/w/Brumty\" target=\"_blank\" rel=\"noopener\">Brumty</a>&#39;s sheep roam to the west.",
+          "text": "Teleport to the Ardougne lodestone, and head to where Brumty's sheep roam to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1ln5mko",
+          "html": "Use a toad matching the colour of the nearby sheep on the fixed device in your backpack, equip it.",
+          "text": "Use a toad matching the colour of the nearby sheep on the fixed device in your backpack, equip it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:1ln5mko:h3l9h6",
+              "html": "If you are unsure of the colour of the sheep, you can examine it for a description of the colour (red tinge, green tinge, blue tinge, yellow tinge).",
+              "text": "If you are unsure of the colour of the sheep, you can examine it for a description of the colour (red tinge, green tinge, blue tinge, yellow tinge).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1hdrczv",
+          "html": "Open the equipment tab and <i>fire</i> the fixed device. (Get out of firing mode to see which direction your character is looking at. This way you can avoid having to struggle with finding the sheep with the arrows.)",
+          "text": "Open the equipment tab and fire the fixed device. (Get out of firing mode to see which direction your character is looking at. This way you can avoid having to struggle with finding the sheep with the arrows.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:48444r",
+          "html": "Use the arrows to aim at a sheep and then press the middle &quot;FIRE!&quot; button once it is in the middle of the screen.",
+          "text": "Use the arrows to aim at a sheep and then press the middle \"FIRE!\" button once it is in the middle of the screen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:112tdzw",
+          "html": "Do that for the three other sets of sheep, making sure to match the colour of the toad to the colour of the sheep.",
+          "text": "Do that for the three other sets of sheep, making sure to match the colour of the toad to the colour of the sheep.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dyeing-the-non-dying:112tdzw:18rxy53",
+              "html": "If done correctly, you will no longer be able to prod the sheep.",
+              "text": "If done correctly, you will no longer be able to prod the sheep.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:1bb63vu",
+          "html": "Go back to West Ardougne and take a rotten apple from the ground west of the headquarters, if you don&#39;t have one.",
+          "text": "Go back to West Ardougne and take a rotten apple from the ground west of the headquarters, if you don't have one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dyeing-the-non-dying:13bs9vf",
+          "html": "Return to the Head Mourner and talk to him.",
+          "text": "Return to the Head Mourner and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "elena-s-advice",
+      "title": "Elena's advice",
+      "anchor": "Elena's_advice",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Elena's house.",
+          "lat": 3336,
+          "lon": 2592,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2586.5,
+                      3330.5
+                    ],
+                    [
+                      2586.5,
+                      3342.5
+                    ],
+                    [
+                      2598.5,
+                      3342.5
+                    ],
+                    [
+                      2598.5,
+                      3330.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "elena-s-advice:bring:1n2yf2c",
+              "html": "<a href=\"https://runescape.wiki/w/Rotten_apple\" target=\"_blank\" rel=\"noopener\">Rotten apple</a> and approximately 20 pieces of <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>, you do not need coal if you already have a <a href=\"https://runescape.wiki/w/Barrel_of_naphtha\" target=\"_blank\" rel=\"noopener\">barrel of naphtha</a> if you made one extra during <a href=\"https://runescape.wiki/w/Regicide\" target=\"_blank\" rel=\"noopener\">Regicide</a>",
+              "text": "Rotten apple and approximately 20 pieces of coal, you do not need coal if you already have a barrel of naphtha if you made one extra during Regicide"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:gh76wt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Elena\" target=\"_blank\" rel=\"noopener\">Elena</a>, who lives slightly north-east of <a href=\"https://runescape.wiki/w/Ardougne_Castle\" target=\"_blank\" rel=\"noopener\">Ardougne Castle</a>.",
+          "text": "Talk to Elena, who lives slightly north-east of Ardougne Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:1y90eia",
+          "html": "With a rotten apple in your inventory, talk to her again.",
+          "text": "With a rotten apple in your inventory, talk to her again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:1i3boxy",
+          "html": "Wait one minute or world-hop, then talk to her again.",
+          "text": "Wait one minute or world-hop, then talk to her again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Apples in a barrel"
+        },
+        {
+          "type": "map",
+          "caption": "The apple orchard.",
+          "lat": 3376,
+          "lon": 2481,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2467,
+                      3362
+                    ],
+                    [
+                      2467,
+                      3390
+                    ],
+                    [
+                      2495,
+                      3390
+                    ],
+                    [
+                      2495,
+                      3362
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Mourning's_End_Part_I/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:18j3vpn",
+          "html": "Go to the fenced-in apple <a href=\"https://runescape.wiki/w/Orchard\" target=\"_blank\" rel=\"noopener\">orchard</a> Northwest of Ardougne, west of the <a href=\"https://runescape.wiki/w/Combat_training_camp\" target=\"_blank\" rel=\"noopener\">combat training camp</a>.",
+          "text": "Go to the fenced-in apple orchard Northwest of Ardougne, west of the combat training camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:1q17wjs",
+          "html": "Take an empty <a href=\"https://runescape.wiki/w/Barrel\" target=\"_blank\" rel=\"noopener\">barrel</a>, use it on the <a href=\"https://runescape.wiki/w/Rotten_Apple_Pile\" target=\"_blank\" rel=\"noopener\">Rotten Apple Pile</a>.",
+          "text": "Take an empty barrel, use it on the Rotten Apple Pile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:sa3u1p",
+          "html": "Then use the <a href=\"https://runescape.wiki/w/Apple_Barrel_(Orchard)\" target=\"_blank\" rel=\"noopener\">Apple Barrel</a> located in the middle of the orchard to make <a href=\"https://runescape.wiki/w/Apple_barrel_(item)\" target=\"_blank\" rel=\"noopener\">apple barrel</a>.",
+          "text": "Then use the Apple Barrel located in the middle of the orchard to make apple barrel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "elena-s-advice:sa3u1p:1py2558",
+              "html": "If you don&#39;t already have a <a href=\"https://runescape.wiki/w/Barrel_of_naphtha\" target=\"_blank\" rel=\"noopener\">barrel of naphtha</a>, take one more empty barrel.",
+              "text": "If you don't already have a barrel of naphtha, take one more empty barrel.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "After the naphtha"
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:151bxpj",
+          "html": "Skip this section if you have an extra barrel of naphtha from <a href=\"https://runescape.wiki/w/Regicide\" target=\"_blank\" rel=\"noopener\">Regicide</a>.",
+          "text": "Skip this section if you have an extra barrel of naphtha from Regicide.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:72dn39",
+              "html": "Return to Isafdar, head to the <a href=\"https://runescape.wiki/w/Poison_Waste\" target=\"_blank\" rel=\"noopener\">Poison Waste</a> a few steps south of the <a href=\"https://runescape.wiki/w/Tirannwn_lodestone\" target=\"_blank\" rel=\"noopener\">Tirannwn lodestone</a>.",
+              "text": "Return to Isafdar, head to the Poison Waste a few steps south of the Tirannwn lodestone.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:g0uw2e",
+              "html": "Fill your <a href=\"https://runescape.wiki/w/Barrel_of_coal-tar\" target=\"_blank\" rel=\"noopener\">barrel with coal-tar</a>.",
+              "text": "Fill your barrel with coal-tar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:1u3fx49",
+              "html": "Go to the <a href=\"https://runescape.wiki/w/Fractionation_still\" target=\"_blank\" rel=\"noopener\">fractionation still</a> in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a> outside of the chemist&#39;s house.",
+              "text": "Go to the fractionation still in Rimmington outside of the chemist's house.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:18ihowl",
+              "html": "Use the barrel of coal-tar on the still.",
+              "text": "Use the barrel of coal-tar on the still.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:1lqw99j",
+              "html": "Rotate the tar regulator clockwise twice (don&#39;t do a complete rotation), to make the tar flow at maximum. The &#39;pressure&#39; indicator on the left should go up.",
+              "text": "Rotate the tar regulator clockwise twice (don't do a complete rotation), to make the tar flow at maximum. The 'pressure' indicator on the left should go up.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:w49a2l",
+              "html": "When the pressure enters the green region, rotate the pressure valve clockwise once to let out some pressure. This should stall the pressure indicator.",
+              "text": "When the pressure enters the green region, rotate the pressure valve clockwise once to let out some pressure. This should stall the pressure indicator.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:1aiwq38",
+              "html": "Start adding coal. This raises the &#39;heat&#39; indicator on the right. If it&#39;s below the green region, add more coal. If it&#39;s above, don&#39;t add coal until it gets lower.",
+              "text": "Start adding coal. This raises the 'heat' indicator on the right. If it's below the green region, add more coal. If it's above, don't add coal until it gets lower.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "elena-s-advice:151bxpj:1aiwq38:ec4chp",
+                  "html": "If the heat reading reaches the dark orange portion, you&#39;ve spoiled your compound and must start again.",
+                  "text": "If the heat reading reaches the dark orange portion, you've spoiled your compound and must start again.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "elena-s-advice:151bxpj:1aiwq38:r2jm1v",
+                  "html": "If you run out of coal, your progress will be saved, but you will have to re-set the pressure to add more coal to it.",
+                  "text": "If you run out of coal, your progress will be saved, but you will have to re-set the pressure to add more coal to it.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "elena-s-advice:151bxpj:30kzy0",
+              "html": "Exit the interface once the green bar is full.",
+              "text": "Exit the interface once the green bar is full.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Preparing the poison"
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:1wwk8ts",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Barrel_of_naphtha\" target=\"_blank\" rel=\"noopener\">barrel of naphtha</a> on the Apple barrel in your Inventory.",
+          "text": "Use the barrel of naphtha on the Apple barrel in your Inventory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:1hq5qwn",
+          "html": "Use the apple mix on your <a href=\"https://runescape.wiki/w/Sieve\" target=\"_blank\" rel=\"noopener\">sieve</a>. This was given to you by Elena when she identified the toxin.",
+          "text": "Use the apple mix on your sieve. This was given to you by Elena when she identified the toxin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "elena-s-advice:bkqhsk",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Toxic_naphtha\" target=\"_blank\" rel=\"noopener\">toxic naphtha</a> on a cooking range to get 2 <a href=\"https://runescape.wiki/w/Toxic_powder\" target=\"_blank\" rel=\"noopener\">toxic powder</a>. A range can be found in the <a href=\"https://runescape.wiki/w/Mourner_Headquarters\" target=\"_blank\" rel=\"noopener\">Mourner Headquarters</a>.",
+          "text": "Use the toxic naphtha on a cooking range to get 2 toxic powder. A range can be found in the Mourner Headquarters.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "elena-s-advice:bkqhsk:4waqhh",
+              "html": "Do not use it on an open fire, as the naphtha will explode.",
+              "text": "Do not use it on an open fire, as the naphtha will explode.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "west-ardougne-s-woe",
+      "title": "West Ardougne's woe",
+      "anchor": "West_Ardougne's_woe",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Mourning%27s_End_Part_I_-_Foodstore_locations.png/300px-Mourning%27s_End_Part_I_-_Foodstore_locations.png?5b6ff",
+          "width": 300,
+          "height": 240,
+          "alt": "",
+          "caption": "The foodstore locations.",
+          "href": "https://runescape.wiki/w/File:Mourning%27s_End_Part_I_-_Foodstore_locations.png"
+        },
+        {
+          "type": "step",
+          "id": "west-ardougne-s-woe:xqfclm",
+          "html": "Enter the largest building in the centre of West Ardougne.",
+          "text": "Enter the largest building in the centre of West Ardougne.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "west-ardougne-s-woe:61vfqz",
+          "html": "Use one of the <a href=\"https://runescape.wiki/w/Toxic_powder\" target=\"_blank\" rel=\"noopener\">toxic powder</a> on the sacks in the west room.",
+          "text": "Use one of the toxic powder on the sacks in the west room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "west-ardougne-s-woe:1jh3rvo",
+          "html": "Head to the Church (to the south) and poison the second set of grain (located upstairs).",
+          "text": "Head to the Church (to the south) and poison the second set of grain (located upstairs).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "west-ardougne-s-woe:pwykee",
+          "html": "Return to the Head Mourner in the headquarters.",
+          "text": "Return to the Head Mourner in the headquarters.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "west-ardougne-s-woe:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Mourning%27s_End_Part_I_reward.png?d6e69",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Mourning%27s_End_Part_I_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Constitution_XP_lamp_(Mourning%27s_End_Part_I)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25,000 experience <a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Mourning%27s_End_Part_I)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "25,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Mourner_Headquarters\" target=\"_blank\" rel=\"noopener\">Death Guard headquarters</a>",
+        "text": "Access to the Death Guard headquarters",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Lletya\" target=\"_blank\" rel=\"noopener\">Lletya</a>",
+        "text": "Access to Lletya",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Crystal_teleport_seed\" target=\"_blank\" rel=\"noopener\">Crystal teleport seed</a>",
+        "text": "Crystal teleport seed",
+        "subs": []
+      },
+      {
+        "html": "Full <a href=\"https://runescape.wiki/w/Mourner_gear\" target=\"_blank\" rel=\"noopener\">mourner gear</a>",
+        "text": "Full mourner gear",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Fight or Flight",
+      "where": "in the Death Guard headquarters"
+    },
+    {
+      "name": "Far Away",
+      "where": "in Lletya"
+    },
+    {
+      "name": "Overpass",
+      "where": "in Arandar"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part II</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/Within_the_Light/Quick_guide\" target=\"_blank\" rel=\"noopener\">Within the Light</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

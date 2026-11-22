@@ -1,0 +1,1181 @@
+{
+  "format": 1,
+  "id": "the-giant-dwarf",
+  "title": "The Giant Dwarf",
+  "page": "The Giant Dwarf/Quick guide",
+  "rev": 37205125,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Commander_Veldaban\" target=\"_blank\" rel=\"noopener\">Commander Veldaban</a> in the <a href=\"https://runescape.wiki/w/Black_Guard_headquarters\" target=\"_blank\" rel=\"noopener\">Black Guard headquarters</a> on the western side of <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a>. To enter Keldagrim, talk to the <a href=\"https://runescape.wiki/w/Dwarf_boatman\" target=\"_blank\" rel=\"noopener\">dwarf boatman</a> in the <a href=\"https://runescape.wiki/w/Keldagrim_deep_south_mine\" target=\"_blank\" rel=\"noopener\">dwarven mine</a> east of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>. (via the first location → the second location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 10213,
+      "lon": 2827,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 12,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 16,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 33,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 14,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": "(to mine coal)"
+      },
+      {
+        "skill": "Smithing",
+        "level": 10,
+        "note": "(to smelt iron bar)"
+      }
+    ],
+    "otherReqs": [
+      "<a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">Standard spells</a> equipped <i>or</i> the ability to cast <a href=\"https://runescape.wiki/w/Spellbook_Swap\" target=\"_blank\" rel=\"noopener\">Spellbook Swap</a>",
+      "Weigh less than 30 kg"
+    ],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span> <span class=\"reg\">Karamja</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1xvq5kb",
+          "html": "200 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+          "text": "200 coins",
+          "alternatives": []
+        },
+        {
+          "id": "req:1upsmxh",
+          "html": "Any <a href=\"https://runescape.wiki/w/Firemaking#Logs\" target=\"_blank\" rel=\"noopener\">logs</a> that you can set fire to",
+          "text": "Any logs that you can set fire to",
+          "alternatives": []
+        },
+        {
+          "id": "req:owgwpv",
+          "html": "1 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+          "text": "1 coal",
+          "alternatives": []
+        },
+        {
+          "id": "req:mylsp3",
+          "html": "1 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bar</a>",
+          "text": "1 iron bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:pqdmid",
+          "html": "Runes to cast <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> (1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a> and 1 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air rune</a>)",
+          "text": "Runes to cast Telekinetic Grab (1 law rune and 1 air rune)",
+          "alternatives": []
+        },
+        {
+          "id": "req:6yhxdh",
+          "html": "3 cut <a href=\"https://runescape.wiki/w/Sapphire\" target=\"_blank\" rel=\"noopener\">sapphires</a>",
+          "text": "3 cut sapphires",
+          "alternatives": []
+        },
+        {
+          "id": "req:15w2lee",
+          "html": "1 <a href=\"https://runescape.wiki/w/Redberry_pie\" target=\"_blank\" rel=\"noopener\">redberry pie</a> (not required if you have completed <a href=\"https://runescape.wiki/w/The_Knight%27s_Sword\" target=\"_blank\" rel=\"noopener\">The Knight&#39;s Sword</a> quest)",
+          "text": "1 redberry pie (not required if you have completed The Knight's Sword quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1gnpjm3",
+          "html": "About 10 of each of the following items in your bank or metal bank, which may or may not be necessary for the <a href=\"https://runescape.wiki/w/The_Giant_Dwarf#An_axe_fit_for_a_king\" target=\"_blank\" rel=\"noopener\">timed delivery tasks</a>. There is the <a href=\"https://runescape.wiki/w/Keldagrim_bank\" target=\"_blank\" rel=\"noopener\">Keldagrim bank</a> and a <a href=\"https://runescape.wiki/w/Metal_bank\" target=\"_blank\" rel=\"noopener\">metal bank</a> access in Keldagrim, so you don&#39;t have to carry everything there. Once you&#39;re there, take the items out for use in the quest.",
+          "text": "About 10 of each of the following items in your bank or metal bank, which may or may not be necessary for the timed delivery tasks. There is the Keldagrim bank and a metal bank access in Keldagrim, so you don't have to carry everything there. Once you're there, take the items out for use in the quest.",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Clay\" target=\"_blank\" rel=\"noopener\">Clay</a> (not <a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">soft clay</a>)",
+            "<a href=\"https://runescape.wiki/w/Copper_ore\" target=\"_blank\" rel=\"noopener\">Copper ore</a>",
+            "<a href=\"https://runescape.wiki/w/Tin_ore\" target=\"_blank\" rel=\"noopener\">Tin ore</a>",
+            "<a href=\"https://runescape.wiki/w/Iron_ore\" target=\"_blank\" rel=\"noopener\">Iron ore</a>",
+            "<a href=\"https://runescape.wiki/w/Silver_ore\" target=\"_blank\" rel=\"noopener\">Silver ore</a>",
+            "<a href=\"https://runescape.wiki/w/Gold_ore\" target=\"_blank\" rel=\"noopener\">Gold ore</a>",
+            "<a href=\"https://runescape.wiki/w/Mithril_ore\" target=\"_blank\" rel=\"noopener\">Mithril ore</a>",
+            "<a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">Coal</a>",
+            "<a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">Bronze bar</a>",
+            "<a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">Iron bar</a>",
+            "<a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">Silver bar</a>",
+            "<a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">Gold bar</a>",
+            "<a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">Steel bar</a>",
+            "<a href=\"https://runescape.wiki/w/Mithril_bar\" target=\"_blank\" rel=\"noopener\">Mithril bar</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:o5jm7e",
+          "html": "About 10,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> (may vary on the tasks you get during the quest)",
+          "text": "About 10,000 coins (may vary on the tasks you get during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rseo91",
+          "html": "21 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> (for the <a href=\"https://runescape.wiki/w/Underwall_tunnel_(Grand_Exchange)\" target=\"_blank\" rel=\"noopener\">underwall tunnel</a> shortcut to the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>)",
+          "text": "21 Agility (for the underwall tunnel shortcut to the Grand Exchange)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1q71rou",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> and <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a>",
+          "text": "Activated Port Sarim and Fremennik Province lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:yaf27l",
+          "html": "<a href=\"https://runescape.wiki/w/Luck_of_the_Dwarves\" target=\"_blank\" rel=\"noopener\">Luck of the Dwarves</a> or <a href=\"https://runescape.wiki/w/Hazelmere%27s_signet_ring\" target=\"_blank\" rel=\"noopener\">Hazelmere&#39;s signet ring</a> teleport to <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a> (accessible after initial city entry in quest introduction)",
+          "text": "Luck of the Dwarves or Hazelmere's signet ring teleport to Keldagrim (accessible after initial city entry in quest introduction)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "under-arrest",
+      "title": "Under arrest",
+      "anchor": "Under_arrest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "under-arrest:owtcfg",
+          "html": "Enter the tunnel between the two black statues, north-east of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>, close to fairy ring <b>D</b><b>K</b><b>S</b>. (teleport to the <a href=\"https://runescape.wiki/w/Fremennik_Province\" target=\"_blank\" rel=\"noopener\">Fremennik Province</a> and run north-east)",
+          "text": "Enter the tunnel between the two black statues, north-east of Rellekka, close to fairy ring DKS. (teleport to the Fremennik Province and run north-east)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "under-arrest:11wu54x",
+          "html": "Go through cave entrance east to <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a>.",
+          "text": "Go through cave entrance east to Keldagrim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "under-arrest:zb8nfy",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Dwarven_Boatman\" target=\"_blank\" rel=\"noopener\">Dwarven Boatman</a> inside the cave, not <a href=\"https://runescape.wiki/w/Dwarven_Ferryman\" target=\"_blank\" rel=\"noopener\">Dwarven Ferryman</a>.",
+          "text": "Talk to the Dwarven Boatman inside the cave, not Dwarven Ferryman.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "under-arrest:1jmtu09",
+          "html": "Go west to the Black Guard H.Q.. Enter the building and talk to <a href=\"https://runescape.wiki/w/Commander_Veldaban\" target=\"_blank\" rel=\"noopener\">Commander Veldaban</a>. The chat instance should end with you accepting the quest.",
+          "text": "Go west to the Black Guard H.Q.. Enter the building and talk to Commander Veldaban. The chat instance should end with you accepting the quest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "under-arrest:s9xha8",
+          "html": "Exit the house, go north-east across the bridge and talk to <a href=\"https://runescape.wiki/w/Blasidar_the_Sculptor\" target=\"_blank\" rel=\"noopener\">Blasidar the Sculptor</a> just north-west of the brewery.",
+          "text": "Exit the house, go north-east across the bridge and talk to Blasidar the Sculptor just north-west of the brewery.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I will do this."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "king-s-clothes",
+      "title": "King's clothes",
+      "anchor": "King's_clothes",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "king-s-clothes:bring:1xvq5kb",
+              "html": "200 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+              "text": "200 coins"
+            },
+            {
+              "id": "king-s-clothes:bring:owgwpv",
+              "html": "1 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+              "text": "1 coal"
+            },
+            {
+              "id": "king-s-clothes:bring:foztcf",
+              "html": "1 <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a>",
+              "text": "1 logs"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "The librarian's location",
+          "lat": 177,
+          "lon": 42,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 21,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      37.5,
+                      172.5
+                    ],
+                    [
+                      37.5,
+                      182.5
+                    ],
+                    [
+                      47.5,
+                      182.5
+                    ],
+                    [
+                      47.5,
+                      172.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "21",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+        },
+        {
+          "type": "map",
+          "caption": "Vermundi's location",
+          "lat": 141,
+          "lon": 71,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 21,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      66.5,
+                      136.5
+                    ],
+                    [
+                      66.5,
+                      146.5
+                    ],
+                    [
+                      76.5,
+                      146.5
+                    ],
+                    [
+                      76.5,
+                      136.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "21",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:19rr9sg",
+          "html": "In the large building just west, talk to <a href=\"https://runescape.wiki/w/Vermundi\" target=\"_blank\" rel=\"noopener\">Vermundi</a> at the silk icon.",
+          "text": "In the large building just west, talk to Vermundi at the silk icon.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I'm looking for some special clothes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:vupqn1",
+          "html": "In the building west of the northern bridge, talk to the Librarian.",
+          "text": "In the building west of the northern bridge, talk to the Librarian.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you know anything about King Alvis's clothes?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:1m2hqd9",
+          "html": "While weighing less than 30kg, attempt to <i>climb</i> any bookcase (there&#39;s a bank south-west of the library if you&#39;re over the limit).",
+          "text": "While weighing less than 30kg, attempt to climb any bookcase (there's a bank south-west of the library if you're over the limit).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:1fyhrdg",
+          "html": "With the book, return to Vermundi.",
+          "text": "With the book, return to Vermundi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, about those special clothes again..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:1cxqjq2",
+          "html": "Use coal and logs on her spinning machine.",
+          "text": "Use coal and logs on her spinning machine.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:ml0clb",
+          "html": "Try to light it until the engine starts. (This may take several attempts)",
+          "text": "Try to light it until the engine starts. (This may take several attempts)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-clothes:g1ezca",
+          "html": "Talk to Vermundi.",
+          "text": "Talk to Vermundi.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, about those special clothes again..."
+                },
+                {
+                  "key": "1",
+                  "text": "I'll pay."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "king-s-boots",
+      "title": "King's boots",
+      "anchor": "King's_boots",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "king-s-boots:bring:u7537x",
+              "html": "<a href=\"https://runescape.wiki/w/Runes\" target=\"_blank\" rel=\"noopener\">Runes</a> to cast <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> (1 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air rune</a> and 1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a>)",
+              "text": "Runes to cast Telekinetic Grab (1 air rune and 1 law rune)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Saro's location",
+          "lat": 151,
+          "lon": 11,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 21,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      6.5,
+                      146.5
+                    ],
+                    [
+                      6.5,
+                      156.5
+                    ],
+                    [
+                      16.5,
+                      156.5
+                    ],
+                    [
+                      16.5,
+                      146.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "21",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "king-s-boots:1bp0hbx",
+          "html": "In the far west of the city, talk to <a href=\"https://runescape.wiki/w/Saro\" target=\"_blank\" rel=\"noopener\">Saro</a> at the anvil icon.",
+          "text": "In the far west of the city, talk to Saro at the anvil icon.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I'm looking for a pair of special boots."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-boots:17hhrm6",
+          "html": "North of the bank, talk to <a href=\"https://runescape.wiki/w/Dromund\" target=\"_blank\" rel=\"noopener\">Dromund</a>.",
+          "text": "North of the bank, talk to Dromund.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-boots:1cxek9a",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Left_boot\" target=\"_blank\" rel=\"noopener\">left boot</a>, from the table near the door, while his back is turned.",
+          "text": "Take the left boot, from the table near the door, while his back is turned.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-boots:yv23jz",
+          "html": "Leave his house and run around to the north edge, stand next to the western window (adjacent to the <a href=\"https://runescape.wiki/w/Right_boot\" target=\"_blank\" rel=\"noopener\">right boot</a>).",
+          "text": "Leave his house and run around to the north edge, stand next to the western window (adjacent to the right boot).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-boots:1umk4iw",
+          "html": "When his back is turned, cast <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> on the right boot through the window.",
+          "text": "When his back is turned, cast Telekinetic Grab on the right boot through the window.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "king-s-axe",
+      "title": "King's axe",
+      "anchor": "King's_axe",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "king-s-axe:bring:1dwhrw1",
+              "html": "3 <a href=\"https://runescape.wiki/w/Sapphire\" target=\"_blank\" rel=\"noopener\">sapphires</a>",
+              "text": "3 sapphires"
+            },
+            {
+              "id": "king-s-axe:bring:zlc8zh",
+              "html": "1 <a href=\"https://runescape.wiki/w/Redberry_pie\" target=\"_blank\" rel=\"noopener\">redberry pie</a> (if you have not completed <a href=\"https://runescape.wiki/w/The_Knight%27s_Sword\" target=\"_blank\" rel=\"noopener\">The Knight&#39;s Sword</a>)",
+              "text": "1 redberry pie (if you have not completed The Knight's Sword)"
+            },
+            {
+              "id": "king-s-axe:bring:mylsp3",
+              "html": "1 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bar</a>",
+              "text": "1 iron bar"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Santiri's location",
+          "lat": 181,
+          "lon": 12,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 21,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      7.5,
+                      176.5
+                    ],
+                    [
+                      7.5,
+                      186.5
+                    ],
+                    [
+                      17.5,
+                      186.5
+                    ],
+                    [
+                      17.5,
+                      176.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "21",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+        },
+        {
+          "type": "map",
+          "caption": "Thurgo's location",
+          "lat": 3144,
+          "lon": 3001,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2996.5,
+                      3139.5
+                    ],
+                    [
+                      2996.5,
+                      3149.5
+                    ],
+                    [
+                      3006.5,
+                      3149.5
+                    ],
+                    [
+                      3006.5,
+                      3139.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/The_Giant_Dwarf/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:17u8ixv",
+          "html": "Go to the north-west corner and talk to <a href=\"https://runescape.wiki/w/Santiri\" target=\"_blank\" rel=\"noopener\">Santiri</a>.",
+          "text": "Go to the north-west corner and talk to Santiri.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I'm looking for a particular battleaxe."
+                },
+                {
+                  "key": "2",
+                  "text": "Blasidar the sculptor needs it for his statue."
+                },
+                {
+                  "key": "2",
+                  "text": "Perhaps I can repair the axe?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:1a4meo8",
+          "html": "Use 3 sapphires on the battleaxe.",
+          "text": "Use 3 sapphires on the battleaxe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:1dz32ha",
+          "html": "If you have <b>not</b> completed <a href=\"https://runescape.wiki/w/The_Knight%27s_Sword\" target=\"_blank\" rel=\"noopener\">The Knight&#39;s Sword</a>:",
+          "text": "If you have not completed The Knight's Sword:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "king-s-axe:1dz32ha:7aquec",
+              "html": "Take a <a href=\"https://runescape.wiki/w/Redberry_pie\" target=\"_blank\" rel=\"noopener\">redberry pie</a> with you when you talk to Thurgo.",
+              "text": "Take a redberry pie with you when you talk to Thurgo.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:1f2ckwt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Thurgo\" target=\"_blank\" rel=\"noopener\">Thurgo</a> in his small hut (fairy ring <b>A</b><b>I</b><b>Q</b>), south of Port Sarim, and north of Mudskipper Point.",
+          "text": "Talk to Thurgo in his small hut (fairy ring AIQ), south of Port Sarim, and north of Mudskipper Point.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Something else. (3 if skillcape is owned)"
+                },
+                {
+                  "key": "2",
+                  "text": "Would you like some redberry pie?"
+                },
+                {
+                  "key": "3",
+                  "text": "Can you help me with this ancient axe?"
+                },
+                {
+                  "key": "1",
+                  "text": "Return to Keldagrim immediately."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "king-s-axe:1f2ckwt:6xbzia",
+              "html": "If The Knight&#39;s Sword is complete",
+              "text": "If The Knight's Sword is complete",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Something else. (3 if skillcape is owned)"
+                    },
+                    {
+                      "key": "2",
+                      "text": "Can you help me with this ancient axe?"
+                    },
+                    {
+                      "key": "1",
+                      "text": "Return to Keldagrim immediately."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "king-s-axe:1f2ckwt:1tavmuf",
+              "html": "Have an iron bar to give to Thurgo (or access your metal bank via the anvil next to Thurgo to obtain one which is stored in it).",
+              "text": "Have an iron bar to give to Thurgo (or access your metal bank via the anvil next to Thurgo to obtain one which is stored in it).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:1otkvsz",
+          "html": "With the 4 items, talk to <a href=\"https://runescape.wiki/w/Riki_the_sculptor%27s_model\" target=\"_blank\" rel=\"noopener\">Riki the sculptor&#39;s model</a> near Blasidar the sculptor.",
+          "text": "With the 4 items, talk to Riki the sculptor's model near Blasidar the sculptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "king-s-axe:13fqbe2",
+          "html": "Talk to Blasidar for a cutscene.",
+          "text": "Talk to Blasidar for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "climbing-the-corporate-ladder",
+      "title": "Climbing the corporate ladder",
+      "anchor": "Climbing_the_corporate_ladder",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "In the event you do not possess the ore or bars the secretary or director assigns as your task, you do not have to accept it, simply cancel the dialogue and request another task. This may make you have to do more than 4 tasks though as you may lose favour declining too many tasks.<br><b>Hint</b>: Joining The Purple Pewter provides a headstart of 20 points in the scoring system by speaking to the Purple Pewter Secretary whilst wearing three or more pieces of the H.A.M. robes set. Otherwise, your choice will only impact the final model of the statue built at the end of the quest."
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:aw0meg",
+          "html": "Run west to the marketplace (the biggest building in the map) building and up the stairs.",
+          "text": "Run west to the marketplace (the biggest building in the map) building and up the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:14uc4ic",
+          "html": "Talk to any secretary (yellow is closest to metal bank) - your character&#39;s gender may disqualify your eligibility to work for that colour of company, consequently try another colour.",
+          "text": "Talk to any secretary (yellow is closest to metal bank) - your character's gender may disqualify your eligibility to work for that colour of company, consequently try another colour.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Is there anything I can help you with?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:wjro4p",
+          "html": "Fetch them the required ore (must be un-noted). Repeat with the same secretary for a total of 4 tasks.",
+          "text": "Fetch them the required ore (must be un-noted). Repeat with the same secretary for a total of 4 tasks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:2mn7cd",
+          "html": "Talk to the director.",
+          "text": "Talk to the director.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you have any more tasks for me?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:14yq47w",
+          "html": "Fetch them the required bars. You might need to repeat for a second task.",
+          "text": "Fetch them the required bars. You might need to repeat for a second task.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:2mn7cd-2",
+          "html": "Talk to the director.",
+          "text": "Talk to the director.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'd like to officially join your company."
+                },
+                {
+                  "key": "3",
+                  "text": "Blasidar the sculptor has sent me."
+                },
+                {
+                  "key": "1",
+                  "text": "I would support you."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes! Long live the [company]!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:100l47b",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Commander_Veldaban\" target=\"_blank\" rel=\"noopener\">Commander Veldaban</a> in Black Guard headquarters, where you started the quest (west of the palace and west of the bank).",
+          "text": "Return to Commander Veldaban in Black Guard headquarters, where you started the quest (west of the palace and west of the bank).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                },
+                {
+                  "key": "2",
+                  "text": "I do NOT want to attend, I don't have time to waste."
+                },
+                {
+                  "key": "2",
+                  "text": "I just have a lot of smithing to do today, I can't attend."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "climbing-the-corporate-ladder:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Giant_Dwarf_reward.png?7ec3f",
+      "width": 512,
+      "height": 402,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Giant_Dwarf_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "1,500 experience",
+        "text": "1,500 experience",
+        "subs": []
+      },
+      {
+        "html": "The ability to use the <a href=\"https://runescape.wiki/w/Keldagrim_minecart_system\" target=\"_blank\" rel=\"noopener\">mine cart system</a> to <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a> (also requires completion of the quest <a href=\"https://runescape.wiki/w/Fishing_Contest\" target=\"_blank\" rel=\"noopener\">Fishing Contest</a>)",
+        "text": "The ability to use the mine cart system to White Wolf Mountain (also requires completion of the quest Fishing Contest)",
+        "subs": []
+      },
+      {
+        "html": "The ability to work for the company the player has chosen by completing tasks similar to the ones in the quest",
+        "text": "The ability to work for the company the player has chosen by completing tasks similar to the ones in the quest",
+        "subs": []
+      },
+      {
+        "html": "The ability to use members-only <a href=\"https://runescape.wiki/w/Gravestone\" target=\"_blank\" rel=\"noopener\">gravestones</a>, which last longer than the free-to-play gravestones",
+        "text": "The ability to use members-only gravestones, which last longer than the free-to-play gravestones",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Land of the Dwarves",
+      "where": ""
+    },
+    {
+      "name": "Tale of Keldagrim",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Another_Slice_of_H.A.M./Quick_guide\" target=\"_blank\" rel=\"noopener\">Another Slice of H.A.M.</a>",
+        "<a href=\"https://runescape.wiki/w/Forgettable_Tale_of_a_Drunken_Dwarf/Quick_guide\" target=\"_blank\" rel=\"noopener\">Forgettable Tale of a Drunken Dwarf</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/Forgiveness_of_a_Chaos_Dwarf/Quick_guide\" target=\"_blank\" rel=\"noopener\">Forgiveness of a Chaos Dwarf</a>",
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/Land_of_the_Goblins/Quick_guide\" target=\"_blank\" rel=\"noopener\">Land of the Goblins</a>",
+        "<a href=\"https://runescape.wiki/w/The_Chosen_Commander/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Chosen Commander</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

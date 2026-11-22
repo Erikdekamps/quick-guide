@@ -1,0 +1,2277 @@
+{
+  "format": 1,
+  "id": "legends-quest",
+  "title": "Legends' Quest",
+  "page": "Legends' Quest/Quick guide",
+  "rev": 37286410,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to the guards just outside of the <a href=\"https://runescape.wiki/w/Legends%27_Guild\" target=\"_blank\" rel=\"noopener\">Legends&#39; Guild</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Heroes' Quest",
+        "depth": 1
+      },
+      {
+        "text": "Shield of Arrav",
+        "depth": 2
+      },
+      {
+        "text": "Dragon Slayer",
+        "depth": 2
+      },
+      {
+        "text": "Jungle Potion",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 45,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 56,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 52,
+        "note": ""
+      },
+      {
+        "skill": "Prayer",
+        "level": 42,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Woodcutting",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "107 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Nezikchened (level 84), three times",
+        "name": "Nezikchened",
+        "count": null,
+        "level": "84",
+        "note": ", three times"
+      },
+      {
+        "text": "Ranalph Devere (level 63), possibly twice",
+        "name": "Ranalph Devere",
+        "count": null,
+        "level": "63",
+        "note": ", possibly twice"
+      },
+      {
+        "text": "Irvig Senay (level 70), possibly twice",
+        "name": "Irvig Senay",
+        "count": null,
+        "level": "70",
+        "note": ", possibly twice"
+      },
+      {
+        "text": "San Tojalon (level 70), possibly twice",
+        "name": "San Tojalon",
+        "count": null,
+        "level": "70",
+        "note": ", possibly twice"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Karamja</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> <span class=\"reg\">Karamja</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:jxsoe8",
+          "html": "A <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a>",
+          "text": "A rope",
+          "alternatives": []
+        },
+        {
+          "id": "req:lm31tp",
+          "html": "An empty <a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">vial</a>",
+          "text": "An empty vial",
+          "alternatives": []
+        },
+        {
+          "id": "req:1iirgiy",
+          "html": "A <a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">vial of water</a>",
+          "text": "A vial of water",
+          "alternatives": []
+        },
+        {
+          "id": "req:1wncrby",
+          "html": "3 <a href=\"https://runescape.wiki/w/Papyrus\" target=\"_blank\" rel=\"noopener\">papyrus</a> (can be obtained during the quest)",
+          "text": "3 papyrus (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:109pfu7",
+          "html": "1 <a href=\"https://runescape.wiki/w/Charcoal\" target=\"_blank\" rel=\"noopener\">charcoal</a>",
+          "text": "1 charcoal",
+          "alternatives": []
+        },
+        {
+          "id": "req:114dqi2",
+          "html": "An <a href=\"https://runescape.wiki/w/Unpowered_orb\" target=\"_blank\" rel=\"noopener\">unpowered orb</a> (two if taking the easy way)",
+          "text": "An unpowered orb (two if taking the easy way)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1d8j3ir",
+          "html": "2 <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bars</a> (more recommended in case of smithing failure, metal bank does not work)",
+          "text": "2 gold bars (more recommended in case of smithing failure, metal bank does not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:ed9lbv",
+          "html": "<a href=\"https://runescape.wiki/w/Clean_ardrigal\" target=\"_blank\" rel=\"noopener\">Clean ardrigal</a> and <a href=\"https://runescape.wiki/w/Clean_snake_weed\" target=\"_blank\" rel=\"noopener\">clean snake weed</a> (can be obtained during the quest)",
+          "text": "Clean ardrigal and clean snake weed (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:19f7lv4",
+          "html": "A cut <a href=\"https://runescape.wiki/w/Opal\" target=\"_blank\" rel=\"noopener\">opal</a>, <a href=\"https://runescape.wiki/w/Jade\" target=\"_blank\" rel=\"noopener\">jade</a>, <a href=\"https://runescape.wiki/w/Red_topaz\" target=\"_blank\" rel=\"noopener\">red topaz</a>, <a href=\"https://runescape.wiki/w/Sapphire\" target=\"_blank\" rel=\"noopener\">sapphire</a>, <a href=\"https://runescape.wiki/w/Emerald\" target=\"_blank\" rel=\"noopener\">emerald</a>, <a href=\"https://runescape.wiki/w/Ruby\" target=\"_blank\" rel=\"noopener\">ruby</a>, and <a href=\"https://runescape.wiki/w/Diamond\" target=\"_blank\" rel=\"noopener\">diamond</a>",
+          "text": "A cut opal, jade, red topaz, sapphire, emerald, ruby, and diamond",
+          "alternatives": []
+        },
+        {
+          "id": "req:1dcciau",
+          "html": "Runes for two casts of any <a href=\"https://runescape.wiki/w/Charge_Orb\" target=\"_blank\" rel=\"noopener\">Charge Orb</a> spell (bring more to be safe)",
+          "text": "Runes for two casts of any Charge Orb spell (bring more to be safe)",
+          "alternatives": []
+        },
+        {
+          "id": "req:yvftvx",
+          "html": "<a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">Lockpick</a>, <a href=\"https://runescape.wiki/w/Hair_clip\" target=\"_blank\" rel=\"noopener\">hair clip</a> or a <a href=\"https://runescape.wiki/w/Master_thief%27s_lockpick\" target=\"_blank\" rel=\"noopener\">master thief&#39;s lockpick</a> (tool belt works)",
+          "text": "Lockpick, hair clip or a master thief's lockpick (tool belt works)",
+          "alternatives": []
+        },
+        {
+          "id": "req:91hie2",
+          "html": "Unaugmented <a href=\"https://runescape.wiki/w/Rune_hatchet\" target=\"_blank\" rel=\"noopener\">rune hatchet</a> or better (tool belt works; the hatchet might have to be used on the item)",
+          "text": "Unaugmented rune hatchet or better (tool belt works; the hatchet might have to be used on the item)",
+          "alternatives": []
+        },
+        {
+          "id": "req:fbh1n",
+          "html": "Runes, depending on your version of <i>RuneScape</i>:",
+          "text": "Runes, depending on your version of RuneScape:",
+          "alternatives": [
+            "English: 1 <a href=\"https://runescape.wiki/w/Soul_rune\" target=\"_blank\" rel=\"noopener\">soul</a>, <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">mind</a>, <a href=\"https://runescape.wiki/w/Earth_rune\" target=\"_blank\" rel=\"noopener\">earth</a>, and 2 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law runes</a>",
+            "<a href=\"https://runescape.wiki/w/RuneScape_Germany\" target=\"_blank\" rel=\"noopener\">German</a>: 1 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air</a>, <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood</a>, <a href=\"https://runescape.wiki/w/Nature_rune\" target=\"_blank\" rel=\"noopener\">nature</a>, and 2 <a href=\"https://runescape.wiki/w/Earth_rune\" target=\"_blank\" rel=\"noopener\">earth runes</a>",
+            "<a href=\"https://runescape.wiki/w/RuneScape_France\" target=\"_blank\" rel=\"noopener\">French</a>: 1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law</a>, <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air</a>, <a href=\"https://runescape.wiki/w/Death_rune\" target=\"_blank\" rel=\"noopener\">death</a>, <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">mind</a>, and <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood rune</a>",
+            "<a href=\"https://runescape.wiki/w/RuneScape_Brazil\" target=\"_blank\" rel=\"noopener\">Portuguese</a>: 1 <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire</a>, <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water</a>, <a href=\"https://runescape.wiki/w/Earth_rune\" target=\"_blank\" rel=\"noopener\">earth</a>, <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air</a>, and <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:jn1l5w",
+          "html": "43 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> (highly recommended for <a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a>)",
+          "text": "43 Prayer (highly recommended for Protect from Melee)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1s31kf0",
+          "html": "50 <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> (if wielding <a href=\"https://runescape.wiki/w/Holy_water\" target=\"_blank\" rel=\"noopener\">holy water</a> against <a href=\"https://runescape.wiki/w/Nezikchened\" target=\"_blank\" rel=\"noopener\">Nezikchened</a>)",
+          "text": "50 Ranged (if wielding holy water against Nezikchened)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1sf60dm",
+          "html": "100 <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a>",
+          "text": "100 combat level",
+          "alternatives": []
+        },
+        {
+          "id": "rec:13v0u5d",
+          "html": "5 <a href=\"https://runescape.wiki/w/Bittercap_mushroom\" target=\"_blank\" rel=\"noopener\">bittercap mushrooms</a> to activate <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>C</b><b>J</b><b>S</b> in the Kharazi Jungle",
+          "text": "5 bittercap mushrooms to activate fairy ring CJS in the Kharazi Jungle",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Portable_fairy_ring\" target=\"_blank\" rel=\"noopener\">Portable fairy ring</a> for quick access to the jungle if you repair the fairy ring"
+          ]
+        },
+        {
+          "id": "rec:owuucv",
+          "html": "<a href=\"https://runescape.wiki/w/Weapons\" target=\"_blank\" rel=\"noopener\">Weapon</a>, <a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">armour</a>, <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> and several <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potions</a>",
+          "text": "Weapon, armour, food and several prayer potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:zrvy6y",
+          "html": "1-10 empty <a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">vials</a> to be <a href=\"https://runescape.wiki/w/Enchanted_vial\" target=\"_blank\" rel=\"noopener\">enchanted</a> during the quest.",
+          "text": "1-10 empty vials to be enchanted during the quest.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1og9sul",
+          "html": "<a href=\"https://runescape.wiki/w/Silverlight\" target=\"_blank\" rel=\"noopener\">Silverlight</a> or <a href=\"https://runescape.wiki/w/Darklight\" target=\"_blank\" rel=\"noopener\">Darklight</a> to weaken the demon",
+          "text": "Silverlight or Darklight to weaken the demon",
+          "alternatives": []
+        },
+        {
+          "id": "rec:f071c3",
+          "html": "A <a href=\"https://runescape.wiki/w/Beasts_of_Burden\" target=\"_blank\" rel=\"noopener\">Beast of Burden</a> to carry more items and save trips",
+          "text": "A Beast of Burden to carry more items and save trips",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1ecfygj",
+          "html": "<i>Talk</i> to a <a href=\"https://runescape.wiki/w/Legends%27_guard\" target=\"_blank\" rel=\"noopener\">Legends&#39; guard</a> at the <a href=\"https://runescape.wiki/w/Legends%27_Guild\" target=\"_blank\" rel=\"noopener\">Legends&#39; Guild</a> north-east of <a href=\"https://runescape.wiki/w/East_Ardougne\" target=\"_blank\" rel=\"noopener\">East Ardougne</a> (fairy ring <b>B</b><b>L</b><b>R</b>).",
+          "text": "Talk to a Legends' guard at the Legends' Guild north-east of East Ardougne (fairy ring BLR).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can I speak to someone in charge?"
+                },
+                {
+                  "key": "1",
+                  "text": "Can I go on the quest?"
+                },
+                {
+                  "key": "2",
+                  "text": "Yes, I'd like to talk to Grand Vizier Erkle."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1shscv4",
+          "html": "<i>Talk</i> to <a href=\"https://runescape.wiki/w/Radimus_Erkle\" target=\"_blank\" rel=\"noopener\">Radimus Erkle</a>.",
+          "text": "Talk to Radimus Erkle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes actually, what's involved?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1q2y8kp",
+          "html": "If required, take 3 <a href=\"https://runescape.wiki/w/Papyrus\" target=\"_blank\" rel=\"noopener\">papyrus</a> from Radimus&#39; table. Alternatively, <a href=\"https://runescape.wiki/w/Obli%27s_General_Store\" target=\"_blank\" rel=\"noopener\">Obli&#39;s General Store</a> in the <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a> sells 10 papyrus as well.",
+          "text": "If required, take 3 papyrus from Radimus' table. Alternatively, Obli's General Store in the Shilo Village sells 10 papyrus as well.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "kharazi-jungle",
+      "title": "Kharazi Jungle",
+      "anchor": "Kharazi_Jungle",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "kharazi-jungle:bring:16ny1ij",
+              "html": "<a href=\"https://runescape.wiki/w/Radimus_notes\" target=\"_blank\" rel=\"noopener\">Radimus notes</a>",
+              "text": "Radimus notes"
+            },
+            {
+              "id": "kharazi-jungle:bring:s8dgig",
+              "html": "3 <a href=\"https://runescape.wiki/w/Papyrus\" target=\"_blank\" rel=\"noopener\">papyrus</a>",
+              "text": "3 papyrus"
+            },
+            {
+              "id": "kharazi-jungle:bring:109pfu7",
+              "html": "1 <a href=\"https://runescape.wiki/w/Charcoal\" target=\"_blank\" rel=\"noopener\">charcoal</a>",
+              "text": "1 charcoal"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "kharazi-jungle:bring:c5pz19",
+              "html": "5 <a href=\"https://runescape.wiki/w/Bittercap_mushroom\" target=\"_blank\" rel=\"noopener\">bittercap mushrooms</a>",
+              "text": "5 bittercap mushrooms"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:16i9atq",
+          "html": "<i>Chop-down</i> the <a href=\"https://runescape.wiki/w/Jungle_Tree\" target=\"_blank\" rel=\"noopener\">Jungle Trees</a>/<a href=\"https://runescape.wiki/w/Jungle_Bush\" target=\"_blank\" rel=\"noopener\">Bushes</a> south of <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a> (fairy ring <b>C</b><b>K</b><b>R</b>) to access the Kharazi Jungle.",
+          "text": "Chop-down the Jungle Trees/Bushes south of Shilo Village (fairy ring CKR) to access the Kharazi Jungle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:5b9wa8",
+          "html": "Walk to the western edge of the jungle.",
+          "text": "Walk to the western edge of the jungle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:1a402j5",
+          "html": "Use the <i>Complete</i> option on the <a href=\"https://runescape.wiki/w/Radimus_notes_(partially_complete)\" target=\"_blank\" rel=\"noopener\">Radimus notes</a> in your backpack.",
+          "text": "Use the Complete option on the Radimus notes in your backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:m9rvpc",
+          "html": "Repeat in the centre of the jungle.",
+          "text": "Repeat in the centre of the jungle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "kharazi-jungle:m9rvpc:172lrdb",
+              "html": "If you have completed <a href=\"https://runescape.wiki/w/A_Fairy_Tale_II_-_Cure_a_Queen\" target=\"_blank\" rel=\"noopener\">A Fairy Tale II - Cure a Queen</a>, repair fairy ring <b>C</b><b>J</b><b>S</b> with five <a href=\"https://runescape.wiki/w/Bittercap_mushroom\" target=\"_blank\" rel=\"noopener\">bittercap mushrooms</a> to make returning to the jungle easier.",
+              "text": "If you have completed A Fairy Tale II - Cure a Queen, repair fairy ring CJS with five bittercap mushrooms to make returning to the jungle easier.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:143czno",
+          "html": "Repeat again on the eastern edge of the jungle.",
+          "text": "Repeat again on the eastern edge of the jungle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:4jvmr7",
+          "html": "Return north of the Jungle Trees using fairy ring <b>C</b><b>K</b><b>R</b>, or by chopping them down again.",
+          "text": "Return north of the Jungle Trees using fairy ring CKR, or by chopping them down again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kharazi-jungle:1qqpfky",
+          "html": "<i>Use</i> the notes on a <a href=\"https://runescape.wiki/w/Jungle_forester\" target=\"_blank\" rel=\"noopener\">jungle forester</a>, south of Shilo Village.",
+          "text": "Use the notes on a jungle forester, south of Shilo Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, go ahead make a copy!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "viyeldi-caves",
+      "title": "Viyeldi caves",
+      "anchor": "Viyeldi_caves",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "viyeldi-caves:bring:16ny1ij",
+              "html": "<a href=\"https://runescape.wiki/w/Radimus_notes_(complete)\" target=\"_blank\" rel=\"noopener\">Radimus notes</a>",
+              "text": "Radimus notes"
+            },
+            {
+              "id": "viyeldi-caves:bring:1pwge23",
+              "html": "<a href=\"https://runescape.wiki/w/Bull_roarer\" target=\"_blank\" rel=\"noopener\">Bull roarer</a>",
+              "text": "Bull roarer"
+            },
+            {
+              "id": "viyeldi-caves:bring:jdpfr4",
+              "html": "<a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">Lockpicks</a>",
+              "text": "Lockpicks"
+            },
+            {
+              "id": "viyeldi-caves:bring:65hsxj",
+              "html": "The runes for your version of <i>RuneScape</i> (see the item requirements table above)",
+              "text": "The runes for your version of RuneScape (see the item requirements table above)"
+            },
+            {
+              "id": "viyeldi-caves:bring:mm5tnr",
+              "html": "<a href=\"https://runescape.wiki/w/Opal\" target=\"_blank\" rel=\"noopener\">Opal</a>",
+              "text": "Opal"
+            },
+            {
+              "id": "viyeldi-caves:bring:11hsyvj",
+              "html": "<a href=\"https://runescape.wiki/w/Jade\" target=\"_blank\" rel=\"noopener\">Jade</a>",
+              "text": "Jade"
+            },
+            {
+              "id": "viyeldi-caves:bring:lu5maw",
+              "html": "<a href=\"https://runescape.wiki/w/Red_topaz\" target=\"_blank\" rel=\"noopener\">Red topaz</a>",
+              "text": "Red topaz"
+            },
+            {
+              "id": "viyeldi-caves:bring:802ta3",
+              "html": "<a href=\"https://runescape.wiki/w/Sapphire\" target=\"_blank\" rel=\"noopener\">Sapphire</a>",
+              "text": "Sapphire"
+            },
+            {
+              "id": "viyeldi-caves:bring:1r2jvfj",
+              "html": "<a href=\"https://runescape.wiki/w/Emerald\" target=\"_blank\" rel=\"noopener\">Emerald</a>",
+              "text": "Emerald"
+            },
+            {
+              "id": "viyeldi-caves:bring:17cue0d",
+              "html": "<a href=\"https://runescape.wiki/w/Ruby\" target=\"_blank\" rel=\"noopener\">Ruby</a>",
+              "text": "Ruby"
+            },
+            {
+              "id": "viyeldi-caves:bring:1pyyslj",
+              "html": "<a href=\"https://runescape.wiki/w/Diamond\" target=\"_blank\" rel=\"noopener\">Diamond</a>",
+              "text": "Diamond"
+            },
+            {
+              "id": "viyeldi-caves:bring:1eu1kl0",
+              "html": "At least 4 backpack spaces",
+              "text": "At least 4 backpack spaces"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "viyeldi-caves:bring:1rp9dr4",
+              "html": "Combat equipment to kill a lvl 77 <a href=\"https://runescape.wiki/w/Death_wing\" target=\"_blank\" rel=\"noopener\">Death wing</a>",
+              "text": "Combat equipment to kill a lvl 77 Death wing"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Viyeldi_caves_map.png/300px-Viyeldi_caves_map.png?74be1",
+          "width": 300,
+          "height": 444,
+          "alt": "",
+          "caption": "A map of the Viyeldi caves",
+          "href": "https://runescape.wiki/w/File:Viyeldi_caves_map.png"
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:iw69ef",
+          "html": "Return to Kharazi Jungle (fairy ring <b>C</b><b>J</b><b>S</b>).",
+          "text": "Return to Kharazi Jungle (fairy ring CJS).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:ttqvc4",
+          "html": "<i>Swing</i> the bull roarer to summon <a href=\"https://runescape.wiki/w/Gujuo\" target=\"_blank\" rel=\"noopener\">Gujuo</a>, this may take several attempts.",
+          "text": "Swing the bull roarer to summon Gujuo, this may take several attempts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:197jz7k",
+          "html": "<i>Talk</i> to him.",
+          "text": "Talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I was hoping to attract the attention of a native."
+                },
+                {
+                  "key": "1",
+                  "text": "I want to develop friendly relationships with your people."
+                },
+                {
+                  "key": "1",
+                  "text": "Can you get your people together?"
+                },
+                {
+                  "key": "1",
+                  "text": "What can we do instead then?"
+                },
+                {
+                  "key": "1",
+                  "text": "How do we make the totem pole?"
+                },
+                {
+                  "key": "1",
+                  "text": "I will release Ungadulu..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:doqlxr",
+          "html": "<i>Search</i> the mossy rocks in the north-west of the jungle to enter the <a href=\"https://runescape.wiki/w/Viyeldi_caves\" target=\"_blank\" rel=\"noopener\">Viyeldi caves</a>, this may take several attempts.",
+          "text": "Search the mossy rocks in the north-west of the jungle to enter the Viyeldi caves, this may take several attempts.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll crawl through, I'm very athletic."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:wu5md",
+          "html": "<i>Investigate</i> the firewall.",
+          "text": "Investigate the firewall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How can I extinguish the flames?"
+                },
+                {
+                  "key": "1",
+                  "text": "Where do I get pure water from?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:8v6t67",
+          "html": "<i>Exit</i> the cave via the Cave Exit.",
+          "text": "Exit the cave via the Cave Exit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:1b80cle",
+          "html": "<i>Swing</i> the Bull roarer to summon Gujuo.",
+          "text": "Swing the Bull roarer to summon Gujuo.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:dmwcia",
+          "html": "<i>Talk</i> to him to get the <a href=\"https://runescape.wiki/w/Sketch\" target=\"_blank\" rel=\"noopener\">sketch</a>.",
+          "text": "Talk to him to get the sketch.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3/4",
+                  "text": "I need some pure water to douse some magic flames."
+                },
+                {
+                  "key": "5",
+                  "text": "Where is the pool of sacred water?"
+                },
+                {
+                  "key": "5",
+                  "text": "What kind of vessel?"
+                },
+                {
+                  "key": "2",
+                  "text": "Ok thanks for your help."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:13a1fw1",
+          "html": "Re-enter the cave.",
+          "text": "Re-enter the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:4h1ej7",
+          "html": "<i>Search</i> the eastern bookcase.",
+          "text": "Search the eastern bookcase.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes please!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:1oludqp",
+          "html": "<i>Search</i> the <a href=\"https://runescape.wiki/w/Ancient_Gate\" target=\"_blank\" rel=\"noopener\">Ancient Gate</a>.",
+          "text": "Search the Ancient Gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:15aw8ya",
+          "html": "<i>Smash-to-bits</i> the three <a href=\"https://runescape.wiki/w/Boulder_(Viyeldi_caves)\" target=\"_blank\" rel=\"noopener\">boulders</a>. You do not need to keep the <a href=\"https://runescape.wiki/w/Rock_(ore)\" target=\"_blank\" rel=\"noopener\">rocks</a> that these gives you.",
+          "text": "Smash-to-bits the three boulders. You do not need to keep the rocks that these gives you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:cja7xt",
+          "html": "<i>Open</i> the Ancient Gate.",
+          "text": "Open the Ancient Gate.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm very strong, I'll force them open."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:1j07kzl",
+          "html": "Move past the <a href=\"https://runescape.wiki/w/Death_wing\" target=\"_blank\" rel=\"noopener\">death wings</a>.",
+          "text": "Move past the death wings.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "viyeldi-caves:1j07kzl:1mdnyw2",
+              "html": "If you want to complete one of the <a href=\"https://runescape.wiki/w/Hard_Karamja_achievements\" target=\"_blank\" rel=\"noopener\">hard Karamja achievements</a>, you can kill a <a href=\"https://runescape.wiki/w/Death_wing\" target=\"_blank\" rel=\"noopener\">death wing</a> here.",
+              "text": "If you want to complete one of the hard Karamja achievements, you can kill a death wing here.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:1jz0y0p",
+          "html": "Choose the <i>Jump-over</i> option on the <a href=\"https://runescape.wiki/w/Jagged_wall\" target=\"_blank\" rel=\"noopener\">jagged wall</a>.",
+          "text": "Choose the Jump-over option on the jagged wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:1j2toko",
+          "html": "<i>Search</i> the <a href=\"https://runescape.wiki/w/Marked_wall\" target=\"_blank\" rel=\"noopener\">marked wall</a>.",
+          "text": "Search the marked wall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll read it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:vd2p1r",
+          "html": "<i>Use</i> your runes on it in order according to your version:",
+          "text": "Use your runes on it in order according to your version:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "viyeldi-caves:vd2p1r:14siz04",
+              "html": "English: Soul, Mind, Earth, Law, Law.",
+              "text": "English: Soul, Mind, Earth, Law, Law.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes, I'll go through!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "viyeldi-caves:vd2p1r:1ezxo1c",
+              "html": "German: Air, Earth, Blood, Earth, Nature.",
+              "text": "German: Air, Earth, Blood, Earth, Nature.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "viyeldi-caves:vd2p1r:1o9pykh",
+              "html": "French: Law, Air, Death, Mind, Blood.",
+              "text": "French: Law, Air, Death, Mind, Blood.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "viyeldi-caves:vd2p1r:18eadmj",
+              "html": "Portuguese: Fire, Water, Earth, Air, Law.",
+              "text": "Portuguese: Fire, Water, Earth, Air, Law.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:ut76jj",
+          "html": "If the chat option is not already offered, <i>search</i> the marked wall.",
+          "text": "If the chat option is not already offered, search the marked wall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll go through!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:r0ktz7",
+          "html": "<i>Use</i> (right click so you don&#39;t craft them) the cut gems on the <a href=\"https://runescape.wiki/w/Carved_rock\" target=\"_blank\" rel=\"noopener\">carved rocks</a>. Use the map to see which gem goes where.",
+          "text": "Use (right click so you don't craft them) the cut gems on the carved rocks. Use the map to see which gem goes where.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "viyeldi-caves:hwaxmd",
+          "html": "<i>Take</i> the <a href=\"https://runescape.wiki/w/Binding_book\" target=\"_blank\" rel=\"noopener\">Binding book</a>.",
+          "text": "Take the Binding book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sacred-pool",
+      "title": "Sacred pool",
+      "anchor": "Sacred_pool",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "sacred-pool:bring:16ny1ij",
+              "html": "<a href=\"https://runescape.wiki/w/Radimus_notes\" target=\"_blank\" rel=\"noopener\">Radimus notes</a>",
+              "text": "Radimus notes"
+            },
+            {
+              "id": "sacred-pool:bring:ig1pga",
+              "html": "Empty <a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">vial</a>",
+              "text": "Empty vial"
+            },
+            {
+              "id": "sacred-pool:bring:ycqeo3",
+              "html": "At least 2 <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bars</a>",
+              "text": "At least 2 gold bars"
+            },
+            {
+              "id": "sacred-pool:bring:1ivbdl8",
+              "html": "At least 100 prayer points",
+              "text": "At least 100 prayer points"
+            },
+            {
+              "id": "sacred-pool:bring:hszjmz",
+              "html": "<a href=\"https://runescape.wiki/w/Binding_book\" target=\"_blank\" rel=\"noopener\">Binding book</a>",
+              "text": "Binding book"
+            },
+            {
+              "id": "sacred-pool:bring:zvnhd5",
+              "html": "<a href=\"https://runescape.wiki/w/Sketch\" target=\"_blank\" rel=\"noopener\">Sketch</a>",
+              "text": "Sketch"
+            },
+            {
+              "id": "sacred-pool:bring:1pwge23",
+              "html": "<a href=\"https://runescape.wiki/w/Bull_roarer\" target=\"_blank\" rel=\"noopener\">Bull roarer</a>",
+              "text": "Bull roarer"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "sacred-pool:bring:1jd68zy",
+              "html": "Combat equipment (including Silverlight to weaken the demon)",
+              "text": "Combat equipment (including Silverlight to weaken the demon)"
+            }
+          ]
+        },
+        {
+          "type": "map",
+          "caption": "Location of the pure water pool",
+          "lat": 2916,
+          "lon": 2838,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2833,
+                      2911
+                    ],
+                    [
+                      2833,
+                      2921
+                    ],
+                    [
+                      2843,
+                      2921
+                    ],
+                    [
+                      2843,
+                      2911
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Legends'_Quest/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:15glzyt",
+          "html": "Make sure you received a <a href=\"https://runescape.wiki/w/Sketch\" target=\"_blank\" rel=\"noopener\">sketch</a> from Gujuo, and use 2 gold bars on any anvil for a <a href=\"https://runescape.wiki/w/Gold_bowl\" target=\"_blank\" rel=\"noopener\">gold bowl</a>. This may fail.",
+          "text": "Make sure you received a sketch from Gujuo, and use 2 gold bars on any anvil for a gold bowl. This may fail.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:15gkiwr",
+          "html": "Return to Kharazi Jungle (fairy ring <b>C</b><b>J</b><b>S</b>) and swing the bull roarer.",
+          "text": "Return to Kharazi Jungle (fairy ring CJS) and swing the bull roarer.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:2i7n94",
+          "html": "Talk to Gujuo.",
+          "text": "Talk to Gujuo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'd like you to bless my gold bowl."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:byz65v",
+          "html": "Travel to the <a href=\"https://runescape.wiki/w/Water_Pool_(Kharazi_Jungle)\" target=\"_blank\" rel=\"noopener\">Water Pool</a> (look for the tree icon on minimap).",
+          "text": "Travel to the Water Pool (look for the tree icon on minimap).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:ue3fu8",
+          "html": "&quot;Cut-Reed&quot; the Tall Reeds next to it.",
+          "text": "\"Cut-Reed\" the Tall Reeds next to it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:4wlhj9",
+          "html": "<i>Use</i> the acquired <a href=\"https://runescape.wiki/w/Hollow_reed\" target=\"_blank\" rel=\"noopener\">hollow reed</a> on the Water Pool.",
+          "text": "Use the acquired hollow reed on the Water Pool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:98ty29",
+          "html": "If you need <a href=\"https://runescape.wiki/w/Holy_water\" target=\"_blank\" rel=\"noopener\">holy water</a> for the fight against the demon: Choose the <i>Enchant-Vials</i> option on the <a href=\"https://runescape.wiki/w/Binding_book\" target=\"_blank\" rel=\"noopener\">binding book</a> and create an <a href=\"https://runescape.wiki/w/Enchanted_vial\" target=\"_blank\" rel=\"noopener\">enchanted vial</a>.",
+          "text": "If you need holy water for the fight against the demon: Choose the Enchant-Vials option on the binding book and create an enchanted vial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:12vkfbi",
+          "html": "If you need <a href=\"https://runescape.wiki/w/Holy_water\" target=\"_blank\" rel=\"noopener\">holy water</a> for the fight against the demon: <i>Use</i> the hollow reed on the Water Pool again to fill the vial.",
+          "text": "If you need holy water for the fight against the demon: Use the hollow reed on the Water Pool again to fill the vial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:2au4wu",
+          "html": "Optional: Take a <a href=\"https://runescape.wiki/w/Vanilla_pod\" target=\"_blank\" rel=\"noopener\">vanilla pod</a> from one of the five <a href=\"https://runescape.wiki/w/Vanilla_plant\" target=\"_blank\" rel=\"noopener\">Vanilla plants</a> to the southwest if you intend to do <a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Sir_Amik_Varze\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Sir Amik Varze</a>",
+          "text": "Optional: Take a vanilla pod from one of the five Vanilla plants to the southwest if you intend to do Recipe for Disaster: Freeing Sir Amik Varze",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:wjvemz",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Viyeldi_caves\" target=\"_blank\" rel=\"noopener\">Viyeldi caves</a>.",
+          "text": "Return to the Viyeldi caves.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:9xy7js",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Golden_bowl\" target=\"_blank\" rel=\"noopener\">golden bowl</a> on the fire wall.",
+          "text": "Use the golden bowl on the fire wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:td52e7",
+          "html": "<i>Use</i> the binding book on Ungadulu.",
+          "text": "Use the binding book on Ungadulu.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:1u31jan",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Nezikchened\" target=\"_blank\" rel=\"noopener\">Nezikchened</a>. He will blast the player sometimes exceeding 2500 typeless damage when he dies.",
+          "text": "Kill Nezikchened. He will blast the player sometimes exceeding 2500 typeless damage when he dies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:77ztao",
+          "html": "<i>Talk-to</i> Ungadulu.",
+          "text": "Talk-to Ungadulu.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to collect some Yommi tree seeds for Gujuo."
+                },
+                {
+                  "key": "1",
+                  "text": "How do I grow the Yommi tree?"
+                },
+                {
+                  "key": "1",
+                  "text": "What will you do now?"
+                },
+                {
+                  "key": "3",
+                  "text": "Okay, thanks..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:qt39af",
+          "html": "<i>Touch</i> the Fire Wall.",
+          "text": "Touch the Fire Wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:1ys85u7",
+          "html": "<i>Exit</i> the cave.",
+          "text": "Exit the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:1yuyumu",
+          "html": "<i>Use</i> the Golden bowl on the seeds.",
+          "text": "Use the Golden bowl on the seeds.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:u134ba",
+          "html": "<i>Use</i> the seeds on a patch of fertile soil. There is some just a few tiles north-west of the pool, indicated by a brown patch without grass. You will fail to plant the seeds; this is intended.",
+          "text": "Use the seeds on a patch of fertile soil. There is some just a few tiles north-west of the pool, indicated by a brown patch without grass. You will fail to plant the seeds; this is intended.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:1kjs5nd",
+          "html": "Return to the pool and <i>Use</i> the <a href=\"https://runescape.wiki/w/Hollow_reed\" target=\"_blank\" rel=\"noopener\">Hollow reed</a> on it. The water will be dried up.",
+          "text": "Return to the pool and Use the Hollow reed on it. The water will be dried up.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sacred-pool:1rndl3g",
+          "html": "<i>Swing</i> the Bull roarer and <i>Talk</i> to Gujuo.",
+          "text": "Swing the Bull roarer and Talk to Gujuo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The water pool has dried up and I need more water."
+                },
+                {
+                  "key": "2",
+                  "text": "Where is the source of the spring of pure water?"
+                },
+                {
+                  "key": "2",
+                  "text": "If I went, could you help me?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok thanks for your help."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "restoring-the-pool",
+      "title": "Restoring the pool",
+      "anchor": "Restoring_the_pool",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "restoring-the-pool:bring:16ny1ij",
+              "html": "<a href=\"https://runescape.wiki/w/Radimus_notes\" target=\"_blank\" rel=\"noopener\">Radimus notes</a>",
+              "text": "Radimus notes"
+            },
+            {
+              "id": "restoring-the-pool:bring:as18ub",
+              "html": "<a href=\"https://runescape.wiki/w/Clean_ardrigal\" target=\"_blank\" rel=\"noopener\">Clean ardrigal</a> and <a href=\"https://runescape.wiki/w/Clean_snake_weed\" target=\"_blank\" rel=\"noopener\">clean snake weed</a> (or two free inventory slots to obtain during quest)",
+              "text": "Clean ardrigal and clean snake weed (or two free inventory slots to obtain during quest)"
+            },
+            {
+              "id": "restoring-the-pool:bring:x47xd5",
+              "html": "<a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">Vial of water</a>",
+              "text": "Vial of water"
+            },
+            {
+              "id": "restoring-the-pool:bring:1ydndcd",
+              "html": "Runes and <a href=\"https://runescape.wiki/w/Unpowered_orb\" target=\"_blank\" rel=\"noopener\">unpowered orb</a> for any <a href=\"https://runescape.wiki/w/Charge_Orb\" target=\"_blank\" rel=\"noopener\">Charge Orb</a> spell",
+              "text": "Runes and unpowered orb for any Charge Orb spell"
+            },
+            {
+              "id": "restoring-the-pool:bring:1m2u8om",
+              "html": "An <a href=\"https://runescape.wiki/w/Unpowered_orb\" target=\"_blank\" rel=\"noopener\">unpowered orb</a>",
+              "text": "An unpowered orb"
+            },
+            {
+              "id": "restoring-the-pool:bring:su9dw7",
+              "html": "<a href=\"https://runescape.wiki/w/Blessed_gold_bowl\" target=\"_blank\" rel=\"noopener\">Blessed gold bowl</a>",
+              "text": "Blessed gold bowl"
+            },
+            {
+              "id": "restoring-the-pool:bring:scad1i",
+              "html": "Hollow reed",
+              "text": "Hollow reed"
+            },
+            {
+              "id": "restoring-the-pool:bring:13tno88",
+              "html": "<a href=\"https://runescape.wiki/w/Yommi_tree_seeds\" target=\"_blank\" rel=\"noopener\">Yommi tree seeds</a>",
+              "text": "Yommi tree seeds"
+            },
+            {
+              "id": "restoring-the-pool:bring:gffixq",
+              "html": "A <a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">lockpick</a>",
+              "text": "A lockpick"
+            },
+            {
+              "id": "restoring-the-pool:bring:jxsoe8",
+              "html": "A <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a>",
+              "text": "A rope"
+            },
+            {
+              "id": "restoring-the-pool:bring:px3pb6",
+              "html": "A non-augmented <a href=\"https://runescape.wiki/w/Rune_hatchet\" target=\"_blank\" rel=\"noopener\">rune hatchet</a> (alternatively, <a href=\"https://runescape.wiki/w/Dragon_hatchet\" target=\"_blank\" rel=\"noopener\">dragon hatchet</a> or better) in the backpack (not tool belt).",
+              "text": "A non-augmented rune hatchet (alternatively, dragon hatchet or better) in the backpack (not tool belt)."
+            }
+          ],
+          "recommended": [
+            {
+              "id": "restoring-the-pool:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            },
+            {
+              "id": "restoring-the-pool:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "restoring-the-pool:bring:g69zjl",
+              "html": "Spare items for Charge Orb (if you die you have to cast again to open door)",
+              "text": "Spare items for Charge Orb (if you die you have to cast again to open door)"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Picking the herbs"
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:e6kg24",
+          "html": "Switch to the <a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">standard spellbook</a> if you are not already on it.",
+          "text": "Switch to the standard spellbook if you are not already on it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:772qjd",
+          "html": "Collect the herbs using the maps below.",
+          "text": "Collect the herbs using the maps below.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:772qjd:1j76k1p",
+              "html": "<i>Search</i> <a href=\"https://runescape.wiki/w/Palm_tree_(Jungle_Potion)\" target=\"_blank\" rel=\"noopener\">palm trees</a> for <a href=\"https://runescape.wiki/w/Grimy_ardrigal\" target=\"_blank\" rel=\"noopener\">grimy ardrigal</a>.",
+              "text": "Search palm trees for grimy ardrigal.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:772qjd:152zbf",
+              "html": "<i>Search</i> <a href=\"https://runescape.wiki/w/Marshy_jungle_vine\" target=\"_blank\" rel=\"noopener\">marshy jungle vines</a> for <a href=\"https://runescape.wiki/w/Grimy_snake_weed\" target=\"_blank\" rel=\"noopener\">grimy snake weed</a>.",
+              "text": "Search marshy jungle vines for grimy snake weed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:75c091",
+          "html": "<i>Clean</i> the herbs.",
+          "text": "Clean the herbs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:d1897h",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Clean_ardrigal\" target=\"_blank\" rel=\"noopener\">clean ardrigal</a> and <a href=\"https://runescape.wiki/w/Clean_snake_weed\" target=\"_blank\" rel=\"noopener\">clean snake weed</a> on a vial of water for a <a href=\"https://runescape.wiki/w/Bravery_potion\" target=\"_blank\" rel=\"noopener\">bravery potion</a>.",
+          "text": "Use the clean ardrigal and clean snake weed on a vial of water for a bravery potion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Location of ardrigal"
+        },
+        {
+          "type": "text",
+          "html": "Location of snake weed"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Preparation in the caves"
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:wjvemz",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Viyeldi_caves\" target=\"_blank\" rel=\"noopener\">Viyeldi caves</a>.",
+          "text": "Return to the Viyeldi caves.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1ignt9h",
+          "html": "Traverse the dungeon as before to where you found the Binding book:",
+          "text": "Traverse the dungeon as before to where you found the Binding book:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:19d4wmr",
+              "html": "<i>Search</i> the eastern Bookcase.",
+              "text": "Search the eastern Bookcase.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:1oludqp",
+              "html": "<i>Search</i> the Ancient Gate.",
+              "text": "Search the Ancient Gate.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:vei875",
+              "html": "<i>Smash-to-bits</i> the three Boulders.",
+              "text": "Smash-to-bits the three Boulders.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:cja7xt",
+              "html": "<i>Open</i> the Ancient Gate.",
+              "text": "Open the Ancient Gate.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes, I'm very strong, I'll force them open."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:ofvtr5",
+              "html": "Move past the <a href=\"https://runescape.wiki/w/Death_wing\" target=\"_blank\" rel=\"noopener\">Death wings</a>.",
+              "text": "Move past the Death wings.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:1xog0nw",
+              "html": "<i>Jump-over</i> option on Jagged wall.",
+              "text": "Jump-over option on Jagged wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ignt9h:1vfxmw3",
+              "html": "<i>Use</i> the Marked wall.",
+              "text": "Use the Marked wall.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:8hsckq",
+          "html": "<i>Cast</i> a <a href=\"https://runescape.wiki/w/Charge_Orb\" target=\"_blank\" rel=\"noopener\">Charge Orb</a> spell on the north Ancient Gate.",
+          "text": "Cast a Charge Orb spell on the north Ancient Gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1ari0fq",
+          "html": "<i>Use</i> the Rope on the Winch.",
+          "text": "Use the Rope on the Winch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1ari0fq:jwe9pi",
+              "html": "If you forgot your rope, you can smash the barrels in the room for one.",
+              "text": "If you forgot your rope, you can smash the barrels in the room for one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:14bel2u",
+          "html": "<i>Drink</i> the bravery potion.",
+          "text": "Drink the bravery potion.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll bravely drink the bravery potion."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1ll66ab",
+          "html": "<i>Search</i> and then <i>climb-down</i> the Winch.",
+          "text": "Search and then climb-down the Winch.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll shimmy down the rope into possible doom."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:kjkz1w",
+          "html": "<i>Climb-over</i> the rocky ledges and rocks to reach the bottom. You can potentially fall and take upward of 5000 typeless damage during this.",
+          "text": "Climb-over the rocky ledges and rocks to reach the bottom. You can potentially fall and take upward of 5000 typeless damage during this.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I can think of nothing more exciting!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I can think of nothing more exciting!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I can think of nothing more exciting!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I want to climb over the rocks."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I want to climb over the rocks."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I want to climb over the rocks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1feozfs",
+          "html": "Kill the 3 different skeletons until you get 3 crystal pieces (<a href=\"https://runescape.wiki/w/Hunk_of_crystal\" target=\"_blank\" rel=\"noopener\">Hunk</a>, <a href=\"https://runescape.wiki/w/Chunk_of_crystal\" target=\"_blank\" rel=\"noopener\">Chunk</a>, and <a href=\"https://runescape.wiki/w/Lump_of_crystal\" target=\"_blank\" rel=\"noopener\">Lump</a>):",
+          "text": "Kill the 3 different skeletons until you get 3 crystal pieces (Hunk, Chunk, and Lump):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1feozfs:11qi3g8",
+              "html": "<a href=\"https://runescape.wiki/w/San_Tojalon\" target=\"_blank\" rel=\"noopener\">San Tojalon</a>",
+              "text": "San Tojalon",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1feozfs:1yvbn78",
+              "html": "<a href=\"https://runescape.wiki/w/Irvig_Senay\" target=\"_blank\" rel=\"noopener\">Irvig Senay</a>",
+              "text": "Irvig Senay",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1feozfs:1a2jg9a",
+              "html": "<a href=\"https://runescape.wiki/w/Ranalph_Devere\" target=\"_blank\" rel=\"noopener\">Ranalph Devere</a>",
+              "text": "Ranalph Devere",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1errbx0",
+          "html": "<i>Use</i> each crystal on the north-east furnace.",
+          "text": "Use each crystal on the north-east furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:14l1v8f",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Heart_crystal\" target=\"_blank\" rel=\"noopener\">heart crystal</a> on the searchable <a href=\"https://runescape.wiki/w/Mossy_rock_(Viyeldi_caves)\" target=\"_blank\" rel=\"noopener\">mossy rock</a> in the middle of the room.",
+          "text": "Use the heart crystal on the searchable mossy rock in the middle of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:djaoch",
+          "html": "Run south and <i>use</i> the <a href=\"https://runescape.wiki/w/Heart_crystal_(activated)\" target=\"_blank\" rel=\"noopener\">heart crystal</a> on the recess next to the shimmering field.",
+          "text": "Run south and use the heart crystal on the recess next to the shimmering field.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:lkfntm",
+          "html": "<i>Walk-through</i> the shimmering field.",
+          "text": "Walk-through the shimmering field.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1krdtd",
+          "html": "West past the <a href=\"https://runescape.wiki/w/Lesser_demon\" target=\"_blank\" rel=\"noopener\">lesser demons</a>, <i>push</i> any of the boulders.",
+          "text": "West past the lesser demons, push any of the boulders.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "What can I do about that?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll do what I must to get the water."
+                },
+                {
+                  "key": "1",
+                  "text": "Ok, I'll do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1a62vh6",
+          "html": "Return to the start of the cavern, back past the shimmering field and Rocks.",
+          "text": "Return to the start of the cavern, back past the shimmering field and Rocks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1lta0g4",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Dark_dagger\" target=\"_blank\" rel=\"noopener\">dark dagger</a>.",
+          "text": "Equip the dark dagger.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1y0v6qs",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Blue_hat\" target=\"_blank\" rel=\"noopener\">blue hat</a>.",
+          "text": "Take the blue hat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1oe2bvf",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Viyeldi\" target=\"_blank\" rel=\"noopener\">Viyeldi</a>.",
+          "text": "Kill Viyeldi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:1oe2bvf:mb2mrs",
+              "html": "You will need to <i>Attack</i> him during the dialogue as he will disappear after completing the dialogue.",
+              "text": "You will need to Attack him during the dialogue as he will disappear after completing the dialogue.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1p28n7n",
+          "html": "Re-equip your preferred weapon.",
+          "text": "Re-equip your preferred weapon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1cop5lw",
+          "html": "Return to the boulders and <i>push</i> one.",
+          "text": "Return to the boulders and push one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:kpy9y5",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Nezikchened\" target=\"_blank\" rel=\"noopener\">Nezikchened</a>.",
+          "text": "Kill Nezikchened.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:19ghsx3",
+          "html": "<i>Push</i> all three boulders. Be ready to use your golden bowl on one of the water sprouts appearing underneath one of the boulders as it dissappears after a short while.",
+          "text": "Push all three boulders. Be ready to use your golden bowl on one of the water sprouts appearing underneath one of the boulders as it dissappears after a short while.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "restoring-the-pool:19ghsx3:9h0w69",
+              "html": "All three must be pushed while standing on the east side of them.",
+              "text": "All three must be pushed while standing on the east side of them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:19ghsx3:1bap8jh",
+              "html": "If one does not move, <i>push</i> it from a different angle.",
+              "text": "If one does not move, push it from a different angle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "restoring-the-pool:19ghsx3:202ddz",
+              "html": "Quickly use the golden bowl on sacred water that appears under the boulder.",
+              "text": "Quickly use the golden bowl on sacred water that appears under the boulder.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Planting yommi"
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:iw69ef",
+          "html": "Return to Kharazi Jungle (fairy ring <b>C</b><b>J</b><b>S</b>).",
+          "text": "Return to Kharazi Jungle (fairy ring CJS).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:14k0iyv",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Hollow_reed\" target=\"_blank\" rel=\"noopener\">hollow reed</a> on the water pool.",
+          "text": "Use the hollow reed on the water pool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "The following steps must be done relatively quickly, as the sapling will die or totem will rot extremely quickly if left unattended."
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:z57oec",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Yommi_tree_seeds\" target=\"_blank\" rel=\"noopener\">yommi tree seeds</a> on the dark brown soil just north-west of the pool, it will appear as <a href=\"https://runescape.wiki/w/Fertile_Soil_(scenery)\" target=\"_blank\" rel=\"noopener\">Fertile Soil</a>.",
+          "text": "Use the yommi tree seeds on the dark brown soil just north-west of the pool, it will appear as Fertile Soil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1kzm08u",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Golden_bowl\" target=\"_blank\" rel=\"noopener\">golden bowl</a> on it once it stops growing.",
+          "text": "Use the golden bowl on it once it stops growing.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:tm55y5",
+          "html": "<i>Chop</i> the adult yommi tree.",
+          "text": "Chop the adult yommi tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:1wab1td",
+          "html": "<i>Trim</i> the felled yommi tree.",
+          "text": "Trim the felled yommi tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:y5d7zq",
+          "html": "<i>Carve</i> the trimmed yommi.",
+          "text": "Carve the trimmed yommi.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "restoring-the-pool:18puz3e",
+          "html": "<i>Lift</i> the totem pole.",
+          "text": "Lift the totem pole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-final-fight",
+      "title": "The final fight",
+      "anchor": "The_final_fight",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-final-fight:bring:8huauj",
+              "html": "<a href=\"https://runescape.wiki/w/Yommi_totem\" target=\"_blank\" rel=\"noopener\">Yommi totem</a>",
+              "text": "Yommi totem"
+            },
+            {
+              "id": "the-final-fight:bring:16ny1ij",
+              "html": "<a href=\"https://runescape.wiki/w/Radimus_notes\" target=\"_blank\" rel=\"noopener\">Radimus notes</a>",
+              "text": "Radimus notes"
+            },
+            {
+              "id": "the-final-fight:bring:1pwge23",
+              "html": "<a href=\"https://runescape.wiki/w/Bull_roarer\" target=\"_blank\" rel=\"noopener\">Bull roarer</a>",
+              "text": "Bull roarer"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "the-final-fight:bring:o3g95i",
+              "html": "Weapons",
+              "text": "Weapons"
+            },
+            {
+              "id": "the-final-fight:bring:1u1sbxl",
+              "html": "Armour",
+              "text": "Armour"
+            },
+            {
+              "id": "the-final-fight:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "<b>Note:</b> It is highly recommended to enable <a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a> <b>before</b> using the totem and <b>before</b> each phase change; <a href=\"https://runescape.wiki/w/Nezikchened\" target=\"_blank\" rel=\"noopener\">Nezikchened</a> will lock you in place unable to eat, drink potions, or teleport for several consecutive hits."
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:1lf7mpd",
+          "html": "<i>Use</i> your Yommi totem on the Totem Pole east of the pool.",
+          "text": "Use your Yommi totem on the Totem Pole east of the pool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:vqd8ba",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Nezikchened\" target=\"_blank\" rel=\"noopener\">Nezikchened</a> and the three skeletons.",
+          "text": "Defeat Nezikchened and the three skeletons.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-final-fight:vqd8ba:u3ry7v",
+              "html": "He will appear four times, with a skeleton spawning between each kill.",
+              "text": "He will appear four times, with a skeleton spawning between each kill.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:vf2pa",
+          "html": "<i>Use</i> the Yommi totem on the Totem Pole again.",
+          "text": "Use the Yommi totem on the Totem Pole again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:1pl7g3n",
+          "html": "<i>Talk</i> to Gujuo to receive the <a href=\"https://runescape.wiki/w/Gilded_totem\" target=\"_blank\" rel=\"noopener\">gilded totem</a>.",
+          "text": "Talk to Gujuo to receive the gilded totem.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:dlhdhf",
+          "html": "Return to the Legends&#39; Guild (fairy ring <b>B</b><b>L</b><b>R</b>).",
+          "text": "Return to the Legends' Guild (fairy ring BLR).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:8krf6d",
+          "html": "<i>Talk</i> to Radimus.",
+          "text": "Talk to Radimus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:10mi1p0",
+          "html": "<i>Talk</i> to him again inside the guild.",
+          "text": "Talk to him again inside the guild.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'll train now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-fight:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Legends%27_Quest_reward.png?fe026",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Legends%27_Quest_reward.png"
+    },
+    "items": [
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "4 quest points",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Legends%27_Guild\" target=\"_blank\" rel=\"noopener\">Legends&#39; Guild</a> (including a shop to buy the <a href=\"https://runescape.wiki/w/Cape_of_legends\" target=\"_blank\" rel=\"noopener\">cape of legends</a>)",
+        "text": "Access to the Legends' Guild (including a shop to buy the cape of legends)",
+        "subs": []
+      },
+      {
+        "html": "7,650 experience each in four skills of your choice amongst the following - <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Woodcutting\" target=\"_blank\" rel=\"noopener\">Woodcutting</a>, <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>, <a href=\"https://runescape.wiki/w/Smithing\" target=\"_blank\" rel=\"noopener\">Smithing</a>, <a href=\"https://runescape.wiki/w/Herblore\" target=\"_blank\" rel=\"noopener\">Herblore</a>, <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>, and <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a> (You can choose the same skill multiple times if you wish)",
+        "text": "7,650 experience each in four skills of your choice amongst the following - Attack, Defence, Strength, Constitution, Prayer, Magic, Woodcutting, Crafting, Smithing, Herblore, Agility, and Thieving (You can choose the same skill multiple times if you wish)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Binding_book\" target=\"_blank\" rel=\"noopener\">Binding book</a>",
+        "text": "Binding book",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Bull_roarer\" target=\"_blank\" rel=\"noopener\">Bull roarer</a>, used to summon Gujuo to bless more <a href=\"https://runescape.wiki/w/Golden_bowl\" target=\"_blank\" rel=\"noopener\">golden bowls</a>",
+        "text": "Bull roarer, used to summon Gujuo to bless more golden bowls",
+        "subs": []
+      },
+      {
+        "html": "Ability to wield a <a href=\"https://runescape.wiki/w/Dragon_sq_shield\" target=\"_blank\" rel=\"noopener\">dragon square shield</a>",
+        "text": "Ability to wield a dragon square shield",
+        "subs": []
+      },
+      {
+        "html": "Ability to make <a href=\"https://runescape.wiki/w/Holy_water\" target=\"_blank\" rel=\"noopener\">holy water</a>",
+        "text": "Ability to make holy water",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Kharazi_Jungle\" target=\"_blank\" rel=\"noopener\">Kharazi Jungle</a> and red <a href=\"https://runescape.wiki/w/Gecko\" target=\"_blank\" rel=\"noopener\">gecko</a> pets",
+        "text": "Access to the Kharazi Jungle and red gecko pets",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Chronicle,_Book_of_legends\" target=\"_blank\" rel=\"noopener\">Chronicle, Book of legends</a> pet (if not already unlocked)",
+        "text": "Chronicle, Book of legends pet (if not already unlocked)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Reggae",
+      "where": ""
+    },
+    {
+      "name": "Superstition",
+      "where": ""
+    },
+    {
+      "name": "Voodoo Cult",
+      "where": ""
+    },
+    {
+      "name": "Arise Legend - Unlocked upon entering the Legends' Guild after completing the quest.",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Sir_Amik_Varze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Sir Amik Varze</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

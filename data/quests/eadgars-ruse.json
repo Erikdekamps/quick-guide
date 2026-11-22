@@ -1,0 +1,1686 @@
+{
+  "format": 1,
+  "id": "eadgars-ruse",
+  "title": "Eadgar's Ruse",
+  "page": "Eadgar's Ruse/Quick guide",
+  "rev": 37283183,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a> in <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3438,
+      "lon": 2918,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Eadgar's_Ruse/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Druidic Ritual",
+        "depth": 1
+      },
+      {
+        "text": "Troll Stronghold",
+        "depth": 1
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 2
+      },
+      {
+        "text": "Rescue Mad Eadgar from the Troll Stronghold area",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Herblore",
+        "level": 31,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Resist the ranged attacks of thrower trolls (level 67, optional).",
+        "name": "Resist the ranged attacks of thrower trolls",
+        "count": null,
+        "level": "67, optional",
+        "note": "."
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": [
+      "If you completed the <a href=\"https://runescape.wiki/w/Druidic_Ritual\" target=\"_blank\" rel=\"noopener\">Druidic Ritual</a> or <a href=\"https://runescape.wiki/w/Death_Plateau\" target=\"_blank\" rel=\"noopener\">Death Plateau</a> quests before they were reworked on <a href=\"https://runescape.wiki/w/31_January\" target=\"_blank\" rel=\"noopener\">31 January</a> <a href=\"https://runescape.wiki/w/2012\" target=\"_blank\" rel=\"noopener\">2012</a>, you must complete the updated versions of those quests before starting this quest unless you go up Trollheim the way near the Fremennik Slayer Dungeon, in which case, doing the new Death Plateau is unneeded, but doing the new Druidic Ritual is still required."
+    ]
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:svai7t",
+          "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a> or <a href=\"https://runescape.wiki/w/Rock_climbing_boots\" target=\"_blank\" rel=\"noopener\">rock climbing boots</a> (not required if you do not head to the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a> and <a href=\"https://runescape.wiki/w/Trollheim\" target=\"_blank\" rel=\"noopener\">Trollheim</a> via <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>)",
+          "text": "Climbing boots or rock climbing boots (not required if you do not head to the Troll Stronghold and Trollheim via Rellekka)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1hg60fw",
+          "html": "A bottle of <a href=\"https://runescape.wiki/w/Vodka\" target=\"_blank\" rel=\"noopener\">vodka</a> (can be bought along with a <a href=\"https://runescape.wiki/w/Pineapple\" target=\"_blank\" rel=\"noopener\">pineapple</a> from <a href=\"https://runescape.wiki/w/Heckel_Funch\" target=\"_blank\" rel=\"noopener\">Heckel Funch</a> at the <a href=\"https://runescape.wiki/w/Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Gnome Stronghold</a>, or from the Grand Exchange)",
+          "text": "A bottle of vodka (can be bought along with a pineapple from Heckel Funch at the Gnome Stronghold, or from the Grand Exchange)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1yfzdy3",
+          "html": "<a href=\"https://runescape.wiki/w/Pineapple_chunks\" target=\"_blank\" rel=\"noopener\">Pineapple chunks</a> (right click on pineapple, slice, and select the option for pineapple chunks)",
+          "text": "Pineapple chunks (right click on pineapple, slice, and select the option for pineapple chunks)",
+          "alternatives": []
+        },
+        {
+          "id": "req:165fo1v",
+          "html": "10 <a href=\"https://runescape.wiki/w/Wheat\" target=\"_blank\" rel=\"noopener\">wheat</a> (unnoted)",
+          "text": "10 wheat (unnoted)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1ij60se",
+          "html": "5 <a href=\"https://runescape.wiki/w/Raw_chicken\" target=\"_blank\" rel=\"noopener\">raw chickens</a> (unnoted, there are chickens in <a href=\"https://runescape.wiki/w/Freda\" target=\"_blank\" rel=\"noopener\">Freda</a>&#39;s backyard)",
+          "text": "5 raw chickens (unnoted, there are chickens in Freda's backyard)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1cybq3g",
+          "html": "A pile of <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a>",
+          "text": "A pile of logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:1tp5ffh",
+          "html": "A <a href=\"https://runescape.wiki/w/Ranarr_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">ranarr potion (unfinished)</a>",
+          "text": "A ranarr potion (unfinished)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:6usvn1",
+          "html": "40 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> or 47 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>",
+          "text": "40 Prayer or 47 Agility",
+          "alternatives": []
+        },
+        {
+          "id": "rec:o32bip",
+          "html": "Teleports to Ardougne; the <a href=\"https://runescape.wiki/w/Kandarin_monastery_Teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery Teleport</a> can be used to teleport relatively close to the Zoo",
+          "text": "Teleports to Ardougne; the Kandarin monastery Teleport can be used to teleport relatively close to the Zoo",
+          "alternatives": []
+        },
+        {
+          "id": "rec:18jpzwy",
+          "html": "Some food if you have to run the gauntlet with <a href=\"https://runescape.wiki/w/Thrower_troll\" target=\"_blank\" rel=\"noopener\">thrower trolls</a>. Access to <a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a> is also helpful. Not necessary if you have the recommended agility level.",
+          "text": "Some food if you have to run the gauntlet with thrower trolls. Access to Protect from Ranged is also helpful. Not necessary if you have the recommended agility level.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ndmbqk",
+          "html": "<a href=\"https://runescape.wiki/w/Energy_potion\" target=\"_blank\" rel=\"noopener\">Energy potions</a> if your Agility level is low",
+          "text": "Energy potions if your Agility level is low",
+          "alternatives": []
+        },
+        {
+          "id": "rec:18ojsi8",
+          "html": "A second pile of <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a> for a fire",
+          "text": "A second pile of logs for a fire",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:uwbx76",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a>, who lives on the east side of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>, south-west of the summoning shop.",
+          "text": "Talk to Sanfew, who lives on the east side of Taverley, south-west of the summoning shop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ask general questions."
+                },
+                {
+                  "key": "1",
+                  "text": "Have you any more work for me, to help reclaim the circle?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:uwbx76:lz006x",
+              "html": "If Zogre Flesh Eaters is not complete, use the following option:",
+              "text": "If Zogre Flesh Eaters is not complete, use the following option:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Have you any more work for me?"
+                    },
+                    {
+                      "key": "✓",
+                      "text": "[Accept Quest]"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1kp66r6",
+          "html": "Make your way to <a href=\"https://runescape.wiki/w/Eadgar\" target=\"_blank\" rel=\"noopener\">Eadgar</a> and <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a> using any of the routes below.",
+          "text": "Make your way to Eadgar and Burntmeat using any of the routes below.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Trollheim tablet route"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:wbdbtf",
+              "html": "<a href=\"https://runescape.wiki/w/Trollheim_tablet\" target=\"_blank\" rel=\"noopener\">Trollheim tablet</a>",
+              "text": "Trollheim tablet"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:lzjikb",
+          "html": "Break the Trollheim tablet.",
+          "text": "Break the Trollheim tablet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:17so6pj",
+          "html": "Enter the cave entrance of <a href=\"https://runescape.wiki/w/Eadgar%27s_cave\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s cave</a>.",
+          "text": "Enter the cave entrance of Eadgar's cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nxokae",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eadgar\" target=\"_blank\" rel=\"noopener\">Eadgar</a>.",
+          "text": "Talk to Eadgar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1ppy1j",
+          "html": "Exit the cave and head west to the cave entrance of the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>.",
+          "text": "Exit the cave and head west to the cave entrance of the Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:xn9jhv",
+          "html": "There are many shortcuts for climbing rocks that require a maximum of level 47 Agility, but climbing is not necessary and is not much faster than walking.",
+          "text": "There are many shortcuts for climbing rocks that require a maximum of level 47 Agility, but climbing is not necessary and is not much faster than walking.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1wiqagj",
+          "html": "From the main entrance, go south and then climb down the stairs into the <a href=\"https://runescape.wiki/w/Troll_kitchen\" target=\"_blank\" rel=\"noopener\">troll kitchen</a>, which is at the south end of the middle floor of the Troll Stronghold.",
+          "text": "From the main entrance, go south and then climb down the stairs into the troll kitchen, which is at the south end of the middle floor of the Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:zwypda",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a>.",
+          "text": "Talk to Burntmeat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Secret entrance through Rellekka route"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:k4tmhb",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a>",
+              "text": "Climbing boots"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1pc5rnw",
+          "html": "For the <a href=\"https://runescape.wiki/w/Secret_Entrance_(Troll_Stronghold)\" target=\"_blank\" rel=\"noopener\">secret entrance</a> path, <a href=\"https://runescape.wiki/w/Slayer_ring\" target=\"_blank\" rel=\"noopener\">Slayer ring</a> teleport to the <a href=\"https://runescape.wiki/w/Fremennik_Slayer_Dungeon\" target=\"_blank\" rel=\"noopener\">Fremennik Slayer Dungeon</a>, use the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> (code <b>A</b><b>J</b><b>R</b>), or <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a> to head outside the dungeon entrance.",
+          "text": "For the secret entrance path, Slayer ring teleport to the Fremennik Slayer Dungeon, use the fairy ring (code AJR), or Fremennik Province lodestone to head outside the dungeon entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:12mgooi",
+          "html": "Equip your climbing boots.",
+          "text": "Equip your climbing boots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1rb9pm3",
+          "html": "Head north-east to a narrow passage, climb over the <a href=\"https://runescape.wiki/w/Rocks_(Death_Plateau)\" target=\"_blank\" rel=\"noopener\">rocks</a>, and go through the secret entrance to the north.",
+          "text": "Head north-east to a narrow passage, climb over the rocks, and go through the secret entrance to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:wvfss",
+          "html": "Once inside, go all the way north and climb up the stairs.",
+          "text": "Once inside, go all the way north and climb up the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:yokrhi",
+          "html": "Go south into the troll kitchen.",
+          "text": "Go south into the troll kitchen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:zwypda-2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a>.",
+          "text": "Talk to Burntmeat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1u0wacq",
+          "html": "Walk out of the stronghold&#39;s main entrance and head east to the top of <a href=\"https://runescape.wiki/w/Trollheim\" target=\"_blank\" rel=\"noopener\">Trollheim</a>. It is located on top of the mountain with the thrower trolls, the world map marks this as Trollheim.",
+          "text": "Walk out of the stronghold's main entrance and head east to the top of Trollheim. It is located on top of the mountain with the thrower trolls, the world map marks this as Trollheim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:8iul8x",
+          "html": "There are many shortcuts for climbing cliffsides that require a maximum of level 47 Agility, but climbing is not necessary and is not much faster than walking.",
+          "text": "There are many shortcuts for climbing cliffsides that require a maximum of level 47 Agility, but climbing is not necessary and is not much faster than walking.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:17so6pj-2",
+          "html": "Enter the cave entrance of <a href=\"https://runescape.wiki/w/Eadgar%27s_cave\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s cave</a>.",
+          "text": "Enter the cave entrance of Eadgar's cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nxokae-2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eadgar\" target=\"_blank\" rel=\"noopener\">Eadgar</a>.",
+          "text": "Talk to Eadgar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "God Wars Dungeon route"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:uq08lr",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a> by any means:",
+          "text": "Head to the Troll Stronghold by any means:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:uq08lr:zqvc1e",
+              "html": "If you have killed a <a href=\"https://runescape.wiki/w/God_Wars_Dungeon\" target=\"_blank\" rel=\"noopener\">God Wars Dungeon</a> boss, you can teleport to the dungeon via the <a href=\"https://runescape.wiki/w/Boss_portal\" target=\"_blank\" rel=\"noopener\">boss portal</a>, and then exit the dungeon using the <a href=\"https://runescape.wiki/w/Rope_(God_Wars_Dungeon)\" target=\"_blank\" rel=\"noopener\">rope</a> in the centre.",
+              "text": "If you have killed a God Wars Dungeon boss, you can teleport to the dungeon via the boss portal, and then exit the dungeon using the rope in the centre.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:uq08lr:ygrojg",
+              "html": "If you have access to <a href=\"https://runescape.wiki/w/God_Wars_Dungeon_Teleport\" target=\"_blank\" rel=\"noopener\">God Wars Dungeon Teleport</a>, it is much faster to teleport outside the dungeon via the spell.",
+              "text": "If you have access to God Wars Dungeon Teleport, it is much faster to teleport outside the dungeon via the spell.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1p6mmgl",
+          "html": "<i>Lift</i> or <i>squeeze past</i> the <a href=\"https://runescape.wiki/w/Boulder_(God_Wars_Dungeon)\" target=\"_blank\" rel=\"noopener\">boulder</a>.",
+          "text": "Lift or squeeze past the boulder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1awgz4z",
+          "html": "If you have level 47 Agility, head to <a href=\"https://runescape.wiki/w/Trollheim\" target=\"_blank\" rel=\"noopener\">Trollheim</a> via the southeast path and then climb the <a href=\"https://runescape.wiki/w/Rocks_(Death_Plateau)#Regular_(1)\" target=\"_blank\" rel=\"noopener\">rocks</a> and <a href=\"https://runescape.wiki/w/Cliffside_(Trollheim_hard)\" target=\"_blank\" rel=\"noopener\">cliffside</a> to the west.",
+          "text": "If you have level 47 Agility, head to Trollheim via the southeast path and then climb the rocks and cliffside to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:1awgz4z:kj2acf",
+              "html": "Continue to the west by climbing the <a href=\"https://runescape.wiki/w/Cliffside_(Trollheim_advanced)\" target=\"_blank\" rel=\"noopener\">cliffside</a>.",
+              "text": "Continue to the west by climbing the cliffside.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:1awgz4z:joqgbk",
+              "html": "Head west to the top of Trollheim.",
+              "text": "Head west to the top of Trollheim.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:osn96h",
+          "html": "If you do not have level 47 Agility, activate <a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a> (requiring level 40 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>) and head to the west and then south once there is a path to the east to the top of Trollheim.",
+          "text": "If you do not have level 47 Agility, activate Protect from Ranged (requiring level 40 Prayer) and head to the west and then south once there is a path to the east to the top of Trollheim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:osn96h:1gcv0hp",
+              "html": "There are many shortcuts for climbing cliffsides that require a maximum of level 43 Agility, but climbing is not necessary and is not much faster than walking.",
+              "text": "There are many shortcuts for climbing cliffsides that require a maximum of level 43 Agility, but climbing is not necessary and is not much faster than walking.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:osn96h:p5x89n",
+              "html": "Continue to the east to the top of Trollheim.",
+              "text": "Continue to the east to the top of Trollheim.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:17so6pj-3",
+          "html": "Enter the cave entrance of <a href=\"https://runescape.wiki/w/Eadgar%27s_cave\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s cave</a>.",
+          "text": "Enter the cave entrance of Eadgar's cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nxokae-3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eadgar\" target=\"_blank\" rel=\"noopener\">Eadgar</a>.",
+          "text": "Talk to Eadgar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1ppy1j-2",
+          "html": "Exit the cave and head west to the cave entrance of the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>.",
+          "text": "Exit the cave and head west to the cave entrance of the Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1wiqagj-2",
+          "html": "From the main entrance, go south and then climb down the stairs into the <a href=\"https://runescape.wiki/w/Troll_kitchen\" target=\"_blank\" rel=\"noopener\">troll kitchen</a>, which is at the south end of the middle floor of the Troll Stronghold.",
+          "text": "From the main entrance, go south and then climb down the stairs into the troll kitchen, which is at the south end of the middle floor of the Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:zwypda-3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Burntmeat\" target=\"_blank\" rel=\"noopener\">Burntmeat</a>.",
+          "text": "Talk to Burntmeat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "eadgar-s-plan",
+      "title": "Eadgar's plan",
+      "anchor": "Eadgar's_plan",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Tricking the trolls"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "eadgar-s-plan:bring:k4tmhb",
+              "html": "Climbing boots",
+              "text": "Climbing boots"
+            },
+            {
+              "id": "eadgar-s-plan:bring:57af9a",
+              "html": "<a href=\"https://runescape.wiki/w/Vodka\" target=\"_blank\" rel=\"noopener\">Vodka</a>",
+              "text": "Vodka"
+            },
+            {
+              "id": "eadgar-s-plan:bring:cg8g7t",
+              "html": "<a href=\"https://runescape.wiki/w/Pineapple_chunks\" target=\"_blank\" rel=\"noopener\">Pineapple chunks</a>",
+              "text": "Pineapple chunks"
+            },
+            {
+              "id": "eadgar-s-plan:bring:qv7oov",
+              "html": "10 <a href=\"https://runescape.wiki/w/Wheat\" target=\"_blank\" rel=\"noopener\">wheat</a>",
+              "text": "10 wheat"
+            },
+            {
+              "id": "eadgar-s-plan:bring:10n5fsa",
+              "html": "5 <a href=\"https://runescape.wiki/w/Raw_chicken\" target=\"_blank\" rel=\"noopener\">raw chickens</a>",
+              "text": "5 raw chickens"
+            },
+            {
+              "id": "eadgar-s-plan:bring:mnp3mu",
+              "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a>",
+              "text": "Logs"
+            },
+            {
+              "id": "eadgar-s-plan:bring:75ojn0",
+              "html": "<a href=\"https://runescape.wiki/w/Ranarr_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">Ranarr potion (unfinished)</a>",
+              "text": "Ranarr potion (unfinished)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1915fao",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Parroty_Pete\" target=\"_blank\" rel=\"noopener\">Parroty Pete</a> at the <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">Ardougne Zoo</a>. He is located at the northern end by the wolves.",
+          "text": "Talk to Parroty Pete at the Ardougne Zoo. He is located at the northern end by the wolves.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What do you feed them?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:14tdu7w",
+          "html": "Talk to him again.",
+          "text": "Talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "When did you add it?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1aonsrs",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Pineapple_chunks\" target=\"_blank\" rel=\"noopener\">pineapple chunks</a> on the <a href=\"https://runescape.wiki/w/Vodka\" target=\"_blank\" rel=\"noopener\">vodka</a> to obtain <a href=\"https://runescape.wiki/w/Alco-chunks\" target=\"_blank\" rel=\"noopener\">alco-chunks</a>.",
+          "text": "Use the pineapple chunks on the vodka to obtain alco-chunks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:14rcuh1",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Alco-chunks\" target=\"_blank\" rel=\"noopener\">alco-chunks</a> on the <a href=\"https://runescape.wiki/w/Aviary_Hatch\" target=\"_blank\" rel=\"noopener\">Aviary Hatch</a> on the west side of the parrot cage for a <a href=\"https://runescape.wiki/w/Drunk_parrot\" target=\"_blank\" rel=\"noopener\">drunk parrot</a>.",
+          "text": "Use the alco-chunks on the Aviary Hatch on the west side of the parrot cage for a drunk parrot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:ovptmu",
+          "html": "Return to Eadgar.",
+          "text": "Return to Eadgar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "No thanks, Eadgar."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1ro2se9",
+          "html": "Go back to the stronghold and climb down the northern <a href=\"https://runescape.wiki/w/Stone_Staircase_(Troll_Stronghold)\" target=\"_blank\" rel=\"noopener\">stone staircase</a>.",
+          "text": "Go back to the stronghold and climb down the northern stone staircase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:12u20ja",
+          "html": "<i>Unlock</i> the <a href=\"https://runescape.wiki/w/Prison_Door\" target=\"_blank\" rel=\"noopener\">Prison Door</a> to the east and climb down the staircase to return to the Lower Level.",
+          "text": "Unlock the Prison Door to the east and climb down the staircase to return to the Lower Level.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:lsa84d",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Drunk_parrot\" target=\"_blank\" rel=\"noopener\">drunk parrot</a> on the <a href=\"https://runescape.wiki/w/Rack_(Troll_Stronghold_prison)\" target=\"_blank\" rel=\"noopener\">rack</a> north of the prison cells.",
+          "text": "Use the drunk parrot on the rack north of the prison cells.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1k98p2g",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Tegid\" target=\"_blank\" rel=\"noopener\">Tegid</a> in Taverley for a <a href=\"https://runescape.wiki/w/Dirty_robe\" target=\"_blank\" rel=\"noopener\">dirty robe</a>. He is located south of <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a>, washing laundry in the lake.",
+          "text": "Talk to Tegid in Taverley for a dirty robe. He is located south of Sanfew, washing laundry in the lake.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Sanfew won't be happy..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:vedo8b",
+          "html": "Talk to Eadgar with the wheat, raw chickens, logs and the dirty robe.",
+          "text": "Talk to Eadgar with the wheat, raw chickens, logs and the dirty robe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "No thanks, Eadgar."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Truth serum"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "eadgar-s-plan:bring:75ojn0-2",
+              "html": "Ranarr potion (unfinished)",
+              "text": "Ranarr potion (unfinished)"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "eadgar-s-plan:bring:1s7o18x",
+              "html": "Any type of <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a> for a fire",
+              "text": "Any type of logs for a fire"
+            }
+          ]
+        },
+        {
+          "type": "map",
+          "caption": "Location of the thistle.",
+          "lat": 3669,
+          "lon": 2890,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2886.5,
+                  3668.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2887.5,
+                  3660.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2899.5,
+                  3668.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2880.5,
+                  3668.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2892.5,
+                  3671.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2901.5,
+                  3679.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>NPC</b>: Thistle<br /><b>NPC ID</b>: 1214",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_green.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Eadgar's_Ruse/Quick_guide"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TThistlelocation.png/250px-TThistlelocation.png?0f871",
+          "width": 250,
+          "height": 141,
+          "alt": "",
+          "caption": "A troll thistle in the grassy areas of Trollheim.",
+          "href": "https://runescape.wiki/w/File:TThistlelocation.png"
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:wzftob",
+          "html": "Exit the cave and find the grassy area that has a <i>pick</i> <a href=\"https://runescape.wiki/w/Thistle_(Eadgar%27s_Ruse)\" target=\"_blank\" rel=\"noopener\">thistle</a> option (There will only be one spot with the thistle).",
+          "text": "Exit the cave and find the grassy area that has a pick thistle option (There will only be one spot with the thistle).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:w9cz4p",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Troll_thistle\" target=\"_blank\" rel=\"noopener\">troll thistle</a> on a fire.",
+          "text": "Use the troll thistle on a fire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "eadgar-s-plan:w9cz4p:18x1goq",
+              "html": "If you didn&#39;t bring logs, there are two fires just west in the encampment.",
+              "text": "If you didn't bring logs, there are two fires just west in the encampment.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:oiagqx",
+          "html": "<i>Grind</i> the <a href=\"https://runescape.wiki/w/Dried_thistle\" target=\"_blank\" rel=\"noopener\">dried thistle</a>.",
+          "text": "Grind the dried thistle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:8xa3wq",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Ground_thistle\" target=\"_blank\" rel=\"noopener\">ground thistle</a> on <a href=\"https://runescape.wiki/w/Ranarr_potion_(unfinished)\" target=\"_blank\" rel=\"noopener\">ranarr potion (unfinished)</a> to obtain a <a href=\"https://runescape.wiki/w/Troll_potion\" target=\"_blank\" rel=\"noopener\">troll potion</a>.",
+          "text": "Use the ground thistle on ranarr potion (unfinished) to obtain a troll potion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:9uv71c",
+          "html": "Talk to Eadgar to give him the potion.",
+          "text": "Talk to Eadgar to give him the potion.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:18q5qop",
+          "html": "Go back to the prison in Troll Stronghold.",
+          "text": "Go back to the prison in Troll Stronghold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1lnh6mx",
+          "html": "<i>Search</i> the rack to retrieve the drunk parrot.",
+          "text": "Search the rack to retrieve the drunk parrot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "eadgar-s-plan:1uo5l5g",
+          "html": "Talk to Eadgar to obtain a <a href=\"https://runescape.wiki/w/Fake_man\" target=\"_blank\" rel=\"noopener\">fake man</a>.",
+          "text": "Talk to Eadgar to obtain a fake man.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "No thanks, Eadgar."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "eadgar-s-plan:1uo5l5g:1y8ved1",
+              "html": "Speak to him again if you don&#39;t receive the fake man the first time.",
+              "text": "Speak to him again if you don't receive the fake man the first time.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obtaining-goutweed",
+      "title": "Obtaining goutweed",
+      "anchor": "Obtaining_goutweed",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "obtaining-goutweed:bring:1d4d4zc",
+              "html": "Fake man",
+              "text": "Fake man"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "Paths to Goutweed Crate"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 38,
+          "lon": 41,
+          "zoom": 3,
+          "plane": 0,
+          "mapId": 2,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  36.5,
+                  37.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  10,
+                  10
+                ],
+                "title": "Safe spots",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  41.5,
+                  37.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  10,
+                  10
+                ],
+                "title": "Safe spots",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  43.5,
+                  37.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  10,
+                  10
+                ],
+                "title": "Safe spots",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  42.5,
+                  26.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  10,
+                  10
+                ],
+                "title": "Safe spots",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  40.5,
+                  26.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  6,
+                  6
+                ],
+                "title": "<a href=\"/w/Goutweed_Crate\" title=\"Goutweed Crate\">Goutweed Crate</a>",
+                "shape": "SquareDot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  41.5,
+                  26.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  6,
+                  6
+                ],
+                "title": "<a href=\"/w/Goutweed_Crate\" title=\"Goutweed Crate\">Goutweed Crate</a>",
+                "shape": "SquareDot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    45.5,
+                    44.5
+                  ],
+                  [
+                    43.5,
+                    44.5
+                  ],
+                  [
+                    43.5,
+                    39.5
+                  ],
+                  [
+                    41,
+                    39.5
+                  ],
+                  [
+                    41,
+                    37.5
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Path 1",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#0000ff",
+                "shape": "Line"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    41.5,
+                    37.5
+                  ],
+                  [
+                    41.5,
+                    39
+                  ],
+                  [
+                    45.5,
+                    39
+                  ],
+                  [
+                    45.5,
+                    35.5
+                  ],
+                  [
+                    43.5,
+                    35.5
+                  ],
+                  [
+                    43.5,
+                    37.5
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Path 2",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#00ff00",
+                "shape": "Line"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    43,
+                    37.5
+                  ],
+                  [
+                    43,
+                    35.5
+                  ],
+                  [
+                    42.5,
+                    35.5
+                  ],
+                  [
+                    42.5,
+                    26.5
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Path 3",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#ff00ff",
+                "shape": "Line"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Eadgar's_Ruse/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:1jn6wt5",
+          "html": "Safe spots",
+          "text": "Safe spots",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:15gq0e8",
+          "html": "<a href=\"https://runescape.wiki/w/Goutweed_Crate\" target=\"_blank\" rel=\"noopener\">Goutweed Crate</a>",
+          "text": "Goutweed Crate",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:5js7t5",
+          "html": "Path 1",
+          "text": "Path 1",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:4pteq8",
+          "html": "Path 2",
+          "text": "Path 2",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:4zt0f7",
+          "html": "Path 3",
+          "text": "Path 3",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Paths_to_Goutweed_Crate\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Paths_to_Goutweed_Crate\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Paths_to_Goutweed_Crate?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:1mpc5u1",
+          "html": "Talk to Burntmeat back in the kitchen of the stronghold.",
+          "text": "Talk to Burntmeat back in the kitchen of the stronghold.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'll be going now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:63w5ty",
+          "html": "<i>Open</i> and right-click <i>search</i> the <a href=\"https://runescape.wiki/w/Kitchen_Drawers\" target=\"_blank\" rel=\"noopener\">Kitchen Drawers</a> along the south wall for the <a href=\"https://runescape.wiki/w/Storeroom_key\" target=\"_blank\" rel=\"noopener\">storeroom key</a>.",
+          "text": "Open and right-click search the Kitchen Drawers along the south wall for the storeroom key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:q8efwl",
+          "html": "<i>Climb-down</i> the stone staircase directly north of the kitchen drawers to enter the storeroom.",
+          "text": "Climb-down the stone staircase directly north of the kitchen drawers to enter the storeroom.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:1dz2cau",
+          "html": "<i>Open</i> the <a href=\"https://runescape.wiki/w/Storeroom_Door\" target=\"_blank\" rel=\"noopener\">Storeroom Door</a> with the key.",
+          "text": "Open the Storeroom Door with the key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:ksries",
+          "html": "Obtain <a href=\"https://runescape.wiki/w/Goutweed\" target=\"_blank\" rel=\"noopener\">goutweed</a>:",
+          "text": "Obtain goutweed:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:1y444ui",
+              "html": "At the next door, wait until the guard patrolling the northernmost lane goes south.",
+              "text": "At the next door, wait until the guard patrolling the northernmost lane goes south.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:1nptcru",
+              "html": "Open the door and run west, then <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">surge</a> directly south to <i>search</i> the <a href=\"https://runescape.wiki/w/Goutweed_Crate\" target=\"_blank\" rel=\"noopener\">Goutweed Crate</a>.",
+              "text": "Open the door and run west, then surge directly south to search the Goutweed Crate.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:1jmxu8m",
+              "html": "If done correctly, you will surge through the western most guards and be able to immediately obtain a goutweed.",
+              "text": "If done correctly, you will surge through the western most guards and be able to immediately obtain a goutweed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:sl2cyn",
+              "html": "Alternatively, use safe spots (U-shaped areas with boxes on three sides) to pass the guards.",
+              "text": "Alternatively, use safe spots (U-shaped areas with boxes on three sides) to pass the guards.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:55vqrk",
+              "html": "Run to the first safe spot, the middle safe spot in the third row of boxes from the entrance, after the trolls patrolling the first row and the eastern second row just pass you.",
+              "text": "Run to the first safe spot, the middle safe spot in the third row of boxes from the entrance, after the trolls patrolling the first row and the eastern second row just pass you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:jq6cek",
+              "html": "Wait for the troll which travels north on the western side to make the turn to the east, then run to the safe spot on the southern side of the third row.",
+              "text": "Wait for the troll which travels north on the western side to make the turn to the east, then run to the safe spot on the southern side of the third row.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "obtaining-goutweed:ksries:1q5r2i9",
+              "html": "Wait until the troll guard approaching you from the south has turned the west, then run to the crate with the goutweed. Make sure that you are standing to the side of the crate or you will get caught.",
+              "text": "Wait until the troll guard approaching you from the south has turned the west, then run to the crate with the goutweed. Make sure that you are standing to the side of the crate or you will get caught.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:zurp3b",
+          "html": "Return to Taverley and talk to Sanfew with the goutweed.",
+          "text": "Return to Taverley and talk to Sanfew with the goutweed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-goutweed:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Eadgar%27s_Ruse_reward.png?a5d79",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Eadgar%27s_Ruse_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "11,000 experience",
+        "text": "11,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Ability to grow and steal <a href=\"https://runescape.wiki/w/Goutweed\" target=\"_blank\" rel=\"noopener\">goutweed</a>, which can be traded to <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a> for herbs",
+        "text": "Ability to grow and steal goutweed, which can be traded to Sanfew for herbs",
+        "subs": []
+      },
+      {
+        "html": "Ability to use the <a href=\"https://runescape.wiki/w/Trollheim_Teleport\" target=\"_blank\" rel=\"noopener\">Trollheim Teleport</a> spell",
+        "text": "Ability to use the Trollheim Teleport spell",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Burnt_meat\" target=\"_blank\" rel=\"noopener\">Burnt meat</a>",
+        "text": "Burnt meat",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/My_Arm%27s_Big_Adventure/Quick_guide\" target=\"_blank\" rel=\"noopener\">My Arm&#39;s Big Adventure</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,539 @@
+{
+  "format": 1,
+  "id": "roving-elves",
+  "title": "Roving Elves",
+  "page": "Roving Elves/Quick guide",
+  "rev": 37076662,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Islwyn\" target=\"_blank\" rel=\"noopener\">Islwyn</a>, a roving elf somewhere in the elven forest of <a href=\"https://runescape.wiki/w/Isafdar\" target=\"_blank\" rel=\"noopener\">Isafdar</a> in <a href=\"https://runescape.wiki/w/Tirannwn\" target=\"_blank\" rel=\"noopener\">Tirannwn</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3146,
+      "lon": 2290,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Roving_Elves/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Regicide",
+        "depth": 1
+      },
+      {
+        "text": "Underground Pass",
+        "depth": 2
+      },
+      {
+        "text": "Biohazard",
+        "depth": 3
+      },
+      {
+        "text": "Plague City",
+        "depth": 4
+      },
+      {
+        "text": "Waterfall Quest",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Moss giant (level 24) You may not use any weapons, runes, summoning familiars, armour or prayer. Some exceptions for weapons if you are crafty.",
+        "name": "Moss giant",
+        "count": null,
+        "level": "24",
+        "note": "You may not use any weapons, runes, summoning familiars, armour or prayer. Some exceptions for weapons if you are crafty."
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Tirannwn</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Tirannwn</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:x8o23b",
+          "html": "A <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a> (not necessary if you have built a <a href=\"https://runescape.wiki/w/Rope_rack\" target=\"_blank\" rel=\"noopener\">rope rack</a>)",
+          "text": "A rope (not necessary if you have built a rope rack)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1aimowj",
+          "html": "<a href=\"https://runescape.wiki/w/A_key_(Waterfall_Dungeon)\" target=\"_blank\" rel=\"noopener\">A key</a> to the <a href=\"https://runescape.wiki/w/Waterfall_Dungeon\" target=\"_blank\" rel=\"noopener\">Waterfall Dungeon</a> (can be acquired during the quest)",
+          "text": "A key to the Waterfall Dungeon (can be acquired during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:jlrxex",
+          "html": "<a href=\"https://runescape.wiki/w/Glarial%27s_pebble\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s pebble</a>",
+          "text": "Glarial's pebble",
+          "alternatives": []
+        },
+        {
+          "id": "req:1twj07",
+          "html": "<a href=\"https://runescape.wiki/w/Glarial%27s_amulet\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s amulet</a> (can be acquired during the quest)",
+          "text": "Glarial's amulet (can be acquired during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1kp37i8",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>, <a href=\"https://runescape.wiki/w/Restore_potion\" target=\"_blank\" rel=\"noopener\">restore potions</a> and combat stat-boosting potions",
+          "text": "Food, restore potions and combat stat-boosting potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:40b3dt",
+          "html": "Two <a href=\"https://runescape.wiki/w/Summer_pie\" target=\"_blank\" rel=\"noopener\">summer pies</a> or <a href=\"https://runescape.wiki/w/Agility_potion\" target=\"_blank\" rel=\"noopener\">agility potions</a>/<a href=\"https://runescape.wiki/w/Agility_flask\" target=\"_blank\" rel=\"noopener\">flasks</a> if your <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> level is below 56",
+          "text": "Two summer pies or agility potions/flasks if your Agility level is below 56",
+          "alternatives": []
+        },
+        {
+          "id": "rec:mmwxc",
+          "html": "Means of getting to <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a> (e.g. <a href=\"https://runescape.wiki/w/Ardougne_Teleport\" target=\"_blank\" rel=\"noopener\">Ardougne Teleport</a>, <a href=\"https://runescape.wiki/w/Spirit_tree\" target=\"_blank\" rel=\"noopener\">spirit trees</a>, <a href=\"https://runescape.wiki/w/Ardougne_cloak\" target=\"_blank\" rel=\"noopener\">Ardougne cloak</a>)",
+          "text": "Means of getting to Ardougne (e.g. Ardougne Teleport, spirit trees, Ardougne cloak)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1529x03",
+          "html": "Means of getting to <a href=\"https://runescape.wiki/w/Camelot\" target=\"_blank\" rel=\"noopener\">Camelot</a> (e.g. <a href=\"https://runescape.wiki/w/Camelot_Teleport\" target=\"_blank\" rel=\"noopener\">Camelot Teleport</a>, <a href=\"https://runescape.wiki/w/Seers%27_Village_Teleport\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village Teleport</a>)",
+          "text": "Means of getting to Camelot (e.g. Camelot Teleport, Seers' Village Teleport)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ku36ae",
+          "html": "Means of getting to <a href=\"https://runescape.wiki/w/Tirannwn\" target=\"_blank\" rel=\"noopener\">Tirannwn</a> (e.g. money for <a href=\"https://runescape.wiki/w/Charter_ship\" target=\"_blank\" rel=\"noopener\">charter ships</a>)",
+          "text": "Means of getting to Tirannwn (e.g. money for charter ships)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:gjqoaw",
+          "html": "A few <a href=\"https://runescape.wiki/w/Antipoison\" target=\"_blank\" rel=\"noopener\">antipoison</a> potions in case you trip the traps",
+          "text": "A few antipoison potions in case you trip the traps",
+          "alternatives": []
+        },
+        {
+          "id": "rec:188ys2t",
+          "html": "<a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a>",
+          "text": "Amulet of glory",
+          "alternatives": []
+        },
+        {
+          "id": "rec:15qjep0",
+          "html": "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a>",
+          "text": "Games necklace",
+          "alternatives": []
+        },
+        {
+          "id": "rec:110gbp2",
+          "html": "<a href=\"https://runescape.wiki/w/Regen_bracelet\" target=\"_blank\" rel=\"noopener\">Regen bracelet</a>",
+          "text": "Regen bracelet",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1w8u5yy",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_recoil\" target=\"_blank\" rel=\"noopener\">Ring of recoil</a>",
+          "text": "Ring of recoil",
+          "alternatives": []
+        },
+        {
+          "id": "rec:12focok",
+          "html": "<a href=\"https://runescape.wiki/w/Enhanced_excalibur\" target=\"_blank\" rel=\"noopener\">Enhanced excalibur</a>",
+          "text": "Enhanced excalibur",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "islwyn-and-eluned",
+      "title": "Islwyn and Eluned",
+      "anchor": "Islwyn_and_Eluned",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1iwo34p",
+          "html": "Bank all your combat equipment.",
+          "text": "Bank all your combat equipment.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:85i53m",
+          "html": "Track down and talk to <a href=\"https://runescape.wiki/w/Islwyn\" target=\"_blank\" rel=\"noopener\">Islwyn</a>.",
+          "text": "Track down and talk to Islwyn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Tell the truth?"
+                },
+                {
+                  "key": "1",
+                  "text": "Maybe I could help."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:85i53m:1g7pbrl",
+              "html": "Islwyn and Eluned move locations regularly: either south-west of <a href=\"https://runescape.wiki/w/Lletya\" target=\"_blank\" rel=\"noopener\">Lletya</a> or north-east of the <a href=\"https://runescape.wiki/w/Tyras_Camp\" target=\"_blank\" rel=\"noopener\">Tyras Camp</a>. Simply hop worlds until you find them.",
+              "text": "Islwyn and Eluned move locations regularly: either south-west of Lletya or north-east of the Tyras Camp. Simply hop worlds until you find them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1qocmon",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Eluned\" target=\"_blank\" rel=\"noopener\">Eluned</a>.",
+          "text": "Talk to Eluned.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:ub2n4g",
+          "html": "<i>Use</i> <a href=\"https://runescape.wiki/w/Glarial%27s_pebble\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s pebble</a> on <a href=\"https://runescape.wiki/w/Glarial%27s_tombstone\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s tombstone</a> north-west of the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a>.",
+          "text": "Use Glarial's pebble on Glarial's tombstone north-west of the Fishing Guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:ub2n4g:vczusp",
+              "html": "If you&#39;re holding any combat equipment or logs, you&#39;ll receive the message: <i>It fits perfectly, but nothing happens.</i>",
+              "text": "If you're holding any combat equipment or logs, you'll receive the message: It fits perfectly, but nothing happens.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:ub2n4g:g4ok0p",
+              "html": "If needed, reclaim Glarial&#39;s pebble from <a href=\"https://runescape.wiki/w/Golrie\" target=\"_blank\" rel=\"noopener\">Golrie</a> in <a href=\"https://runescape.wiki/w/Gnome_Village_Dungeon\" target=\"_blank\" rel=\"noopener\">Gnome Village Dungeon</a>.",
+              "text": "If needed, reclaim Glarial's pebble from Golrie in Gnome Village Dungeon.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes please!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:ub2n4g:1kxzj57",
+              "html": "You can also reclaim Glarial&#39;s pebble from the <a href=\"https://runescape.wiki/w/Storage_Chest\" target=\"_blank\" rel=\"noopener\">Storage Chest</a> in <a href=\"https://runescape.wiki/w/May%27s_Quest_Caravan\" target=\"_blank\" rel=\"noopener\">May&#39;s Quest Caravan</a>.",
+              "text": "You can also reclaim Glarial's pebble from the Storage Chest in May's Quest Caravan.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1u8jnw5",
+          "html": "Kill a <a href=\"https://runescape.wiki/w/Moss_giant_(Glarial%27s_Tomb)\" target=\"_blank\" rel=\"noopener\">moss giant</a> and pick up the <a href=\"https://runescape.wiki/w/Consecration_seed\" target=\"_blank\" rel=\"noopener\">consecration seed</a> it drops.",
+          "text": "Kill a moss giant and pick up the consecration seed it drops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:1u8jnw5:1acdirp",
+              "html": "You can remove an item from your <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> to use as a weapon. Legacy combat mode increases auto attack damage. A <a href=\"https://runescape.wiki/w/Ring_of_recoil\" target=\"_blank\" rel=\"noopener\">ring of recoil</a> may be helpful for lower levelled players.",
+              "text": "You can remove an item from your tool belt to use as a weapon. Legacy combat mode increases auto attack damage. A ring of recoil may be helpful for lower levelled players.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1gj3y27",
+          "html": "If needed, reclaim <a href=\"https://runescape.wiki/w/Glarial%27s_amulet\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s amulet</a> from the chest to the west.",
+          "text": "If needed, reclaim Glarial's amulet from the chest to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1fdpq5s",
+          "html": "Take the seed to Eluned to have her enchant it.",
+          "text": "Take the seed to Eluned to have her enchant it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1nzmsk9",
+          "html": "Travel to the <a href=\"https://runescape.wiki/w/Waterfall_dungeon\" target=\"_blank\" rel=\"noopener\">Waterfall dungeon</a>.",
+          "text": "Travel to the Waterfall dungeon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:1nzmsk9:11blokq",
+              "html": "Via <a href=\"https://runescape.wiki/w/Hoardstalker_ring\" target=\"_blank\" rel=\"noopener\">hoardstalker ring</a> or <a href=\"https://runescape.wiki/w/Dungeoneering_cape\" target=\"_blank\" rel=\"noopener\">Dungeoneering cape</a> (<a href=\"https://runescape.wiki/w/Baxtorian_Falls_resource_dungeon\" target=\"_blank\" rel=\"noopener\">Baxtorian Falls resource dungeon</a> option, called <i>Waterfall fire giant dungeon</i> in the cape)",
+              "text": "Via hoardstalker ring or Dungeoneering cape (Baxtorian Falls resource dungeon option, called Waterfall fire giant dungeon in the cape)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "islwyn-and-eluned:1nzmsk9:fl2qph",
+              "html": "Via <a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">games necklace</a>, <a href=\"https://runescape.wiki/w/Barbarian_Outpost\" target=\"_blank\" rel=\"noopener\">Barbarian Outpost</a> then run south to <a href=\"https://runescape.wiki/w/Baxtorian_Falls\" target=\"_blank\" rel=\"noopener\">Baxtorian Falls</a>, then:",
+              "text": "Via games necklace, Barbarian Outpost then run south to Baxtorian Falls, then:",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "islwyn-and-eluned:1nzmsk9:fl2qph:11r0qht",
+                  "html": "<i>Board</i> the <a href=\"https://runescape.wiki/w/Log_raft\" target=\"_blank\" rel=\"noopener\">log raft</a> north of Baxtorian falls",
+                  "text": "Board the log raft north of Baxtorian falls",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "islwyn-and-eluned:1nzmsk9:fl2qph:19no5t4",
+                  "html": "<i>Use</i> a <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">rope</a> on the rock south across the water",
+                  "text": "Use a rope on the rock south across the water",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "islwyn-and-eluned:1nzmsk9:fl2qph:1952hof",
+                  "html": "<i>Use</i> a rope on the <a href=\"https://runescape.wiki/w/Dead_tree\" target=\"_blank\" rel=\"noopener\">dead tree</a>",
+                  "text": "Use a rope on the dead tree",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "islwyn-and-eluned:1nzmsk9:fl2qph:1qhc3uy",
+                  "html": "<i>Enter</i> the door",
+                  "text": "Enter the door",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:e5nj4d",
+          "html": "If needed, reclaim <a href=\"https://runescape.wiki/w/A_key_(Waterfall_Dungeon)\" target=\"_blank\" rel=\"noopener\">a key</a> from the discoloured crates in the eastern room with skeletons.",
+          "text": "If needed, reclaim a key from the discoloured crates in the eastern room with skeletons.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1ag5aj2",
+          "html": "Go inside the north-west room with the statues.",
+          "text": "Go inside the north-west room with the statues.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:kfpmd9",
+          "html": "<i>Plant</i> the <a href=\"https://runescape.wiki/w/Consecration_seed_(enchanted)\" target=\"_blank\" rel=\"noopener\">enchanted consecration seed</a> anywhere inside.",
+          "text": "Plant the enchanted consecration seed anywhere inside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:1kzgaeg",
+          "html": "Return to Islwyn to choose your reward.",
+          "text": "Return to Islwyn to choose your reward.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "islwyn-and-eluned:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Roving_Elves_reward.png?ae512",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Roving_Elves_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "A used <a href=\"https://runescape.wiki/w/Crystal_bow\" target=\"_blank\" rel=\"noopener\">crystal bow</a> or <a href=\"https://runescape.wiki/w/Crystal_ward\" target=\"_blank\" rel=\"noopener\">crystal ward</a> (your choice, it will be 20% charged).",
+        "text": "A used crystal bow or crystal ward (your choice, it will be 20% charged).",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": [
+      "This content has multiple versions and requires JavaScript to be enabled for it to display correctly.",
+      "BowWard"
+    ]
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part I</a>",
+        "<a href=\"https://runescape.wiki/w/The_Prisoner_of_Glouphrie/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Prisoner of Glouphrie</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part II</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/Within_the_Light/Quick_guide\" target=\"_blank\" rel=\"noopener\">Within the Light</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

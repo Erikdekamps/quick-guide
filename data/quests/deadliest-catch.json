@@ -1,0 +1,567 @@
+{
+  "format": 1,
+  "id": "deadliest-catch",
+  "title": "Deadliest Catch",
+  "page": "Deadliest Catch/Quick guide",
+  "rev": 37202454,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Jones\" target=\"_blank\" rel=\"noopener\">Jones</a> next to the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a> bank.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3413,
+      "lon": 2597,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Deadliest_Catch/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Tower of Life",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Fishing",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 3,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 67,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 70,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:18g99tv",
+          "html": "<a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne lodestone</a> Home teleport, <a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">Skills necklace</a>, <a href=\"https://runescape.wiki/w/Lunar_Spellbook\" target=\"_blank\" rel=\"noopener\">Lunar Spellbook</a> (with 85 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>), <a href=\"https://runescape.wiki/w/Ardougne_teleport\" target=\"_blank\" rel=\"noopener\">Ardougne teleport</a>, or <a href=\"https://runescape.wiki/w/Manor_farm_Teleport\" target=\"_blank\" rel=\"noopener\">Manor farm Teleport</a> for faster access to the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a>",
+          "text": "Ardougne lodestone Home teleport, Skills necklace, Lunar Spellbook (with 85 Magic), Ardougne teleport, or Manor farm Teleport for faster access to the Fishing Guild",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1d57ytq",
+          "html": "<a href=\"https://runescape.wiki/w/Kandarin_monastery_Teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery Teleport</a>, <a href=\"https://runescape.wiki/w/Portable_fairy_ring\" target=\"_blank\" rel=\"noopener\">Portable fairy ring</a> or <a href=\"https://runescape.wiki/w/Dramen_staff\" target=\"_blank\" rel=\"noopener\">Dramen staff</a>/<a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">Lunar staff</a> (unless <a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a> has been completed) to get to the <a href=\"https://runescape.wiki/w/Tower_of_Life_(building)\" target=\"_blank\" rel=\"noopener\">Tower of Life</a>",
+          "text": "Kandarin monastery Teleport, Portable fairy ring or Dramen staff/Lunar staff (unless A Fairy Tale III - Battle at Ork's Rift has been completed) to get to the Tower of Life",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "anchor": "Getting_Started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:1fz3uhi",
+              "html": "1 space in your backpack",
+              "text": "1 space in your backpack"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:bak69m",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jones_the_fisherman\" target=\"_blank\" rel=\"noopener\">Jones the fisherman</a> outside the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a> bank.",
+          "text": "Talk to Jones the fisherman outside the Fishing Guild bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "You need an extra rower?"
+                },
+                {
+                  "key": "2",
+                  "text": "You need a giant harpoon?"
+                },
+                {
+                  "key": "3",
+                  "text": "You need a particular sea chart?"
+                },
+                {
+                  "key": "4",
+                  "text": "Can you tell me more about the Thalassus?"
+                },
+                {
+                  "key": "2",
+                  "text": "That's horrible!"
+                },
+                {
+                  "key": "5",
+                  "text": "Actually, I'll be right back."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:11o2mno",
+          "html": "Pickpocket the <a href=\"https://runescape.wiki/w/Master_fisher\" target=\"_blank\" rel=\"noopener\">Master fisher</a> (near the guild entrance) for the sea chart. This may take several attempts.",
+          "text": "Pickpocket the Master fisher (near the guild entrance) for the sea chart. This may take several attempts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1ykhnhq",
+          "html": "Talk to the Master fisher.",
+          "text": "Talk to the Master fisher.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about the Deadliest Catch."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "preparing-a-hunt",
+      "title": "Preparing a Hunt",
+      "anchor": "Preparing_a_Hunt",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:7xw3ku",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Linza\" target=\"_blank\" rel=\"noopener\">Linza</a> who is east of the Fishing Guild in <a href=\"https://runescape.wiki/w/Hemenster\" target=\"_blank\" rel=\"noopener\">Hemenster</a>.",
+          "text": "Talk to Linza who is east of the Fishing Guild in Hemenster.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:1rum280",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Tower_of_Life_(building)\" target=\"_blank\" rel=\"noopener\">Tower of Life</a> south of <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>. (Fairy ring <b>D</b><b>J</b><b>P</b> or <a href=\"https://runescape.wiki/w/Kandarin_monastery_Teleport\" target=\"_blank\" rel=\"noopener\">Kandarin monastery Teleport</a>)",
+          "text": "Go to the Tower of Life south of Ardougne. (Fairy ring DJP or Kandarin monastery Teleport)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:k9tv2e",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/%27The_Guns%27\" target=\"_blank\" rel=\"noopener\">&#39;The Guns&#39;</a>.",
+          "text": "Talk to 'The Guns'.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:qe1f9o",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bonafido\" target=\"_blank\" rel=\"noopener\">Bonafido</a> for <a href=\"https://runescape.wiki/w/Builder%27s_tea\" target=\"_blank\" rel=\"noopener\">builder&#39;s tea</a>.",
+          "text": "Talk to Bonafido for builder's tea.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:mpnvs5",
+          "html": "East of the tower, pick the southern most of the 3 lowland heather bunch directly east of the Tower of Life. Only one is needed.",
+          "text": "East of the tower, pick the southern most of the 3 lowland heather bunch directly east of the Tower of Life. Only one is needed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:1tf40x0",
+          "html": "Use the heather on the tea.",
+          "text": "Use the heather on the tea.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-a-hunt:k9tv2e-2",
+          "html": "Talk to &#39;The Guns&#39;.",
+          "text": "Talk to 'The Guns'.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fish-finding",
+      "title": "Fish Finding",
+      "anchor": "Fish_Finding",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fish-finding:1q4m2zu",
+          "html": "Head back to the Fishing Guild and talk to Jones.",
+          "text": "Head back to the Fishing Guild and talk to Jones.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Lead the way!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fish-finding:172s28o",
+          "html": "Track the Thalassus via the wreckage. Dismiss your follower if you have one.",
+          "text": "Track the Thalassus via the wreckage. Dismiss your follower if you have one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fish-finding:172s28o:1rwpdj3",
+              "html": "The track is always the same during the same session, even after a reset.",
+              "text": "The track is always the same during the same session, even after a reset.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "fish-finding:1c24odx",
+          "html": "Optional: Each shipwreck has some loot, but you can only take 3 &quot;items&quot; in total by choose the loot option on the shipwreck.",
+          "text": "Optional: Each shipwreck has some loot, but you can only take 3 \"items\" in total by choose the loot option on the shipwreck.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fish-finding:1c24odx:187es06",
+              "html": "The remaining loot will sink when the loot window has been closed for that specific shipwreck.",
+              "text": "The remaining loot will sink when the loot window has been closed for that specific shipwreck.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-mermaids",
+      "title": "The Mermaids",
+      "anchor": "The_Mermaids",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-mermaids:kb7493",
+          "html": "Talk to the group of mermaids.",
+          "text": "Talk to the group of mermaids.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "The Thalassus has eaten Jones the mighty fisherman."
+                },
+                {
+                  "key": "1",
+                  "text": "It should, he's been hunting for decades."
+                },
+                {
+                  "key": "3",
+                  "text": "Very horrid! After he's killed the Thalassus, he'll probably come after you."
+                },
+                {
+                  "key": "2",
+                  "text": "Trust me, I'm a great adventurer, I should know."
+                },
+                {
+                  "key": "3",
+                  "text": "Did I mention Jones has a harpoon with him?"
+                },
+                {
+                  "key": "1",
+                  "text": "It's no ordinary harpoon."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "rescuing-jones",
+      "title": "Rescuing Jones",
+      "anchor": "Rescuing_Jones",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "rescuing-jones:13e6ycb",
+          "html": "Track the Thalassus again. Note that it takes a different path this time.",
+          "text": "Track the Thalassus again. Note that it takes a different path this time.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "rescuing-jones:13e6ycb:11k0w45",
+              "html": "Optional: It is possible to loot 3 items again.",
+              "text": "Optional: It is possible to loot 3 items again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "rescuing-jones:11yy9af",
+          "html": "Talk to Jones.",
+          "text": "Talk to Jones.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescuing-jones:iqwmyt",
+          "html": "Talk to Linza. She is at her smithing corner like previously.",
+          "text": "Talk to Linza. She is at her smithing corner like previously.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescuing-jones:w9teof",
+          "html": "Talk to Jones again.",
+          "text": "Talk to Jones again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "rescuing-jones:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Deadliest_Catch_reward.png?7cd3f",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Deadliest_Catch_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "70,000 experience",
+        "text": "70,000 experience",
+        "subs": []
+      },
+      {
+        "html": "26,000 experience",
+        "text": "26,000 experience",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Any loot you got from the wreckages, up to six items",
+        "text": "Any loot you got from the wreckages, up to six items",
+        "subs": []
+      },
+      {
+        "html": "Wieldable fishing nets after speaking to Jones",
+        "text": "Wieldable fishing nets after speaking to Jones",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Small_cast_net\" target=\"_blank\" rel=\"noopener\">Small cast net</a>",
+          "<a href=\"https://runescape.wiki/w/Big_cast_net\" target=\"_blank\" rel=\"noopener\">Big cast net</a>"
+        ]
+      },
+      {
+        "html": "The option to <a href=\"https://runescape.wiki/w/Thalassus#Hunting_Thalassus\" target=\"_blank\" rel=\"noopener\">hunt the Thalassus</a> 10 more times for a total of 46,660 experience",
+        "text": "The option to hunt the Thalassus 10 more times for a total of 46,660 experience",
+        "subs": []
+      },
+      {
+        "html": "8 new <a href=\"https://runescape.wiki/w/Deposit_chest\" target=\"_blank\" rel=\"noopener\">deposit boxes</a> in the following locations:",
+        "text": "8 new deposit boxes in the following locations:",
+        "subs": [
+          "North-west of <a href=\"https://runescape.wiki/w/Bedabin_Camp\" target=\"_blank\" rel=\"noopener\">Bedabin Camp</a>",
+          "South of <a href=\"https://runescape.wiki/w/Elf_Camp\" target=\"_blank\" rel=\"noopener\">Elf Camp</a>",
+          "West coast of <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a>",
+          "West coast of <a href=\"https://runescape.wiki/w/Mort_Myre_Swamp\" target=\"_blank\" rel=\"noopener\">Mort Myre Swamp</a>",
+          "Piscatoris - south of the <a href=\"https://runescape.wiki/w/Piscatoris_falconry_area\" target=\"_blank\" rel=\"noopener\">Piscatoris falconry area</a>",
+          "North-east of <a href=\"https://runescape.wiki/w/Pollnivneach\" target=\"_blank\" rel=\"noopener\">Pollnivneach</a>",
+          "South coast of <a href=\"https://runescape.wiki/w/Ape_Atoll\" target=\"_blank\" rel=\"noopener\">Ape Atoll</a>",
+          "South of <a href=\"https://runescape.wiki/w/Brimhaven\" target=\"_blank\" rel=\"noopener\">Brimhaven</a>"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Deadliest Catch",
+      "where": "Whilst hunting the sea monster"
+    },
+    {
+      "name": "Three of a Kind",
+      "where": "On the mermaids' island"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

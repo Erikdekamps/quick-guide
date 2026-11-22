@@ -13,6 +13,7 @@
     "coverage": "rm -rf coverage && QG_COVERAGE=coverage playwright test --project=app && node tests/support/coverage.js coverage",
     "icon": "node tools/icon.js",
     "designs": "playwright test --project=designs",
+    "data": "node tools/data/build.js",
     "security": "node tools/security.js",
     "bump": "node tools/version.js bump"
   },

@@ -1,0 +1,449 @@
+{
+  "format": 1,
+  "id": "you-are-it",
+  "title": "You Are It",
+  "page": "You Are It/Quick guide",
+  "rev": 37130616,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Chop the tree in the south-west of <a href=\"https://runescape.wiki/w/McGrubor%27s_Wood\" target=\"_blank\" rel=\"noopener\">McGrubor&#39;s Wood</a> near the quest start marker.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3480,
+      "lon": 2644,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/You_Are_It/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "There's No Place Like Home...",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1he8o5p",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+          "text": "Rope",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:f1t6wb",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor</a>, <a href=\"https://runescape.wiki/w/Lumbridge_lodestone\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>, <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>, <a href=\"https://runescape.wiki/w/Seer%27s_Village_lodestone\" target=\"_blank\" rel=\"noopener\">Seer&#39;s Village</a> and <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>, or teleport runes",
+          "text": "Activated Draynor, Lumbridge, Port Sarim, Seer's Village and Varrock lodestone, or teleport runes",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/You_Are_It_starting_location.png/300px-You_Are_It_starting_location.png?d9822",
+          "width": 300,
+          "height": 162,
+          "alt": "",
+          "caption": "The start location of the quest",
+          "href": "https://runescape.wiki/w/File:You_Are_It_starting_location.png"
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1hczi8k",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> and run north-west to <a href=\"https://runescape.wiki/w/McGrubor%27s_Wood\" target=\"_blank\" rel=\"noopener\">McGrubor&#39;s Wood</a> (fairy ring <b>A</b><b>L</b><b>S</b>).",
+          "text": "Teleport to Seers' Village and run north-west to McGrubor's Wood (fairy ring ALS).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:33gcwa",
+          "html": "Enter the woods through the <a href=\"https://runescape.wiki/w/Loose_Railing_(McGrubor%27s_Wood)\" target=\"_blank\" rel=\"noopener\">Loose railing</a>.",
+          "text": "Enter the woods through the Loose railing.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:c8r606",
+          "html": "Attempt to chop the tree 14 paces west and 6 paces south of the crate. (Slightly different colour, and near the quest marker on the minimap)",
+          "text": "Attempt to chop the tree 14 paces west and 6 paces south of the crate. (Slightly different colour, and near the quest marker on the minimap)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:uhbi4g",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Mysterious_clue_scroll_(You_Are_It)\" target=\"_blank\" rel=\"noopener\">mysterious clue scroll</a>.",
+          "text": "Read the mysterious clue scroll.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:hozibc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a> in the library of <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">Varrock Palace</a>.",
+          "text": "Talk to Reldo in the library of Varrock Palace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:kobmws",
+          "html": "Read the mysterious clue scroll again.",
+          "text": "Read the mysterious clue scroll again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "treasure-trail",
+      "title": "Treasure trail",
+      "anchor": "Treasure_trail",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/You_Are_It_mysterious_clue_dig_location.png/250px-You_Are_It_mysterious_clue_dig_location.png?c105e",
+          "width": 250,
+          "height": 141,
+          "alt": "",
+          "caption": "The dig location in Lumbridge cemetery.",
+          "href": "https://runescape.wiki/w/File:You_Are_It_mysterious_clue_dig_location.png"
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:8qgumv",
+          "html": "Stand in the room with <a href=\"https://runescape.wiki/w/Duke_Horacio\" target=\"_blank\" rel=\"noopener\">Duke Horacio</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+          "text": "Stand in the room with Duke Horacio on the 1st floor (UK) / 2nd floor (US) of Lumbridge Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:10v42az",
+          "html": "Remove all worn items, then perform the <a href=\"https://runescape.wiki/w/Cry\" target=\"_blank\" rel=\"noopener\">Cry</a> and <a href=\"https://runescape.wiki/w/Panic\" target=\"_blank\" rel=\"noopener\">Panic</a> emotes (in that order). You should see a cutscene if it works.",
+          "text": "Remove all worn items, then perform the Cry and Panic emotes (in that order). You should see a cutscene if it works.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:1q5ybna",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Lumbridge_cemetery\" target=\"_blank\" rel=\"noopener\">Lumbridge cemetery</a>. Using the mysterious clue&#39;s dig option, dig one square to the north of the largest tombstone along the southern fence. You will get a <a href=\"https://runescape.wiki/w/Locked_casket\" target=\"_blank\" rel=\"noopener\">locked casket</a>. You must complete the cutscene in order to continue.",
+          "text": "Go to Lumbridge cemetery. Using the mysterious clue's dig option, dig one square to the north of the largest tombstone along the southern fence. You will get a locked casket. You must complete the cutscene in order to continue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:b66bdm",
+          "html": "<i>Enter</i> the <a href=\"https://runescape.wiki/w/Portal_(player-owned_house)\" target=\"_blank\" rel=\"noopener\">POH portal</a> in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a> to trigger a cutscene.",
+          "text": "Enter the POH portal in Rimmington to trigger a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:1p92l8y",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Draynor\" target=\"_blank\" rel=\"noopener\">Draynor</a>, run into the <a href=\"https://runescape.wiki/w/Draynor_Manor\" target=\"_blank\" rel=\"noopener\">Draynor Manor</a>, and head into the first door to the west after entering the building.",
+          "text": "Teleport to Draynor, run into the Draynor Manor, and head into the first door to the west after entering the building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:dgd0b2",
+          "html": "<i>Search</i> the bookcase in the north-western part of the room to find the <a href=\"https://runescape.wiki/w/Casket_key\" target=\"_blank\" rel=\"noopener\">casket key</a>.",
+          "text": "Search the bookcase in the north-western part of the room to find the casket key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "treasure-trail:44ikkv",
+          "html": "Open the <a href=\"https://runescape.wiki/w/Locked_casket\" target=\"_blank\" rel=\"noopener\">locked casket</a> to obtain an <a href=\"https://runescape.wiki/w/Old_necklace\" target=\"_blank\" rel=\"noopener\">old necklace</a>.",
+          "text": "Open the locked casket to obtain an old necklace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "mysterious-hole",
+      "title": "Mysterious hole",
+      "anchor": "Mysterious_hole",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mysterious-hole:9uw5cw",
+          "html": "Take a rope, and go back into McGrubor&#39;s Wood. Enter the railing shortcut and stand two squares south of the crate (which is south of the building).",
+          "text": "Take a rope, and go back into McGrubor's Wood. Enter the railing shortcut and stand two squares south of the crate (which is south of the building).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:11zl8lv",
+          "html": "Dig via the old necklace.",
+          "text": "Dig via the old necklace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:1lqt00y",
+          "html": "Inspect and then descend into the <a href=\"https://runescape.wiki/w/Mysterious_Hole\" target=\"_blank\" rel=\"noopener\">Mysterious Hole</a>.",
+          "text": "Inspect and then descend into the Mysterious Hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:15blanv",
+          "html": "Follow the path to the end and investigate the coffin for a cutscene.",
+          "text": "Follow the path to the end and investigate the coffin for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:1f4sxxh",
+          "html": "Talk to the double agent.",
+          "text": "Talk to the double agent.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What happens next?"
+                },
+                {
+                  "key": "4",
+                  "text": "I'm going to look around."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:1l7puo3",
+          "html": "Investigate the mantle to the east for a cutscene.",
+          "text": "Investigate the mantle to the east for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "6",
+                  "text": "The Stone"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:oe451s",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Uri\" target=\"_blank\" rel=\"noopener\">Uri</a>.",
+          "text": "Talk to Uri.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-hole:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/You_Are_It_reward.png?828cf",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:You_Are_It_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Sealed_clue_scroll_(easy)\" target=\"_blank\" rel=\"noopener\">Sealed clue scroll (easy)</a>",
+        "text": "Sealed clue scroll (easy)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Sealed_clue_scroll_(medium)\" target=\"_blank\" rel=\"noopener\">Sealed clue scroll (medium)</a>",
+        "text": "Sealed clue scroll (medium)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Sealed_clue_scroll_(hard)\" target=\"_blank\" rel=\"noopener\">Sealed clue scroll (hard)</a>",
+        "text": "Sealed clue scroll (hard)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Puzzle_casket\" target=\"_blank\" rel=\"noopener\">Puzzle casket</a>",
+        "text": "Puzzle casket",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Old_necklace\" target=\"_blank\" rel=\"noopener\">Old necklace</a>, which you can use to find jade trinkets around Gielinor if over level 50 <a href=\"https://runescape.wiki/w/Dungeoneering\" target=\"_blank\" rel=\"noopener\">Dungeoneering</a>. Each piece obtained grants 10,000 Dungeoneering experience; if the exact location is known it is possible to obtain these without the Dungeoneering requirement. It is recommended to keep it since it is used in <a href=\"https://runescape.wiki/w/Desperate_Times\" target=\"_blank\" rel=\"noopener\">Desperate Times</a>.",
+        "text": "Old necklace, which you can use to find jade trinkets around Gielinor if over level 50 Dungeoneering. Each piece obtained grants 10,000 Dungeoneering experience; if the exact location is known it is possible to obtain these without the Dungeoneering requirement. It is recommended to keep it since it is used in Desperate Times.",
+        "subs": []
+      },
+      {
+        "html": "Drakan bloodveld <a href=\"https://runescape.wiki/w/Puzzle_box\" target=\"_blank\" rel=\"noopener\">puzzle box</a> image.",
+        "text": "Drakan bloodveld puzzle box image.",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Search for <a href=\"https://runescape.wiki/w/Necklace_trinket\" target=\"_blank\" rel=\"noopener\">necklace trinkets</a> scattered around Gielinor. Combining them creates the <a href=\"https://runescape.wiki/w/Necklace_of_Charos\" target=\"_blank\" rel=\"noopener\">necklace of Charos</a>",
+            "text": "Search for necklace trinkets scattered around Gielinor. Combining them creates the necklace of Charos",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Cursed Crypt",
+      "where": "in Charos' tomb"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "format": 1,
+  "id": "witchs-house",
+  "title": "Witch's House",
+  "page": "Witch's House/Quick guide",
+  "rev": 36836495,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Harvey\" target=\"_blank\" rel=\"noopener\">Harvey</a>, the crying boy west of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3355,
+      "lon": 2924,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Witch's_House/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Witch's experiment, a shapeshifting enemy with four forms that must be defeated back-to-back:",
+        "name": "Witch's experiment, a shapeshifting enemy with four forms that must be defeated back-to-back:",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:qmu332",
+          "html": "<a href=\"https://runescape.wiki/w/Leather_gloves\" target=\"_blank\" rel=\"noopener\">Leather gloves</a> (Can be obtained during the quest)",
+          "text": "Leather gloves (Can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1q25mtq",
+          "html": "<a href=\"https://runescape.wiki/w/Cheese\" target=\"_blank\" rel=\"noopener\">Cheese</a> (Can be obtained during the quest)",
+          "text": "Cheese (Can be obtained during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:hvi1ki",
+          "html": "Combat gear (Magic equipment and <a href=\"https://runescape.wiki/w/Water_spell\" target=\"_blank\" rel=\"noopener\">water spells</a> work best) and food for low level players",
+          "text": "Combat gear (Magic equipment and water spells work best) and food for low level players",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Start point of the quest",
+          "lat": 3355,
+          "lon": 2925,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2920.5,
+                      3350.5
+                    ],
+                    [
+                      2920.5,
+                      3360.5
+                    ],
+                    [
+                      2930.5,
+                      3360.5
+                    ],
+                    [
+                      2930.5,
+                      3350.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Witch's_House/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:2k2uf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Harvey\" target=\"_blank\" rel=\"noopener\">Harvey</a> standing by the long garden just west of Falador, just west of the crumbling wall which requires level 5 Agility to cross.",
+          "text": "Talk to Harvey standing by the long garden just west of Falador, just west of the crumbling wall which requires level 5 Agility to cross.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's the matter?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "entering-the-house",
+      "title": "Entering the house",
+      "anchor": "Entering_the_house",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "entering-the-house:1tvijn4",
+          "html": "Go to the front door of the house.",
+          "text": "Go to the front door of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:a86ey6",
+          "html": "<i>Look under</i> the northern <a href=\"https://runescape.wiki/w/Potted_plant_(Witch%27s_House)\" target=\"_blank\" rel=\"noopener\">potted plant</a> for the <a href=\"https://runescape.wiki/w/House_key\" target=\"_blank\" rel=\"noopener\">house key</a> and enter.",
+          "text": "Look under the northern potted plant for the house key and enter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:lzpk6n",
+          "html": "Climb down the stairs into the basement.",
+          "text": "Climb down the stairs into the basement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:412er3",
+          "html": "If you didn&#39;t bring leather gloves, search the nearby crates for a pair. You may have to search several times.",
+          "text": "If you didn't bring leather gloves, search the nearby crates for a pair. You may have to search several times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:su6efi",
+          "html": "While wearing leather gloves, enter the gate.",
+          "text": "While wearing leather gloves, enter the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:kvs5lm",
+          "html": "Open and search the <a href=\"https://runescape.wiki/w/Cupboard_(Witch%27s_House)\" target=\"_blank\" rel=\"noopener\">cupboard</a>, straight ahead on the western wall for a <a href=\"https://runescape.wiki/w/Magnet_(Witch%27s_House)\" target=\"_blank\" rel=\"noopener\">magnet</a>.",
+          "text": "Open and search the cupboard, straight ahead on the western wall for a magnet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:1npf5kw",
+          "html": "Go back up the stairs and grab the <a href=\"https://runescape.wiki/w/Cheese\" target=\"_blank\" rel=\"noopener\">cheese</a> off of the table.",
+          "text": "Go back up the stairs and grab the cheese off of the table.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:1vtrxoi",
+          "html": "Go to the room located on the south end of the house.",
+          "text": "Go to the room located on the south end of the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:1oxrw3n",
+          "html": "Right-Click <i>Use</i> cheese on the mouse hole on the eastern wall. (If you accidentally eat it, it will respawn on the table.)",
+          "text": "Right-Click Use cheese on the mouse hole on the eastern wall. (If you accidentally eat it, it will respawn on the table.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "entering-the-house:giv8rm",
+          "html": "Use the magnet on the mouse.",
+          "text": "Use the magnet on the mouse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "retrieving-the-ball",
+      "title": "Retrieving the ball",
+      "anchor": "Retrieving_the_ball",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "retrieving-the-ball:lrc4h9",
+          "html": "Exit the door and make your way to the <a href=\"https://runescape.wiki/w/Fountain_(Witch%27s_House)\" target=\"_blank\" rel=\"noopener\">fountain</a>, being careful not to be seen by the witch.",
+          "text": "Exit the door and make your way to the fountain, being careful not to be seen by the witch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "retrieving-the-ball:lrc4h9:1wm6r6l",
+              "html": "Strategically walk behind the shrubs to hide, being sure to stand in the middle space of each shrub. <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">Surge</a> can be used; timing is key.",
+              "text": "Strategically walk behind the shrubs to hide, being sure to stand in the middle space of each shrub. Surge can be used; timing is key.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-ball:zkjmqo",
+          "html": "<i>Check fountain</i> for a <a href=\"https://runescape.wiki/w/Shed_key_(Witch%27s_House)\" target=\"_blank\" rel=\"noopener\">shed key</a>.",
+          "text": "Check fountain for a shed key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-ball:ri9b7r",
+          "html": "Return east down the shrubs to the shed, being careful not to be caught by the witch, and open the door.",
+          "text": "Return east down the shrubs to the shed, being careful not to be caught by the witch, and open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-ball:hl12o3",
+          "html": "Try to take the <a href=\"https://runescape.wiki/w/Ball\" target=\"_blank\" rel=\"noopener\">ball</a>, the experiment will appear and attack you.",
+          "text": "Try to take the ball, the experiment will appear and attack you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "retrieving-the-ball:hl12o3:fr4taa",
+              "html": "Don&#39;t forget to actually take the ball after the experiment has been killed.",
+              "text": "Don't forget to actually take the ball after the experiment has been killed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-ball:aw7yrq",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Witch%27s_experiment\" target=\"_blank\" rel=\"noopener\">Witch&#39;s experiment</a> four times.",
+          "text": "Kill the Witch's experiment four times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "retrieving-the-ball:aw7yrq:1saxkj",
+              "html": "(All forms of the experiment/shapeshifter are weak to <a href=\"https://runescape.wiki/w/Water_Spell\" target=\"_blank\" rel=\"noopener\">Water Spells</a>).",
+              "text": "(All forms of the experiment/shapeshifter are weak to Water Spells).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1gyhw7c",
+          "html": "Take the ball.",
+          "text": "Take the ball.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1gvoxns",
+          "html": "Return and talk to Harvey (getting caught teleports you outside, you&#39;ll keep the ball)",
+          "text": "Return and talk to Harvey (getting caught teleports you outside, you'll keep the ball)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Witch%27s_House_reward.png?6e9c8",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Witch%27s_House_reward.png"
+    },
+    "items": [
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "4 quest points",
+        "subs": []
+      },
+      {
+        "html": "6,325 experience",
+        "text": "6,325 experience",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Witch%27s_House_(achievement)\" target=\"_blank\" rel=\"noopener\">Witch&#39;s House</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Grim_Tales/Quick_guide\" target=\"_blank\" rel=\"noopener\">Grim Tales</a>"
+      ]
+    }
+  ]
+}

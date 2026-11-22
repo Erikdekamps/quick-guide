@@ -1,0 +1,248 @@
+{
+  "format": 1,
+  "id": "flag-fall-miniquest",
+  "title": "Flag Fall (miniquest)",
+  "page": "Flag Fall (miniquest)/Quick guide",
+  "rev": 36844477,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak with <a href=\"https://runescape.wiki/w/Boni_(rewards)\" target=\"_blank\" rel=\"noopener\">Boni</a> at the <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a> market. (<a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a>, south-east of the <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">Port Sarim pub</a>, can sail you to Waiko in the <a href=\"https://runescape.wiki/w/Arc\" target=\"_blank\" rel=\"noopener\">Arc</a> region of the <a href=\"https://runescape.wiki/w/Wushanko_Isles\" target=\"_blank\" rel=\"noopener\">Wushanko Isles</a>.)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11616,
+      "lon": 1827,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Flag_Fall_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1ve76s8",
+          "html": "0-1,000+ <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a> (for supplies)",
+          "text": "0-1,000+ chimes (for supplies)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1gqgeyi",
+          "html": "5 <a href=\"https://runescape.wiki/w/Driftwood\" target=\"_blank\" rel=\"noopener\">driftwood</a> (obtained during the miniquest)",
+          "text": "5 driftwood (obtained during the miniquest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "a-quest-for-driftwood",
+      "title": "A quest for driftwood",
+      "anchor": "A_quest_for_driftwood",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:1b4tdwl",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Boni\" target=\"_blank\" rel=\"noopener\">Boni</a> at the <a href=\"https://runescape.wiki/w/Waiko\" target=\"_blank\" rel=\"noopener\">Waiko</a> market.",
+          "text": "Speak to Boni at the Waiko market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do I claim an uncharted isle?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-quest-for-driftwood:1b4tdwl:9tlqkm",
+              "html": "If you have just completed <a href=\"https://runescape.wiki/w/Impressing_the_Locals\" target=\"_blank\" rel=\"noopener\">Impressing the Locals</a> you may need to relog for the chat option to show up.",
+              "text": "If you have just completed Impressing the Locals you may need to relog for the chat option to show up.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:eqt9v",
+          "html": "Buy at least 5 supplies from <a href=\"https://runescape.wiki/w/Rosie_(supplies)\" target=\"_blank\" rel=\"noopener\">Rosie</a> in the marketplace, or take them from the <a href=\"https://runescape.wiki/w/Rosie%27s_supplies\" target=\"_blank\" rel=\"noopener\">crate</a> next to her.",
+          "text": "Buy at least 5 supplies from Rosie in the marketplace, or take them from the crate next to her.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:yi5kq9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Quartermaster_Gully\" target=\"_blank\" rel=\"noopener\">Quartermaster Gully</a> to charter your ship on a voyage.",
+          "text": "Talk to Quartermaster Gully to charter your ship on a voyage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "a-quest-for-driftwood:yi5kq9:y64ld2",
+              "html": "A trip to a Short Junket costs 5 supplies per voyage.",
+              "text": "A trip to a Short Junket costs 5 supplies per voyage.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:tpx4w1",
+          "html": "Collect all the driftwood (if any) from the island.",
+          "text": "Collect all the driftwood (if any) from the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:f843ps",
+          "html": "Repeat this process until 5 driftwood has been gathered.",
+          "text": "Repeat this process until 5 driftwood has been gathered.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:169axig",
+          "html": "Return to Boni.",
+          "text": "Return to Boni.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do I claim an uncharted isle?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "a-quest-for-driftwood:1eh5umu",
+          "html": "Miniquest complete!",
+          "text": "Miniquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Flag_Fall_%28miniquest%29_reward.png?2734d",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Flag_Fall_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "500 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "500 chimes",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">Taijitu</a>",
+        "text": "2 Taijitu",
+        "subs": []
+      },
+      {
+        "html": "Ability to claim an <a href=\"https://runescape.wiki/w/Uncharted_isle\" target=\"_blank\" rel=\"noopener\">uncharted isle</a>",
+        "text": "Ability to claim an uncharted isle",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Claim_island_flag\" target=\"_blank\" rel=\"noopener\">Claim island flag</a> in <a href=\"https://runescape.wiki/w/Waiko_reward_shop\" target=\"_blank\" rel=\"noopener\">Waiko reward shop</a>",
+        "text": "Claim island flag in Waiko reward shop",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    }
+  ]
+}

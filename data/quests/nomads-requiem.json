@@ -1,0 +1,1207 @@
+{
+  "format": 1,
+  "id": "nomads-requiem",
+  "title": "Nomad's Requiem",
+  "page": "Nomad's Requiem/Quick guide",
+  "rev": 37170826,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Zimberfizz\" target=\"_blank\" rel=\"noopener\">Zimberfizz</a> at <a href=\"https://runescape.wiki/w/Soul_Wars\" target=\"_blank\" rel=\"noopener\">Soul Wars</a> camp.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3178,
+      "lon": 1888,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Nomad's_Requiem/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "King's Ransom",
+        "depth": 1
+      },
+      {
+        "text": "Holy Grail",
+        "depth": 2
+      },
+      {
+        "text": "Merlin's Crystal",
+        "depth": 3
+      },
+      {
+        "text": "Murder Mystery",
+        "depth": 2
+      },
+      {
+        "text": "One Small Favour",
+        "depth": 2
+      },
+      {
+        "text": "Shilo Village",
+        "depth": 3
+      },
+      {
+        "text": "Jungle Potion",
+        "depth": 4
+      },
+      {
+        "text": "Complete the Knight Waves in Camelot",
+        "depth": 1
+      },
+      {
+        "text": "Complete the Soul Wars tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Hunter",
+        "level": 65,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 75,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 66,
+        "note": ""
+      },
+      {
+        "skill": "Prayer",
+        "level": 70,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Decaying avatar (level 98)",
+        "name": "Decaying avatar",
+        "count": null,
+        "level": "98",
+        "note": ""
+      },
+      {
+        "text": "Nomad (level 699)",
+        "name": "Nomad",
+        "count": null,
+        "level": "699",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1gybr64",
+          "html": "A magic weapon to cast a <a href=\"https://runescape.wiki/w/Fire_spells\" target=\"_blank\" rel=\"noopener\">fire spell</a>",
+          "text": "A magic weapon to cast a fire spell",
+          "alternatives": []
+        },
+        {
+          "id": "req:gwfsf5",
+          "html": "<a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">Air runes</a> and <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire runes</a> for the fire spell or runes to cast a fire-aligned <a href=\"https://runescape.wiki/w/Ancient_Magicks\" target=\"_blank\" rel=\"noopener\">Ancient Magicks</a> spell. A staff alone will not work",
+          "text": "Air runes and fire runes for the fire spell or runes to cast a fire-aligned Ancient Magicks spell. A staff alone will not work",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1enwra0",
+          "html": "76 <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a> highly recommended, Nomad uses an attack that deals exactly 7,500 damage. If you have 71 <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, the <a href=\"https://runescape.wiki/w/Font_of_Life\" target=\"_blank\" rel=\"noopener\">Font of Life</a> relic power can be harnessed to boost the max <a href=\"https://runescape.wiki/w/Life_points\" target=\"_blank\" rel=\"noopener\">life points</a> by 500.",
+          "text": "76 Constitution highly recommended, Nomad uses an attack that deals exactly 7,500 damage. If you have 71 Constitution, the Font of Life relic power can be harnessed to boost the max life points by 500.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:fkrw2y",
+          "html": "75 <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a> or higher, unless you&#39;re particularly good at combat",
+          "text": "75 combat level or higher, unless you're particularly good at combat",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pkhlvi",
+          "html": "Combat equipment, food, and potions",
+          "text": "Combat equipment, food, and potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:d97a3q",
+          "html": "<a href=\"https://runescape.wiki/w/Beast_of_Burden\" target=\"_blank\" rel=\"noopener\">Beast of Burden</a> or healing <a href=\"https://runescape.wiki/w/Summoning_familiars\" target=\"_blank\" rel=\"noopener\">summoning familiar</a>",
+          "text": "Beast of Burden or healing summoning familiar",
+          "alternatives": []
+        },
+        {
+          "id": "rec:118rxio",
+          "html": "Standard prayer book active, or <a href=\"https://runescape.wiki/w/Restore_potion\" target=\"_blank\" rel=\"noopener\">restore potions</a> or <a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">super restores</a>",
+          "text": "Standard prayer book active, or restore potions or super restores",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1onnj70",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a> and run south-east into the <a href=\"https://runescape.wiki/w/Soul_Wars_portal\" target=\"_blank\" rel=\"noopener\">Soul Wars portal</a>.",
+          "text": "Teleport to Edgeville and run south-east into the Soul Wars portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:lvg0c3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zimberfizz\" target=\"_blank\" rel=\"noopener\">Zimberfizz</a> the imp in the lobby.",
+          "text": "Talk to Zimberfizz the imp in the lobby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:lvg0c3:1oz09qy",
+              "html": "Note: if you haven&#39;t done the Soul Wars tutorial you won&#39;t be able to accept the quest.",
+              "text": "Note: if you haven't done the Soul Wars tutorial you won't be able to accept the quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:iva5v5",
+          "html": "Investigate <a href=\"https://runescape.wiki/w/Nomad\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s</a> tent and watch the cutscene.",
+          "text": "Investigate Nomad's tent and watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-hidden-temple",
+      "title": "The hidden temple",
+      "anchor": "The_hidden_temple",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-hidden-temple:1io3po3",
+          "html": "Talk to Nomad.",
+          "text": "Talk to Nomad.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Zimberfizz sent me here to see where you went."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-temple:ch27pp",
+          "html": "Go up the ladder.",
+          "text": "Go up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-temple:idqyge",
+          "html": "Talk to Zimberfizz.",
+          "text": "Talk to Zimberfizz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Nomad's Requiem."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-hidden-temple:bezfbm",
+          "html": "Investigate the tent.",
+          "text": "Investigate the tent.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "disabling-the-power",
+      "title": "Disabling the power",
+      "anchor": "Disabling_the_power",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Doorway one"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Water"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Nomad%27s_Requiem_solution.png/300px-Nomad%27s_Requiem_solution.png?95e93",
+          "width": 300,
+          "height": 195,
+          "alt": "",
+          "caption": "One possible solution. (Click to enlarge)",
+          "href": "https://runescape.wiki/w/File:Nomad%27s_Requiem_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:me82kn",
+          "html": "Enter the south-western doorway.",
+          "text": "Enter the south-western doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:14q808a",
+          "html": "Climb up the south-eastern ladder and <i>pull</i> the north lever.",
+          "text": "Climb up the south-eastern ladder and pull the north lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:klos7o",
+          "html": "Climb up the north-eastern ladder and <i>move</i> both pillars over the drains.",
+          "text": "Climb up the north-eastern ladder and move both pillars over the drains.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:fb85tz",
+          "html": "Climb down the ladder and make sure that water is flowing through the southern channel. If it is not, operate the levers until it is. The symbol at the top of a pillar represents the direction of water flow through the pillar.",
+          "text": "Climb down the ladder and make sure that water is flowing through the southern channel. If it is not, operate the levers until it is. The symbol at the top of a pillar represents the direction of water flow through the pillar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:q8jv6i",
+          "html": "Climb down the south-eastern ladder and complete the puzzle. A solution is pictured to the right and another solution is right below. Click on the statues in the following order:",
+          "text": "Climb down the south-eastern ladder and complete the puzzle. A solution is pictured to the right and another solution is right below. Click on the statues in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:2g44oj",
+              "html": "Centre, west statue",
+              "text": "Centre, west statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:qd6g01",
+              "html": "North, west statue",
+              "text": "North, west statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:cw2rxh",
+              "html": "North, centre statue",
+              "text": "North, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:1hjhaz3",
+              "html": "North, east statue",
+              "text": "North, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:l2okbx",
+              "html": "Centre, east statue",
+              "text": "Centre, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:h7w3bl",
+              "html": "South, east statue",
+              "text": "South, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:3051l3",
+              "html": "South, centre statue",
+              "text": "South, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:15jm0qr",
+              "html": "Centre, centre statue",
+              "text": "Centre, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:cw2rxh-2",
+              "html": "North, centre statue",
+              "text": "North, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:1hjhaz3-2",
+              "html": "North, east statue",
+              "text": "North, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:l2okbx-2",
+              "html": "Centre, east statue",
+              "text": "Centre, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:h7w3bl-2",
+              "html": "South, east statue",
+              "text": "South, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:3051l3-2",
+              "html": "South, centre statue",
+              "text": "South, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:c1g8n3",
+              "html": "South, west statue",
+              "text": "South, west statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:2g44oj-2",
+              "html": "Centre, west statue",
+              "text": "Centre, west statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:qd6g01-2",
+              "html": "North, west statue",
+              "text": "North, west statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:cw2rxh-3",
+              "html": "North, centre statue",
+              "text": "North, centre statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:1hjhaz3-3",
+              "html": "North, east statue",
+              "text": "North, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:l2okbx-3",
+              "html": "Centre, east statue",
+              "text": "Centre, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "disabling-the-power:q8jv6i:h7w3bl-3",
+              "html": "South, east statue",
+              "text": "South, east statue",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Elementals"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_lure_locations.png/300px-Elemental_lure_locations.png?4b0c8",
+          "width": 300,
+          "height": 180,
+          "alt": "",
+          "caption": "Recommended spots to drop the fuel. (Click to enlarge)",
+          "href": "https://runescape.wiki/w/File:Elemental_lure_locations.png"
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:de8246",
+          "html": "Climb up the ladder.",
+          "text": "Climb up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1vqwxat",
+          "html": "<i>Mine</i> the rubble at the tunnel at the end of the eastern channel",
+          "text": "Mine the rubble at the tunnel at the end of the eastern channel",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1qcw2kz",
+          "html": "Pull the southern lever until water flows to the new tunnel.",
+          "text": "Pull the southern lever until water flows to the new tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:98wdge",
+          "html": "Climb down the ladder to the bottom floor.",
+          "text": "Climb down the ladder to the bottom floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:4pbtqd",
+          "html": "Enter the northern doorway,",
+          "text": "Enter the northern doorway,",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1helnp9",
+          "html": "Enter the south-eastern doorway.",
+          "text": "Enter the south-eastern doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:14uo4bu",
+          "html": "There should be a waterfall in this room. If water is only dripping, the levers were not operated properly.",
+          "text": "There should be a waterfall in this room. If water is only dripping, the levers were not operated properly.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:b9xqji",
+          "html": "Take some <a href=\"https://runescape.wiki/w/Elemental_fuel\" target=\"_blank\" rel=\"noopener\">Elemental fuel</a> out of the <a href=\"https://runescape.wiki/w/Fuel_hopper\" target=\"_blank\" rel=\"noopener\">Fuel hopper</a> located at the north-eastern or south-eastern corner of the room (take 6 if following the solution pictured to the right).",
+          "text": "Take some Elemental fuel out of the Fuel hopper located at the north-eastern or south-eastern corner of the room (take 6 if following the solution pictured to the right).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1cbnv7c",
+          "html": "Lure an <a href=\"https://runescape.wiki/w/Elemental_creature\" target=\"_blank\" rel=\"noopener\">Elemental creature</a> out of the strange device and into the waterfall by <i>placing</i> the fuel on the floor.",
+          "text": "Lure an Elemental creature out of the strange device and into the waterfall by placing the fuel on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1gfftjm",
+          "html": "Do the above step a total of three times.",
+          "text": "Do the above step a total of three times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:4cjehm",
+          "html": "Exit the room through the northern doorway.",
+          "text": "Exit the room through the northern doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Doorway two"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Vines"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "disabling-the-power:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "disabling-the-power:bring:o3g95i",
+              "html": "Weapons",
+              "text": "Weapons"
+            },
+            {
+              "id": "disabling-the-power:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1lqdlsx",
+          "html": "Enter the arcane doorway and then enter the western doorway.",
+          "text": "Enter the arcane doorway and then enter the western doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:qv5pfb",
+          "html": "Attempt to destroy a root surrounding the strange device.",
+          "text": "Attempt to destroy a root surrounding the strange device.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1qk8t8i",
+          "html": "Follow the vines on the floor and destroy four lone roots to which the vines lead.",
+          "text": "Follow the vines on the floor and destroy four lone roots to which the vines lead.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:17xv9a4",
+          "html": "Go back to the strange device.",
+          "text": "Go back to the strange device.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:hyo7lh",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Decaying_avatar\" target=\"_blank\" rel=\"noopener\">Decaying avatar</a>. Destroy the roots when they appear at the corners of the room. Strategies can be found <a href=\"https://runescape.wiki/w/Decaying_avatar#Strategy\" target=\"_blank\" rel=\"noopener\">here</a>.",
+          "text": "Kill the Decaying avatar. Destroy the roots when they appear at the corners of the room. Strategies can be found here.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:sczfpe",
+          "html": "Exit the room through the eastern doorway.",
+          "text": "Exit the room through the eastern doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Smoke"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "disabling-the-power:bring:mn986g",
+              "html": "Magic weapon",
+              "text": "Magic weapon"
+            },
+            {
+              "id": "disabling-the-power:bring:176osns",
+              "html": "<a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">Fire runes</a>",
+              "text": "Fire runes"
+            },
+            {
+              "id": "disabling-the-power:bring:231r3u",
+              "html": "<a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">Air runes</a>",
+              "text": "Air runes"
+            },
+            {
+              "id": "disabling-the-power:bring:ecr0hh",
+              "html": "5 free inventory spaces",
+              "text": "5 free inventory spaces"
+            },
+            {
+              "id": "disabling-the-power:bring:1dl4dj",
+              "html": "Restore potions or standard prayers",
+              "text": "Restore potions or standard prayers"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:8td9xs",
+          "html": "Talk to the knight near the eastern doorway.",
+          "text": "Talk to the knight near the eastern doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:4fd4ui",
+          "html": "Before entering the next room, consider turning on <a href=\"https://runescape.wiki/w/Piety\" target=\"_blank\" rel=\"noopener\">Piety</a> to avoid constant damage and stat reduction or bringing a <a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">super restore</a> potion to keep your magic level high enough to cast a fire spell. The <a href=\"https://runescape.wiki/w/Corruption_beast\" target=\"_blank\" rel=\"noopener\">Corruption beasts</a> inside restore prayer upon death.",
+          "text": "Before entering the next room, consider turning on Piety to avoid constant damage and stat reduction or bringing a super restore potion to keep your magic level high enough to cast a fire spell. The Corruption beasts inside restore prayer upon death.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1p1l7yx",
+          "html": "Enter the eastern doorway.",
+          "text": "Enter the eastern doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:bb0jks",
+          "html": "Pick up five <a href=\"https://runescape.wiki/w/Stone_slab_(Nomad%27s_Requiem)\" target=\"_blank\" rel=\"noopener\">stone slabs</a> (<i>Take-slab</i> from the rubble piles all around the room).",
+          "text": "Pick up five stone slabs (Take-slab from the rubble piles all around the room).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:8k5pbr",
+          "html": "<i>Place</i> the stone slabs to complete and cross the bridge across the central body of water.",
+          "text": "Place the stone slabs to complete and cross the bridge across the central body of water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:1xuzx1k",
+          "html": "Ignite the barrels with a magic weapon equipped and a fire spell active (75 Magic required to ignite the barrels).",
+          "text": "Ignite the barrels with a magic weapon equipped and a fire spell active (75 Magic required to ignite the barrels).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disabling-the-power:b68r1d",
+          "html": "Cross the bridge and exit the room through the western doorway.",
+          "text": "Cross the bridge and exit the room through the western doorway.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "nomad",
+      "title": "Nomad",
+      "anchor": "Nomad",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "nomad:cftdy5",
+          "html": "Make any necessary preparations to fight Nomad. You can teleport out, and bank to prepare for the fight.",
+          "text": "Make any necessary preparations to fight Nomad. You can teleport out, and bank to prepare for the fight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "nomad:1rw4rnz",
+          "html": "To return to the area, teleport to Edgeville, enter into the Soul Wars portal, and investigate the tent again.",
+          "text": "To return to the area, teleport to Edgeville, enter into the Soul Wars portal, and investigate the tent again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "nomad:fz4fnw",
+          "html": "Enter the arcane doorway at the northern wall then the arcane doorway on the inner southern wall.",
+          "text": "Enter the arcane doorway at the northern wall then the arcane doorway on the inner southern wall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "nomad:nc4m3m",
+          "html": "Kill Nomad. (Deathtouched darts work)",
+          "text": "Kill Nomad. (Deathtouched darts work)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "nomad:ki9uhn",
+          "html": "Strategies can be found <a href=\"https://runescape.wiki/w/Nomad/Strategies\" target=\"_blank\" rel=\"noopener\">here</a>. Recommended if you haven&#39;t fought him before.",
+          "text": "Strategies can be found here. Recommended if you haven't fought him before.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:1czwaan",
+              "html": "If you are a high combat level (130+) and have tier 80 gear or higher, you will likely kill him easily without worrying about his final stun ability. Bring high-healing food like shark or sea turtle and just keep attacking him and healing while standing directly beside him.",
+              "text": "If you are a high combat level (130+) and have tier 80 gear or higher, you will likely kill him easily without worrying about his final stun ability. Bring high-healing food like shark or sea turtle and just keep attacking him and healing while standing directly beside him.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:x46gax",
+              "html": "In short; bombs laid on the floor deal 4,000 damage when stepped on.",
+              "text": "In short; bombs laid on the floor deal 4,000 damage when stepped on.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "nomad:ki9uhn:x46gax:6to40n",
+                  "html": "Avoid them by walking DIRECTLY south, he does not place one there.",
+                  "text": "Avoid them by walking DIRECTLY south, he does not place one there.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:1uh1lrs",
+              "html": "&quot;You cannot hide from my wrath&quot; deals 7,500 damage. Either eat above that or hide behind a pillar.",
+              "text": "\"You cannot hide from my wrath\" deals 7,500 damage. Either eat above that or hide behind a pillar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:1g58ryx",
+              "html": "If he summons clones, the real one attacks you last, otherwise kill them all.",
+              "text": "If he summons clones, the real one attacks you last, otherwise kill them all.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "nomad:ki9uhn:1g58ryx:1cd62w5",
+                  "html": "An alternative is hide from them, after about 90 seconds the three fake ones will despawn. Make sure to re-attack him quickly after this so he does not reset, he does not use &quot;Face me!&quot; while clones are present.",
+                  "text": "An alternative is hide from them, after about 90 seconds the three fake ones will despawn. Make sure to re-attack him quickly after this so he does not reset, he does not use \"Face me!\" while clones are present.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:ja621c",
+              "html": "&quot;Face me!&quot; if he doesn&#39;t hit you in time, he restores his life points and teleports you. For example, if you were hiding behind a pillar.",
+              "text": "\"Face me!\" if he doesn't hit you in time, he restores his life points and teleports you. For example, if you were hiding behind a pillar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:b32up2",
+              "html": "Towards the end of the fight he teleports you to the centre and stuns you. The next attack deals all your maximum life points, minus 1. So eat to full.",
+              "text": "Towards the end of the fight he teleports you to the centre and stuns you. The next attack deals all your maximum life points, minus 1. So eat to full.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "nomad:ki9uhn:b32up2:1edh5tf",
+                  "html": "If you bring a shield, swap to it and use resonance. This blocks the attack 100% but does not heal you.",
+                  "text": "If you bring a shield, swap to it and use resonance. This blocks the attack 100% but does not heal you.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "nomad:ki9uhn:n2grzh",
+              "html": "&quot;This. Ends. Now&quot; starts attacking you rapidly. It&#39;s important to finish him off at this point and not hide, otherwise he will restore his life points and you&#39;ll have to restart the fight.",
+              "text": "\"This. Ends. Now\" starts attacking you rapidly. It's important to finish him off at this point and not hide, otherwise he will restore his life points and you'll have to restart the fight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:idqyge",
+          "html": "Talk to Zimberfizz.",
+          "text": "Talk to Zimberfizz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Nomad's Requiem."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Nomad%27s_Requiem_reward.png?03f6c",
+      "width": 512,
+      "height": 387,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Nomad%27s_Requiem_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "70 <a href=\"https://runescape.wiki/w/Zeal\" target=\"_blank\" rel=\"noopener\">zeal</a> points",
+        "text": "70 zeal points",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Soul_Wars_cape\" target=\"_blank\" rel=\"noopener\">Soul Wars cape</a>",
+        "text": "Soul Wars cape",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Soul_Wars\" target=\"_blank\" rel=\"noopener\">Soul Wars</a> is added to your list of <a href=\"https://runescape.wiki/w/Respawn_point\" target=\"_blank\" rel=\"noopener\">respawn points</a>",
+        "text": "Soul Wars is added to your list of respawn points",
+        "subs": []
+      },
+      {
+        "html": "Access to a <a href=\"https://runescape.wiki/w/Bloodwood_tree\" target=\"_blank\" rel=\"noopener\">bloodwood tree</a> in the Soul Wars waiting area",
+        "text": "Access to a bloodwood tree in the Soul Wars waiting area",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Nomad\" target=\"_blank\" rel=\"noopener\">Nomad</a> and the <a href=\"https://runescape.wiki/w/Decaying_avatar\" target=\"_blank\" rel=\"noopener\">decaying avatar</a> become available as bosses in the <a href=\"https://runescape.wiki/w/Dominion_Tower\" target=\"_blank\" rel=\"noopener\">Dominion Tower</a>",
+        "text": "Nomad and the decaying avatar become available as bosses in the Dominion Tower",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Battle of Souls",
+      "where": ""
+    },
+    {
+      "name": "Desolate Ruins",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

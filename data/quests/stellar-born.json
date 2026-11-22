@@ -1,0 +1,800 @@
+{
+  "format": 1,
+  "id": "stellar-born",
+  "title": "Stellar Born",
+  "page": "Stellar Born/Quick guide",
+  "rev": 37179399,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Investigate a mysterious <a href=\"https://runescape.wiki/w/Crashed_star_(Stellar_Born)\" target=\"_blank\" rel=\"noopener\">crashed star</a> in <a href=\"https://runescape.wiki/w/Piscatoris\" target=\"_blank\" rel=\"noopener\">Piscatoris</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3689,
+      "lon": 2288,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Stellar_Born/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Observatory Quest",
+        "depth": 1
+      },
+      {
+        "text": "Complete the Wing Out mystery",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Divination",
+        "level": 70,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Desert</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:m6p4ry",
+          "html": "152 <a href=\"https://runescape.wiki/w/Cosmic_rune\" target=\"_blank\" rel=\"noopener\">cosmic runes</a>",
+          "text": "152 cosmic runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:9tx4xk",
+          "html": "52 <a href=\"https://runescape.wiki/w/Astral_rune\" target=\"_blank\" rel=\"noopener\">astral runes</a>",
+          "text": "52 astral runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:aj4ktu",
+          "html": "<a href=\"https://runescape.wiki/w/Wizard_Blizzard\" target=\"_blank\" rel=\"noopener\">Wizard Blizzard</a> or <a href=\"https://runescape.wiki/w/Premade_Wizard_Blizzard\" target=\"_blank\" rel=\"noopener\">Premade Wizard Blizzard</a>",
+          "text": "Wizard Blizzard or Premade Wizard Blizzard",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:k5uxwy",
+          "html": "<a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">Stardust</a> will teleport you directly to <a href=\"https://runescape.wiki/w/Wizard_Rosalina\" target=\"_blank\" rel=\"noopener\">Wizard Rosalina</a>",
+          "text": "Stardust will teleport you directly to Wizard Rosalina",
+          "alternatives": [
+            "Alternatively, <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a>, fairy ring <b>D</b><b>I</b><b>S</b>, or other means of teleporting to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>"
+          ]
+        },
+        {
+          "id": "rec:hh4s9t",
+          "html": "<a href=\"https://runescape.wiki/w/Memory_strand\" target=\"_blank\" rel=\"noopener\">Memory strand</a>, fairy ring <b>A</b><b>K</b><b>Q</b>, or other means of teleporting to <a href=\"https://runescape.wiki/w/Piscatoris\" target=\"_blank\" rel=\"noopener\">Piscatoris</a>",
+          "text": "Memory strand, fairy ring AKQ, or other means of teleporting to Piscatoris",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1v7528c",
+          "html": "<a href=\"https://runescape.wiki/w/%27Chipped%27_Watchtower_teleport\" target=\"_blank\" rel=\"noopener\">&#39;Chipped&#39; Watchtower teleport</a> or other means of teleporting to the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">Observatory</a>",
+          "text": "'Chipped' Watchtower teleport or other means of teleporting to the Observatory",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1deejye",
+          "html": "<a href=\"https://runescape.wiki/w/Leela%27s_favour\" target=\"_blank\" rel=\"noopener\">Leela&#39;s favour</a> will teleport you to <a href=\"https://runescape.wiki/w/Menaphos_Merchant_district\" target=\"_blank\" rel=\"noopener\">Menaphos Merchant district</a> near <a href=\"https://runescape.wiki/w/Desert_goebie_camp\" target=\"_blank\" rel=\"noopener\">Desert goebie camp</a>",
+          "text": "Leela's favour will teleport you to Menaphos Merchant district near Desert goebie camp",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1yd8n7d",
+          "html": "<a href=\"https://runescape.wiki/w/Shadow%27s_Grace\" target=\"_blank\" rel=\"noopener\">Shadow&#39;s Grace</a> relic power or <a href=\"https://runescape.wiki/w/Mobile\" target=\"_blank\" rel=\"noopener\">Mobile</a> on an augmented armour piece (weapons will be unequipped for various parts of the quest)",
+          "text": "Shadow's Grace relic power or Mobile on an augmented armour piece (weapons will be unequipped for various parts of the quest)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "mysterious-star-found",
+      "title": "Mysterious star found",
+      "anchor": "Mysterious_star_found",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mysterious-star-found:a765rf",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Crashed_star_(Stellar_Born)\" target=\"_blank\" rel=\"noopener\">crashed star</a> west of the <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris Fishing Colony</a>.",
+          "text": "Talk to the crashed star west of the Piscatoris Fishing Colony.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-star-found:x51ww8",
+          "html": "<i>Mine</i> the crashed star and finish the dialogue.",
+          "text": "Mine the crashed star and finish the dialogue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sending-zoob-back",
+      "title": "Sending Zoob back",
+      "anchor": "Sending_Zoob_back",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "sending-zoob-back:bring:m6p4ry",
+              "html": "152 <a href=\"https://runescape.wiki/w/Cosmic_rune\" target=\"_blank\" rel=\"noopener\">cosmic runes</a>",
+              "text": "152 cosmic runes"
+            },
+            {
+              "id": "sending-zoob-back:bring:1tl5jxx",
+              "html": "52 <a href=\"https://runescape.wiki/w/Astral_rune\" target=\"_blank\" rel=\"noopener\">astral runes</a> and a <a href=\"https://runescape.wiki/w/Wizard_Blizzard\" target=\"_blank\" rel=\"noopener\">Wizard Blizzard</a> (or its <a href=\"https://runescape.wiki/w/Premade_Wizard_Blizzard\" target=\"_blank\" rel=\"noopener\">premade</a> version).",
+              "text": "52 astral runes and a Wizard Blizzard (or its premade version)."
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:1mxn9m6",
+          "html": "Go to the south side of the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of the Wizard&#39;s Tower and talk to <a href=\"https://runescape.wiki/w/Wizard_Rosalina\" target=\"_blank\" rel=\"noopener\">Wizard Rosalina</a>.<br>Players can quickly teleport to her with <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>.",
+          "text": "Go to the south side of the 2nd floor (UK) / 3rd floor (US) of the Wizard's Tower and talk to Wizard Rosalina.Players can quickly teleport to her with stardust.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Stellar Born'."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:xl27sy",
+          "html": "Return to the crashed star west of Piscatoris.",
+          "text": "Return to the crashed star west of Piscatoris.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:tx2a6c",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Rosalina\" target=\"_blank\" rel=\"noopener\">Wizard Rosalina</a> to hand her your cosmic and astral runes and the Wizard Blizzard drink. Finish the cutscene.",
+          "text": "Talk to Wizard Rosalina to hand her your cosmic and astral runes and the Wizard Blizzard drink. Finish the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:166oj01",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Desert_goebie_camp\" target=\"_blank\" rel=\"noopener\">desert goebie camp</a>, north-west of Menaphos.<br>Players can use <a href=\"https://runescape.wiki/w/Leela%27s_favour\" target=\"_blank\" rel=\"noopener\">Leela&#39;s favour</a> to get to the <a href=\"https://runescape.wiki/w/Menaphos_Merchant_district\" target=\"_blank\" rel=\"noopener\">Merchant District</a> (option 2) and exit through the north Menaphos gate.",
+          "text": "Head to the desert goebie camp, north-west of Menaphos.Players can use Leela's favour to get to the Merchant District (option 2) and exit through the north Menaphos gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:1f2dbsk",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Chambers\" target=\"_blank\" rel=\"noopener\">Wizard Chambers</a>.",
+          "text": "Talk to Wizard Chambers.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Stellar Born'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:1y60vxr",
+          "html": "Return to the Piscatoris crash site and talk to Wizard Chambers or Wizard Rosalina.",
+          "text": "Return to the Piscatoris crash site and talk to Wizard Chambers or Wizard Rosalina.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:1p48rj0",
+          "html": "Talk to them again.",
+          "text": "Talk to them again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:kzc6n1",
+          "html": "<i>Shoo</i> away fireflies to keep them away from the crashed star until the portal progress at the top of your screen reaches 50.",
+          "text": "Shoo away fireflies to keep them away from the crashed star until the portal progress at the top of your screen reaches 50.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-zoob-back:1p48rj0-2",
+          "html": "Talk to them again.",
+          "text": "Talk to them again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "exploring-the-homeland-of-star-sprites",
+      "title": "Exploring the homeland of star sprites",
+      "anchor": "Exploring_the_homeland_of_star_sprites",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:111jbr2",
+          "html": "<i>Teleport to Zolarea</i> with the <a href=\"https://runescape.wiki/w/Portal_(Zolarea)\" target=\"_blank\" rel=\"noopener\">portal</a>.",
+          "text": "Teleport to Zolarea with the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:wkn4gg",
+          "html": "Unequip any items in your main/off-hand slots and <i>jump</i> the <a href=\"https://runescape.wiki/w/Rocky_edge\" target=\"_blank\" rel=\"noopener\">rocky edge</a> to the east.",
+          "text": "Unequip any items in your main/off-hand slots and jump the rocky edge to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:16uu1f5",
+          "html": "Fly to the large island to the east and <i>jump</i> to the rocky edge to land.<br>Players can <a href=\"https://runescape.wiki/w/Surge\" target=\"_blank\" rel=\"noopener\">Surge</a> and <a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a> during flight.",
+          "text": "Fly to the large island to the east and jump to the rocky edge to land.Players can Surge and Dive during flight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:vg479b",
+          "html": "Head south-east to the <a href=\"https://runescape.wiki/w/Giant_crystal_(Zolarea)\" target=\"_blank\" rel=\"noopener\">giant crystal</a> towards the centre and talk to Wizard Rosalina.",
+          "text": "Head south-east to the giant crystal towards the centre and talk to Wizard Rosalina.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:tzkeqh",
+          "html": "<i>Jump</i> the rocky edge on the northernmost side of the main island.",
+          "text": "Jump the rocky edge on the northernmost side of the main island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:1txkbof",
+          "html": "Head to the north-easternmost island and <i>inspect</i> the <a href=\"https://runescape.wiki/w/Mysterious_decay\" target=\"_blank\" rel=\"noopener\">mysterious decay</a>.",
+          "text": "Head to the north-easternmost island and inspect the mysterious decay.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:utg7fp",
+          "html": "Return to the main island and then <i>inspect</i> the mysterious decay south of the rocky edge and west of the flower patch.",
+          "text": "Return to the main island and then inspect the mysterious decay south of the rocky edge and west of the flower patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:d8l0or",
+          "html": "Attempt to <i>enter</i> the <a href=\"https://runescape.wiki/w/Cave_entrance_(Zolarea)\" target=\"_blank\" rel=\"noopener\">cave entrance</a> to the west of the <a href=\"https://runescape.wiki/w/Giant_crystal_(Zolarea)\" target=\"_blank\" rel=\"noopener\">giant crystal</a>. (1/12)",
+          "text": "Attempt to enter the cave entrance to the west of the giant crystal. (1/12)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:1svd4gl",
+          "html": "Head to the south side of the main island and <i>inspect</i> the mysterious decay (2/12), then talk to <a href=\"https://runescape.wiki/w/Rox\" target=\"_blank\" rel=\"noopener\">Rox</a>. (3/12)",
+          "text": "Head to the south side of the main island and inspect the mysterious decay (2/12), then talk to Rox. (3/12)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:1cp8rni",
+          "html": "Head west to the southernmost house and <i>lift</i> the <a href=\"https://runescape.wiki/w/Woven_rug\" target=\"_blank\" rel=\"noopener\">woven rug</a>, then talk to <a href=\"https://runescape.wiki/w/Nuub\" target=\"_blank\" rel=\"noopener\">Nuub</a>. (4/12)",
+          "text": "Head west to the southernmost house and lift the woven rug, then talk to Nuub. (4/12)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:10947hf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Blip\" target=\"_blank\" rel=\"noopener\">Blip</a> near Wizard Rosalina. (5/12)",
+          "text": "Talk to Blip near Wizard Rosalina. (5/12)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "exploring-the-homeland-of-star-sprites:ad5uty",
+          "html": "Talk to Wizard Rosalina.<br>If the necessary chat options display &quot;???&quot;, you missed a clue.<br>If done correctly, you receive a <a href=\"https://runescape.wiki/w/Wrinkly_scroll\" target=\"_blank\" rel=\"noopener\">wrinkly scroll</a>.",
+          "text": "Talk to Wizard Rosalina.If the necessary chat options display \"???\", you missed a clue.If done correctly, you receive a wrinkly scroll.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I found some information..."
+                },
+                {
+                  "key": "2",
+                  "text": "Parts of the planet are dying."
+                },
+                {
+                  "key": "1",
+                  "text": "There is a cave in the center of the planet."
+                },
+                {
+                  "key": "3",
+                  "text": "The cave is where the elder star sprites go to die."
+                },
+                {
+                  "key": "1",
+                  "text": "The cave is where their power source can be found."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "playing-around-dark-star",
+      "title": "Playing around dark star",
+      "anchor": "Playing_around_dark_star",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:1nxadwa",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">observatory</a> west of <a href=\"https://runescape.wiki/w/Tree_Gnome_Village_(location)\" target=\"_blank\" rel=\"noopener\">Tree Gnome Village</a> and north of <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a>.<br>The fastest teleport is <a href=\"https://runescape.wiki/w/%27Chipped%27_Watchtower_teleport\" target=\"_blank\" rel=\"noopener\">&#39;Chipped&#39; Watchtower teleport</a> made by <a href=\"https://runescape.wiki/w/Dave%27s_spellbook\" target=\"_blank\" rel=\"noopener\">Dave&#39;s spellbook</a>.<br>See other ways of <a href=\"https://runescape.wiki/w/Observatory#Getting_there\" target=\"_blank\" rel=\"noopener\">getting there</a>.",
+          "text": "Head to the observatory west of Tree Gnome Village and north of Castle Wars.The fastest teleport is 'Chipped' Watchtower teleport made by Dave's spellbook.See other ways of getting there.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:exzwa1",
+          "html": "Climb the <a href=\"https://runescape.wiki/w/Rope_(Observatory)\" target=\"_blank\" rel=\"noopener\">rope</a> attached to the broken stairs north-east of the observatory, then go up the stairs inside the observatory.",
+          "text": "Climb the rope attached to the broken stairs north-east of the observatory, then go up the stairs inside the observatory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:686xe5",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Observatory_professor\" target=\"_blank\" rel=\"noopener\">Observatory professor</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US).",
+          "text": "Talk to the Observatory professor on the 1st floor (UK) / 2nd floor (US).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Stellar Born'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:2l342t",
+          "html": "After the cutscene, return to Zolarea via the portal at the crash site west of Piscatoris.",
+          "text": "After the cutscene, return to Zolarea via the portal at the crash site west of Piscatoris.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:esqmi",
+          "html": "Talk to Wizard Rosalina in the centre of the island.",
+          "text": "Talk to Wizard Rosalina in the centre of the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:3ktxgw",
+          "html": "<i>Enter</i> the cave entrance to the west.",
+          "text": "Enter the cave entrance to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:9bqkt6",
+          "html": "Talk to Wizard Rosalina.",
+          "text": "Talk to Wizard Rosalina.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:1ys85u7",
+          "html": "Exit the cave.",
+          "text": "Exit the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:l1klo1",
+          "html": "<i>Gather</i> the <a href=\"https://runescape.wiki/w/Dark_star_wisp\" target=\"_blank\" rel=\"noopener\">dark star wisps</a> that have appeared. Wisps are visible on the minimap as a yellow dot:",
+          "text": "Gather the dark star wisps that have appeared. Wisps are visible on the minimap as a yellow dot:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:l1klo1:k6jfkm",
+              "html": "A bit north of the cave, west of the mysterious decay. (1/5)",
+              "text": "A bit north of the cave, west of the mysterious decay. (1/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:l1klo1:fsalx3",
+              "html": "<i>Jump</i> the rocky edge to the north and gather the wisp on the small, north-north-western island. (2/5)",
+              "text": "Jump the rocky edge to the north and gather the wisp on the small, north-north-western island. (2/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:l1klo1:1rzb8d2",
+              "html": "Return to the east side of the main island and gather the wisp near the meteorites. (The mining symbol on your minimap) (3/5)",
+              "text": "Return to the east side of the main island and gather the wisp near the meteorites. (The mining symbol on your minimap) (3/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:l1klo1:10t2kmj",
+              "html": "Go to the south side of the island and gather the wisp near the rocky edge. (4/5)",
+              "text": "Go to the south side of the island and gather the wisp near the rocky edge. (4/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:l1klo1:1bn31wq",
+              "html": "<i>Jump</i> the rocky edge to the south and gather the wisp on the south-easternmost island. (5/5)",
+              "text": "Jump the rocky edge to the south and gather the wisp on the south-easternmost island. (5/5)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:k0yoqo",
+          "html": "Return to the cave and talk to Wizard Rosalina.",
+          "text": "Return to the cave and talk to Wizard Rosalina.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Could we sacrifice a star sprite?"
+                },
+                {
+                  "key": "2",
+                  "text": "Could we sacrifice Blip?"
+                },
+                {
+                  "key": "3",
+                  "text": "Could I sacrifice myself?"
+                },
+                {
+                  "key": "4",
+                  "text": "Could we sacrifice you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:14r15ef",
+          "html": "<i>Select</i> the star sprites in the following order:",
+          "text": "Select the star sprites in the following order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:14r15ef:gy5ymj",
+              "html": "Wave 1: Glorp, Bop, Rox",
+              "text": "Wave 1: Glorp, Bop, Rox",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:14r15ef:13vees6",
+              "html": "Wave 2: Zag, Fuz, Nuub, Zorb",
+              "text": "Wave 2: Zag, Fuz, Nuub, Zorb",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "playing-around-dark-star:14r15ef:98gwus",
+              "html": "Wave 3: Zig, Eetee, Bop, Eetee, Glorp",
+              "text": "Wave 3: Zig, Eetee, Bop, Eetee, Glorp",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:9lqotg",
+          "html": "Exit the cave and talk to Wizard Rosalina in the centre.",
+          "text": "Exit the cave and talk to Wizard Rosalina in the centre.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes please!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:sg6xrr",
+          "html": "Talk to Wizard Rosalina back at the crash site.",
+          "text": "Talk to Wizard Rosalina back at the crash site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "playing-around-dark-star:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Stellar_Born_reward.png?0d5e3",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Stellar_Born_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Mining_XP_lamp_(Stellar_Born)\" target=\"_blank\" rel=\"noopener\"> Mining XP lamp</a> (30,000 experience)",
+        "text": "Mining XP lamp (30,000 experience)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Divination_XP_lamp_(Stellar_Born)\" target=\"_blank\" rel=\"noopener\">Divination XP lamp</a> (30,000 experience)",
+        "text": "Divination XP lamp (30,000 experience)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Magical_meteorite_chunk\" target=\"_blank\" rel=\"noopener\">Magical meteorite chunk</a>",
+        "text": "Magical meteorite chunk",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Zolarea\" target=\"_blank\" rel=\"noopener\">Zolarea</a>",
+        "text": "Access to Zolarea",
+        "subs": [
+          "Access to <a href=\"https://runescape.wiki/w/Meteorite\" target=\"_blank\" rel=\"noopener\">meteorites</a> for <a href=\"https://runescape.wiki/w/Meteorite_chunk\" target=\"_blank\" rel=\"noopener\">meteorite chunks</a>, which can be crushed into <a href=\"https://runescape.wiki/w/Meteorite_dust\" target=\"_blank\" rel=\"noopener\">dust</a> to create <a href=\"https://runescape.wiki/w/Meteorite_cannonball\" target=\"_blank\" rel=\"noopener\">meteorite cannonballs</a> that deal 150% damage. Requires level 85 <a href=\"https://runescape.wiki/w/Mining\" target=\"_blank\" rel=\"noopener\">Mining</a> to mine, 85 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a> to crush, and 85 <a href=\"https://runescape.wiki/w/Smithing\" target=\"_blank\" rel=\"noopener\">Smithing</a> to smith the cannonballs.",
+          "Access to a new single <a href=\"https://runescape.wiki/w/Flower_Patch\" target=\"_blank\" rel=\"noopener\">flower patch</a> with +25% yield when growing <a href=\"https://runescape.wiki/w/Starbloom_flower\" target=\"_blank\" rel=\"noopener\">Starbloom</a>."
+        ]
+      },
+      {
+        "html": "5% increased <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> when mining <a href=\"https://runescape.wiki/w/Shooting_Star\" target=\"_blank\" rel=\"noopener\">shooting stars</a>",
+        "text": "5% increased experience when mining shooting stars",
+        "subs": []
+      },
+      {
+        "html": "500 <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a>",
+        "text": "500 stardust",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Zolarea",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

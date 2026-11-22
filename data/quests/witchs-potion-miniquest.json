@@ -1,0 +1,179 @@
+{
+  "format": 1,
+  "id": "witchs-potion-miniquest",
+  "title": "Witch's Potion (miniquest)",
+  "page": "Witch's Potion (miniquest)/Quick guide",
+  "rev": 36839462,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Hetty\" target=\"_blank\" rel=\"noopener\">Hetty</a> in her house in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>, south of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> and west of <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3206,
+      "lon": 2968,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Witch's_Potion_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Rat (Level 1)",
+        "name": "Rat",
+        "count": null,
+        "level": "1",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1cv913",
+          "html": "<a href=\"https://runescape.wiki/w/Burnt_meat\" target=\"_blank\" rel=\"noopener\">Burnt meat</a>",
+          "text": "Burnt meat",
+          "alternatives": []
+        },
+        {
+          "id": "req:fgxepz",
+          "html": "<a href=\"https://runescape.wiki/w/Eye_of_newt\" target=\"_blank\" rel=\"noopener\">Eye of newt</a>",
+          "text": "Eye of newt",
+          "alternatives": []
+        },
+        {
+          "id": "req:6m5vw6",
+          "html": "<a href=\"https://runescape.wiki/w/Onion\" target=\"_blank\" rel=\"noopener\">Onion</a>",
+          "text": "Onion",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1lbo6ik",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Hetty\" target=\"_blank\" rel=\"noopener\">Hetty</a> in her house in <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>, west of the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a> and south of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Talk to Hetty in her house in Rimmington, west of the Port Sarim lodestone and south of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm looking for work."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:e86ots",
+          "html": "Kill a rat for a <a href=\"https://runescape.wiki/w/Rat%27s_tail\" target=\"_blank\" rel=\"noopener\">rat&#39;s tail</a>.",
+          "text": "Kill a rat for a rat's tail.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:e86ots:10gpshi",
+              "html": "Some rats can be found in <a href=\"https://runescape.wiki/w/Brian%27s_Archery_Supplies\" target=\"_blank\" rel=\"noopener\">Brian&#39;s Archery Supplies</a>.",
+              "text": "Some rats can be found in Brian's Archery Supplies.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1gl284m",
+          "html": "Give her the ingredients.",
+          "text": "Give her the ingredients.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:9iwig8",
+          "html": "Drink from the cauldron.",
+          "text": "Drink from the cauldron.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Witch%27s_Potion_%28miniquest%29_reward.png?10188",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Witch%27s_Potion_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "325 experience",
+        "text": "325 experience",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Witch%27s_Potion_(miniquest)_(achievement)\" target=\"_blank\" rel=\"noopener\">Witch&#39;s Potion (miniquest)</a> (5) – Complete this miniquest."
+  ],
+  "requiredFor": []
+}

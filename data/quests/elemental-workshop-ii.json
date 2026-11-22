@@ -1,0 +1,951 @@
+{
+  "format": 1,
+  "id": "elemental-workshop-ii",
+  "title": "Elemental Workshop II",
+  "page": "Elemental Workshop II/Quick guide",
+  "rev": 37176115,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Search the <a href=\"https://runescape.wiki/w/Bookshelf_(Elemental_Workshop_II)\" target=\"_blank\" rel=\"noopener\">bookshelf</a> in the <a href=\"https://runescape.wiki/w/Exam_Centre\" target=\"_blank\" rel=\"noopener\">Exam Centre</a> in the <a href=\"https://runescape.wiki/w/Varrock_Dig_Site\" target=\"_blank\" rel=\"noopener\">Varrock Dig Site</a> for an <a href=\"https://runescape.wiki/w/Beaten_book\" target=\"_blank\" rel=\"noopener\">old book</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3346,
+      "lon": 3366,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Elemental_Workshop_II/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Elemental Workshop I",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Magic",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "2-3 earth elementals (level 44)",
+        "name": "2-3 earth elementals",
+        "count": null,
+        "level": "44",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:ds59d1",
+          "html": "8 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (12 if you wish to also make a <a href=\"https://runescape.wiki/w/Mind_shield\" target=\"_blank\" rel=\"noopener\">mind shield</a>)",
+          "text": "8 coal (12 if you wish to also make a mind shield)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1xspnv2",
+          "html": "<a href=\"https://runescape.wiki/w/Battered_key\" target=\"_blank\" rel=\"noopener\">Battered key</a> (May be in <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a>; can be obtained during quest)",
+          "text": "Battered key (May be in steel key ring; can be obtained during quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1neybhm",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Seers%27_Village_lodestone\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village lodestone</a>, <a href=\"https://runescape.wiki/w/Runes\" target=\"_blank\" rel=\"noopener\">runes</a> for <a href=\"https://runescape.wiki/w/Camelot_Teleport\" target=\"_blank\" rel=\"noopener\">Camelot Teleport</a>, or a <a href=\"https://runescape.wiki/w/Camelot_teleport_(item)\" target=\"_blank\" rel=\"noopener\">Camelot teleport</a> tablet",
+          "text": "Activated Seers' Village lodestone, runes for Camelot Teleport, or a Camelot teleport tablet",
+          "alternatives": []
+        },
+        {
+          "id": "rec:96o705",
+          "html": "The <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a>, <a href=\"https://runescape.wiki/w/Master_archaeologist%27s_outfit\" target=\"_blank\" rel=\"noopener\">Master archaeologist&#39;s outfit</a>, or <a href=\"https://runescape.wiki/w/Dig_Site_pendant\" target=\"_blank\" rel=\"noopener\">Dig Site pendant</a> for quick access to the <a href=\"https://runescape.wiki/w/Exam_Centre\" target=\"_blank\" rel=\"noopener\">Exam Centre</a>",
+          "text": "The Archaeology journal, Master archaeologist's outfit, or Dig Site pendant for quick access to the Exam Centre",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1k59h1k",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Exam_Centre\" target=\"_blank\" rel=\"noopener\">Exam Centre</a> in the south of the <a href=\"https://runescape.wiki/w/Archaeology_Campus\" target=\"_blank\" rel=\"noopener\">Archaeology Campus</a> and search the <a href=\"https://runescape.wiki/w/Bookshelf_(Elemental_Workshop_II)\" target=\"_blank\" rel=\"noopener\">bookshelf</a> on the eastern wall in the Exam Centre.",
+          "text": "Go to the Exam Centre in the south of the Archaeology Campus and search the bookshelf on the eastern wall in the Exam Centre.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:1k59h1k:1ns2itv",
+              "html": "Use <a href=\"https://runescape.wiki/w/Archaeology_journal\" target=\"_blank\" rel=\"noopener\">Archaeology journal</a> to teleport to the Archaeology Campus just north of the Exam Centre.",
+              "text": "Use Archaeology journal to teleport to the Archaeology Campus just north of the Exam Centre.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:1k59h1k:269z4u",
+              "html": "If you end up with <a href=\"https://runescape.wiki/w/Varmen%27s_notes\" target=\"_blank\" rel=\"noopener\">Varmen&#39;s notes</a>, you searched the wrong bookshelf.",
+              "text": "If you end up with Varmen's notes, you searched the wrong bookshelf.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1kgrlme",
+          "html": "Read the scroll inside the <a href=\"https://runescape.wiki/w/Beaten_book\" target=\"_blank\" rel=\"noopener\">beaten book</a> and keep the book.",
+          "text": "Read the scroll inside the beaten book and keep the book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "workshop",
+      "title": "Workshop",
+      "anchor": "Workshop",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The second key"
+        },
+        {
+          "type": "step",
+          "id": "workshop:1sdir9o",
+          "html": "Head to the building with an <a href=\"https://runescape.wiki/w/Anvil\" target=\"_blank\" rel=\"noopener\">anvil</a> west of the <a href=\"https://runescape.wiki/w/Seers%27_Village_bank\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village bank</a>.",
+          "text": "Head to the building with an anvil west of the Seers' Village bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:1txcg3w",
+          "html": "Click on the <a href=\"https://runescape.wiki/w/Odd-looking_wall\" target=\"_blank\" rel=\"noopener\">odd-looking wall</a> to enter it.",
+          "text": "Click on the odd-looking wall to enter it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "workshop:1txcg3w:1lfwja5",
+              "html": "If it says &quot;You see a small hole in the wall but no way to open it&quot;, go to the building directly south and search the bookcase on the east wall for a <a href=\"https://runescape.wiki/w/Battered_key\" target=\"_blank\" rel=\"noopener\">battered key</a>.",
+              "text": "If it says \"You see a small hole in the wall but no way to open it\", go to the building directly south and search the bookcase on the east wall for a battered key.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "workshop:1t5q3au",
+          "html": "Go down the stairs.",
+          "text": "Go down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:erp6jt",
+          "html": "Go north to the water elemental room and search the <a href=\"https://runescape.wiki/w/Machinery_(Elemental_Workshop)#Elemental_Workshop_II\" target=\"_blank\" rel=\"noopener\">machinery</a> in the southwest of the room to get a <a href=\"https://runescape.wiki/w/Key_(Elemental_Workshop_II)\" target=\"_blank\" rel=\"noopener\">key</a>.",
+          "text": "Go north to the water elemental room and search the machinery in the southwest of the room to get a key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Elemental bars"
+        },
+        {
+          "type": "step",
+          "id": "workshop:lok40q",
+          "html": "Obtain 2 <a href=\"https://runescape.wiki/w/Elemental_ore\" target=\"_blank\" rel=\"noopener\">elemental ores</a> from the west room by attempting to mine the <a href=\"https://runescape.wiki/w/Elemental_rock\" target=\"_blank\" rel=\"noopener\">elemental rocks</a>, and defeating the <a href=\"https://runescape.wiki/w/Earth_elemental\" target=\"_blank\" rel=\"noopener\">earth elementals</a> that spawn.",
+          "text": "Obtain 2 elemental ores from the west room by attempting to mine the elemental rocks, and defeating the earth elementals that spawn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:1but16i",
+          "html": "Go back to the north room (where you got the key) and pull the lever to start the water wheel (if the wheel is already turning, this step can be skipped).",
+          "text": "Go back to the north room (where you got the key) and pull the lever to start the water wheel (if the wheel is already turning, this step can be skipped).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:1njou3r",
+          "html": "Go to the east room and pull the lever to start the bellows (if the bellows are already working, this step can be skipped).",
+          "text": "Go to the east room and pull the lever to start the bellows (if the bellows are already working, this step can be skipped).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:984o4u",
+          "html": "Smelt two <a href=\"https://runescape.wiki/w/Elemental_bar\" target=\"_blank\" rel=\"noopener\">elemental bars</a> in the south room. (&#39;Use&#39; the ore on the furnace.)",
+          "text": "Smelt two elemental bars in the south room. ('Use' the ore on the furnace.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "workshop:1r7lrw1",
+          "html": "Open the hatch in the middle room, and climb down it.",
+          "text": "Open the hatch in the middle room, and climb down it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "repairing-a-workshop",
+      "title": "Repairing a workshop",
+      "anchor": "Repairing_a_workshop",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The claw"
+        },
+        {
+          "type": "map",
+          "caption": "Map of the room",
+          "lat": 5155,
+          "lon": 1954,
+          "zoom": 3,
+          "plane": 2,
+          "mapId": -1,
+          "version": "2026-10-12-a",
+          "features": [],
+          "href": "https://runescape.wiki/w/Elemental_Workshop_II/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:19lb1ef",
+          "html": "Take from the <a href=\"https://runescape.wiki/w/Schematic_crate\" target=\"_blank\" rel=\"noopener\">schematic crate</a> south of the stairs and take both options.",
+          "text": "Take from the schematic crate south of the stairs and take both options.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:7xduis",
+          "html": "Go back up the spiral stairs and smith a <a href=\"https://runescape.wiki/w/Crane_claw\" target=\"_blank\" rel=\"noopener\">crane claw</a> on the workbench using an elemental bar.",
+          "text": "Go back up the spiral stairs and smith a crane claw on the workbench using an elemental bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:dz6kuf",
+          "html": "Go back down and lower the Old crane using the lever directly next to the schematic crate.",
+          "text": "Go back down and lower the Old crane using the lever directly next to the schematic crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1jdxmrm",
+          "html": "Use the claw on the crane to repair it.",
+          "text": "Use the claw on the crane to repair it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:btw521",
+          "html": "Place an elemental bar on the jig cart.",
+          "text": "Place an elemental bar on the jig cart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1hxskdi",
+          "html": "Pull the west lever by the schematic crate.",
+          "text": "Pull the west lever by the schematic crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:i19p6k",
+          "html": "Pull the east lever.",
+          "text": "Pull the east lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:i2yd52",
+          "html": "Pull the west lever twice.",
+          "text": "Pull the west lever twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:i19p6k-2",
+          "html": "Pull the east lever.",
+          "text": "Pull the east lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:i2yd52-2",
+          "html": "Pull the west lever twice.",
+          "text": "Pull the west lever twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:3zip2s",
+          "html": "Pull the lever behind you, by the <a href=\"https://runescape.wiki/w/Mine_cart_sign\" target=\"_blank\" rel=\"noopener\">mine cart sign</a>.",
+          "text": "Pull the lever behind you, by the mine cart sign.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:3zip2s:b55s9g",
+              "html": "If the lever is pulled and it says the system is not pressurised, go upstairs and activate the water wheel and bellows.",
+              "text": "If the lever is pulled and it says the system is not pressurised, go upstairs and activate the water wheel and bellows.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The press"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Ew2_pipes.png/300px-Ew2_pipes.png?1c931",
+          "width": 300,
+          "height": 196,
+          "alt": "",
+          "caption": "Solution of the junction box puzzle",
+          "href": "https://runescape.wiki/w/File:Ew2_pipes.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_Workshop_pipe_junction_box_location.png/300px-Elemental_Workshop_pipe_junction_box_location.png?45b5f",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "Location of the pipe junction box.",
+          "href": "https://runescape.wiki/w/File:Elemental_Workshop_pipe_junction_box_location.png"
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1lda4te",
+          "html": "Climb the staircase in the south-west corner.",
+          "text": "Climb the staircase in the south-west corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1jo59i1",
+          "html": "Move to the west side by the steam press.",
+          "text": "Move to the west side by the steam press.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:4i3lha",
+          "html": "Open the junction box and connect the pipes by clicking on a pair of pipe holes. Refer to the solution on the right.",
+          "text": "Open the junction box and connect the pipes by clicking on a pair of pipe holes. Refer to the solution on the right.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:4i3lha:1n1sm2d",
+              "html": "Top left and bottom right.",
+              "text": "Top left and bottom right.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:4i3lha:13msko9",
+              "html": "Top middle and top right.",
+              "text": "Top middle and top right.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:4i3lha:1ye9zac",
+              "html": "Bottom left and bottom middle.",
+              "text": "Bottom left and bottom middle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1lu038x",
+          "html": "Go downstairs and pull the lever next to the three small pipes.",
+          "text": "Go downstairs and pull the lever next to the three small pipes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:1lu038x:9mus35",
+              "html": "If successful, you will get a message that the bar has been flattened.",
+              "text": "If successful, you will get a message that the bar has been flattened.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:j7lw6v",
+          "html": "Pull the lever by the mine cart sign.",
+          "text": "Pull the lever by the mine cart sign.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The water tank"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Elemental_workshop_piping.png/300px-Elemental_workshop_piping.png?a98e5",
+          "width": 300,
+          "height": 261,
+          "alt": "",
+          "caption": "The piping to 'use' the pipe item on.",
+          "href": "https://runescape.wiki/w/File:Elemental_workshop_piping.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Ew2_cogs.png/300px-Ew2_cogs.png?7f577",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "The position of the cogs to fix the wind tunnel.",
+          "href": "https://runescape.wiki/w/File:Ew2_cogs.png"
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:18y8fvh",
+          "html": "Search all of the <a href=\"https://runescape.wiki/w/Crate_(Elemental_Workshop_II)\" target=\"_blank\" rel=\"noopener\">crates</a> in both the area with the track and the upper level with the junction box to find 3 cogs and a pipe.",
+          "text": "Search all of the crates in both the area with the track and the upper level with the junction box to find 3 cogs and a pipe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:16bmpfl",
+          "html": "Go back up the northeast platform stairs.",
+          "text": "Go back up the northeast platform stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1wcwn9p",
+          "html": "Go north of the water tank and &#39;use&#39; the pipe item on the piping with a hole in it.",
+          "text": "Go north of the water tank and 'use' the pipe item on the piping with a hole in it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:jgda7p",
+          "html": "Go back down to the water tank and pull the &#39;old lever&#39; in front of the tank&#39;s door to open it.",
+          "text": "Go back down to the water tank and pull the 'old lever' in front of the tank's door to open it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:3u736i",
+          "html": "Turn the corkscrew lever (to the east) twice to load the elemental sheet into the water tank.",
+          "text": "Turn the corkscrew lever (to the east) twice to load the elemental sheet into the water tank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:16zjyc0",
+          "html": "Pull the old lever to close the door.",
+          "text": "Pull the old lever to close the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1svb4oi",
+          "html": "Turn the water valve west of the old lever to open the valve.",
+          "text": "Turn the water valve west of the old lever to open the valve.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1i15fuj",
+          "html": "Turn the water valve east of the old lever to raise the water level.",
+          "text": "Turn the water valve east of the old lever to raise the water level.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:v7fyud",
+          "html": "Wait for the water to fill the tank, then turn the east valve again, to lower the water level back down.",
+          "text": "Wait for the water to fill the tank, then turn the east valve again, to lower the water level back down.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:nbhmq6",
+          "html": "Turn the water valve west of the old lever to close off the water valve.",
+          "text": "Turn the water valve west of the old lever to close off the water valve.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:c29jiu",
+          "html": "Pull the old lever to open the door.",
+          "text": "Pull the old lever to open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1i384x0",
+          "html": "Turn the corkscrew twice.",
+          "text": "Turn the corkscrew twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:16zjyc0-2",
+          "html": "Pull the old lever to close the door.",
+          "text": "Pull the old lever to close the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:j7lw6v-2",
+          "html": "Pull the lever by the mine cart sign.",
+          "text": "Pull the lever by the mine cart sign.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The fan"
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:17zoqii",
+          "html": "Go over to the machine on the east side.",
+          "text": "Go over to the machine on the east side.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:ferjjx",
+          "html": "On the side of the machine are three pins, place the cogs on the correct pins.",
+          "text": "On the side of the machine are three pins, place the cogs on the correct pins.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:ferjjx:1v2jw51",
+              "html": "The small cog goes on the upper left pin, the medium cog on the lower left pin, and the large cog on the right pin.",
+              "text": "The small cog goes on the upper left pin, the medium cog on the lower left pin, and the large cog on the right pin.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:3atyoj",
+          "html": "Pull the lever just to the south to start the fan.",
+          "text": "Pull the lever just to the south to start the fan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:3atyoj:1qbmovs",
+              "html": "If the message says the fan is sucking, the cogs are not on the correct pins. Turn the fan off and position the cogs correctly.",
+              "text": "If the message says the fan is sucking, the cogs are not on the correct pins. Turn the fan off and position the cogs correctly.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "repairing-a-workshop:3atyoj:12rvrdm",
+              "html": "If the machine says &quot;It must be powered somewhere else&quot;, head upstairs and make sure the water wheel to the north is rotating. If not, pull the lever near the wheel.",
+              "text": "If the machine says \"It must be powered somewhere else\", head upstairs and make sure the water wheel to the north is rotating. If not, pull the lever near the wheel.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1dudp6x",
+          "html": "Pull the lever again.",
+          "text": "Pull the lever again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:j7lw6v-3",
+          "html": "Pull the lever by the mine cart sign.",
+          "text": "Pull the lever by the mine cart sign.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:14ztme4",
+          "html": "Go by the claw and pick up the <a href=\"https://runescape.wiki/w/Primed_bar\" target=\"_blank\" rel=\"noopener\">primed bar</a>.",
+          "text": "Go by the claw and pick up the primed bar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1fuk82l",
+          "html": "Go down another level in the workshop (north west stairwell).",
+          "text": "Go down another level in the workshop (north west stairwell).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1b74utg",
+          "html": "Enter the east door (mind door).",
+          "text": "Enter the east door (mind door).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1h27h2x",
+          "html": "Place the bar on the extractor gun. If you miss this step, you will take 10% damage by doing the next step.",
+          "text": "Place the bar on the extractor gun. If you miss this step, you will take 10% damage by doing the next step.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1hny1wd",
+          "html": "Operate the extractor hat.",
+          "text": "Operate the extractor hat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:m1gh13",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Mind_bar\" target=\"_blank\" rel=\"noopener\">mind bar</a> from the extractor gun.",
+          "text": "Take the mind bar from the extractor gun.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1xpb8u9",
+          "html": "Go back up to the top floor of the workshop.",
+          "text": "Go back up to the top floor of the workshop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:f5c7bo",
+          "html": "On the workbench, smith a <a href=\"https://runescape.wiki/w/Mind_helmet\" target=\"_blank\" rel=\"noopener\">mind helmet</a>, with the beaten book in the backpack.",
+          "text": "On the workbench, smith a mind helmet, with the beaten book in the backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:f5c7bo:1nijb1r",
+              "html": "If you have an elemental bar in your inventory you will need to switch to the Mind Equipment section.",
+              "text": "If you have an elemental bar in your inventory you will need to switch to the Mind Equipment section.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Elemental_Workshop_II_reward.png?d8aec",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Elemental_Workshop_II_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "7,500 experience",
+        "text": "7,500 experience",
+        "subs": []
+      },
+      {
+        "html": "7,500 experience",
+        "text": "7,500 experience",
+        "subs": []
+      },
+      {
+        "html": "Ability to make <a href=\"https://runescape.wiki/w/Elemental_helmet\" target=\"_blank\" rel=\"noopener\">elemental helmets</a>, <a href=\"https://runescape.wiki/w/Mind_shield\" target=\"_blank\" rel=\"noopener\">mind shields</a>, and <a href=\"https://runescape.wiki/w/Mind_helmet\" target=\"_blank\" rel=\"noopener\">mind helmets</a>",
+        "text": "Ability to make elemental helmets, mind shields, and mind helmets",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Prime Time",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_III/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop III</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_IV/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop IV</a>"
+      ]
+    }
+  ]
+}

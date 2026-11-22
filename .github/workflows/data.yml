@@ -1,0 +1,80 @@
+name: Data
+
+# Every night: reads the RuneScape Wiki and builds data/ again (npm run data, see tools/data/build.js). When the wiki
+# changed, it opens a pull request with the new data, or updates the one that is open. Nothing changes on main until
+# you merge it. By hand: Actions → Data → Run workflow.
+#
+# Once, in the repo settings: Actions → General → Workflow permissions → tick "Allow GitHub Actions to create and
+# approve pull requests". Without it this workflow cannot open the pull request.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  # to start the tests on the pull request (see the last step)
+  actions: write
+
+# One at a time: a run by hand waits for the nightly one.
+concurrency:
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build the data
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BRANCH: data/update
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+        with:
+          browser: true
+      - name: Read the wiki
+        env:
+          DATA_SUMMARY: ${{ runner.temp }}/data-summary.md
+        run: npm run data
+      # The files must be what the app can read, before anybody is asked to merge them.
+      - name: Check the data
+        run: npx playwright test --project=unit tests/unit/data.spec.js
+      - name: Did anything change?
+        id: diff
+        run: |
+          git add -A data
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      # The branch is this workflow's own: each night it is made again from main, with one commit.
+      - name: Open or update the pull request
+        if: ${{ steps.diff.outputs.changed == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SUMMARY: ${{ runner.temp }}/data-summary.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git commit -q -m "Data: what changed on the wiki"
+          git push --force origin "$BRANCH"
+          {
+            echo "## What changed"
+            echo
+            echo "The nightly build read the RuneScape Wiki and found changes. Merge this to put them in the app."
+            echo
+            cat "$SUMMARY"
+            echo
+            echo "Only files in \`data/\` change: no new version is needed. The data was checked before this was opened (\`tests/unit/data.spec.js\`), and the tests run on this branch."
+          } > "$RUNNER_TEMP/body.md"
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')" ]; then
+            gh pr edit "$BRANCH" --body-file "$RUNNER_TEMP/body.md"
+          else
+            gh pr create --head "$BRANCH" --base main --title "Data: what changed on the wiki" --body-file "$RUNNER_TEMP/body.md"
+          fi
+      # A pull request this workflow opens does not start the other workflows by itself: start the tests by hand.
+      - name: Start the tests on it
+        if: ${{ steps.diff.outputs.changed == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run tests.yml --ref "$BRANCH"

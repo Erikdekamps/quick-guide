@@ -1,0 +1,1486 @@
+{
+  "format": 1,
+  "id": "the-brink-of-extinction",
+  "title": "The Brink of Extinction",
+  "page": "The Brink of Extinction/Quick guide",
+  "rev": 37100840,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/TzHaar-Mej-Ak\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Ak</a> or <a href=\"https://runescape.wiki/w/TzHaar-Mej-Jeh\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Jeh</a> in the <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>&#39;s main plaza.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5159,
+      "lon": 4671,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Brink_of_Extinction/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Elder Kiln",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 72,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 80,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "TokHaar-Hur (level 112)",
+        "name": "TokHaar-Hur",
+        "count": null,
+        "level": "112",
+        "note": ""
+      },
+      {
+        "text": "TokHaar-Xil (level 119)",
+        "name": "TokHaar-Xil",
+        "count": null,
+        "level": "119",
+        "note": ""
+      },
+      {
+        "text": "TokHaar-Ket Champion (level 112)",
+        "name": "TokHaar-Ket Champion",
+        "count": null,
+        "level": "112",
+        "note": ""
+      },
+      {
+        "text": "TokHaar-Hok (level 108)",
+        "name": "TokHaar-Hok",
+        "count": null,
+        "level": "108",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Karamja</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Karamja</span> will auto-complete the quest."
+      }
+    ],
+    "notes": [
+      "Throughout this quest there will be objects on the ground, toggling the graphic setting &quot;Textures&quot; to off can make it easier to see said objects."
+    ]
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1jytiwf",
+          "html": "Any <a href=\"https://runescape.wiki/w/Pickaxes\" target=\"_blank\" rel=\"noopener\">pickaxe</a> (tool belt will work)",
+          "text": "Any pickaxe (tool belt will work)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1o32vaw",
+          "html": "6 free backpack slots",
+          "text": "6 free backpack slots",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1jygpq7",
+          "html": "A <a href=\"https://runescape.wiki/w/TokKul-Zo\" target=\"_blank\" rel=\"noopener\">TokKul-Zo</a> for increased damage against enemies and teleports around the <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>",
+          "text": "A TokKul-Zo for increased damage against enemies and teleports around the TzHaar City",
+          "alternatives": []
+        },
+        {
+          "id": "rec:o42r7m",
+          "html": "Combat equipment, potions and food",
+          "text": "Combat equipment, potions and food",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:1okee06",
+              "html": "4 free backpack spaces",
+              "text": "4 free backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:17wmrbn",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/TzHaar-Mej-Ak\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Ak</a> or <a href=\"https://runescape.wiki/w/TzHaar-Mej-Jeh\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Jeh</a> in the main plaza of <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>.",
+          "text": "Speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh in the main plaza of TzHaar City.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:k8itft",
+          "html": "Run east through the arch. A cutscene will begin.",
+          "text": "Run east through the arch. A cutscene will begin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:c1yuf5",
+          "html": "Run north-east to the <a href=\"https://runescape.wiki/w/Birthing_Pool\" target=\"_blank\" rel=\"noopener\">Birthing Pool</a> and speak to <a href=\"https://runescape.wiki/w/TzHaar-Mej-Het\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Het</a>.",
+          "text": "Run north-east to the Birthing Pool and speak to TzHaar-Mej-Het.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I require TokKul."
+                },
+                {
+                  "key": "1",
+                  "text": "That's the TokKul I'm looking for!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:kc15r",
+          "html": "Run around the wall to where the Fight Kiln entrance is, and mine the Statue of TzHaar-Ket-Teg.",
+          "text": "Run around the wall to where the Fight Kiln entrance is, and mine the Statue of TzHaar-Ket-Teg.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:rpmeld",
+          "html": "Run south-west to the TzHaar City entrance. Mine the nearby Statue of TzHaar-Xil-Kal.",
+          "text": "Run south-west to the TzHaar City entrance. Mine the nearby Statue of TzHaar-Xil-Kal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:qre65n",
+          "html": "Return to the main plaza. Melt the two stacks of fragments into TokKul with the furnace slightly south-east of the main plaza.",
+          "text": "Return to the main plaza. Melt the two stacks of fragments into TokKul with the furnace slightly south-east of the main plaza.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:aqddtg",
+          "html": "Speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+          "text": "Speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-ga-al",
+      "title": "The Ga'al",
+      "anchor": "The_Ga'al",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-ga-al:bring:glupfa",
+              "html": "<a href=\"https://runescape.wiki/w/Communication_orb\" target=\"_blank\" rel=\"noopener\">Communication orb</a>",
+              "text": "Communication orb"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:1w2ine",
+          "html": "Go to the entrance to the Library, north-west of the main plaza and speak to <a href=\"https://runescape.wiki/w/Ga%27al\" target=\"_blank\" rel=\"noopener\">Ga&#39;al</a>.",
+          "text": "Go to the entrance to the Library, north-west of the main plaza and speak to Ga'al.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:1de7wsl",
+          "html": "Run south until you reach the cooking icon on the minimap. Speak to the next Ga&#39;al.",
+          "text": "Run south until you reach the cooking icon on the minimap. Speak to the next Ga'al.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:1ord4gs",
+          "html": "Continue south along the eastern wall to the southwest corner of the city (east of the <a href=\"https://runescape.wiki/w/TzHaar_City_mine\" target=\"_blank\" rel=\"noopener\">TzHaar City mine</a>), and speak to the final Ga&#39;al.",
+          "text": "Continue south along the eastern wall to the southwest corner of the city (east of the TzHaar City mine), and speak to the final Ga'al.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:kpz2cc",
+          "html": "Return to the main plaza and speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+          "text": "Return to the main plaza and speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:agj6yp",
+          "html": "Enter the Fight Kiln entrance east of Main Plaza.",
+          "text": "Enter the Fight Kiln entrance east of Main Plaza.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "'The Brink of Extinction'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:1vtzkpv",
+          "html": "A cutscene plays.",
+          "text": "A cutscene plays.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "We have to take the risk. Reforge the Ga'al in the Kiln."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:gozdys",
+          "html": "Run to the easternmost part of TzHaar City, where a cave entrance is. The entrance is not clickable until after you interact with the orb, cave entrance is indicated on your map.",
+          "text": "Run to the easternmost part of TzHaar City, where a cave entrance is. The entrance is not clickable until after you interact with the orb, cave entrance is indicated on your map.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:loraao",
+          "html": "Activate the communication orb in your backpack.",
+          "text": "Activate the communication orb in your backpack.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "TokKul of TzHaar-Mej-Gek."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ga-al:1f4eo53",
+          "html": "Enter the cave.",
+          "text": "Enter the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "combat-weaknesses",
+      "title": "Combat weaknesses",
+      "anchor": "Combat_weaknesses",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "The combat portion of the quest is about to begin. Consult this table to find out what to pray against and which attack style to use. High-level players may find switching combat style unnecessary. Progress is saved after each room, and a bank is available just outside the cave."
+        },
+        {
+          "type": "table",
+          "label": "Room · Wave",
+          "head": [
+            "Room",
+            "Wave",
+            "Combat levels",
+            "Pray against",
+            "Weakness(es)"
+          ],
+          "rows": [
+            [
+              "1",
+              "4 Tz-Kih",
+              "85",
+              "Melee",
+              "Stab"
+            ],
+            [
+              "2",
+              "2 Tz-Kek",
+              "86",
+              "Melee",
+              "Water"
+            ],
+            [
+              "2",
+              "1 Tz-Kih, 1 Tok-Xil",
+              "85,105",
+              "Ranged",
+              "Stab, Slash"
+            ],
+            [
+              "3",
+              "2 <a href=\"https://runescape.wiki/w/TokHaar-Hur_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Hur</a>, 2 <a href=\"https://runescape.wiki/w/TokHaar-Ket_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Ket</a>",
+              "112/119",
+              "Melee",
+              "Water"
+            ],
+            [
+              "3",
+              "3 <a href=\"https://runescape.wiki/w/TokHaar-Xil_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Xil</a>",
+              "119",
+              "Ranged",
+              "Crush"
+            ],
+            [
+              "3",
+              "1 <a href=\"https://runescape.wiki/w/TokHaar-Ket_Champion_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Ket Champion</a>",
+              "112",
+              "Melee",
+              "-"
+            ],
+            [
+              "4",
+              "4 Tz-Kil",
+              "103",
+              "Magic",
+              "Bolts"
+            ],
+            [
+              "5",
+              "3 Tz-Kih",
+              "85",
+              "Melee",
+              "Stab"
+            ],
+            [
+              "5",
+              "2 Tz-Kil, 1 Yt-MejKot",
+              "103,105",
+              "Melee",
+              "Bolts, -"
+            ],
+            [
+              "6",
+              "4 <a href=\"https://runescape.wiki/w/TokHaar-Hur_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Hur</a>",
+              "112",
+              "Melee",
+              "Water"
+            ],
+            [
+              "6",
+              "2 <a href=\"https://runescape.wiki/w/TokHaar-Xil_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Xil</a>",
+              "119",
+              "Ranged",
+              "Crush"
+            ],
+            [
+              "6",
+              "2 <a href=\"https://runescape.wiki/w/TokHaar-Mej_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Mej</a>",
+              "119",
+              "Magic",
+              "Bolts"
+            ],
+            [
+              "6",
+              "2 <a href=\"https://runescape.wiki/w/TokHaar-Ket_Champion_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Ket Champion</a>",
+              "112",
+              "Melee",
+              "-"
+            ],
+            [
+              "7",
+              "3 Tz-Kek",
+              "86",
+              "Melee",
+              "Water"
+            ],
+            [
+              "8",
+              "3 Tz-Kil",
+              "103",
+              "Magic",
+              "Bolts"
+            ],
+            [
+              "8",
+              "2 Tz-Kek, 1 Ket-Zek",
+              "86,105",
+              "Magic",
+              "Water, Bolts"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room-1",
+      "title": "Room 1",
+      "anchor": "Room_1",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-1:nflkql",
+          "html": "Kill the 4 <a href=\"https://runescape.wiki/w/Tz-Kih\" target=\"_blank\" rel=\"noopener\">Tz-Kih</a>.",
+          "text": "Kill the 4 Tz-Kih.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-1:jshr7l",
+          "html": "Pick up the mace, sword and knife.",
+          "text": "Pick up the mace, sword and knife.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-1:1x8o1td",
+          "html": "Put the mace on the western and the sword on the eastern scales.",
+          "text": "Put the mace on the western and the sword on the eastern scales.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-1:bnahcy",
+          "html": "Go through the ancient gate.",
+          "text": "Go through the ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-2",
+      "title": "Room 2",
+      "anchor": "Room_2",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TBoE_room_2_puzzle.png/200px-TBoE_room_2_puzzle.png?d6a1a",
+          "width": 200,
+          "height": 146,
+          "alt": "",
+          "caption": "Room 2 solution.",
+          "href": "https://runescape.wiki/w/File:TBoE_room_2_puzzle.png"
+        },
+        {
+          "type": "step",
+          "id": "room-2:1s4fk6c",
+          "html": "Kill the 2 <a href=\"https://runescape.wiki/w/Tz-Kek\" target=\"_blank\" rel=\"noopener\">Tz-Kek</a>.",
+          "text": "Kill the 2 Tz-Kek.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-2:1wod4xq",
+          "html": "Kill the Tz-Kih and <a href=\"https://runescape.wiki/w/Tok-Xil\" target=\"_blank\" rel=\"noopener\">Tok-Xil</a>",
+          "text": "Kill the Tz-Kih and Tok-Xil",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-2:9orth1",
+          "html": "Move the statues such that TzHaar-Mej faces TzHaar-Ket, who faces TzHaar-Xil, who faces TzHaar-Mej. This involves a triangle formed by Xil and Mej (parallel) to the south and Ket to the north. If it doesn&#39;t work, make the triangle smaller.",
+          "text": "Move the statues such that TzHaar-Mej faces TzHaar-Ket, who faces TzHaar-Xil, who faces TzHaar-Mej. This involves a triangle formed by Xil and Mej (parallel) to the south and Ket to the north. If it doesn't work, make the triangle smaller.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-2:bnahcy",
+          "html": "Go through the ancient gate.",
+          "text": "Go through the ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-3",
+      "title": "Room 3",
+      "anchor": "Room_3",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-3:oennz7",
+          "html": "Turn off <a href=\"https://runescape.wiki/w/Auto-retaliate\" target=\"_blank\" rel=\"noopener\">Auto-retaliate</a> so your character does not inadvertently step on a glowing square when running to attack a monster (they deal 1000+ damage per second).",
+          "text": "Turn off Auto-retaliate so your character does not inadvertently step on a glowing square when running to attack a monster (they deal 1000+ damage per second).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:uavdco",
+          "html": "Pass the hot vent door to the east.",
+          "text": "Pass the hot vent door to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:x2soz0",
+          "html": "Avoid standing on glowing floor squares.",
+          "text": "Avoid standing on glowing floor squares.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:15ljmgy",
+          "html": "Kill the 2 <a href=\"https://runescape.wiki/w/TokHaar-Ket_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Kets</a> and 2 <a href=\"https://runescape.wiki/w/TokHaar-Hur_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Hurs</a>.",
+          "text": "Kill the 2 TokHaar-Kets and 2 TokHaar-Hurs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:15ofye4",
+          "html": "Kill the 3 <a href=\"https://runescape.wiki/w/TokHaar-Xil_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Xils</a>.",
+          "text": "Kill the 3 TokHaar-Xils.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:i60h2f",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/TokHaar-Ket_Champion_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Ket Champion</a> and pick up the <a href=\"https://runescape.wiki/w/Obsidian_maul\" target=\"_blank\" rel=\"noopener\">obsidian maul</a> it drops.",
+          "text": "Kill the TokHaar-Ket Champion and pick up the obsidian maul it drops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:1tsglkz",
+          "html": "Pass back through the hot vent door.",
+          "text": "Pass back through the hot vent door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:olpd7n",
+          "html": "Place the maul on the scales.",
+          "text": "Place the maul on the scales.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-3:bnahcy",
+          "html": "Go through the ancient gate.",
+          "text": "Go through the ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-4",
+      "title": "Room 4",
+      "anchor": "Room_4",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-4:fqb53w",
+          "html": "Kill the 4 <a href=\"https://runescape.wiki/w/Tz-Kil\" target=\"_blank\" rel=\"noopener\">Tz-Kils</a>.",
+          "text": "Kill the 4 Tz-Kils.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-4:1xg9vyi",
+          "html": "Pick up each of the obsidian weapons: throwing ring, sword, mace and staff.",
+          "text": "Pick up each of the obsidian weapons: throwing ring, sword, mace and staff.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-4:vpb52s",
+          "html": "Place each of the obsidian weapons on the scales according to their location:",
+          "text": "Place each of the obsidian weapons on the scales according to their location:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Scale location · Weapon",
+          "head": [
+            "Scale location",
+            "Weapon"
+          ],
+          "rows": [
+            [
+              "North-west",
+              "Obsidian sword"
+            ],
+            [
+              "North-east",
+              "Obsidian mace"
+            ],
+            [
+              "South-west",
+              "Obsidian staff"
+            ],
+            [
+              "South-east",
+              "Obsidian throwing ring"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "room-4:1rm3wzm",
+          "html": "Go through the Ancient gate.",
+          "text": "Go through the Ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-5",
+      "title": "Room 5",
+      "anchor": "Room_5",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-5:1rcu3hv",
+          "html": "Kill the 3 Tz-Kihs.",
+          "text": "Kill the 3 Tz-Kihs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-5:b1z1kj",
+          "html": "Kill the 2 Tz-Kils and <a href=\"https://runescape.wiki/w/Yt-MejKot\" target=\"_blank\" rel=\"noopener\">Yt-MejKot</a>.",
+          "text": "Kill the 2 Tz-Kils and Yt-MejKot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-5:x04owt",
+          "html": "Touch one of the pedestals.",
+          "text": "Touch one of the pedestals.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-5:1lhvd06",
+          "html": "Touch the pedestals in the order that they light up until the puzzle is complete. There are 8 combinations you will need to complete correctly.",
+          "text": "Touch the pedestals in the order that they light up until the puzzle is complete. There are 8 combinations you will need to complete correctly.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "room-5:1lhvd06:1e3avbh",
+              "html": "Recommended to give each pedestal a number between 1-4. Write the number of the last pedestal that lights up each round in your chatbox, forming a list. When touching pedestals, simply follow the numbers in your chatbox.",
+              "text": "Recommended to give each pedestal a number between 1-4. Write the number of the last pedestal that lights up each round in your chatbox, forming a list. When touching pedestals, simply follow the numbers in your chatbox.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "room-5:1rm3wzm",
+          "html": "Go through the Ancient gate.",
+          "text": "Go through the Ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-6",
+      "title": "Room 6",
+      "anchor": "Room_6",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-6:oennz7",
+          "html": "Turn off <a href=\"https://runescape.wiki/w/Auto-retaliate\" target=\"_blank\" rel=\"noopener\">Auto-retaliate</a> so your character does not inadvertently step on a glowing square when running to attack a monster (they deal 1000+ damage per second).",
+          "text": "Turn off Auto-retaliate so your character does not inadvertently step on a glowing square when running to attack a monster (they deal 1000+ damage per second).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:uavdco",
+          "html": "Pass the hot vent door to the east.",
+          "text": "Pass the hot vent door to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:x2soz0",
+          "html": "Avoid standing on glowing floor squares.",
+          "text": "Avoid standing on glowing floor squares.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:nf4r3z",
+          "html": "Kill the 4 <a href=\"https://runescape.wiki/w/TokHaar-Hur_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Hurs</a>.",
+          "text": "Kill the 4 TokHaar-Hurs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:16kqlmb",
+          "html": "Kill the 2 <a href=\"https://runescape.wiki/w/TokHaar-Xil_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Xils</a>.",
+          "text": "Kill the 2 TokHaar-Xils.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:7u600q",
+          "html": "Kill the 2 <a href=\"https://runescape.wiki/w/TokHaar-Mej_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Mejs</a>.",
+          "text": "Kill the 2 TokHaar-Mejs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:18e0ep9",
+          "html": "Kill the 2 <a href=\"https://runescape.wiki/w/TokHaar-Ket_Champion_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">TokHaar-Ket Champions</a> and pick up the obsidian maul dropped.",
+          "text": "Kill the 2 TokHaar-Ket Champions and pick up the obsidian maul dropped.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:8oggwz",
+          "html": "Pass back through the Hot vent door.",
+          "text": "Pass back through the Hot vent door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:olpd7n",
+          "html": "Place the maul on the scales.",
+          "text": "Place the maul on the scales.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-6:bnahcy",
+          "html": "Go through the ancient gate.",
+          "text": "Go through the ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-7",
+      "title": "Room 7",
+      "anchor": "Room_7",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "room-7:fad8ti",
+          "html": "Kill the 3 Tz-Keks.",
+          "text": "Kill the 3 Tz-Keks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-7:1ius01m",
+          "html": "Pick up the sword, maul, mace, knife and staff.",
+          "text": "Pick up the sword, maul, mace, knife and staff.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-7:1vx8sx0",
+          "html": "Inspect each scale for the TzHaar word. Use the correct obsidian weapon on each scale according to the table below:",
+          "text": "Inspect each scale for the TzHaar word. Use the correct obsidian weapon on each scale according to the table below:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "TzHaar word · Weapon",
+          "head": [
+            "TzHaar word",
+            "Weapon"
+          ],
+          "rows": [
+            [
+              "Xil",
+              "Obsidian sword"
+            ],
+            [
+              "Mej",
+              "Obsidian staff"
+            ],
+            [
+              "Ket",
+              "Obsidian maul"
+            ],
+            [
+              "Ket and Hur",
+              "Obsidian mace"
+            ],
+            [
+              "Xil and Hur",
+              "Obsidian knife"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "room-7:bnahcy",
+          "html": "Go through the ancient gate.",
+          "text": "Go through the ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-8",
+      "title": "Room 8",
+      "anchor": "Room_8",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TzHaar_sigil_The_Brink_of_Extinction.png/148px-TzHaar_sigil_The_Brink_of_Extinction.png?5b8a3",
+          "width": 148,
+          "height": 140,
+          "alt": "",
+          "caption": "The completed symbol.",
+          "href": "https://runescape.wiki/w/File:TzHaar_sigil_The_Brink_of_Extinction.png"
+        },
+        {
+          "type": "step",
+          "id": "room-8:f3d18n",
+          "html": "Kill the 3 Tz-Kils.",
+          "text": "Kill the 3 Tz-Kils.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-8:1o32i81",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Ket-Zek\" target=\"_blank\" rel=\"noopener\">Ket-Zek</a> and 2 Tz-Keks.",
+          "text": "Kill the Ket-Zek and 2 Tz-Keks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-8:1btpth",
+          "html": "Rotate the tiles on the ground to form the TzHaar symbol.",
+          "text": "Rotate the tiles on the ground to form the TzHaar symbol.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-8:1rm3wzm",
+          "html": "Go through the Ancient gate.",
+          "text": "Go through the Ancient gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "room-9",
+      "title": "Room 9",
+      "anchor": "Room_9",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "room-9:bring:1ka48do",
+              "html": "In Legacy Mode",
+              "text": "In Legacy Mode"
+            },
+            {
+              "id": "room-9:bring:1ojnnrg",
+              "html": "Bring a weapon with more than one special attack (<a href=\"https://runescape.wiki/w/Dragon_dagger\" target=\"_blank\" rel=\"noopener\">dragon dagger</a> recommended).",
+              "text": "Bring a weapon with more than one special attack (dragon dagger recommended)."
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "room-9:uavdco",
+          "html": "Pass the hot vent door to the east.",
+          "text": "Pass the hot vent door to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-9:xnkp5g",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ga%27al-Xox\" target=\"_blank\" rel=\"noopener\">Ga&#39;al-Xox</a>.",
+          "text": "Talk to Ga'al-Xox.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-9:14bs5h3",
+          "html": "Rotate the eastern valve.",
+          "text": "Rotate the eastern valve.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "room-9:rdqywe",
+          "html": "Kill <a href=\"https://runescape.wiki/w/TokHaar-Hok\" target=\"_blank\" rel=\"noopener\">TokHaar-Hok</a>.",
+          "text": "Kill TokHaar-Hok.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "room-9:rdqywe:b0la1w",
+              "html": "You cannot teleport out or leave the fight early.",
+              "text": "You cannot teleport out or leave the fight early.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "room-9:rdqywe:16i9dk4",
+              "html": "Pray <a href=\"https://runescape.wiki/w/Deflect_Melee\" target=\"_blank\" rel=\"noopener\">Deflect</a>/<a href=\"https://runescape.wiki/w/Protection_from_Melee\" target=\"_blank\" rel=\"noopener\">Protection from Melee</a> the entire fight.",
+              "text": "Pray Deflect/Protection from Melee the entire fight.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "room-9:rdqywe:1irt6zr",
+              "html": "Avoid standing on glowing floor squares, as always.",
+              "text": "Avoid standing on glowing floor squares, as always.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "room-9:rdqywe:pjfnjf",
+              "html": "You do not need to kill the spawned enemies - higher level players may focus on TokHaar-Hok. When he is defeated, the spawned enemies will die.",
+              "text": "You do not need to kill the spawned enemies - higher level players may focus on TokHaar-Hok. When he is defeated, the spawned enemies will die.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "room-9:rdqywe:imu128",
+              "html": "<a href=\"https://runescape.wiki/w/Stun\" target=\"_blank\" rel=\"noopener\">Stun</a> TokHaar-Hok once he has lost half his health, this prevents him from healing at the flowing lava.",
+              "text": "Stun TokHaar-Hok once he has lost half his health, this prevents him from healing at the flowing lava.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "room-9:rdqywe:imu128:t8ai98",
+                  "html": "<b>The stun mechanic may be bugged and you may only be able to use basic Ranged ability, <a href=\"https://runescape.wiki/w/Binding_Shot\" target=\"_blank\" rel=\"noopener\">Binding Shot</a>, the basic Magic ability, <a href=\"https://runescape.wiki/w/Impact\" target=\"_blank\" rel=\"noopener\">Impact</a> and the Magic threshold ability, <a href=\"https://runescape.wiki/w/Asphyxiate\" target=\"_blank\" rel=\"noopener\">Asphyxiate</a>, and the basic melee ability, <a href=\"https://runescape.wiki/w/Backhand\" target=\"_blank\" rel=\"noopener\">Backhand</a>.</b>",
+                  "text": "The stun mechanic may be bugged and you may only be able to use basic Ranged ability, Binding Shot, the basic Magic ability, Impact and the Magic threshold ability, Asphyxiate, and the basic melee ability, Backhand.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "room-9:rdqywe:imu128:1rbl6bq",
+                  "html": "In <a href=\"https://runescape.wiki/w/Legacy_Mode\" target=\"_blank\" rel=\"noopener\">Legacy Mode</a>, you need to stun him with a special attack.",
+                  "text": "In Legacy Mode, you need to stun him with a special attack.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:12c82rh",
+          "html": "Talk to TokHaar-Hok.",
+          "text": "Talk to TokHaar-Hok.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:xnkp5g",
+          "html": "Talk to Ga&#39;al-Xox.",
+          "text": "Talk to Ga'al-Xox.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1uy4xy8",
+          "html": "Talk to Ga&#39;al-Xox again.",
+          "text": "Talk to Ga'al-Xox again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:79bg73",
+          "html": "Return to the city through the door. Activate your communication orb.",
+          "text": "Return to the city through the door. Activate your communication orb.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:79bg73:1j3qifx",
+              "html": "If you have destroyed your communication orb, talk to either <a href=\"https://runescape.wiki/w/TzHaar-Mej-Ak\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Ak</a> or <a href=\"https://runescape.wiki/w/TzHaar-Mej-Jeh\" target=\"_blank\" rel=\"noopener\">TzHaar-Mej-Jeh</a> in the main plaza of <a href=\"https://runescape.wiki/w/TzHaar_City\" target=\"_blank\" rel=\"noopener\">TzHaar City</a>.",
+              "text": "If you have destroyed your communication orb, talk to either TzHaar-Mej-Ak or TzHaar-Mej-Jeh in the main plaza of TzHaar City.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:nkjlek",
+          "html": "Go back to the Fight Kiln entrance.",
+          "text": "Go back to the Fight Kiln entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "'The Brink of Extinction'"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:19ji5j",
+          "html": "A cutscene ensues.",
+          "text": "A cutscene ensues.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I can't wait to battle the TokHaar."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Brink_of_Extinction_reward.png?09535",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Brink_of_Extinction_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "275,000 experience <a href=\"https://runescape.wiki/w/Antique_lamp_(The_Brink_of_Extinction)\" target=\"_blank\" rel=\"noopener\">lamp</a> in a choice of <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> (skill must be level 80 or higher)",
+        "text": "275,000 experience lamp in a choice of Attack, Strength, Defence, Ranged, Magic or Necromancy (skill must be level 80 or higher)",
+        "subs": []
+      },
+      {
+        "html": "100,000 experience",
+        "text": "100,000 experience",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/TzHaar_(title)\" target=\"_blank\" rel=\"noopener\">TzHaar-[Name]</a> title",
+        "text": "The TzHaar-[Name] title",
+        "subs": []
+      },
+      {
+        "html": "Ability to smith <a href=\"https://runescape.wiki/w/Obsidian_equipment\" target=\"_blank\" rel=\"noopener\">obsidian armour</a> and donate 15,000 <a href=\"https://runescape.wiki/w/Tokkul\" target=\"_blank\" rel=\"noopener\">Tokkul</a> to a <a href=\"https://runescape.wiki/w/Coffer_(Fight_Cauldron)\" target=\"_blank\" rel=\"noopener\">coffer</a> at the Fight Cauldron to temporarily buff the armour",
+        "text": "Ability to smith obsidian armour and donate 15,000 Tokkul to a coffer at the Fight Cauldron to temporarily buff the armour",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Fight_Cauldron\" target=\"_blank\" rel=\"noopener\">Fight Cauldron</a> and an added teleport to the <a href=\"https://runescape.wiki/w/TokKul-Zo\" target=\"_blank\" rel=\"noopener\">TokKul-Zo</a>",
+        "text": "Access to the Fight Cauldron and an added teleport to the TokKul-Zo",
+        "subs": []
+      },
+      {
+        "html": "Ability to find a <a href=\"https://runescape.wiki/w/TzHaar-Ga%27al-Kot\" target=\"_blank\" rel=\"noopener\">wandering Ga&#39;al</a>",
+        "text": "Ability to find a wandering Ga'al",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Wandering_Ga%27al_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Wandering Ga&#39;al (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Wandering_Ga%27al_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Wandering Ga&#39;al (miniquest)</a>"
+      ]
+    }
+  ]
+}

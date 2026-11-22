@@ -1,0 +1,782 @@
+{
+  "format": 1,
+  "id": "between-a-rock",
+  "title": "Between a Rock...",
+  "page": "Between a Rock.../Quick guide",
+  "rev": 37280892,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Dondakan_the_Dwarf\" target=\"_blank\" rel=\"noopener\">Dondakan the Dwarf</a> in the <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a> mines east of <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>, and north of the <a href=\"https://runescape.wiki/w/Mountain_Camp\" target=\"_blank\" rel=\"noopener\">Mountain Camp</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 10168,
+      "lon": 2824,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Between_a_Rock.../Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Dwarf Cannon",
+        "depth": 1
+      },
+      {
+        "text": "Fishing Contest",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Mining",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "A few scorpions (level 14)",
+        "name": "A few scorpions",
+        "count": null,
+        "level": "14",
+        "note": ""
+      },
+      {
+        "text": "Arzinian Being of Bordanzan (level 50-56); combat level depends on the amount of gold ore mined",
+        "name": "Arzinian Being of Bordanzan",
+        "count": null,
+        "level": "50-56",
+        "note": "; combat level depends on the amount of gold ore mined"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Fremennik</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Fremennik</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:c171yj",
+          "html": "4 <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bars</a>",
+          "text": "4 gold bars",
+          "alternatives": []
+        },
+        {
+          "id": "req:1vi7j16",
+          "html": "50 coins",
+          "text": "50 coins",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:17nuaz9",
+          "html": "Active <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a> or other quick access to a <a href=\"https://runescape.wiki/w/Furnace\" target=\"_blank\" rel=\"noopener\">furnace</a>",
+          "text": "Active Burthorpe lodestone or other quick access to a furnace",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1m5t0yz",
+          "html": "Active <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>, <a href=\"https://runescape.wiki/w/Ring_of_Wealth\" target=\"_blank\" rel=\"noopener\">ring of Wealth</a>, <a href=\"https://runescape.wiki/w/Ring_of_Fortune\" target=\"_blank\" rel=\"noopener\">ring of Fortune</a>, or other quick access to the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a> (to travel to <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a> by mine cart)",
+          "text": "Active Edgeville lodestone, ring of Wealth, ring of Fortune, or other quick access to the Grand Exchange (to travel to Keldagrim by mine cart)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1hbpn6t",
+          "html": "<a href=\"https://runescape.wiki/w/Luck_of_the_Dwarves\" target=\"_blank\" rel=\"noopener\">Luck of the Dwarves</a> to teleport directly to <a href=\"https://runescape.wiki/w/Keldagrim\" target=\"_blank\" rel=\"noopener\">Keldagrim</a>",
+          "text": "Luck of the Dwarves to teleport directly to Keldagrim",
+          "alternatives": []
+        },
+        {
+          "id": "rec:12e9cl3",
+          "html": "Active <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a> or <a href=\"https://runescape.wiki/w/Skull_sceptre\" target=\"_blank\" rel=\"noopener\">skull sceptre</a> (to quickly access the <a href=\"https://runescape.wiki/w/Dwarven_mines\" target=\"_blank\" rel=\"noopener\">Dwarven mines</a> outpost)",
+          "text": "Active Falador lodestone or skull sceptre (to quickly access the Dwarven mines outpost)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:zbv2si",
+          "html": "Completion of <a href=\"https://runescape.wiki/w/The_Giant_Dwarf\" target=\"_blank\" rel=\"noopener\">The Giant Dwarf</a> quest (to quickly travel by carts to the underpass of <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a>, and quickly travel between Dondakan and <a href=\"https://runescape.wiki/w/Keldagrim_Palace\" target=\"_blank\" rel=\"noopener\">Keldagrim Palace</a>)",
+          "text": "Completion of The Giant Dwarf quest (to quickly travel by carts to the underpass of White Wolf Mountain, and quickly travel between Dondakan and Keldagrim Palace)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:5x5khq",
+          "html": "15 free backpack spaces to hold <a href=\"https://runescape.wiki/w/Gold_ore\" target=\"_blank\" rel=\"noopener\">gold ore</a>",
+          "text": "15 free backpack spaces to hold gold ore",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pgsdva",
+          "html": "Some <a href=\"https://runescape.wiki/w/Gold_stone_spirit\" target=\"_blank\" rel=\"noopener\">gold stone spirits</a>",
+          "text": "Some gold stone spirits",
+          "alternatives": []
+        },
+        {
+          "id": "rec:foy9if",
+          "html": "<a href=\"https://runescape.wiki/w/Adamant_pickaxe\" target=\"_blank\" rel=\"noopener\">Adamant pickaxe</a> or better (can be stored in the tool belt)",
+          "text": "Adamant pickaxe or better (can be stored in the tool belt)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-dwarven-scholar",
+      "title": "The dwarven scholar",
+      "anchor": "The_dwarven_scholar",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "If you haven&#39;t yet completed <a href=\"https://runescape.wiki/w/The_Giant_Dwarf\" target=\"_blank\" rel=\"noopener\">The Giant Dwarf</a> quest, you will need to talk to or use &quot;Cross-river&quot; option on the <a href=\"https://runescape.wiki/w/Dwarven_Ferryman\" target=\"_blank\" rel=\"noopener\">Dwarven Ferryman</a> to cross the river in Keldagrim."
+        },
+        {
+          "type": "step",
+          "id": "the-dwarven-scholar:r6bw9z",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dondakan_the_Dwarf\" target=\"_blank\" rel=\"noopener\">Dondakan the Dwarf</a> about cannonballs in the <a href=\"https://runescape.wiki/w/Keldagrim_south-west_mine\" target=\"_blank\" rel=\"noopener\">Keldagrim south-west mine</a>.",
+          "text": "Talk to Dondakan the Dwarf about cannonballs in the Keldagrim south-west mine.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Why are you firing a cannon at a wall?"
+                },
+                {
+                  "key": "1",
+                  "text": "So why were you trying to get through the rock again?"
+                },
+                {
+                  "key": "1",
+                  "text": "Sounds interesting!"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "I'll be back later."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dwarven-scholar:p6q5eq",
+          "html": "In the western half of the <a href=\"https://runescape.wiki/w/Keldagrim_Palace\" target=\"_blank\" rel=\"noopener\">Keldagrim Palace</a> (the big building in the centre of Keldagrim) ground floor (UK) / 1<sup>st</sup> floor (US), talk to the <a href=\"https://runescape.wiki/w/Dwarven_Engineer\" target=\"_blank\" rel=\"noopener\">Dwarven Engineer</a> who is located in the room with an anvil.",
+          "text": "In the western half of the Keldagrim Palace (the big building in the centre of Keldagrim) ground floor (UK) / 1st floor (US), talk to the Dwarven Engineer who is located in the room with an anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "arzinian-avatar",
+      "title": "Arzinian Avatar",
+      "anchor": "Arzinian_Avatar",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "arzinian-avatar:bring:12artka",
+              "html": "A few empty backpack spaces",
+              "text": "A few empty backpack spaces"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "arzinian-avatar:bring:1syw90h",
+              "html": "A weapon of any kind to kill low-level scorpions and mining gear",
+              "text": "A weapon of any kind to kill low-level scorpions and mining gear"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:3t0iix",
+          "html": "Teleport to the <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a> and run north-east to the <a href=\"https://runescape.wiki/w/Dwarven_mines\" target=\"_blank\" rel=\"noopener\">Dwarven mines</a> (stay outside)",
+          "text": "Teleport to the Falador lodestone and run north-east to the Dwarven mines (stay outside)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "arzinian-avatar:3t0iix:su0scz",
+              "html": "Teleport using the <a href=\"https://runescape.wiki/w/Skull_sceptre\" target=\"_blank\" rel=\"noopener\">skull sceptre</a> and run west.",
+              "text": "Teleport using the skull sceptre and run west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "arzinian-avatar:3t0iix:dotboh",
+              "html": "Or teleport to the <a href=\"https://runescape.wiki/w/Invention_Guild\" target=\"_blank\" rel=\"noopener\">Invention Guild</a> and run directly east.",
+              "text": "Or teleport to the Invention Guild and run directly east.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:8eh9jp",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rolad\" target=\"_blank\" rel=\"noopener\">Rolad</a>, who is located in the most north-eastern building near the ladder to the mines. There is a pause in the dialogue; be sure to finish the whole conversation.",
+          "text": "Talk to Rolad, who is located in the most north-eastern building near the ladder to the mines. There is a pause in the dialogue; be sure to finish the whole conversation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:1g21td1",
+          "html": "Go down the ladder to enter the Dwarven mines.",
+          "text": "Go down the ladder to enter the Dwarven mines.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:1g62nw3",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Scorpion\" target=\"_blank\" rel=\"noopener\">scorpions</a> in the southeast part of the mine (by the mysterious entrance) to get the first page. It will appear in your backpack.",
+          "text": "Kill scorpions in the southeast part of the mine (by the mysterious entrance) to get the first page. It will appear in your backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:1rd2kwz",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Mine_cart_(dwarven_mines)\" target=\"_blank\" rel=\"noopener\">mine carts</a> just to the north for the second page. They may also be in the mine carts just south of the ladder you entered the dungeon from.",
+          "text": "Search the mine carts just to the north for the second page. They may also be in the mine carts just south of the ladder you entered the dungeon from.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:yo0x5o",
+          "html": "Mine any ore rocks in the mine to find the last page (the rocks in the resource dungeon connected to the mine do not work).",
+          "text": "Mine any ore rocks in the mine to find the last page (the rocks in the resource dungeon connected to the mine do not work).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arzinian-avatar:etrjhl",
+          "html": "Return to Rolad and read the book. Don&#39;t destroy the book yet.",
+          "text": "Return to Rolad and read the book. Don't destroy the book yet.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Of course."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "arzinian-avatar:etrjhl:2ghk3g",
+              "html": "If you don&#39;t have an <a href=\"https://runescape.wiki/w/Ammo_mould\" target=\"_blank\" rel=\"noopener\">ammo mould</a> for the next step, it can be bought from <a href=\"https://runescape.wiki/w/Nulodion\" target=\"_blank\" rel=\"noopener\">Nulodion</a> for 5 coins. The ammo mould can be stored on your tool belt.",
+              "text": "If you don't have an ammo mould for the next step, it can be bought from Nulodion for 5 coins. The ammo mould can be stored on your tool belt.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yellow-stones",
+      "title": "Yellow stones",
+      "anchor": "Yellow_stones",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "yellow-stones:bring:qja2vs",
+              "html": "<a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">Gold bar</a> and <a href=\"https://runescape.wiki/w/Ammo_mould\" target=\"_blank\" rel=\"noopener\">ammo mould</a> (tool belt works)",
+              "text": "Gold bar and ammo mould (tool belt works)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "yellow-stones:5qm63",
+          "html": "Return to Dondakan in the Keldagrim south-west mine. Talk to him, and then use a <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bar</a> on him.",
+          "text": "Return to Dondakan in the Keldagrim south-west mine. Talk to him, and then use a gold bar on him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yellow-stones:866l0b",
+          "html": "Head to any furnace with an ammo mould and make a <a href=\"https://runescape.wiki/w/Cannon_ball_(Between_a_Rock...)\" target=\"_blank\" rel=\"noopener\">golden cannonball</a>.",
+          "text": "Head to any furnace with an ammo mould and make a golden cannonball.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "yellow-stones:866l0b:57pvgm",
+              "html": "There is a furnace in the west of the Keldagrim Palace, in the north-eastern corner.",
+              "text": "There is a furnace in the west of the Keldagrim Palace, in the north-eastern corner.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "yellow-stones:k6b3a1",
+          "html": "Return to Dondakan and use the golden cannonball on him.",
+          "text": "Return to Dondakan and use the golden cannonball on him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm sure this will crack open the rock."
+                },
+                {
+                  "key": "1",
+                  "text": "So you want to... fire me into the rock?"
+                },
+                {
+                  "key": "2",
+                  "text": "I can't argue with that, shoot me in!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "cannon-ergonomics",
+      "title": "Cannon ergonomics",
+      "anchor": "Cannon_ergonomics",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "cannon-ergonomics:bring:q0qplv",
+              "html": "3 <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bars</a> (must be in the backpack, metal bank does not work)",
+              "text": "3 gold bars (must be in the backpack, metal bank does not work)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/DwarvenSchematicsFinished.png/300px-DwarvenSchematicsFinished.png?2ccb7",
+          "width": 300,
+          "height": 195,
+          "alt": "",
+          "caption": "The finished schematics",
+          "href": "https://runescape.wiki/w/File:DwarvenSchematicsFinished.png"
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:126tehb",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Dwarven_lore\" target=\"_blank\" rel=\"noopener\">dwarven lore</a> book to find a piece of base schematics.",
+          "text": "Read the dwarven lore book to find a piece of base schematics.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cannon-ergonomics:126tehb:1yxmrp4",
+              "html": "If you lost the book, you may speak to Rolad.",
+              "text": "If you lost the book, you may speak to Rolad.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:wch7p4",
+          "html": "Teleport to the <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley lodestone</a>, run north and enter the <a href=\"https://runescape.wiki/w/Cave_(Dwarven_Tunnel)#Taverley\" target=\"_blank\" rel=\"noopener\">cave</a> by the tree patch.",
+          "text": "Teleport to the Taverley lodestone, run north and enter the cave by the tree patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:1e7w2uf",
+          "html": "Go to the bar inside the <a href=\"https://runescape.wiki/w/Dwarven_Tunnel\" target=\"_blank\" rel=\"noopener\">Dwarven Tunnel</a> and talk to <a href=\"https://runescape.wiki/w/Khorvak,_a_dwarven_engineer\" target=\"_blank\" rel=\"noopener\">Khorvak, a dwarven engineer</a>.",
+          "text": "Go to the bar inside the Dwarven Tunnel and talk to Khorvak, a dwarven engineer.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "No, I've had enough of buying drinks for people!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:1voa18o",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Dwarven_Engineer\" target=\"_blank\" rel=\"noopener\">Dwarven Engineer</a> on the west side of the ground floor (UK) / 1<sup>st</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Keldagrim_Palace\" target=\"_blank\" rel=\"noopener\">Keldagrim Palace</a> (the same one you went to earlier) for another part of the schematics.",
+          "text": "Talk to the Dwarven Engineer on the west side of the ground floor (UK) / 1st floor (US) of the Keldagrim Palace (the same one you went to earlier) for another part of the schematics.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:1hv8hf6",
+          "html": "Assemble on any of the schematics.",
+          "text": "Assemble on any of the schematics.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:foi9ix",
+          "html": "Move around (and rotate if needed) the pieces, referring to finished schematics pictured right.",
+          "text": "Move around (and rotate if needed) the pieces, referring to finished schematics pictured right.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "cannon-ergonomics:10wxss7",
+          "html": "Smith a <a href=\"https://runescape.wiki/w/Gold_helmet\" target=\"_blank\" rel=\"noopener\">gold helmet</a> on the anvil in the same room which requires three gold bars by using a gold bar on the anvil.",
+          "text": "Smith a gold helmet on the anvil in the same room which requires three gold bars by using a gold bar on the anvil.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Gold helmet"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "cannon-ergonomics:10wxss7:7qtvw8",
+              "html": "If you are proceeding or completed <a href=\"https://runescape.wiki/w/Legends%27_Quest\" target=\"_blank\" rel=\"noopener\">Legends&#39; Quest</a>.",
+              "text": "If you are proceeding or completed Legends' Quest.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Gold helmet"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "striking-gold",
+      "title": "Striking gold",
+      "anchor": "Striking_gold",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "striking-gold:bring:mt4c3g",
+              "html": "<a href=\"https://runescape.wiki/w/Gold_helmet\" target=\"_blank\" rel=\"noopener\">Gold helmet</a>",
+              "text": "Gold helmet"
+            },
+            {
+              "id": "striking-gold:bring:1xgtjaz",
+              "html": "6-15 backpack spaces",
+              "text": "6-15 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:5kszfs",
+          "html": "Prepare to fight a level 50-56 enemy, along with your gold helmet.",
+          "text": "Prepare to fight a level 50-56 enemy, along with your gold helmet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:16nrj01",
+          "html": "Return to Dondakan, equip your gold helmet and ask him to shoot you into the rock.",
+          "text": "Return to Dondakan, equip your gold helmet and ask him to shoot you into the rock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "You may fire when ready!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "striking-gold:16nrj01:ujcbat",
+              "html": "During the cutscene, click directly on the text &quot;Click to continue&quot;, clicking anywhere else will exit and restart the cutscene.",
+              "text": "During the cutscene, click directly on the text \"Click to continue\", clicking anywhere else will exit and restart the cutscene.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:10n2wug",
+          "html": "Once inside the cave, do not remove the gold helmet or you will have to restart.",
+          "text": "Once inside the cave, do not remove the gold helmet or you will have to restart.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:19mr8z3",
+          "html": "Mine at least 6 gold ores, which is required to damage the enemy, and keep them in the backpack. The more ores mined (up to a maximum of 15), the lower its combat level.",
+          "text": "Mine at least 6 gold ores, which is required to damage the enemy, and keep them in the backpack. The more ores mined (up to a maximum of 15), the lower its combat level.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:lnq15f",
+          "html": "<i>Jump-through</i> the first wall of flames and right-click <i>talk</i> on the next ring of fire.",
+          "text": "Jump-through the first wall of flames and right-click talk on the next ring of fire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:kx5xfv",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Arzinian_Avatar\" target=\"_blank\" rel=\"noopener\">Arzinian Avatar</a>.",
+          "text": "Kill the Arzinian Avatar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:4q0dz4",
+          "html": "Speak to Dondakan.",
+          "text": "Speak to Dondakan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "striking-gold:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Between_a_Rock..._reward.png?131da",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Between_a_Rock..._reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Between_a_Rock_Mining_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "5,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Between_a_Rock_Smithing_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "5,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Between_a_Rock_Defence_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 30 or higher)",
+        "text": "5,000 experience lamp (Skill must be level 30 or higher)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Adamant_pickaxe_%2B_2\" target=\"_blank\" rel=\"noopener\">Adamant pickaxe + 2</a>",
+        "text": "Adamant pickaxe + 2",
+        "subs": []
+      },
+      {
+        "html": "Players may keep their <a href=\"https://runescape.wiki/w/Gold_helmet\" target=\"_blank\" rel=\"noopener\">gold helmet</a> and access the <a href=\"https://runescape.wiki/w/Dondakan%27s_mine\" target=\"_blank\" rel=\"noopener\">Arzinian Mine</a>, where 146 gold rocks and veins can be found.",
+        "text": "Players may keep their gold helmet and access the Arzinian Mine, where 146 gold rocks and veins can be found.",
+        "subs": [
+          "A <a href=\"https://runescape.wiki/w/Dwarven_Boatman_(ore_hauler)\" target=\"_blank\" rel=\"noopener\">dwarven boatman</a> due east of the mine will bank the player&#39;s gold ore for a small fee; He keeps 20% of the ores, rounded up, or 10% if the player has the <a href=\"https://runescape.wiki/w/Ring_of_charos_(a)\" target=\"_blank\" rel=\"noopener\">ring of charos (a)</a>."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Claustrophobia - In the Arzinian Mines, during the quest",
+      "where": ""
+    },
+    {
+      "name": "Time to Mine - Near Dondakan, after completing the quest",
+      "where": ""
+    },
+    {
+      "name": "In Between - In the Arzinian Mines, after completing the quest",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Forgiveness_of_a_Chaos_Dwarf/Quick_guide\" target=\"_blank\" rel=\"noopener\">Forgiveness of a Chaos Dwarf</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,927 @@
+{
+  "format": 1,
+  "id": "enakhras-lament",
+  "title": "Enakhra's Lament",
+  "page": "Enakhra's Lament/Quick guide",
+  "rev": 37085332,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Lazim\" target=\"_blank\" rel=\"noopener\">Lazim</a>, found in the <a href=\"https://runescape.wiki/w/Kharidian_Desert\" target=\"_blank\" rel=\"noopener\">desert</a> south of the <a href=\"https://runescape.wiki/w/Bandit_Camp_(Kharidian_Desert)\" target=\"_blank\" rel=\"noopener\">Bandit Camp</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2930,
+      "lon": 3190,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Enakhra's_Lament/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 45,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 13,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Desert</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:uidwdv",
+          "html": "Two <a href=\"https://runescape.wiki/w/Granite_(5kg)\" target=\"_blank\" rel=\"noopener\">5 kg granite blocks</a> (can be obtained during the quest, with level 45 <a href=\"https://runescape.wiki/w/Mining\" target=\"_blank\" rel=\"noopener\">Mining</a>)",
+          "text": "Two 5 kg granite blocks (can be obtained during the quest, with level 45 Mining)",
+          "alternatives": []
+        },
+        {
+          "id": "req:vi1gln",
+          "html": "A total of 52 kg of <a href=\"https://runescape.wiki/w/Sandstone\" target=\"_blank\" rel=\"noopener\">sandstone</a> (any combination will work as long as the number adds up to exactly 32 kg and 20 kg in separate sets; sandstone can be cut into smaller pieces if required. It&#39;s recommended to get 10 blocks of <a href=\"https://runescape.wiki/w/Sandstone_(5kg)\" target=\"_blank\" rel=\"noopener\">5 kg</a> and one block of <a href=\"https://runescape.wiki/w/Sandstone_(2kg)\" target=\"_blank\" rel=\"noopener\">2 kg</a>)",
+          "text": "A total of 52 kg of sandstone (any combination will work as long as the number adds up to exactly 32 kg and 20 kg in separate sets; sandstone can be cut into smaller pieces if required. It's recommended to get 10 blocks of 5 kg and one block of 2 kg)",
+          "alternatives": []
+        },
+        {
+          "id": "req:s5jl7m",
+          "html": "One of the following (burnt versions do not work):",
+          "text": "One of the following (burnt versions do not work):",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">Bread</a>",
+            "Any kind of <a href=\"https://runescape.wiki/w/Pie\" target=\"_blank\" rel=\"noopener\">pie</a> (partial pies and <a href=\"https://runescape.wiki/w/Mince_pie\" target=\"_blank\" rel=\"noopener\">mince pie</a> will not work)",
+            "Any kind of <a href=\"https://runescape.wiki/w/Cake\" target=\"_blank\" rel=\"noopener\">cake</a> (partial cakes, <a href=\"https://runescape.wiki/w/RS_Anniversary_cake\" target=\"_blank\" rel=\"noopener\">RS Anniversary cake</a>, <a href=\"https://runescape.wiki/w/Mint_cake\" target=\"_blank\" rel=\"noopener\">mint cake</a>, and <a href=\"https://runescape.wiki/w/Cheesecakes\" target=\"_blank\" rel=\"noopener\">cheesecakes</a> will not work)",
+            "Any kind of <a href=\"https://runescape.wiki/w/Pizza\" target=\"_blank\" rel=\"noopener\">pizza</a> (partial pizza do not work)",
+            "A <a href=\"https://runescape.wiki/w/Baked_potato\" target=\"_blank\" rel=\"noopener\">baked potato</a> with topping"
+          ]
+        },
+        {
+          "id": "req:1cb27lt",
+          "html": "A <a href=\"https://runescape.wiki/w/Wand\" target=\"_blank\" rel=\"noopener\">wand</a> or <a href=\"https://runescape.wiki/w/Staff_(weapon_type)\" target=\"_blank\" rel=\"noopener\">staff</a> with <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air</a> and <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire runes</a> to cast an air and fire spell (standard spellbook required)",
+          "text": "A wand or staff with air and fire runes to cast an air and fire spell (standard spellbook required)",
+          "alternatives": []
+        },
+        {
+          "id": "req:27bug6",
+          "html": "A <a href=\"https://runescape.wiki/w/White_candle\" target=\"_blank\" rel=\"noopener\">white candle</a> (a <a href=\"https://runescape.wiki/w/Black_candle\" target=\"_blank\" rel=\"noopener\">black candle</a> or a <a href=\"https://runescape.wiki/w/Red_candle\" target=\"_blank\" rel=\"noopener\">red candle</a> will not work)",
+          "text": "A white candle (a black candle or a red candle will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:mnp3mu",
+          "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a>",
+          "text": "Logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:13h8jnh",
+          "html": "<a href=\"https://runescape.wiki/w/Oak_logs\" target=\"_blank\" rel=\"noopener\">Oak logs</a>",
+          "text": "Oak logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:m5bi3m",
+          "html": "<a href=\"https://runescape.wiki/w/Willow_logs\" target=\"_blank\" rel=\"noopener\">Willow logs</a>",
+          "text": "Willow logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:8c40vl",
+          "html": "<a href=\"https://runescape.wiki/w/Maple_logs\" target=\"_blank\" rel=\"noopener\">Maple logs</a>",
+          "text": "Maple logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:2sf9q8",
+          "html": "<a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">Soft clay</a> (bring two if you want a <a href=\"https://runescape.wiki/w/Camel_mask\" target=\"_blank\" rel=\"noopener\">camel mask</a>)",
+          "text": "Soft clay (bring two if you want a camel mask)",
+          "alternatives": []
+        },
+        {
+          "id": "req:ogexi1",
+          "html": "1 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> (can be retrieved from the <a href=\"https://runescape.wiki/w/Metal_bank\" target=\"_blank\" rel=\"noopener\">metal bank</a> during the quest)",
+          "text": "1 coal (can be retrieved from the metal bank during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:fz1t1l",
+          "html": "35 <a href=\"https://runescape.wiki/w/Mining\" target=\"_blank\" rel=\"noopener\">Mining</a> (to mine <a href=\"https://runescape.wiki/w/Sandstone\" target=\"_blank\" rel=\"noopener\">sandstone</a>)",
+          "text": "35 Mining (to mine sandstone)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1777e0z",
+          "html": "45 <a href=\"https://runescape.wiki/w/Mining\" target=\"_blank\" rel=\"noopener\">Mining</a> (to mine <a href=\"https://runescape.wiki/w/Granite\" target=\"_blank\" rel=\"noopener\">granite</a>)",
+          "text": "45 Mining (to mine granite)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:dcmuux",
+          "html": "<a href=\"https://runescape.wiki/w/Waterskin\" target=\"_blank\" rel=\"noopener\">Waterskins</a>, or an <a href=\"https://runescape.wiki/w/Enchanted_water_tiara\" target=\"_blank\" rel=\"noopener\">enchanted water tiara</a> (not needed if you have completed <a href=\"https://runescape.wiki/w/Crocodile_Tears\" target=\"_blank\" rel=\"noopener\">Crocodile Tears</a>)",
+          "text": "Waterskins, or an enchanted water tiara (not needed if you have completed Crocodile Tears)",
+          "alternatives": [
+            "You may also want to get an empty <a href=\"https://runescape.wiki/w/Waterskin\" target=\"_blank\" rel=\"noopener\">waterskin</a> to complete the <a href=\"https://runescape.wiki/w/Enaqua\" target=\"_blank\" rel=\"noopener\">Enaqua</a> achievement"
+          ]
+        },
+        {
+          "id": "rec:1dzcv7x",
+          "html": "A <a href=\"https://runescape.wiki/w/Light_sources\" target=\"_blank\" rel=\"noopener\">light source</a>",
+          "text": "A light source",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1if9j3f",
+          "html": "<a href=\"https://runescape.wiki/w/Bandit_Camp_Teleport\" target=\"_blank\" rel=\"noopener\">Bandit Camp Teleport</a>, <a href=\"https://runescape.wiki/w/Bandit_Camp_lodestone\" target=\"_blank\" rel=\"noopener\">Bandit Camp lodestone</a> or <a href=\"https://runescape.wiki/w/Archaeology_teleport\" target=\"_blank\" rel=\"noopener\">Archaeology teleport</a> for getting to the quest location",
+          "text": "Bandit Camp Teleport, Bandit Camp lodestone or Archaeology teleport for getting to the quest location",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:qxfrj",
+          "html": "Head to the granite and sandstone quarry southwest of the Bandit Camp lodestone.",
+          "text": "Head to the granite and sandstone quarry southwest of the Bandit Camp lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:133q35h",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lazim\" target=\"_blank\" rel=\"noopener\">Lazim</a>.",
+          "text": "Talk to Lazim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "2",
+                  "text": "Okay, I'll get on with it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1lfhn5g",
+          "html": "If you don&#39;t already have your sandstone, mine 52 kg of sandstone in the nearby quarry.",
+          "text": "If you don't already have your sandstone, mine 52 kg of sandstone in the nearby quarry.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ppav30",
+          "html": "Give Lazim 32 kg of sandstone.",
+          "text": "Give Lazim 32 kg of sandstone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a small 2 kg block."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:z8hnpr",
+          "html": "Craft the <a href=\"https://runescape.wiki/w/Sandstone_(32kg)\" target=\"_blank\" rel=\"noopener\">sandstone (32kg)</a> he gives you, use it on the flat ground.",
+          "text": "Craft the sandstone (32kg) he gives you, use it on the flat ground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:133q35h-2",
+          "html": "Talk to Lazim.",
+          "text": "Talk to Lazim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'll do it right away!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1vpbil2",
+          "html": "Give Lazim another 20 kg of sandstone.",
+          "text": "Give Lazim another 20 kg of sandstone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have more stone."
+                },
+                {
+                  "key": "1",
+                  "text": "Here's a medium 5 kg block."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:fw6cjd",
+          "html": "Craft the <a href=\"https://runescape.wiki/w/Sandstone_(20kg)\" target=\"_blank\" rel=\"noopener\">sandstone (20kg)</a> he gives you, use it on the statue base.",
+          "text": "Craft the sandstone (20kg) he gives you, use it on the statue base.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ipa447",
+          "html": "<i>Chisel</i> the headless statue, speak to Lazim.",
+          "text": "Chisel the headless statue, speak to Lazim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I think it should have a camel's head."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:eewj5v",
+          "html": "Mine or obtain two 5 kg granite chunks.",
+          "text": "Mine or obtain two 5 kg granite chunks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:rmkb8r",
+          "html": "Craft a 5 kg chunk of granite.",
+          "text": "Craft a 5 kg chunk of granite.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Carve a head for the statue."
+                },
+                {
+                  "key": "4",
+                  "text": "The head of a camel"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:10bx5ll",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Stone_head\" target=\"_blank\" rel=\"noopener\">stone camel head</a> on the headless statue.",
+          "text": "Use the stone camel head on the headless statue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "underground",
+      "title": "Underground",
+      "anchor": "Underground",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "underground:159ng1",
+          "html": "<i>Interact</i> with the fallen statue four times, use the &quot;Chisel&quot; option.",
+          "text": "Interact with the fallen statue four times, use the \"Chisel\" option.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Chisel"
+                },
+                {
+                  "key": "1",
+                  "text": "Remove the statue's left arm"
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Chisel"
+                },
+                {
+                  "key": "1",
+                  "text": "Remove the statue's right arm"
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Chisel"
+                },
+                {
+                  "key": "1",
+                  "text": "Remove the statue's left leg"
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Chisel"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:1s49has",
+          "html": "<i>Take-sigil</i> from the nearby pedestal for the letter &quot;M&quot;.",
+          "text": "Take-sigil from the nearby pedestal for the letter \"M\".",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:9uq4jc",
+          "html": "Go north and through the door. Click to skip the cutscene.",
+          "text": "Go north and through the door. Click to skip the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:1r13wtq",
+          "html": "Go all the way west and through the door to the south. Click to skip the cutscene.",
+          "text": "Go all the way west and through the door to the south. Click to skip the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:1s6zeyw",
+          "html": "Go south and take the path to east which is leading to the middle room. Unlock the door using the M sigil.",
+          "text": "Go south and take the path to east which is leading to the middle room. Unlock the door using the M sigil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:y7qqdh",
+          "html": "Optionally, leave the middle room and go through the remaining two outer doors, gather the remaining three sigils, and unlock the remaining three doors that lead to the middle room. The outer doors will become permanently locked post-quest if the stone limbs are destroyed as they cannot be reclaimed.",
+          "text": "Optionally, leave the middle room and go through the remaining two outer doors, gather the remaining three sigils, and unlock the remaining three doors that lead to the middle room. The outer doors will become permanently locked post-quest if the stone limbs are destroyed as they cannot be reclaimed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "underground:n74qm8",
+          "html": "Climb up the middle room&#39;s ladder.",
+          "text": "Climb up the middle room's ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "enakhra-s-temple",
+      "title": "Enakhra's temple",
+      "anchor": "Enakhra's_temple",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:1eln5g6",
+          "html": "Use your soft clay on the pedestal for a <a href=\"https://runescape.wiki/w/Camel_mould_(p)\" target=\"_blank\" rel=\"noopener\">camel mould (p)</a>.",
+          "text": "Use your soft clay on the pedestal for a camel mould (p).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:c54dt3",
+          "html": "Craft your second chunk of granite 5 kg.",
+          "text": "Craft your second chunk of granite 5 kg.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Carve a shape to fit the pedestal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:zbfb52",
+          "html": "Use the new head on the pedestal, a cutscene starts (which can be skipped).",
+          "text": "Use the new head on the pedestal, a cutscene starts (which can be skipped).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:133q35h",
+          "html": "Talk to Lazim.",
+          "text": "Talk to Lazim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:9600l4",
+          "html": "<i>Use</i> either bread, cake, pie, potato, or a pizza on <a href=\"https://runescape.wiki/w/Pentyn\" target=\"_blank\" rel=\"noopener\">Pentyn</a> in the north-western room.",
+          "text": "Use either bread, cake, pie, potato, or a pizza on Pentyn in the north-western room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "It's okay, I don't need any help."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:13w7rnb",
+          "html": "Go to the west room, equip your staff or wand, <i>melt</i> the fountain using a fire spell.",
+          "text": "Go to the west room, equip your staff or wand, melt the fountain using a fire spell.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "enakhra-s-temple:13w7rnb:1lxqa6e",
+              "html": "If you have a waterskin, you can refill it at the fountain for a Hard Desert Achievement, <a href=\"https://runescape.wiki/w/Enaqua\" target=\"_blank\" rel=\"noopener\">Enaqua</a>.",
+              "text": "If you have a waterskin, you can refill it at the fountain for a Hard Desert Achievement, Enaqua.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:1hc41gm",
+          "html": "Go to the northeast room, <i>clear</i> the furnace with a staff or wand equipped using an air spell.",
+          "text": "Go to the northeast room, clear the furnace with a staff or wand equipped using an air spell.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "enakhra-s-temple:1hc41gm:1odkf59",
+              "html": "Retrieve coal from the <a href=\"https://runescape.wiki/w/Metal_bank\" target=\"_blank\" rel=\"noopener\">metal bank</a> if it is not already in the backpack.",
+              "text": "Retrieve coal from the metal bank if it is not already in the backpack.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:1egnpnk",
+          "html": "Go to the east room, investigate each brazier, using the respective resource on each of them.",
+          "text": "Go to the east room, investigate each brazier, using the respective resource on each of them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "enakhra-s-temple:1egnpnk:1cmstye",
+              "html": "Retrieve coal from the metal bank at the furnace in the northeast room if you did not bring it.",
+              "text": "Retrieve coal from the metal bank at the furnace in the northeast room if you did not bring it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "enakhra-s-temple:r0bcdl",
+          "html": "<i>Pass-through</i> the magical barrier in the centre, <i>climb-up</i> the ladder.",
+          "text": "Pass-through the magical barrier in the centre, climb-up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-off",
+      "title": "Finishing off",
+      "anchor": "Finishing_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-off:1buzmhi",
+          "html": "<i>Climb-over</i> <a href=\"https://runescape.wiki/w/Pile_of_bone\" target=\"_blank\" rel=\"noopener\">pile of bones</a> south.",
+          "text": "Climb-over pile of bones south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:1ma1c3d",
+          "html": "<i>Climb-down</i> the stone ladder.",
+          "text": "Climb-down the stone ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:1bdqxqe",
+          "html": "Talk to the Boneguard.",
+          "text": "Talk to the Boneguard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Of course, I'll help you out."
+                },
+                {
+                  "key": "4",
+                  "text": "Okay, I'll start building."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:1ufrsb6",
+          "html": "<i>Take-rock</i> from the nearby rubble for a chunk of sandstone. Do this three times.",
+          "text": "Take-rock from the nearby rubble for a chunk of sandstone. Do this three times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:1405oqq",
+          "html": "<i>Inspect</i> the wall to add the sandstone then inspect it again to chisel it. Repeat this twice more.",
+          "text": "Inspect the wall to add the sandstone then inspect it again to chisel it. Repeat this twice more.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:1r90xh5",
+          "html": "Talk to the Boneguard for the final cutscene (this can also be skipped).",
+          "text": "Talk to the Boneguard for the final cutscene (this can also be skipped).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-off:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Enakhra%27s_Lament_reward.png?a45de",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Enakhra%27s_Lament_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience",
+        "text": "7,000 experience",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience",
+        "text": "7,000 experience",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience",
+        "text": "7,000 experience",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience",
+        "text": "7,000 experience",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Camulet\" target=\"_blank\" rel=\"noopener\">camulet</a>, which allows you to talk to <a href=\"https://runescape.wiki/w/Camel\" target=\"_blank\" rel=\"noopener\">camels</a> and teleport to the temple four times; it can be recharged by using <a href=\"https://runescape.wiki/w/Camel_dung\" target=\"_blank\" rel=\"noopener\">camel dung</a> on it.",
+        "text": "A camulet, which allows you to talk to camels and teleport to the temple four times; it can be recharged by using camel dung on it.",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Camel_mask\" target=\"_blank\" rel=\"noopener\">Camel mask</a> (use a piece of soft clay on the pedestal with the globes on it to make one)",
+        "text": "Camel mask (use a piece of soft clay on the pedestal with the globes on it to make one)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Lament",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,801 @@
+{
+  "format": 1,
+  "id": "wanted",
+  "title": "Wanted!",
+  "page": "Wanted!/Quick guide",
+  "rev": 37010939,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Begin by speaking to <a href=\"https://runescape.wiki/w/Sir_Tiffy_Cashien\" target=\"_blank\" rel=\"noopener\">Sir Tiffy Cashien</a> in <a href=\"https://runescape.wiki/w/Falador_Park\" target=\"_blank\" rel=\"noopener\">Falador Park</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3374,
+      "lon": 2997,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Wanted!/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Recruitment Drive",
+        "depth": 1
+      },
+      {
+        "text": "Enter the Abyss (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [
+      "33 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a> <sup>(not required to start)</sup>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Black Knight (level 23)",
+        "name": "Black Knight",
+        "count": null,
+        "level": "23",
+        "note": ""
+      },
+      {
+        "text": "Solus Dellagar",
+        "name": "Solus Dellagar",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Morytania</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Asgarnia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1dher9f",
+          "html": "Either 10,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>, or an <a href=\"https://runescape.wiki/w/Enchanted_gem\" target=\"_blank\" rel=\"noopener\">enchanted gem</a>, <a href=\"https://runescape.wiki/w/Molten_glass\" target=\"_blank\" rel=\"noopener\">molten glass</a>, and a <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a>",
+          "text": "Either 10,000 coins, or an enchanted gem, molten glass, and a law rune",
+          "alternatives": []
+        },
+        {
+          "id": "req:1i0h54r",
+          "html": "20 un-noted <a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> or <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a> (can be obtained during quest)",
+          "text": "20 un-noted rune essence or pure essence (can be obtained during quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1wlcz3b",
+          "html": "<a href=\"https://runescape.wiki/w/Spiny_helmet\" target=\"_blank\" rel=\"noopener\">Spiny helmet</a> or <a href=\"https://runescape.wiki/w/Slayer_helmet\" target=\"_blank\" rel=\"noopener\">slayer helmet</a> (there is a chance you need to go to Lumbridge swamp dungeon)",
+          "text": "Spiny helmet or slayer helmet (there is a chance you need to go to Lumbridge swamp dungeon)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1dzcv7x",
+          "html": "A <a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">light source</a>",
+          "text": "A light source",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rftqec",
+          "html": "Combat equipment and food",
+          "text": "Combat equipment and food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1izqwf6",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador</a>, <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock</a>, <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley</a>, and <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a>",
+          "text": "Activated Falador, Varrock, Taverley, and Canifis lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ok5col",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a>",
+          "text": "Access to the fairy rings",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ujf6zi",
+          "html": "An <a href=\"https://runescape.wiki/w/Archaeology_teleport\" target=\"_blank\" rel=\"noopener\">Archaeology teleport</a> to get to the Black Knight&#39;s Base by teleporting to collector <a href=\"https://runescape.wiki/w/Isaura\" target=\"_blank\" rel=\"noopener\">Isaura</a>",
+          "text": "An Archaeology teleport to get to the Black Knight's Base by teleporting to collector Isaura",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "communicate-with-white-knights",
+      "title": "Communicate with White Knights",
+      "anchor": "Communicate_with_White_Knights",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "communicate-with-white-knights:bring:ls7efw",
+              "html": "Either 10,000 coins or an <a href=\"https://runescape.wiki/w/Enchanted_gem\" target=\"_blank\" rel=\"noopener\">enchanted gem</a>",
+              "text": "Either 10,000 coins or an enchanted gem"
+            },
+            {
+              "id": "communicate-with-white-knights:bring:16gj7x7",
+              "html": "<a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">Law rune</a> and <a href=\"https://runescape.wiki/w/Molten_glass\" target=\"_blank\" rel=\"noopener\">molten glass</a>",
+              "text": "Law rune and molten glass"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:10djmiu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sir_Tiffy\" target=\"_blank\" rel=\"noopener\">Sir Tiffy</a> in <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> park.",
+          "text": "Talk to Sir Tiffy in Falador park.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any jobs for me yet?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:14tdu7w",
+          "html": "Talk to him again.",
+          "text": "Talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about the Wanted! quest"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:1z0iwix",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sir_Amik_Varze\" target=\"_blank\" rel=\"noopener\">Sir Amik Varze</a>, 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a> in the west wing. Decline his offer.",
+          "text": "Talk to Sir Amik Varze, 2nd floor (UK) / 3rd floor (US) of White Knights' Castle in the west wing. Decline his offer.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Speak about the Wanted! quest."
+                },
+                {
+                  "key": "3",
+                  "text": "No, not right now..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:l54qf2",
+          "html": "Return to Sir Tiffy.",
+          "text": "Return to Sir Tiffy.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about the Wanted! quest"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:1qp9m7s",
+          "html": "Talk to Amik Varze again.",
+          "text": "Talk to Amik Varze again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Speak about the Wanted! quest."
+                },
+                {
+                  "key": "3",
+                  "text": "Sure, I'll help you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "communicate-with-white-knights:92qg4x",
+          "html": "Return to Sir Tiffy for a <a href=\"https://runescape.wiki/w/Commorb\" target=\"_blank\" rel=\"noopener\">commorb</a>.",
+          "text": "Return to Sir Tiffy for a commorb.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about the Wanted! quest"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "communicate-with-white-knights:92qg4x:1usjtor",
+              "html": "If you are buying a commorb",
+              "text": "If you are buying a commorb",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Buy one"
+                    },
+                    {
+                      "key": "1",
+                      "text": "YES"
+                    },
+                    {
+                      "key": "1",
+                      "text": "YES"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "communicate-with-white-knights:92qg4x:xi3xt0",
+              "html": "If you are making one",
+              "text": "If you are making one",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Have One Made"
+                    },
+                    {
+                      "key": "1",
+                      "text": "YES"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finding-solus-dellagar",
+      "title": "Finding Solus Dellagar",
+      "anchor": "Finding_Solus_Dellagar",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-solus-dellagar:bring:52xir7",
+              "html": "20 unnoted <a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> or <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a>",
+              "text": "20 unnoted rune essence or pure essence"
+            },
+            {
+              "id": "finding-solus-dellagar:bring:1rg5ozq",
+              "html": "<a href=\"https://runescape.wiki/w/Commorb\" target=\"_blank\" rel=\"noopener\">Commorb</a>",
+              "text": "Commorb"
+            },
+            {
+              "id": "finding-solus-dellagar:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:1isc48c",
+          "html": "Right-click <i>contact</i> with the commorb to view your assignment details.",
+          "text": "Right-click contact with the commorb to view your assignment details.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Current Assignment"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:vsd0lr",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Taverley_Dungeon\" target=\"_blank\" rel=\"noopener\">Taverley Dungeon</a> and go to the south-westernmost area of the Black Knight&#39;s Base.",
+          "text": "Head to the Taverley Dungeon and go to the south-westernmost area of the Black Knight's Base.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:1d5h07s",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lord_Daquarius\" target=\"_blank\" rel=\"noopener\">Lord Daquarius</a> in the southwest room with the throne, south of the furnace icon.",
+          "text": "Talk to Lord Daquarius in the southwest room with the throne, south of the furnace icon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:1oo3n50",
+          "html": "Kill a <a href=\"https://runescape.wiki/w/Black_Knight_(Wanted!)\" target=\"_blank\" rel=\"noopener\">Black Knight</a>.",
+          "text": "Kill a Black Knight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:12vyte0",
+          "html": "Talk to Lord Daquarius again.",
+          "text": "Talk to Lord Daquarius again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:112u691",
+          "html": "Take twenty unnoted essence to the <a href=\"https://runescape.wiki/w/Mage_of_Zamorak\" target=\"_blank\" rel=\"noopener\">Mage of Zamorak</a> in the south-east corner of Varrock. Make sure not to wear god armour.",
+          "text": "Take twenty unnoted essence to the Mage of Zamorak in the south-east corner of Varrock. Make sure not to wear god armour.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Solus Dellagar"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-solus-dellagar:112u691:1lwxpvu",
+              "html": "If you don&#39;t already have the essence, have Aubury (in the rune shop north of the Mage of Zamorak) teleport you to the essence mine and mine the 20 essence.",
+              "text": "If you don't already have the essence, have Aubury (in the rune shop north of the Mage of Zamorak) teleport you to the essence mine and mine the 20 essence.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "finding-solus-dellagar:112u691:ak3pif",
+              "html": "If you are wearing any Saradomin or Guthix gear, you must remove it before speaking to the Mage.",
+              "text": "If you are wearing any Saradomin or Guthix gear, you must remove it before speaking to the Mage.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:17cs0qs",
+          "html": "Talk again to give him the essence.",
+          "text": "Talk again to give him the essence.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Solus Dellagar"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:1c4fap0",
+          "html": "Go to Canifis and you will be contacted, complete the conversation. If you accidentally exit out, right-click &#39;Contact&#39; on the commorb to restart the dialogue.",
+          "text": "Go to Canifis and you will be contacted, complete the conversation. If you accidentally exit out, right-click 'Contact' on the commorb to restart the dialogue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:jw8h2b",
+          "html": "<i>Scan</i> using the commorb just outside the Canifis bank to find Solus.",
+          "text": "Scan using the commorb just outside the Canifis bank to find Solus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:lplymw",
+          "html": "An item will appear in your backpack. The table below shows where to scan next. Repeat this 5 times.",
+          "text": "An item will appear in your backpack. The table below shows where to scan next. Repeat this 5 times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-solus-dellagar:lplymw:wneldi",
+              "html": "If you are wearing one, take off your <a href=\"https://runescape.wiki/w/Ring_of_life\" target=\"_blank\" rel=\"noopener\">ring of life</a>; it will not help you and will be destroyed.",
+              "text": "If you are wearing one, take off your ring of life; it will not help you and will be destroyed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "label": "Item · Location",
+          "head": [
+            "Item",
+            "Location"
+          ],
+          "rows": [
+            [
+              "<a href=\"https://runescape.wiki/w/Banana\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Banana.png?0cc4e\" alt=\"Banana.png: RS3 Inventory image of Banana\" width=\"25\" height=\"24\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Banana\" target=\"_blank\" rel=\"noopener\">Banana</a>",
+              "<a href=\"https://runescape.wiki/w/Banana_plantation\" target=\"_blank\" rel=\"noopener\">Banana plantation</a> in <a href=\"https://runescape.wiki/w/Musa_Point\" target=\"_blank\" rel=\"noopener\">Musa Point</a> (Use a charged <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">amulet of glory</a> to teleport to Karamja)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Bear_fur.png?c41d1\" alt=\"Bear fur.png: RS3 Inventory image of Bear fur\" width=\"31\" height=\"29\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">Bear fur</a>",
+              "The <a href=\"https://runescape.wiki/w/Fur_stall\" target=\"_blank\" rel=\"noopener\">fur stall</a> in the <a href=\"https://runescape.wiki/w/Ardougne_market\" target=\"_blank\" rel=\"noopener\">Ardougne market</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Cape_(blue)\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Cape_%28blue%29.png?45eac\" alt=\"Cape (blue).png: RS3 Inventory image of Cape (blue)\" width=\"22\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Cape_(blue)\" target=\"_blank\" rel=\"noopener\">Cape (blue)</a>",
+              "Ground floor (UK) / 1<sup>st</sup> floor (US) of <a href=\"https://runescape.wiki/w/Champions%27_Guild\" target=\"_blank\" rel=\"noopener\">Champions&#39; Guild</a> (teleport to <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a> and run south-west)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Castle_wars_ticket_(gold)\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Castle_wars_ticket_%28gold%29.png?3cc20\" alt=\"Castle wars ticket (gold).png: RS3 Inventory image of Castle wars ticket (gold)\" width=\"28\" height=\"27\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Castle_wars_ticket_(gold)\" target=\"_blank\" rel=\"noopener\">Castle wars ticket (gold)</a>",
+              "<a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a> lobby (area with bank chest and portals). If you get this object, it might be added to your currency pouch. Make sure to read the dialogue."
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Cream_hat\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Cream_hat.png?b5cd9\" alt=\"Cream hat.png: RS3 Inventory image of Cream hat\" width=\"31\" height=\"28\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Cream_hat\" target=\"_blank\" rel=\"noopener\">Cream hat</a>",
+              "Ground floor (UK) / 1<sup>st</sup> floor (US) of <a href=\"https://runescape.wiki/w/Grand_Tree\" target=\"_blank\" rel=\"noopener\">Grand Tree</a> in <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Cream_robe_top\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Cream_robe_top.png?49e47\" alt=\"Cream robe top.png: RS3 Inventory image of Cream robe top\" width=\"31\" height=\"24\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Cream_robe_top\" target=\"_blank\" rel=\"noopener\">Cream robe top</a>",
+              "4<sup>th</sup> floor (UK) / 5<sup>th</sup> floor (US) of Tree Gnome Stronghold"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Earmuffs\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Earmuffs.png?82e33\" alt=\"Earmuffs.png: RS3 Inventory image of Earmuffs\" width=\"26\" height=\"24\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Earmuffs\" target=\"_blank\" rel=\"noopener\">Earmuffs</a>",
+              "<a href=\"https://runescape.wiki/w/Slayer_Tower\" target=\"_blank\" rel=\"noopener\">Slayer Tower</a> in <a href=\"https://runescape.wiki/w/Morytania\" target=\"_blank\" rel=\"noopener\">Morytania</a> (teleport to <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a> and run west)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Eye_patch\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Eye_patch.png?70ff7\" alt=\"Eye patch.png: RS3 Inventory image of Eye patch\" width=\"29\" height=\"23\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Eye_patch\" target=\"_blank\" rel=\"noopener\">Eye patch</a>",
+              "<a href=\"https://runescape.wiki/w/Dead_Man%27s_Chest\" target=\"_blank\" rel=\"noopener\">Dead Man&#39;s Chest</a> in <a href=\"https://runescape.wiki/w/Brimhaven\" target=\"_blank\" rel=\"noopener\">Brimhaven</a> (teleport to <a href=\"https://runescape.wiki/w/Karamja_lodestone\" target=\"_blank\" rel=\"noopener\">Karamja lodestone</a> and run north-east)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Fake_beard\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Fake_beard.png?98f76\" alt=\"Fake beard.png: RS3 Inventory image of Fake beard\" width=\"27\" height=\"28\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Fake_beard\" target=\"_blank\" rel=\"noopener\">Fake beard</a>",
+              "<a href=\"https://runescape.wiki/w/Ali_Morrisane\" target=\"_blank\" rel=\"noopener\">Ali Morrisane</a>&#39;s stall in <a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Fremennik_cloak\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Fremennik_cloak_%28purple%29.png?3a6cd\" alt=\"Fremennik cloak (purple).png: RS3 Inventory image of Fremennik cloak\" width=\"23\" height=\"31\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Fremennik_cloak\" target=\"_blank\" rel=\"noopener\">Fremennik cloak</a>",
+              "<a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Fur\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Fur.png?5a1db\" alt=\"Fur.png: RS3 Inventory image of Fur\" width=\"31\" height=\"29\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Fur\" target=\"_blank\" rel=\"noopener\">Fur</a>",
+              "The <a href=\"https://runescape.wiki/w/Fur_stall\" target=\"_blank\" rel=\"noopener\">fur stall</a> in the <a href=\"https://runescape.wiki/w/Ardougne_market\" target=\"_blank\" rel=\"noopener\">Ardougne market</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Giant_frog_legs\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Giant_frog_legs.png?83fe8\" alt=\"Giant frog legs.png: RS3 Inventory image of Giant frog legs\" width=\"28\" height=\"27\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Giant_frog_legs\" target=\"_blank\" rel=\"noopener\">Giant frog legs</a>",
+              "<a href=\"https://runescape.wiki/w/Lumbridge_Swamp_Caves\" target=\"_blank\" rel=\"noopener\">Lumbridge Swamp Caves</a>, the south-eastern area with the level 33 <a href=\"https://runescape.wiki/w/Giant_frog\" target=\"_blank\" rel=\"noopener\">giant frogs</a>, near the entrance to the <a href=\"https://runescape.wiki/w/Chasm_of_Tears\" target=\"_blank\" rel=\"noopener\">Tears of Guthix cavern</a> (<a href=\"https://runescape.wiki/w/Light_sources\" target=\"_blank\" rel=\"noopener\">light sources</a> required)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Goblin_mail\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Goblin_mail.png?bc4e5\" alt=\"Goblin mail.png: RS3 Inventory image of Goblin mail\" width=\"31\" height=\"29\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Goblin_mail\" target=\"_blank\" rel=\"noopener\">Goblin mail</a>",
+              "<a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a> (teleport to <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a> and run north along the western road)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Greenman%27s_ale\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Greenman%27s_ale.png?57138\" alt=\"Greenman&#39;s ale.png: RS3 Inventory image of Greenman&#39;s ale\" width=\"26\" height=\"27\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Greenman%27s_ale\" target=\"_blank\" rel=\"noopener\">Greenman&#39;s ale</a>",
+              "<a href=\"https://runescape.wiki/w/Dragon_Inn\" target=\"_blank\" rel=\"noopener\">Dragon Inn</a> in <a href=\"https://runescape.wiki/w/Yanille\" target=\"_blank\" rel=\"noopener\">Yanille</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Pure_essence.png?a163d\" alt=\"Pure essence.png: RS3 Inventory image of Pure essence\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">Pure essence</a> (20 noted)",
+              "This is the last location. <i>Proceed to next step in the guide.</i>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Red_vine_worm\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Red_vine_worm.png?088ed\" alt=\"Red vine worm.png: RS3 Inventory image of Red vine worm\" width=\"29\" height=\"31\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Red_vine_worm\" target=\"_blank\" rel=\"noopener\">Red vine worm</a>",
+              "<a href=\"https://runescape.wiki/w/McGrubor%27s_Wood\" target=\"_blank\" rel=\"noopener\">McGrubor&#39;s Wood</a> (teleport to <a href=\"https://runescape.wiki/w/Seers%27_Village_lodestone\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village lodestone</a> and run west)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Rune_platebody\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Rune_platebody.png?ba086\" alt=\"Rune platebody.png: RS3 Inventory image of Rune platebody\" width=\"31\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Rune_platebody\" target=\"_blank\" rel=\"noopener\">Rune platebody</a>",
+              "<a href=\"https://runescape.wiki/w/Oziach%27s_Armour\" target=\"_blank\" rel=\"noopener\">Oziach&#39;s Armour</a> in <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Toy_horsey\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Toy_horsey_%28grey%29.png?fca5d\" alt=\"Toy horsey (grey).png: RS3 Inventory image of Toy horsey\" width=\"30\" height=\"29\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Toy_horsey\" target=\"_blank\" rel=\"noopener\">Toy horsey</a>",
+              "<a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>, near <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a>"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Unholy_symbol\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Unholy_symbol.png?f1b96\" alt=\"Unholy symbol.png: RS3 Inventory image of Unholy symbol\" width=\"29\" height=\"31\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Unholy_symbol\" target=\"_blank\" rel=\"noopener\">Unholy symbol</a>",
+              "<a href=\"https://runescape.wiki/w/Grave_of_Scorpius\" target=\"_blank\" rel=\"noopener\">Grave of Scorpius</a>, north of the <a href=\"https://runescape.wiki/w/Observatory\" target=\"_blank\" rel=\"noopener\">Observatory</a> (near the <a href=\"https://runescape.wiki/w/Ourania_Cave\" target=\"_blank\" rel=\"noopener\">Ourania Cave</a>)"
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Wizard_hat\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/Wizard_hat.png?d3f07\" alt=\"Wizard hat.png: RS3 Inventory image of Wizard hat\" width=\"28\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a><a href=\"https://runescape.wiki/w/Wizard_hat\" target=\"_blank\" rel=\"noopener\">Wizard hat</a>",
+              "Ground floor (UK) / 1<sup>st</sup> floor (US) of <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a> (teleport using the <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a>)"
+            ]
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:7h37tu",
+          "html": "Once you have received the pure essence, teleport to the <a href=\"https://runescape.wiki/w/Rune_Essence_mine\" target=\"_blank\" rel=\"noopener\">Rune Essence mine</a> by talking to <a href=\"https://runescape.wiki/w/Carwen_Essencebinder\" target=\"_blank\" rel=\"noopener\">Carwen Essencebinder</a> in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a> (fastest way from <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a>) or <a href=\"https://runescape.wiki/w/Aubury\" target=\"_blank\" rel=\"noopener\">Aubury</a> in <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> or <a href=\"https://runescape.wiki/w/Archmage_Sedridor\" target=\"_blank\" rel=\"noopener\">Archmage Sedridor</a> in the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>.",
+          "text": "Once you have received the pure essence, teleport to the Rune Essence mine by talking to Carwen Essencebinder in Burthorpe (fastest way from Burthorpe lodestone) or Aubury in Varrock or Archmage Sedridor in the Wizards' Tower.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:ftp33t",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Solus_Dellagar\" target=\"_blank\" rel=\"noopener\">Solus Dellagar</a>.",
+          "text": "Kill Solus Dellagar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:gf3zik",
+          "html": "Give <a href=\"https://runescape.wiki/w/Sir_Amik_Varze\" target=\"_blank\" rel=\"noopener\">Sir Amik Varze</a> the hat.",
+          "text": "Give Sir Amik Varze the hat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Speak about the Wanted! quest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-solus-dellagar:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Wanted%21_reward.png?36562",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Wanted!_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/White_equipment\" target=\"_blank\" rel=\"noopener\">White equipment</a>",
+        "text": "Access to the White equipment",
+        "subs": []
+      },
+      {
+        "html": "20 noted <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure</a>/<a href=\"https://runescape.wiki/w/Rune_essence\" target=\"_blank\" rel=\"noopener\">rune essence</a> and the other items (from chasing Solus)",
+        "text": "20 noted pure/rune essence and the other items (from chasing Solus)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Royale",
+      "where": ""
+    },
+    {
+      "name": "Attack IV",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Wanted!_(achievement)\" target=\"_blank\" rel=\"noopener\">Wanted!</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Falador_achievements\" target=\"_blank\" rel=\"noopener\">Falador achievements</a></b>",
+    "<b><a href=\"https://runescape.wiki/w/Desert_achievements\" target=\"_blank\" rel=\"noopener\">Desert achievements</a></b>",
+    "<a href=\"https://runescape.wiki/w/White_Knight_Rises\" target=\"_blank\" rel=\"noopener\">White Knight Rises</a> (20) – Achieve the Master White Knight rank."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Quiet_Before_the_Swarm/Quick_guide\" target=\"_blank\" rel=\"noopener\">Quiet Before the Swarm</a>",
+        "<a href=\"https://runescape.wiki/w/The_Slug_Menace/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Slug Menace</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Void_Dance/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Void Dance</a>",
+        "<a href=\"https://runescape.wiki/w/Kennith%27s_Concerns/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kennith&#39;s Concerns</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide\" target=\"_blank\" rel=\"noopener\">Salt in the Wound</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Void_Stares_Back/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Void Stares Back</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

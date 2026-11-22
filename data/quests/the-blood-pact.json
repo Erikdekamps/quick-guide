@@ -1,0 +1,466 @@
+{
+  "format": 1,
+  "id": "the-blood-pact",
+  "title": "The Blood Pact",
+  "page": "The Blood Pact/Quick guide",
+  "rev": 36837563,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a>, in the <a href=\"https://runescape.wiki/w/Lumbridge_cemetery\" target=\"_blank\" rel=\"noopener\">Lumbridge cemetery</a>.",
+    "startMap": null,
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Kayle (level 1)",
+        "name": "Kayle",
+        "count": null,
+        "level": "1",
+        "note": ""
+      },
+      {
+        "text": "Caitlin (level 1)",
+        "name": "Caitlin",
+        "count": null,
+        "level": "1",
+        "note": ""
+      },
+      {
+        "text": "Reese (level 1)",
+        "name": "Reese",
+        "count": null,
+        "level": "1",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:8k7oaz",
+          "html": "Start the quest by talking to <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a> in the <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> graveyard.",
+          "text": "Start the quest by talking to Xenia in the Lumbridge graveyard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What help do you need?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll help you."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-dungeon",
+      "title": "The dungeon",
+      "anchor": "The_dungeon",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-dungeon:1uu6mhh",
+          "html": "Enter the catacombs.",
+          "text": "Enter the catacombs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:cl3shv",
+          "html": "After a cutscene, proceed north.",
+          "text": "After a cutscene, proceed north.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I can handle this."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-dungeon:cl3shv:1dv1lap",
+              "html": "Talk to Xenia if there is no dialogue.",
+              "text": "Talk to Xenia if there is no dialogue.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:4bhtwy",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Kayle\" target=\"_blank\" rel=\"noopener\">Kayle</a> then talk to him.",
+          "text": "Defeat Kayle then talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes. Now die!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:2fqw98",
+          "html": "Take his chargebow.",
+          "text": "Take his chargebow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-dungeon:2fqw98:9fwrx5",
+              "html": "(Optional) Equip it if you don&#39;t have any Magic, Ranged, or Necromancy weapon.",
+              "text": "(Optional) Equip it if you don't have any Magic, Ranged, or Necromancy weapon.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:dr6ncz",
+          "html": "Head west, open the tomb door, and then go through it.",
+          "text": "Head west, open the tomb door, and then go through it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:1sogvyg",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Caitlin\" target=\"_blank\" rel=\"noopener\">Caitlin</a>.",
+          "text": "Defeat Caitlin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:7ck84p",
+          "html": "Go south and operate the winch.",
+          "text": "Go south and operate the winch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:192rd3a",
+          "html": "Talk to Caitlin.",
+          "text": "Talk to Caitlin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Time for you to die!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:172c3mj",
+          "html": "Take her staff.",
+          "text": "Take her staff.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:ffjo5i",
+          "html": "Go down one of the stairs to the west.",
+          "text": "Go down one of the stairs to the west.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:1we1xv0",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Reese\" target=\"_blank\" rel=\"noopener\">Reese</a> and talk to him.",
+          "text": "Defeat Reese and talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Time for you to die!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-dungeon:18to5cz",
+          "html": "Untie <a href=\"https://runescape.wiki/w/Ilona\" target=\"_blank\" rel=\"noopener\">Ilona</a>.",
+          "text": "Untie Ilona.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, rescue Ilona."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:16v5i85",
+              "html": "At least 1 backpack space if you picked up all weapons previously",
+              "text": "At least 1 backpack space if you picked up all weapons previously"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1943xnm",
+          "html": "A cutscene will occur.",
+          "text": "A cutscene will occur.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready for my reward."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Blood_Pact_reward.png?549bf",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Blood_Pact_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(The_Blood_Pact)\" target=\"_blank\" rel=\"noopener\">lamp</a> rewarding:",
+        "text": "A lamp rewarding:",
+        "subs": [
+          "100 experience",
+          "100 experience",
+          "100 experience",
+          "100 experience",
+          "100 experience"
+        ]
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Lumbridge_Catacombs\" target=\"_blank\" rel=\"noopener\">Lumbridge Catacombs</a>, which include:",
+        "text": "Access to the Lumbridge Catacombs, which include:",
+        "subs": [
+          "The <a href=\"https://runescape.wiki/w/Mask_of_Dragith_Nurn\" target=\"_blank\" rel=\"noopener\">mask of Dragith Nurn</a> (The 5 parts it can be assembled from can be found by killing the monsters in the catacombs)",
+          "6 <a href=\"https://runescape.wiki/w/Demon_statuette\" target=\"_blank\" rel=\"noopener\">demon statuettes</a> in the catacombs, which <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a> will buy from you for a total of 2,500 coins",
+          "Xenia can also tell you history about the Catacombs and <a href=\"https://runescape.wiki/w/Dragith_Nurn\" target=\"_blank\" rel=\"noopener\">Dragith Nurn</a>"
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Reese%27s_sword\" target=\"_blank\" rel=\"noopener\">Reese&#39;s sword</a> and its <a href=\"https://runescape.wiki/w/Reese%27s_off-hand_sword\" target=\"_blank\" rel=\"noopener\">off-hand counterpart</a>",
+        "text": "Reese's sword and its off-hand counterpart",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Kayle%27s_chargebow\" target=\"_blank\" rel=\"noopener\">Kayle&#39;s chargebow</a>",
+        "text": "Kayle's chargebow",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Caitlin%27s_staff\" target=\"_blank\" rel=\"noopener\">Caitlin&#39;s staff</a>",
+        "text": "Caitlin's staff",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Helmet_of_trials\" target=\"_blank\" rel=\"noopener\">Helmet of trials</a>; requires 300 <a href=\"https://runescape.wiki/w/Quest_point\" target=\"_blank\" rel=\"noopener\">quest points</a>, can be received at any point",
+        "text": "Helmet of trials; requires 300 quest points, can be received at any point",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Pact - Upon entering the dungeon.",
+      "where": ""
+    },
+    {
+      "name": "Dead and Buried - In the Catacombs.",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Carnillean_Rising/Quick_guide\" target=\"_blank\" rel=\"noopener\">Carnillean Rising</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_My_One_and_Only_Lute/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: My One and Only Lute</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Flesh_and_Bone/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Flesh and Bone</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Hermy and Bass</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Skelly_By_Everlight/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Skelly By Everlight</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

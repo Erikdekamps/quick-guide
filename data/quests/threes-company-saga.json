@@ -1,0 +1,876 @@
+{
+  "format": 1,
+  "id": "threes-company-saga",
+  "title": "Three's Company (saga)",
+  "page": "Three's Company (saga)/Quick guide",
+  "rev": 37161749,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Find a <a href=\"https://runescape.wiki/w/Bear_pelt_(Three%27s_Company)\" target=\"_blank\" rel=\"noopener\">bear pelt</a> while raiding the 1-11 frozen floors of <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a>, then ask <a href=\"https://runescape.wiki/w/Skaldrun\" target=\"_blank\" rel=\"noopener\">Skaldrun</a> south-west of the Daemonheim entrance to share their story.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3700,
+      "lon": 3429,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Three's_Company_(saga)/Quick_guide"
+    },
+    "members": false,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Find and free Skaldrun from the frozen floors in Daemonheim",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Dungeoneering",
+        "level": 6,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Several wolves (level 35)",
+        "name": "Several wolves",
+        "count": null,
+        "level": "35",
+        "note": ""
+      },
+      {
+        "text": "Several bandit warriors (level 35)",
+        "name": "Several bandit warriors",
+        "count": null,
+        "level": "35",
+        "note": ""
+      },
+      {
+        "text": "Several bandit rangers (level 35)",
+        "name": "Several bandit rangers",
+        "count": null,
+        "level": "35",
+        "note": ""
+      },
+      {
+        "text": "Several mysterious shades (level 35)",
+        "name": "Several mysterious shades",
+        "count": null,
+        "level": "35",
+        "note": ""
+      },
+      {
+        "text": "2 Arctic bears (level 35)",
+        "name": "Arctic bears",
+        "count": 2,
+        "level": "35",
+        "note": ""
+      },
+      {
+        "text": "Carn (level 38)",
+        "name": "Carn",
+        "count": null,
+        "level": "38",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Wilderness</span>"
+      }
+    ],
+    "notes": [
+      "This guide is for 100% completion and to receive the unabridged tome. If the characters are having dialogue and the next door forward is open you can skip the dialogue and still get 100% completion."
+    ]
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:m6s98q",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">Ring of kinship</a> to find the bear pelt",
+          "text": "Ring of kinship to find the bear pelt",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:pcjfiz",
+          "html": "<a href=\"https://runescape.wiki/w/Persistent_Rage\" target=\"_blank\" rel=\"noopener\">Persistent Rage</a> relic power, for quick and unlimited healing with <a href=\"https://runescape.wiki/w/Regenerate\" target=\"_blank\" rel=\"noopener\">Regenerate</a>",
+          "text": "Persistent Rage relic power, for quick and unlimited healing with Regenerate",
+          "alternatives": []
+        },
+        {
+          "id": "rec:101bwni",
+          "html": "30 <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>",
+          "text": "30 Attack",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1dfen09",
+          "html": "30 <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>",
+          "text": "30 Magic",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1f8nodt",
+          "html": "30 <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>",
+          "text": "30 Ranged",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-room",
+      "title": "Starting room",
+      "anchor": "Starting_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-room:1hdtk2g",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a> and bank everything, including your <a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">ring of kinship</a>.",
+          "text": "Head to Daemonheim and bank everything, including your ring of kinship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-room:tt3do6",
+          "html": "Right-click choose <i>start saga</i> on <a href=\"https://runescape.wiki/w/Skaldrun\" target=\"_blank\" rel=\"noopener\">Skaldrun</a>, choose the first option then <i>Play Saga</i>. (Note: If you found the bear skin a long time ago and forgot about it, there is a chance this is bugged.. You are best off talking to Skaldrun manually and asking about the bearskin and to tell you the story. This is how you know you&#39;ve found it already and can start the saga)",
+          "text": "Right-click choose start saga on Skaldrun, choose the first option then Play Saga. (Note: If you found the bear skin a long time ago and forgot about it, there is a chance this is bugged.. You are best off talking to Skaldrun manually and asking about the bearskin and to tell you the story. This is how you know you've found it already and can start the saga)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-room:10vc02n",
+          "html": "Control Ariane, pick up the dusk eels from the tables.",
+          "text": "Control Ariane, pick up the dusk eels from the tables.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "guardian-room-1",
+      "title": "Guardian room #1",
+      "anchor": "Guardian_room_#1",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "guardian-room-1:1fqivtf",
+          "html": "As Ariane, enter the south door, kill all the enemies and pick up the dusk eels.",
+          "text": "As Ariane, enter the south door, kill all the enemies and pick up the dusk eels.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-1:1bsibgb",
+          "html": "Pick up the gold charm and heim crabs but do not eat them.",
+          "text": "Pick up the gold charm and heim crabs but do not eat them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-1:rw3d6j",
+          "html": "Control Sir Owen and check the rocky debris for a novite ore.",
+          "text": "Control Sir Owen and check the rocky debris for a novite ore.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-1:8bk1bt",
+          "html": "Enter the south door.",
+          "text": "Enter the south door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ice-puzzle-room",
+      "title": "Ice puzzle room",
+      "anchor": "Ice_puzzle_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "ice-puzzle-room:1orijwn",
+          "html": "Control Ozan and unlock the door by stepping on each of the 4 pressure plates.",
+          "text": "Control Ozan and unlock the door by stepping on each of the 4 pressure plates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ice-puzzle-room:1orijwn:a90gwg",
+              "html": "The puzzle is different for everyone and every time.",
+              "text": "The puzzle is different for everyone and every time.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "ice-puzzle-room:1orijwn:51zjt9",
+              "html": "You can slide diagonally.",
+              "text": "You can slide diagonally.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ice-puzzle-room:12yl1o1",
+          "html": "Open the east door.",
+          "text": "Open the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ice-puzzle-room:foj6xh",
+          "html": "Quickly switch to Ariane once in the next room.",
+          "text": "Quickly switch to Ariane once in the next room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "bridge-room",
+      "title": "Bridge room",
+      "anchor": "Bridge_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "bridge-room:a71ytt",
+          "html": "As Ariane, kill all the enemies. (Make sure you select earth strike in your magic book, it won&#39;t show properly but Ariane is lower level despite the spells that show up probably due to your character being higher level.)",
+          "text": "As Ariane, kill all the enemies. (Make sure you select earth strike in your magic book, it won't show properly but Ariane is lower level despite the spells that show up probably due to your character being higher level.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bridge-room:se6bc6",
+          "html": "As Ariane, make a cub skinweaver by using the gold charm on the summoning obelisk.",
+          "text": "As Ariane, make a cub skinweaver by using the gold charm on the summoning obelisk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bridge-room:258fuu",
+          "html": "As Ariane, talk to the cub skinweaver.",
+          "text": "As Ariane, talk to the cub skinweaver.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bridge-room:1yw7wnh",
+          "html": "Enter the east door.",
+          "text": "Enter the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "tile-flip-room",
+      "title": "Tile flip room",
+      "anchor": "Tile_flip_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "tile-flip-room:1luku2z",
+          "html": "As Ariane, flip all tiles until all yellow or green.",
+          "text": "As Ariane, flip all tiles until all yellow or green.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tile-flip-room:1luku2z:1pdl72p",
+              "html": "You can right click &quot;force&quot; to flip individual tiles.",
+              "text": "You can right click \"force\" to flip individual tiles.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mysterious-shade-room",
+      "title": "Mysterious shade room",
+      "anchor": "Mysterious_shade_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "mysterious-shade-room:12c925c",
+          "html": "As Ariane, enter the north door, quickly pick up the green rectangle key, and exit the room.",
+          "text": "As Ariane, enter the north door, quickly pick up the green rectangle key, and exit the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mysterious-shade-room:mrck0m",
+          "html": "Switch to Ozan and return to the starting room without teleporting (west, west, north, north).",
+          "text": "Switch to Ozan and return to the starting room without teleporting (west, west, north, north).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mysterious-shade-room:mrck0m:xgaepf",
+              "html": "There is currently a bug where if you use Home Teleport, it will turn the character you are currently controlling into your player character and you&#39;ll no longer be able to switch to other characters or continue on. You&#39;ll be forced to restart the Saga from last checkpoint.",
+              "text": "There is currently a bug where if you use Home Teleport, it will turn the character you are currently controlling into your player character and you'll no longer be able to switch to other characters or continue on. You'll be forced to restart the Saga from last checkpoint.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "magical-imbue-room",
+      "title": "Magical imbue room",
+      "anchor": "Magical_imbue_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "magical-imbue-room:1othgrs",
+          "html": "Switch to Ariane.",
+          "text": "Switch to Ariane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "magical-imbue-room:1p84iw3",
+          "html": "Unlock the green rectangle door and enter.",
+          "text": "Unlock the green rectangle door and enter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "magical-imbue-room:1lc7pvq",
+          "html": "&quot;Wait&quot; on each of the pressure pads for Owen and Ozan.",
+          "text": "\"Wait\" on each of the pressure pads for Owen and Ozan.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "magical-imbue-room:8bk1bt",
+          "html": "Enter the south door.",
+          "text": "Enter the south door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "strange-crystal-room",
+      "title": "Strange crystal room",
+      "anchor": "Strange_crystal_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "strange-crystal-room:1ynv8ez",
+          "html": "Take the crimson triangle key.",
+          "text": "Take the crimson triangle key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:y6lnrg",
+          "html": "Right-click &quot;Get-premonition&quot; on any strange crystal.",
+          "text": "Right-click \"Get-premonition\" on any strange crystal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:jyjdow",
+          "html": "Touch the following crystals in order:",
+          "text": "Touch the following crystals in order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "South red (Easternmost of the Southern pair)<br>2× West blue (Northernmost)<br>North green (Westernmost)<br>West green (Southernmost)<br>South yellow (Westernmost)"
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:p6zmdj",
+          "html": "Enter the north door.",
+          "text": "Enter the north door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:rmjpiu",
+          "html": "Right-click call Owen and Ozan to walk them off the pressure plates.",
+          "text": "Right-click call Owen and Ozan to walk them off the pressure plates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:b6woaz",
+          "html": "Enter the west door.",
+          "text": "Enter the west door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "strange-crystal-room:1a9vvh7",
+          "html": "As Ariane, unlock the crimson triangle door and enter it.",
+          "text": "As Ariane, unlock the crimson triangle door and enter it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "guardian-room-2",
+      "title": "Guardian room #2",
+      "anchor": "Guardian_room_#2",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "guardian-room-2:91o2vn",
+          "html": "As Ariane, kill all the enemies and pick up the dusk eels.",
+          "text": "As Ariane, kill all the enemies and pick up the dusk eels.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-2:1n9cz0f",
+          "html": "Control Ozan, and enter the east door.",
+          "text": "Control Ozan, and enter the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "door-guard-room",
+      "title": "Door guard room",
+      "anchor": "Door_guard_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "door-guard-room:1m51dmo",
+          "html": "As Ozan, talk to the guard.",
+          "text": "As Ozan, talk to the guard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Charm] What are you guarding?"
+                },
+                {
+                  "key": "2",
+                  "text": "Isn't guarding a door in these dungeons a little...redundant?"
+                },
+                {
+                  "key": "1",
+                  "text": "Who put you up to guarding the door?"
+                },
+                {
+                  "key": "2",
+                  "text": "Why are you bothering to guard it?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "door-guard-room:1yw7wnh",
+          "html": "Enter the east door.",
+          "text": "Enter the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "statue-puzzle-room",
+      "title": "Statue puzzle room",
+      "anchor": "Statue_puzzle_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "statue-puzzle-room:f9s4gt",
+          "html": "Control Owen and push the statues into place.",
+          "text": "Control Owen and push the statues into place.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "statue-puzzle-room:f9s4gt:1862663",
+              "html": "The four southern statues should match the position of the statues in the north.",
+              "text": "The four southern statues should match the position of the statues in the north.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickaxe-room",
+      "title": "Pickaxe room",
+      "anchor": "Pickaxe_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "pickaxe-room:1upjivu",
+          "html": "Enter the east door and pick up the fractite pickaxe.",
+          "text": "Enter the east door and pick up the fractite pickaxe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pickaxe-room:18zj6u4",
+          "html": "Return west to the guard room and mine the zephyrium rock hidden behind the northwest pillar.",
+          "text": "Return west to the guard room and mine the zephyrium rock hidden behind the northwest pillar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pickaxe-room:nexi5l",
+          "html": "Return east to the statue room.",
+          "text": "Return east to the statue room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "agility-room",
+      "title": "Agility room",
+      "anchor": "Agility_room",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "agility-room:fl5oo4",
+          "html": "Control Ozan and enter the northern door.",
+          "text": "Control Ozan and enter the northern door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-room:ufyek2",
+          "html": "Proceed through the traps and investigate the broken longsword.",
+          "text": "Proceed through the traps and investigate the broken longsword.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "agility-room:1ex8g4z",
+          "html": "Control Ariane and return to the previous room.",
+          "text": "Control Ariane and return to the previous room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "guardian-room-3",
+      "title": "Guardian room #3",
+      "anchor": "Guardian_room_#3",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "guardian-room-3:1qttgea",
+          "html": "Enter the southern door, kill the enemies and pick up the dusk eel.",
+          "text": "Enter the southern door, kill the enemies and pick up the dusk eel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-3:19ykr63",
+          "html": "Enter the east door and pick up the gold crescent key.",
+          "text": "Enter the east door and pick up the gold crescent key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-3:hk4npx",
+          "html": "Talk to Pikkupstix (in the northwest corner of the room).",
+          "text": "Talk to Pikkupstix (in the northwest corner of the room).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can you walk?"
+                },
+                {
+                  "key": "1",
+                  "text": "You should head to the surface now."
+                },
+                {
+                  "key": "4",
+                  "text": "Leave"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-3:887cf4",
+          "html": "Return to the room north of the starting room without teleporting (west, north, west, west).",
+          "text": "Return to the room north of the starting room without teleporting (west, north, west, west).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "guardian-room-3:19zab7v",
+          "html": "Unlock the gold crescent door north of the starting room.",
+          "text": "Unlock the gold crescent door north of the starting room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "confronting-carn",
+      "title": "Confronting Carn",
+      "anchor": "Confronting_Carn",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "confronting-carn:1ezjw1f",
+          "html": "Enter the room and continue through the dialogue.",
+          "text": "Enter the room and continue through the dialogue.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Sir Owen"
+                },
+                {
+                  "key": "2",
+                  "text": "Ozan"
+                },
+                {
+                  "key": "3",
+                  "text": "Ariane"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-carn:52iax1",
+          "html": "Kill the two arctic bears and then kill Carn.",
+          "text": "Kill the two arctic bears and then kill Carn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-carn:1i1g9wo",
+          "html": "Once he is killed, choose any chat option.",
+          "text": "Once he is killed, choose any chat option.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Saga complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Three%27s_Company_%28saga%29_reward.png?0a8a2",
+      "width": 424,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Three%27s_Company_(saga)_reward.png"
+    },
+    "items": [
+      {
+        "html": "750 experience",
+        "text": "750 experience",
+        "subs": []
+      },
+      {
+        "html": "75 <a href=\"https://runescape.wiki/w/Dungeoneering_token\" target=\"_blank\" rel=\"noopener\">Dungeoneering tokens</a>",
+        "text": "75 Dungeoneering tokens",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "",
+        "items": [
+          {
+            "html": "3,750 experience in <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> or <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>.",
+            "text": "3,750 experience in Attack, Ranged or Magic.",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "<b>Abridged</b>: An <a href=\"https://runescape.wiki/w/Three%27s_company_(abridged)\" target=\"_blank\" rel=\"noopener\">abridged book</a>, which when read gives:",
+      "<b>Unabridged</b>: For 100% score (all of the secondary objectives), as well as the abridged book reward, an <a href=\"https://runescape.wiki/w/Three%27s_company_(unabridged)\" target=\"_blank\" rel=\"noopener\">unabridged book</a>, which when read gives:"
+    ]
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

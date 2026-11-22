@@ -1,0 +1,906 @@
+{
+  "format": 1,
+  "id": "call-of-the-ancestors",
+  "title": "Call of the Ancestors",
+  "page": "Call of the Ancestors/Quick guide",
+  "rev": 37197931,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Tunks\" target=\"_blank\" rel=\"noopener\">Tunks</a> near the Mazcab <a href=\"https://runescape.wiki/w/World_window\" target=\"_blank\" rel=\"noopener\">world window</a>, north-west of the <a href=\"https://runescape.wiki/w/Menaphos\" target=\"_blank\" rel=\"noopener\">Menaphos</a> gates.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2850,
+      "lon": 3107,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Call_of_the_Ancestors/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:22s4mc",
+          "html": "The <a href=\"https://runescape.wiki/w/Liberation_of_Mazcab\" target=\"_blank\" rel=\"noopener\">Liberation of Mazcab</a> grouping teleport may be helpful for a few parts of this quest. Especially if you lack <a href=\"https://runescape.wiki/w/Reputation_(Mazcab)\" target=\"_blank\" rel=\"noopener\">reputation</a>.",
+          "text": "The Liberation of Mazcab grouping teleport may be helpful for a few parts of this quest. Especially if you lack reputation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:jxcawq",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Tunks\" target=\"_blank\" rel=\"noopener\">Tunks</a> at the <a href=\"https://runescape.wiki/w/Desert_goebie_camp\" target=\"_blank\" rel=\"noopener\">desert goebie camp</a>, north-west of the <a href=\"https://runescape.wiki/w/Menaphos\" target=\"_blank\" rel=\"noopener\">Menaphos</a> gates.",
+          "text": "Talk to Tunks at the desert goebie camp, north-west of the Menaphos gates.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ch7i6z",
+          "html": "Go through the <a href=\"https://runescape.wiki/w/World_window\" target=\"_blank\" rel=\"noopener\">world window</a>",
+          "text": "Go through the world window",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:anns8l",
+          "html": "Go slightly to the north then east to <a href=\"https://runescape.wiki/w/Kanatah\" target=\"_blank\" rel=\"noopener\">Kanatah</a>.",
+          "text": "Go slightly to the north then east to Kanatah.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:2ccn6c",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Acca_Kanatah\" target=\"_blank\" rel=\"noopener\">Acca Kanatah</a>.",
+          "text": "Talk to Acca Kanatah.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I've simply come to help."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about Call of the Ancestors."
+                },
+                {
+                  "key": "2",
+                  "text": "The airut are gathering to completely wipe out Kanatah."
+                },
+                {
+                  "key": "2",
+                  "text": "Ok, I'm done talking. What do I need to do?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:13tp1og",
+          "html": "If you have a pet, dismiss it and go east to the beach and talk to Tunks for a cutscene.",
+          "text": "If you have a pet, dismiss it and go east to the beach and talk to Tunks for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "No problem."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "gathering-the-bundles-of-logs",
+      "title": "Gathering the bundles of logs",
+      "anchor": "Gathering_the_bundles_of_logs",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "gathering-the-bundles-of-logs:1ocjrme",
+          "html": "Jump over the chasm and collect the bundle of logs.",
+          "text": "Jump over the chasm and collect the bundle of logs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-the-bundles-of-logs:178k1bv",
+          "html": "Headbutt the cracked wall. Control Peck by clicking on him and squeeze through the hole. Gather the bundle of logs.",
+          "text": "Headbutt the cracked wall. Control Peck by clicking on him and squeeze through the hole. Gather the bundle of logs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "gathering-the-bundles-of-logs:2ccn6c",
+          "html": "Talk to Acca Kanatah.",
+          "text": "Talk to Acca Kanatah.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Call of the Ancestors."
+                },
+                {
+                  "key": "2",
+                  "text": "Great, where do I get more?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "nemi-poison",
+      "title": "Nemi poison",
+      "anchor": "Nemi_poison",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "nemi-poison:lk2r8e",
+          "html": "Enter <a href=\"https://runescape.wiki/w/Nemi_Forest\" target=\"_blank\" rel=\"noopener\">Nemi Forest</a>, to the west of <a href=\"https://runescape.wiki/w/Mazcab\" target=\"_blank\" rel=\"noopener\">Mazcab</a>. Select the correct option on the chatbox when entering the Forest.",
+          "text": "Enter Nemi Forest, to the west of Mazcab. Select the correct option on the chatbox when entering the Forest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Enter Nemi Forest for Call of the Ancestors."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "nemi-poison:lk2r8e:d1nyig",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Mazcab_guide\" target=\"_blank\" rel=\"noopener\">Mazcab guide</a> by the city entrance to get to Nemi Forest faster, if you have the reputation.",
+              "text": "Talk to Mazcab guide by the city entrance to get to Nemi Forest faster, if you have the reputation.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Forest Entrance"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "nemi-poison:19izsa",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Ancient_goebie\" target=\"_blank\" rel=\"noopener\">Ancient goebie</a>",
+          "text": "Talk to the Ancient goebie",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Acca Kanatah needs to create more poison."
+                },
+                {
+                  "key": "1",
+                  "text": "Friend?"
+                },
+                {
+                  "key": "1",
+                  "text": "Looks like we're visiting a temple then."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "nemi-poison:uaj4v8",
+          "html": "Enter the temple to the north, then talk to <a href=\"https://runescape.wiki/w/Xinachto\" target=\"_blank\" rel=\"noopener\">Xinachto</a>",
+          "text": "Enter the temple to the north, then talk to Xinachto",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm an adventurer!"
+                },
+                {
+                  "key": "5",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "goebie-trials",
+      "title": "Goebie trials",
+      "anchor": "Goebie_trials",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "First trial"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:xmhy9a",
+          "html": "Enter the first door on the western wall.",
+          "text": "Enter the first door on the western wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1hz323a",
+          "html": "Control Lunch. Step on the second tile from the west, then the one east of it, then the easternmost one, then the westernmost one. Do not step on a <a href=\"https://runescape.wiki/w/Pressure_plate_(Call_of_the_Ancestors)\" target=\"_blank\" rel=\"noopener\">pressure plate</a> twice.",
+          "text": "Control Lunch. Step on the second tile from the west, then the one east of it, then the easternmost one, then the westernmost one. Do not step on a pressure plate twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:l76twq",
+          "html": "Control Tunks. Jump over the chasm, then press the easternmost pressure plate, the one west of it, then the westernmost pressure plate, then the remaining one to the east of it.",
+          "text": "Control Tunks. Jump over the chasm, then press the easternmost pressure plate, the one west of it, then the westernmost pressure plate, then the remaining one to the east of it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:f3o55x",
+          "html": "Control Lunch. Headbutt the cracked wall on the western wall. Then step on the westernmost plate.",
+          "text": "Control Lunch. Headbutt the cracked wall on the western wall. Then step on the westernmost plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1dojoo9",
+          "html": "Control Peck. Squeeze through the small gap you just opened, and the one to the north, then investigate the magic.",
+          "text": "Control Peck. Squeeze through the small gap you just opened, and the one to the north, then investigate the magic.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1q5f20z",
+          "html": "To exit, control Lunch and exit the southern door.",
+          "text": "To exit, control Lunch and exit the southern door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Second trial"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1iaf2uy",
+          "html": "Enter the door on the eastern wall.",
+          "text": "Enter the door on the eastern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:j4ohz7",
+          "html": "Control Tunks and jump over the chasm to the north once.",
+          "text": "Control Tunks and jump over the chasm to the north once.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:6kas0j",
+          "html": "Control Lunch at the entrance and headbutt the cracked wall on the west.",
+          "text": "Control Lunch at the entrance and headbutt the cracked wall on the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:18uo2k3",
+          "html": "Control Peck, squeeze through, and pull the lever.",
+          "text": "Control Peck, squeeze through, and pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:wx61um",
+          "html": "Control Lunch and push the heavy block onto the north-eastern pressure plate.",
+          "text": "Control Lunch and push the heavy block onto the north-eastern pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1x815dt",
+          "html": "Control Tunks and stand on the pressure plate on the centre platform.",
+          "text": "Control Tunks and stand on the pressure plate on the centre platform.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1ic3yq3",
+          "html": "Control Lunch and pull the heavy block onto the south-eastern pressure plate. Stand on the north-eastern pressure plate to release Tunks.",
+          "text": "Control Lunch and pull the heavy block onto the south-eastern pressure plate. Stand on the north-eastern pressure plate to release Tunks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:msd1qx",
+          "html": "Control Tunks, jump the gap to the north.",
+          "text": "Control Tunks, jump the gap to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1xm9qux",
+          "html": "Control Lunch and walk around to stand on the north-eastern pressure plate.",
+          "text": "Control Lunch and walk around to stand on the north-eastern pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:zy52wj",
+          "html": "Control Tunks and stand on one of the north-western pressure plates.",
+          "text": "Control Tunks and stand on one of the north-western pressure plates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:3k3yc6",
+          "html": "Control Peck and squeeze through the north-western gap.",
+          "text": "Control Peck and squeeze through the north-western gap.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:qpssyg",
+          "html": "Control Lunch, and walk past the three pillars and stand on one of the north-western pressure plates.",
+          "text": "Control Lunch, and walk past the three pillars and stand on one of the north-western pressure plates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1dzy41",
+          "html": "Control Peck and pull the lever, squeeze back through the gap and investigate the magic.",
+          "text": "Control Peck and pull the lever, squeeze back through the gap and investigate the magic.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:dn8zzy",
+          "html": "To exit, go through the southern door as any of the goebies.",
+          "text": "To exit, go through the southern door as any of the goebies.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Third trial"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:gkorb0",
+          "html": "Enter the door on the northern wall.",
+          "text": "Enter the door on the northern wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1qq26yd",
+          "html": "Control Lunch and headbutt the western wall.",
+          "text": "Control Lunch and headbutt the western wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1dnubpb",
+          "html": "Control Peck and squeeze through. Pull the lever to reveal a pressure plate.",
+          "text": "Control Peck and squeeze through. Pull the lever to reveal a pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "note",
+          "html": "For these next instructions, Lunch needs to be placed in the correct positions after Tunks. You can pull the lever as many times as you like to reveal the pressure plate."
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Lever 1"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:lnkmaf",
+          "html": "Control Tunks. Jump over chasm then place Tunks on the north-eastern small tile and then place Lunch on the south-eastern large tile.",
+          "text": "Control Tunks. Jump over chasm then place Tunks on the north-eastern small tile and then place Lunch on the south-eastern large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Lever 2"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1s4iih8",
+          "html": "Place Tunks on the north-western small tile and then place Lunch on the south-eastern large tile.",
+          "text": "Place Tunks on the north-western small tile and then place Lunch on the south-eastern large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1hq7f0s",
+          "html": "Place Tunks on the south-eastern small tile and then place Lunch on the north-western large tile.",
+          "text": "Place Tunks on the south-eastern small tile and then place Lunch on the north-western large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Lever 3"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:39q1ka",
+          "html": "Place Tunks on the southern small tile and then place Lunch on the north-western large tile.",
+          "text": "Place Tunks on the southern small tile and then place Lunch on the north-western large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1jya36",
+          "html": "Place Tunks on the south-western small tile and then place Lunch on the south-eastern large tile.",
+          "text": "Place Tunks on the south-western small tile and then place Lunch on the south-eastern large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:18z7pa6",
+          "html": "Place Tunks on the northern small tile and then place Lunch on the south-western large tile.",
+          "text": "Place Tunks on the northern small tile and then place Lunch on the south-western large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Lever 4"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:c9pr9e",
+          "html": "Place Tunks on the north-western small tile and then place Lunch on the south-western large tile.",
+          "text": "Place Tunks on the north-western small tile and then place Lunch on the south-western large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:16bdtm2",
+          "html": "Place Tunks on the north-eastern small tile and then place Lunch on the south-eastern large tile.",
+          "text": "Place Tunks on the north-eastern small tile and then place Lunch on the south-eastern large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1r8i42q",
+          "html": "Place Tunks on the eastern small tile and then place Lunch on the north-eastern large tile.",
+          "text": "Place Tunks on the eastern small tile and then place Lunch on the north-eastern large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1hq7f0s-2",
+          "html": "Place Tunks on the south-eastern small tile and then place Lunch on the north-western large tile.",
+          "text": "Place Tunks on the south-eastern small tile and then place Lunch on the north-western large tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 4,
+          "text": "Release Xinachto"
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1t21bkx",
+          "html": "Investigate the magic as Peck, then exit the southern door.",
+          "text": "Investigate the magic as Peck, then exit the southern door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:bjvz93",
+          "html": "Talk to Xinachto, break the shackle.",
+          "text": "Talk to Xinachto, break the shackle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Why is Xinchto allowing this to happen?"
+                },
+                {
+                  "key": "2",
+                  "text": "You're right, break the shackles!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:vdh6zs",
+          "html": "Go outside through the southern door.",
+          "text": "Go outside through the southern door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "goebie-trials:1d2cafg",
+          "html": "Talk to the Ancient goebie.",
+          "text": "Talk to the Ancient goebie.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fighting",
+      "title": "Fighting",
+      "anchor": "Fighting",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fighting:2an4lq",
+          "html": "Kill the waves of Airut and chargers by clicking on the ground or the minimap to attack.",
+          "text": "Kill the waves of Airut and chargers by clicking on the ground or the minimap to attack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "fighting:2an4lq:rfxjt8",
+              "html": "If you fail, speak to the <a href=\"https://runescape.wiki/w/Ancient_goebie\" target=\"_blank\" rel=\"noopener\">Ancient goebie</a> to start the waves again.",
+              "text": "If you fail, speak to the Ancient goebie to start the waves again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wrapping-up",
+      "title": "Wrapping Up",
+      "anchor": "Wrapping_Up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "wrapping-up:e5m4h2",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Ancient_goebie\" target=\"_blank\" rel=\"noopener\">Ancient goebie</a> to obtain <a href=\"https://runescape.wiki/w/Poisonous_nemi_stalks\" target=\"_blank\" rel=\"noopener\">poisonous nemi stalks</a>.",
+          "text": "Talk to the Ancient goebie to obtain poisonous nemi stalks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wrapping-up:wd4d3v",
+          "html": "Run south-east to exit the Nemi forest.",
+          "text": "Run south-east to exit the Nemi forest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wrapping-up:1vm2jhw",
+          "html": "Run east to Kanatah and talk to <a href=\"https://runescape.wiki/w/Acca_Kanatah\" target=\"_blank\" rel=\"noopener\">Acca Kanatah</a>.",
+          "text": "Run east to Kanatah and talk to Acca Kanatah.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Call of the Ancestors."
+                },
+                {
+                  "key": "1",
+                  "text": "I found the poison."
+                },
+                {
+                  "key": "3",
+                  "text": "We explored a lost temple, freed a spirit and used forgotten magic to defeat airut."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "wrapping-up:1vm2jhw:15i23y3",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Mazcab_guide\" target=\"_blank\" rel=\"noopener\">Mazcab guide</a> outside Nemi Forest to return quickly to Acca Kanatah if you have the reputation.",
+              "text": "Talk to Mazcab guide outside Nemi Forest to return quickly to Acca Kanatah if you have the reputation.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Kanatah"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "Quest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Call_of_the_Ancestors_reward.png?abade",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Call_of_the_Ancestors_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience <a href=\"https://runescape.wiki/w/Magic_lamp_(Call_of_the_Ancestors)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 10 or higher)",
+        "text": "1,000 experience lamp (Skill must be level 10 or higher)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Goebie_Warpaint\" target=\"_blank\" rel=\"noopener\">Goebie Warpaint</a> outfit overrides",
+        "text": "Goebie Warpaint outfit overrides",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Mazcab_Poker\" target=\"_blank\" rel=\"noopener\">Mazcab Poker</a> and <a href=\"https://runescape.wiki/w/Mazcab_Cudgel\" target=\"_blank\" rel=\"noopener\">Mazcab Cudgel</a> weapon override",
+        "text": "Mazcab Poker and Mazcab Cudgel weapon override",
+        "subs": []
+      },
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Liberation_of_Mazcab_reroll_token\" target=\"_blank\" rel=\"noopener\">Liberation of Mazcab reroll tokens</a>",
+        "text": "3 Liberation of Mazcab reroll tokens",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Airut Ambush",
+      "where": "When the Airut ambush the Goebies outside of the Temple"
+    },
+    {
+      "name": "Spirit of Chantli",
+      "where": "When entering the Goebie Temple"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

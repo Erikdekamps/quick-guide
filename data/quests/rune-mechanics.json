@@ -1,0 +1,598 @@
+{
+  "format": 1,
+  "id": "rune-mechanics",
+  "title": "Rune Mechanics",
+  "page": "Rune Mechanics/Quick guide",
+  "rev": 36944154,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Apprentice_Clerval\" target=\"_blank\" rel=\"noopener\">Apprentice Clerval</a> in the basement of the <a href=\"https://runescape.wiki/w/Mage_Training_Arena\" target=\"_blank\" rel=\"noopener\">Mage Training Arena</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 4816,
+      "lon": 3625,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Rune_Mechanics/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 25,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 27,
+        "note": ""
+      },
+      {
+        "skill": "Runecrafting",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1f5hbpu",
+          "html": "5 <a href=\"https://runescape.wiki/w/Steam_rune\" target=\"_blank\" rel=\"noopener\">steam runes</a> (you must craft one during the quest; the rest can be bought)",
+          "text": "5 steam runes (you must craft one during the quest; the rest can be bought)",
+          "alternatives": []
+        },
+        {
+          "id": "req:hd8n1i",
+          "html": "1 <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire rune</a> or <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water rune</a> (needed to craft the steam rune; 5 if crafting all 5 steam runes during the quest)",
+          "text": "1 fire rune or water rune (needed to craft the steam rune; 5 if crafting all 5 steam runes during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1cnghf",
+          "html": "Item to access <a href=\"https://runescape.wiki/w/Fire_altar\" target=\"_blank\" rel=\"noopener\">fire altar</a> if bringing <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water rune</a>, or <a href=\"https://runescape.wiki/w/Water_altar\" target=\"_blank\" rel=\"noopener\">water altar</a> if bringing <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire rune</a> (a <a href=\"https://runescape.wiki/w/Fire_talisman\" target=\"_blank\" rel=\"noopener\">fire talisman</a> and <a href=\"https://runescape.wiki/w/Water_talisman\" target=\"_blank\" rel=\"noopener\">water talisman</a> are given to you in the quest)",
+          "text": "Item to access fire altar if bringing water rune, or water altar if bringing fire rune (a fire talisman and water talisman are given to you in the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:54wpz5",
+          "html": "5 <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">mind runes</a>",
+          "text": "5 mind runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:tbzcot",
+          "html": "5 <a href=\"https://runescape.wiki/w/Body_rune\" target=\"_blank\" rel=\"noopener\">body runes</a>",
+          "text": "5 body runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:xibfhi",
+          "html": "2 <a href=\"https://runescape.wiki/w/Emerald\" target=\"_blank\" rel=\"noopener\">emeralds</a>",
+          "text": "2 emeralds",
+          "alternatives": []
+        },
+        {
+          "id": "req:9l0puv",
+          "html": "21 <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a> (cannot be noted)",
+          "text": "21 pure essence (cannot be noted)",
+          "alternatives": []
+        },
+        {
+          "id": "req:19l8hhk",
+          "html": "<a href=\"https://runescape.wiki/w/Progress_hat\" target=\"_blank\" rel=\"noopener\">Progress hat</a> (and 5 or more <a href=\"https://runescape.wiki/w/Pizazz_points\" target=\"_blank\" rel=\"noopener\">pizazz points</a> at the <a href=\"https://runescape.wiki/w/Mage_Training_Arena\" target=\"_blank\" rel=\"noopener\">Mage Training Arena</a>)",
+          "text": "Progress hat (and 5 or more pizazz points at the Mage Training Arena)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1nglo9c",
+          "html": "Transportation to Mage Training Arena such as a <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a> or <a href=\"https://runescape.wiki/w/Mystical_sand_seed\" target=\"_blank\" rel=\"noopener\">mystical sand seed</a>",
+          "text": "Transportation to Mage Training Arena such as a ring of duelling or mystical sand seed",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:117h9ws",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Apprentice_Clerval\" target=\"_blank\" rel=\"noopener\">Apprentice Clerval</a> in the basement of the <a href=\"https://runescape.wiki/w/Mage_Training_Arena\" target=\"_blank\" rel=\"noopener\">Mage Training Arena</a>.",
+          "text": "Talk to Apprentice Clerval in the basement of the Mage Training Arena.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "wizard-dougal",
+      "title": "Wizard Dougal",
+      "anchor": "Wizard_Dougal",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "wizard-dougal:bring:1y8yj8x",
+              "html": "5 <a href=\"https://runescape.wiki/w/Steam_rune\" target=\"_blank\" rel=\"noopener\">steam runes</a>",
+              "text": "5 steam runes"
+            },
+            {
+              "id": "wizard-dougal:bring:54wpz5",
+              "html": "5 <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">mind runes</a>",
+              "text": "5 mind runes"
+            },
+            {
+              "id": "wizard-dougal:bring:tbzcot",
+              "html": "5 <a href=\"https://runescape.wiki/w/Body_rune\" target=\"_blank\" rel=\"noopener\">body runes</a>",
+              "text": "5 body runes"
+            },
+            {
+              "id": "wizard-dougal:bring:eoh4yw",
+              "html": "5 <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water rune</a> (if at fire altar) or 5 <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire rune</a> (if at water altar)",
+              "text": "5 water rune (if at fire altar) or 5 fire rune (if at water altar)"
+            },
+            {
+              "id": "wizard-dougal:bring:16uuj34",
+              "html": "5 <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a>",
+              "text": "5 pure essence"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-dougal:1wun0m3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Dougal\" target=\"_blank\" rel=\"noopener\">Wizard Dougal</a> who is also in the basement.",
+          "text": "Talk to Wizard Dougal who is also in the basement.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Complement him and massage his ego."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "wizard-dougal:1wun0m3:1v1fsxm",
+              "html": "You need four free spaces in your inventory for Dougal to give you items. If he doesn&#39;t give you the items, he will not accept the steam runes.",
+              "text": "You need four free spaces in your inventory for Dougal to give you items. If he doesn't give you the items, he will not accept the steam runes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "wizard-dougal:10k9kd3",
+          "html": "Wear the <a href=\"https://runescape.wiki/w/Binding_necklace\" target=\"_blank\" rel=\"noopener\">binding necklace</a> that Dougal gave you.",
+          "text": "Wear the binding necklace that Dougal gave you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-dougal:92tvx1",
+          "html": "Craft at least one <a href=\"https://runescape.wiki/w/Steam_rune\" target=\"_blank\" rel=\"noopener\">steam rune</a>. The remaining runes (4 steam runes, 5 <a href=\"https://runescape.wiki/w/Mind_rune\" target=\"_blank\" rel=\"noopener\">mind runes</a>, 5 <a href=\"https://runescape.wiki/w/Body_rune\" target=\"_blank\" rel=\"noopener\">body runes</a>) can be obtained or bought ahead of time.",
+          "text": "Craft at least one steam rune. The remaining runes (4 steam runes, 5 mind runes, 5 body runes) can be obtained or bought ahead of time.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "wizard-dougal:92tvx1:7jbfnx",
+              "html": "Steam runes can be crafted by using <b>fire runes</b> on the <b><a href=\"https://runescape.wiki/w/Water_altar\" target=\"_blank\" rel=\"noopener\">water altar</a></b> (consuming a <a href=\"https://runescape.wiki/w/Fire_talisman\" target=\"_blank\" rel=\"noopener\">fire talisman</a>).",
+              "text": "Steam runes can be crafted by using fire runes on the water altar (consuming a fire talisman).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "wizard-dougal:92tvx1:ywkxq9",
+              "html": "Alternatively, use <b>water runes</b> on the <b><a href=\"https://runescape.wiki/w/Fire_altar\" target=\"_blank\" rel=\"noopener\">fire altar</a></b> (consuming a <a href=\"https://runescape.wiki/w/Water_talisman\" target=\"_blank\" rel=\"noopener\">water talisman</a>).",
+              "text": "Alternatively, use water runes on the fire altar (consuming a water talisman).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "wizard-dougal:1jpqa5t",
+          "html": "Talk to Wizard Dougal.",
+          "text": "Talk to Wizard Dougal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-dougal:a9xai",
+          "html": "Give the runes to Clerval.",
+          "text": "Give the runes to Clerval.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "wizard-edvin",
+      "title": "Wizard Edvin",
+      "anchor": "Wizard_Edvin",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "wizard-edvin:1ggev2y",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Edvin\" target=\"_blank\" rel=\"noopener\">Wizard Edvin</a> who is also in the basement. (You will need to dismiss any pets currently active)",
+          "text": "Talk to Wizard Edvin who is also in the basement. (You will need to dismiss any pets currently active)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I guess I'll give it a try."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-edvin:1szu9nw",
+          "html": "Solve the portal maze.",
+          "text": "Solve the portal maze.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "wizard-edvin:1szu9nw:n24abx",
+              "html": "From the start, go through the west portal, then go to the northern portal 3 times.",
+              "text": "From the start, go through the west portal, then go to the northern portal 3 times.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "wizard-edvin:ct2lb9",
+          "html": "Exit the maze.",
+          "text": "Exit the maze.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-edvin:1cgy0ag",
+          "html": "Take <a href=\"https://runescape.wiki/w/Edvin%27s_tool\" target=\"_blank\" rel=\"noopener\">Edvin&#39;s tool</a> to Clerval.",
+          "text": "Take Edvin's tool to Clerval.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "wizard-shug",
+      "title": "Wizard Shug",
+      "anchor": "Wizard_Shug",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "wizard-shug:bring:xibfhi",
+              "html": "2 <a href=\"https://runescape.wiki/w/Emerald\" target=\"_blank\" rel=\"noopener\">emeralds</a>",
+              "text": "2 emeralds"
+            },
+            {
+              "id": "wizard-shug:bring:1h1h09t",
+              "html": "20 <a href=\"https://runescape.wiki/w/Pure_essence\" target=\"_blank\" rel=\"noopener\">pure essence</a>",
+              "text": "20 pure essence"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-shug:mbjlh0",
+          "html": "Obtain five <a href=\"https://runescape.wiki/w/Pizazz_points\" target=\"_blank\" rel=\"noopener\">pizazz points</a> from <a href=\"https://runescape.wiki/w/Mage_Training_Arena\" target=\"_blank\" rel=\"noopener\">Mage Training Arena</a> minigame, if you don&#39;t already have five. <a href=\"https://runescape.wiki/w/Enchantment_Pizazz_points\" target=\"_blank\" rel=\"noopener\">Enchantment Pizazz points</a> are easy to obtain by casting any level jewellery enchantment spell (<a href=\"https://runescape.wiki/w/Lvl-1_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-1 Enchant</a>, <a href=\"https://runescape.wiki/w/Lvl-2_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-2 Enchant</a>, <a href=\"https://runescape.wiki/w/Lvl-3_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-3 Enchant</a>, <a href=\"https://runescape.wiki/w/Lvl-4_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-4 Enchant</a>, <a href=\"https://runescape.wiki/w/Lvl-5_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-5 Enchant</a>, <a href=\"https://runescape.wiki/w/Lvl-6_Enchant\" target=\"_blank\" rel=\"noopener\">Lvl-6 Enchant</a>) on a dragonstone lying on the arena floor. (Requires at least level 7 Magic.)",
+          "text": "Obtain five pizazz points from Mage Training Arena minigame, if you don't already have five. Enchantment Pizazz points are easy to obtain by casting any level jewellery enchantment spell (Lvl-1 Enchant, Lvl-2 Enchant, Lvl-3 Enchant, Lvl-4 Enchant, Lvl-5 Enchant, Lvl-6 Enchant) on a dragonstone lying on the arena floor. (Requires at least level 7 Magic.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-shug:1o8sif8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Shug\" target=\"_blank\" rel=\"noopener\">Wizard Shug</a> on the top floor of the arena.",
+          "text": "Talk to Wizard Shug on the top floor of the arena.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Get back on topic!"
+                },
+                {
+                  "key": "2",
+                  "text": "Get back on topic!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "wizard-shug:cek59g",
+          "html": "Enchant the emeralds using the <a href=\"https://runescape.wiki/w/Workbench_(Mage_Training_Arena_basement)\" target=\"_blank\" rel=\"noopener\">workbench</a> by Clerval.",
+          "text": "Enchant the emeralds using the workbench by Clerval.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Rune_Mechanics_wiring.png/300px-Rune_Mechanics_wiring.png?560ef",
+          "width": 300,
+          "height": 205,
+          "alt": "",
+          "caption": "The solution to the wire puzzle. (Click to enlarge.)",
+          "href": "https://runescape.wiki/w/File:Rune_Mechanics_wiring.png"
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1qrw6tu",
+          "html": "Talk to Clerval, holding 20 pure essence.",
+          "text": "Talk to Clerval, holding 20 pure essence.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Comfort and reassure him."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:pcrwwa",
+          "html": "Fix the animation table nearby.",
+          "text": "Fix the animation table nearby.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:g89ub5",
+          "html": "When finished, click the green check button.",
+          "text": "When finished, click the green check button.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "You are useless, but, yes, I'll do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:14uq3to",
+          "html": "Use the carving tool on the lump of rune essence.",
+          "text": "Use the carving tool on the lump of rune essence.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1go3wu3",
+          "html": "Talk to Clerval.",
+          "text": "Talk to Clerval.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Rune_Mechanics_reward.png?ea9a8",
+      "width": 507,
+      "height": 325,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Rune_Mechanics_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "900 experience",
+        "text": "900 experience",
+        "subs": []
+      },
+      {
+        "html": "2,300 experience",
+        "text": "2,300 experience",
+        "subs": []
+      },
+      {
+        "html": "1,850 experience",
+        "text": "1,850 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Rune_guardian\" target=\"_blank\" rel=\"noopener\">Rune guardian</a> pet",
+        "text": "Rune guardian pet",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Fire_talisman\" target=\"_blank\" rel=\"noopener\">Fire talisman</a> or <a href=\"https://runescape.wiki/w/Water_talisman\" target=\"_blank\" rel=\"noopener\">Water talisman</a>",
+        "text": "Fire talisman or Water talisman",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Binding_necklace\" target=\"_blank\" rel=\"noopener\">Binding necklace</a>, obtained during the quest with 14 charges left",
+        "text": "Binding necklace, obtained during the quest with 14 charges left",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "These Stones",
+      "where": "When entering Mage Training Arena basement"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

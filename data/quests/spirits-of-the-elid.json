@@ -1,0 +1,665 @@
+{
+  "format": 1,
+  "id": "spirits-of-the-elid",
+  "title": "Spirits of the Elid",
+  "page": "Spirits of the Elid/Quick guide",
+  "rev": 36909504,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Awusah_the_Mayor\" target=\"_blank\" rel=\"noopener\">Awusah the Mayor</a> in <a href=\"https://runescape.wiki/w/Nardah\" target=\"_blank\" rel=\"noopener\">Nardah</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2910,
+      "lon": 3441,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Spirits_of_the_Elid/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Magic",
+        "level": 33,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 37,
+        "note": ""
+      },
+      {
+        "skill": "Ranged",
+        "level": 37,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 37,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "<a href=\"https://runescape.wiki/w/Standard_spells\" target=\"_blank\" rel=\"noopener\">Standard spells</a> equipped <i>or</i> the ability to cast <a href=\"https://runescape.wiki/w/Spellbook_Swap\" target=\"_blank\" rel=\"noopener\">Spellbook Swap</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Three golems (level 77)",
+        "name": "Three golems",
+        "count": null,
+        "level": "77",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Desert</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Desert</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1y3q8wm",
+          "html": "1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a> and 1 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air rune</a> to cast the <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> spell",
+          "text": "1 law rune and 1 air rune to cast the Telekinetic Grab spell",
+          "alternatives": []
+        },
+        {
+          "id": "req:saaqi1",
+          "html": "A <a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">light source</a> (such as a <a href=\"https://runescape.wiki/w/Torch\" target=\"_blank\" rel=\"noopener\">torch</a>, <a href=\"https://runescape.wiki/w/Mining_helmet\" target=\"_blank\" rel=\"noopener\">mining helmet</a>, <a href=\"https://runescape.wiki/w/Bullseye_lantern\" target=\"_blank\" rel=\"noopener\">bullseye lantern</a> or <a href=\"https://runescape.wiki/w/Seer%27s_headband\" target=\"_blank\" rel=\"noopener\">Seer&#39;s headband</a>)",
+          "text": "A light source (such as a torch, mining helmet, bullseye lantern or Seer's headband)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1he8o5p",
+          "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+          "text": "Rope",
+          "alternatives": []
+        },
+        {
+          "id": "req:12vt99h",
+          "html": "One or two spools of <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a>",
+          "text": "One or two spools of thread",
+          "alternatives": []
+        },
+        {
+          "id": "req:btf54z",
+          "html": "A weapon for each <a href=\"https://runescape.wiki/w/Attack_types#Melee\" target=\"_blank\" rel=\"noopener\">melee attack style</a> - stab (<a href=\"https://runescape.wiki/w/Sword\" target=\"_blank\" rel=\"noopener\">sword</a>), crush (<a href=\"https://runescape.wiki/w/Mace\" target=\"_blank\" rel=\"noopener\">mace</a>) and slash (<a href=\"https://runescape.wiki/w/Scimitar\" target=\"_blank\" rel=\"noopener\">scimitar</a>) (other styles work but are extremely inefficient)",
+          "text": "A weapon for each melee attack style - stab (sword), crush (mace) and slash (scimitar) (other styles work but are extremely inefficient)",
+          "alternatives": [
+            "For higher melee levelled players, all may not be needed"
+          ]
+        },
+        {
+          "id": "req:12za9ff",
+          "html": "A method of attacking with at least 4 range",
+          "text": "A method of attacking with at least 4 range",
+          "alternatives": [
+            "A <a href=\"https://runescape.wiki/w/Bow\" target=\"_blank\" rel=\"noopener\">Bow</a> or <a href=\"https://runescape.wiki/w/Crossbow\" target=\"_blank\" rel=\"noopener\">crossbow</a> with ammo unless using <a href=\"https://runescape.wiki/w/Chargebow_(bow_type)\" target=\"_blank\" rel=\"noopener\">chargebow</a> (a <a href=\"https://runescape.wiki/w/Shortbow\" target=\"_blank\" rel=\"noopener\">shortbow</a> and <a href=\"https://runescape.wiki/w/Bronze_arrows\" target=\"_blank\" rel=\"noopener\">bronze arrows</a> can be found during the quest)",
+            "A magic weapon and runes",
+            "A necromancy weapon"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8ssm9t",
+          "html": "Enough <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> and a <a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">ring of charos</a> for 4 <a href=\"https://runescape.wiki/w/Magic_carpet\" target=\"_blank\" rel=\"noopener\">magic carpet</a> rides (300 to 4,000)",
+          "text": "Enough coins and a ring of charos for 4 magic carpet rides (300 to 4,000)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:sw93bp",
+          "html": "A <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a>, enchanted <a href=\"https://runescape.wiki/w/Broomstick\" target=\"_blank\" rel=\"noopener\">broomstick</a>, <a href=\"https://runescape.wiki/w/Dominion_medallion\" target=\"_blank\" rel=\"noopener\">dominion medallion</a>, <a href=\"https://runescape.wiki/w/Ring_of_slaying\" target=\"_blank\" rel=\"noopener\">ring of slaying</a>, or the <a href=\"https://runescape.wiki/w/Al_Kharid_lodestone\" target=\"_blank\" rel=\"noopener\">Al Kharid lodestone</a> to quickly travel to the source of the <a href=\"https://runescape.wiki/w/River_Elid\" target=\"_blank\" rel=\"noopener\">River Elid</a>",
+          "text": "A traveller's necklace, enchanted broomstick, dominion medallion, ring of slaying, or the Al Kharid lodestone to quickly travel to the source of the River Elid",
+          "alternatives": []
+        },
+        {
+          "id": "rec:eye3vw",
+          "html": "At least 2 drinks from a <a href=\"https://runescape.wiki/w/Waterskin\" target=\"_blank\" rel=\"noopener\">waterskin</a>—no more are needed if the <a href=\"https://runescape.wiki/w/Magic_carpet\" target=\"_blank\" rel=\"noopener\">magic carpets</a> are used",
+          "text": "At least 2 drinks from a waterskin—no more are needed if the magic carpets are used",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1nrxhr",
+          "html": "Low and medium-level players may bring <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potions</a>, <a href=\"https://runescape.wiki/w/Ring_of_recoil\" target=\"_blank\" rel=\"noopener\">rings of recoil</a> and/or <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> to defeat the golems",
+          "text": "Low and medium-level players may bring prayer potions, rings of recoil and/or food to defeat the golems",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:fbu970",
+              "html": "1 <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a>",
+              "text": "1 thread"
+            },
+            {
+              "id": "getting-started:bring:1y3q8wm",
+              "html": "1 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law rune</a> and 1 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air rune</a> to cast the <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> spell",
+              "text": "1 law rune and 1 air rune to cast the Telekinetic Grab spell"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:6v8rjw",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Nardah\" target=\"_blank\" rel=\"noopener\">Nardah</a> (south of fairy ring <b>D</b><b>L</b><b>Q</b>) and talk to <a href=\"https://runescape.wiki/w/Awusah_the_Mayor\" target=\"_blank\" rel=\"noopener\">Awusah the Mayor</a> in the building east of the fountain.",
+          "text": "Head to Nardah (south of fairy ring DLQ) and talk to Awusah the Mayor in the building east of the fountain.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I am an adventurer in search of quests."
+                },
+                {
+                  "key": "2",
+                  "text": "Any idea how you got this curse?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:k554xt",
+          "html": "Head to the house north-east of the fountain and talk to <a href=\"https://runescape.wiki/w/Ghaslor_the_Elder\" target=\"_blank\" rel=\"noopener\">Ghaslor the Elder</a>. You should receive a <a href=\"https://runescape.wiki/w/Ballad\" target=\"_blank\" rel=\"noopener\">Ballad</a>.",
+          "text": "Head to the house north-east of the fountain and talk to Ghaslor the Elder. You should receive a Ballad.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I am trying to find out the cause of this town's curse."
+                },
+                {
+                  "key": "1",
+                  "text": "River spirits, what are they?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:15gqx1j",
+          "html": "Head to the building that has a statuette plinth just west of Ghaslor&#39;s house and north of the fountain.",
+          "text": "Head to the building that has a statuette plinth just west of Ghaslor's house and north of the fountain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:kas56f",
+          "html": "<a href=\"https://runescape.wiki/w/Telegrab\" target=\"_blank\" rel=\"noopener\">Telegrab</a> the <a href=\"https://runescape.wiki/w/Ancestral_key\" target=\"_blank\" rel=\"noopener\">ancestral key</a> from the table.",
+          "text": "Telegrab the ancestral key from the table.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:kas56f:7gep07",
+              "html": "You may attach the ancestral key to your <a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">steel key ring</a> if you&#39;ve completed the <a href=\"https://runescape.wiki/w/One_Small_Favour\" target=\"_blank\" rel=\"noopener\">One Small Favour</a> quest",
+              "text": "You may attach the ancestral key to your steel key ring if you've completed the One Small Favour quest",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:3fx9a4",
+          "html": "Go to the other side of the building and open the northernmost cupboard and search it for the robe top and bottom.",
+          "text": "Go to the other side of the building and open the northernmost cupboard and search it for the robe top and bottom.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:rari2j",
+          "html": "<i>Fix</i> the top and bottom robes.",
+          "text": "Fix the top and bottom robes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-golems",
+      "title": "The Golems",
+      "anchor": "The_Golems",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-golems:bring:1ovpu1i",
+              "html": "A weapon and ammo for a combat type other than melee",
+              "text": "A weapon and ammo for a combat type other than melee"
+            },
+            {
+              "id": "the-golems:bring:1he8o5p",
+              "html": "<a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">Rope</a>",
+              "text": "Rope"
+            },
+            {
+              "id": "the-golems:bring:1t2znv5",
+              "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a>",
+              "text": "Thread"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-golems:k2ashx",
+          "html": "Head north, past the <a href=\"https://runescape.wiki/w/Dominion_Tower\" target=\"_blank\" rel=\"noopener\">Dominion Tower</a> until a waterfall is seen.",
+          "text": "Head north, past the Dominion Tower until a waterfall is seen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-golems:k2ashx:sn6bel",
+              "html": "You can teleport to there by using a <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a> to south of the Uzer <a href=\"https://runescape.wiki/w/Eagles%27_eyrie\" target=\"_blank\" rel=\"noopener\">eagles&#39; eyrie</a>.",
+              "text": "You can teleport to there by using a traveller's necklace to south of the Uzer eagles' eyrie.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-golems:k2ashx:hy6j1s",
+              "html": "There is a bronze arrow south-east of Dominion Tower and a shortbow north-east of it.",
+              "text": "There is a bronze arrow south-east of Dominion Tower and a shortbow north-east of it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-golems:ztxl2n",
+          "html": "<i>Climb</i> the waterfall.",
+          "text": "Climb the waterfall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-golems:1976jvj",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Robes_of_Elidinis\" target=\"_blank\" rel=\"noopener\">Robes of Elidinis</a> and open the door.",
+          "text": "Equip the Robes of Elidinis and open the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-golems:1976jvj:1mk79ov",
+              "html": "If the door will not open, make sure you repaired and are wearing both robe pieces, and make sure you have the <a href=\"https://runescape.wiki/w/Ancestral_key\" target=\"_blank\" rel=\"noopener\">Ancestral key</a> you tele-grabbed earlier.",
+              "text": "If the door will not open, make sure you repaired and are wearing both robe pieces, and make sure you have the Ancestral key you tele-grabbed earlier.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-golems:zfksyv",
+          "html": "Head east to the three doors.",
+          "text": "Head east to the three doors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-golems:qn9ltw",
+          "html": "Try to open any door, kill the golem that spawns, then enter the room and clear the water channel for each room.",
+          "text": "Try to open any door, kill the golem that spawns, then enter the room and clear the water channel for each room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-golems:qn9ltw:fcu5",
+              "html": "If you click the door before the golem&#39;s death animation has finished, it will respawn and you will have to fight it again.",
+              "text": "If you click the door before the golem's death animation has finished, it will respawn and you will have to fight it again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "Door<br>Golem<br>Weakness<br>Clear water channel via<br>South<br><a href=\"https://runescape.wiki/w/White_golem\" target=\"_blank\" rel=\"noopener\">White golem</a><br><a href=\"https://runescape.wiki/w/Stab\" target=\"_blank\" rel=\"noopener\">Stab</a><br><a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a><br>East<br><a href=\"https://runescape.wiki/w/Grey_golem\" target=\"_blank\" rel=\"noopener\">Grey golem</a><br><a href=\"https://runescape.wiki/w/Slash\" target=\"_blank\" rel=\"noopener\">Slash</a><br>Using a <a href=\"https://runescape.wiki/w/Pickaxes\" target=\"_blank\" rel=\"noopener\">pickaxe</a> (tool belt works)<br>North-east<br><a href=\"https://runescape.wiki/w/Black_golem\" target=\"_blank\" rel=\"noopener\">Black golem</a><br><a href=\"https://runescape.wiki/w/Crush\" target=\"_blank\" rel=\"noopener\">Crush</a><br>Shoot target with a <a href=\"https://runescape.wiki/w/Bow\" target=\"_blank\" rel=\"noopener\">bow</a> and <a href=\"https://runescape.wiki/w/Arrow\" target=\"_blank\" rel=\"noopener\">arrow</a>, magic, or necromancy"
+        },
+        {
+          "type": "step",
+          "id": "the-golems:1i5t3fw",
+          "html": "Head through the door to the north and talk to one of the spirits in the large area.",
+          "text": "Head through the door to the north and talk to one of the spirits in the large area.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I come as an emissary from the people of Nardah."
+                },
+                {
+                  "key": "1",
+                  "text": "Is there anything they can do to get their fountain working again?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-golems:298wtn",
+          "html": "Head back to Nardah.",
+          "text": "Head back to Nardah.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-golems:298wtn:szjcbe",
+              "html": "It is possible to be bugged when exiting the cave. To get out of the bug, simply use a <a href=\"https://runescape.wiki/w/Home_Teleport\" target=\"_blank\" rel=\"noopener\">Home Teleport</a> spell.",
+              "text": "It is possible to be bugged when exiting the cave. To get out of the bug, simply use a Home Teleport spell.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-golems:298wtn:rhgaz4",
+              "html": "<a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a> teleport to Al Kharid and then taking the magic carpet to Nardah is a quick option.",
+              "text": "Amulet of glory teleport to Al Kharid and then taking the magic carpet to Nardah is a quick option.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-genie",
+      "title": "The Genie",
+      "anchor": "The_Genie",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-genie:1cvxufg",
+          "html": "Talk to Awusah the Mayor.",
+          "text": "Talk to Awusah the Mayor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-genie:1s9m0lz",
+          "html": "Take <a href=\"https://runescape.wiki/w/Shoes_(Spirits_of_the_Elid)\" target=\"_blank\" rel=\"noopener\">shoes</a> just south from the entrance door inside the Mayor&#39;s house.",
+          "text": "Take shoes just south from the entrance door inside the Mayor's house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-genie:1s9p30l",
+          "html": "Go outside the house, then <i>remove-sole</i> from the shoes to obtain a <a href=\"https://runescape.wiki/w/Sole\" target=\"_blank\" rel=\"noopener\">sole</a>.",
+          "text": "Go outside the house, then remove-sole from the shoes to obtain a sole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-genie:1s9p30l:n8g1sc",
+              "html": "Ensure you have a light source or you will not be able to talk to the next NPC without being interrupted.",
+              "text": "Ensure you have a light source or you will not be able to talk to the next NPC without being interrupted.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-genie:105g0nj",
+          "html": "Head west from the <a href=\"https://runescape.wiki/w/Nardah_General_Store\" target=\"_blank\" rel=\"noopener\">Nardah General Store</a>, past a camp of <a href=\"https://runescape.wiki/w/Trainee_adventurer\" target=\"_blank\" rel=\"noopener\">trainee adventurers</a> and <i>climb-down</i> the <a href=\"https://runescape.wiki/w/Elid_Genie_Cave\" target=\"_blank\" rel=\"noopener\">crevice</a>.",
+          "text": "Head west from the Nardah General Store, past a camp of trainee adventurers and climb-down the crevice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-genie:1spwzjc",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Genie_(Spirits_of_the_Elid)\" target=\"_blank\" rel=\"noopener\">Genie</a>, then talk again.",
+          "text": "Talk to the Genie, then talk again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm after a statue that was thrown down here."
+                },
+                {
+                  "key": "1",
+                  "text": "Maybe I can make a deal for it?"
+                },
+                {
+                  "key": "3",
+                  "text": "Ok I agree to the deal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-genie:1spwzjc:103gpb9",
+              "html": "If your backpack was full, pick up the Statuette. - There will be room now as you gave the Genie a sole.",
+              "text": "If your backpack was full, pick up the Statuette. - There will be room now as you gave the Genie a sole.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-genie:1svgmen",
+          "html": "Head back to Nardah and use the <a href=\"https://runescape.wiki/w/Statuette_(Spirits_of_the_Elid)\" target=\"_blank\" rel=\"noopener\">statuette</a> on the plinth in the shrine room, north of the fountain.",
+          "text": "Head back to Nardah and use the statuette on the plinth in the shrine room, north of the fountain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-genie:1svgmen:1dfdhfp",
+              "html": "Optional: Pray at the statue for medium desert task achievement <a href=\"https://runescape.wiki/w/Heathen_Idle\" target=\"_blank\" rel=\"noopener\">Heathen Idle</a>.",
+              "text": "Optional: Pray at the statue for medium desert task achievement Heathen Idle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-genie:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Spirits_of_the_Elid_reward.png?be055",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Spirits_of_the_Elid_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Nardah\" target=\"_blank\" rel=\"noopener\">Nardah</a>&#39;s fountain and shrine (praying at the statue will fill your <a href=\"https://runescape.wiki/w/Life_points\" target=\"_blank\" rel=\"noopener\">life points</a>, temporarily boost it, and restore your prayer points)",
+        "text": "Access to Nardah's fountain and shrine (praying at the statue will fill your life points, temporarily boost it, and restore your prayer points)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Robes_of_Elidinis\" target=\"_blank\" rel=\"noopener\">Robes of Elidinis</a>",
+        "text": "Robes of Elidinis",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Spirits of Elid",
+      "where": ""
+    },
+    {
+      "name": "The Genie",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Spirits_of_the_Elid_(achievement)\" target=\"_blank\" rel=\"noopener\">Spirits of the Elid</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Desert_achievements\" target=\"_blank\" rel=\"noopener\">Desert achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Crocodile_Tears/Quick_guide\" target=\"_blank\" rel=\"noopener\">Crocodile Tears</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>"
+      ]
+    }
+  ]
+}

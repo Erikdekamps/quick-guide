@@ -1,0 +1,1462 @@
+{
+  "format": 1,
+  "id": "dwarf-cannon",
+  "title": "Dwarf Cannon",
+  "page": "Dwarf Cannon/Quick guide",
+  "rev": 37161756,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Captain_Lawgof\" target=\"_blank\" rel=\"noopener\">Captain Lawgof</a>, south of the <a href=\"https://runescape.wiki/w/Coal_truck_mine\" target=\"_blank\" rel=\"noopener\">coal truck mining site</a> to the west of <a href=\"https://runescape.wiki/w/McGrubor%27s_Wood\" target=\"_blank\" rel=\"noopener\">McGrubor&#39;s Wood</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3460,
+      "lon": 2568,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Dwarf_Cannon/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Asgarnia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1e4gos",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne lodestone</a> and <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a> (a <a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">games necklace</a>, <a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">skills necklace</a> and <a href=\"https://runescape.wiki/w/Combat_bracelet\" target=\"_blank\" rel=\"noopener\">combat bracelet</a> work too).",
+          "text": "Activated Ardougne lodestone and Falador lodestone (a games necklace, skills necklace and combat bracelet work too).",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1t9el5g",
+          "html": "Food and armour if below 29 <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a> (due to aggressive <a href=\"https://runescape.wiki/w/Giant_bat\" target=\"_blank\" rel=\"noopener\">giant bats</a>).",
+          "text": "Food and armour if below 29 combat level (due to aggressive giant bats).",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:1w599w",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Lawgof\" target=\"_blank\" rel=\"noopener\">Captain Lawgof</a> by the <a href=\"https://runescape.wiki/w/Coal_truck_mining_site\" target=\"_blank\" rel=\"noopener\">coal truck mining site</a> west of <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a>.",
+          "text": "Talk to Captain Lawgof by the coal truck mining site west of Seers' Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "repair-and-retrieval",
+      "title": "Repair and retrieval",
+      "anchor": "Repair_and_retrieval",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Dwarf_Cannon\" target=\"_blank\" rel=\"noopener\">Dwarf Cannon</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3471,
+          "lon": 2568,
+          "zoom": 3,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2577.5,
+                  3457,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2574.5,
+                  3457,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2563.5,
+                  3457,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2559,
+                  3459.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2557,
+                  3469.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2555,
+                  3481.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "Sections of stone wall needing repair",
+                "shape": "SquareDot",
+                "fill": "#A6CEE3"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Dwarf_Cannon/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:ie3rya",
+          "html": "Sections of stone wall needing repair",
+          "text": "Sections of stone wall needing repair",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Dwarf_Cannon_stone_wall\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Dwarf_Cannon_stone_wall\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Dwarf_Cannon_stone_wall?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1bdyydh",
+          "html": "From the inside, inspect and repair the six broken sections of wall along the west and south side of the area (look for the sections with crumbling stones).",
+          "text": "From the inside, inspect and repair the six broken sections of wall along the west and south side of the area (look for the sections with crumbling stones).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1veoh9m",
+          "html": "Talk to Captain Lawgof.",
+          "text": "Talk to Captain Lawgof.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:w6beko",
+          "html": "Exit the gate to the south and go to the tower just outside the gate, directly east of <a href=\"https://runescape.wiki/w/Glarial%27s_tombstone\" target=\"_blank\" rel=\"noopener\">Glarial&#39;s tombstone</a>.",
+          "text": "Exit the gate to the south and go to the tower just outside the gate, directly east of Glarial's tombstone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1tu3pbk",
+          "html": "Climb up two ladders and take the <a href=\"https://runescape.wiki/w/Dwarf_remains\" target=\"_blank\" rel=\"noopener\">dwarf remains</a>.",
+          "text": "Climb up two ladders and take the dwarf remains.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1veoh9m-2",
+          "html": "Talk to Captain Lawgof.",
+          "text": "Talk to Captain Lawgof.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:25hxs6",
+          "html": "Head south-east to the <a href=\"https://runescape.wiki/w/Cave_Entrance_(Goblin_Cave)\" target=\"_blank\" rel=\"noopener\">cave entrance</a> at the eastern wall of the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a>.",
+          "text": "Head south-east to the cave entrance at the eastern wall of the Fishing Guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repair-and-retrieval:25hxs6:1d6v7uh",
+              "html": "Quickest way to get there is to teleport to <a href=\"https://runescape.wiki/w/Ardougne_lodestone\" target=\"_blank\" rel=\"noopener\">Ardougne lodestone</a> and then run north.",
+              "text": "Quickest way to get there is to teleport to Ardougne lodestone and then run north.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1xiu6ik",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Goblin_Cave\" target=\"_blank\" rel=\"noopener\">Goblin Cave</a>.",
+          "text": "Enter the Goblin Cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Goblin_Cave\" target=\"_blank\" rel=\"noopener\">Goblin Cave</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 9828,
+          "lon": 2594,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 0,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2596.5,
+                  9836.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2599.5,
+                  9837.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2606.5,
+                  9825.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2609.5,
+                  9817.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2609.5,
+                  9823.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2612.5,
+                  9815.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_bat\" title=\"Giant bat\">Giant bat</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2602.5,
+                  9803.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_rat\" title=\"Giant rat\">Giant rat</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2592.5,
+                  9806.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_rat\" title=\"Giant rat\">Giant rat</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2592.5,
+                  9802.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_rat\" title=\"Giant rat\">Giant rat</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2585.5,
+                  9803.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_rat\" title=\"Giant rat\">Giant rat</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2575.5,
+                  9808.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Giant_rat\" title=\"Giant rat\">Giant rat</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2564.5,
+                  9836.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2565.5,
+                  9835.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2566.5,
+                  9849.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2568.5,
+                  9844.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2569.5,
+                  9847.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2570.5,
+                  9845.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2570.5,
+                  9850.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2579.5,
+                  9841.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2580.5,
+                  9825.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2580.5,
+                  9847.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2580.5,
+                  9850.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2584.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2584.5,
+                  9829.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2584.5,
+                  9835.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2586.5,
+                  9832.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2587.5,
+                  9837.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2589.5,
+                  9834.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2590.5,
+                  9821.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2591.5,
+                  9830.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2591.5,
+                  9836.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2592.5,
+                  9819.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2594.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2595.5,
+                  9821.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2597.5,
+                  9821.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Goblin\" title=\"Goblin\">Goblin</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2617.5,
+                  9835.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Slagilith\" title=\"Slagilith\">Slagilith</a> (during <a href=\"/w/One_Small_Favour\" title=\"One Small Favour\">One Small Favour</a>)",
+                "shape": "Dot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2573.5,
+                  9826.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "iconAnchor": [
+                  8,
+                  16
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Black_mushroom\" title=\"Black mushroom\">Black mushroom</a>",
+                "iconSize": [
+                  16,
+                  32
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Black_mushroom.png?72397",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2562.5,
+                  9835.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "iconAnchor": [
+                  8,
+                  16
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Black_mushroom\" title=\"Black mushroom\">Black mushroom</a>",
+                "iconSize": [
+                  16,
+                  32
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Black_mushroom.png?72397",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2583.5,
+                  9852.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "iconAnchor": [
+                  8,
+                  16
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  0
+                ],
+                "title": "<a href=\"/w/Black_mushroom\" title=\"Black mushroom\">Black mushroom</a>",
+                "iconSize": [
+                  16,
+                  32
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Black_mushroom.png?72397",
+                "providerID": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2582.5,
+                  9854.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "label": "<a href=\"/w/Goblin_Temple\" title=\"Goblin Temple\">to Goblin Temple</a>",
+                "direction": "right",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2617.5,
+                  9828.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "label": "to <a href=\"/w/Bouncer\" title=\"Bouncer\">Bouncer</a><br />(during <a href=\"/w/The_General%27s_Shadow_(miniquest)\" title=\"The General&#39;s Shadow (miniquest)\">The<br />General's Shadow</a>)",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2622,
+                  9795,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "iconAnchor": [
+                  10.5,
+                  25
+                ],
+                "plane": 0,
+                "popupAnchor": [
+                  0,
+                  -25
+                ],
+                "providerID": 0,
+                "iconSize": [
+                  21,
+                  25
+                ],
+                "iconWikiLink": "https://runescape.wiki/images/Dungeon_exit_map_icon.png?73368",
+                "icon": "dungeon exit",
+                "title": "Exit to east of the <a href=\"/w/Fishing_Guild\" title=\"Fishing Guild\">Fishing Guild</a>"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2571.5,
+                  9850.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "0",
+                "plane": 0,
+                "title": "<a href=\"/w/Lollk\" title=\"Lollk\">Lollk</a> (during <a href=\"/w/Dwarf_Cannon\" title=\"Dwarf Cannon\">Dwarf Cannon</a>)",
+                "shape": "Dot",
+                "fill": "#af69ee"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Dwarf_Cannon/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1g8ayd9",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_bat\" target=\"_blank\" rel=\"noopener\">Giant bat</a>",
+          "text": "Giant bat",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:12tf4ul",
+          "html": "<a href=\"https://runescape.wiki/w/Giant_rat\" target=\"_blank\" rel=\"noopener\">Giant rat</a>",
+          "text": "Giant rat",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:yxh7z2",
+          "html": "<a href=\"https://runescape.wiki/w/Goblin\" target=\"_blank\" rel=\"noopener\">Goblin</a>",
+          "text": "Goblin",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:13eaycc",
+          "html": "<a href=\"https://runescape.wiki/w/Slagilith\" target=\"_blank\" rel=\"noopener\">Slagilith</a> (during <a href=\"https://runescape.wiki/w/One_Small_Favour\" target=\"_blank\" rel=\"noopener\">One Small Favour</a>)",
+          "text": "Slagilith (during One Small Favour)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:167thpa",
+          "html": "<a href=\"https://runescape.wiki/w/Black_mushroom\" target=\"_blank\" rel=\"noopener\">Black mushroom</a>",
+          "text": "Black mushroom",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:wxrj70",
+          "html": "<a href=\"https://runescape.wiki/w/Lollk\" target=\"_blank\" rel=\"noopener\">Lollk</a> (during <a href=\"https://runescape.wiki/w/Dwarf_Cannon\" target=\"_blank\" rel=\"noopener\">Dwarf Cannon</a>)",
+          "text": "Lollk (during Dwarf Cannon)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Goblin_Cave\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Goblin_Cave\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Goblin_Cave?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:mup76z",
+          "html": "Go as far north-west as possible and search the crates in the north-east corner of that room.",
+          "text": "Go as far north-west as possible and search the crates in the north-east corner of that room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:kg1522",
+          "html": "Once you find <a href=\"https://runescape.wiki/w/Lollk\" target=\"_blank\" rel=\"noopener\">Lollk</a>, return and talk to Captain Lawgof.",
+          "text": "Once you find Lollk, return and talk to Captain Lawgof.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Okay, I'll see what I can do."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:18157t3",
+          "html": "Use the toolkit you got from Captain Lawgof on the broken multicannon next to him.",
+          "text": "Use the toolkit you got from Captain Lawgof on the broken multicannon next to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:1nl299g",
+          "html": "In this order:",
+          "text": "In this order:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repair-and-retrieval:1nl299g:svclj7",
+              "html": "Use the hooked tool(right) on the spring.",
+              "text": "Use the hooked tool(right) on the spring.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "repair-and-retrieval:1nl299g:1h0b1t1",
+              "html": "Use the pliers(middle) on the safety switch at the bottom.",
+              "text": "Use the pliers(middle) on the safety switch at the bottom.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "repair-and-retrieval:1nl299g:hsnm73",
+              "html": "Use the tooth tool(left) on the gear located at the bottom of the hammer.",
+              "text": "Use the tooth tool(left) on the gear located at the bottom of the hammer.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:27jk8a",
+          "html": "Talk to Captain Lawgof. Make sure to finish conversation.",
+          "text": "Talk to Captain Lawgof. Make sure to finish conversation.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Okay then, just for you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repair-and-retrieval:27jk8a:tfu056",
+              "html": "This conversation must be completely finished.",
+              "text": "This conversation must be completely finished.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repair-and-retrieval:bi4mt3",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Dwarven_Mine\" target=\"_blank\" rel=\"noopener\">Dwarven Mines</a> north-east of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Go to the Dwarven Mines north-east of Falador.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:vvl8ze",
+          "html": "In the outpost, talk to <a href=\"https://runescape.wiki/w/Nulodion\" target=\"_blank\" rel=\"noopener\">Nulodion</a>. He is standing right next to the <a href=\"https://runescape.wiki/w/Dwarf_multicannon\" target=\"_blank\" rel=\"noopener\">Dwarf multicannon</a>, outside of the entrance to the <a href=\"https://runescape.wiki/w/Dwarven_Mine\" target=\"_blank\" rel=\"noopener\">Dwarven Mine</a> north of Falador.",
+          "text": "In the outpost, talk to Nulodion. He is standing right next to the Dwarf multicannon, outside of the entrance to the Dwarven Mine north of Falador.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:vvl8ze:1r3k4lx",
+              "html": "If you drop the ammo mould he gives you and speak to him again he will give you another. The second ammo mould can be added to your <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> after the quest (with 35 Smithing) to save having to revisit him.",
+              "text": "If you drop the ammo mould he gives you and speak to him again he will give you another. The second ammo mould can be added to your tool belt after the quest (with 35 Smithing) to save having to revisit him.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:9ctlfe",
+          "html": "Return to Captain Lawgof.",
+          "text": "Return to Captain Lawgof.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Dwarf_Cannon_reward.png?7980f",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Dwarf_Cannon_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "750 experience",
+        "text": "750 experience",
+        "subs": []
+      },
+      {
+        "html": "The ability to buy and use a <a href=\"https://runescape.wiki/w/Dwarf_multicannon\" target=\"_blank\" rel=\"noopener\">Dwarf multicannon</a>",
+        "text": "The ability to buy and use a Dwarf multicannon",
+        "subs": []
+      },
+      {
+        "html": "The ability to smith <a href=\"https://runescape.wiki/w/Cannonballs\" target=\"_blank\" rel=\"noopener\">cannonballs</a>",
+        "text": "The ability to smith cannonballs",
+        "subs": []
+      },
+      {
+        "html": "You can now add the <a href=\"https://runescape.wiki/w/Ammo_mould\" target=\"_blank\" rel=\"noopener\">ammo mould</a> to your <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>",
+        "text": "You can now add the ammo mould to your tool belt",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Goblin Game",
+      "where": "When entering the goblin cave"
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Dwarf_Cannon_(achievement)\" target=\"_blank\" rel=\"noopener\">Dwarf Cannon</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Between_a_Rock.../Quick_guide\" target=\"_blank\" rel=\"noopener\">Between a Rock...</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/Forgiveness_of_a_Chaos_Dwarf/Quick_guide\" target=\"_blank\" rel=\"noopener\">Forgiveness of a Chaos Dwarf</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1747 @@
+{
+  "format": 1,
+  "id": "one-small-favour",
+  "title": "One Small Favour",
+  "page": "One Small Favour/Quick guide",
+  "rev": 37202115,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Yanni_Salika\" target=\"_blank\" rel=\"noopener\">Yanni Salika</a> in the antique shop in <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2983,
+      "lon": 2835,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/One_Small_Favour/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Shilo Village",
+        "depth": 1
+      },
+      {
+        "text": "Jungle Potion",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 36,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 25,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 18,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 20,
+        "note": "(to clean grimy harralander)"
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": "(to mine coal for steel bars)"
+      }
+    ],
+    "otherReqs": [
+      "The quest <a href=\"https://runescape.wiki/w/Druidic_Ritual\" target=\"_blank\" rel=\"noopener\">Druidic Ritual</a> must be completed to speak with <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a> about One Small Favour"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Slagilith (level 63)",
+        "name": "Slagilith",
+        "count": null,
+        "level": "63",
+        "note": ""
+      },
+      {
+        "text": "3 dwarf gang members (level 35)",
+        "name": "dwarf gang members",
+        "count": 3,
+        "level": "35",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Karamja</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:113ndgi",
+          "html": "4 <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bars</a> (unnoted)",
+          "text": "4 steel bars (unnoted)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1axjhho",
+          "html": "<a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">Bronze bar</a>",
+          "text": "Bronze bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:17jxzbi",
+          "html": "<a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">Iron bar</a>",
+          "text": "Iron bar",
+          "alternatives": []
+        },
+        {
+          "id": "req:1a5j7ol",
+          "html": "<a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">Empty pot</a>",
+          "text": "Empty pot",
+          "alternatives": []
+        },
+        {
+          "id": "req:91a2k4",
+          "html": "5 <a href=\"https://runescape.wiki/w/Pigeon_cage\" target=\"_blank\" rel=\"noopener\">pigeon cages</a> (obtained during the quest; south of the <a href=\"https://runescape.wiki/w/Ardougne_north_bank\" target=\"_blank\" rel=\"noopener\">Ardougne north bank</a>)",
+          "text": "5 pigeon cages (obtained during the quest; south of the Ardougne north bank)",
+          "alternatives": []
+        },
+        {
+          "id": "req:4rt6us",
+          "html": "<a href=\"https://runescape.wiki/w/Clean_marrentill\" target=\"_blank\" rel=\"noopener\">Clean marrentill</a>",
+          "text": "Clean marrentill",
+          "alternatives": []
+        },
+        {
+          "id": "req:179hhgi",
+          "html": "<a href=\"https://runescape.wiki/w/Clean_harralander\" target=\"_blank\" rel=\"noopener\">Clean harralander</a>",
+          "text": "Clean harralander",
+          "alternatives": []
+        },
+        {
+          "id": "req:x47xd5",
+          "html": "<a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">Vial of water</a>",
+          "text": "Vial of water",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:e8r14q",
+          "html": "Access to <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a> and the <a href=\"https://runescape.wiki/w/Gnome_glider\" target=\"_blank\" rel=\"noopener\">gnome glider</a> system",
+          "text": "Access to fairy rings and the gnome glider system",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1cmxe5i",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>, <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley</a>, and <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a> (or <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>)",
+          "text": "Activated Port Sarim, Taverley, and Falador lodestone (or Edgeville lodestone)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1uertur",
+          "html": "A <a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">ring of kinship</a> or other bank teleport",
+          "text": "A ring of kinship or other bank teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1vdgz42",
+          "html": "<a href=\"https://runescape.wiki/w/Skull_sceptre\" target=\"_blank\" rel=\"noopener\">Skull sceptre</a> for <a href=\"https://runescape.wiki/w/Barbarian_Village\" target=\"_blank\" rel=\"noopener\">Barbarian Village</a> teleport",
+          "text": "Skull sceptre for Barbarian Village teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1tx7bct",
+          "html": "<a href=\"https://runescape.wiki/w/Disk_of_returning_(Gower_Quest)\" target=\"_blank\" rel=\"noopener\">Disk of returning</a> from the <a href=\"https://runescape.wiki/w/Gower_Quest\" target=\"_blank\" rel=\"noopener\">Gower Quest</a> to easily reach the <a href=\"https://runescape.wiki/w/Dwarven_mines\" target=\"_blank\" rel=\"noopener\">Dwarven mines</a>",
+          "text": "Disk of returning from the Gower Quest to easily reach the Dwarven mines",
+          "alternatives": []
+        },
+        {
+          "id": "rec:4qff5a",
+          "html": "1 <a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">lockpick</a>",
+          "text": "1 lockpick",
+          "alternatives": []
+        },
+        {
+          "id": "rec:158h97l",
+          "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer potions</a> for the fight with <a href=\"https://runescape.wiki/w/Slagilith\" target=\"_blank\" rel=\"noopener\">Slagilith</a>",
+          "text": "Prayer potions for the fight with Slagilith",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1t3nwss",
+          "html": "Around 2,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> or 2 each of <a href=\"https://runescape.wiki/w/Opal\" target=\"_blank\" rel=\"noopener\">opal</a>, <a href=\"https://runescape.wiki/w/Jade\" target=\"_blank\" rel=\"noopener\">jade</a> and <a href=\"https://runescape.wiki/w/Red_topaz\" target=\"_blank\" rel=\"noopener\">red topaz</a> to replace crushed gems",
+          "text": "Around 2,000 coins or 2 each of opal, jade and red topaz to replace crushed gems",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "karamja",
+      "title": "Karamja",
+      "anchor": "Karamja",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "karamja:17yibdf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Yanni_Salika\" target=\"_blank\" rel=\"noopener\">Yanni Salika</a> in <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a> (north of the bridge).",
+          "text": "Talk to Yanni Salika in Shilo Village (north of the bridge).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Is there anything else interesting to do around here?"
+                },
+                {
+                  "key": "5",
+                  "text": "Ok, see you in a tick!"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "karamja:mpla0n",
+          "html": "Talk to one of the <a href=\"https://runescape.wiki/w/Jungle_forester\" target=\"_blank\" rel=\"noopener\">jungle foresters</a> south of the village. You will receive their <a href=\"https://runescape.wiki/w/Blunt_hatchet\" target=\"_blank\" rel=\"noopener\">blunt hatchet</a>.",
+          "text": "Talk to one of the jungle foresters south of the village. You will receive their blunt hatchet.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I need to talk to you about red mahogany."
+                },
+                {
+                  "key": "1",
+                  "text": "Ok, I'll take your hatchet to get it sharpened."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "asgarnia-and-misthalin",
+      "title": "Asgarnia and Misthalin",
+      "anchor": "Asgarnia_and_Misthalin",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "asgarnia-and-misthalin:bring:1bkg6o9",
+              "html": "3 <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bars</a>",
+              "text": "3 steel bars"
+            },
+            {
+              "id": "asgarnia-and-misthalin:bring:179hhgi",
+              "html": "<a href=\"https://runescape.wiki/w/Clean_harralander\" target=\"_blank\" rel=\"noopener\">Clean harralander</a>",
+              "text": "Clean harralander"
+            },
+            {
+              "id": "asgarnia-and-misthalin:bring:4rt6us",
+              "html": "<a href=\"https://runescape.wiki/w/Clean_marrentill\" target=\"_blank\" rel=\"noopener\">Clean marrentill</a>",
+              "text": "Clean marrentill"
+            },
+            {
+              "id": "asgarnia-and-misthalin:bring:x47xd5",
+              "html": "<a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">Vial of water</a>",
+              "text": "Vial of water"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:k4uklj",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Brian\" target=\"_blank\" rel=\"noopener\">Brian</a> in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> (Axe shop north-east of the lodestone). Make sure he takes the blunt hatchet before you leave.",
+          "text": "Speak to Brian in Port Sarim (Axe shop north-east of the lodestone). Make sure he takes the blunt hatchet before you leave.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you sharpen hatchets?"
+                },
+                {
+                  "key": "2",
+                  "text": "Look, can you sharpen this cursed hatchet or what?"
+                },
+                {
+                  "key": "4",
+                  "text": "Ok, ok, I'll do it! I'll go and see Aggie."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:9ncb21",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Aggie\" target=\"_blank\" rel=\"noopener\">Aggie</a>, the witch in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a>.",
+          "text": "Speak to Aggie, the witch in Draynor Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "3",
+                  "text": "Let me guess, you're going to ask me to do you a favour?"
+                },
+                {
+                  "key": "2",
+                  "text": "Oh, Ok, I'll see if I can find Jimmy."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:za0vio",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/H.A.M._Hideout\" target=\"_blank\" rel=\"noopener\">H.A.M. Hideout</a> (north-west of the Lumbridge Castle, in the Lumbridge forest). Pick the lock on the <a href=\"https://runescape.wiki/w/Trapdoor_(H.A.M._Hideout)\" target=\"_blank\" rel=\"noopener\">trapdoor</a>, and climb down. Head to the middle southern cavern and speak to <a href=\"https://runescape.wiki/w/Johanhus_Ulsbrecht\" target=\"_blank\" rel=\"noopener\">Johanhus Ulsbrecht</a>.",
+          "text": "Go to the H.A.M. Hideout (north-west of the Lumbridge Castle, in the Lumbridge forest). Pick the lock on the trapdoor, and climb down. Head to the middle southern cavern and speak to Johanhus Ulsbrecht.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I'm looking for Jimmy the Chisel."
+                },
+                {
+                  "key": "3",
+                  "text": "And I suppose you need me to do you a favour?"
+                },
+                {
+                  "key": "2",
+                  "text": "Ok, Jimmy has to be worth more than a few scrawny chickens!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:za0vio:12w8etw",
+              "html": "Or if player has completed <a href=\"https://runescape.wiki/w/The_Chosen_Commander\" target=\"_blank\" rel=\"noopener\">The Chosen Commander</a>.",
+              "text": "Or if player has completed The Chosen Commander.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "One Small Favour"
+                    },
+                    {
+                      "key": "4",
+                      "text": "I'm looking for Jimmy the Chisel."
+                    },
+                    {
+                      "key": "3",
+                      "text": "And I suppose you need me to do you a favour?"
+                    },
+                    {
+                      "key": "2",
+                      "text": "Ok, Jimmy has to be worth more than a few scrawny chickens!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:1b2sw0z",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Fred_the_Farmer\" target=\"_blank\" rel=\"noopener\">Fred the Farmer</a> in the house of the sheep&#39;s pen in Lumbridge.",
+          "text": "Talk to Fred the Farmer in the house of the sheep's pen in Lumbridge.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need to talk to you about Jimmy."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:1b2sw0z:1he8rus",
+              "html": "Or if player has seen &quot;The Thing&quot;.",
+              "text": "Or if player has seen \"The Thing\".",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I need to talk to you about Jimmy."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:haju2j",
+          "html": "Talk with <a href=\"https://runescape.wiki/w/Seth_Groats\" target=\"_blank\" rel=\"noopener\">Seth Groats</a> in the house of the chickens&#39; pen in Lumbridge. (Back on the east side of the river across from the sheep&#39;s pen)",
+          "text": "Talk with Seth Groats in the house of the chickens' pen in Lumbridge. (Back on the east side of the river across from the sheep's pen)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Oh, ok! I guess it's not that much further to Varrock!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:1mqj8gz",
+          "html": "Take 3 steel bars (cannot be noted) to <a href=\"https://runescape.wiki/w/Horvik\" target=\"_blank\" rel=\"noopener\">Horvik</a> in the platebody shop in <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> (north-east of the central fountain), who is ill and needs a <a href=\"https://runescape.wiki/w/Herbal_tincture\" target=\"_blank\" rel=\"noopener\">herbal tincture</a>.",
+          "text": "Take 3 steel bars (cannot be noted) to Horvik in the platebody shop in Varrock (north-east of the central fountain), who is ill and needs a herbal tincture.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "3",
+                  "text": "Hi, I need to talk to you about chicken cages!"
+                },
+                {
+                  "key": "2",
+                  "text": "Ok, I guess one good turn deserves another."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:e7ybv3",
+          "html": "Speak to the <a href=\"https://runescape.wiki/w/Apothecary\" target=\"_blank\" rel=\"noopener\">Apothecary</a> twice, located in south-west Varrock, at the potion icon.",
+          "text": "Speak to the Apothecary twice, located in south-west Varrock, at the potion icon.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "5",
+                  "text": "Horvik is ill, I need herbal tincture."
+                },
+                {
+                  "key": "2",
+                  "text": "Oh, ok, I guess it's not that far to the Barbarian Village."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:e7ybv3:1o2n8zx",
+              "html": "Or if player has destroyed their <a href=\"https://runescape.wiki/w/Doctor%27s_hat\" target=\"_blank\" rel=\"noopener\">Doctor&#39;s hat</a>.",
+              "text": "Or if player has destroyed their Doctor's hat.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about One Small Favour."
+                    },
+                    {
+                      "key": "5",
+                      "text": "Horvik is ill, I need breathing salts and herbal tincture."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Oh, ok, I guess it's not that far to the Barbarian Village."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:1vaj00t",
+          "html": "Go to Barbarian Village (also called <a href=\"https://runescape.wiki/w/Gunnarsgrunn\" target=\"_blank\" rel=\"noopener\">Gunnarsgrunn</a>) and talk to <a href=\"https://runescape.wiki/w/Tassie_Slipcast\" target=\"_blank\" rel=\"noopener\">Tassie Slipcast</a>, located within the pottery building in the south-east.",
+          "text": "Go to Barbarian Village (also called Gunnarsgrunn) and talk to Tassie Slipcast, located within the pottery building in the south-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ok, I'll deal with Hammerspike!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:1kjavqx",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Dwarven_Mine\" target=\"_blank\" rel=\"noopener\">Dwarven Mine</a> and find <a href=\"https://runescape.wiki/w/Hammerspike_Stoutbeard\" target=\"_blank\" rel=\"noopener\">Hammerspike Stoutbeard</a> on the far west side (&quot;Hammerspike&#39;s hangout&quot; on the map). Ask him about Tassie Slipcast.",
+          "text": "Enter the Dwarven Mine and find Hammerspike Stoutbeard on the far west side (\"Hammerspike's hangout\" on the map). Ask him about Tassie Slipcast.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Have you always been a gangster?"
+                },
+                {
+                  "key": "2",
+                  "text": "Ok, another favour..I think I can manage that."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:w3hg2y",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> and talk with <a href=\"https://runescape.wiki/w/Sanfew\" target=\"_blank\" rel=\"noopener\">Sanfew</a>, located in the house slightly south-west of <a href=\"https://runescape.wiki/w/Pikkupstix%27s_Summoning_Shop\" target=\"_blank\" rel=\"noopener\">Pikkupstix&#39;s Summoning Shop</a>.",
+          "text": "Go to Taverley and talk with Sanfew, located in the house slightly south-west of Pikkupstix's Summoning Shop.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Are you taking any new initiates?"
+                },
+                {
+                  "key": "2",
+                  "text": "Do you accept dwarves?"
+                },
+                {
+                  "key": "3",
+                  "text": "A dwarf I know wants to become an initiate."
+                },
+                {
+                  "key": "1",
+                  "text": "Yep, it's a deal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:w3hg2y:1g9qc3e",
+              "html": "The quest <a href=\"https://runescape.wiki/w/Druidic_Ritual\" target=\"_blank\" rel=\"noopener\">Druidic Ritual</a> must be completed to speak with Sanfew about One Small Favour.",
+              "text": "The quest Druidic Ritual must be completed to speak with Sanfew about One Small Favour.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:w3hg2y:1uj3v62",
+              "html": "If <a href=\"https://runescape.wiki/w/Eadgar%27s_Ruse\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s Ruse</a> is completed, or the third option is &quot;Are you taking any new initiates?&quot;",
+              "text": "If Eadgar's Ruse is completed, or the third option is \"Are you taking any new initiates?\"",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Are you taking any new initiates?"
+                    },
+                    {
+                      "key": "2",
+                      "text": "Do you accept dwarves?"
+                    },
+                    {
+                      "key": "3",
+                      "text": "A dwarf I know wants to become an initiate."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yep, it's a deal."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:1vptlus",
+          "html": "Make a <a href=\"https://runescape.wiki/w/Guthix_rest\" target=\"_blank\" rel=\"noopener\">Guthix rest</a> by first adding the <a href=\"https://runescape.wiki/w/Clean_harralander\" target=\"_blank\" rel=\"noopener\">harralander</a> to the <a href=\"https://runescape.wiki/w/Vial_of_water\" target=\"_blank\" rel=\"noopener\">vial of water</a>, then adding the <a href=\"https://runescape.wiki/w/Clean_marrentill\" target=\"_blank\" rel=\"noopener\">marrentill</a>. Make sure you use the harralander on the vial, instead of clicking the vial, as you may accidentally use the marrentill first.",
+          "text": "Make a Guthix rest by first adding the harralander to the vial of water, then adding the marrentill. Make sure you use the harralander on the vial, instead of clicking the vial, as you may accidentally use the marrentill first.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "asgarnia-and-misthalin:690g0l",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a>, and speak to <a href=\"https://runescape.wiki/w/Captain_Bleemadge\" target=\"_blank\" rel=\"noopener\">Captain Bleemadge</a>. Right-click to talk to him.",
+          "text": "Travel to White Wolf Mountain, and speak to Captain Bleemadge. Right-click to talk to him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I have a special potion here for you from Sanfew!"
+                },
+                {
+                  "key": "4",
+                  "text": "Ok, I'll go and get you some T.R.A.S.H."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "asgarnia-and-misthalin:690g0l:1qgivff",
+              "html": "To reach him enter the cave southwest of the <a href=\"https://runescape.wiki/w/Burthorpe_lodestone\" target=\"_blank\" rel=\"noopener\">Burthorpe lodestone</a> (behind the Burthorpe mine entrance), then south towards the gnome glider.",
+              "text": "To reach him enter the cave southwest of the Burthorpe lodestone (behind the Burthorpe mine entrance), then south towards the gnome glider.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kandarin",
+      "title": "Kandarin",
+      "anchor": "Kandarin",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "kandarin:bring:1xd7ve5",
+              "html": "14 free inventory spaces",
+              "text": "14 free inventory spaces"
+            },
+            {
+              "id": "kandarin:bring:7nacxn",
+              "html": "Around 2000 coins (or 2+ cut opals, jades and red topazes in case you crush the ones you get)",
+              "text": "Around 2000 coins (or 2+ cut opals, jades and red topazes in case you crush the ones you get)"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:ri8afk",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Catherby\" target=\"_blank\" rel=\"noopener\">Catherby</a> and speak to <a href=\"https://runescape.wiki/w/Arhein\" target=\"_blank\" rel=\"noopener\">Arhein</a> on the docks. (General store owner, south of the lodestone)",
+          "text": "Travel to Catherby and speak to Arhein on the docks. (General store owner, south of the lodestone)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I need to talk T.R.A.S.H. to you."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, Ok, I'll do it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "kandarin:ri8afk:16y5hxu",
+              "html": "While here, purchase an <a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">empty pot</a> from <a href=\"https://runescape.wiki/w/Arhein%27s_Store\" target=\"_blank\" rel=\"noopener\">Arhein&#39;s Store</a>.",
+              "text": "While here, purchase an empty pot from Arhein's Store.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kandarin:l243aw",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> and speak to <a href=\"https://runescape.wiki/w/Phantuwti_Fanstuwi_Farsight\" target=\"_blank\" rel=\"noopener\">Phantuwti Fanstuwi Farsight</a>, south-east of the lodestone.",
+          "text": "Go to Seers' Village and speak to Phantuwti Fanstuwi Farsight, south-east of the lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Hi, can you give me a weather forecast?"
+                },
+                {
+                  "key": "5",
+                  "text": "What can I do to help?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, Ok, I'll do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:p2dntf",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Goblin_Cave\" target=\"_blank\" rel=\"noopener\">Goblin Cave</a> south-east of the fishing guild (teleport to the Ardougne lodestone and run north).",
+          "text": "Enter the Goblin Cave south-east of the fishing guild (teleport to the Ardougne lodestone and run north).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "kandarin:p2dntf:1mwgwlj",
+              "html": "Sometimes the cave is not marked on the minimap. It is just outside the fence opposite the fishing guild building near the windmill.",
+              "text": "Sometimes the cave is not marked on the minimap. It is just outside the fence opposite the fishing guild building near the windmill.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kandarin:11x9mjx",
+          "html": "Once inside, head north, then east where you find <a href=\"https://runescape.wiki/w/Petra_Fiyed\" target=\"_blank\" rel=\"noopener\">Petra Fiyed</a> trapped in rock. Search the sculpture.",
+          "text": "Once inside, head north, then east where you find Petra Fiyed trapped in rock. Search the sculpture.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:gbzzwn",
+          "html": "Go to Ardougne and speak to <a href=\"https://runescape.wiki/w/Wizard_Cromperty\" target=\"_blank\" rel=\"noopener\">Wizard Cromperty</a>, located north-east from the market.",
+          "text": "Go to Ardougne and speak to Wizard Cromperty, located north-east from the market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I need to talk to you about a girl stuck in some rock!"
+                },
+                {
+                  "key": "2",
+                  "text": "Oh! Ok, one more 'small favour' isn't going to kill me..I hope!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:17vuh6i",
+          "html": "Pick up five <a href=\"https://runescape.wiki/w/Pigeon_cage_(full)\" target=\"_blank\" rel=\"noopener\">full pigeon cages</a> from the back yard of the first house south of the north-western bank in Ardougne. There are three cages that will respawn immediately.",
+          "text": "Pick up five full pigeon cages from the back yard of the first house south of the north-western bank in Ardougne. There are three cages that will respawn immediately.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:1dgbzsm",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Port_Khazard\" target=\"_blank\" rel=\"noopener\">Port Khazard</a> (teleport to Catherby and use a charter to Port Khazard or teleport to the Yanille lodestone, run east through town then north) and talk to <a href=\"https://runescape.wiki/w/Tindel_Marchant\" target=\"_blank\" rel=\"noopener\">Tindel Marchant</a> on the southern pier.",
+          "text": "Go to Port Khazard (teleport to Catherby and use a charter to Port Khazard or teleport to the Yanille lodestone, run east through town then north) and talk to Tindel Marchant on the southern pier.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Ask about iron oxide."
+                },
+                {
+                  "key": "1",
+                  "text": "Ok, I'll do it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "kandarin:1dgbzsm:ffwo6q",
+              "html": "While you are here you can also speak to him about identifying swords for one of <a href=\"https://runescape.wiki/w/Easy_Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">easy Ardougne achievements</a>, <a href=\"https://runescape.wiki/w/They%27re_Long_and_Pointy\" target=\"_blank\" rel=\"noopener\">They&#39;re Long and Pointy</a>",
+              "text": "While you are here you can also speak to him about identifying swords for one of easy Ardougne achievements, They're Long and Pointy",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Chat about Antiques Store"
+                    },
+                    {
+                      "key": "1",
+                      "text": "What do you do here?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kandarin:18z7y9h",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a> and talk to <a href=\"https://runescape.wiki/w/Rantz\" target=\"_blank\" rel=\"noopener\">Rantz</a>, located to the far east of fairy ring <b>A</b><b>K</b><b>S</b>.",
+          "text": "Go to the Feldip Hills and talk to Rantz, located to the far east of fairy ring AKS.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to talk to you about a mattress."
+                },
+                {
+                  "key": "4",
+                  "text": "Ok, I'll see what I can do."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:1efcqo6",
+          "html": "Go west to the gnome glider and right-click to talk to <a href=\"https://runescape.wiki/w/Gnormadium_Avlafrim\" target=\"_blank\" rel=\"noopener\">Gnormadium Avlafrim</a>.",
+          "text": "Go west to the gnome glider and right-click to talk to Gnormadium Avlafrim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Rantz said I should come and help you finish this project."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'll take a look at them."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "kandarin:1k06txw",
+          "html": "For each of the 8 <a href=\"https://runescape.wiki/w/Gnome_landing_light\" target=\"_blank\" rel=\"noopener\">gnome landing lights</a> immediately east:",
+          "text": "For each of the 8 gnome landing lights immediately east:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "kandarin:1k06txw:1noit65",
+              "html": "Select the &quot;Search&quot; option on the gnome landing light to receive an uncut gem.",
+              "text": "Select the \"Search\" option on the gnome landing light to receive an uncut gem.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "kandarin:1k06txw:183u11s",
+              "html": "Cut the gem. If you crush one talk to the gnome to buy a replacement..",
+              "text": "Cut the gem. If you crush one talk to the gnome to buy a replacement..",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I need new gem to fix the lights."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Ok, here's 500 gold, I'll buy one."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "kandarin:1k06txw:2nn22k",
+              "html": "Use the cut gem on the light it came from (from west to east is sapphire, opal, red topaz, jade).",
+              "text": "Use the cut gem on the light it came from (from west to east is sapphire, opal, red topaz, jade).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "kandarin:1k06txw:2nn22k:1ljodrd",
+                  "html": "Make sure to use them on the gnome landing light.",
+                  "text": "Make sure to use them on the gnome landing light.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "kandarin:wp132r",
+          "html": "Talk to the gnome again.",
+          "text": "Talk to the gnome again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I've fixed all the lights!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "completing-the-favours",
+      "title": "Completing the favours",
+      "anchor": "Completing_the_favours",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "completing-the-favours:bring:1a8fr13",
+              "html": "Armour and a weapon for the fight with Slagilith (weak to air spells)",
+              "text": "Armour and a weapon for the fight with Slagilith (weak to air spells)"
+            },
+            {
+              "id": "completing-the-favours:bring:1axjhho",
+              "html": "<a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">Bronze bar</a>",
+              "text": "Bronze bar"
+            },
+            {
+              "id": "completing-the-favours:bring:17jxzbi",
+              "html": "<a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">Iron bar</a>",
+              "text": "Iron bar"
+            },
+            {
+              "id": "completing-the-favours:bring:ede655",
+              "html": "<a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">Steel bar</a>",
+              "text": "Steel bar"
+            },
+            {
+              "id": "completing-the-favours:bring:1a5j7ol",
+              "html": "<a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">Empty pot</a>",
+              "text": "Empty pot"
+            },
+            {
+              "id": "completing-the-favours:bring:12sdeej",
+              "html": "5 <a href=\"https://runescape.wiki/w/Pigeon_cage\" target=\"_blank\" rel=\"noopener\">pigeon cages</a>",
+              "text": "5 pigeon cages"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1v9xl8u",
+          "html": "Go back to Rantz to receive a <a href=\"https://runescape.wiki/w/Comfy_mattress\" target=\"_blank\" rel=\"noopener\">comfy mattress</a>.",
+          "text": "Go back to Rantz to receive a comfy mattress.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ok, I've helped that Gnome, he shouldn't bother you anymore."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1eqrnko",
+          "html": "Take the mattress to Tindel in Port Khazard, who gives you <a href=\"https://runescape.wiki/w/Iron_oxide\" target=\"_blank\" rel=\"noopener\">iron oxide</a>.",
+          "text": "Take the mattress to Tindel in Port Khazard, who gives you iron oxide.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I have the mattress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:g33vhm",
+          "html": "Take the iron oxide to Wizard Cromperty in Ardougne, who gives you an <a href=\"https://runescape.wiki/w/Animate_rock_scroll\" target=\"_blank\" rel=\"noopener\">animate rock scroll</a>.",
+          "text": "Take the iron oxide to Wizard Cromperty in Ardougne, who gives you an animate rock scroll.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I have that iron oxide you asked for!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:vpxh1o",
+          "html": "Read Animate rock scroll in the Goblin Cave near the trapped Petra and kill <a href=\"https://runescape.wiki/w/Slagilith\" target=\"_blank\" rel=\"noopener\">Slagilith</a> when it appears.",
+          "text": "Read Animate rock scroll in the Goblin Cave near the trapped Petra and kill Slagilith when it appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:2qpwfe",
+          "html": "Read Animate rock scroll again, then talk to Petra.",
+          "text": "Read Animate rock scroll again, then talk to Petra.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:sfxzx6",
+          "html": "Go to Seers&#39; Village and speak to Phantuwti in his house.",
+          "text": "Go to Seers' Village and speak to Phantuwti in his house.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I've released Petra, she should have returned."
+                },
+                {
+                  "key": "4",
+                  "text": "I'll run you through if you don't give me that weather report."
+                },
+                {
+                  "key": "2",
+                  "text": "Why can't you get a clear picture?"
+                },
+                {
+                  "key": "2",
+                  "text": "Which special Seers tools do you mean?"
+                },
+                {
+                  "key": "1",
+                  "text": "What do you mean, 'special combination of items'?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1t45dib",
+          "html": "Access the roof via either the ladder on the north wall of Phantuwti&#39;s house, or the ladder in the building to the east (you have to go up two ladders to get to the roof).",
+          "text": "Access the roof via either the ladder on the north wall of Phantuwti's house, or the ladder in the building to the east (you have to go up two ladders to get to the roof).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:44uxpj",
+          "html": "<i>Search</i> the weather vane. <i>Search</i> the weather vane again to get three <a href=\"https://runescape.wiki/w/Broken_vane_parts\" target=\"_blank\" rel=\"noopener\">broken vane parts</a>.",
+          "text": "Search the weather vane. Search the weather vane again to get three broken vane parts.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Use a hammer."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1qdmoi0",
+          "html": "With a <a href=\"https://runescape.wiki/w/Bronze_bar\" target=\"_blank\" rel=\"noopener\">bronze bar</a>, an <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bar</a>, and a <a href=\"https://runescape.wiki/w/Steel_bar\" target=\"_blank\" rel=\"noopener\">steel bar</a>, use each of the the parts of the weather vane on any anvil (there is an anvil just north of the house).",
+          "text": "With a bronze bar, an iron bar, and a steel bar, use each of the the parts of the weather vane on any anvil (there is an anvil just north of the house).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:hmklyq",
+          "html": "Go back to the roof of the house and put the <a href=\"https://runescape.wiki/w/Weathervane_pillar\" target=\"_blank\" rel=\"noopener\">weathervane pillar</a>, the <a href=\"https://runescape.wiki/w/Directionals\" target=\"_blank\" rel=\"noopener\">directionals</a> and the <a href=\"https://runescape.wiki/w/Ornament\" target=\"_blank\" rel=\"noopener\">ornament</a> back.",
+          "text": "Go back to the roof of the house and put the weathervane pillar, the directionals and the ornament back.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:6pd7s3",
+          "html": "Talk to Phantuwti again and he will give you the <a href=\"https://runescape.wiki/w/Weather_report\" target=\"_blank\" rel=\"noopener\">weather report</a>.",
+          "text": "Talk to Phantuwti again and he will give you the weather report.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I've fixed the weather vane!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1kr8r94",
+          "html": "Take the report to Arhein in Catherby.",
+          "text": "Take the report to Arhein in Catherby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I have the weather report for you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:pco7bs",
+          "html": "Talk to Captain Bleemadge on the White Wolf Mountain.",
+          "text": "Talk to Captain Bleemadge on the White Wolf Mountain.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Hey there, did you get your T.R.A.S.H?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1h3s4ur",
+          "html": "Talk to Sanfew in Taverley.",
+          "text": "Talk to Sanfew in Taverley.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Hi there, the Gnome Pilot has agreed to take you to see the ogres!"
+                }
+              ]
+            },
+            {
+              "when": "If the player has completed \"Eadgar's Ruse.\")",
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Hi there, the Gnome Pilot has agreed to take you to see the ogres!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:v6ml29",
+          "html": "Talk to Hammerspike Stoutbeard in the Dwarven Mine. Kill his minions. Talk to him again.",
+          "text": "Talk to Hammerspike Stoutbeard in the Dwarven Mine. Kill his minions. Talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1cbu80t",
+          "html": "Talk to Tassie Slipcast in Barbarian Village.",
+          "text": "Talk to Tassie Slipcast in Barbarian Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:tznghd",
+          "html": "<i>Form</i> the <a href=\"https://runescape.wiki/w/Unfired_pot_lid\" target=\"_blank\" rel=\"noopener\">unfired pot lid</a> at the nearby potter&#39;s wheel.",
+          "text": "Form the unfired pot lid at the nearby potter's wheel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1yjnpa5",
+          "html": "<i>Fire</i> the pot lid in the pottery oven.",
+          "text": "Fire the pot lid in the pottery oven.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:1q9sigo",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Pot_lid\" target=\"_blank\" rel=\"noopener\">pot lid</a> on an <a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">empty pot</a> to get an <a href=\"https://runescape.wiki/w/Airtight_pot\" target=\"_blank\" rel=\"noopener\">airtight pot</a>.",
+          "text": "Use the pot lid on an empty pot to get an airtight pot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:jkf6u",
+          "html": "Go to the apothecary in Varrock and give him the pot.",
+          "text": "Go to the apothecary in Varrock and give him the pot.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "5",
+                  "text": "Hey there! I have an air-tight pot for you!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "completing-the-favours:jkf6u:1o2n8zx",
+              "html": "Or if player has destroyed their <a href=\"https://runescape.wiki/w/Doctor%27s_hat\" target=\"_blank\" rel=\"noopener\">Doctor&#39;s hat</a>.",
+              "text": "Or if player has destroyed their Doctor's hat.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about One Small Favour."
+                    },
+                    {
+                      "key": "5",
+                      "text": "Hey there! I have an air-tight pot for you!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:uzc4w5",
+          "html": "Go to Horvik (Varrock Platebody Shop) and give him the herbal tincture and <a href=\"https://runescape.wiki/w/Breathing_salts\" target=\"_blank\" rel=\"noopener\">breathing salts</a>.",
+          "text": "Go to Horvik (Varrock Platebody Shop) and give him the herbal tincture and breathing salts.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "3",
+                  "text": "I have the tincture and the breathing salts."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:157k2di",
+          "html": "Talk to him again with five pigeon cages to get some <a href=\"https://runescape.wiki/w/Chicken_cage\" target=\"_blank\" rel=\"noopener\">chicken cages</a>.",
+          "text": "Talk to him again with five pigeon cages to get some chicken cages.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about One Small Favour."
+                },
+                {
+                  "key": "3",
+                  "text": "I have the five pigeon cages you asked for!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:7zfw6p",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Seth_Groats\" target=\"_blank\" rel=\"noopener\">Seth Groats</a> in the house of the chickens&#39; pen in <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> and give him the chicken cages.",
+          "text": "Go to Seth Groats in the house of the chickens' pen in Lumbridge and give him the chicken cages.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:13obv3h",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/H.A.M._Hideout\" target=\"_blank\" rel=\"noopener\">H.A.M. Hideout</a> and talk to <a href=\"https://runescape.wiki/w/Johanhus\" target=\"_blank\" rel=\"noopener\">Johanhus</a>.",
+          "text": "Go to the H.A.M. Hideout and talk to Johanhus.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "One Small Favour"
+                },
+                {
+                  "key": "4",
+                  "text": "You're in luck, I've managed to swing that chicken deal for you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:r67zmb",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a> and talk with Aggie the witch.",
+          "text": "Go to Draynor Village and talk with Aggie the witch.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about One Small Favour."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:11qk7bp",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> and talk with <a href=\"https://runescape.wiki/w/Brian\" target=\"_blank\" rel=\"noopener\">Brian</a> in <a href=\"https://runescape.wiki/w/Brian%27s_Battleaxe_Bazaar\" target=\"_blank\" rel=\"noopener\">his axe shop</a> (north-east of the lodestone), who gives you a <a href=\"https://runescape.wiki/w/Sharpened_hatchet\" target=\"_blank\" rel=\"noopener\">sharpened hatchet</a>.",
+          "text": "Go to Port Sarim and talk with Brian in his axe shop (north-east of the lodestone), who gives you a sharpened hatchet.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I've returned with good news."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:18u3zin",
+          "html": "Go back to <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a> and speak with any <a href=\"https://runescape.wiki/w/Jungle_forester\" target=\"_blank\" rel=\"noopener\">jungle forester</a> (closest fairy ring <b>C</b><b>K</b><b>R</b>), who gives you <a href=\"https://runescape.wiki/w/Red_mahogany_log\" target=\"_blank\" rel=\"noopener\">red mahogany logs</a> in exchange for the hatchet.",
+          "text": "Go back to Shilo Village and speak with any jungle forester (closest fairy ring CKR), who gives you red mahogany logs in exchange for the hatchet.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Good news, I have your sharpened hatchet!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:iznb30",
+          "html": "Speak with <a href=\"https://runescape.wiki/w/Yanni\" target=\"_blank\" rel=\"noopener\">Yanni</a> in <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a>.",
+          "text": "Speak with Yanni in Shilo Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Here's the red mahogany you asked for."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "completing-the-favours:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/One_Small_Favour_reward.png?73aca",
+      "width": 512,
+      "height": 387,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:One_Small_Favour_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Antique_lamp_(One_Small_Favour)\" target=\"_blank\" rel=\"noopener\">antique lamps</a> giving 10,000 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> to any skill of your choice. Skill must be at least level 30.",
+        "text": "2 antique lamps giving 10,000 experience to any skill of your choice. Skill must be at least level 30.",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Steel_key_ring\" target=\"_blank\" rel=\"noopener\">Steel key ring</a> (automatically added to the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>)",
+        "text": "Steel key ring (automatically added to the tool belt)",
+        "subs": []
+      },
+      {
+        "html": "Ability to make <a href=\"https://runescape.wiki/w/Guthix_rest\" target=\"_blank\" rel=\"noopener\">Guthix rest</a> potions",
+        "text": "Ability to make Guthix rest potions",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Gnome_glider\" target=\"_blank\" rel=\"noopener\">gnome glider</a> route to the <a href=\"https://runescape.wiki/w/Feldip_Hills\" target=\"_blank\" rel=\"noopener\">Feldip Hills</a>",
+        "text": "Access to the gnome glider route to the Feldip Hills",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Adamantite_stone_spirit\" target=\"_blank\" rel=\"noopener\">Adamantite stone spirit</a>, an uncut ruby and an uncut diamond dropped by <a href=\"https://runescape.wiki/w/Slagilith\" target=\"_blank\" rel=\"noopener\">Slagilith</a>",
+        "text": "Adamantite stone spirit, an uncut ruby and an uncut diamond dropped by Slagilith",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience from repairing the weather vane components",
+        "text": "1,000 experience from repairing the weather vane components",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": [
+      "The following can be unlocked in the lands you venture into if you have not visited them beforehand, but there is no unique music for this quest:"
+    ]
+  },
+  "music": [
+    {
+      "name": "In the Manor",
+      "where": ""
+    },
+    {
+      "name": "Grumpy",
+      "where": ""
+    },
+    {
+      "name": "Chompy Hunt",
+      "where": ""
+    },
+    {
+      "name": "Soundscape",
+      "where": ""
+    },
+    {
+      "name": "Monster Melee",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/King%27s_Ransom/Quick_guide\" target=\"_blank\" rel=\"noopener\">King&#39;s Ransom</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Requiem/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Requiem</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

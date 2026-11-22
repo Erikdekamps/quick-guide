@@ -1,0 +1,632 @@
+{
+  "format": 1,
+  "id": "heartstealer",
+  "title": "Heartstealer",
+  "page": "Heartstealer/Quick guide",
+  "rev": 37234852,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Caelyn_Kadaan\" target=\"_blank\" rel=\"noopener\">Caelyn</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the house north of <a href=\"https://runescape.wiki/w/Edgeville_bank\" target=\"_blank\" rel=\"noopener\">Edgeville bank</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3510,
+      "lon": 3090,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Heartstealer/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:tlq3ir",
+          "html": "Three <a href=\"https://runescape.wiki/w/Varrock_teleport_(item)\" target=\"_blank\" rel=\"noopener\">Varrock teleports</a> or <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a> or <a href=\"https://runescape.wiki/w/%27Chipped%27_Varrock_teleport\" target=\"_blank\" rel=\"noopener\">&#39;Chipped&#39; Varrock teleport</a> created by <a href=\"https://runescape.wiki/w/Dave%27s_spellbook\" target=\"_blank\" rel=\"noopener\">Dave&#39;s spellbook</a> (or the spellbook itself with the tablet stored)",
+          "text": "Three Varrock teleports or Varrock lodestone or 'Chipped' Varrock teleport created by Dave's spellbook (or the spellbook itself with the tablet stored)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1hxytmt",
+          "html": "Charged <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">Amulet of glory</a>, <a href=\"https://runescape.wiki/w/Wilderness_Sword\" target=\"_blank\" rel=\"noopener\">Wilderness Sword</a>, or <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>",
+          "text": "Charged Amulet of glory, Wilderness Sword, or Edgeville lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "preparations-of-the-heist",
+      "title": "Preparations of the heist",
+      "anchor": "Preparations_of_the_heist",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Making_the_smoke_bombs_during_Heartstealer.png/300px-Making_the_smoke_bombs_during_Heartstealer.png?d65aa",
+          "width": 300,
+          "height": 192,
+          "alt": "",
+          "caption": "Making the smoke bombs",
+          "href": "https://runescape.wiki/w/File:Making_the_smoke_bombs_during_Heartstealer.png"
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:1n7fdp2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Caelyn_Kadaan\" target=\"_blank\" rel=\"noopener\">Caelyn</a> upstairs in the house directly north of Edgeville bank.",
+          "text": "Talk to Caelyn upstairs in the house directly north of Edgeville bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'm listening..."
+                },
+                {
+                  "key": "1",
+                  "text": "What do you need?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Let's get the disguises."
+                },
+                {
+                  "key": "3",
+                  "text": "I'm on it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:4ti41i",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Thessalia%27s_Fine_Clothes\" target=\"_blank\" rel=\"noopener\">Thessalia&#39;s Fine Clothes</a> in <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> and talk to <a href=\"https://runescape.wiki/w/Thessalia\" target=\"_blank\" rel=\"noopener\">Thessalia</a> to receive <a href=\"https://runescape.wiki/w/Masquerade_masks\" target=\"_blank\" rel=\"noopener\">masquerade masks</a>.",
+          "text": "Go to Thessalia's Fine Clothes in Varrock and talk to Thessalia to receive masquerade masks.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Heartstealer."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:1mwim28",
+          "html": "Return to Caelyn.",
+          "text": "Return to Caelyn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Let's create some Smoke bombs."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:1hwwu2q",
+          "html": "Click the interactable objects in the room. After failing, lower the difficulty setting by speaking with her.",
+          "text": "Click the interactable objects in the room. After failing, lower the difficulty setting by speaking with her.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "That was tougher than I expected."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:kric4b",
+          "html": "Follow Caelyn&#39;s instructions / the arrows to click on the areas of the room to make the smoke bombs.",
+          "text": "Follow Caelyn's instructions / the arrows to click on the areas of the room to make the smoke bombs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:13ebjr9",
+          "html": "Finish the dialogue with Caelyn to receive <a href=\"https://runescape.wiki/w/Paper_and_crayons\" target=\"_blank\" rel=\"noopener\">paper and crayons</a>.",
+          "text": "Finish the dialogue with Caelyn to receive paper and crayons.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'll get started on that."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:jd4dvo",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> and <i>pickpocket</i> <a href=\"https://runescape.wiki/w/Curator_Haig_Halen\" target=\"_blank\" rel=\"noopener\">Curator Haig Halen</a>.",
+          "text": "Head to the Varrock Museum and pickpocket Curator Haig Halen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparations-of-the-heist:1mwim28-2",
+          "html": "Return to Caelyn.",
+          "text": "Return to Caelyn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-heist",
+      "title": "The heist",
+      "anchor": "The_heist",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-heist:185umbm",
+          "html": "Head to the Varrock Museum and talk to Caelyn outside.",
+          "text": "Head to the Varrock Museum and talk to Caelyn outside.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Give her a pep talk."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:121wxpl",
+          "html": "<i>Wear</i> the <a href=\"https://runescape.wiki/w/Scarlet_Thief%27s_mask\" target=\"_blank\" rel=\"noopener\">Scarlet Thief&#39;s mask</a> and talk to Caelyn again.",
+          "text": "Wear the Scarlet Thief's mask and talk to Caelyn again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1b1c9wy",
+          "html": "After a cutscene, attempt to <i>walk-down</i> the stairs, then <i>climb-up</i> the staircase to the east.",
+          "text": "After a cutscene, attempt to walk-down the stairs, then climb-up the staircase to the east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1dk2j61",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Drunken_Dwarf#Heartstealer\" target=\"_blank\" rel=\"noopener\">Drunken Dwarf</a> to the south.",
+          "text": "Talk to the Drunken Dwarf to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:3122kl",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Bartender_(Heartstealer)\" target=\"_blank\" rel=\"noopener\">bartender</a> in the south-east of the room to get 1 drink token.",
+          "text": "Talk to the bartender in the south-east of the room to get 1 drink token.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1076vkw",
+          "html": "Pickpocket an <a href=\"https://runescape.wiki/w/Attendee\" target=\"_blank\" rel=\"noopener\">attendee</a> to the west of the bartender for 1 drink token.",
+          "text": "Pickpocket an attendee to the west of the bartender for 1 drink token.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:11pt0cq",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Annette_Kadaan\" target=\"_blank\" rel=\"noopener\">masked woman</a> to the west upstairs and accept the dance off.",
+          "text": "Talk to the masked woman to the west upstairs and accept the dance off.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "We accept."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:hjadtx",
+          "html": "After the cutscene, talk to the masked woman again to get the 1 drink token.",
+          "text": "After the cutscene, talk to the masked woman again to get the 1 drink token.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:16k282t",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Mr_Mordaut#Heartstealer\" target=\"_blank\" rel=\"noopener\">Mr Mordaut</a>, the dragon.",
+          "text": "Talk to Mr Mordaut, the dragon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:4susb9",
+          "html": "Go downstairs and search the crate next to the bartender to get a cheese tray.",
+          "text": "Go downstairs and search the crate next to the bartender to get a cheese tray.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:19yojpo",
+          "html": "Go upstairs and talk to Mr Mordaut again for the last drink token.",
+          "text": "Go upstairs and talk to Mr Mordaut again for the last drink token.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:gggfjk",
+          "html": "Talk to the Drunken Dwarf.",
+          "text": "Talk to the Drunken Dwarf.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Start the distraction."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1ktpfn7",
+          "html": "After another cutscene, go down to the basement.",
+          "text": "After another cutscene, go down to the basement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1bq2ch2",
+          "html": "Avoid the guards, following the wires on the ground to find the levers.",
+          "text": "Avoid the guards, following the wires on the ground to find the levers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-heist:1bq2ch2:1vs7odi",
+              "html": "There is one lever in each of the north, east and western rooms. Avoid the guards by blocking their line of sight with objects where possible.",
+              "text": "There is one lever in each of the north, east and western rooms. Avoid the guards by blocking their line of sight with objects where possible.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "the-heist:1bq2ch2:1vs7odi:1hgkkue",
+                  "html": "North: Avoid the guards and hide in the crate (halfway along the back wall) to avoid the guard.",
+                  "text": "North: Avoid the guards and hide in the crate (halfway along the back wall) to avoid the guard.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-heist:1bq2ch2:1vs7odi:12oki82",
+                  "html": "East: Hide in the crate (Halfway along the eastern wall) to avoid the guard.",
+                  "text": "East: Hide in the crate (Halfway along the eastern wall) to avoid the guard.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "the-heist:1bq2ch2:1vs7odi:6f9ftt",
+                  "html": "West: Notice the walking pattern of each guard. Then walk directly behind the guards along their route waiting for when they turn away to move.",
+                  "text": "West: Notice the walking pattern of each guard. Then walk directly behind the guards along their route waiting for when they turn away to move.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-heist:9vfpl0",
+          "html": "Pull the three <a href=\"https://runescape.wiki/w/Lever_(Heartstealer)\" target=\"_blank\" rel=\"noopener\">levers</a>.",
+          "text": "Pull the three levers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1qzyw52",
+          "html": "Open the <a href=\"https://runescape.wiki/w/Display_Case_(Heartstealer)\" target=\"_blank\" rel=\"noopener\">display case</a>.",
+          "text": "Open the display case.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:xrytfs",
+          "html": "After a cutscene, take from the display case.",
+          "text": "After a cutscene, take from the display case.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:bntlk0",
+          "html": "Talk to Caelyn.",
+          "text": "Talk to Caelyn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What a twist!"
+                },
+                {
+                  "key": "1",
+                  "text": "That's so sweet."
+                },
+                {
+                  "key": "2",
+                  "text": "Is this all?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-heist:1y6dgi",
+          "html": "Continue dialogue with Caelyn.",
+          "text": "Continue dialogue with Caelyn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Heartstealer_reward.png?457a4",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Heartstealer_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Heartstealer_(title)\" target=\"_blank\" rel=\"noopener\">Heartstealer [Name]</a> title",
+        "text": "Heartstealer [Name] title",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Scarlet_Thief%27s_mask_(override)\" target=\"_blank\" rel=\"noopener\">Scarlet Thief&#39;s mask</a> cosmetic override",
+        "text": "Scarlet Thief's mask cosmetic override",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Scarlet_Thief%27s_outfit\" target=\"_blank\" rel=\"noopener\">Scarlet Thief&#39;s outfit</a> cosmetic override",
+        "text": "Scarlet Thief's outfit cosmetic override",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "2,500 experience <a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Heartstealer)\" target=\"_blank\" rel=\"noopener\">lamp</a> obtained from Caelyn if the player has level 20 <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a> after the quest (members only)",
+            "text": "2,500 experience lamp obtained from Caelyn if the player has level 20 Thieving after the quest (members only)",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

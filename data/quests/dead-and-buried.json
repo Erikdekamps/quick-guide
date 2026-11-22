@@ -1,0 +1,1095 @@
+{
+  "format": 1,
+  "id": "dead-and-buried",
+  "title": "Dead and Buried",
+  "page": "Dead and Buried/Quick guide",
+  "rev": 37164408,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a> north of the <a href=\"https://runescape.wiki/w/Guardhouse\" target=\"_blank\" rel=\"noopener\">guardhouse</a> in <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3544,
+      "lon": 3292,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Dead_and_Buried/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Unwelcome Guests",
+        "depth": 1
+      },
+      {
+        "text": "Murder on the Border",
+        "depth": 2
+      },
+      {
+        "text": "New Foundations",
+        "depth": 3
+      },
+      {
+        "text": "Build Town Hall (Tier 1)",
+        "depth": 3
+      },
+      {
+        "text": "Build Command Centre (Tier 1)",
+        "depth": 3
+      },
+      {
+        "text": "Build Workshop (Tier 1)",
+        "depth": 3
+      },
+      {
+        "text": "Build Chapel (Tier 1)",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Woodcutting",
+        "level": 50,
+        "note": "(to chop acadia logs for the planks)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Three material ghouls, which scale to your combat level",
+        "name": "Three material ghouls, which scale to your combat level",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "22 the Nightmares, which scale to your combat level",
+        "name": "22 the Nightmares, which scale to your combat level",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "10 fetid zombies, which scale to your combat level",
+        "name": "10 fetid zombies, which scale to your combat level",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Wilderness</span> <span class=\"reg\">Desert</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Wilderness</span> <span class=\"reg\">Transmutation</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:swobre",
+          "html": "6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+          "text": "6 stone wall segments",
+          "alternatives": []
+        },
+        {
+          "id": "req:mu0dun",
+          "html": "14 <a href=\"https://runescape.wiki/w/Acadia_frame\" target=\"_blank\" rel=\"noopener\">acadia frames</a>",
+          "text": "14 acadia frames",
+          "alternatives": []
+        },
+        {
+          "id": "req:dcpd0j",
+          "html": "24 <a href=\"https://runescape.wiki/w/Limestone_brick\" target=\"_blank\" rel=\"noopener\">limestone bricks</a> to make stone wall segments",
+          "text": "24 limestone bricks to make stone wall segments",
+          "alternatives": []
+        },
+        {
+          "id": "req:kxd5ss",
+          "html": "168 <a href=\"https://runescape.wiki/w/Acadia_plank\" target=\"_blank\" rel=\"noopener\">acadia planks</a> to make acadia frames",
+          "text": "168 acadia planks to make acadia frames",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8w69bo",
+          "html": "Food and combat equipment",
+          "text": "Food and combat equipment",
+          "alternatives": []
+        },
+        {
+          "id": "rec:16fteda",
+          "html": "<a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a>",
+          "text": "Varrock Teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ak4nub",
+          "html": "10 free inventory slots",
+          "text": "10 free inventory slots",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:1ogqyea",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a> in <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+          "text": "Talk to the Raptor in Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Dead and Buried'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:uysd2l",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Dead_and_Buried_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> in front of the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a> to enter.",
+          "text": "Continue with the portal in front of the Town Hall to enter.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:ool0o2",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Herald_of_Varrock\" target=\"_blank\" rel=\"noopener\">Herald of Varrock</a>.",
+          "text": "Talk to the Herald of Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "4",
+                  "text": "(Conclude interview.)"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I've asked enough questions."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-workroom",
+      "title": "Building the workroom",
+      "anchor": "Building_the_workroom",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "building-the-workroom:bring:mu0dun",
+              "html": "14 <a href=\"https://runescape.wiki/w/Acadia_frame\" target=\"_blank\" rel=\"noopener\">acadia frames</a>",
+              "text": "14 acadia frames"
+            },
+            {
+              "id": "building-the-workroom:bring:swobre",
+              "html": "6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+              "text": "6 stone wall segments"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workroom:kdzs1p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a>.",
+          "text": "Talk to Bill.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Dead and Buried'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workroom:t7cryd",
+          "html": "<i>Check plans</i> on the <a href=\"https://runescape.wiki/w/Fort_Forinthry_blueprints\" target=\"_blank\" rel=\"noopener\">Fort Forinthry blueprints</a> and select <a href=\"https://runescape.wiki/w/Ranger%27s_Workroom\" target=\"_blank\" rel=\"noopener\">Ranger&#39;s Workroom (Tier 1)</a>.",
+          "text": "Check plans on the Fort Forinthry blueprints and select Ranger's Workroom (Tier 1).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workroom:1vvcxcy",
+          "html": "Build the Ranger&#39;s Workroom in the south-west near the <a href=\"https://runescape.wiki/w/Guardhouse\" target=\"_blank\" rel=\"noopener\">Guardhouse</a>.",
+          "text": "Build the Ranger's Workroom in the south-west near the Guardhouse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workroom:1hiiw2g",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Guard_captain_Sof%C3%ADa\" target=\"_blank\" rel=\"noopener\">guard captain Sofía</a> in the newly-built Ranger&#39;s Workroom.",
+          "text": "Talk to guard captain Sofía in the newly-built Ranger's Workroom.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workroom:2x1x9l",
+          "html": "Talk to the Raptor.",
+          "text": "Talk to the Raptor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Dead and Buried'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "retrieving-the-dragonkin-device",
+      "title": "Retrieving the dragonkin device",
+      "anchor": "Retrieving_the_dragonkin_device",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "retrieving-the-dragonkin-device:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "retrieving-the-dragonkin-device:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "retrieving-the-dragonkin-device:bring:q33u8",
+              "html": "Two free backpack spaces",
+              "text": "Two free backpack spaces"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "retrieving-the-dragonkin-device:bring:16fteda",
+              "html": "<a href=\"https://runescape.wiki/w/Varrock_Teleport\" target=\"_blank\" rel=\"noopener\">Varrock Teleport</a>",
+              "text": "Varrock Teleport"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:1n78umu",
+          "html": "Continue with the <a href=\"https://runescape.wiki/w/Dead_and_Buried_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> by the <a href=\"https://runescape.wiki/w/Crypt_(Wilderness)\" target=\"_blank\" rel=\"noopener\">Wilderness crypt</a> entrance outside the northern gate.",
+          "text": "Continue with the portal by the Wilderness crypt entrance outside the northern gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:2x1x9l",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>.",
+          "text": "Talk to the Raptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:dwel2g",
+          "html": "Collect six out of nine materials from the six <a href=\"https://runescape.wiki/w/Spooky_hole\" target=\"_blank\" rel=\"noopener\">spooky holes</a> in the western room.",
+          "text": "Collect six out of nine materials from the six spooky holes in the western room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "retrieving-the-dragonkin-device:dwel2g:vj8kj9",
+              "html": "Kill the three <a href=\"https://runescape.wiki/w/Material_ghoul\" target=\"_blank\" rel=\"noopener\">material ghouls</a> that spawn to collect the last three materials.",
+              "text": "Kill the three material ghouls that spawn to collect the last three materials.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:3ky6yh",
+          "html": "<i>Construct</i> the <a href=\"https://runescape.wiki/w/Bridge_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">bridge</a> near the Raptor.",
+          "text": "Construct the bridge near the Raptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:mw6efy",
+          "html": "Cross the bridge and <i>investigate</i> the <a href=\"https://runescape.wiki/w/Ancient_door_(crypt)\" target=\"_blank\" rel=\"noopener\">ancient door</a>.",
+          "text": "Cross the bridge and investigate the ancient door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:9fbjkz",
+          "html": "<i>Push</i> either of the two <a href=\"https://runescape.wiki/w/Pillar_(crypt)\" target=\"_blank\" rel=\"noopener\">pillars</a>. <i>Switch to</i> the Raptor and <i>push</i> the other pillar to unlock the door.",
+          "text": "Push either of the two pillars. Switch to the Raptor and push the other pillar to unlock the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:1get8jm",
+          "html": "<i>Search</i> the ancient door to receive the <a href=\"https://runescape.wiki/w/Dragonkin_device_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">dragonkin device</a>.",
+          "text": "Search the ancient door to receive the dragonkin device.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:14yuvyb",
+          "html": "Speak to the Raptor.",
+          "text": "Speak to the Raptor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "retrieving-the-dragonkin-device:1d2o0w5",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Varrock_Library\" target=\"_blank\" rel=\"noopener\">Varrock Library</a> and continue with the <a href=\"https://runescape.wiki/w/Dead_and_Buried_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> by the entrance.",
+          "text": "Go to the Varrock Library and continue with the portal by the entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "in-the-dream",
+      "title": "In the dream",
+      "anchor": "In_the_dream",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "in-the-dream:mbbruj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a> for a <a href=\"https://runescape.wiki/w/Potion_of_dreamless_sleep\" target=\"_blank\" rel=\"noopener\">potion of dreamless sleep</a>.",
+          "text": "Talk to Reldo for a potion of dreamless sleep.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:jqdgxv",
+          "html": "<i>Drink</i> the potion, then <i>inspect</i> the <a href=\"https://runescape.wiki/w/Dragonkin_device_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">dragonkin device</a> to enter the dream.",
+          "text": "Drink the potion, then inspect the dragonkin device to enter the dream.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Enter dream."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:z97c1h",
+          "html": "The aim is to step on the <a href=\"https://runescape.wiki/w/Pressure_plate_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">pressure plates</a>, unlock all the <a href=\"https://runescape.wiki/w/Boulder_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">boulders</a>, and enter the final barrier. As the <a href=\"https://runescape.wiki/w/Player_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">player</a>, you can push and pull boulders <b>one</b> tile at a time. As the Raptor, you can push boulders <b>five</b> tiles, and pull by <b>one</b> tile.",
+          "text": "The aim is to step on the pressure plates, unlock all the boulders, and enter the final barrier. As the player, you can push and pull boulders one tile at a time. As the Raptor, you can push boulders five tiles, and pull by one tile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "in-the-dream:z97c1h:dwqu9d",
+              "html": "It might glitch and not show the boulder, although it is there and interactable.",
+              "text": "It might glitch and not show the boulder, although it is there and interactable.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "in-the-dream:z97c1h:qfhwog",
+              "html": "For rooms that don&#39;t have enough boulders, you need to step on a pressure plate to spawn one.",
+              "text": "For rooms that don't have enough boulders, you need to step on a pressure plate to spawn one.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boulder puzzle 1 (going clockwise)"
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1mey9g0",
+          "html": "Player steps on a pressure plate.",
+          "text": "Player steps on a pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:dc37q3",
+          "html": "Switch to the Raptor and step on the other pressure plate.",
+          "text": "Switch to the Raptor and step on the other pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:8zn3uz",
+          "html": "Pull and push the boulder to the middle plate outside boulder gate 2.",
+          "text": "Pull and push the boulder to the middle plate outside boulder gate 2.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boulder puzzle 2"
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:sba7qj",
+          "html": "The player steps on a pressure plate.",
+          "text": "The player steps on a pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:dc37q3-2",
+          "html": "Switch to the Raptor and step on the other pressure plate.",
+          "text": "Switch to the Raptor and step on the other pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1j5u25t",
+          "html": "Pull and push both boulders to the outer pressure plates at boulder gate 3.",
+          "text": "Pull and push both boulders to the outer pressure plates at boulder gate 3.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boulder puzzle 3"
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:sba7qj-2",
+          "html": "The player steps on a pressure plate.",
+          "text": "The player steps on a pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:dc37q3-3",
+          "html": "Switch to the Raptor and step on the other pressure plate.",
+          "text": "Switch to the Raptor and step on the other pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:i2kpts",
+          "html": "Walk through to boulder gate 4.",
+          "text": "Walk through to boulder gate 4.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boulder puzzle 4"
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:17cvavu",
+          "html": "The player steps on either of the two furthest pressure plates from the gate. This creates a boulder.",
+          "text": "The player steps on either of the two furthest pressure plates from the gate. This creates a boulder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1nxl64s",
+          "html": "Switch to the Raptor and push the boulder to any pressure plate next to the gate.",
+          "text": "Switch to the Raptor and push the boulder to any pressure plate next to the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1dxviwn",
+          "html": "Repeat for the other pressure plate.",
+          "text": "Repeat for the other pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:694b4s",
+          "html": "The player steps on the pressure plate by the gate.",
+          "text": "The player steps on the pressure plate by the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1iymy1q",
+          "html": "Switch to the Raptor and step on the pressure plate by the gate.",
+          "text": "Switch to the Raptor and step on the pressure plate by the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:157gxqt",
+          "html": "Walk through.",
+          "text": "Walk through.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Boulder puzzle 5"
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1xo2u6s",
+          "html": "The Raptor steps on the western-most pressure plate.",
+          "text": "The Raptor steps on the western-most pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1ynvtbz",
+          "html": "The player pulls the boulder and pushes it to the second pressure plate (going clockwise).",
+          "text": "The player pulls the boulder and pushes it to the second pressure plate (going clockwise).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:g2hjip",
+          "html": "The player steps on the third pressure plate, and the second boulder appears.",
+          "text": "The player steps on the third pressure plate, and the second boulder appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "in-the-dream:g2hjip:np0b4v",
+              "html": "If the second boulder does not spawn, exit to the lobby and continue again with the <a href=\"https://runescape.wiki/w/Dead_and_Buried_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> at the library.",
+              "text": "If the second boulder does not spawn, exit to the lobby and continue again with the portal at the library.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:sfo9kd",
+          "html": "The player pushes and pulls the boulder to the fourth pressure plate.",
+          "text": "The player pushes and pulls the boulder to the fourth pressure plate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:yew3s3",
+          "html": "The player steps on the third pressure plate to open the gate.",
+          "text": "The player steps on the third pressure plate to open the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "in-the-dream:1adic1i",
+          "html": "Run to the <a href=\"https://runescape.wiki/w/Strange_girl_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">strange girl</a> to start a cutscene.",
+          "text": "Run to the strange girl to start a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-nightmare",
+      "title": "The nightmare",
+      "anchor": "The_nightmare",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-nightmare:e0u9a",
+          "html": "Go through all the chat options, then delve deeper into the dream.",
+          "text": "Go through all the chat options, then delve deeper into the dream.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:1d8tioq",
+          "html": "<i>Interact</i> with the <a href=\"https://runescape.wiki/w/Dim_light\" target=\"_blank\" rel=\"noopener\">dim light</a>.",
+          "text": "Interact with the dim light.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:1wmebqm",
+          "html": "Lower the health of <a href=\"https://runescape.wiki/w/The_Nightmare\" target=\"_blank\" rel=\"noopener\">the Nightmares</a> as the player, then swap to the Raptor to deal the finishing blow.",
+          "text": "Lower the health of the Nightmares as the player, then swap to the Raptor to deal the finishing blow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-nightmare:1wmebqm:1m6yoaq",
+              "html": "Currently this part is glitched if you are in a group, which will prevent the player from progressing as expected. Simply leaving the group and re-entering the instance will allow progress.",
+              "text": "Currently this part is glitched if you are in a group, which will prevent the player from progressing as expected. Simply leaving the group and re-entering the instance will allow progress.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:h5f95n",
+          "html": "<i>Interact</i> with the <a href=\"https://runescape.wiki/w/Pillar_of_light_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">pillar of light</a> and talk with the character that appears.",
+          "text": "Interact with the pillar of light and talk with the character that appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:8pg25k",
+          "html": "Continue on the path, and repeat the same process with the dim lights along the way.",
+          "text": "Continue on the path, and repeat the same process with the dim lights along the way.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:nu2mej",
+          "html": "Finally, speak to the Raptor that appears.",
+          "text": "Finally, speak to the Raptor that appears.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-nightmare:aal1i9",
+          "html": "<i>Read</i> the <a href=\"https://runescape.wiki/w/Ancient_writings_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">ancient writings</a> on the wall at the end of the path.",
+          "text": "Read the ancient writings on the wall at the end of the path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "back-to-the-crypt",
+      "title": "Back to the crypt",
+      "anchor": "Back_to_the_crypt",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "back-to-the-crypt:bring:1tw0o0p",
+              "html": "10 free inventory spaces",
+              "text": "10 free inventory spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:1fi5zx8",
+          "html": "Finish talking to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>, then go back to the <a href=\"https://runescape.wiki/w/Crypt_(Wilderness)\" target=\"_blank\" rel=\"noopener\">crypt</a> in the <a href=\"https://runescape.wiki/w/Wilderness\" target=\"_blank\" rel=\"noopener\">Wilderness</a>.",
+          "text": "Finish talking to the Raptor, then go back to the crypt in the Wilderness.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:1jrvjh",
+          "html": "<i>Continue</i> with the <a href=\"https://runescape.wiki/w/Dead_and_Buried_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> in front of the crypt.",
+          "text": "Continue with the portal in front of the crypt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:1mmh3bn",
+          "html": "<i>Enter</i> the <a href=\"https://runescape.wiki/w/Ancient_door_(crypt)\" target=\"_blank\" rel=\"noopener\">ancient door</a>, then <i>investigate</i> the <a href=\"https://runescape.wiki/w/Map_table_(crypt)\" target=\"_blank\" rel=\"noopener\">map table</a> in the central room.",
+          "text": "Enter the ancient door, then investigate the map table in the central room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:gy7ly1",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Fetid_zombie_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">fetid zombies</a> around the crypt and collect 10 <a href=\"https://runescape.wiki/w/Map_piece\" target=\"_blank\" rel=\"noopener\">map pieces</a>. Do not leave the crypt.",
+          "text": "Kill fetid zombies around the crypt and collect 10 map pieces. Do not leave the crypt.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:19o8p0u",
+          "html": "<i>Deposit</i> onto the map table to start the puzzle.",
+          "text": "Deposit onto the map table to start the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:uqipyl",
+          "html": "Complete the map (shown below) using the same strategy as for solving a <a href=\"https://runescape.wiki/w/Puzzle_box\" target=\"_blank\" rel=\"noopener\">puzzle box</a> or <a href=\"https://en.wikipedia.org/wiki/sliding_puzzle\" target=\"_blank\" rel=\"noopener\">sliding puzzle</a>, strategy guide <a href=\"https://runescape.wiki/w/Treasure_Trails/Guide/Puzzle_boxes#Solving_puzzle_boxes\" target=\"_blank\" rel=\"noopener\">here</a>.",
+          "text": "Complete the map (shown below) using the same strategy as for solving a puzzle box or sliding puzzle, strategy guide here.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "back-to-the-crypt:uqipyl:1wk3df9",
+              "html": "Speaking to the Raptor to turn on accessibility mode is advised; this will highlight tiles while they are in the correct position.",
+              "text": "Speaking to the Raptor to turn on accessibility mode is advised; this will highlight tiles while they are in the correct position.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "back-to-the-crypt:1ohfq8",
+          "html": "Finish the following dialogue with the Raptor before continuing.",
+          "text": "Finish the following dialogue with the Raptor before continuing.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Sliding_Puzzle_of_Ungael.png/300px-Sliding_Puzzle_of_Ungael.png?26d6d",
+          "width": 300,
+          "height": 301,
+          "alt": "",
+          "caption": "The completed slider puzzle (oriented with north at the top).",
+          "href": "https://runescape.wiki/w/File:Sliding_Puzzle_of_Ungael.png"
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:qvhd7h",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> back at <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+          "text": "Talk to Overseer Siv in the Command Centre back at Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about quests."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:ev4pza",
+          "html": "Talk to the Raptor to finish the quest.",
+          "text": "Talk to the Raptor to finish the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Dead_and_Buried_reward.png?cd95d",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Dead_and_Buried_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience <a href=\"https://runescape.wiki/w/Construction_XP_lamp_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "8,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "3,000 experience <a href=\"https://runescape.wiki/w/Prismatic_XP_lamp_(Dead_and_Buried)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 30 or higher)",
+        "text": "3,000 experience lamp (Skill must be level 30 or higher)",
+        "subs": []
+      },
+      {
+        "html": "Ability to build all three tiers of the Fort Forinthry <a href=\"https://runescape.wiki/w/Ranger%27s_Workroom\" target=\"_blank\" rel=\"noopener\">Ranger&#39;s Workroom</a>.",
+        "text": "Ability to build all three tiers of the Fort Forinthry Ranger's Workroom.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Dragonkin Tomb",
+      "where": ""
+    },
+    {
+      "name": "The Raptor's Deeper Dream",
+      "where": ""
+    },
+    {
+      "name": "The Raptor's Dream",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Dead_and_Buried_(achievement)\" target=\"_blank\" rel=\"noopener\">Dead and Buried</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ancient_Awakening/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ancient Awakening</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Battle_of_Forinthry/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of Forinthry</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    }
+  ]
+}

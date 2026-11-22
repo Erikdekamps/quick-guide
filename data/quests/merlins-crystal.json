@@ -1,0 +1,719 @@
+{
+  "format": 1,
+  "id": "merlins-crystal",
+  "title": "Merlin's Crystal",
+  "page": "Merlin's Crystal/Quick guide",
+  "rev": 37172412,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/King_Arthur\" target=\"_blank\" rel=\"noopener\">King Arthur</a> in <a href=\"https://runescape.wiki/w/Camelot\" target=\"_blank\" rel=\"noopener\">Camelot</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Sir Mordred (level 23)",
+        "name": "Sir Mordred",
+        "count": null,
+        "level": "23",
+        "note": ""
+      },
+      {
+        "text": "Thrantax the Mighty (level 70); only if the player gives an incorrect answer",
+        "name": "Thrantax the Mighty",
+        "count": null,
+        "level": "70",
+        "note": "; only if the player gives an incorrect answer"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:15j2nkp",
+          "html": "<a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">Bread</a> (can be obtained during the quest with 24 coins)",
+          "text": "Bread (can be obtained during the quest with 24 coins)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1z0new7",
+          "html": "<a href=\"https://runescape.wiki/w/Bat_bones\" target=\"_blank\" rel=\"noopener\">Bat bones</a> (can be obtained during the quest)",
+          "text": "Bat bones (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:13cu0y1",
+          "html": "<a href=\"https://runescape.wiki/w/Black_candle\" target=\"_blank\" rel=\"noopener\">Black candle</a>",
+          "text": "Black candle",
+          "alternatives": []
+        },
+        {
+          "id": "req:ooh3gv",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">Bucket</a> (can be obtained during the quest)",
+          "text": "Bucket (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:dvlqxs",
+          "html": "<a href=\"https://runescape.wiki/w/Insect_repellent\" target=\"_blank\" rel=\"noopener\">Insect repellent</a> (can be obtained during the quest)",
+          "text": "Insect repellent (can be obtained during the quest)",
+          "alternatives": [
+            "Can be used from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:zrorxo",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador</a>, <a href=\"https://runescape.wiki/w/Seers%27_Village_lodestone\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> and <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a>",
+          "text": "Activated Falador, Seers' Village and Varrock lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:3pnrqz",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Arthur\" target=\"_blank\" rel=\"noopener\">King Arthur</a> at <a href=\"https://runescape.wiki/w/Camelot\" target=\"_blank\" rel=\"noopener\">Camelot</a>.",
+          "text": "Talk to King Arthur at Camelot.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm looking for a quest."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:aswuzc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sir_Gawain\" target=\"_blank\" rel=\"noopener\">Sir Gawain</a> nearby. Ask him how <a href=\"https://runescape.wiki/w/Merlin\" target=\"_blank\" rel=\"noopener\">Merlin</a> got stuck in the crystal.",
+          "text": "Talk to Sir Gawain nearby. Ask him how Merlin got stuck in the crystal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you know how Merlin got trapped?"
+                },
+                {
+                  "key": "2",
+                  "text": "Thank you for the information!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1nvsr69",
+          "html": "Go upstairs, and talk to <a href=\"https://runescape.wiki/w/Sir_Lancelot\" target=\"_blank\" rel=\"noopener\">Sir Lancelot</a>. Ask if he has any ideas on getting into <a href=\"https://runescape.wiki/w/Keep_Le_Faye\" target=\"_blank\" rel=\"noopener\">Keep Le Faye</a>.",
+          "text": "Go upstairs, and talk to Sir Lancelot. Ask if he has any ideas on getting into Keep Le Faye.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Any ideas on how to get into Morgan Le Faye's stronghold?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1tmnna2",
+          "html": "Hide in the crate just west of the <a href=\"https://runescape.wiki/w/Candle-maker\" target=\"_blank\" rel=\"noopener\">candle-maker</a> in <a href=\"https://runescape.wiki/w/Catherby\" target=\"_blank\" rel=\"noopener\">Catherby</a>.",
+          "text": "Hide in the crate just west of the candle-maker in Catherby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "inside-keep-le-faye",
+      "title": "Inside Keep Le Faye",
+      "anchor": "Inside_Keep_Le_Faye",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "inside-keep-le-faye:1t50syt",
+          "html": "Climb to the top floor.",
+          "text": "Climb to the top floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-keep-le-faye:joi4t2",
+          "html": "Attack <a href=\"https://runescape.wiki/w/Sir_Mordred\" target=\"_blank\" rel=\"noopener\">Sir Mordred</a> until his health drops to 0. If you use bleeds/poisons/conjures, future dialogue will be interrupted until the bleed/poison effect ends. Aggressive familiars would continue to attack when Sir Mordred goes back to full health after reaching 0 health, thus restarting the fight.",
+          "text": "Attack Sir Mordred until his health drops to 0. If you use bleeds/poisons/conjures, future dialogue will be interrupted until the bleed/poison effect ends. Aggressive familiars would continue to attack when Sir Mordred goes back to full health after reaching 0 health, thus restarting the fight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-keep-le-faye:1wykdz5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Morgan_Le_Faye\" target=\"_blank\" rel=\"noopener\">Morgan Le Faye</a>. Spare Mordred&#39;s life to discover how to save <a href=\"https://runescape.wiki/w/Merlin\" target=\"_blank\" rel=\"noopener\">Merlin</a>.",
+          "text": "Talk to Morgan Le Faye. Spare Mordred's life to discover how to save Merlin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Tell me how to untrap Merlin and I might."
+                },
+                {
+                  "key": "2",
+                  "text": "Okay, I will do that."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "inside-keep-le-faye:z9m8y8",
+          "html": "If you do not have <a href=\"https://runescape.wiki/w/Bat_bones\" target=\"_blank\" rel=\"noopener\">bat bones</a>, exit the keep to the west and kill a <a href=\"https://runescape.wiki/w/Giant_bat\" target=\"_blank\" rel=\"noopener\">Giant bat</a>.",
+          "text": "If you do not have bat bones, exit the keep to the west and kill a Giant bat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-a-black-candle",
+      "title": "Getting a black candle",
+      "anchor": "Getting_a_black_candle",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-a-black-candle:bring:1r2hopj",
+              "html": "<a href=\"https://runescape.wiki/w/Bucket\" target=\"_blank\" rel=\"noopener\">Bucket</a>",
+              "text": "Bucket"
+            },
+            {
+              "id": "getting-a-black-candle:bring:zrycim",
+              "html": "<a href=\"https://runescape.wiki/w/Insect_repellent\" target=\"_blank\" rel=\"noopener\">Insect repellent</a>",
+              "text": "Insect repellent"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "You may skip this step using a <a href=\"https://runescape.wiki/w/Black_candle\" target=\"_blank\" rel=\"noopener\">black candle</a> purchased from <a href=\"https://runescape.wiki/w/Wendle%27s_Wicks\" target=\"_blank\" rel=\"noopener\">Wendle&#39;s Wicks</a> in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>."
+        },
+        {
+          "type": "step",
+          "id": "getting-a-black-candle:1jn8uwk",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Candle-maker\" target=\"_blank\" rel=\"noopener\">candle-maker</a> in <a href=\"https://runescape.wiki/w/Catherby\" target=\"_blank\" rel=\"noopener\">Catherby</a>.",
+          "text": "Talk to the candle-maker in Catherby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Have you got any black candles?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-black-candle:1llapb6",
+          "html": "Gather a bucket of wax from the <a href=\"https://runescape.wiki/w/Beehive\" target=\"_blank\" rel=\"noopener\">beehives</a> to the north-west. A bucket can be found at the beehives.",
+          "text": "Gather a bucket of wax from the beehives to the north-west. A bucket can be found at the beehives.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-a-black-candle:1llapb6:m2ghhz",
+              "html": "If you do not have <a href=\"https://runescape.wiki/w/Insect_repellent\" target=\"_blank\" rel=\"noopener\">insect repellent</a> then speak to the <a href=\"https://runescape.wiki/w/Beekeeper\" target=\"_blank\" rel=\"noopener\">beekeeper</a> for some. You can also add it to your <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a>.",
+              "text": "If you do not have insect repellent then speak to the beekeeper for some. You can also add it to your tool belt.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-a-black-candle:f9stqo",
+          "html": "Left click the hive to use <a href=\"https://runescape.wiki/w/Insect_repellent\" target=\"_blank\" rel=\"noopener\">insect repellent</a> on it and then use an empty bucket on a beehive to fill the bucket.",
+          "text": "Left click the hive to use insect repellent on it and then use an empty bucket on a beehive to fill the bucket.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-a-black-candle:17ft7jz",
+          "html": "Talk to the candle-maker again to get the <a href=\"https://runescape.wiki/w/Black_candle\" target=\"_blank\" rel=\"noopener\">black candle</a> from him.",
+          "text": "Talk to the candle-maker again to get the black candle from him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-excalibur",
+      "title": "Getting Excalibur",
+      "anchor": "Getting_Excalibur",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of The Lady of the Lake.",
+          "lat": 3405,
+          "lon": 2924,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2919.5,
+                      3400.5
+                    ],
+                    [
+                      2919.5,
+                      3410.5
+                    ],
+                    [
+                      2929.5,
+                      3410.5
+                    ],
+                    [
+                      2929.5,
+                      3400.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Merlin's_Crystal/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-excalibur:bring:17iq26d",
+              "html": "<a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">Bread</a>",
+              "text": "Bread"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "getting-excalibur:1vo5xki",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/The_Lady_of_the_Lake\" target=\"_blank\" rel=\"noopener\">the Lady of the Lake</a> in southern <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>. Ask about the sword Excalibur.",
+          "text": "Talk to the Lady of the Lake in southern Taverley. Ask about the sword Excalibur.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I seek the sword Excalibur."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-excalibur:8vxsof",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+          "text": "Go to Port Sarim.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-excalibur:8vxsof:q2ippx",
+              "html": "If you don&#39;t have bread, buy a loaf from <a href=\"https://runescape.wiki/w/Wydin%27s_Food_Store\" target=\"_blank\" rel=\"noopener\">Wydin&#39;s Food Store</a>, just south of the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a>.",
+              "text": "If you don't have bread, buy a loaf from Wydin's Food Store, just south of the Port Sarim lodestone.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-excalibur:f14gn5",
+          "html": "Enter <a href=\"https://runescape.wiki/w/Grum%27s_Gold_Exchange\" target=\"_blank\" rel=\"noopener\">Grum&#39;s Gold Exchange</a> to the north of Port Sarim lodestone.",
+          "text": "Enter Grum's Gold Exchange to the north of Port Sarim lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-excalibur:16adsfg",
+          "html": "Give the beggar your bread.",
+          "text": "Give the beggar your bread.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes certainly."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-excalibur:15dfrba",
+          "html": "The beggar will turn into <a href=\"https://runescape.wiki/w/The_Lady_of_the_Lake\" target=\"_blank\" rel=\"noopener\">the Lady of the Lake</a> and give you Excalibur for your good deed.",
+          "text": "The beggar will turn into the Lady of the Lake and give you Excalibur for your good deed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ritual",
+      "title": "Ritual",
+      "anchor": "Ritual",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "ritual:bring:8iocj3",
+              "html": "<a href=\"https://runescape.wiki/w/Bat_bones\" target=\"_blank\" rel=\"noopener\">Bat bones</a>",
+              "text": "Bat bones"
+            },
+            {
+              "id": "ritual:bring:13cu0y1",
+              "html": "<a href=\"https://runescape.wiki/w/Black_candle\" target=\"_blank\" rel=\"noopener\">Black candle</a>",
+              "text": "Black candle"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:1ehtx72",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Temple_of_Zamorak\" target=\"_blank\" rel=\"noopener\">Temple of Zamorak</a> south of the <a href=\"https://runescape.wiki/w/Varrock_east_bank\" target=\"_blank\" rel=\"noopener\">Varrock east bank</a>.",
+          "text": "Go to the Temple of Zamorak south of the Varrock east bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:gks4gy",
+          "html": "Check the <a href=\"https://runescape.wiki/w/Chaos_altar_(Varrock)\" target=\"_blank\" rel=\"noopener\">chaos altar</a>&#39;s inscription.",
+          "text": "Check the chaos altar's inscription.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:qquub1",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Camelot\" target=\"_blank\" rel=\"noopener\">Camelot</a> and enter the gates.",
+          "text": "Return to Camelot and enter the gates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:yr27wy",
+          "html": "Run north-east outside of the castle to the ritual site (the gazebo outside the castle).",
+          "text": "Run north-east outside of the castle to the ritual site (the gazebo outside the castle).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:7acaxd",
+          "html": "Stand on the star and light the black candle.",
+          "text": "Stand on the star and light the black candle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:12wxegp",
+          "html": "<i>Drop</i> the bat bones on the star.",
+          "text": "Drop the bat bones on the star.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ritual:hsqvo1",
+          "html": "The magic words are &quot;Snarthon Candtrick Termanto&quot;. If you get this wrong, you will have to get the black candle remade; or click away before proceeding with the dialogue and re-drop the bat bones to try again.",
+          "text": "The magic words are \"Snarthon Candtrick Termanto\". If you get this wrong, you will have to get the black candle remade; or click away before proceeding with the dialogue and re-drop the bat bones to try again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:3ijn5w",
+              "html": "<a href=\"https://runescape.wiki/w/Excalibur\" target=\"_blank\" rel=\"noopener\">Excalibur</a>",
+              "text": "Excalibur"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:euyvwq",
+          "html": "Enter the castle and climb the top of the south-east tower.",
+          "text": "Enter the castle and climb the top of the south-east tower.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:bhcfnl",
+          "html": "Smash the giant crystal to free <a href=\"https://runescape.wiki/w/Merlin\" target=\"_blank\" rel=\"noopener\">Merlin</a>.",
+          "text": "Smash the giant crystal to free Merlin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:ttkctd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Arthur\" target=\"_blank\" rel=\"noopener\">King Arthur</a>.",
+          "text": "Talk to King Arthur.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Merlin%27s_Crystal_reward.png?90717",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Merlin%27s_Crystal_reward.png"
+    },
+    "items": [
+      {
+        "html": "6 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "6 quest points",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Excalibur\" target=\"_blank\" rel=\"noopener\">Excalibur</a>",
+        "text": "Excalibur",
+        "subs": []
+      },
+      {
+        "html": "A replica of Excalibur will be placed in the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> as a <a href=\"https://runescape.wiki/w/Display_case_(number_9)\" target=\"_blank\" rel=\"noopener\">Varrock Museum display</a> by talking to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a>. This will give you 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">Kudos</a> and an <a href=\"https://runescape.wiki/w/Antique_lamp_(Kudos)\" target=\"_blank\" rel=\"noopener\">antique lamp</a> that gives 1,000 experience in a skill of level 20 or above.",
+        "text": "A replica of Excalibur will be placed in the Varrock Museum as a Varrock Museum display by talking to Historian Minas. This will give you 5 Kudos and an antique lamp that gives 1,000 experience in a skill of level 20 or above.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Holy_Grail/Quick_guide\" target=\"_blank\" rel=\"noopener\">Holy Grail</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Flashback/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Flashback</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/King%27s_Ransom/Quick_guide\" target=\"_blank\" rel=\"noopener\">King&#39;s Ransom</a>",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Requiem/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Requiem</a>",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Flashback/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Flashback</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

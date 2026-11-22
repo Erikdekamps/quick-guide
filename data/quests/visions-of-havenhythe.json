@@ -1,0 +1,457 @@
+{
+  "format": 1,
+  "id": "visions-of-havenhythe",
+  "title": "Visions of Havenhythe",
+  "page": "Visions of Havenhythe/Quick guide",
+  "rev": 37198649,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to the <a href=\"https://runescape.wiki/w/Bartender_(Rusty_Anchor)\" target=\"_blank\" rel=\"noopener\">bartender</a> at <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">the Rusty Anchor</a> Tavern in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3257,
+      "lon": 3045,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Visions_of_Havenhythe/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "10 juvenile boulder crabs (level 1)",
+        "name": "juvenile boulder crabs",
+        "count": 10,
+        "level": "1",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Havenhythe</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Havenhythe</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1bt7od",
+          "html": "10 free backpack slots",
+          "text": "10 free backpack slots",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1oh4fy0",
+          "html": "12 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>",
+          "text": "12 Crafting",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "setting-sail",
+      "title": "Setting sail",
+      "anchor": "Setting_sail",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Visions_of_Havenhythe_-_Meeting_with_Captain_Lorris.png/300px-Visions_of_Havenhythe_-_Meeting_with_Captain_Lorris.png?f8f9a",
+          "width": 300,
+          "height": 159,
+          "alt": "",
+          "caption": "Meeting with Captain Lorris",
+          "href": "https://runescape.wiki/w/File:Visions_of_Havenhythe_-_Meeting_with_Captain_Lorris.png"
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:1t3bfhy",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Bartender_(Rusty_Anchor)\" target=\"_blank\" rel=\"noopener\">bartender</a> at <a href=\"https://runescape.wiki/w/The_Rusty_Anchor\" target=\"_blank\" rel=\"noopener\">the Rusty Anchor</a> tavern in <a href=\"https://runescape.wiki/w/Port_Sarim\" target=\"_blank\" rel=\"noopener\">Port Sarim</a>.",
+          "text": "Talk to the bartender at the Rusty Anchor tavern in Port Sarim.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Visions of Havenhythe'"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:tkd46q",
+          "html": "Drink the <a href=\"https://runescape.wiki/w/Dragonfire_mead\" target=\"_blank\" rel=\"noopener\">dragonfire mead</a>.",
+          "text": "Drink the dragonfire mead.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:j1cics",
+          "html": "After the cutscene, go downstairs via the door on the east side of the room.",
+          "text": "After the cutscene, go downstairs via the door on the east side of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:rdzuly",
+          "html": "Talk to the bartender.",
+          "text": "Talk to the bartender.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Visions of Havenhythe'"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:lfcz5d",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/%27Shady%27_Sullivan\" target=\"_blank\" rel=\"noopener\">&#39;Shady&#39; Sullivan</a> by the entrance of the tavern.",
+          "text": "Talk to 'Shady' Sullivan by the entrance of the tavern.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-sail:1o95ag6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Lorris\" target=\"_blank\" rel=\"noopener\">Captain Lorris</a> on the Port Sarim docks just east of the lodestone.",
+          "text": "Talk to Captain Lorris on the Port Sarim docks just east of the lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "call-of-the-great-wolf",
+      "title": "Call of the Great Wolf",
+      "anchor": "Call_of_the_Great_Wolf",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:ljblj0",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Old_Man_Jocko\" target=\"_blank\" rel=\"noopener\">Old Man Jocko</a> on the dock.",
+          "text": "Talk to Old Man Jocko on the dock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Visions of Havenhythe'"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:1j9obkl",
+          "html": "Head east towards the city of <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>, then speak to <a href=\"https://runescape.wiki/w/Adam\" target=\"_blank\" rel=\"noopener\">Adam</a> in the building north of the <a href=\"https://runescape.wiki/w/Well\" target=\"_blank\" rel=\"noopener\">well</a> in the centre of the village.",
+          "text": "Head east towards the city of Wendlewick, then speak to Adam in the building north of the well in the centre of the village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What do we do now? (Continue Quest)"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:yomi3x",
+          "html": "Head south, past the lodestone and over the bridge, then south-east towards the <a href=\"https://runescape.wiki/w/Shrine_of_Inanna\" target=\"_blank\" rel=\"noopener\">Shrine of Inanna</a>.",
+          "text": "Head south, past the lodestone and over the bridge, then south-east towards the Shrine of Inanna.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:a35yiy",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Shrine_Tender_Joanna\" target=\"_blank\" rel=\"noopener\">Shrine Tender Joanna</a>.",
+          "text": "Talk to Shrine Tender Joanna.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:16hcu0q",
+          "html": "Pray at the <a href=\"https://runescape.wiki/w/Altar_of_Inanna\" target=\"_blank\" rel=\"noopener\">Altar of Inanna</a> west of the summoning obelisk.",
+          "text": "Pray at the Altar of Inanna west of the summoning obelisk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:a35yiy-2",
+          "html": "Talk to Shrine Tender Joanna.",
+          "text": "Talk to Shrine Tender Joanna.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "call-of-the-great-wolf:iatcmm",
+          "html": "Return and talk to Adam.",
+          "text": "Return and talk to Adam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-along-the-coast",
+      "title": "Building along the coast",
+      "anchor": "Building_along_the_coast",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "building-along-the-coast:bring:1nkinqx",
+              "html": "10 backpack spaces",
+              "text": "10 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:acdzlk",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zeke_(Wendlewick)\" target=\"_blank\" rel=\"noopener\">Zeke</a> in the building just south-east of Adam.",
+          "text": "Talk to Zeke in the building just south-east of Adam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:1m3wde0",
+          "html": "Head west to the beach and kill 10 <a href=\"https://runescape.wiki/w/Juvenile_boulder_crab\" target=\"_blank\" rel=\"noopener\">juvenile boulder crab</a>. Pick up the <a href=\"https://runescape.wiki/w/Limestone\" target=\"_blank\" rel=\"noopener\">limestone</a> they drop.",
+          "text": "Head west to the beach and kill 10 juvenile boulder crab. Pick up the limestone they drop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-along-the-coast:1m3wde0:163i2q",
+              "html": "You must kill the crabs, but you can bring your own limestone bricks to Zeke.",
+              "text": "You must kill the crabs, but you can bring your own limestone bricks to Zeke.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:1crfutt",
+          "html": "Return to Zeke.",
+          "text": "Return to Zeke.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-along-the-coast:1crfutt:14llgzx",
+              "html": "If you do not have level 12 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>, now it is time to give the limestone to Adam so that he can turn those limestone into bricks.",
+              "text": "If you do not have level 12 Crafting, now it is time to give the limestone to Adam so that he can turn those limestone into bricks.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-along-the-coast:1crfutt:i2580v",
+              "html": "If you want to convert them yourself and have the skill to do it, you may do so now.",
+              "text": "If you want to convert them yourself and have the skill to do it, you may do so now.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:q6ini9",
+          "html": "Run south across the first bridge, through the lighthouse and out the back door. From the outside go up the stairs.",
+          "text": "Run south across the first bridge, through the lighthouse and out the back door. From the outside go up the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:14op7j",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Esther\" target=\"_blank\" rel=\"noopener\">Esther</a>.",
+          "text": "Talk to Esther.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:3d2lnp",
+          "html": "Go back downstairs, walk north, and build at the <a href=\"https://runescape.wiki/w/Lodestone_hotspot\" target=\"_blank\" rel=\"noopener\">Lodestone hotspot</a> just across the river.",
+          "text": "Go back downstairs, walk north, and build at the Lodestone hotspot just across the river.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-along-the-coast:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Visions_of_Havenhythe_reward.png?bd457",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Visions_of_Havenhythe_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Wendlewick_lodestone\" target=\"_blank\" rel=\"noopener\">Wendlewick lodestone</a>",
+        "text": "Access to the Wendlewick lodestone",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Havenhome",
+      "where": ""
+    },
+    {
+      "name": "Spirits of the Forest",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Hearts_of_Sanguine/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hearts of Sanguine</a>",
+        "<a href=\"https://runescape.wiki/w/Hermit_Permits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hermit Permits</a>",
+        "<a href=\"https://runescape.wiki/w/Wiz_Kid/Quick_guide\" target=\"_blank\" rel=\"noopener\">Wiz Kid</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heralds_of_Crimson/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heralds of Crimson</a>",
+        "<a href=\"https://runescape.wiki/w/Secrets_of_Amberfell/Quick_guide\" target=\"_blank\" rel=\"noopener\">Secrets of Amberfell</a>"
+      ]
+    }
+  ]
+}

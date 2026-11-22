@@ -1,0 +1,944 @@
+{
+  "format": 1,
+  "id": "ancient-awakening",
+  "title": "Ancient Awakening",
+  "page": "Ancient Awakening/Quick guide",
+  "rev": 37202641,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">overseer Siv</a> in <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3534,
+      "lon": 3137,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Ancient_Awakening/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Dead and Buried",
+        "depth": 1
+      },
+      {
+        "text": "Unwelcome Guests",
+        "depth": 2
+      },
+      {
+        "text": "Murder on the Border",
+        "depth": 3
+      },
+      {
+        "text": "New Foundations",
+        "depth": 4
+      },
+      {
+        "text": "Build Town Hall (Tier 1)",
+        "depth": 4
+      },
+      {
+        "text": "Build Command Centre (Tier 1)",
+        "depth": 4
+      },
+      {
+        "text": "Build Workshop (Tier 1)",
+        "depth": 4
+      },
+      {
+        "text": "Build Chapel (Tier 1)",
+        "depth": 4
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "4 tomb zombies (level 40)",
+        "name": "tomb zombies",
+        "count": 4,
+        "level": "40",
+        "note": ""
+      },
+      {
+        "text": "Several waves consisting of:",
+        "name": "Several waves consisting of:",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Wilderness</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1u4xrns",
+          "html": "85 <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a>",
+          "text": "85 combat level",
+          "alternatives": []
+        },
+        {
+          "id": "rec:bv78fq",
+          "html": "<a href=\"https://runescape.wiki/w/Salve_amulet\" target=\"_blank\" rel=\"noopener\">Salve amulet</a> or <a href=\"https://runescape.wiki/w/Salve_amulet_(e)\" target=\"_blank\" rel=\"noopener\">salve amulet (e)</a> for increased damage and accuracy against most of the enemies encountered",
+          "text": "Salve amulet or salve amulet (e) for increased damage and accuracy against most of the enemies encountered",
+          "alternatives": []
+        },
+        {
+          "id": "rec:z50im0",
+          "html": "<a href=\"https://runescape.wiki/w/Slayer_cape\" target=\"_blank\" rel=\"noopener\">Slayer cape</a> or <a href=\"https://runescape.wiki/w/Fort_Forinthry_lodestone\" target=\"_blank\" rel=\"noopener\">Fort Forinthry lodestone</a> to teleport to <a href=\"https://runescape.wiki/w/The_Raptor\" target=\"_blank\" rel=\"noopener\">the Raptor</a>",
+          "text": "Slayer cape or Fort Forinthry lodestone to teleport to the Raptor",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ptmmwd",
+          "html": "<a href=\"https://runescape.wiki/w/Combat_bracelet\" target=\"_blank\" rel=\"noopener\">Combat bracelet</a> or <a href=\"https://runescape.wiki/w/Varrock_lodestone\" target=\"_blank\" rel=\"noopener\">Varrock lodestone</a> for travel to the west of the <a href=\"https://runescape.wiki/w/Champions%27_Guild\" target=\"_blank\" rel=\"noopener\">Champions&#39; Guild</a>",
+          "text": "Combat bracelet or Varrock lodestone for travel to the west of the Champions' Guild",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:1c1onzj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Overseer_Siv\" target=\"_blank\" rel=\"noopener\">Overseer Siv</a> in the <a href=\"https://runescape.wiki/w/Command_Centre\" target=\"_blank\" rel=\"noopener\">Command Centre</a> in the <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+          "text": "Talk to Overseer Siv in the Command Centre in the Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about 'Ancient Awakening'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:g9yqck",
+          "html": "Go north of Fort Forinthry and <i>enter</i> the <a href=\"https://runescape.wiki/w/Crypt_(Wilderness)\" target=\"_blank\" rel=\"noopener\">Wilderness crypt</a> entrance. Pray Protect from Magic against the <a href=\"https://runescape.wiki/w/Risen_ghost\" target=\"_blank\" rel=\"noopener\">risen ghosts</a> inside.",
+          "text": "Go north of Fort Forinthry and enter the Wilderness crypt entrance. Pray Protect from Magic against the risen ghosts inside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-artefacts",
+      "title": "Finding artefacts",
+      "anchor": "Finding_artefacts",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finding-artefacts:bring:6xvuby",
+              "html": "Some food and combat equipment",
+              "text": "Some food and combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finding-artefacts:dorfbq",
+          "html": "Go across the <a href=\"https://runescape.wiki/w/Bridge_(crypt)\" target=\"_blank\" rel=\"noopener\">bridge</a> and <i>enter</i> the <a href=\"https://runescape.wiki/w/Ancient_door_(crypt)\" target=\"_blank\" rel=\"noopener\">ancient door</a>.",
+          "text": "Go across the bridge and enter the ancient door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-artefacts:dorfbq:10jx9vx",
+              "html": "If the bridge is missing, log out and back in to have it reappear.",
+              "text": "If the bridge is missing, log out and back in to have it reappear.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-artefacts:qe07vu",
+          "html": "Talk to any character near the <a href=\"https://runescape.wiki/w/Map_table_(crypt)\" target=\"_blank\" rel=\"noopener\">map table</a>.",
+          "text": "Talk to any character near the map table.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-artefacts:1sx7pns",
+          "html": "Collect 20 <a href=\"https://runescape.wiki/w/Dragonkin_artefact\" target=\"_blank\" rel=\"noopener\">dragonkin artefacts</a> in the tomb. Kill any <a href=\"https://runescape.wiki/w/Tomb_zombie\" target=\"_blank\" rel=\"noopener\">tomb zombies</a> that appear, and then collect the artefacts they drop. The zombies are based on your combat level, e.g. 3,200 <a href=\"https://runescape.wiki/w/Life_points\" target=\"_blank\" rel=\"noopener\">life points</a> at <a href=\"https://runescape.wiki/w/Combat_level\" target=\"_blank\" rel=\"noopener\">combat level</a> 152. One can be collected from each Dragonkin artefact hotspot throughout the crypt as well.",
+          "text": "Collect 20 dragonkin artefacts in the tomb. Kill any tomb zombies that appear, and then collect the artefacts they drop. The zombies are based on your combat level, e.g. 3,200 life points at combat level 152. One can be collected from each Dragonkin artefact hotspot throughout the crypt as well.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-artefacts:fnfy6h",
+          "html": "Talk to anyone near the map table again.",
+          "text": "Talk to anyone near the map table again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "jolly-boar-inn",
+      "title": "Jolly Boar Inn",
+      "anchor": "Jolly_Boar_Inn",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Marker in Jolly Boar Inn",
+          "lat": 3510,
+          "lon": 3280,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3280.5,
+                  3510.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Ancient Awakening<br /><b>Object ID</b>: 127716",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3161.5,
+                  3364.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Ancient Awakening<br /><b>Object ID</b>: 127718",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Ancient_Awakening/Quick_guide"
+        },
+        {
+          "type": "map",
+          "caption": "Marker on the western side of River Lum",
+          "lat": 3364,
+          "lon": 3161,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3280.5,
+                  3510.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Ancient Awakening<br /><b>Object ID</b>: 127716",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3161.5,
+                  3364.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: Ancient Awakening<br /><b>Object ID</b>: 127718",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Ancient_Awakening/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:yie7ql",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Jolly_Boar_Inn\" target=\"_blank\" rel=\"noopener\">Jolly Boar Inn</a>, south-west of Fort Forinthry. Use the <a href=\"https://runescape.wiki/w/Ancient_Awakening_(portal)\" target=\"_blank\" rel=\"noopener\">marker</a> to continue the quest at the entrance, then stay on the ground floor (UK) / 1<sup>st</sup> floor (US).",
+          "text": "Go to the Jolly Boar Inn, south-west of Fort Forinthry. Use the marker to continue the quest at the entrance, then stay on the ground floor (UK) / 1st floor (US).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:5mhco6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a> at the bar.",
+          "text": "Talk to Bill at the bar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I don't need to know your family history, Bill."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:ryouxx",
+          "html": "Go up the staircase, talk to <a href=\"https://runescape.wiki/w/Ellamaria\" target=\"_blank\" rel=\"noopener\">Ellamaria</a>.",
+          "text": "Go up the staircase, talk to Ellamaria.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Let's skip the small talk."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:kl9n9f",
+          "html": "Continue the quest with the quest marker west of the <a href=\"https://runescape.wiki/w/Champions%27_Guild\" target=\"_blank\" rel=\"noopener\">Champions&#39; Guild</a>. The marker is to the west of the stone bridge but before the wooden bridge.",
+          "text": "Continue the quest with the quest marker west of the Champions' Guild. The marker is to the west of the stone bridge but before the wooden bridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:1ulx15p",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> slightly south, by the <a href=\"https://runescape.wiki/w/Waddle_Willow\" target=\"_blank\" rel=\"noopener\">Waddle Willow</a>.",
+          "text": "Talk to Aster slightly south, by the Waddle Willow.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I need you to return to the fort."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:dvu71g",
+          "html": "Go back to Fort Forinthry, continue Ancient Awakening at the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>.",
+          "text": "Go back to Fort Forinthry, continue Ancient Awakening at the Town Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:eq69oh",
+          "html": "Talk to anyone in the Town Hall.",
+          "text": "Talk to anyone in the Town Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "jolly-boar-inn:n359xl",
+          "html": "<i>Leave</i> through the marker at the entrance to the Town Hall.",
+          "text": "Leave through the marker at the entrance to the Town Hall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "ungael",
+      "title": "Ungael",
+      "anchor": "Ungael",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "ungael:4cg6bu",
+          "html": "Gear up for combat.",
+          "text": "Gear up for combat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ungael:4cg6bu:k1vx79",
+              "html": "Most of the enemies are weak to magic (earth or fire spells)",
+              "text": "Most of the enemies are weak to magic (earth or fire spells)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ungael:g3kcv8",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Grove\" target=\"_blank\" rel=\"noopener\">Grove</a> east of the fort and <i>interact</i> with the <a href=\"https://runescape.wiki/w/Rowboat_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">rowboat</a> to travel to <a href=\"https://runescape.wiki/w/Ungael\" target=\"_blank\" rel=\"noopener\">Ungael</a>.",
+          "text": "Go to the Grove east of the fort and interact with the rowboat to travel to Ungael.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ungael:i5444f",
+          "html": "Kill all of the attacking monsters.",
+          "text": "Kill all of the attacking monsters.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ungael:6ywdjf",
+          "html": "Talk to the team and make your way north-east up the path.",
+          "text": "Talk to the team and make your way north-east up the path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ungael:i0kut5",
+          "html": "<i>Interact</i> with the <a href=\"https://runescape.wiki/w/Ruins_Entrance\" target=\"_blank\" rel=\"noopener\">Ruins Entrance</a>.",
+          "text": "Interact with the Ruins Entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ungael:19kpv76",
+          "html": "Go up the stairs to the north-east, then head west. <i>Interact</i> with the <a href=\"https://runescape.wiki/w/Tower_entrance_(Ungael)\" target=\"_blank\" rel=\"noopener\">tower entrance</a>.",
+          "text": "Go up the stairs to the north-east, then head west. Interact with the tower entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ungael:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "undead-waves",
+      "title": "Undead waves",
+      "anchor": "Undead_waves",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "You cannot bank inbetween waves. Prepare for a long fight. If you are lower level, you can let your allies deal most of the damage and you can focus on the enemies who attack you. If you run away from your attacker, it might shift its focus on your ally, meaning you can save food."
+        },
+        {
+          "type": "step",
+          "id": "undead-waves:19jid0p",
+          "html": "Defeat 12 waves of <a href=\"https://runescape.wiki/w/Zemouregal\" target=\"_blank\" rel=\"noopener\">Zemouregal</a>&#39;s minions. After each wave of enemies, you have to activate necrotic energy and sometimes choose a power-up for one of your allies. See the <a href=\"https://runescape.wiki/w/Ancient_Awakening#Undead_waves\" target=\"_blank\" rel=\"noopener\">full guide</a> for details on all waves and power-ups.",
+          "text": "Defeat 12 waves of Zemouregal's minions. After each wave of enemies, you have to activate necrotic energy and sometimes choose a power-up for one of your allies. See the full guide for details on all waves and power-ups.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "undead-waves:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "getting-off-the-island",
+      "title": "Getting off the island",
+      "anchor": "Getting_off_the_island",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-off-the-island:zmr023",
+          "html": "Talk to Aster.",
+          "text": "Talk to Aster.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-off-the-island:1i1jb0a",
+          "html": "<i>Interact</i> with the <a href=\"https://runescape.wiki/w/Doorway_(Ungael)\" target=\"_blank\" rel=\"noopener\">doorway</a> to the south.",
+          "text": "Interact with the doorway to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-off-the-island:1kyuqmh",
+          "html": "Walk west, then south, then <i>interact</i> with <a href=\"https://runescape.wiki/w/Runic_projector\" target=\"_blank\" rel=\"noopener\">runic projector</a>.",
+          "text": "Walk west, then south, then interact with runic projector.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-off-the-island:u07cz8",
+          "html": "Collect three <a href=\"https://runescape.wiki/w/Mote_of_energy\" target=\"_blank\" rel=\"noopener\">motes of energy</a> from:",
+          "text": "Collect three motes of energy from:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-off-the-island:u07cz8:3shsbf",
+              "html": "Go north to catch the mote just outside the tower.",
+              "text": "Go north to catch the mote just outside the tower.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-off-the-island:u07cz8:huolrw",
+              "html": "Searching <a href=\"https://runescape.wiki/w/Bookcase_(Ungael)\" target=\"_blank\" rel=\"noopener\">bookcase</a> inside the tower on the north side.",
+              "text": "Searching bookcase inside the tower on the north side.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-off-the-island:u07cz8:nip5sp",
+              "html": "Searching <a href=\"https://runescape.wiki/w/Ruined_pillar\" target=\"_blank\" rel=\"noopener\">ruined pillar</a> in the south-west.",
+              "text": "Searching ruined pillar in the south-west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-off-the-island:o6kvqv",
+          "html": "<i>Interact</i> with the runic projector.",
+          "text": "Interact with the runic projector.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:2u7jst",
+          "html": "<i>Listen to</i> the <a href=\"https://runescape.wiki/w/Archivist_(Ungael)\" target=\"_blank\" rel=\"noopener\">archivist</a>.",
+          "text": "Listen to the archivist.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "What is this place?"
+                },
+                {
+                  "key": "3",
+                  "text": "Tell me about Vorkath."
+                },
+                {
+                  "key": "4",
+                  "text": "Tell me about this tomb."
+                },
+                {
+                  "key": "1",
+                  "text": "Can you activate this conduit?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:kvzhyz",
+          "html": "<i>Inspect</i> the <a href=\"https://runescape.wiki/w/Mysterious_device\" target=\"_blank\" rel=\"noopener\">mysterious device</a> to the south-east.",
+          "text": "Inspect the mysterious device to the south-east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1toarxu",
+          "html": "Finish the conversation.",
+          "text": "Finish the conversation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:egrs4a",
+          "html": "Return to Fort Forinthry and <i>continue</i> via the marker in front of the Town Hall.",
+          "text": "Return to Fort Forinthry and continue via the marker in front of the Town Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:eq69oh",
+          "html": "Talk to anyone in the Town Hall.",
+          "text": "Talk to anyone in the Town Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quest Complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Ancient_Awakening_reward.png?bd89a",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Ancient_Awakening_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "15,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Ancient_Awakening)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 50 or higher)",
+        "text": "15,000 experience lamp (Skill must be level 50 or higher)",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience <a href=\"https://runescape.wiki/w/Prismatic_XP_lamp_(Ancient_Awakening)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 50 or higher)",
+        "text": "10,000 experience lamp (Skill must be level 50 or higher)",
+        "subs": []
+      },
+      {
+        "html": "Access to the standard difficulty of the <a href=\"https://runescape.wiki/w/Ungael_combat_activity\" target=\"_blank\" rel=\"noopener\">Ungael combat activity</a>",
+        "text": "Access to the standard difficulty of the Ungael combat activity",
+        "subs": []
+      },
+      {
+        "html": "Ability to build all three tiers of the <a href=\"https://runescape.wiki/w/Botanist%27s_Workbench\" target=\"_blank\" rel=\"noopener\">Botanist&#39;s Workbench</a> at <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>",
+        "text": "Ability to build all three tiers of the Botanist's Workbench at Fort Forinthry",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Stop Zemouregal",
+      "where": ""
+    },
+    {
+      "name": "Ungael",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Ancient_Awakening_(achievement)\" target=\"_blank\" rel=\"noopener\">Ancient Awakening</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Battle_of_Forinthry/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of Forinthry</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    }
+  ]
+}

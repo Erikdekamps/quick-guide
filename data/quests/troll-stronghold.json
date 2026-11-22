@@ -1,0 +1,1247 @@
+{
+  "format": 1,
+  "id": "troll-stronghold",
+  "title": "Troll Stronghold",
+  "page": "Troll Stronghold/Quick guide",
+  "rev": 37114578,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Commander_Denulth\" target=\"_blank\" rel=\"noopener\">Commander Denulth</a> at the <a href=\"https://runescape.wiki/w/Burthorpe_training_camp\" target=\"_blank\" rel=\"noopener\">Burthorpe training camp</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3561,
+      "lon": 2918,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Troll_Stronghold/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Death Plateau",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 15,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 30,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Twig and/or Berry (Level 70) (only if you fail to pickpocket them)",
+        "name": "Twig and/or Berry",
+        "count": null,
+        "level": "70",
+        "note": "(only if you fail to pickpocket them)"
+      },
+      {
+        "text": "Dad (Level 77)",
+        "name": "Dad",
+        "count": null,
+        "level": "77",
+        "note": ""
+      },
+      {
+        "text": "Troll General (Level 91)",
+        "name": "Troll General",
+        "count": null,
+        "level": "91",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Asgarnia</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:6t1ni8",
+          "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a>, <a href=\"https://runescape.wiki/w/Rock_climbing_boots\" target=\"_blank\" rel=\"noopener\">rock climbing boots</a> or 12 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> to buy the climbing boots.",
+          "text": "Climbing boots, rock climbing boots or 12 coins to buy the climbing boots.",
+          "alternatives": []
+        },
+        {
+          "id": "req:uaawor",
+          "html": "4 backpack spaces (climbing boots, and 3 keys)",
+          "text": "4 backpack spaces (climbing boots, and 3 keys)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:153z13n",
+          "html": "Reducing ranged attacks from <a href=\"https://runescape.wiki/w/Thrower_Troll\" target=\"_blank\" rel=\"noopener\">Thrower Trolls</a>",
+          "text": "Reducing ranged attacks from Thrower Trolls",
+          "alternatives": [
+            "47 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> to traverse the shortcuts",
+            "40 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> for <a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a>",
+            "<a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a>"
+          ]
+        },
+        {
+          "id": "rec:1wewaqk",
+          "html": "Good <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a>",
+          "text": "Good food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:i6mb7b",
+          "html": "Ranged/Magic/Necromancy equipment to safespot <a href=\"https://runescape.wiki/w/Dad\" target=\"_blank\" rel=\"noopener\">Dad</a>",
+          "text": "Ranged/Magic/Necromancy equipment to safespot Dad",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "mountain-climbing",
+      "title": "Mountain climbing",
+      "anchor": "Mountain_climbing",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "mountain-climbing:bring:brj9eg",
+              "html": "1 backpack space",
+              "text": "1 backpack space"
+            },
+            {
+              "id": "mountain-climbing:bring:k4tmhb",
+              "html": "<a href=\"https://runescape.wiki/w/Climbing_boots\" target=\"_blank\" rel=\"noopener\">Climbing boots</a>",
+              "text": "Climbing boots"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "mountain-climbing:bring:181wei7",
+              "html": "<a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a>",
+              "text": "Fremennik round shield"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Troll_Stronghold_-_quest_routes.png/300px-Troll_Stronghold_-_quest_routes.png?b2ba9",
+          "width": 300,
+          "height": 189,
+          "alt": "",
+          "caption": "The route map marks dangerous sections during the quest.",
+          "href": "https://runescape.wiki/w/File:Troll_Stronghold_-_quest_routes.png"
+        },
+        {
+          "type": "step",
+          "id": "mountain-climbing:1hgku1z",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Commander_Denulth\" target=\"_blank\" rel=\"noopener\">Commander Denulth</a> in <a href=\"https://runescape.wiki/w/Burthorpe\" target=\"_blank\" rel=\"noopener\">Burthorpe</a>, east of the castle.",
+          "text": "Talk to Commander Denulth in Burthorpe, east of the castle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How goes your fight with the trolls?"
+                },
+                {
+                  "key": "2",
+                  "text": "Is there anything I can do to help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mountain-climbing:1hgku1z:12m3fg1",
+              "html": "If Denulth tells you that the ambush is still being planned, try asking him about the White Knights first.",
+              "text": "If Denulth tells you that the ambush is still being planned, try asking him about the White Knights first.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "I thought the White Knights controlled Asgarnia."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mountain-climbing:2b0t0z",
+          "html": "If you don&#39;t own climbing boots, buy them from <a href=\"https://runescape.wiki/w/Freda\" target=\"_blank\" rel=\"noopener\">Freda</a>",
+          "text": "If you don't own climbing boots, buy them from Freda",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can I buy some Climbing boots?"
+                },
+                {
+                  "key": "1",
+                  "text": "Buy standard boots for 12gp."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "mountain-climbing:13r95vd",
+          "html": "Enter <a href=\"https://runescape.wiki/w/Sabbot%27s_cave\" target=\"_blank\" rel=\"noopener\">Sabbot&#39;s cave</a> from <a href=\"https://runescape.wiki/w/Death_Plateau_(location)\" target=\"_blank\" rel=\"noopener\">Death Plateau</a> and cross all the obstacles to reach the exit of the <a href=\"https://runescape.wiki/w/Tunnel_(Death_Plateau)\" target=\"_blank\" rel=\"noopener\">tunnel</a> (recommended for low <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a> and <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a> levels).",
+          "text": "Enter Sabbot's cave from Death Plateau and cross all the obstacles to reach the exit of the tunnel (recommended for low Defence and Constitution levels).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "mountain-climbing:13r95vd:otu6wz",
+              "html": "Alternatively, take the shortcut by running through the Death Plateau on the surface, clockwise around it, and climbing the rocks to the northwest, then climb the cliffside while wearing climbing boots. Beware of level 67 <a href=\"https://runescape.wiki/w/Thrower_Troll\" target=\"_blank\" rel=\"noopener\">thrower trolls</a> - <a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a>, <a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a>, and <a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a> are advised when taking this route.",
+              "text": "Alternatively, take the shortcut by running through the Death Plateau on the surface, clockwise around it, and climbing the rocks to the northwest, then climb the cliffside while wearing climbing boots. Beware of level 67 thrower trolls - Protect from Ranged, Dive, and Fremennik round shield are advised when taking this route.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "mountain-climbing:1oe7xzl",
+          "html": "Exit the cavern, climb the rocks to the immediate west of the exit and follow the path east over the rocks until you reach the arena entrance.",
+          "text": "Exit the cavern, climb the rocks to the immediate west of the exit and follow the path east over the rocks until you reach the arena entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "dad",
+      "title": "Dad",
+      "anchor": "Dad",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "dad:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "dad:1q164q3",
+          "html": "Open the arena entrance and attempt to leave through the northern entrance.",
+          "text": "Open the arena entrance and attempt to leave through the northern entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "dad:126rlif",
+          "html": "Defeat <a href=\"https://runescape.wiki/w/Dad\" target=\"_blank\" rel=\"noopener\">Dad</a> after he attempts to attack you. You may choose to kill him or spare him after defeating him.",
+          "text": "Defeat Dad after he attempts to attack you. You may choose to kill him or spare him after defeating him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "dad:126rlif:qpi6zn",
+              "html": "An easy way to kill Dad safely is to bring him over to the northern entrance or down by the southern rocks and safespot him.",
+              "text": "An easy way to kill Dad safely is to bring him over to the northern entrance or down by the southern rocks and safespot him.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "dad:126rlif:1b1vmkc",
+              "html": "Very low level players may need food.",
+              "text": "Very low level players may need food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advancing-towards-the-stronghold",
+      "title": "Advancing towards the stronghold",
+      "anchor": "Advancing_towards_the_stronghold",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "advancing-towards-the-stronghold:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "advancing-towards-the-stronghold:bring:181wei7",
+              "html": "<a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a>",
+              "text": "Fremennik round shield"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Troll_Stronghold_-_quest_routes_-_fortress_section.png/300px-Troll_Stronghold_-_quest_routes_-_fortress_section.png?c0cc7",
+          "width": 300,
+          "height": 287,
+          "alt": "",
+          "caption": "The route map marks dangerous sections during this section.",
+          "href": "https://runescape.wiki/w/File:Troll_Stronghold_-_quest_routes_-_fortress_section.png"
+        },
+        {
+          "type": "step",
+          "id": "advancing-towards-the-stronghold:tynupn",
+          "html": "Exit through the north arena entrance.",
+          "text": "Exit through the north arena entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "advancing-towards-the-stronghold:5x57j5",
+          "html": "Follow the path north-west, go through the cave to the north and go outside.",
+          "text": "Follow the path north-west, go through the cave to the north and go outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "advancing-towards-the-stronghold:11pyc3z",
+          "html": "Once outside, continue the path to the stronghold to the north and west; thrower trolls can be dealt with by:",
+          "text": "Once outside, continue the path to the stronghold to the north and west; thrower trolls can be dealt with by:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "advancing-towards-the-stronghold:11pyc3z:ab9qgn",
+              "html": "Taking agility shortcuts around them with level 47 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>. The <a href=\"https://runescape.wiki/w/Cliffside_(Trollheim_hard)\" target=\"_blank\" rel=\"noopener\">cliffside</a> shortcut may be used to avoid the thrower trolls completely.",
+              "text": "Taking agility shortcuts around them with level 47 Agility. The cliffside shortcut may be used to avoid the thrower trolls completely.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "advancing-towards-the-stronghold:11pyc3z:1gm5opg",
+              "html": "Running counter-clockwise around the mountain, past the <a href=\"https://runescape.wiki/w/Thrower_troll\" target=\"_blank\" rel=\"noopener\">thrower trolls</a> (not behind them: they are supposed to throw rocks at you automatically) to the west.",
+              "text": "Running counter-clockwise around the mountain, past the thrower trolls (not behind them: they are supposed to throw rocks at you automatically) to the west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "advancing-towards-the-stronghold:11pyc3z:1gm5opg:1i61d3o",
+                  "html": "<a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a> against them.",
+                  "text": "Protect from Ranged against them.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "advancing-towards-the-stronghold:11pyc3z:1gm5opg:1uxa66y",
+                  "html": "Use <a href=\"https://runescape.wiki/w/Dive\" target=\"_blank\" rel=\"noopener\">Dive</a> to quickly run past them.",
+                  "text": "Use Dive to quickly run past them.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "advancing-towards-the-stronghold:11pyc3z:1gm5opg:1mz2j8x",
+                  "html": "Equip <a href=\"https://runescape.wiki/w/Fremennik_round_shield\" target=\"_blank\" rel=\"noopener\">Fremennik round shield</a> to reduce their damage greatly.",
+                  "text": "Equip Fremennik round shield to reduce their damage greatly.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "advancing-towards-the-stronghold:19qcp15",
+          "html": "Look for a dungeon on your minimap northeast of the Troll Stronghold, and enter the cave entrance.",
+          "text": "Look for a dungeon on your minimap northeast of the Troll Stronghold, and enter the cave entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "prison-break",
+      "title": "Prison break",
+      "anchor": "Prison_break",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "prison-break:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            },
+            {
+              "id": "prison-break:bring:sj95vz",
+              "html": "3 backpack spaces",
+              "text": "3 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 40,
+          "lon": 120,
+          "zoom": 1,
+          "plane": 0,
+          "mapId": 2,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  198,
+                  25,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Troll_general\" title=\"Troll general\">Troll general</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  205,
+                  52,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Troll_general\" title=\"Troll general\">Troll general</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  207,
+                  38,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Troll_general\" title=\"Troll general\">Troll general</a>",
+                "shape": "Dot",
+                "fill": "#A6CEE3"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  207,
+                  40,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "label": "<a href=\"/w/Troll_general\" title=\"Troll general\">Troll<br />general</a>",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  16,
+                  31,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Twig_(monster)\" title=\"Twig (monster)\">Twig</a>",
+                "shape": "Dot",
+                "fill": "#ED0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  16,
+                  35,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Berry\" title=\"Berry\">Berry</a>",
+                "shape": "Dot",
+                "fill": "#42B540"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  16,
+                  33,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "label": "Jail",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  214.5,
+                  42.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Exit_(Troll_Stronghold)?action=edit&amp;redlink=1\" class=\"new\" title=\"Exit (Troll Stronghold) (page does not exist)\">Exit</a>",
+                "shape": "SquareDot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  8.5,
+                  2.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "title": "<a href=\"/w/Exit_(Troll_Stronghold)?action=edit&amp;redlink=1\" class=\"new\" title=\"Exit (Troll Stronghold) (page does not exist)\">Exit</a>",
+                "shape": "SquareDot",
+                "fill": "#0099B4"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  36.5,
+                  13.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  36.5,
+                  58.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  122.5,
+                  3.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  122.5,
+                  60.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  132.5,
+                  13.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  132.5,
+                  58.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  218.5,
+                  3.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  218.5,
+                  60.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  5,
+                  5
+                ],
+                "title": "<a href=\"/w/Stone_staircase\" class=\"mw-redirect\" title=\"Stone staircase\">Stone staircase</a>",
+                "shape": "SquareDot",
+                "fill": "#925E9F"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  128,
+                  59.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "2",
+                "plane": 0,
+                "iconSize": [
+                  3,
+                  10
+                ],
+                "title": "<a href=\"/w/Prison_Door_(Troll_Stronghold)?action=edit&amp;redlink=1\" class=\"new\" title=\"Prison Door (Troll Stronghold) (page does not exist)\">Prison Door</a>",
+                "shape": "SquareDot",
+                "fill": "#FDAF91"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    214,
+                    42
+                  ],
+                  [
+                    214,
+                    50
+                  ],
+                  [
+                    222,
+                    60
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Route to jail",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#ff0000",
+                "shape": "Line"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    121,
+                    60
+                  ],
+                  [
+                    124,
+                    58
+                  ],
+                  [
+                    127,
+                    59
+                  ],
+                  [
+                    130,
+                    59
+                  ],
+                  [
+                    131,
+                    61
+                  ],
+                  [
+                    132,
+                    61
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Route to jail",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#ff0000",
+                "shape": "Line"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    36,
+                    57
+                  ],
+                  [
+                    27,
+                    57
+                  ],
+                  [
+                    22,
+                    50
+                  ],
+                  [
+                    21,
+                    46
+                  ],
+                  [
+                    21,
+                    32
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "properties": {
+                "mapID": "2",
+                "title": "Route to jail",
+                "plane": 0,
+                "stroke-width": 3,
+                "stroke": "#ff0000",
+                "shape": "Line"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Troll_Stronghold/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "prison-break:1fa827w",
+          "html": "<a href=\"https://runescape.wiki/w/Troll_general\" target=\"_blank\" rel=\"noopener\">Troll general</a>",
+          "text": "Troll general",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:9cmjh4",
+          "html": "<a href=\"https://runescape.wiki/w/Twig_(monster)\" target=\"_blank\" rel=\"noopener\">Twig</a>",
+          "text": "Twig",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:1xy2vf3",
+          "html": "<a href=\"https://runescape.wiki/w/Berry\" target=\"_blank\" rel=\"noopener\">Berry</a>",
+          "text": "Berry",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:engmg5",
+          "html": "<a href=\"https://runescape.wiki/w/Exit_(Troll_Stronghold)?action=edit&amp;redlink=1\" target=\"_blank\" rel=\"noopener\">Exit</a>",
+          "text": "Exit",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:1xovni6",
+          "html": "<a href=\"https://runescape.wiki/w/Prison_Door_(Troll_Stronghold)?action=edit&amp;redlink=1\" target=\"_blank\" rel=\"noopener\">Prison Door</a>",
+          "text": "Prison Door",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:x5lezt",
+          "html": "Route to jail",
+          "text": "Route to jail",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Troll_Stronghold_quest_(jail)\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Troll_Stronghold_quest_(jail)\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Troll_Stronghold_quest_(jail)?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "prison-break:79p8vk",
+          "html": "Run south, go through the open wooden door, then continue north.",
+          "text": "Run south, go through the open wooden door, then continue north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:i2bxa3",
+          "html": "Kill a <a href=\"https://runescape.wiki/w/Troll_general\" target=\"_blank\" rel=\"noopener\">troll general</a> and take the <a href=\"https://runescape.wiki/w/Prison_key\" target=\"_blank\" rel=\"noopener\">prison key</a>. You can safespot with magic, ranged, or necromancy behind the counter.",
+          "text": "Kill a troll general and take the prison key. You can safespot with magic, ranged, or necromancy behind the counter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:4ohgzf",
+          "html": "Head back towards the entrance, past the door and go down the stone staircase to the north.",
+          "text": "Head back towards the entrance, past the door and go down the stone staircase to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:1s822qb",
+          "html": "Unlock the <a href=\"https://runescape.wiki/w/Prison_Door\" target=\"_blank\" rel=\"noopener\">Prison Door</a> to the immediate east and head down the <a href=\"https://runescape.wiki/w/Stone_staircase\" target=\"_blank\" rel=\"noopener\">stone staircase</a>.",
+          "text": "Unlock the Prison Door to the immediate east and head down the stone staircase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:1e2lkbr",
+          "html": "Open the exit to the south and enter the <a href=\"https://runescape.wiki/w/Secret_Entrance_(Troll_Stronghold)\" target=\"_blank\" rel=\"noopener\">secret entrance</a>.",
+          "text": "Open the exit to the south and enter the secret entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:xzpev0",
+          "html": "Pickpocket (or kill) <a href=\"https://runescape.wiki/w/Twig_(monster)\" target=\"_blank\" rel=\"noopener\">Twig</a> and <a href=\"https://runescape.wiki/w/Berry\" target=\"_blank\" rel=\"noopener\">Berry</a>. Safespot them inside one of the open cells if needed.",
+          "text": "Pickpocket (or kill) Twig and Berry. Safespot them inside one of the open cells if needed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:9u6ihp",
+          "html": "Take the cell keys and unlock the two jail cells to free the prisoners.",
+          "text": "Take the cell keys and unlock the two jail cells to free the prisoners.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:b0uoas",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dunstan\" target=\"_blank\" rel=\"noopener\">Dunstan</a>, the blacksmith in north-eastern Burthorpe.",
+          "text": "Talk to Dunstan, the blacksmith in north-eastern Burthorpe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "prison-break:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Troll_Stronghold_reward.png?94ebe",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Troll_Stronghold_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "Two <a href=\"https://runescape.wiki/w/Mysterious_lamp\" target=\"_blank\" rel=\"noopener\">mysterious lamps</a> that give 10,000 experience in any skill level 30 or above.",
+        "text": "Two mysterious lamps that give 10,000 experience in any skill level 30 or above.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Trollheim\" target=\"_blank\" rel=\"noopener\">Trollheim</a> and the <a href=\"https://runescape.wiki/w/Troll_Stronghold_(area)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a>",
+        "text": "Access to Trollheim and the Troll Stronghold",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/God_Wars_Dungeon\" target=\"_blank\" rel=\"noopener\">God Wars Dungeon</a> with the requirement of 60 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a> or 60 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>.",
+        "text": "Access to God Wars Dungeon with the requirement of 60 Agility or 60 Strength.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Contest",
+      "where": ""
+    },
+    {
+      "name": "Expedition",
+      "where": ""
+    },
+    {
+      "name": "Sojourn",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Troll_Stronghold_(achievement)\" target=\"_blank\" rel=\"noopener\">Troll Stronghold</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Desert_Treasure/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desert Treasure</a>",
+        "<a href=\"https://runescape.wiki/w/Eadgar%27s_Ruse/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eadgar&#39;s Ruse</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_the_God_Wars_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of the God Wars (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Curse of Arrav</a>",
+        "<a href=\"https://runescape.wiki/w/Troll_Romance/Quick_guide\" target=\"_blank\" rel=\"noopener\">Troll Romance</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Birthright_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Birthright of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>",
+        "<a href=\"https://runescape.wiki/w/King_of_the_Dwarves/Quick_guide\" target=\"_blank\" rel=\"noopener\">King of the Dwarves</a>",
+        "<a href=\"https://runescape.wiki/w/My_Arm%27s_Big_Adventure/Quick_guide\" target=\"_blank\" rel=\"noopener\">My Arm&#39;s Big Adventure</a>",
+        "<a href=\"https://runescape.wiki/w/The_Temple_at_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Temple at Senntisten</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Empty_Lord_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Empty Lord (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Do_No_Evil/Quick_guide\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Legacy_of_Seergaze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legacy of Seergaze</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_General%27s_Shadow_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The General&#39;s Shadow (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_Temple_at_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Temple at Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Wandering_Ga%27al_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Wandering Ga&#39;al (miniquest)</a>"
+      ]
+    }
+  ]
+}

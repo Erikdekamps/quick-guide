@@ -1,0 +1,561 @@
+{
+  "format": 1,
+  "id": "tortle-combat-miniquest",
+  "title": "Tortle Combat (miniquest)",
+  "page": "Tortle Combat (miniquest)/Quick guide",
+  "rev": 36638747,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Postie_Pete-za\" target=\"_blank\" rel=\"noopener\">Postie Pete-za</a> by the entrance to the <a href=\"https://runescape.wiki/w/Varrock_Sewers\" target=\"_blank\" rel=\"noopener\">Varrock Sewers</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3461,
+      "lon": 3238,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Tortle_Combat_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Player-owned farm tutorial",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Farming",
+        "level": 17,
+        "note": ""
+      },
+      {
+        "skill": "Farming",
+        "level": 25,
+        "note": "(b) (to create dense honeycomb)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1jf2d43",
+          "html": "16 <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a> (other types of planks will not work; can be inside a <a href=\"https://runescape.wiki/w/Plank_box\" target=\"_blank\" rel=\"noopener\">plank box</a>)",
+          "text": "16 planks (other types of planks will not work; can be inside a plank box)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1pzppyb",
+          "html": "60 <a href=\"https://runescape.wiki/w/Iron_nails\" target=\"_blank\" rel=\"noopener\">iron nails</a> (higher level nails will not work)",
+          "text": "60 iron nails (higher level nails will not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:rcvng4",
+          "html": "<a href=\"https://runescape.wiki/w/Empty_sack\" target=\"_blank\" rel=\"noopener\">Empty sack</a>",
+          "text": "Empty sack",
+          "alternatives": []
+        },
+        {
+          "id": "req:5xykhn",
+          "html": "2 <a href=\"https://runescape.wiki/w/Bucket_of_sand\" target=\"_blank\" rel=\"noopener\">buckets of sand</a>",
+          "text": "2 buckets of sand",
+          "alternatives": []
+        },
+        {
+          "id": "req:1oar0yz",
+          "html": "3 <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">ropes</a>",
+          "text": "3 ropes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1oajy3v",
+          "html": "Adult or elder <a href=\"https://runescape.wiki/w/Common_brown_rabbit\" target=\"_blank\" rel=\"noopener\">common brown rabbit</a>",
+          "text": "Adult or elder common brown rabbit",
+          "alternatives": []
+        },
+        {
+          "id": "req:19jbgpe",
+          "html": "<a href=\"https://runescape.wiki/w/Dense_honeycomb\" target=\"_blank\" rel=\"noopener\">Dense honeycomb</a>",
+          "text": "Dense honeycomb",
+          "alternatives": []
+        },
+        {
+          "id": "req:puedjm",
+          "html": "<a href=\"https://runescape.wiki/w/Kebab\" target=\"_blank\" rel=\"noopener\">Kebab</a>",
+          "text": "Kebab",
+          "alternatives": []
+        },
+        {
+          "id": "req:p592ms",
+          "html": "2 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law runes</a>",
+          "text": "2 law runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:e19krq",
+          "html": "<a href=\"https://runescape.wiki/w/Soft_clay\" target=\"_blank\" rel=\"noopener\">Soft clay</a>",
+          "text": "Soft clay",
+          "alternatives": []
+        },
+        {
+          "id": "req:pcgxhr",
+          "html": "1 empty inventory space",
+          "text": "1 empty inventory space",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:vzr51a",
+          "html": "Some means of <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> teleport, preferably one of the two below",
+          "text": "Some means of Varrock teleport, preferably one of the two below",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Master_constructor%27s_outfit\" target=\"_blank\" rel=\"noopener\">Master constructor&#39;s outfit</a>, Varrock <a href=\"https://runescape.wiki/w/Estate_agent\" target=\"_blank\" rel=\"noopener\">estate agent</a> teleport is the closest to the <a href=\"https://runescape.wiki/w/Varrock_sewer\" target=\"_blank\" rel=\"noopener\">Varrock sewer</a>",
+            "<a href=\"https://runescape.wiki/w/Dave%27s_spellbook\" target=\"_blank\" rel=\"noopener\">Dave&#39;s spellbook</a>, teleport to <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> is as good as the outfit"
+          ]
+        },
+        {
+          "id": "rec:1a6j5ci",
+          "html": "Teleport to get to the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>, such as <a href=\"https://runescape.wiki/w/Luck_of_the_Dwarves\" target=\"_blank\" rel=\"noopener\">Luck of the Dwarves</a>",
+          "text": "Teleport to get to the Grand Exchange, such as Luck of the Dwarves",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:fkwtgv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Postie_Pete-za\" target=\"_blank\" rel=\"noopener\">Postie Pete-za</a> by the entrance to Varrock Sewers with at least 1 free inventory space.",
+          "text": "Talk to Postie Pete-za by the entrance to Varrock Sewers with at least 1 free inventory space.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1vh84af",
+          "html": "Open the manhole and enter the <a href=\"https://runescape.wiki/w/Varrock_Sewers\" target=\"_blank\" rel=\"noopener\">Varrock Sewers</a>.",
+          "text": "Open the manhole and enter the Varrock Sewers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1q648nt",
+          "html": "Go east and squeeze through the pipe.",
+          "text": "Go east and squeeze through the pipe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1evl89i",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a> on the bridge.",
+          "text": "Talk to Wolfgang on the bridge.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What will you do now?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:2or9ly",
+          "html": "Talk to the Varrock estate agent. He is located in a building just north of the sewer entrance.",
+          "text": "Talk to the Varrock estate agent. He is located in a building just north of the sewer entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Tortle Combat."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:snqklv",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a>.",
+          "text": "Return to Wolfgang.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "You should probably stop sending rats to the estate agent."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1cmegf8",
+          "html": "Build the equipment around the area with the 16 planks, 2 buckets of sand, 1 empty sack, 3 ropes, and 60 iron nails.",
+          "text": "Build the equipment around the area with the 16 planks, 2 buckets of sand, 1 empty sack, 3 ropes, and 60 iron nails.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1bhxjur",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a>.",
+          "text": "Talk to Wolfgang.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have constructed all your equipment!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:2wwgph",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gustav\" target=\"_blank\" rel=\"noopener\">Gustav</a> to the north of <a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a>.",
+          "text": "Talk to Gustav to the north of Wolfgang.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1qkpz68",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Granny_Potterington\" target=\"_blank\" rel=\"noopener\">Granny Potterington</a> at <a href=\"https://runescape.wiki/w/Manor_Farm\" target=\"_blank\" rel=\"noopener\">Manor Farm</a> with a kebab and <a href=\"https://runescape.wiki/w/Dense_honeycomb\" target=\"_blank\" rel=\"noopener\">Dense honeycomb</a> in your inventory.",
+          "text": "Talk to Granny Potterington at Manor Farm with a kebab and Dense honeycomb in your inventory.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Ask about Tortle Combat.]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1r220l5",
+          "html": "Use the extremely dense honeycomb on your adult or elder common brown rabbit.",
+          "text": "Use the extremely dense honeycomb on your adult or elder common brown rabbit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:vy4kaw",
+          "html": "Bring <a href=\"https://runescape.wiki/w/Gustav\" target=\"_blank\" rel=\"noopener\">Gustav</a> the soft clay, 2 law runes and the plump rabbit.",
+          "text": "Bring Gustav the soft clay, 2 law runes and the plump rabbit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:r4dmi1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Edvard\" target=\"_blank\" rel=\"noopener\">Edvard</a> to the south.",
+          "text": "Talk to Edvard to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1bhxjur-2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a>.",
+          "text": "Talk to Wolfgang.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1x2gchm",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Johann\" target=\"_blank\" rel=\"noopener\">Johann</a> to the southwest.",
+          "text": "Talk to Johann to the southwest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1fedap7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Hofuthand_(armour_and_weapons)\" target=\"_blank\" rel=\"noopener\">Hofuthand</a> at the west side of Grand Exchange.",
+          "text": "Talk to Hofuthand at the west side of Grand Exchange.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Tortle Combat.]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1f2okle",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Johann\" target=\"_blank\" rel=\"noopener\">Johann</a>.",
+          "text": "Return to Johann.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:oxet2e",
+          "html": "You will then need to give each tortle its correct weapon.",
+          "text": "You will then need to give each tortle its correct weapon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:oxet2e:1ofomrx",
+              "html": "Gustav.",
+              "text": "Gustav.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Give Gustav a weapon"
+                    },
+                    {
+                      "key": "5",
+                      "text": "Dwarven army axe"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:oxet2e:1iuc891",
+              "html": "Johann.",
+              "text": "Johann.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Give Johann a weapon"
+                    },
+                    {
+                      "key": "4",
+                      "text": "Old rake handle"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:oxet2e:1ttzugz",
+              "html": "&quot;Weird&quot; Alfred. (northeast)",
+              "text": "\"Weird\" Alfred. (northeast)",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Give \"Weird\" Alfred a weapon"
+                    },
+                    {
+                      "key": "8",
+                      "text": "Rabid chinchompa"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:oxet2e:1d2o6q8",
+              "html": "<a href=\"https://runescape.wiki/w/Wolfgang\" target=\"_blank\" rel=\"noopener\">Wolfgang</a>.",
+              "text": "Wolfgang.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Give Wolfgang a weapon"
+                    },
+                    {
+                      "key": "1",
+                      "text": "Mismatched set of cutlery"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:fdad66",
+          "html": "Talk to Wolfgang, wait for the cutscene, and then talk with him again",
+          "text": "Talk to Wolfgang, wait for the cutscene, and then talk with him again",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Tortle_Combat_%28miniquest%29_reward.png?9f78c",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Tortle_Combat_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tortle_lamp_of_construction\" target=\"_blank\" rel=\"noopener\">Tortle lamp of construction</a>, which gives 10,000 experience",
+        "text": "Tortle lamp of construction, which gives 10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tortle_lamp_of_farming\" target=\"_blank\" rel=\"noopener\">Tortle lamp of farming</a>, which gives 1,000 experience",
+        "text": "Tortle lamp of farming, which gives 1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tortle_lamp_of_magic\" target=\"_blank\" rel=\"noopener\">Tortle lamp of magic</a>, which gives 1,000 experience",
+        "text": "Tortle lamp of magic, which gives 1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Ninja_Tortle_Hood\" target=\"_blank\" rel=\"noopener\">Ninja Tortle Hood</a> cosmetic override",
+        "text": "Ninja Tortle Hood cosmetic override",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

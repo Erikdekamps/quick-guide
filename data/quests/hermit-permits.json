@@ -1,0 +1,515 @@
+{
+  "format": 1,
+  "id": "hermit-permits",
+  "title": "Hermit Permits",
+  "page": "Hermit Permits/Quick guide",
+  "rev": 37181915,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Read the village noticeboard in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1516,
+      "lon": 3491,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Hermit_Permits/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Visions of Havenhythe",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 5,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 15,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Crab (level 29)",
+        "name": "Crab",
+        "count": null,
+        "level": "29",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Havenhythe</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:17e78z2",
+          "html": "<a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">Ball of wool</a>",
+          "text": "Ball of wool",
+          "alternatives": []
+        },
+        {
+          "id": "req:135ixj8",
+          "html": "6 <a href=\"https://runescape.wiki/w/Seaweed\" target=\"_blank\" rel=\"noopener\">seaweed</a> (obtainable during quest)",
+          "text": "6 seaweed (obtainable during quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1oar0yz",
+          "html": "3 <a href=\"https://runescape.wiki/w/Rope\" target=\"_blank\" rel=\"noopener\">ropes</a>",
+          "text": "3 ropes",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:3rardi",
+          "html": "Runes for multiple casts of <a href=\"https://runescape.wiki/w/Wendlewick_Teleport\" target=\"_blank\" rel=\"noopener\">Wendlewick Teleport</a>",
+          "text": "Runes for multiple casts of Wendlewick Teleport",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:l6fjos",
+          "html": "Read the Village <a href=\"https://runescape.wiki/w/Noticeboard_(Wendlewick)\" target=\"_blank\" rel=\"noopener\">Noticeboard</a> in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>, just north of the pub.",
+          "text": "Read the Village Noticeboard in Wendlewick, just north of the pub.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "HELP NEEDED! Crabs running amok."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1uk7sbq",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Grocer_Hannah\" target=\"_blank\" rel=\"noopener\">Grocer Hannah</a> in the Wendlewick <a href=\"https://runescape.wiki/w/The_Village_Grocery\" target=\"_blank\" rel=\"noopener\">food shop</a>, east of the bank.",
+          "text": "Talk to Grocer Hannah in the Wendlewick food shop, east of the bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hermit Permits'."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "I could try herding them out?"
+                },
+                {
+                  "key": "2",
+                  "text": "What if I threatened them?"
+                },
+                {
+                  "key": "3",
+                  "text": "I could just kill them all."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:64f5k8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Shelly\" target=\"_blank\" rel=\"noopener\">Shelly</a>, the crab, located in the same store and on the floor.",
+          "text": "Talk to Shelly, the crab, located in the same store and on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:14etip5",
+          "html": "Follow the crab, talking to it every time it stops.",
+          "text": "Follow the crab, talking to it every time it stops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "obtaining-the-crabulet",
+      "title": "Obtaining the crabulet",
+      "anchor": "Obtaining_the_crabulet",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:18cswy2",
+          "html": "Enter the cave to the east and talk to <a href=\"https://runescape.wiki/w/Hermit\" target=\"_blank\" rel=\"noopener\">Hermit</a> inside to the north-west.",
+          "text": "Enter the cave to the east and talk to Hermit inside to the north-west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:f0k4dw",
+          "html": "Kill one of the crabs for a <a href=\"https://runescape.wiki/w/Fresh_crab_claw\" target=\"_blank\" rel=\"noopener\">fresh crab claw</a>, craft it into an <a href=\"https://runescape.wiki/w/Crab_amulet_(unstrung)\" target=\"_blank\" rel=\"noopener\">crab amulet (unstrung)</a>, and use it on a ball of wool to make a <a href=\"https://runescape.wiki/w/Crab_amulet\" target=\"_blank\" rel=\"noopener\">crab amulet</a>.",
+          "text": "Kill one of the crabs for a fresh crab claw, craft it into an crab amulet (unstrung), and use it on a ball of wool to make a crab amulet.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:kgaihf",
+          "html": "Talk to Hermit again.",
+          "text": "Talk to Hermit again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:1m6i1s5",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Crabulet\" target=\"_blank\" rel=\"noopener\">crabulet</a> and talk to Shelly.",
+          "text": "Equip the crabulet and talk to Shelly.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:s4i3x1",
+          "html": "Return to Wendlewick, go back to the food shop, and talk to Shelly.",
+          "text": "Return to Wendlewick, go back to the food shop, and talk to Shelly.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "obtaining-the-crabulet:9awhgk",
+          "html": "South of the <a href=\"https://runescape.wiki/w/Shrine_of_Inanna\" target=\"_blank\" rel=\"noopener\">Shrine of Inanna</a>, go to the beach and talk to any of the crabs (<a href=\"https://runescape.wiki/w/Finn_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">Finn</a>, <a href=\"https://runescape.wiki/w/Sandy_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">Sandy</a>, or <a href=\"https://runescape.wiki/w/Kai_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">Kai</a>).",
+          "text": "South of the Shrine of Inanna, go to the beach and talk to any of the crabs (Finn, Sandy, or Kai).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "obtaining-the-crabulet:9awhgk:vwxauk",
+              "html": "(Optional) Travel via the <a href=\"https://runescape.wiki/w/Canoe_station_(Havenhythe)\" target=\"_blank\" rel=\"noopener\">canoe station</a> on the dock next to the <a href=\"https://runescape.wiki/w/Burnt_Lobster_Tavern\" target=\"_blank\" rel=\"noopener\">Burnt Lobster Tavern</a> and then go south-west.",
+              "text": "(Optional) Travel via the canoe station on the dock next to the Burnt Lobster Tavern and then go south-west.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Wendlewick (Grotto)"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "getting-permission",
+      "title": "Getting permission",
+      "anchor": "Getting_permission",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-permission:12204dp",
+          "html": "Return to Wendlewick and talk to <a href=\"https://runescape.wiki/w/Adam\" target=\"_blank\" rel=\"noopener\">Adam</a> (in the northern building).",
+          "text": "Return to Wendlewick and talk to Adam (in the northern building).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Hermit Permits'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-permission:142b044",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zeke_(Wendlewick)\" target=\"_blank\" rel=\"noopener\">Zeke</a> in the building to the east.",
+          "text": "Talk to Zeke in the building to the east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hermit Permits'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-permission:abh7jc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Esther\" target=\"_blank\" rel=\"noopener\">Esther</a> upstairs in the lighthouse.",
+          "text": "Talk to Esther upstairs in the lighthouse.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hermit Permits'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-permission:17r7jdh",
+          "html": "Talk to 5 different <a href=\"https://runescape.wiki/w/Villager_(Wendlewick)\" target=\"_blank\" rel=\"noopener\">villagers</a> around Wendlewick to get them to sign the <a href=\"https://runescape.wiki/w/Planning_permission_form\" target=\"_blank\" rel=\"noopener\">planning permission form</a>. The shop and stall owners work for this.",
+          "text": "Talk to 5 different villagers around Wendlewick to get them to sign the planning permission form. The shop and stall owners work for this.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Hermit Permits'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-permission:1d9c85f",
+          "html": "Talk to either Adam, Esther, or Zeke again.",
+          "text": "Talk to either Adam, Esther, or Zeke again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Talk about 'Hermit Permits'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-huts",
+      "title": "Building the huts",
+      "anchor": "Building_the_huts",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "building-the-huts:1bkd0gv",
+          "html": "Go back to the southern beach and talk to one of the crab leaders.",
+          "text": "Go back to the southern beach and talk to one of the crab leaders.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-the-huts:1bkd0gv:bsrsbv",
+              "html": "6 seaweed can be collected to the west on the same beach.",
+              "text": "6 seaweed can be collected to the west on the same beach.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-the-huts:1bkd0gv:17v6wgd",
+              "html": "You also need to bring 3 ropes. If you have the <a href=\"https://runescape.wiki/w/Lorehound\" target=\"_blank\" rel=\"noopener\">Lorehound</a> pet quest supplies track unlocked you can obtain from there.",
+              "text": "You also need to bring 3 ropes. If you have the Lorehound pet quest supplies track unlocked you can obtain from there.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-the-huts:1fv0lv9",
+          "html": "Build the three <a href=\"https://runescape.wiki/w/Pile_of_driftwood\" target=\"_blank\" rel=\"noopener\">piles of driftwood</a> on the beach into their <a href=\"https://runescape.wiki/w/Driftwood_hut\" target=\"_blank\" rel=\"noopener\">huts</a>.",
+          "text": "Build the three piles of driftwood on the beach into their huts.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-huts:e4rwj2",
+          "html": "Talk to Finn, Sandy, or Kai.",
+          "text": "Talk to Finn, Sandy, or Kai.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-huts:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Hermit_Permits_reward.png?4097b",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Hermit_Permits_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience <a href=\"https://runescape.wiki/w/Crafting_XP_lamp_(Hermit_Permits)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "1,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "500 experience <a href=\"https://runescape.wiki/w/Construction_XP_lamp_(Hermit_Permits)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Snippers\" target=\"_blank\" rel=\"noopener\">Snippers</a>, a feet slot cosmetic override",
+        "text": "Snippers, a feet slot cosmetic override",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Ability to add the crabulet to the <a href=\"https://runescape.wiki/w/Cramulet\" target=\"_blank\" rel=\"noopener\">cramulet</a>",
+            "text": "Ability to add the crabulet to the cramulet",
+            "subs": []
+          },
+          {
+            "html": "An additional reward of 1,000 coins from <a href=\"https://runescape.wiki/w/Grocer_Hannah\" target=\"_blank\" rel=\"noopener\">Grocer Hannah</a>",
+            "text": "An additional reward of 1,000 coins from Grocer Hannah",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

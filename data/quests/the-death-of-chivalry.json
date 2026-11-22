@@ -1,0 +1,1221 @@
+{
+  "format": 1,
+  "id": "the-death-of-chivalry",
+  "title": "The Death of Chivalry",
+  "page": "The Death of Chivalry/Quick guide",
+  "rev": 37219526,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Sir_Owen\" target=\"_blank\" rel=\"noopener\">Sir Owen</a> at the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a> west of <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3502,
+      "lon": 3051,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide"
+    },
+    "members": false,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [
+      "The World Wakes",
+      "Ritual of the Mahjarrat",
+      "The Temple at Senntisten…",
+      "While Guthix Sleeps…",
+      "Hazeel Cult",
+      "Enakhra's Lament",
+      "The Slug Menace…",
+      "A Fairy Tale II - Cure a Queen…",
+      "Cabin Fever…",
+      "A Tail of Two Cats…",
+      "Fight Arena",
+      "The General's Shadow (miniquest)…",
+      "The Firemaker's Curse",
+      "The Branches of Darkmeyer",
+      "Legacy of Seergaze…",
+      "The Void Stares Back",
+      "A Void Dance…",
+      "Conquest tutorial",
+      "The Chosen Commander",
+      "Land of the Goblins…"
+    ],
+    "enemies": [
+      {
+        "text": "5 black knights",
+        "name": "5 black knights",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Fern",
+        "name": "Fern",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Dawn, and several groups of summoned skeletons",
+        "name": "Dawn, and several groups of summoned skeletons",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Sir Owen",
+        "name": "Sir Owen",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:63061z",
+          "html": "5 free backpack space (for an armour set)",
+          "text": "5 free backpack space (for an armour set)",
+          "alternatives": []
+        },
+        {
+          "id": "req:9sjqgg",
+          "html": "Combat equipment (not required from the start, able to retrieve from the <a href=\"https://runescape.wiki/w/Bank\" target=\"_blank\" rel=\"noopener\">bank</a> when necessary)",
+          "text": "Combat equipment (not required from the start, able to retrieve from the bank when necessary)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1imkskh",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Saradominist_preacher\" target=\"_blank\" rel=\"noopener\">Saradominist preacher</a> west of <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> at the memorial fountain and watch the opening and finale cutscenes from the <a href=\"https://runescape.wiki/w/Battle_of_Lumbridge\" target=\"_blank\" rel=\"noopener\">Battle of Lumbridge</a>",
+          "text": "Talk to the Saradominist preacher west of Lumbridge Castle at the memorial fountain and watch the opening and finale cutscenes from the Battle of Lumbridge",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1v4ygh3",
+          "html": "Food due to level scaling",
+          "text": "Food due to level scaling",
+          "alternatives": []
+        },
+        {
+          "id": "rec:we6jk9",
+          "html": "12 free backpack slots for an armour set and ritual materials",
+          "text": "12 free backpack slots for an armour set and ritual materials",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "meeting-saradomin",
+      "title": "Meeting Saradomin",
+      "anchor": "Meeting_Saradomin",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "meeting-saradomin:t59o36",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Sir_Owen\" target=\"_blank\" rel=\"noopener\">Sir Owen</a> in the garden north of the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a>.",
+          "text": "Speak to Sir Owen in the garden north of the Edgeville Monastery.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "The who with the what now?"
+                },
+                {
+                  "key": "1",
+                  "text": "I guess I have one of those faces."
+                },
+                {
+                  "key": "1",
+                  "text": "Saradomin must have had a good reason..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "meeting-saradomin:43jp23",
+          "html": "Talk to Saradomin after the cutscene.",
+          "text": "Talk to Saradomin after the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "(Kneel before Saradomin.)"
+                },
+                {
+                  "key": "2",
+                  "text": "How can I help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "meeting-saradomin:1p04oc3",
+          "html": "Alternatively if aligned with another god.",
+          "text": "Alternatively if aligned with another god.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "(Remain standing.)"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "meeting-saradomin:yon0kp",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Suit_of_armour_(The_Death_of_Chivalry)\" target=\"_blank\" rel=\"noopener\">suit of armour</a> just south-west of you and equip it.",
+          "text": "Pick up the suit of armour just south-west of you and equip it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "meeting-saradomin:o2tud2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Saradomin\" target=\"_blank\" rel=\"noopener\">Saradomin</a>.",
+          "text": "Talk to Saradomin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, teleport us to the Black Knights' Fortress."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "infiltrating-the-fortress",
+      "title": "Infiltrating the fortress",
+      "anchor": "Infiltrating_the_fortress",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "There are multiple possibilities, choice-wise, to get through this. The list below is just a recommended choice order."
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:1y0vtsx",
+          "html": "Open the Portcullis.",
+          "text": "Open the Portcullis.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:1ktn2py",
+          "html": "Fortress guard: (guaranteed suspicion on first chat option)",
+          "text": "Fortress guard: (guaranteed suspicion on first chat option)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "He is my prisoner."
+                },
+                {
+                  "key": "1",
+                  "text": "No, I have something... special planned for him."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "infiltrating-the-fortress:1ktn2py:1grsqc0",
+              "html": "It is required to dismiss pets and familiars before proceeding.",
+              "text": "It is required to dismiss pets and familiars before proceeding.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:lbv5g9",
+          "html": "Head north, to Lieutenant York:",
+          "text": "Head north, to Lieutenant York:",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Are you suggesting I cannot handle a mere knight of Saradomin?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:z2265r",
+          "html": "Head north-west, and <i>climb up</i> staircase. The fortress guard will stop you.",
+          "text": "Head north-west, and climb up staircase. The fortress guard will stop you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do you want, maggot?"
+                },
+                {
+                  "key": "2",
+                  "text": "This prisoner is to be sacrificed."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:1w29qkx",
+          "html": "Head to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) to the south, talk to <a href=\"https://runescape.wiki/w/Hierophant_Marius\" target=\"_blank\" rel=\"noopener\">Hierophant Marius</a>.",
+          "text": "Head to the 1st floor (UK) / 2nd floor (US) to the south, talk to Hierophant Marius.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes."
+                },
+                {
+                  "key": "3",
+                  "text": "I shall return after I deal with this Temple Knight."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:w4mdho",
+          "html": "Head south-east of the room, and <i>climb up</i> staircase. The fortress guard will stop you.",
+          "text": "Head south-east of the room, and climb up staircase. The fortress guard will stop you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I am bringing him to the tallest tower."
+                },
+                {
+                  "key": "1",
+                  "text": "We need him to recover the weapon of power, as you know."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:1nhesu5",
+          "html": "Go upstairs, head north to <a href=\"https://runescape.wiki/w/Lieutenant_Graves\" target=\"_blank\" rel=\"noopener\">Lieutenant Graves</a>.",
+          "text": "Go upstairs, head north to Lieutenant Graves.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Stand aside. I will handle this."
+                },
+                {
+                  "key": "1",
+                  "text": "The prisoner stays with me."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "infiltrating-the-fortress:qodnz6",
+          "html": "Search the Lieutenant&#39;s body, and choose whether you want to kill him or not. It doesn&#39;t matter.",
+          "text": "Search the Lieutenant's body, and choose whether you want to kill him or not. It doesn't matter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-ritual",
+      "title": "The ritual",
+      "anchor": "The_ritual",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The marker"
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:lufis3",
+          "html": "Head up the stairs in the north-east to the ritual chamber.",
+          "text": "Head up the stairs in the north-east to the ritual chamber.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1ysj5y8",
+          "html": "Search the wardrobe for a <a href=\"https://runescape.wiki/w/Letter_from_Lord_Daquarius\" target=\"_blank\" rel=\"noopener\">letter</a>.",
+          "text": "Search the wardrobe for a letter.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:z7rd06",
+          "html": "Search the box of candles for three <a href=\"https://runescape.wiki/w/Red_candle\" target=\"_blank\" rel=\"noopener\">red candles</a>.",
+          "text": "Search the box of candles for three red candles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1xxffag",
+          "html": "Search the shelf for <a href=\"https://runescape.wiki/w/Chalk_(The_Death_of_Chivalry)\" target=\"_blank\" rel=\"noopener\">chalk</a>.",
+          "text": "Search the shelf for chalk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:z8glqe",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Grimoire_(The_Death_of_Chivalry)\" target=\"_blank\" rel=\"noopener\">Grimoire</a> and read it.",
+          "text": "Pick up the Grimoire and read it.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Read the book."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1td8r1z",
+          "html": "Use a candle on each stand, and fix the symbol on the floor.",
+          "text": "Use a candle on each stand, and fix the symbol on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:eimsxc",
+          "html": "Light the candles.",
+          "text": "Light the candles.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1qpbhc9",
+          "html": "Use chalk on Ritual circle.",
+          "text": "Use chalk on Ritual circle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The candles"
+        },
+        {
+          "type": "note",
+          "html": "Note: The below incantations must be said in the order as they are written."
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1f3kcs",
+          "html": "Chant over the north-west candle.",
+          "text": "Chant over the north-west candle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Arom."
+                },
+                {
+                  "key": "4",
+                  "text": "Nahrea."
+                },
+                {
+                  "key": "2",
+                  "text": "Imperium."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1redl6",
+          "html": "Chant over the north-east candle.",
+          "text": "Chant over the north-east candle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Feritas."
+                },
+                {
+                  "key": "4",
+                  "text": "Silenti."
+                },
+                {
+                  "key": "2",
+                  "text": "Sepulchrum."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:n01f2s",
+          "html": "Chant over the south-east candle.",
+          "text": "Chant over the south-east candle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Igasac."
+                },
+                {
+                  "key": "2",
+                  "text": "Perdimit."
+                },
+                {
+                  "key": "4",
+                  "text": "Ebulam."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ritual:1wfv0bi",
+          "html": "Enter the portal.",
+          "text": "Enter the portal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, enter the portal."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-ritual:1wfv0bi:13qmp1y",
+              "html": "You must remove the suit of armour that was equipped at the beginning of the quest.",
+              "text": "You must remove the suit of armour that was equipped at the beginning of the quest.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-saradominist-crypt",
+      "title": "The Saradominist crypt",
+      "anchor": "The_Saradominist_crypt",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:mrppda",
+          "html": "Defeat the three <a href=\"https://runescape.wiki/w/Black_Knights\" target=\"_blank\" rel=\"noopener\">Black Knights</a>.",
+          "text": "Defeat the three Black Knights.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:5dzyb",
+          "html": "Search their bodies for <a href=\"https://runescape.wiki/w/Cage_door_key\" target=\"_blank\" rel=\"noopener\">Cage door key</a>.",
+          "text": "Search their bodies for Cage door key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:ssi024",
+          "html": "Unlock the hanging cage to the north, freeing the <a href=\"https://runescape.wiki/w/Dawn\" target=\"_blank\" rel=\"noopener\">Damsel</a>.",
+          "text": "Unlock the hanging cage to the north, freeing the Damsel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:ooq8go",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Dawn\" target=\"_blank\" rel=\"noopener\">Dawn</a>.",
+          "text": "Talk to Dawn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Continue."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:11739on",
+          "html": "Search the supply crate south of the portal.",
+          "text": "Search the supply crate south of the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:nzklag",
+          "html": "Enter the doorway to the east.",
+          "text": "Enter the doorway to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:z3h1yi",
+          "html": "Open the portcullis to the south.",
+          "text": "Open the portcullis to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fern"
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:dmlh22",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Fern\" target=\"_blank\" rel=\"noopener\">Fern</a> and defeat her.",
+          "text": "Talk to Fern and defeat her.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I am ready to be judged."
+                },
+                {
+                  "key": "1",
+                  "text": "I fight to protect the innocent."
+                },
+                {
+                  "key": "2",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-saradominist-crypt:dmlh22:1pzau76",
+              "html": "If <a href=\"https://runescape.wiki/w/The_Restless_Ghost\" target=\"_blank\" rel=\"noopener\">The Restless Ghost</a> has been completed,",
+              "text": "If The Restless Ghost has been completed,",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "I am ready to be judged."
+                    },
+                    {
+                      "key": "~",
+                      "text": "[Any option]"
+                    },
+                    {
+                      "key": "2",
+                      "text": "I'm ready."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-saradominist-crypt:dmlh22:12fwhaz",
+              "html": "Dodge her charge ability.",
+              "text": "Dodge her charge ability.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Wand of Resurrection"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Death_of_Chivalry_tile_solution.png/300px-Death_of_Chivalry_tile_solution.png?0d161",
+          "width": 300,
+          "height": 300,
+          "alt": "",
+          "caption": "The solution to the puzzle",
+          "href": "https://runescape.wiki/w/File:Death_of_Chivalry_tile_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:nx0xe0",
+          "html": "Head south, to the <a href=\"https://runescape.wiki/w/Wand_of_Resurrection\" target=\"_blank\" rel=\"noopener\">Wand of Resurrection</a>.",
+          "text": "Head south, to the Wand of Resurrection.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:1nijo3t",
+          "html": "Solve the puzzle by matching the tiles to lower the barrier.",
+          "text": "Solve the puzzle by matching the tiles to lower the barrier.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-saradominist-crypt:1nijo3t:hzyw49",
+              "html": "The image of the completed puzzle is taken with the compass facing south.",
+              "text": "The image of the completed puzzle is taken with the compass facing south.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-saradominist-crypt:1iwl8ay",
+          "html": "Try to take the wand. A chat option appears. Select offer to risk your life.",
+          "text": "Try to take the wand. A chat option appears. Select offer to risk your life.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I shall sacrifice my own blood."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fighting-for-the-wand",
+      "title": "Fighting for the wand",
+      "anchor": "Fighting_for_the_wand",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fighting-for-the-wand:11q7a29",
+          "html": "Head north. Talk to Dawn.",
+          "text": "Head north. Talk to Dawn.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Give me the wand or you won't live to regret it."
+                },
+                {
+                  "key": "2",
+                  "text": "Continue"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-for-the-wand:11kzuxy",
+          "html": "Defeat the Black Knights and Sir Owen.",
+          "text": "Defeat the Black Knights and Sir Owen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-for-the-wand:1sg10zf",
+          "html": "Go north and open the portcullis.",
+          "text": "Go north and open the portcullis.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-for-the-wand:vpa1f0",
+          "html": "Kill Dawn. Refer to the <a href=\"https://runescape.wiki/w/The_Death_of_Chivalry#The_Prisoner_is_a_Lie\" target=\"_blank\" rel=\"noopener\">full guide</a> if you&#39;re having trouble.",
+          "text": "Kill Dawn. Refer to the full guide if you're having trouble.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "saradomin-and-the-wand",
+      "title": "Saradomin and the wand",
+      "anchor": "Saradomin_and_the_wand",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "saradomin-and-the-wand:115r4p5",
+          "html": "Search Dawn&#39;s body.",
+          "text": "Search Dawn's body.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-and-the-wand:15x23ir",
+          "html": "Head south, enter the Portcullis and speak with Saradomin.",
+          "text": "Head south, enter the Portcullis and speak with Saradomin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "I've made my decision."
+                },
+                {
+                  "key": "2",
+                  "text": "I will give you the wand."
+                },
+                {
+                  "key": "2",
+                  "text": "Were we too late?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "Why would you help us?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-and-the-wand:7yntb4",
+          "html": "When Saradomin asks if the player wants to be teleported back to Edgeville, it is recommended to stay in the tombs, to claim the extra post-quest rewards which require level 40 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a> and two other coffins requiring level 60 and 80 Strength.",
+          "text": "When Saradomin asks if the player wants to be teleported back to Edgeville, it is recommended to stay in the tombs, to claim the extra post-quest rewards which require level 40 Strength and two other coffins requiring level 60 and 80 Strength.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "saradomin-and-the-wand:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Death_of_Chivalry_reward.png?b8de1",
+      "width": 512,
+      "height": 552,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Death_of_Chivalry_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a> (if you have already done <a href=\"https://runescape.wiki/w/Black_Knights%27_Fortress_(quest)\" target=\"_blank\" rel=\"noopener\">Black Knights&#39; Fortress</a> before its removal, you will not receive the quest points)",
+        "text": "3 quest points (if you have already done Black Knights' Fortress before its removal, you will not receive the quest points)",
+        "subs": []
+      },
+      {
+        "html": "250 experience (obtained during quest)",
+        "text": "250 experience (obtained during quest)",
+        "subs": []
+      },
+      {
+        "html": "250 experience (obtained during quest)",
+        "text": "250 experience (obtained during quest)",
+        "subs": []
+      },
+      {
+        "html": "2,500 coins (obtained during quest)",
+        "text": "2,500 coins (obtained during quest)",
+        "subs": []
+      },
+      {
+        "html": "500 experience <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(The_Death_of_Chivalry)\" target=\"_blank\" rel=\"noopener\">lamp</a> (usable on one of the skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>)",
+        "text": "500 experience lamp (usable on one of the skills: Attack, Strength, Defence, Constitution, Ranged, Magic or Necromancy)",
+        "subs": []
+      },
+      {
+        "html": "250 experience <a href=\"https://runescape.wiki/w/Prayer_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "250 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "4 Knightly <a href=\"https://runescape.wiki/w/Titles\" target=\"_blank\" rel=\"noopener\">titles</a> (you are suggested one based on choices made during the quest, but you can pick any one at any time through the title interface)",
+        "text": "4 Knightly titles (you are suggested one based on choices made during the quest, but you can pick any one at any time through the title interface)",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/The_Gallant\" target=\"_blank\" rel=\"noopener\">[Name] the Gallant</a>",
+          "<a href=\"https://runescape.wiki/w/The_Pious\" target=\"_blank\" rel=\"noopener\">[Name] the Pious</a>",
+          "<a href=\"https://runescape.wiki/w/The_Brave\" target=\"_blank\" rel=\"noopener\">[Name] the Brave</a>",
+          "<a href=\"https://runescape.wiki/w/The_Valiant\" target=\"_blank\" rel=\"noopener\">[Name] the Valiant</a>"
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Sir_Owen_Sonde%27s_shield\" target=\"_blank\" rel=\"noopener\">Sir Owen Sonde&#39;s shield</a> with an <a href=\"https://runescape.wiki/w/Emote\" target=\"_blank\" rel=\"noopener\">emote</a> that may be performed while the shield is equipped",
+        "text": "Sir Owen Sonde's shield with an emote that may be performed while the shield is equipped",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Skull_of_Remembrance\" target=\"_blank\" rel=\"noopener\">Skull of Remembrance</a> that gives the ability to replay this quest&#39;s cinematic cutscenes (in a few locations only), teleport to the Black Knight ritual chamber, and to re-battle Dawn when used on her body",
+        "text": "Skull of Remembrance that gives the ability to replay this quest's cinematic cutscenes (in a few locations only), teleport to the Black Knight ritual chamber, and to re-battle Dawn when used on her body",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Dawn%27s_key\" target=\"_blank\" rel=\"noopener\">Dawn&#39;s key</a>, which opens <a href=\"https://runescape.wiki/w/Captain_Dulcin%27s_journal\" target=\"_blank\" rel=\"noopener\">Captain Dulcin&#39;s journal</a>",
+        "text": "Dawn's key, which opens Captain Dulcin's journal",
+        "subs": []
+      },
+      {
+        "html": "The ability to loot the 8 dead Black Knights for more coins if you did not do so during the quest",
+        "text": "The ability to loot the 8 dead Black Knights for more coins if you did not do so during the quest",
+        "subs": []
+      },
+      {
+        "html": "The ability to loot Lieutenant Graves for more coins and dispose of his body if you did not do so during the quest",
+        "text": "The ability to loot Lieutenant Graves for more coins and dispose of his body if you did not do so during the quest",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities All players",
+        "items": [
+          {
+            "html": "Ability to make <a href=\"https://runescape.wiki/w/Black_Knight_captain%27s_armour\" target=\"_blank\" rel=\"noopener\">Black Knight captain&#39;s armour</a> a <a href=\"https://runescape.wiki/w/Cosmetic_override\" target=\"_blank\" rel=\"noopener\">cosmetic override</a>, &quot;<a href=\"https://runescape.wiki/w/Dulcin_(override)\" target=\"_blank\" rel=\"noopener\">Dulcin</a>&quot;, by defeating <a href=\"https://runescape.wiki/w/Dawn\" target=\"_blank\" rel=\"noopener\">Dawn</a> in battle after the quest. This can be done by using the <a href=\"https://runescape.wiki/w/Skull_of_Remembrance\" target=\"_blank\" rel=\"noopener\">Skull of Remembrance</a> on Dawn&#39;s dead body.",
+            "text": "Ability to make Black Knight captain's armour a cosmetic override, \"Dulcin\", by defeating Dawn in battle after the quest. This can be done by using the Skull of Remembrance on Dawn's dead body.",
+            "subs": []
+          },
+          {
+            "html": "Searching the supply crate by Black Knights&#39; tents next to the portal will yield 200 <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water runes</a> and 100 <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire runes</a> if you did not take them during the quest.",
+            "text": "Searching the supply crate by Black Knights' tents next to the portal will yield 200 water runes and 100 fire runes if you did not take them during the quest.",
+            "subs": []
+          }
+        ]
+      },
+      {
+        "label": "Members-only",
+        "items": [
+          {
+            "html": "Ability to replant the <a href=\"https://runescape.wiki/w/Cabbage_(scenery)\" target=\"_blank\" rel=\"noopener\">cabbages</a> on the scorch marks in the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a> cabbage patch with 12 <a href=\"https://runescape.wiki/w/Cabbage_seed\" target=\"_blank\" rel=\"noopener\">cabbage seeds</a> and level 7 <a href=\"https://runescape.wiki/w/Farming\" target=\"_blank\" rel=\"noopener\">Farming</a>, awarding 250 experience.",
+            "text": "Ability to replant the cabbages on the scorch marks in the Edgeville Monastery cabbage patch with 12 cabbage seeds and level 7 Farming, awarding 250 experience.",
+            "subs": []
+          },
+          {
+            "html": "Players can find these rewards in the coffins in the Tomb of the Fallen, which can be returned to via the portal in the Black Knights&#39; Fortress or by selecting teleport as an option on the Skull of Remembrance which is given to you in the quest.",
+            "text": "Players can find these rewards in the coffins in the Tomb of the Fallen, which can be returned to via the portal in the Black Knights' Fortress or by selecting teleport as an option on the Skull of Remembrance which is given to you in the quest.",
+            "subs": [
+              "3,500 experience <a href=\"https://runescape.wiki/w/Ancient_combat_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> (usable on one of the skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>, <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> or <a href=\"https://runescape.wiki/w/Summoning\" target=\"_blank\" rel=\"noopener\">Summoning</a>), requires 40 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a> and 40 in the chosen combat skill, including Prayer.",
+              "60,000 experience <a href=\"https://runescape.wiki/w/Ancient_Prayer_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> (requires 80 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a> and 65 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a>).",
+              "<a href=\"https://runescape.wiki/w/Gilded_cabbage\" target=\"_blank\" rel=\"noopener\">Gilded cabbage</a> which summons <a href=\"https://runescape.wiki/w/Brassica_Prime\" target=\"_blank\" rel=\"noopener\">Brassica Prime</a>, who awards 10,000 bonus experience after being kicked 30 times (requires 60 <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>). This bonus Prayer experience is awarded in the form of double experience while you train in the skill, not instantaneously as given by XP lamps.",
+              "<a href=\"https://runescape.wiki/w/Templar\" target=\"_blank\" rel=\"noopener\">Templar</a> outfit, a cosmetic override."
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Fern",
+      "where": ""
+    },
+    {
+      "name": "Fighting for Light Part I",
+      "where": ""
+    },
+    {
+      "name": "Fighting for Light Part II",
+      "where": ""
+    },
+    {
+      "name": "Skirmish",
+      "where": "if not unlocked already during Once Upon a Time in Gielinor: Fortunes"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

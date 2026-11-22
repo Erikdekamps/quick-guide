@@ -1,0 +1,684 @@
+{
+  "format": 1,
+  "id": "zogre-flesh-eaters",
+  "title": "Zogre Flesh Eaters",
+  "page": "Zogre Flesh Eaters/Quick guide",
+  "rev": 37196858,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Grish\" target=\"_blank\" rel=\"noopener\">Grish</a>, located west of <a href=\"https://runescape.wiki/w/Gu%27Tanoth\" target=\"_blank\" rel=\"noopener\">Gu&#39;Tanoth</a> and south of <a href=\"https://runescape.wiki/w/Castle_Wars\" target=\"_blank\" rel=\"noopener\">Castle Wars</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3050,
+      "lon": 2444,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Zogre_Flesh_Eaters/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Big Chompy Bird Hunting",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [
+      "Jungle Potion"
+    ],
+    "enemies": [
+      {
+        "text": "Zombie (level 36)",
+        "name": "Zombie",
+        "count": null,
+        "level": "36",
+        "note": ""
+      },
+      {
+        "text": "Slash Bash (level 58)",
+        "name": "Slash Bash",
+        "count": null,
+        "level": "58",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:r70ogw",
+          "html": "40 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> for <a href=\"https://runescape.wiki/w/Protect_from_Ranged\" target=\"_blank\" rel=\"noopener\">Protect from Ranged</a>, preferably level 43 for <a href=\"https://runescape.wiki/w/Protect_from_Melee\" target=\"_blank\" rel=\"noopener\">Protect from Melee</a>",
+          "text": "40 Prayer for Protect from Ranged, preferably level 43 for Protect from Melee",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1lv1kzf",
+          "html": "20 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a> for a better chance on making the correct <a href=\"https://runescape.wiki/w/Sithik_portrait\" target=\"_blank\" rel=\"noopener\">portrait</a>, the higher your crafting the better your chances.",
+          "text": "20 Crafting for a better chance on making the correct portrait, the higher your crafting the better your chances.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1pzg2hz",
+          "html": "8 <a href=\"https://runescape.wiki/w/Herblore\" target=\"_blank\" rel=\"noopener\">Herblore</a> for creation of <a href=\"https://runescape.wiki/w/Relicym%27s_balm\" target=\"_blank\" rel=\"noopener\">Relicym&#39;s balm</a> to unlock Uglug Nar&#39;s store",
+          "text": "8 Herblore for creation of Relicym's balm to unlock Uglug Nar's store",
+          "alternatives": []
+        },
+        {
+          "id": "rec:7vot0j",
+          "html": "A <a href=\"https://runescape.wiki/w/Comp_ogre_bow\" target=\"_blank\" rel=\"noopener\">comp ogre bow</a> (or can be learned how to create during the quest)",
+          "text": "A comp ogre bow (or can be learned how to create during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1qtjyql",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestone</a>, <a href=\"https://runescape.wiki/w/Ring_of_duelling\" target=\"_blank\" rel=\"noopener\">ring of duelling</a> with at least 4 charges, <a href=\"https://runescape.wiki/w/Dramen_Staff\" target=\"_blank\" rel=\"noopener\">dramen</a>/<a href=\"https://runescape.wiki/w/Lunar_staff\" target=\"_blank\" rel=\"noopener\">lunar staff</a> for <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> access (if <a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a> hasn&#39;t been completed).",
+          "text": "Activated Yanille lodestone, ring of duelling with at least 4 charges, dramen/lunar staff for fairy ring access (if A Fairy Tale III - Battle at Ork's Rift hasn't been completed).",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1nrn7iv",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a> and <a href=\"https://runescape.wiki/w/Combat\" target=\"_blank\" rel=\"noopener\">combat</a> gear",
+          "text": "Food and combat gear",
+          "alternatives": []
+        },
+        {
+          "id": "rec:q1swix",
+          "html": "If killing <a href=\"https://runescape.wiki/w/Slash_Bash\" target=\"_blank\" rel=\"noopener\">Slash Bash</a> with <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">ranged</a>, <a href=\"https://runescape.wiki/w/Comp_ogre_bow\" target=\"_blank\" rel=\"noopener\">comp ogre bow</a> and at least 50 <a href=\"https://runescape.wiki/w/Mithril_brutal\" target=\"_blank\" rel=\"noopener\">mithril brutal</a> arrows (or better)",
+          "text": "If killing Slash Bash with ranged, comp ogre bow and at least 50 mithril brutal arrows (or better)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "starting-out:bring:5gyzas",
+              "html": "Around 10 free inventory spaces",
+              "text": "Around 10 free inventory spaces"
+            },
+            {
+              "id": "starting-out:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ec6vtl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Grish\" target=\"_blank\" rel=\"noopener\">Grish</a> in <a href=\"https://runescape.wiki/w/Jiggig\" target=\"_blank\" rel=\"noopener\">Jiggig</a>, located a short run south of the Castle Wars.",
+          "text": "Talk to Grish in Jiggig, located a short run south of the Castle Wars.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What are Zogres?"
+                },
+                {
+                  "key": "4",
+                  "text": "Can I help in any way?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:hmmc2",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Ogre_guard\" target=\"_blank\" rel=\"noopener\">ogre guard</a> (without the combat level, east).",
+          "text": "Talk to the ogre guard (without the combat level, east).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:i3qhvs",
+          "html": "Climb over the <a href=\"https://runescape.wiki/w/Crushed_barricade\" target=\"_blank\" rel=\"noopener\">crushed barricade</a>.",
+          "text": "Climb over the crushed barricade.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:sbd7a9",
+          "html": "Run east and down the <a href=\"https://runescape.wiki/w/Stairs_(Jiggig_Dungeon)\" target=\"_blank\" rel=\"noopener\">stairs</a>.",
+          "text": "Run east and down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:8yz7ai",
+          "html": "Run as far north-west as you can, and search the <a href=\"https://runescape.wiki/w/Skeleton_(Zogre_Flesh_Eaters)\" target=\"_blank\" rel=\"noopener\">skeleton</a>, kill the <a href=\"https://runescape.wiki/w/Zombie_(Zogre_Flesh_Eaters)\" target=\"_blank\" rel=\"noopener\">zombie</a>, and take his ruined backpack.",
+          "text": "Run as far north-west as you can, and search the skeleton, kill the zombie, and take his ruined backpack.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:8yz7ai:14v8427",
+              "html": "If you&#39;re in combat when trying to search the skeleton, the zombie will not spawn.",
+              "text": "If you're in combat when trying to search the skeleton, the zombie will not spawn.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1jnxxas",
+          "html": "Open the ruined backpack. You will get a <a href=\"https://runescape.wiki/w/Dragon_inn_tankard\" target=\"_blank\" rel=\"noopener\">dragon inn tankard</a>, a <a href=\"https://runescape.wiki/w/Knife\" target=\"_blank\" rel=\"noopener\">knife</a>, and <a href=\"https://runescape.wiki/w/Rotten_food\" target=\"_blank\" rel=\"noopener\">rotten food</a>. Drop all except the dragon inn tankard.",
+          "text": "Open the ruined backpack. You will get a dragon inn tankard, a knife, and rotten food. Drop all except the dragon inn tankard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:d1k84",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Broken_Lecturn\" target=\"_blank\" rel=\"noopener\">broken lectern</a> behind the skeleton.",
+          "text": "Search the broken lectern behind the skeleton.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:17zqkx4",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Torn_page\" target=\"_blank\" rel=\"noopener\">torn page</a>.",
+          "text": "Read the torn page.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ys6m2",
+          "html": "Search the nearby <a href=\"https://runescape.wiki/w/Ogre_coffin\" target=\"_blank\" rel=\"noopener\">ogre coffin</a> until you find a <a href=\"https://runescape.wiki/w/Black_prism\" target=\"_blank\" rel=\"noopener\">black prism</a>.",
+          "text": "Search the nearby ogre coffin until you find a black prism.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "yanille",
+      "title": "Yanille",
+      "anchor": "Yanille",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "yanille:ppvtcw",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/Dragon_Inn\" target=\"_blank\" rel=\"noopener\">Dragon Inn</a> pub in <a href=\"https://runescape.wiki/w/Yanille\" target=\"_blank\" rel=\"noopener\">Yanille</a>.",
+          "text": "Enter the Dragon Inn pub in Yanille.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:uwkqit",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Dragon_inn_tankard\" target=\"_blank\" rel=\"noopener\">dragon inn tankard</a> on the bartender.",
+          "text": "Use the dragon inn tankard on the bartender.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:1xcm3gh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zavistic_Rarve\" target=\"_blank\" rel=\"noopener\">Zavistic Rarve</a> on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Wizards%27_Guild\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Guild</a>. Ring the bell outside if you lack the requirements.",
+          "text": "Talk to Zavistic Rarve on the 1st floor (UK) / 2nd floor (US) of the Wizards' Guild. Ring the bell outside if you lack the requirements.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What did you say I should do?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:1psg3wm",
+          "html": "Enter the house just north of the guild, 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US), talk to Sithik in bed.",
+          "text": "Enter the house just north of the guild, 1st floor (UK) / 2nd floor (US), talk to Sithik in bed.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Do you mind if I look around?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:1uxhr8v",
+          "html": "Search the drawers, the cupboard, and the wardrobe.",
+          "text": "Search the drawers, the cupboard, and the wardrobe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:casfne",
+          "html": "Read the 3 books, use the papyrus on Sithik to make a portrait, then use the portrait on Sithik.",
+          "text": "Read the 3 books, use the papyrus on Sithik to make a portrait, then use the portrait on Sithik.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:gmnmqk",
+          "html": "Make sure that Sithik says that he appreciates &quot;honesty&quot; of the portrait or you will have to make another. If he says &#39;truth&#39; you will have to try again. There is more papyrus in the drawers.",
+          "text": "Make sure that Sithik says that he appreciates \"honesty\" of the portrait or you will have to make another. If he says 'truth' you will have to try again. There is more papyrus in the drawers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:1jwf9d3",
+          "html": "Use the portrait on the bartender. He will return it as a Signed portrait.",
+          "text": "Use the portrait on the bartender. He will return it as a Signed portrait.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "yanille:1jwf9d3:149fue0",
+              "html": "If he just says that he recognises Sithik without signing the portrait, it means that you forgot to show him the dragon inn tankard.",
+              "text": "If he just says that he recognises Sithik without signing the portrait, it means that you forgot to show him the dragon inn tankard.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "yanille:1u8kqzw",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zavistic_Rarve\" target=\"_blank\" rel=\"noopener\">Zavistic Rarve</a>. He will give you a <a href=\"https://runescape.wiki/w/Strange_potion\" target=\"_blank\" rel=\"noopener\">strange potion</a>.",
+          "text": "Talk to Zavistic Rarve. He will give you a strange potion.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here about the sicks...err Zogres."
+                },
+                {
+                  "key": "3",
+                  "text": "I have some items that I'd like you to look at."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "yanille:1u8kqzw:16juhuw",
+              "html": "You must have the three books, signed portrait, dragon inn tankard, torn page and black prism with you otherwise he will say you do not have enough evidence",
+              "text": "You must have the three books, signed portrait, dragon inn tankard, torn page and black prism with you otherwise he will say you do not have enough evidence",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "yanille:go9415",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Strange_potion\" target=\"_blank\" rel=\"noopener\">strange potion</a> on the cup of tea beside Sithik.",
+          "text": "Use the strange potion on the cup of tea beside Sithik.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "yanille:12bkx4d",
+          "html": "Climb down the ladder, climb up the ladder, ask Sithik all the possible questions.",
+          "text": "Climb down the ladder, climb up the ladder, ask Sithik all the possible questions.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "How do I remove the effects of the spell from the area?"
+                },
+                {
+                  "key": "2",
+                  "text": "How do I get rid of the undead ogres?"
+                },
+                {
+                  "key": "3",
+                  "text": "How do I get rid of the disease?"
+                },
+                {
+                  "key": "4",
+                  "text": "Sorry, I have to go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "final-battle",
+      "title": "Final Battle",
+      "anchor": "Final_Battle",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "It is highly recommended that lower levelled players bring ranged equipment at this point. They should also buy or make a comp ogre bow and some <a href=\"https://runescape.wiki/w/Brutal_arrows\" target=\"_blank\" rel=\"noopener\">brutal arrows</a> during this part of the quest, as <a href=\"https://runescape.wiki/w/Slash_Bash\" target=\"_blank\" rel=\"noopener\">Slash Bash</a> will take 75% reduced damage from all other sources and despawns after 5 minutes if not killed. Necromancy is also a highly effective option."
+        },
+        {
+          "type": "step",
+          "id": "final-battle:1xe5muq",
+          "html": "Return to Grish at the quest start, he will give you a key.",
+          "text": "Return to Grish at the quest start, he will give you a key.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I found who's responsible for the Zogres being here."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:o8eapx",
+          "html": "Talk to him again to be able to create a <a href=\"https://runescape.wiki/w/Comp_ogre_bow\" target=\"_blank\" rel=\"noopener\">comp ogre bow</a> and <a href=\"https://runescape.wiki/w/Brutal_arrows\" target=\"_blank\" rel=\"noopener\">brutal arrows</a>, which can be used to fight the upcoming boss.",
+          "text": "Talk to him again to be able to create a comp ogre bow and brutal arrows, which can be used to fight the upcoming boss.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "There must be an easier way to kill these zogres!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "final-battle:o8eapx:1w2x8qi",
+              "html": "(Optional) Use a <a href=\"https://runescape.wiki/w/Clean_rogue%27s_purse\" target=\"_blank\" rel=\"noopener\">clean rogue&#39;s purse</a> on a vial of water, and then add a clean <a href=\"https://runescape.wiki/w/Snakeweed\" target=\"_blank\" rel=\"noopener\">snakeweed</a> to create a <a href=\"https://runescape.wiki/w/Relicym%27s_balm\" target=\"_blank\" rel=\"noopener\">relicym&#39;s balm</a>. <i>Use</i> this on <a href=\"https://runescape.wiki/w/Uglug_Nar\" target=\"_blank\" rel=\"noopener\">Uglug Nar</a> next to Grish, and you unlock his shop <a href=\"https://runescape.wiki/w/Uglug%27s_Stuffsies\" target=\"_blank\" rel=\"noopener\">Uglug&#39;s Stuffsies</a> which sells the comp ogre bow. This will also complete the <a href=\"https://runescape.wiki/w/Brutal_Stuffsies\" target=\"_blank\" rel=\"noopener\">Brutal Stuffsies</a> achievement.",
+              "text": "(Optional) Use a clean rogue's purse on a vial of water, and then add a clean snakeweed to create a relicym's balm. Use this on Uglug Nar next to Grish, and you unlock his shop Uglug's Stuffsies which sells the comp ogre bow. This will also complete the Brutal Stuffsies achievement.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "final-battle:o8eapx:w3zxw8",
+              "html": "(Optional) Either buy brutal arrows from the Grand Exchange, or fletch them at this point; there are <a href=\"https://runescape.wiki/w/Achey_Tree\" target=\"_blank\" rel=\"noopener\">achey trees</a> to the west of Grish, chop them down and fletch their logs into shafts, then attach <a href=\"https://runescape.wiki/w/Feather\" target=\"_blank\" rel=\"noopener\">feathers</a>, and tip them with <a href=\"https://runescape.wiki/w/Nails\" target=\"_blank\" rel=\"noopener\">nails</a> of your choosing.",
+              "text": "(Optional) Either buy brutal arrows from the Grand Exchange, or fletch them at this point; there are achey trees to the west of Grish, chop them down and fletch their logs into shafts, then attach feathers, and tip them with nails of your choosing.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "final-battle:14z3kpg",
+          "html": "Cross the barricade to the east and go down the stairs again.",
+          "text": "Cross the barricade to the east and go down the stairs again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:1kmpozq",
+          "html": "Once inside, run directly west, through the double doors and down more stairs.",
+          "text": "Once inside, run directly west, through the double doors and down more stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:t5bn7h",
+          "html": "Go north-east and search the stand in front of the pile of skulls. Prepare for battle.",
+          "text": "Go north-east and search the stand in front of the pile of skulls. Prepare for battle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:1oofwct",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Slash_Bash\" target=\"_blank\" rel=\"noopener\">Slash Bash</a>, pick up the Ogre artefact he drops.",
+          "text": "Kill Slash Bash, pick up the Ogre artefact he drops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:1y1f5ws",
+          "html": "Return to Grish at quest start.",
+          "text": "Return to Grish at quest start.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yeah, I have them here!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-battle:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Zogre_Flesh_Eaters_reward.png?81050",
+      "width": 512,
+      "height": 417,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Zogre_Flesh_Eaters_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Ourg_bones\" target=\"_blank\" rel=\"noopener\">Ourg bones</a>",
+        "text": "3 Ourg bones",
+        "subs": []
+      },
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Zogre_bones\" target=\"_blank\" rel=\"noopener\">Zogre bones</a>",
+        "text": "2 Zogre bones",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Jiggig\" target=\"_blank\" rel=\"noopener\">Jiggig</a>",
+        "text": "Access to Jiggig",
+        "subs": []
+      },
+      {
+        "html": "Ability to equip <a href=\"https://runescape.wiki/w/Inoculation_brace\" target=\"_blank\" rel=\"noopener\">inoculation brace</a>",
+        "text": "Ability to equip inoculation brace",
+        "subs": []
+      },
+      {
+        "html": "Ability to fletch <a href=\"https://runescape.wiki/w/Composite_ogre_bow\" target=\"_blank\" rel=\"noopener\">composite ogre bow</a> and <a href=\"https://runescape.wiki/w/Brutal_arrows\" target=\"_blank\" rel=\"noopener\">brutal arrows</a>",
+        "text": "Ability to fletch composite ogre bow and brutal arrows",
+        "subs": []
+      },
+      {
+        "html": "Take the <a href=\"https://runescape.wiki/w/Black_prism\" target=\"_blank\" rel=\"noopener\">black prism</a> to either <a href=\"https://runescape.wiki/w/Zavistic_Rarve\" target=\"_blank\" rel=\"noopener\">Zavistic Rarve</a> for 2,000 coins or to <a href=\"https://runescape.wiki/w/Yanni_Salika\" target=\"_blank\" rel=\"noopener\">Yanni Salika</a> in <a href=\"https://runescape.wiki/w/Shilo_Village_(location)\" target=\"_blank\" rel=\"noopener\">Shilo Village</a> for 5,000 coins.",
+        "text": "Take the black prism to either Zavistic Rarve for 2,000 coins or to Yanni Salika in Shilo Village for 5,000 coins.",
+        "subs": []
+      },
+      {
+        "html": "Take a 2, 3 or 4 dose <a href=\"https://runescape.wiki/w/Relicym%27s_balm\" target=\"_blank\" rel=\"noopener\">relicym&#39;s balm</a> potion to <a href=\"https://runescape.wiki/w/Uglug_Nar\" target=\"_blank\" rel=\"noopener\">Uglug Nar</a> for 300, 650 or 1,000 coins respectively. Doing so will unlock his <a href=\"https://runescape.wiki/w/Uglug%27s_Stuffsies\" target=\"_blank\" rel=\"noopener\">shop</a>.",
+        "text": "Take a 2, 3 or 4 dose relicym's balm potion to Uglug Nar for 300, 650 or 1,000 coins respectively. Doing so will unlock his shop.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Wayward",
+      "where": "Zogre Dungeon"
+    },
+    {
+      "name": "Zogre Dance",
+      "where": "Jiggig"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Rag_and_Bone_Man/Wish_list\" target=\"_blank\" rel=\"noopener\">Rag and Bone Man/Wish list</a>"
+      ]
+    }
+  ]
+}

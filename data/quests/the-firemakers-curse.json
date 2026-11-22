@@ -1,0 +1,1364 @@
+{
+  "format": 1,
+  "id": "the-firemakers-curse",
+  "title": "The Firemaker's Curse",
+  "page": "The Firemaker's Curse/Quick guide",
+  "rev": 36828370,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to one of the firemakers, for example <a href=\"https://runescape.wiki/w/Phoenix_(The_Firemaker%27s_Curse)\" target=\"_blank\" rel=\"noopener\">Phoenix</a>, gathered around a cave entrance south of <a href=\"https://runescape.wiki/w/Eagles%27_Peak\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak</a> and west of the <a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3376,
+      "lon": 2363,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Firemaker's_Curse/Quick_guide"
+    },
+    "members": true,
+    "length": "Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 64,
+        "note": ""
+      },
+      {
+        "skill": "Constitution",
+        "level": 76,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 74,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Char (level 160)",
+        "name": "Char",
+        "count": null,
+        "level": "160",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1izc9iy",
+          "html": "4 backpack spaces",
+          "text": "4 backpack spaces",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:jpu3m9",
+          "html": "A weapon which can be used from a distance and provides high accuracy",
+          "text": "A weapon which can be used from a distance and provides high accuracy",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1m61djr",
+          "html": "<a href=\"https://runescape.wiki/w/Weight-reducing_clothing\" target=\"_blank\" rel=\"noopener\">Weight-reducing clothing</a>",
+          "text": "Weight-reducing clothing",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1r7vq5v",
+          "html": "<a href=\"https://runescape.wiki/w/Warpriest_of_Zamorak_armour\" target=\"_blank\" rel=\"noopener\">Warpriest of Zamorak armour</a>, reduces damage taken if effect activates",
+          "text": "Warpriest of Zamorak armour, reduces damage taken if effect activates",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1bfawtu",
+          "html": "<a href=\"https://runescape.wiki/w/Enhanced_Excalibur\" target=\"_blank\" rel=\"noopener\">Enhanced Excalibur</a> helps greatly with healing throughout the trek",
+          "text": "Enhanced Excalibur helps greatly with healing throughout the trek",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:drjgpi",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Phoenix_(The_Firemaker%27s_Curse)\" target=\"_blank\" rel=\"noopener\">Phoenix</a> south of <a href=\"https://runescape.wiki/w/Eagles%27_Peak_(mountain)\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak</a>.",
+          "text": "Talk to Phoenix south of Eagles' Peak.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Travelling firemaker? What does that involve?"
+                },
+                {
+                  "key": "1",
+                  "text": "This seems dangerous. Why put your lives at risk?"
+                },
+                {
+                  "key": "2",
+                  "text": "What are you waiting for?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1s2nzqy",
+          "html": "<i>Enter</i> the tunnel.",
+          "text": "Enter the tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-cave-system",
+      "title": "The cave system",
+      "anchor": "The_cave_system",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 1"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TFC_room_1_solution.png/105px-TFC_room_1_solution.png?51756",
+          "width": 105,
+          "height": 105,
+          "alt": "",
+          "caption": "Room 1 puzzle solution",
+          "href": "https://runescape.wiki/w/File:TFC_room_1_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:kmpnv3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Flint\" target=\"_blank\" rel=\"noopener\">Flint</a> for a <a href=\"https://runescape.wiki/w/Pitch_can\" target=\"_blank\" rel=\"noopener\">pitch can</a>.",
+          "text": "Talk to Flint for a pitch can.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "That's all, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1c5i0xa",
+          "html": "Use the pitch can to light fires by right-clicking <i>make-fire-here</i> to complete the arrow on the ground. If you mess up, you can right-click the fire to stomp it out. You can also drag the pitch can onto an action bar, and use a key-bind to light fires with it. However, this will light a fire one tile in front of you.",
+          "text": "Use the pitch can to light fires by right-clicking make-fire-here to complete the arrow on the ground. If you mess up, you can right-click the fire to stomp it out. You can also drag the pitch can onto an action bar, and use a key-bind to light fires with it. However, this will light a fire one tile in front of you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 2"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1d45sop",
+          "html": "<i>Light</i> the fire pit.",
+          "text": "Light the fire pit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:aro0tc",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Firemaking_journal:_chapter_1\" target=\"_blank\" rel=\"noopener\">Firemaking journal</a> on the rock.",
+          "text": "Take the Firemaking journal on the rock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What plan?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:zaf6mu",
+          "html": "<i>Light</i> the fire again.",
+          "text": "Light the fire again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What do you want from us?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1wze61v",
+          "html": "<i>Enter</i> the tunnel on the east side of the room.",
+          "text": "Enter the tunnel on the east side of the room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "We must continue through the caves."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 3"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TFC_room_3_solution.png/75px-TFC_room_3_solution.png?f8cf7",
+          "width": 75,
+          "height": 135,
+          "alt": "",
+          "caption": "Room 3 puzzle solution",
+          "href": "https://runescape.wiki/w/File:TFC_room_3_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:2p6wb9",
+          "html": "Complete the pattern which is in the shape of a falling boulder.",
+          "text": "Complete the pattern which is in the shape of a falling boulder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1mg0dyf",
+          "html": "Avoid falling boulders. <i>Pick-up</i> rocks one at a time, placing them on the rock pile to the east. (Repeat this 6 times)",
+          "text": "Avoid falling boulders. Pick-up rocks one at a time, placing them on the rock pile to the east. (Repeat this 6 times)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:c2ptvr",
+          "html": "Climb up the rock pile.",
+          "text": "Climb up the rock pile.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 4"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1d45sop-2",
+          "html": "<i>Light</i> the fire pit.",
+          "text": "Light the fire pit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:relwgk",
+          "html": "Take the journal.",
+          "text": "Take the journal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Did you say Zaros?"
+                },
+                {
+                  "key": "1",
+                  "text": "Were you close to Zaros?"
+                },
+                {
+                  "key": "1",
+                  "text": "What happened to you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:18fu3tm",
+          "html": "<i>Tie-up firemaker</i> on the Column, selecting <a href=\"https://runescape.wiki/w/Twig_(human)\" target=\"_blank\" rel=\"noopener\">Twig</a>.",
+          "text": "Tie-up firemaker on the Column, selecting Twig.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Twig"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:m3opch",
+          "html": "Light the fire pit again.",
+          "text": "Light the fire pit again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:o49ijr",
+          "html": "Enter the tunnel to the east.",
+          "text": "Enter the tunnel to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 5"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TFC_room_5_solution.png/135px-TFC_room_5_solution.png?477e8",
+          "width": 135,
+          "height": 120,
+          "alt": "",
+          "caption": "Room 5 puzzle solution",
+          "href": "https://runescape.wiki/w/File:TFC_room_5_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:wlr3hf",
+          "html": "Using the bowls of red and yellow powder by the entrance, complete the puzzle.",
+          "text": "Using the bowls of red and yellow powder by the entrance, complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:hm1xyo",
+          "html": "Immediately after the puzzle, dodge 2 fire walls by standing in the open gaps.",
+          "text": "Immediately after the puzzle, dodge 2 fire walls by standing in the open gaps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1eyuv1g",
+          "html": "Proceed to the next room north.",
+          "text": "Proceed to the next room north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 6"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1b0k0mr",
+          "html": "The lights dim after a short time, dealing 50-100 damage every few seconds. Lighting the fires postpones this effect.",
+          "text": "The lights dim after a short time, dealing 50-100 damage every few seconds. Lighting the fires postpones this effect.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-cave-system:1b0k0mr:102n6sv",
+              "html": "If you come close to dying in this room, you will be rescued by the firemakers and restored to full health. If this happens, any activated pillars will remain activated, but all lit fires will be extinguished. You don&#39;t have to relight all the fires.",
+              "text": "If you come close to dying in this room, you will be rescued by the firemakers and restored to full health. If this happens, any activated pillars will remain activated, but all lit fires will be extinguished. You don't have to relight all the fires.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:t7irvj",
+          "html": "Complete the puzzle:",
+          "text": "Complete the puzzle:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:h1ld0l",
+              "html": "Go west, light the fire pit. Push nearby column switch.",
+              "text": "Go west, light the fire pit. Push nearby column switch.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:xxems",
+              "html": "Go far east, light the fire pit. Push nearby column switch.",
+              "text": "Go far east, light the fire pit. Push nearby column switch.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:1e650sr",
+              "html": "Go back west and north to the centre and jump the pillar east of you. Push the nearby column switch.",
+              "text": "Go back west and north to the centre and jump the pillar east of you. Push the nearby column switch.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:1ww9oww",
+              "html": "Jump the ledge just south-east of you, jump the next ledge east. Light the fire pit.",
+              "text": "Jump the ledge just south-east of you, jump the next ledge east. Light the fire pit.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:10ec02v",
+              "html": "North of you is the flame switch - loop around by going back west then east and push it.",
+              "text": "North of you is the flame switch - loop around by going back west then east and push it.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:flgaor",
+              "html": "Head west, light the fire pit then push the switch. Move fast here to avoid being hit by the rocks above you.",
+              "text": "Head west, light the fire pit then push the switch. Move fast here to avoid being hit by the rocks above you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:wa31za",
+              "html": "Jump back to the centre and push the switch immediately south of you.",
+              "text": "Jump back to the centre and push the switch immediately south of you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:t7irvj:1hc6n5h",
+              "html": "Head to the north-west corner and light the fire pit, press the switch just south. Watch out for the falling rocks.",
+              "text": "Head to the north-west corner and light the fire pit, press the switch just south. Watch out for the falling rocks.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1q4hibm",
+          "html": "Enter the tunnel in the north-east corner.",
+          "text": "Enter the tunnel in the north-east corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 7"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:18vjnhj",
+          "html": "Light the fire and pick up the journal.",
+          "text": "Light the fire and pick up the journal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Zamorak!"
+                },
+                {
+                  "key": "2",
+                  "text": "Yes, he's a terrible, hateful god."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:izghq",
+          "html": "<i>Tie-up firemaker</i> on the Column, selecting <a href=\"https://runescape.wiki/w/Sera\" target=\"_blank\" rel=\"noopener\">Sera</a>.",
+          "text": "Tie-up firemaker on the Column, selecting Sera.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "More options"
+                },
+                {
+                  "key": "1",
+                  "text": "Sera"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1hwm6ky",
+          "html": "Light the fire again and proceed to the next room east.",
+          "text": "Light the fire again and proceed to the next room east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 8"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TFC_room_8_solution.png/120px-TFC_room_8_solution.png?477e8",
+          "width": 120,
+          "height": 120,
+          "alt": "",
+          "caption": "Room 8 puzzle solution",
+          "href": "https://runescape.wiki/w/File:TFC_room_8_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:wje077",
+          "html": "Complete the puzzle.",
+          "text": "Complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1yba7si",
+          "html": "Immediately after the puzzle, dodge 4 quicker fire walls by standing in the open gaps.",
+          "text": "Immediately after the puzzle, dodge 4 quicker fire walls by standing in the open gaps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-cave-system:1yba7si:bytiru",
+              "html": "There might be a bug where 2 firewalls spawn at the same time, leaving no open gaps. A solution might be to stand in the far south-east corner of the room or run around the fire walls.",
+              "text": "There might be a bug where 2 firewalls spawn at the same time, leaving no open gaps. A solution might be to stand in the far south-east corner of the room or run around the fire walls.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1eyuv1g-2",
+          "html": "Proceed to the next room north.",
+          "text": "Proceed to the next room north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 9"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:u719n8",
+          "html": "Light one of the oil pools on the wall.",
+          "text": "Light one of the oil pools on the wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:13w9zr5",
+          "html": "Avoiding being damaged by the fire balls. You have to hold on to all the waves for about 10 minutes.",
+          "text": "Avoiding being damaged by the fire balls. You have to hold on to all the waves for about 10 minutes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-cave-system:13w9zr5:1xzubac",
+              "html": "You can <i>light</i> the oil pool lines as a barricade.",
+              "text": "You can light the oil pool lines as a barricade.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:13w9zr5:qrzvuw",
+              "html": "If you stay in the north-west corner and immediately light the oil pools as soon as they&#39;re ready you should stay safe. There is no guarantee however.",
+              "text": "If you stay in the north-west corner and immediately light the oil pools as soon as they're ready you should stay safe. There is no guarantee however.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:13w9zr5:etmrju",
+              "html": "If the fire balls start congregating on one side, run to opposite corner, placing a barricade behind you.",
+              "text": "If the fire balls start congregating on one side, run to opposite corner, placing a barricade behind you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-cave-system:13w9zr5:i2bjvf",
+              "html": "Another tactic is to use the option on the oil pools and use &quot;right&quot; and &quot;left&quot; to perform a clockwise rotation of the edges of the pit.",
+              "text": "Another tactic is to use the option on the oil pools and use \"right\" and \"left\" to perform a clockwise rotation of the edges of the pit.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1eyuv1g-3",
+          "html": "Proceed to the next room north.",
+          "text": "Proceed to the next room north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 10"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:7qkk41",
+          "html": "Light the fire and grab the journal.",
+          "text": "Light the fire and grab the journal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1r9qzk3",
+          "html": "Tie up Twig again and light the fire.",
+          "text": "Tie up Twig again and light the fire.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Twig"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1xpndqo",
+          "html": "Proceed to the next room east.",
+          "text": "Proceed to the next room east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 11"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/TFC_room_11_solution.png/105px-TFC_room_11_solution.png?477e8",
+          "width": 105,
+          "height": 150,
+          "alt": "",
+          "caption": "Room 11 puzzle solution",
+          "href": "https://runescape.wiki/w/File:TFC_room_11_solution.png"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:wje077-2",
+          "html": "Complete the puzzle.",
+          "text": "Complete the puzzle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1d45sop-3",
+          "html": "Light the fire pit.",
+          "text": "Light the fire pit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:3tuxz7",
+          "html": "<i>Take-torch</i> from the fire pit and continue down the path.",
+          "text": "Take-torch from the fire pit and continue down the path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:11ofoxy",
+          "html": "When there are dark tendrils, ward them off at the edge of your screen by clicking on them.",
+          "text": "When there are dark tendrils, ward them off at the edge of your screen by clicking on them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-cave-system:11ofoxy:18wjr0v",
+              "html": "Tendrils may hide behind your interface if you have panels on the edges of your screen. To make the tendrils more visible, right click on World Map and click &quot;Toggle High Contrast Mode&quot;.",
+              "text": "Tendrils may hide behind your interface if you have panels on the edges of your screen. To make the tendrils more visible, right click on World Map and click \"Toggle High Contrast Mode\".",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1ete565",
+          "html": "Proceed to the next room at the end of the path.",
+          "text": "Proceed to the next room at the end of the path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Room 12"
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:9qhbim",
+          "html": "Light the fire and take the journal.",
+          "text": "Light the fire and take the journal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:bgc39f",
+          "html": "<i>Tie-up</i> <a href=\"https://runescape.wiki/w/Emmett\" target=\"_blank\" rel=\"noopener\">Emmett</a> and light the fire.",
+          "text": "Tie-up Emmett and light the fire.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Emmett"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-cave-system:1xpndqo-2",
+          "html": "Proceed to the next room east.",
+          "text": "Proceed to the next room east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "face-off-with-char",
+      "title": "Face-off with Char",
+      "anchor": "Face-off_with_Char",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "face-off-with-char:iri6a0",
+          "html": "During this fight, you must fight Char with Necromancy, Magic or Ranged.",
+          "text": "During this fight, you must fight Char with Necromancy, Magic or Ranged.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:1i67nxk",
+          "html": "Teleport out and prepare for the battle.",
+          "text": "Teleport out and prepare for the battle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "face-off-with-char:1i67nxk:dq756o",
+              "html": "Carry an inventory full of food (such as <a href=\"https://runescape.wiki/w/Sharks\" target=\"_blank\" rel=\"noopener\">sharks</a> or <a href=\"https://runescape.wiki/w/Rocktails\" target=\"_blank\" rel=\"noopener\">rocktails</a>).",
+              "text": "Carry an inventory full of food (such as sharks or rocktails).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "face-off-with-char:1i67nxk:cyoes6",
+              "html": "Carry necromancy, range or a mage weapon.",
+              "text": "Carry necromancy, range or a mage weapon.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "face-off-with-char:1i67nxk:1hbuhxn",
+              "html": "Do not bring any armour as it has no effect during this battle.",
+              "text": "Do not bring any armour as it has no effect during this battle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "face-off-with-char:1i67nxk:1ogykng",
+              "html": "Do not bring a familiar as this might cause the dialogue with Char to be glitched.",
+              "text": "Do not bring a familiar as this might cause the dialogue with Char to be glitched.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:yjorsx",
+          "html": "Teleport back to Eagles&#39; Peak and run south to the entrance of the cave.",
+          "text": "Teleport back to Eagles' Peak and run south to the entrance of the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:1n2ykd3",
+          "html": "Talk to Flint to get another Pitch can.",
+          "text": "Talk to Flint to get another Pitch can.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:7g4jvn",
+          "html": "Climb down the steps to enter Char&#39;s lair.",
+          "text": "Climb down the steps to enter Char's lair.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:relwgk",
+          "html": "Take the journal.",
+          "text": "Take the journal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "That's a good idea."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:989swx",
+          "html": "Talk to Char to engage the fight.",
+          "text": "Talk to Char to engage the fight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Strategy to defeat Char"
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:ttsg40",
+          "html": "During the fight, you should keep a distance from Char at all times.",
+          "text": "During the fight, you should keep a distance from Char at all times.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:4n0bfy",
+          "html": "The amount of damage you deal is determined by the amount of flames you have lit (100 damage per active flame).",
+          "text": "The amount of damage you deal is determined by the amount of flames you have lit (100 damage per active flame).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:shesu8",
+          "html": "As you fight her, keep lighting flames.",
+          "text": "As you fight her, keep lighting flames.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:15jxfrn",
+          "html": "Add your pitch can to your ability bar to make fires much more easily.",
+          "text": "Add your pitch can to your ability bar to make fires much more easily.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:899vl8",
+          "html": "Run around the edges of the arena lighting flames as fast as you can.",
+          "text": "Run around the edges of the arena lighting flames as fast as you can.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:ldo3wr",
+          "html": "When you have 10 active flames, run some distance from Char and attack her a few times, dealing 1,000-5,000 damage in total.",
+          "text": "When you have 10 active flames, run some distance from Char and attack her a few times, dealing 1,000-5,000 damage in total.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:kdz8ll",
+          "html": "Repeat steps 1-2 until she is defeated.",
+          "text": "Repeat steps 1-2 until she is defeated.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:l3ygj6",
+          "html": "Remember to avoid the firewalls by maneuvering through the gaps, or you&#39;ll be hit for 1,000-4,000 damage.",
+          "text": "Remember to avoid the firewalls by maneuvering through the gaps, or you'll be hit for 1,000-4,000 damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:1blqlbv",
+          "html": "While Char is glowing she is invincible, so focus on lighting flames during this period.",
+          "text": "While Char is glowing she is invincible, so focus on lighting flames during this period.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "After the battle"
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:n0rs1r",
+          "html": "After the battle ends, talk to Char.",
+          "text": "After the battle ends, talk to Char.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How do we get out?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "face-off-with-char:1gimhs9",
+          "html": "There may be a glitch where you cannot finish the dialogue, in this case leave the cave through the southern tunnel and come back in.",
+          "text": "There may be a glitch where you cannot finish the dialogue, in this case leave the cave through the southern tunnel and come back in.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:oc19dq",
+          "html": "Exit through the tunnel to the north.",
+          "text": "Exit through the tunnel to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Firemaker%27s_Curse_reward.png?21df0",
+      "width": 512,
+      "height": 387,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Firemaker%27s_Curse_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "80,000 experience",
+        "text": "80,000 experience",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience",
+        "text": "30,000 experience",
+        "subs": []
+      },
+      {
+        "html": "76,000 experience",
+        "text": "76,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/The_Book_of_Char\" target=\"_blank\" rel=\"noopener\">The Book of Char</a>: When activated in the off-hand slot, it causes fiery orbs to spin around the player, spontaneously igniting any log the player walks/runs over.",
+        "text": "The Book of Char: When activated in the off-hand slot, it causes fiery orbs to spin around the player, spontaneously igniting any log the player walks/runs over.",
+        "subs": []
+      },
+      {
+        "html": "Access to two new events and a new <a href=\"https://runescape.wiki/w/Firemaker%27s_costume\" target=\"_blank\" rel=\"noopener\">Firemaker&#39;s costume</a> in <a href=\"https://runescape.wiki/w/Balthazar_Beauregard%27s_Big_Top_Bonanza\" target=\"_blank\" rel=\"noopener\">Balthazar Beauregard&#39;s Big Top Bonanza</a>.",
+        "text": "Access to two new events and a new Firemaker's costume in Balthazar Beauregard's Big Top Bonanza.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Char%27s_training_cave\" target=\"_blank\" rel=\"noopener\">Char&#39;s training cave</a> (with level 91 or higher <a href=\"https://runescape.wiki/w/Firemaking\" target=\"_blank\" rel=\"noopener\">Firemaking</a>).",
+        "text": "Access to Char's training cave (with level 91 or higher Firemaking).",
+        "subs": [
+          "Ability to collect the four <a href=\"https://runescape.wiki/w/Fire_creatures\" target=\"_blank\" rel=\"noopener\">fire creature</a> pets (<a href=\"https://runescape.wiki/w/Warming_Flame\" target=\"_blank\" rel=\"noopener\">Warming Flame</a>, <a href=\"https://runescape.wiki/w/Twisted_Firestarter\" target=\"_blank\" rel=\"noopener\">Twisted Firestarter</a>, <a href=\"https://runescape.wiki/w/Glowing_Ember\" target=\"_blank\" rel=\"noopener\">Glowing Ember</a>, and <a href=\"https://runescape.wiki/w/Searing_Flame\" target=\"_blank\" rel=\"noopener\">Searing Flame</a>)."
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Charred Remains",
+      "where": ""
+    },
+    {
+      "name": "The Firemakers' Theme",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

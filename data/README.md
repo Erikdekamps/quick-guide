@@ -1,28 +1,32 @@
-# data/ (an example, not used by the app yet)
+# data/
 
-This folder shows what the wiki's data could look like as JSON files in git. A pipeline would build them from the
-RuneScape Wiki, so the app reads these files and players' browsers no longer ask the wiki.
+The quests, area tasks and capes of the RuneScape Wiki, as JSON files. A build makes them from the wiki with the app's
+own reader (`js/wiki/`): `npm run data`. GitHub runs it every night and opens a pull request when the wiki changed
+(`.github/workflows/data.yml`). Do not change these files by hand: the next build writes them again.
 
-The files here are real: they were read from the wiki on 2026-11-22 with the app's own reader (`js/wiki/`).
-Only a few are here, to look at the shape.
+The app does not read these files yet. When it does, a player's browser no longer asks the wiki for them.
 
 | File | What it is |
 | --- | --- |
-| `index.json` | What the start screens need: every quest and miniquest (342), the 13 areas with their tiers, the 3 capes. Complete. |
-| `quests/<id>.json` | One quest guide. Here: `cooks-assistant` (small), `while-guthix-sleeps` and `desert-treasure` (the two biggest), `bar-crawl-miniquest` (a miniquest). |
-| `achievements/areas/<id>.json` | One area with all its tiers and tasks. Here: `ardougne` and `lumbridge`. |
-| `achievements/capes/<id>.json` | One cape with its achievements: `mqc`, `comp` and `trim`. All three are here. |
+| `index.json` | What the lists need: every quest and miniquest, the 13 areas with their tiers, the 3 capes |
+| `quests/<id>.json` | One quest guide |
+| `achievements/areas/<id>.json` | One area, with all its tiers and tasks |
+| `achievements/capes/<id>.json` | One cape with its achievements: `mqc`, `comp` and `trim` |
 
 How to read them:
 
-- `format` is the shape of the file. A change to the shape raises it.
-- `rev` is the wiki's revision of the page a file was read from. The pipeline writes a file again only when it changed.
-- An `id` of a step, an item, a task or an achievement is the one the app saves your ticks by today.
+- `format` is the shape of the file. A change to the shape raises it (`FORMAT` in `tools/data/shape.js`).
+- `rev` is the wiki's revision of the page a file was read from.
+- `added` is the day a build first saw a quest, a task or an achievement. The first build marked nothing.
+- `updated`, in the index, is the day the data last changed.
+- An `id` of a step, an item, a task or an achievement is the one the app saves your ticks by.
 - Tasks, steps and achievements are lists, in the wiki's order. (JSON does not keep the order of keys that are numbers.)
 - Text with links is HTML that the reader already made safe.
 - Pictures and map tiles are not copied: the files hold their address on the wiki.
+- A quest in the index without `rev` has no guide on the wiki yet, and no file.
 
-The index names every quest, area and cape; most of their files are not in this example.
+A file only changes when the wiki did: nothing in it says when it was built. So a pull request shows what changed on
+the wiki, and nothing else.
 
 The text in these files comes from the [RuneScape Wiki](https://runescape.wiki/) and is under CC BY-NC-SA 3.0, not
 under the licence of the code: see `LICENSE.md` in this folder.

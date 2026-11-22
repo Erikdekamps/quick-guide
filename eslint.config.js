@@ -69,7 +69,7 @@ module.exports = [
   { files: ['tools/**/*.js', '*.config.js', 'tests/unit/**/*.js', 'tests/support/coverage.js'], languageOptions: node, rules: nodeRules },
   // The browser tests and the designs tool: Node, and the page inside page.evaluate().
   {
-    files: ['tests/*.js', 'tests/support/**/*.js', 'tools/designs/**/*.js'],
+    files: ['tests/*.js', 'tests/support/**/*.js', 'tools/designs/**/*.js', 'tools/data/collect.js'],
     ignores: ['tests/support/coverage.js'],
     languageOptions: { ...node, globals: { ...globals.node, ...inPage } },
     rules: nodeRules

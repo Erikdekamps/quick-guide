@@ -1,0 +1,239 @@
+{
+  "format": 1,
+  "id": "lair-of-tarn-razorlor-miniquest",
+  "title": "Lair of Tarn Razorlor (miniquest)",
+  "page": "Lair of Tarn Razorlor (miniquest)/Quick guide",
+  "rev": 36501293,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Recover the diary of <a href=\"https://runescape.wiki/w/Tarn_Razorlor\" target=\"_blank\" rel=\"noopener\">Tarn Razorlor</a>. The entrance to <a href=\"https://runescape.wiki/w/Lair_of_Tarn_Razorlor_(dungeon)\" target=\"_blank\" rel=\"noopener\">Tarn&#39;s lair</a> is on the north wall of the ground floor of the <a href=\"https://runescape.wiki/w/Abandoned_Mine\" target=\"_blank\" rel=\"noopener\">Abandoned Mine</a>, accessed via the surface cart tunnel. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9661,
+      "lon": 3424,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Lair_of_Tarn_Razorlor_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Haunted Mine",
+        "depth": 1
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Slayer",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Tarn Razorlor (level 79)",
+        "name": "Tarn Razorlor",
+        "count": null,
+        "level": "79",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:y4qei9",
+          "html": "Armour and weapons",
+          "text": "Armour and weapons",
+          "alternatives": []
+        },
+        {
+          "id": "rec:7x179c",
+          "html": "Food and potions",
+          "text": "Food and potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:n9p1lz",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_slaying\" target=\"_blank\" rel=\"noopener\">Ring of slaying</a> to teleport to the entrance to Tarn&#39;s lair",
+          "text": "Ring of slaying to teleport to the entrance to Tarn's lair",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-to-tarn-razorlor",
+      "title": "Getting to Tarn Razorlor",
+      "anchor": "Getting_to_Tarn_Razorlor",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Tarn%27s_Lair_map.png/300px-Tarn%27s_Lair_map.png?640e5",
+          "width": 300,
+          "height": 269,
+          "alt": "",
+          "caption": "A solution to navigating the maze.",
+          "href": "https://runescape.wiki/w/File:Tarn%27s_Lair_map.png"
+        },
+        {
+          "type": "step",
+          "id": "getting-to-tarn-razorlor:14ca61n",
+          "html": "Using a <a href=\"https://runescape.wiki/w/Ring_of_slaying\" target=\"_blank\" rel=\"noopener\">Ring of slaying</a> will teleport the player directly to <a href=\"https://runescape.wiki/w/Lair_of_Tarn_Razorlor_(dungeon)\" target=\"_blank\" rel=\"noopener\">Tarn&#39;s lair</a>, skipping most of the quest.",
+          "text": "Using a Ring of slaying will teleport the player directly to Tarn's lair, skipping most of the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-to-tarn-razorlor:14ca61n:w732of",
+              "html": "Alternatively, enter level 1 of the <a href=\"https://runescape.wiki/w/Abandoned_mine\" target=\"_blank\" rel=\"noopener\">abandoned mine</a> by climbing over the mine cart west of the secret entrance and crawling down the cart tunnel.",
+              "text": "Alternatively, enter level 1 of the abandoned mine by climbing over the mine cart west of the secret entrance and crawling down the cart tunnel.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-to-tarn-razorlor:14ca61n:8kod9a",
+              "html": "Head north and enter the entrance. Watch for <a href=\"https://runescape.wiki/w/Skeleton\" target=\"_blank\" rel=\"noopener\">skeletons</a> and <a href=\"https://runescape.wiki/w/Possessed_pickaxe\" target=\"_blank\" rel=\"noopener\">possessed pickaxes</a>.",
+              "text": "Head north and enter the entrance. Watch for skeletons and possessed pickaxes.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-to-tarn-razorlor:14ca61n:oks8uh",
+              "html": "Navigate the maze, disarm traps along the way or be hit by damage. Watch for skeletons and <a href=\"https://runescape.wiki/w/Zombie\" target=\"_blank\" rel=\"noopener\">zombies</a> throughout the maze.",
+              "text": "Navigate the maze, disarm traps along the way or be hit by damage. Watch for skeletons and zombies throughout the maze.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "getting-to-tarn-razorlor:14ca61n:oks8uh:10wpggh",
+                  "html": "For help see <a href=\"https://runescape.wiki/w/Tarn%27s_Lair#Route\" target=\"_blank\" rel=\"noopener\">Tarn&#39;s Lair#Route</a>",
+                  "text": "For help see Tarn's Lair#Route",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fighting-tarn-razorlor",
+      "title": "Fighting Tarn Razorlor",
+      "anchor": "Fighting_Tarn_Razorlor",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fighting-tarn-razorlor:qhg8bf",
+          "html": "Kill both Terror dogs, Mutant tarn and Tarn",
+          "text": "Kill both Terror dogs, Mutant tarn and Tarn",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fighting-tarn-razorlor:17yrpgn",
+          "html": "Head north through the passageway and take Tarn&#39;s diary.",
+          "text": "Head north through the passageway and take Tarn's diary.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Lair_of_Tarn_Razorlor_%28miniquest%29_reward.png?6bf96",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Lair_of_Tarn_Razorlor_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Tarn%27s_diary\" target=\"_blank\" rel=\"noopener\">Tarn&#39;s diary</a>",
+        "text": "Tarn's diary",
+        "subs": []
+      },
+      {
+        "html": "Ability to create <a href=\"https://runescape.wiki/w/Salve_amulet(e)\" target=\"_blank\" rel=\"noopener\">enchanted salve amulets</a>, by using Tarn&#39;s diary on <a href=\"https://runescape.wiki/w/Salve_amulet\" target=\"_blank\" rel=\"noopener\">salve amulets</a>.",
+        "text": "Ability to create enchanted salve amulets, by using Tarn's diary on salve amulets.",
+        "subs": []
+      },
+      {
+        "html": "Access to terror dogs in Tarn&#39;s lair",
+        "text": "Access to terror dogs in Tarn's lair",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Undead Dungeon",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

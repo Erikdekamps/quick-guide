@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "id": "spiritual-enlightenment-miniquest",
+  "title": "Spiritual Enlightenment (miniquest)",
+  "page": "Spiritual Enlightenment (miniquest)/Quick guide",
+  "rev": 36715001,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk with <a href=\"https://runescape.wiki/w/The_Assassin#Aminishi\" target=\"_blank\" rel=\"noopener\">Ling</a> on the south beach of <a href=\"https://runescape.wiki/w/Aminishi\" target=\"_blank\" rel=\"noopener\">Aminishi</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 11276,
+      "lon": 2089,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Spiritual_Enlightenment_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Impressing the Locals",
+        "depth": 1
+      },
+      {
+        "text": "Complete the 'Meet the Assassin' voyage in player-owned port",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Slayer",
+        "level": 90,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Several Sotapanna, Sakadagami, and/or Anagami (level 111, 118 and 124 respectively)",
+        "name": "Several Sotapanna, Sakadagami, and/or Anagami",
+        "count": null,
+        "level": "111, 118 and 124 respectively",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1xmxipx",
+          "html": "High level armour, weapons, and food. Enemies are weak to <a href=\"https://runescape.wiki/w/Air_spells\" target=\"_blank\" rel=\"noopener\">air spells</a>",
+          "text": "High level armour, weapons, and food. Enemies are weak to air spells",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "creatures-of-aminishi",
+      "title": "Creatures of Aminishi",
+      "anchor": "Creatures_of_Aminishi",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "creatures-of-aminishi:1iq5qre",
+          "html": "Charter a ship to <a href=\"https://runescape.wiki/w/Aminishi\" target=\"_blank\" rel=\"noopener\">Aminishi</a> and talk to <a href=\"https://runescape.wiki/w/The_Assassin#Aminishi\" target=\"_blank\" rel=\"noopener\">Ling</a>.",
+          "text": "Charter a ship to Aminishi and talk to Ling.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "creatures-of-aminishi:1iq5qre:5aa0my",
+              "html": "If you have just completed <a href=\"https://runescape.wiki/w/Impressing_the_Locals\" target=\"_blank\" rel=\"noopener\">Impressing the Locals</a>, you may need to relog for the chat option to show up.",
+              "text": "If you have just completed Impressing the Locals, you may need to relog for the chat option to show up.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "creatures-of-aminishi:18a21yl",
+          "html": "Kill creatures on the island until you receive 3 books.",
+          "text": "Kill creatures on the island until you receive 3 books.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "creatures-of-aminishi:18a21yl:fcwz2",
+              "html": "Ordered from best drop rate to worst, kill <a href=\"https://runescape.wiki/w/Anagami\" target=\"_blank\" rel=\"noopener\">Anagami</a>, <a href=\"https://runescape.wiki/w/Sakadagami\" target=\"_blank\" rel=\"noopener\">Sakadagami</a> or <a href=\"https://runescape.wiki/w/Sotapanna\" target=\"_blank\" rel=\"noopener\">Sotapanna</a>.",
+              "text": "Ordered from best drop rate to worst, kill Anagami, Sakadagami or Sotapanna.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "creatures-of-aminishi:18a21yl:15pg386",
+              "html": "The 3 book names are:",
+              "text": "The 3 book names are:",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "creatures-of-aminishi:18a21yl:15pg386:1h3btfy",
+                  "html": "<a href=\"https://runescape.wiki/w/The_Path_of_the_Dragon\" target=\"_blank\" rel=\"noopener\">The Path of the Dragon</a>",
+                  "text": "The Path of the Dragon",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "creatures-of-aminishi:18a21yl:15pg386:c6dppq",
+                  "html": "<a href=\"https://runescape.wiki/w/The_Path_of_the_Monk\" target=\"_blank\" rel=\"noopener\">The Path of the Monk</a>",
+                  "text": "The Path of the Monk",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "creatures-of-aminishi:18a21yl:15pg386:okdswq",
+                  "html": "<a href=\"https://runescape.wiki/w/The_Path_of_the_Elemental\" target=\"_blank\" rel=\"noopener\">The Path of the Elemental</a>",
+                  "text": "The Path of the Elemental",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "creatures-of-aminishi:18a21yl:17atl2y",
+              "html": "Pick up some <a href=\"https://runescape.wiki/w/Spirit_dragon_charm\" target=\"_blank\" rel=\"noopener\">spirit dragon charms</a> because you will need 1-2 later. (Note: Ensure to have toggled off your spirit imp destroy option)",
+              "text": "Pick up some spirit dragon charms because you will need 1-2 later. (Note: Ensure to have toggled off your spirit imp destroy option)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "creatures-of-aminishi:xokq8a",
+          "html": "Return to Ling.",
+          "text": "Return to Ling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "spirit-realm",
+      "title": "Spirit realm",
+      "anchor": "Spirit_realm",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "spirit-realm:w15vul",
+          "html": "Enter <a href=\"https://runescape.wiki/w/The_Well_of_Spirits\" target=\"_blank\" rel=\"noopener\">The Well of Spirits</a> on the middle tier to travel to the spirit realm.",
+          "text": "Enter The Well of Spirits on the middle tier to travel to the spirit realm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "spirit-realm:sbhgz2",
+          "html": "Head south-west and talk to <a href=\"https://runescape.wiki/w/Yulong\" target=\"_blank\" rel=\"noopener\">Yulong</a> on the shore. He is exactly where you would find Ling outside the spirit realm.",
+          "text": "Head south-west and talk to Yulong on the shore. He is exactly where you would find Ling outside the spirit realm.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "spirit-realm:xokq8a",
+          "html": "Return to Ling.",
+          "text": "Return to Ling.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Spiritual_Enlightenment_%28miniquest%29_reward.png?81c33",
+      "width": 506,
+      "height": 330,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Spiritual_Enlightenment_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "250 <a href=\"https://runescape.wiki/w/Chimes\" target=\"_blank\" rel=\"noopener\">chimes</a>",
+        "text": "250 chimes",
+        "subs": []
+      },
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Taijitu\" target=\"_blank\" rel=\"noopener\">taijitu</a>",
+        "text": "3 taijitu",
+        "subs": []
+      },
+      {
+        "html": "Medium experience <a href=\"https://runescape.wiki/w/Medium_Slayer_XP_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "Medium experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to Aminishi&#39;s Spirit Realm and <a href=\"https://runescape.wiki/w/Arhat\" target=\"_blank\" rel=\"noopener\">arhat</a> dragons",
+        "text": "Access to Aminishi's Spirit Realm and arhat dragons",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Jed_Hunter_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Jed Hunter (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Damage_Control_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Damage Control (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_for_an_Eye_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye for an Eye (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Final_Destination_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Final Destination (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ghosts_from_the_Past_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ghosts from the Past (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Harbinger_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Harbinger (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Tuai_Leit%27s_Own_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tuai Leit&#39;s Own (miniquest)</a>"
+      ]
+    }
+  ]
+}

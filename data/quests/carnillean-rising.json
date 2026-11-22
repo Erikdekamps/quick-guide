@@ -1,0 +1,1173 @@
+{
+  "format": 1,
+  "id": "carnillean-rising",
+  "title": "Carnillean Rising",
+  "page": "Carnillean Rising/Quick guide",
+  "rev": 37221887,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak with <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a> outside of the <a href=\"https://runescape.wiki/w/Carnillean_family\" target=\"_blank\" rel=\"noopener\">Carnillean mansion</a> in south-west <a href=\"https://runescape.wiki/w/East_Ardougne\" target=\"_blank\" rel=\"noopener\">East Ardougne</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3280,
+      "lon": 2568,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Carnillean_Rising/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Blood Pact",
+        "depth": 1
+      },
+      {
+        "text": "Hazeel Cult",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 31,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 33,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "50 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "None, but the players will need to dodge attacks from a Cave Wolf Matriarch (level 91)",
+        "name": "None, but the players will need to dodge attacks from a Cave Wolf Matriarch",
+        "count": null,
+        "level": "91",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1iv1w82",
+          "html": "23 free inventory spaces to collect items during the quest",
+          "text": "23 free inventory spaces to collect items during the quest",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:3tsigo",
+          "html": "A couple pieces of food",
+          "text": "A couple pieces of food",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "The location of the Carnillean Mansion.",
+          "lat": 3271,
+          "lon": 2570,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2565,
+                      3266
+                    ],
+                    [
+                      2565,
+                      3276
+                    ],
+                    [
+                      2575,
+                      3276
+                    ],
+                    [
+                      2575,
+                      3266
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Carnillean_Rising/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1wfj1lt",
+          "html": "Outside the Carnillean Mansion south-west of East Ardougne, talk to <a href=\"https://runescape.wiki/w/Xenia\" target=\"_blank\" rel=\"noopener\">Xenia</a>.",
+          "text": "Outside the Carnillean Mansion south-west of East Ardougne, talk to Xenia.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I remember you."
+                },
+                {
+                  "key": "1",
+                  "text": "Thanks for fixing it!"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:17y07tq",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ceril_Carnillean\" target=\"_blank\" rel=\"noopener\">Ceril Carnillean</a>.",
+          "text": "Talk to Ceril Carnillean.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "So, you want me to turn Philipe into an adventurer."
+                },
+                {
+                  "key": "1",
+                  "text": "How do you expect me to create a quest?"
+                },
+                {
+                  "key": "1",
+                  "text": "Where can I find all that stuff?"
+                },
+                {
+                  "key": "4",
+                  "text": "I'll come back later."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:prfr4p",
+          "html": "Search the bookcase in the room with <a href=\"https://runescape.wiki/w/Henryeta_Carnillean\" target=\"_blank\" rel=\"noopener\">Henryeta Carnillean</a> for a book about the Carnillean family.",
+          "text": "Search the bookcase in the room with Henryeta Carnillean for a book about the Carnillean family.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1i1xr8w",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Butler_Crichton\" target=\"_blank\" rel=\"noopener\">Butler Crichton</a>.",
+          "text": "Talk to Butler Crichton.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Sir Ceril says you'll help me create a quest."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:7gwxlk",
+          "html": "Head into the basement and <i>enter</i> the hole on the east wall (cutscene will begin), then head back to the house.",
+          "text": "Head into the basement and enter the hole on the east wall (cutscene will begin), then head back to the house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "item-finding-upstairs",
+      "title": "Item finding - Upstairs",
+      "anchor": "Item_finding_-_Upstairs",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Master bedroom"
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1vueakr",
+          "html": "Go to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) and take the <a href=\"https://runescape.wiki/w/Dragon_head_(red)\" target=\"_blank\" rel=\"noopener\">red</a> and <a href=\"https://runescape.wiki/w/Dragon_head_(black)\" target=\"_blank\" rel=\"noopener\">black dragon head</a> from the wall (2 heads in total).",
+          "text": "Go to the 1st floor (UK) / 2nd floor (US) and take the red and black dragon head from the wall (2 heads in total).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:11qwiox",
+          "html": "<i>Open</i> and <i>search</i> the southern wardrobe for the armour and sword.",
+          "text": "Open and search the southern wardrobe for the armour and sword.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1t03ajb",
+          "html": "<i>Tear</i> the net curtain from the north-east wall.",
+          "text": "Tear the net curtain from the north-east wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:81fnhc",
+          "html": "Take <a href=\"https://runescape.wiki/w/Sir_Ceril%27s_money_pouch\" target=\"_blank\" rel=\"noopener\">the money pouch</a> from the bed or <a href=\"https://runescape.wiki/w/Henryeta%27s_necklace\" target=\"_blank\" rel=\"noopener\">Henryeta&#39;s necklace</a> from the dresser.",
+          "text": "Take the money pouch from the bed or Henryeta's necklace from the dresser.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Philipe's room"
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:28uez",
+          "html": "<i>Search</i> his painting set for <a href=\"https://runescape.wiki/w/Red_paint\" target=\"_blank\" rel=\"noopener\">red paint</a>.",
+          "text": "Search his painting set for red paint.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Sarsaparilla's room"
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1mg6s6n",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sarsaparilla\" target=\"_blank\" rel=\"noopener\">Sarsaparilla</a>.",
+          "text": "Talk to Sarsaparilla.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm creating a quest for Philipe. Will you help?"
+                }
+              ]
+            },
+            {
+              "when": "Then talk again",
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Are you just going to stay in here?"
+                },
+                {
+                  "key": "2",
+                  "text": "You were talking about your ambitions."
+                },
+                {
+                  "key": "2",
+                  "text": "I'm directing a drama. Would you like a part?"
+                },
+                {
+                  "key": "4",
+                  "text": "Damsel in distress"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, follow me."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:x0812o",
+          "html": "<i>Open</i> and <i>search</i> the wardrobe for her <a href=\"https://runescape.wiki/w/Sarsaparilla%27s_dress\" target=\"_blank\" rel=\"noopener\">dress</a>.",
+          "text": "Open and search the wardrobe for her dress.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to borrow a costume."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The cellar"
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:av3gtn",
+          "html": "Head to the cellar and talk to <a href=\"https://runescape.wiki/w/Claus_the_chef\" target=\"_blank\" rel=\"noopener\">Claus the chef</a>.",
+          "text": "Head to the cellar and talk to Claus the chef.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Drunken jailer"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1xivvec",
+          "html": "Search the cupboard, take everything (<a href=\"https://runescape.wiki/w/Wooden_board\" target=\"_blank\" rel=\"noopener\">wooden boards</a>, <a href=\"https://runescape.wiki/w/Twine\" target=\"_blank\" rel=\"noopener\">twine</a>, <a href=\"https://runescape.wiki/w/Shears\" target=\"_blank\" rel=\"noopener\">shears</a>, and <a href=\"https://runescape.wiki/w/Sir_Ceril%27s_wine\" target=\"_blank\" rel=\"noopener\">Sir Ceril&#39;s wine</a>).",
+          "text": "Search the cupboard, take everything (wooden boards, twine, shears, and Sir Ceril's wine).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:13t31dw",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Barrel_of_junk\" target=\"_blank\" rel=\"noopener\">barrel of junk</a> to collect <a href=\"https://runescape.wiki/w/Rusty_spikes\" target=\"_blank\" rel=\"noopener\">rusty spikes</a>.",
+          "text": "Search the barrel of junk to collect rusty spikes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:2vyz2i",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Spider_(Carnillean_Rising)\" target=\"_blank\" rel=\"noopener\">spider</a> from the floor.",
+          "text": "Pick up the spider from the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The cave"
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1h0k4lj",
+          "html": "Right-click <i>build</i> on the hole hotspot. (The cave going into the next area)",
+          "text": "Right-click build on the hole hotspot. (The cave going into the next area)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Cobweb"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:j4doqs",
+          "html": "Enter the cave and talk to Sarsaparilla",
+          "text": "Enter the cave and talk to Sarsaparilla",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, follow me."
+                }
+              ]
+            },
+            {
+              "when": "And Claus",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Follow me."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:1o4ngg",
+          "html": "Continue through the cave and talk to the goblins.",
+          "text": "Continue through the cave and talk to the goblins.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can you help me?"
+                },
+                {
+                  "key": "3",
+                  "text": "Here, you can have this armour."
+                },
+                {
+                  "key": "1",
+                  "text": "Patrolling guards"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:17jugp8",
+          "html": "Head to the south-easternmost part of the tunnels and enter the passage.",
+          "text": "Head to the south-easternmost part of the tunnels and enter the passage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:uoa8ou",
+          "html": "Search the spoils near the heap for bone scraps south-west of the room.",
+          "text": "Search the spoils near the heap for bone scraps south-west of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "item-finding-upstairs:9wocll",
+          "html": "<i>Take</i> the cave mouse to have the wolves follow you out.",
+          "text": "Take the cave mouse to have the wolves follow you out.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-quest",
+      "title": "Building the quest",
+      "anchor": "Building_the_quest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "building-the-quest:gxfvpg",
+          "html": "Head north to the centre bridge.",
+          "text": "Head north to the centre bridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:8gvyu9",
+          "html": "&quot;Build&quot; the &quot;jailer&quot; hotspot by leading Claus to it.",
+          "text": "\"Build\" the \"jailer\" hotspot by leading Claus to it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-the-quest:8gvyu9:v1me68",
+              "html": "Use the money pouch on Claus, if he has not taken it already.",
+              "text": "Use the money pouch on Claus, if he has not taken it already.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:9y8l01",
+          "html": "Cross the bridge and build the dragon hotspots. The wolves will move into position.",
+          "text": "Cross the bridge and build the dragon hotspots. The wolves will move into position.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:7gai0b",
+          "html": "<i>Use</i> the dragon heads on the wolves.",
+          "text": "Use the dragon heads on the wolves.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:r9kutl",
+          "html": "Build the Damsel hotspot.",
+          "text": "Build the Damsel hotspot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-the-quest:r9kutl:es3k1n",
+              "html": "Use the necklace on Sarsaparilla, if she has not taken it already.",
+              "text": "Use the necklace on Sarsaparilla, if she has not taken it already.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:1hmba36",
+          "html": "Head back south across the bridge.",
+          "text": "Head back south across the bridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-quest:1guynvp",
+          "html": "Build hotspots in these locations as you backtrack up towards the cellar:",
+          "text": "Build hotspots in these locations as you backtrack up towards the cellar:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "building-the-quest:1guynvp:1ntxqcx",
+              "html": "Decoration - on the wall east of the fire",
+              "text": "Decoration - on the wall east of the fire",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Bloodstains"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-the-quest:1guynvp:13xqtw1",
+              "html": "Traps - east and west of the fire",
+              "text": "Traps - east and west of the fire",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Tripwire"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-the-quest:1guynvp:kk969x",
+              "html": "Decoration - west of the fire at the end of the hall",
+              "text": "Decoration - west of the fire at the end of the hall",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Scary eyes"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-the-quest:1guynvp:sh3sgq",
+              "html": "Decoration - on the north wall before turning around towards the cave entrance",
+              "text": "Decoration - on the north wall before turning around towards the cave entrance",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "3",
+                      "text": "Impaled skulls"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "building-the-quest:1guynvp:mv3ohw",
+              "html": "Obstacle - on the floor in the southernmost corridor, heading towards the cave entrance",
+              "text": "Obstacle - on the floor in the southernmost corridor, heading towards the cave entrance",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Spike pit"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "philipe",
+      "title": "Philipe",
+      "anchor": "Philipe",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "philipe:148ajig",
+          "html": "Head back into the house and talk to <a href=\"https://runescape.wiki/w/Philipe_Carnillean\" target=\"_blank\" rel=\"noopener\">Philipe</a>.",
+          "text": "Head back into the house and talk to Philipe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:mguoyf",
+          "html": "<i>Pickpocket</i> him. Talk to him again.",
+          "text": "Pickpocket him. Talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "A bag of sweets."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Okay, follow me."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:181yhay",
+          "html": "Proceed through the cave while Philipe follows.",
+          "text": "Proceed through the cave while Philipe follows.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:1ipthak",
+          "html": "Watch the cutscene where Philipe attempts to pass the guards.",
+          "text": "Watch the cutscene where Philipe attempts to pass the guards.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:4y22sn",
+          "html": "Talk to Slimepits (one of the goblins) until a dialogue window with the Butler appears - <b>do not continue dialogue until Philipe passes</b>.",
+          "text": "Talk to Slimepits (one of the goblins) until a dialogue window with the Butler appears - do not continue dialogue until Philipe passes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:dqtxcd",
+          "html": "Talk to Philipe again to have him follow.",
+          "text": "Talk to Philipe again to have him follow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:mjbef0",
+          "html": "Continue towards Claus.",
+          "text": "Continue towards Claus.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:dqtxcd-2",
+          "html": "Talk to Philipe again to have him follow.",
+          "text": "Talk to Philipe again to have him follow.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:198er4o",
+          "html": "Continue towards the dragons and talk to <a href=\"https://runescape.wiki/w/Philipe_Carnillean\" target=\"_blank\" rel=\"noopener\">Philipe</a>.",
+          "text": "Continue towards the dragons and talk to Philipe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:11pi7l7",
+          "html": "After the dragons are slain, a <a href=\"https://runescape.wiki/w/Cave_wolf_matriarch\" target=\"_blank\" rel=\"noopener\">cave wolf matriarch</a> will arrive.",
+          "text": "After the dragons are slain, a cave wolf matriarch will arrive.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "philipe:76h9jy",
+          "html": "Attempt to attack the matriarch to focus its attacks on you. Dodge or withstand the attacks until Philipe kills it. If you run in circles around the matriarch, most of her attacks will miss and you will take very little damage.",
+          "text": "Attempt to attack the matriarch to focus its attacks on you. Dodge or withstand the attacks until Philipe kills it. If you run in circles around the matriarch, most of her attacks will miss and you will take very little damage.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "philipe:76h9jy:18nbcdp",
+              "html": "Do not use <a href=\"https://runescape.wiki/w/Protect_from_Magic\" target=\"_blank\" rel=\"noopener\">Protect from Magic</a> or the matriarch will revert her attention back to Philipe.",
+              "text": "Do not use Protect from Magic or the matriarch will revert her attention back to Philipe.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1lqv4bl",
+          "html": "Talk to Philipe for a cutscene.",
+          "text": "Talk to Philipe for a cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, let's go now!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:z49huv",
+          "html": "Talk to Ceril.",
+          "text": "Talk to Ceril.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:zmu09p",
+          "html": "Talk to Xenia.",
+          "text": "Talk to Xenia.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "So what happens now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:z49huv-2",
+          "html": "Talk to Ceril.",
+          "text": "Talk to Ceril.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:11rrka0",
+          "html": "Loot the chest near Ceril.",
+          "text": "Loot the chest near Ceril.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Carnillean_Rising_reward.png?36d21",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Carnillean_Rising_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2x 1,500 experience <a href=\"https://runescape.wiki/w/Carnillean_lamp\" target=\"_blank\" rel=\"noopener\">lamps</a> for a total of 3,000 experience (Skill must be level 30 or higher)",
+        "text": "2x 1,500 experience lamps for a total of 3,000 experience (Skill must be level 30 or higher)",
+        "subs": []
+      },
+      {
+        "html": "5,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> for returning <a href=\"https://runescape.wiki/w/Lady_Henryeta%27s_necklace\" target=\"_blank\" rel=\"noopener\">Lady Henryeta&#39;s necklace</a>, or from opening <a href=\"https://runescape.wiki/w/Sir_Ceril%27s_money_pouch\" target=\"_blank\" rel=\"noopener\">Sir Ceril&#39;s money pouch</a>",
+        "text": "5,000 coins for returning Lady Henryeta's necklace, or from opening Sir Ceril's money pouch",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Philipe%27s_sweets\" target=\"_blank\" rel=\"noopener\">Philipe&#39;s sweets</a>:",
+        "text": "Philipe's sweets:",
+        "subs": [
+          "Contains 5 <a href=\"https://runescape.wiki/w/Purple_sweets\" target=\"_blank\" rel=\"noopener\">purple sweets</a>"
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Construction\" target=\"_blank\" rel=\"noopener\">Construction</a> supplies:",
+        "text": "Construction supplies:",
+        "subs": [
+          "100 <a href=\"https://runescape.wiki/w/Oak_plank\" target=\"_blank\" rel=\"noopener\">oak planks</a> (worth 45,700 coins)",
+          "30 <a href=\"https://runescape.wiki/w/Teak_plank\" target=\"_blank\" rel=\"noopener\">teak planks</a> (worth 8,820 coins)",
+          "10 <a href=\"https://runescape.wiki/w/Mahogany_plank\" target=\"_blank\" rel=\"noopener\">mahogany planks</a> (worth 12,410 coins)"
+        ]
+      },
+      {
+        "html": "A <a href=\"https://runescape.wiki/w/Treasure_chest_(Carnillean_Rising)\" target=\"_blank\" rel=\"noopener\">treasure chest</a>, containing a <a href=\"https://runescape.wiki/w/Gold_bar\" target=\"_blank\" rel=\"noopener\">gold bar</a> (the treasure chest itself can be used to create personal treasure hunts)",
+        "text": "A treasure chest, containing a gold bar (the treasure chest itself can be used to create personal treasure hunts)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Philipe%27s_note\" target=\"_blank\" rel=\"noopener\">Philipe&#39;s note</a>",
+        "text": "Philipe's note",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "Talk to <a href=\"https://runescape.wiki/w/Claus_the_chef\" target=\"_blank\" rel=\"noopener\">Claus the chef</a> and then defeat the wolf matriarch to obtain <a href=\"https://runescape.wiki/w/Cave_Wolf_Matriarch_skull\" target=\"_blank\" rel=\"noopener\">her skull</a>. Check <a href=\"https://runescape.wiki/w/Claus_is_Rising\" target=\"_blank\" rel=\"noopener\">Claus is Rising</a> for more info on the rewards.",
+            "text": "Talk to Claus the chef and then defeat the wolf matriarch to obtain her skull. Check Claus is Rising for more info on the rewards.",
+            "subs": []
+          },
+          {
+            "html": "Talk to <a href=\"https://runescape.wiki/w/Ceril_Carnillean\" target=\"_blank\" rel=\"noopener\">Ceril Carnillean</a> to locate <a href=\"https://runescape.wiki/w/Philipe_Carnillean\" target=\"_blank\" rel=\"noopener\">Philipe Carnillean</a>, who will give you an <a href=\"https://runescape.wiki/w/Philipe%27s_lamp\" target=\"_blank\" rel=\"noopener\">experience lamp</a> worth 2,000 experience in a skill of your choosing. You must have the correct number of quest points before Ceril gives you the next location. You don&#39;t have to speak to Ceril to unlock the next location; However, you need to use the experience lamp to make Philipe move to the next location.",
+            "text": "Talk to Ceril Carnillean to locate Philipe Carnillean, who will give you an experience lamp worth 2,000 experience in a skill of your choosing. You must have the correct number of quest points before Ceril gives you the next location. You don't have to speak to Ceril to unlock the next location; However, you need to use the experience lamp to make Philipe move to the next location.",
+            "subs": [
+              "After speaking to Philipe with 200 quest points, players can talk with <a href=\"https://runescape.wiki/w/Henryeta_Carnillean\" target=\"_blank\" rel=\"noopener\">Henryeta Carnillean</a> and claim <a href=\"https://runescape.wiki/w/Rover_the_red_dragon\" target=\"_blank\" rel=\"noopener\">Rover the red dragon</a>. After speaking to Philipe with 400 quest points, players can also claim <a href=\"https://runescape.wiki/w/Spot_the_black_dragon\" target=\"_blank\" rel=\"noopener\">Spot the black dragon</a> from Henryeta Carnillean."
+            ]
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Beneath the House",
+      "where": ""
+    },
+    {
+      "name": "Drains and Canals",
+      "where": ""
+    },
+    {
+      "name": "Tiny Adventure",
+      "where": ""
+    },
+    {
+      "name": "Philipe's Bane",
+      "where": ""
+    },
+    {
+      "name": "Lords and Ladies",
+      "where": ""
+    },
+    {
+      "name": "Carnillean Rising",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

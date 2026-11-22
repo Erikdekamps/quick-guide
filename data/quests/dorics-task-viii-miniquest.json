@@ -1,0 +1,251 @@
+{
+  "format": 1,
+  "id": "dorics-task-viii-miniquest",
+  "title": "Doric's Task VIII (miniquest)",
+  "page": "Doric's Task VIII (miniquest)/Quick guide",
+  "rev": 36295039,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_VIII_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task VII (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Doric's Task VI (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Doric's Task V (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Doric's Task IV (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Doric's Task III (miniquest)…",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 70,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 70,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:4xa694",
+          "html": "Two <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> spaces",
+          "text": "Two backpack spaces",
+          "alternatives": []
+        },
+        {
+          "id": "req:a01rl5",
+          "html": "20 <a href=\"https://runescape.wiki/w/Necronium_bar\" target=\"_blank\" rel=\"noopener\">necronium bars</a>",
+          "text": "20 necronium bars",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wwnn77",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a> or activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Falador Teleport or activated Falador lodestone",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-mysterious-client",
+      "title": "The mysterious client",
+      "anchor": "The_mysterious_client",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-mysterious-client:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his hut north of Falador.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm sure it will be fine."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-mysterious-client:3ifcno:k88rec",
+              "html": "Ensure you received a <a href=\"https://runescape.wiki/w/Weapons_crate\" target=\"_blank\" rel=\"noopener\">weapons crate</a>.",
+              "text": "Ensure you received a weapons crate.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-mysterious-client:1qpzbj8",
+          "html": "Smith 5 <a href=\"https://runescape.wiki/w/Necronium_2h_greataxe\" target=\"_blank\" rel=\"noopener\">necronium 2h greataxes</a> on any anvil.",
+          "text": "Smith 5 necronium 2h greataxes on any anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-mysterious-client:1ob8so4",
+          "html": "Left-click add items to the weapons crate.",
+          "text": "Left-click add items to the weapons crate.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-mysterious-client:zq3elk",
+          "html": "Head to the <a href=\"https://runescape.wiki/w/Herquin%27s_Gems\" target=\"_blank\" rel=\"noopener\">Gem Store</a> in <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a> and investigate the tree stump, just south.",
+          "text": "Head to the Gem Store in Falador and investigate the tree stump, just south.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-mysterious-client:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-mysterious-client:1i2oz88",
+          "html": "Investigate the tree stump again.",
+          "text": "Investigate the tree stump again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest Complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_VIII_%28miniquest%29_reward.png?bd1e3",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_VIII_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "60,000 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "60,000 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

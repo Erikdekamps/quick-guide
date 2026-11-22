@@ -1,0 +1,754 @@
+{
+  "format": 1,
+  "id": "swan-song",
+  "title": "Swan Song",
+  "page": "Swan Song/Quick guide",
+  "rev": 37105610,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Herman_Caranos\" target=\"_blank\" rel=\"noopener\">Herman Caranos</a> at the <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris Fishing Colony</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3648,
+      "lon": 2348,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Swan_Song/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 62,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Firemaking",
+        "level": 42,
+        "note": ""
+      },
+      {
+        "skill": "Fishing",
+        "level": 62,
+        "note": ""
+      },
+      {
+        "skill": "Magic",
+        "level": 66,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 45,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [
+      "Garden of Tranquillity",
+      "Creature of Fenkenstrain",
+      "The Restless Ghost",
+      "Ability to enter Morytania"
+    ],
+    "enemies": [
+      {
+        "text": "10 sea trolls (one each of levels 56/77/84 and seven of level 63)",
+        "name": "10 sea trolls (one each of levels 56/77/84 and seven of level 63)",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Sea Troll Queen (level 91)",
+        "name": "Sea Troll Queen",
+        "count": null,
+        "level": "91",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span> <span class=\"reg\">Misthalin</span> <span class=\"reg\">Asgarnia</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1xog62w",
+          "html": "10 <a href=\"https://runescape.wiki/w/Mist_rune\" target=\"_blank\" rel=\"noopener\">mist runes</a>",
+          "text": "10 mist runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:k42xdb",
+          "html": "10 <a href=\"https://runescape.wiki/w/Lava_rune\" target=\"_blank\" rel=\"noopener\">lava runes</a>",
+          "text": "10 lava runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1b5tvl5",
+          "html": "5 <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood runes</a>",
+          "text": "5 blood runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:juvw4o",
+          "html": "<a href=\"https://runescape.wiki/w/Empty_pot\" target=\"_blank\" rel=\"noopener\">Empty pot</a> and <a href=\"https://runescape.wiki/w/Pot_lid\" target=\"_blank\" rel=\"noopener\">pot lid</a> (there&#39;s a <a href=\"https://runescape.wiki/w/Potter%27s_wheel\" target=\"_blank\" rel=\"noopener\">potter&#39;s wheel</a> in Draynor if you need it, or the <a href=\"https://runescape.wiki/w/Barbarian_Village\" target=\"_blank\" rel=\"noopener\">Barbarian Village</a> has everything required to make your own)",
+          "text": "Empty pot and pot lid (there's a potter's wheel in Draynor if you need it, or the Barbarian Village has everything required to make your own)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1584gd5",
+          "html": "7 <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a> (can be obtained during the quest)",
+          "text": "7 bones (can be obtained during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:mxzbgs",
+          "html": "5 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bars</a> (can be obtained during the quest, requiring smelting from <a href=\"https://runescape.wiki/w/Iron_ore\" target=\"_blank\" rel=\"noopener\">iron ores</a>)",
+          "text": "5 iron bars (can be obtained during the quest, requiring smelting from iron ores)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1v5ntmx",
+          "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a> (can be obtained during quest)",
+          "text": "Logs (can be obtained during quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1fb7mam",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Eagles%27_Peak_lodestone\" target=\"_blank\" rel=\"noopener\">Eagles&#39; Peak</a> (or <a href=\"https://runescape.wiki/w/Memory_strand\" target=\"_blank\" rel=\"noopener\">memory strand</a> teleport), <a href=\"https://runescape.wiki/w/Draynor_lodestone\" target=\"_blank\" rel=\"noopener\">Draynor</a>, <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim</a> and <a href=\"https://runescape.wiki/w/Yanille_lodestone\" target=\"_blank\" rel=\"noopener\">Yanille lodestones</a>",
+          "text": "Activated Eagles' Peak (or memory strand teleport), Draynor, Port Sarim and Yanille lodestones",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ok5col",
+          "html": "Access to the <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy rings</a>",
+          "text": "Access to the fairy rings",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1s4d4fp",
+          "html": "<a href=\"https://runescape.wiki/w/Cooking_gauntlets\" target=\"_blank\" rel=\"noopener\">Cooking gauntlets</a> or <a href=\"https://runescape.wiki/w/Cooking_cape\" target=\"_blank\" rel=\"noopener\">Cooking cape</a> (Less chance to burn <a href=\"https://runescape.wiki/w/Monkfish\" target=\"_blank\" rel=\"noopener\">monkfish</a>)",
+          "text": "Cooking gauntlets or Cooking cape (Less chance to burn monkfish)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1wut016",
+          "html": "Prayer restoration such as <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potions</a>",
+          "text": "Prayer restoration such as prayer potions",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "trollish",
+      "title": "Trollish",
+      "anchor": "Trollish",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "trollish:14cpcr6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Herman_Caranos\" target=\"_blank\" rel=\"noopener\">Herman Caranos</a> outside the <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris Fishing Colony</a> (fairy ring code <b>A</b><b>K</b><b>Q</b> or <a href=\"https://runescape.wiki/w/Memory_strand\" target=\"_blank\" rel=\"noopener\">memory strand</a> teleport, then run northeast).",
+          "text": "Talk to Herman Caranos outside the Piscatoris Fishing Colony (fairy ring code AKQ or memory strand teleport, then run northeast).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's the rush?"
+                },
+                {
+                  "key": "1",
+                  "text": "Do you need any help?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-wise-old-man",
+      "title": "The Wise Old Man",
+      "anchor": "The_Wise_Old_Man",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-wise-old-man:bring:1b5tvl5",
+              "html": "5 <a href=\"https://runescape.wiki/w/Blood_rune\" target=\"_blank\" rel=\"noopener\">blood runes</a>",
+              "text": "5 blood runes"
+            },
+            {
+              "id": "the-wise-old-man:bring:1xog62w",
+              "html": "10 <a href=\"https://runescape.wiki/w/Mist_rune\" target=\"_blank\" rel=\"noopener\">mist runes</a>",
+              "text": "10 mist runes"
+            },
+            {
+              "id": "the-wise-old-man:bring:k42xdb",
+              "html": "10 <a href=\"https://runescape.wiki/w/Lava_rune\" target=\"_blank\" rel=\"noopener\">lava runes</a>",
+              "text": "10 lava runes"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-wise-old-man:1y2dv2e",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Wise_Old_Man\" target=\"_blank\" rel=\"noopener\">Wise Old Man</a> in Draynor.",
+          "text": "Talk to the Wise Old Man in Draynor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Would you like to go on a quest?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "battle-at-the-colony",
+      "title": "Battle at the colony",
+      "anchor": "Battle_at_the_colony",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "battle-at-the-colony:bring:7cbiov",
+              "html": "Combat gear and food",
+              "text": "Combat gear and food"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "battle-at-the-colony:bring:1h50rc1",
+              "html": "Bring the supplies for the next section to save a trip",
+              "text": "Bring the supplies for the next section to save a trip"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "battle-at-the-colony:6aobu0",
+          "html": "Head back to the Piscatoris Colony. Talk to the Wise Old Man.",
+          "text": "Head back to the Piscatoris Colony. Talk to the Wise Old Man.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready to fight."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "battle-at-the-colony:1yg5g9q",
+          "html": "Kill the sea trolls and open the colony gate.",
+          "text": "Kill the sea trolls and open the colony gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "battle-at-the-colony:z9d4d5",
+          "html": "Talk to Herman in the eastern building.",
+          "text": "Talk to Herman in the eastern building.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "repairing-the-colony",
+      "title": "Repairing the colony",
+      "anchor": "Repairing_the_colony",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "repairing-the-colony:bring:1qx128g",
+              "html": "5 <a href=\"https://runescape.wiki/w/Iron_bar\" target=\"_blank\" rel=\"noopener\">iron bars</a>",
+              "text": "5 iron bars"
+            },
+            {
+              "id": "repairing-the-colony:bring:c8aap2",
+              "html": "1 <a href=\"https://runescape.wiki/w/Log\" target=\"_blank\" rel=\"noopener\">log</a>",
+              "text": "1 log"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "repairing-the-colony:bring:axv4mo",
+              "html": "<a href=\"https://runescape.wiki/w/Cooking_gauntlets\" target=\"_blank\" rel=\"noopener\">Cooking gauntlets</a>",
+              "text": "Cooking gauntlets"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:r7rykp",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Franklin_Caranos\" target=\"_blank\" rel=\"noopener\">Franklin Caranos</a> near the entrance.",
+          "text": "Talk to Franklin Caranos near the entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:6wfjn8",
+          "html": "In the building directly north of Franklin, use a log on the firebox (the east side of the large metal contraption in the middle of the room), then light the firebox by clicking on it.",
+          "text": "In the building directly north of Franklin, use a log on the firebox (the east side of the large metal contraption in the middle of the room), then light the firebox by clicking on it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "repairing-the-colony:6wfjn8:13osuhn",
+              "html": "Logs and iron ores can be obtained just outside of the colony. <b>The firebox is the metal box on the east side of the metal press.</b>",
+              "text": "Logs and iron ores can be obtained just outside of the colony. The firebox is the metal box on the east side of the metal press.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:1axpkl",
+          "html": "Use 5 iron bars on the <a href=\"https://runescape.wiki/w/Metal_Press\" target=\"_blank\" rel=\"noopener\">Metal Press</a> to get 5 iron sheets.",
+          "text": "Use 5 iron bars on the Metal Press to get 5 iron sheets.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:17svuj6",
+          "html": "Use the iron sheets on the broken colony walls to the west.",
+          "text": "Use the iron sheets on the broken colony walls to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:1on5uen",
+          "html": "Talk to Franklin.",
+          "text": "Talk to Franklin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:1aauses",
+          "html": "Right-click on <a href=\"https://runescape.wiki/w/Arnold_Lydspor\" target=\"_blank\" rel=\"noopener\">Arnold Lydspor</a> in the bank to talk to him.",
+          "text": "Right-click on Arnold Lydspor in the bank to talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:14wl0k8",
+          "html": "Catch at least five <a href=\"https://runescape.wiki/w/Fresh_monkfish\" target=\"_blank\" rel=\"noopener\">fresh monkfish</a> to the northwest. You&#39;ll be attacked by sea trolls when fishing. This can take up to 10 minutes depending on your Fishing level.",
+          "text": "Catch at least five fresh monkfish to the northwest. You'll be attacked by sea trolls when fishing. This can take up to 10 minutes depending on your Fishing level.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:15yy2r7",
+          "html": "Cook the monkfish in the kitchen southwest. You will need to turn in five fresh monkfish; if any are burned, fish for more. To cook them, just use them on the range and don&#39;t proceed on <a href=\"https://runescape.wiki/w/Make-X\" target=\"_blank\" rel=\"noopener\">Make-X</a> interface.",
+          "text": "Cook the monkfish in the kitchen southwest. You will need to turn in five fresh monkfish; if any are burned, fish for more. To cook them, just use them on the range and don't proceed on Make-X interface.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-the-colony:8wd60m",
+          "html": "Talk to Arnold.",
+          "text": "Talk to Arnold.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "raising-an-army",
+      "title": "Raising an army",
+      "anchor": "Raising_an_army",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "raising-an-army:bring:1jrjudz",
+              "html": "1 <a href=\"https://runescape.wiki/w/Pot\" target=\"_blank\" rel=\"noopener\">pot</a>",
+              "text": "1 pot"
+            },
+            {
+              "id": "raising-an-army:bring:llf6ie",
+              "html": "1 <a href=\"https://runescape.wiki/w/Pot_lid\" target=\"_blank\" rel=\"noopener\">pot lid</a>",
+              "text": "1 pot lid"
+            },
+            {
+              "id": "raising-an-army:bring:vu3f91",
+              "html": "7 <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a>",
+              "text": "7 bones"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "raising-an-army:bring:1h50rc1",
+              "html": "Bring the supplies for the next section to save a trip",
+              "text": "Bring the supplies for the next section to save a trip"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "raising-an-army:2wvroj",
+          "html": "Talk to the Wise Old Man and Herman (furthest building to the east).",
+          "text": "Talk to the Wise Old Man and Herman (furthest building to the east).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Something else."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "raising-an-army:1j46qdj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Wizard_Frumscone\" target=\"_blank\" rel=\"noopener\">Wizard Frumscone</a> in the basement of the Wizards&#39; Guild in Yanille.",
+          "text": "Talk to Wizard Frumscone in the basement of the Wizards' Guild in Yanille.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'll see what the necromancer needs me to do."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "raising-an-army:1j46qdj:9sg80z",
+              "html": "Fetch the required supplies now, if you haven&#39;t already.",
+              "text": "Fetch the required supplies now, if you haven't already.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "raising-an-army:2fchlv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Malignius_Mortifer\" target=\"_blank\" rel=\"noopener\">Malignius Mortifer</a> northwest of Port Sarim near the crossroads.",
+          "text": "Talk to Malignius Mortifer northwest of Port Sarim near the crossroads.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need help with saving a fishing colony."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "raising-an-army:1qbflho",
+          "html": "Talk to any <a href=\"https://runescape.wiki/w/Almost_Master_Crafter\" target=\"_blank\" rel=\"noopener\">Almost Master Crafter</a> inside the <a href=\"https://runescape.wiki/w/Crafting_Guild\" target=\"_blank\" rel=\"noopener\">Crafting Guild</a> until one talks to you about crafting pot lids.",
+          "text": "Talk to any Almost Master Crafter inside the Crafting Guild until one talks to you about crafting pot lids.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "raising-an-army:15fznr1",
+          "html": "Talk to Malignius Mortifer, he will teleport you to the colony, so gear up before speaking with him.",
+          "text": "Talk to Malignius Mortifer, he will teleport you to the colony, so gear up before speaking with him.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I've spoken to the master crafter..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-final-battle",
+      "title": "The final battle",
+      "anchor": "The_final_battle",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "the-final-battle:bring:7cbiov",
+              "html": "Combat gear and food",
+              "text": "Combat gear and food"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-battle:1b7jdzd",
+          "html": "Talk to Herman.",
+          "text": "Talk to Herman.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready. Let's fight!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-battle:1yki0uu",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Sea_Troll_Queen\" target=\"_blank\" rel=\"noopener\">Sea Troll Queen</a>.",
+          "text": "Kill the Sea Troll Queen.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-final-battle:1yki0uu:xh8y37",
+              "html": "Banks recover health rapidly, and while the bank isn&#39;t functional until quest completion, you can run into the building and next to the banker to recover health.",
+              "text": "Banks recover health rapidly, and while the bank isn't functional until quest completion, you can run into the building and next to the banker to recover health.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-final-battle:1b7jdzd-2",
+          "html": "Talk to Herman.",
+          "text": "Talk to Herman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-final-battle:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Swan_Song_reward.png?7431d",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Swan_Song_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "15,000 experience",
+        "text": "15,000 experience",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience",
+        "text": "10,000 experience",
+        "subs": []
+      },
+      {
+        "html": "25,000 coins",
+        "text": "25,000 coins",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Piscatoris_Fishing_Colony\" target=\"_blank\" rel=\"noopener\">Piscatoris Fishing Colony</a>",
+        "text": "Access to the Piscatoris Fishing Colony",
+        "subs": [
+          "Able to fish <a href=\"https://runescape.wiki/w/Monkfish\" target=\"_blank\" rel=\"noopener\">monkfish</a>",
+          "Able to use <a href=\"https://runescape.wiki/w/Skeleton_Mage_(Piscatoris_Fishing_Colony)\" target=\"_blank\" rel=\"noopener\">Skeletal mages</a> for training",
+          "<a href=\"https://runescape.wiki/w/Seaweed\" target=\"_blank\" rel=\"noopener\">Seaweed</a> spawns",
+          "<a href=\"https://runescape.wiki/w/Bank\" target=\"_blank\" rel=\"noopener\">Bank</a> and <a href=\"https://runescape.wiki/w/Obelisk\" target=\"_blank\" rel=\"noopener\">obelisk</a> very close by"
+        ]
+      },
+      {
+        "html": "Can get the following items from <a href=\"https://runescape.wiki/w/Malignius_Mortifer\" target=\"_blank\" rel=\"noopener\">Malignius Mortifer</a> upon request:",
+        "text": "Can get the following items from Malignius Mortifer upon request:",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Bone_seeds\" target=\"_blank\" rel=\"noopener\">Bone seeds</a> (requires pot and pot lid)"
+        ]
+      },
+      {
+        "html": "Able to <a href=\"https://runescape.wiki/w/Divination#Transmutation\" target=\"_blank\" rel=\"noopener\">transmute</a> <a href=\"https://runescape.wiki/w/Raw_bass\" target=\"_blank\" rel=\"noopener\">raw bass</a> into <a href=\"https://runescape.wiki/w/Raw_monkfish\" target=\"_blank\" rel=\"noopener\">raw monkfish</a>",
+        "text": "Able to transmute raw bass into raw monkfish",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Making Waves",
+      "where": ""
+    },
+    {
+      "name": "Last Stand",
+      "where": ""
+    },
+    {
+      "name": "Eagle Peak",
+      "where": "depending on how you walk to Kathy Corkat"
+    },
+    {
+      "name": "Joy of the Hunt",
+      "where": "if you took Kathy's boat, or walk toward it in the fishing colony"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Love_Story/Quick_guide\" target=\"_blank\" rel=\"noopener\">Love Story</a>"
+      ]
+    }
+  ]
+}

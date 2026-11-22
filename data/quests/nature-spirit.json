@@ -1,0 +1,980 @@
+{
+  "format": 1,
+  "id": "nature-spirit",
+  "title": "Nature Spirit",
+  "page": "Nature Spirit/Quick guide",
+  "rev": 37173075,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a> under the <a href=\"https://runescape.wiki/w/Saradomin\" target=\"_blank\" rel=\"noopener\">Saradomin</a> temple near the <a href=\"https://runescape.wiki/w/River_Salve\" target=\"_blank\" rel=\"noopener\">River Salve</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9895,
+      "lon": 3438,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Nature_Spirit/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Priest in Peril",
+        "depth": 1
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 1
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 18,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": "or 22 Divination (to obtain a silver ore)"
+      },
+      {
+        "skill": "Smithing",
+        "level": 20,
+        "note": "(to smelt a silver bar)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "3 Ghasts (level 35)",
+        "name": "Ghasts",
+        "count": 3,
+        "level": "35",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:19zx9os",
+          "html": "<a href=\"https://runescape.wiki/w/Silver_sickle\" target=\"_blank\" rel=\"noopener\">Silver sickle</a> (Can be made from a <a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">silver bar</a> and a <a href=\"https://runescape.wiki/w/Sickle_mould\" target=\"_blank\" rel=\"noopener\">sickle mould</a> or bought from the Grand Exchange. Not able to make unless part of the Nature Spirit quest has been completed. Talk to <a href=\"https://runescape.wiki/w/Filliman\" target=\"_blank\" rel=\"noopener\">Filliman</a> to obtain the ability to craft this.)",
+          "text": "Silver sickle (Can be made from a silver bar and a sickle mould or bought from the Grand Exchange. Not able to make unless part of the Nature Spirit quest has been completed. Talk to Filliman to obtain the ability to craft this.)",
+          "alternatives": []
+        },
+        {
+          "id": "req:15zkpyc",
+          "html": "<a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">Ghostspeak amulet</a>",
+          "text": "Ghostspeak amulet",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:9qbslp",
+          "html": "18 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a> (For making the <a href=\"https://runescape.wiki/w/Silver_sickle\" target=\"_blank\" rel=\"noopener\">silver sickle</a> if not bought)",
+          "text": "18 Crafting (For making the silver sickle if not bought)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:kjma0r",
+          "html": "10 <a href=\"https://runescape.wiki/w/Prayer\" target=\"_blank\" rel=\"noopener\">Prayer</a> (Or a couple of <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potions</a> to restore Prayer Points)",
+          "text": "10 Prayer (Or a couple of prayer potions to restore Prayer Points)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1q66fda",
+          "html": "Food, if you are a low-levelled player, to absorb attacks from <a href=\"https://runescape.wiki/w/Ghasts\" target=\"_blank\" rel=\"noopener\">ghasts</a>.",
+          "text": "Food, if you are a low-levelled player, to absorb attacks from ghasts.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:z9l885",
+          "html": "Combat equipment to kill the <a href=\"https://runescape.wiki/w/Ghasts\" target=\"_blank\" rel=\"noopener\">ghasts</a> if you are a low-levelled player.",
+          "text": "Combat equipment to kill the ghasts if you are a low-levelled player.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1y6w376",
+          "html": "A <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer potion</a> in case you use up all of your <a href=\"https://runescape.wiki/w/Druid_pouches\" target=\"_blank\" rel=\"noopener\">druid pouches</a> and you have to re-harvest <a href=\"https://runescape.wiki/w/Fungus\" target=\"_blank\" rel=\"noopener\">fungus</a>.",
+          "text": "A prayer potion in case you use up all of your druid pouches and you have to re-harvest fungus.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1tn1oxo",
+          "html": "Canifis <a href=\"https://runescape.wiki/w/Home_teleport\" target=\"_blank\" rel=\"noopener\">home teleport</a>",
+          "text": "Canifis home teleport",
+          "alternatives": []
+        },
+        {
+          "id": "rec:kd7pdg",
+          "html": "The <a href=\"https://runescape.wiki/w/Invitation_Box\" target=\"_blank\" rel=\"noopener\">Invitation Box</a> for teleports to <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a>",
+          "text": "The Invitation Box for teleports to Paterdomus",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "getting-started:bring:15zkpyc",
+              "html": "<a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">Ghostspeak amulet</a>",
+              "text": "Ghostspeak amulet"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Start point of the quest is within this Mausoleum",
+          "lat": 3507,
+          "lon": 3404,
+          "zoom": 3,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [],
+          "href": "https://runescape.wiki/w/Nature_Spirit/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ctnkbu",
+          "html": "Make sure you have prayer points before starting.",
+          "text": "Make sure you have prayer points before starting.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:p7fmt1",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a>, who is located underground near <a href=\"https://runescape.wiki/w/Paterdomus\" target=\"_blank\" rel=\"noopener\">Paterdomus</a>. The entrance is north from the temple&#39;s door. You should have six empty backpack space; otherwise the food he gives you will appear on the floor.",
+          "text": "Talk to Drezel, who is located underground near Paterdomus. The entrance is north from the temple's door. You should have six empty backpack space; otherwise the food he gives you will appear on the floor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:p7fmt1:p25hmf",
+              "html": "If you have lost <a href=\"https://runescape.wiki/w/Wolfbane\" target=\"_blank\" rel=\"noopener\">Wolfbane</a>:",
+              "text": "If you have lost Wolfbane:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about something else."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Is there anything else interesting to do around here?"
+                    },
+                    {
+                      "key": "✓",
+                      "text": "[Accept Quest]"
+                    },
+                    {
+                      "key": "4",
+                      "text": "Yes, I'll go and look for him."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, I'm sure."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:p7fmt1:6n8kai",
+              "html": "If you have <a href=\"https://runescape.wiki/w/Wolfbane\" target=\"_blank\" rel=\"noopener\">Wolfbane</a> in your bank or backpack:",
+              "text": "If you have Wolfbane in your bank or backpack:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Is there anything else interesting to do around here?"
+                    },
+                    {
+                      "key": "✓",
+                      "text": "[Accept Quest]"
+                    },
+                    {
+                      "key": "4",
+                      "text": "Yes, I'll go and look for him."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, I'm sure."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "getting-started:p7fmt1:zcf94z",
+              "html": "If you have just completed <a href=\"https://runescape.wiki/w/Priest_in_Peril\" target=\"_blank\" rel=\"noopener\">Priest in Peril</a>, then you might need to exit and reenter the Mausoleum before the quest dialogue will appear. Drezel should be standing in the last chamber before the holy barrier.",
+              "text": "If you have just completed Priest in Peril, then you might need to exit and reenter the Mausoleum before the quest dialogue will appear. Drezel should be standing in the last chamber before the holy barrier.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1re6j3w",
+          "html": "Exit into Morytania and travel south to a fence.",
+          "text": "Exit into Morytania and travel south to a fence.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1y1g7ih",
+          "html": "Look along the fence for a gate and go through it.",
+          "text": "Look along the fence for a gate and go through it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:g7fhnm",
+          "html": "Go south until a round island is found with a grotto tree.",
+          "text": "Go south until a round island is found with a grotto tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1g8pad4",
+          "html": "Jump across the broken bridge and onto the island.",
+          "text": "Jump across the broken bridge and onto the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-ghost-of-the-grotto",
+      "title": "The ghost of the grotto",
+      "anchor": "The_ghost_of_the_grotto",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-ghost-of-the-grotto:17108jv",
+          "html": "Search the bench nearby for a small <a href=\"https://runescape.wiki/w/Mirror\" target=\"_blank\" rel=\"noopener\">mirror</a>.",
+          "text": "Search the bench nearby for a small mirror.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ghost-of-the-grotto:s3pwhh",
+          "html": "Search the <a href=\"https://runescape.wiki/w/Grotto_tree\" target=\"_blank\" rel=\"noopener\">grotto tree</a> for Filliman&#39;s <a href=\"https://runescape.wiki/w/Journal_(Nature_Spirit)\" target=\"_blank\" rel=\"noopener\">journal</a>.",
+          "text": "Search the grotto tree for Filliman's journal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ghost-of-the-grotto:1ryxyo5",
+          "html": "Equip your <a href=\"https://runescape.wiki/w/Ghostspeak_amulet\" target=\"_blank\" rel=\"noopener\">ghostspeak amulet</a> and talk to <a href=\"https://runescape.wiki/w/Filliman_Tarlock\" target=\"_blank\" rel=\"noopener\">Filliman Tarlock</a>.",
+          "text": "Equip your ghostspeak amulet and talk to Filliman Tarlock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How long have you been a ghost?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-ghost-of-the-grotto:1iiedbt",
+          "html": "Use the mirror on Filliman to prove he&#39;s a ghost.",
+          "text": "Use the mirror on Filliman to prove he's a ghost.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "So, what's your plan?"
+                },
+                {
+                  "key": "4",
+                  "text": "How can I help?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-ghost-of-the-grotto:1iiedbt:1hyaixw",
+              "html": "He&#39;ll give you a <a href=\"https://runescape.wiki/w/Druidic_spell\" target=\"_blank\" rel=\"noopener\">druidic spell</a>.",
+              "text": "He'll give you a druidic spell.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "becoming-a-nature-spirit",
+      "title": "Becoming a nature spirit",
+      "anchor": "Becoming_a_nature_spirit",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:1nandvf",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Drezel\" target=\"_blank\" rel=\"noopener\">Drezel</a> to be blessed and teleported back to Filliman.",
+          "text": "Return to Drezel to be blessed and teleported back to Filliman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "becoming-a-nature-spirit:1nandvf:1aypdfc",
+              "html": "If you have lost the wolfbane:",
+              "text": "If you have lost the wolfbane:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Talk about something else."
+                    },
+                    {
+                      "key": "1",
+                      "text": "Yes, please"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "becoming-a-nature-spirit:1nandvf:11ff9fb",
+              "html": "If you have the wolfbane in your backpack or bank:",
+              "text": "If you have the wolfbane in your backpack or bank:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes, please"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:aruwd0",
+          "html": "<i>Jump</i> the bridge and find a nearby <a href=\"https://runescape.wiki/w/Rotting_log\" target=\"_blank\" rel=\"noopener\">rotting log</a> in the swamp.",
+          "text": "Jump the bridge and find a nearby rotting log in the swamp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "becoming-a-nature-spirit:aruwd0:tj5s02",
+              "html": "There is some directly West of the Grotto tree island.",
+              "text": "There is some directly West of the Grotto tree island.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:a0jypb",
+          "html": "<i>Cast</i> the druidic spell in your backpack, then <i>pick</i> the fungus from the log.",
+          "text": "Cast the druidic spell in your backpack, then pick the fungus from the log.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:1aust9x",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Mort_myre_fungus\" target=\"_blank\" rel=\"noopener\">Mort myre fungus</a> mushroom from the log and talk to Filliman.",
+          "text": "Take the Mort myre fungus mushroom from the log and talk to Filliman.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:1eajxtp",
+          "html": "<i>Use</i> the Mort myre fungus on the western, yellow stone.",
+          "text": "Use the Mort myre fungus on the western, yellow stone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:1bey1wg",
+          "html": "<i>Use</i> <a href=\"https://runescape.wiki/w/A_used_spell\" target=\"_blank\" rel=\"noopener\">a used spell</a> on the eastern, grey stone.",
+          "text": "Use a used spell on the eastern, grey stone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:jv4wr4",
+          "html": "Stand on top of the southern, orange stone in the centre by right-click selecting &quot;Walk here&quot;.",
+          "text": "Stand on top of the southern, orange stone in the centre by right-click selecting \"Walk here\".",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:qoglv8",
+          "html": "Tell Filliman the puzzle is solved.",
+          "text": "Tell Filliman the puzzle is solved.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I think I've solved the puzzle!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:yvvv2z",
+          "html": "<i>Enter</i> the Grotto tree.",
+          "text": "Enter the Grotto tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:1nm43hs",
+          "html": "<i>Search</i> the <a href=\"https://runescape.wiki/w/Grotto\" target=\"_blank\" rel=\"noopener\">Grotto</a> in the centre.",
+          "text": "Search the Grotto in the centre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "becoming-a-nature-spirit:eyuo3w",
+          "html": "Continue speaking with <a href=\"https://runescape.wiki/w/Nature_Spirit_(NPC)\" target=\"_blank\" rel=\"noopener\">Nature Spirit</a> and he will ask you for a <a href=\"https://runescape.wiki/w/Silver_sickle\" target=\"_blank\" rel=\"noopener\">silver sickle</a>.",
+          "text": "Continue speaking with Nature Spirit and he will ask you for a silver sickle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Ok, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "killing-the-ghasts",
+      "title": "Killing the ghasts",
+      "anchor": "Killing_the_ghasts",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "killing-the-ghasts:bring:1rawez5",
+              "html": "Silver sickle",
+              "text": "Silver sickle"
+            },
+            {
+              "id": "killing-the-ghasts:bring:v3i4nb",
+              "html": "At least 1 prayer point",
+              "text": "At least 1 prayer point"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:12vecgt",
+          "html": "Obtain a <a href=\"https://runescape.wiki/w/Silver_sickle\" target=\"_blank\" rel=\"noopener\">silver sickle</a> via:",
+          "text": "Obtain a silver sickle via:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "killing-the-ghasts:12vecgt:jpdm8i",
+              "html": "Purchasing it from the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>.",
+              "text": "Purchasing it from the Grand Exchange.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "killing-the-ghasts:12vecgt:1qzoehu",
+              "html": "Crafting one yourself:",
+              "text": "Crafting one yourself:",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "killing-the-ghasts:12vecgt:1qzoehu:q075tg",
+                  "html": "Obtain a <a href=\"https://runescape.wiki/w/Sickle_mould\" target=\"_blank\" rel=\"noopener\">sickle mould</a> from a <a href=\"https://runescape.wiki/w/Crafting_shops\" target=\"_blank\" rel=\"noopener\">Crafting shop</a> or the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>. You may add it to the tool belt.",
+                  "text": "Obtain a sickle mould from a Crafting shop or the Grand Exchange. You may add it to the tool belt.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "killing-the-ghasts:12vecgt:1qzoehu:f88x91",
+                  "html": "<i>Smelt</i> at a <a href=\"https://runescape.wiki/w/Furnace\" target=\"_blank\" rel=\"noopener\">furnace</a> with a <a href=\"https://runescape.wiki/w/Silver_bar\" target=\"_blank\" rel=\"noopener\">silver bar</a>. Select &quot;silver bar&quot; under &quot;Casting Metals &amp; Glass&quot; section on the interface, and then select the &quot;silver sickle&quot; option in the &quot;Silver Casting&quot; section.",
+                  "text": "Smelt at a furnace with a silver bar. Select \"silver bar\" under \"Casting Metals & Glass\" section on the interface, and then select the \"silver sickle\" option in the \"Silver Casting\" section.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:1bkzhr8",
+          "html": "Return to the grotto either by speaking to Drezel, or by navigating via the Morytania Swamp.",
+          "text": "Return to the grotto either by speaking to Drezel, or by navigating via the Morytania Swamp.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, please"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:72imgr",
+          "html": "<i>Enter</i> the grotto tree.",
+          "text": "Enter the grotto tree.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:15ax7x0",
+          "html": "Talk to the Nature Spirit with a silver sickle in your backpack. He will bless it for a <a href=\"https://runescape.wiki/w/Silver_sickle_(b)\" target=\"_blank\" rel=\"noopener\">silver sickle (b)</a>.",
+          "text": "Talk to the Nature Spirit with a silver sickle in your backpack. He will bless it for a silver sickle (b).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:1xe1b9m",
+          "html": "<i>Exit</i> the grotto, <i>jump</i> the bridge into the swamp and stand next to the nearby rotting log.",
+          "text": "Exit the grotto, jump the bridge into the swamp and stand next to the nearby rotting log.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:1a8zjpk",
+          "html": "Right-click <i>Bloom</i> the silver sickle (b) in your backpack. Blooming requires at least 1 prayer point.",
+          "text": "Right-click Bloom the silver sickle (b) in your backpack. Blooming requires at least 1 prayer point.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:boquf4",
+          "html": "<i>Pick</i> the fungi from the log. You will need at least 3 total fungi (ghasts can rot the contents of the pouch).",
+          "text": "Pick the fungi from the log. You will need at least 3 total fungi (ghasts can rot the contents of the pouch).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:orh87n",
+          "html": "<i>Fill</i> the druid pouch in your backpack to add the fungi into it.",
+          "text": "Fill the druid pouch in your backpack to add the fungi into it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "killing-the-ghasts:1qjvudp",
+          "html": "<i>Invoke</i> and kill 3 nearby <a href=\"https://runescape.wiki/w/Ghast\" target=\"_blank\" rel=\"noopener\">ghasts</a>, consuming 1 fungus per invocation.",
+          "text": "Invoke and kill 3 nearby ghasts, consuming 1 fungus per invocation.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "finishing-up:bring:sj95vz",
+              "html": "3 backpack spaces",
+              "text": "3 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:z889yz",
+          "html": "If you drop anything to receive the rewards, it will be lost.",
+          "text": "If you drop anything to receive the rewards, it will be lost.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ru9b6y",
+          "html": "Return to the Nature Spirit in the grotto.",
+          "text": "Return to the Nature Spirit in the grotto.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fpgcdr",
+          "html": "(Optional) Pray at the altar to complete one of the <a href=\"https://runescape.wiki/w/Easy_Morytania_achievements\" target=\"_blank\" rel=\"noopener\">easy Morytania achievements</a>, <a href=\"https://runescape.wiki/w/Fortified_Spirit\" target=\"_blank\" rel=\"noopener\">Fortified Spirit</a>.",
+          "text": "(Optional) Pray at the altar to complete one of the easy Morytania achievements, Fortified Spirit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Nature_Spirit_reward.png?dd463",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Nature_Spirit_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "3,000 experience <a href=\"https://runescape.wiki/w/Crafting_XP_lamp_(Nature_Spirit)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Defence_XP_lamp_(Nature_Spirit)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Constitution_XP_lamp_(Nature_Spirit)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Mort_Myre_Swamp\" target=\"_blank\" rel=\"noopener\">Mort Myre Swamp</a> through the <a href=\"https://runescape.wiki/w/Gate_(Mort_Myre_Swamp)\" target=\"_blank\" rel=\"noopener\">gate</a>, which also allows easier access to <a href=\"https://runescape.wiki/w/Mort%27ton\" target=\"_blank\" rel=\"noopener\">Mort&#39;ton</a> and the <a href=\"https://runescape.wiki/w/Barrows\" target=\"_blank\" rel=\"noopener\">Barrows</a> activity as well as most of Southern <a href=\"https://runescape.wiki/w/Morytania\" target=\"_blank\" rel=\"noopener\">Morytania</a>",
+        "text": "Access to Mort Myre Swamp through the gate, which also allows easier access to Mort'ton and the Barrows activity as well as most of Southern Morytania",
+        "subs": []
+      },
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Apple_pie\" target=\"_blank\" rel=\"noopener\">apple pies</a> and 3 <a href=\"https://runescape.wiki/w/Meat_pie\" target=\"_blank\" rel=\"noopener\">meat pies</a> unless they were rotted by the Ghasts",
+        "text": "3 apple pies and 3 meat pies unless they were rotted by the Ghasts",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Altar_of_Nature\" target=\"_blank\" rel=\"noopener\">Altar of Nature</a>, where you can replenish and temporarily boost your prayer points by twenty",
+        "text": "Access to Altar of Nature, where you can replenish and temporarily boost your prayer points by twenty",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Summoning_Supplies_(Wishing_well)\" target=\"_blank\" rel=\"noopener\">Summoning Supplies (Wishing well)</a> shop",
+        "text": "Access to the Summoning Supplies (Wishing well) shop",
+        "subs": []
+      },
+      {
+        "html": "Ability to craft <a href=\"https://runescape.wiki/w/Silver_sickle\" target=\"_blank\" rel=\"noopener\">silver sickles</a>",
+        "text": "Ability to craft silver sickles",
+        "subs": []
+      },
+      {
+        "html": "Ability to fight <a href=\"https://runescape.wiki/w/Ghasts\" target=\"_blank\" rel=\"noopener\">Ghasts</a> by using <a href=\"https://runescape.wiki/w/Druid_pouch\" target=\"_blank\" rel=\"noopener\">druid pouches</a>",
+        "text": "Ability to fight Ghasts by using druid pouches",
+        "subs": []
+      },
+      {
+        "html": "If you lose your <a href=\"https://runescape.wiki/w/Blessed_sickle\" target=\"_blank\" rel=\"noopener\">blessed sickle</a> you can regain it by dipping a sickle in the <a href=\"https://runescape.wiki/w/Altar_of_Nature\" target=\"_blank\" rel=\"noopener\">Altar of Nature</a>",
+        "text": "If you lose your blessed sickle you can regain it by dipping a sickle in the Altar of Nature",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Dead Quiet",
+      "where": ""
+    },
+    {
+      "name": "Natural",
+      "where": ""
+    },
+    {
+      "name": "Stagnant",
+      "where": ""
+    },
+    {
+      "name": "Grotto",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Nature_Spirit_(achievement)\" target=\"_blank\" rel=\"noopener\">Nature Spirit</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Morytania_achievements\" target=\"_blank\" rel=\"noopener\">Morytania achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_I_-_Growing_Pains/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale I - Growing Pains</a>",
+        "<a href=\"https://runescape.wiki/w/In_Search_of_the_Myreque/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Search of the Myreque</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a> (full comprehension)"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_II_-_Cure_a_Queen/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale II - Cure a Queen</a>",
+        "<a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a>",
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/In_Aid_of_the_Myreque/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Aid of the Myreque</a>",
+        "<a href=\"https://runescape.wiki/w/In_Memory_of_the_Myreque_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">In Memory of the Myreque (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Legacy_of_Seergaze/Quick_guide\" target=\"_blank\" rel=\"noopener\">Legacy of Seergaze</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/River_of_Blood/Quick_guide\" target=\"_blank\" rel=\"noopener\">River of Blood</a>",
+        "<a href=\"https://runescape.wiki/w/The_Branches_of_Darkmeyer/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Branches of Darkmeyer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Darkness_of_Hallowvale/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Darkness of Hallowvale</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lord_of_Vampyrium/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lord of Vampyrium</a>",
+        "<a href=\"https://runescape.wiki/w/The_Lost_Toys_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Lost Toys (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/While_Guthix_Sleeps/Quick_guide\" target=\"_blank\" rel=\"noopener\">While Guthix Sleeps</a> (full comprehension)"
+      ]
+    }
+  ]
+}

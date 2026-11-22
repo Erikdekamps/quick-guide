@@ -1,0 +1,1117 @@
+{
+  "format": 1,
+  "id": "the-great-brain-robbery",
+  "title": "The Great Brain Robbery",
+  "page": "The Great Brain Robbery/Quick guide",
+  "rev": 37125249,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Brother_Tranquillity\" target=\"_blank\" rel=\"noopener\">Brother Tranquillity</a>, who is located just off the docks on <a href=\"https://runescape.wiki/w/Mos_Le%27Harmless\" target=\"_blank\" rel=\"noopener\">Mos Le&#39;Harmless</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 2962,
+      "lon": 3682,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Great_Brain_Robbery/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Creature of Fenkenstrain",
+        "depth": 1
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 2
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 2
+      },
+      {
+        "text": "Cabin Fever",
+        "depth": 1
+      },
+      {
+        "text": "Pirate's Treasure",
+        "depth": 2
+      },
+      {
+        "text": "Rum Deal",
+        "depth": 2
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 3
+      },
+      {
+        "text": "Recipe for Disaster: Freeing Pirate Pete",
+        "depth": 1
+      },
+      {
+        "text": "Recipe for Disaster: Another Cook's Quest",
+        "depth": 2
+      },
+      {
+        "text": "Cook's Assistant",
+        "depth": 3
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Construction",
+        "level": 30,
+        "note": ""
+      },
+      {
+        "skill": "Crafting",
+        "level": 16,
+        "note": ""
+      },
+      {
+        "skill": "Prayer",
+        "level": 50,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "Access to a <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_1\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench 1</a> (or better) in a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "5 Sorebones (level 49)",
+        "name": "Sorebones",
+        "count": 5,
+        "level": "49",
+        "note": ""
+      },
+      {
+        "text": "Barrelchest (level 93)",
+        "name": "Barrelchest",
+        "count": null,
+        "level": "93",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span> <span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:p1y6fb",
+          "html": "<a href=\"https://runescape.wiki/w/Fishbowl_helmet\" target=\"_blank\" rel=\"noopener\">Fishbowl helmet</a> and <a href=\"https://runescape.wiki/w/Diving_apparatus\" target=\"_blank\" rel=\"noopener\">diving apparatus</a>",
+          "text": "Fishbowl helmet and diving apparatus",
+          "alternatives": []
+        },
+        {
+          "id": "req:1xx5qli",
+          "html": "A <a href=\"https://runescape.wiki/w/Holy_symbol\" target=\"_blank\" rel=\"noopener\">holy symbol</a>",
+          "text": "A holy symbol",
+          "alternatives": []
+        },
+        {
+          "id": "req:fhpqgi",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">Ring of charos</a>",
+          "text": "Ring of charos",
+          "alternatives": []
+        },
+        {
+          "id": "req:1quq9xm",
+          "html": "38+ <a href=\"https://runescape.wiki/w/Nails\" target=\"_blank\" rel=\"noopener\">nails</a> of any kind over bronze (the nails have a chance to accidentally bend, so it is recommended to bring more)",
+          "text": "38+ nails of any kind over bronze (the nails have a chance to accidentally bend, so it is recommended to bring more)",
+          "alternatives": []
+        },
+        {
+          "id": "req:8htta7",
+          "html": "10 <a href=\"https://runescape.wiki/w/Wooden_cat\" target=\"_blank\" rel=\"noopener\">wooden cats</a>",
+          "text": "10 wooden cats",
+          "alternatives": [
+            "Can be crafted with 10 <a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">bear fur</a> and 10 <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a> (requires partial completion of quest, <a href=\"https://runescape.wiki/w/Protean_plank\" target=\"_blank\" rel=\"noopener\">protean planks</a> do not work)"
+          ]
+        },
+        {
+          "id": "req:ouhsl6",
+          "html": "8 regular <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a> (cannot be used from within <a href=\"https://runescape.wiki/w/Plank_box\" target=\"_blank\" rel=\"noopener\">plank box</a>)",
+          "text": "8 regular planks (cannot be used from within plank box)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1tt3dgn",
+          "html": "A <a href=\"https://runescape.wiki/w/Hammer\" target=\"_blank\" rel=\"noopener\">hammer</a> (tool belt does not work)",
+          "text": "A hammer (tool belt does not work)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1h1usvk",
+          "html": "A <a href=\"https://runescape.wiki/w/Tinderbox\" target=\"_blank\" rel=\"noopener\">tinderbox</a> (tool belt does not work, obtainable during quest)",
+          "text": "A tinderbox (tool belt does not work, obtainable during quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1i4mwmq",
+          "html": "Access to a <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench</a> at a <a href=\"https://runescape.wiki/w/Player-owned_house\" target=\"_blank\" rel=\"noopener\">player-owned house</a> (if not buying <a href=\"https://runescape.wiki/w/Wooden_cat\" target=\"_blank\" rel=\"noopener\">wooden cats</a> from the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>)",
+          "text": "Access to a clockmaker's bench at a player-owned house (if not buying wooden cats from the Grand Exchange)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1fspjtu",
+          "html": "An <a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">ectophial</a> (only if not using fairy rings)",
+          "text": "An ectophial (only if not using fairy rings)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:11326jz",
+          "html": "4-6 <a href=\"https://runescape.wiki/w/Ecto-token\" target=\"_blank\" rel=\"noopener\">ecto-tokens</a> (if you haven&#39;t completed <a href=\"https://runescape.wiki/w/Ghosts_Ahoy\" target=\"_blank\" rel=\"noopener\">Ghosts Ahoy</a>, not needed if using fairy rings)",
+          "text": "4-6 ecto-tokens (if you haven't completed Ghosts Ahoy, not needed if using fairy rings)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1042rq8",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis</a> and <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>",
+          "text": "Activated Canifis and Edgeville lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1x1oxbv",
+          "html": "Discovered the <b>D</b><b>I</b><b>P</b> <a href=\"https://runescape.wiki/w/Fairy_ring#DIP\" target=\"_blank\" rel=\"noopener\">fairy ring</a> code (requires partial completion of <a href=\"https://runescape.wiki/w/A_Fairy_Tale_III_-_Battle_at_Ork%27s_Rift\" target=\"_blank\" rel=\"noopener\">A Fairy Tale III - Battle at Ork&#39;s Rift</a> and fixing of the 2 bridges to use – see <a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">Fairy ring</a> for more information)",
+          "text": "Discovered the DIP fairy ring code (requires partial completion of A Fairy Tale III - Battle at Ork's Rift and fixing of the 2 bridges to use – see Fairy ring for more information)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1j3xezx",
+          "html": "Not having any followers, or any summoning pouches or pets (this includes wooden cats) in the inventory",
+          "text": "Not having any followers, or any summoning pouches or pets (this includes wooden cats) in the inventory",
+          "alternatives": []
+        },
+        {
+          "id": "rec:uqzqst",
+          "html": "A <a href=\"https://runescape.wiki/w/Combat_bracelet\" target=\"_blank\" rel=\"noopener\">combat bracelet</a> or <a href=\"https://runescape.wiki/w/Wilderness_sword_1\" target=\"_blank\" rel=\"noopener\">wilderness sword 1</a> (to quick travel to the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a>)",
+          "text": "A combat bracelet or wilderness sword 1 (to quick travel to the Edgeville Monastery)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "disharmony",
+      "title": "Disharmony",
+      "anchor": "Disharmony",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "disharmony:bring:1v05sr0",
+              "html": "4 regular <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a>",
+              "text": "4 regular planks"
+            },
+            {
+              "id": "disharmony:bring:nhvsun",
+              "html": "At least 10 nails",
+              "text": "At least 10 nails"
+            },
+            {
+              "id": "disharmony:bring:1xx5qli",
+              "html": "A holy symbol",
+              "text": "A holy symbol"
+            },
+            {
+              "id": "disharmony:bring:1rt5iug",
+              "html": "<a href=\"https://runescape.wiki/w/Fishbowl_helmet\" target=\"_blank\" rel=\"noopener\">Fishbowl helmet</a>",
+              "text": "Fishbowl helmet"
+            },
+            {
+              "id": "disharmony:bring:7yamgd",
+              "html": "<a href=\"https://runescape.wiki/w/Diving_apparatus\" target=\"_blank\" rel=\"noopener\">Diving apparatus</a>",
+              "text": "Diving apparatus"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:1p5eu38",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Mos_Le%27Harmless\" target=\"_blank\" rel=\"noopener\">Mos Le&#39;Harmless</a> (<a href=\"https://runescape.wiki/w/Fairy_ring\" target=\"_blank\" rel=\"noopener\">fairy ring</a> <b>D</b><b>I</b><b>P</b> if you have repaired the bridge), walk a bit north off the dock and talk to <a href=\"https://runescape.wiki/w/Brother_Tranquillity\" target=\"_blank\" rel=\"noopener\">Brother Tranquillity</a> (if you arrived via the fairy ring, run into town and he is north of the docks).",
+          "text": "Travel to Mos Le'Harmless (fairy ring DIP if you have repaired the bridge), walk a bit north off the dock and talk to Brother Tranquillity (if you arrived via the fairy ring, run into town and he is north of the docks).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:1xkz4y1",
+          "html": "Bank/dismiss any pets or familiars.",
+          "text": "Bank/dismiss any pets or familiars.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:gitd9j",
+          "html": "Upon arrival on <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a>, go through the dialogue, or Brother Tranquillity will teleport you back to Mos Le&#39;Harmless.",
+          "text": "Upon arrival on Harmony Island, go through the dialogue, or Brother Tranquillity will teleport you back to Mos Le'Harmless.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:crjuwm",
+          "html": "Run outside and head slightly north to the statue. <i>Pull</i> the statue, then <i>climb-down</i> statue.",
+          "text": "Run outside and head slightly north to the statue. Pull the statue, then climb-down statue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:pv71c2",
+          "html": "Equip your diving gear and <i>descend</i> the stairs.",
+          "text": "Equip your diving gear and descend the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:x0xydj",
+          "html": "Run past the zombie pirates.",
+          "text": "Run past the zombie pirates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:1ixhps0",
+          "html": "<i>Repair</i> the stairs at the end of the tunnel, then <i>climb</i> them.",
+          "text": "Repair the stairs at the end of the tunnel, then climb them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "disharmony:1ixhps0:1htazoa",
+              "html": "If you happened to bring your planks in a plank box, be sure to remove them so you can repair the stairs.",
+              "text": "If you happened to bring your planks in a plank box, be sure to remove them so you can repair the stairs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "disharmony:1g8wg97",
+          "html": "<i>Climb</i> the ladder.",
+          "text": "Climb the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:1xhmxze",
+          "html": "<i>Peer-through</i> the peephole on the wall.",
+          "text": "Peer-through the peephole on the wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:18754k8",
+          "html": "Make your way back to Brother Tranquillity on <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a> and speak with him.",
+          "text": "Make your way back to Brother Tranquillity on Harmony Island and speak with him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:ffqadw",
+          "html": "Travel to the <a href=\"https://runescape.wiki/w/Edgeville_Monastery\" target=\"_blank\" rel=\"noopener\">Edgeville Monastery</a>.",
+          "text": "Travel to the Edgeville Monastery.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:126us5z",
+          "html": "Search the southern bookcase on the ground floor (UK) / 1<sup>st</sup> floor (US) of the western wing to find a <a href=\"https://runescape.wiki/w/Prayer_book\" target=\"_blank\" rel=\"noopener\">prayer book</a>.",
+          "text": "Search the southern bookcase on the ground floor (UK) / 1st floor (US) of the western wing to find a prayer book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:9jxc47",
+          "html": "Read the book.",
+          "text": "Read the book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:iod650",
+          "html": "Head back to Brother Tranquillity who teleports you to <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a>.",
+          "text": "Head back to Brother Tranquillity who teleports you to Harmony Island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "disharmony:16mi9ib",
+          "html": "Wear your holy symbol and choose the option <i>Recite-prayer</i> on the prayer book.",
+          "text": "Wear your holy symbol and choose the option Recite-prayer on the prayer book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "family-doctor",
+      "title": "Family doctor",
+      "anchor": "Family_doctor",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "family-doctor:za8zwm",
+          "html": "Talk to Brother Tranquillity.",
+          "text": "Talk to Brother Tranquillity.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:11gato0",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Fenkenstrain%27s_Castle\" target=\"_blank\" rel=\"noopener\">Fenkenstrain&#39;s Castle</a>, which is directly north-east of the <a href=\"https://runescape.wiki/w/Canifis_lodestone\" target=\"_blank\" rel=\"noopener\">Canifis lodestone</a>.",
+          "text": "Travel to Fenkenstrain's Castle, which is directly north-east of the Canifis lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1rc7qgg",
+          "html": "Go up on the staircase in the north-western corner.",
+          "text": "Go up on the staircase in the north-western corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1eb73db",
+          "html": "Go up on the northern ladder behind the jail gate in the centre.",
+          "text": "Go up on the northern ladder behind the jail gate in the centre.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1ws0h34",
+          "html": "Talk to Dr Fenkenstrain.",
+          "text": "Talk to Dr Fenkenstrain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Err... Meow?"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "family-doctor:bring:1taf53q",
+              "html": "10 <a href=\"https://runescape.wiki/w/Wooden_cat\" target=\"_blank\" rel=\"noopener\">wooden cats</a> (10 <a href=\"https://runescape.wiki/w/Bear_fur\" target=\"_blank\" rel=\"noopener\">bear fur</a> and 10 <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a> if making yourself)",
+              "text": "10 wooden cats (10 bear fur and 10 planks if making yourself)"
+            },
+            {
+              "id": "family-doctor:bring:1arkhnl",
+              "html": "28+ nails",
+              "text": "28+ nails"
+            },
+            {
+              "id": "family-doctor:bring:1oqf3yk",
+              "html": "4 <a href=\"https://runescape.wiki/w/Plank\" target=\"_blank\" rel=\"noopener\">planks</a>",
+              "text": "4 planks"
+            },
+            {
+              "id": "family-doctor:bring:fhpqgi",
+              "html": "<a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">Ring of charos</a>",
+              "text": "Ring of charos"
+            },
+            {
+              "id": "family-doctor:bring:1b8fhiq",
+              "html": "At least 2 backpack spaces",
+              "text": "At least 2 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1d0snsv",
+          "html": "Equip your <a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">ring of charos</a> and talk to <a href=\"https://runescape.wiki/w/Rufus\" target=\"_blank\" rel=\"noopener\">Rufus</a> in the Canifis meat store.",
+          "text": "Equip your ring of charos and talk to Rufus in the Canifis meat store.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the meat shipment"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "family-doctor:1d0snsv:1lwu9xx",
+              "html": "Speak with Rufus again after the cutscene if you did not receive a <a href=\"https://runescape.wiki/w/Wolf_whistle_(item)\" target=\"_blank\" rel=\"noopener\">wolf whistle</a> and <a href=\"https://runescape.wiki/w/Crate_part\" target=\"_blank\" rel=\"noopener\">crate parts</a>.",
+              "text": "Speak with Rufus again after the cutscene if you did not receive a wolf whistle and crate parts.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:171lkrz",
+          "html": "Start crafting on a <a href=\"https://runescape.wiki/w/Clockmaker%27s_bench_1\" target=\"_blank\" rel=\"noopener\">clockmaker&#39;s bench</a> in a player-owned house to make 10 wooden cats with 10 planks and 10 bear fur. You can also buy them off the <a href=\"https://runescape.wiki/w/Grand_Exchange\" target=\"_blank\" rel=\"noopener\">Grand Exchange</a>.",
+          "text": "Start crafting on a clockmaker's bench in a player-owned house to make 10 wooden cats with 10 planks and 10 bear fur. You can also buy them off the Grand Exchange.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:178sext",
+          "html": "Travel back to Dr Fenkenstrain with all of the required items.",
+          "text": "Travel back to Dr Fenkenstrain with all of the required items.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1k7bv9f",
+          "html": "<i>Build</i> the crate on the hotspot, east of the ladder.",
+          "text": "Build the crate on the hotspot, east of the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1luc121",
+          "html": "<i>Add-bottom</i> to the crate.",
+          "text": "Add-bottom to the crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:1wd5dze",
+          "html": "<i>Fill</i> the crate with the wooden cats.",
+          "text": "Fill the crate with the wooden cats.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:2x45lp",
+          "html": "Take off your fishbowl helmet and <i>Blow</i> the wolf whistle to call Rufus.",
+          "text": "Take off your fishbowl helmet and Blow the wolf whistle to call Rufus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "family-doctor:bntcwi",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Shipping_order\" target=\"_blank\" rel=\"noopener\">shipping order</a> on the crate.",
+          "text": "Use the shipping order on the crate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "scrubs",
+      "title": "Scrubs",
+      "anchor": "Scrubs",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "scrubs:bring:1rt5iug",
+              "html": "<a href=\"https://runescape.wiki/w/Fishbowl_helmet\" target=\"_blank\" rel=\"noopener\">Fishbowl helmet</a>",
+              "text": "Fishbowl helmet"
+            },
+            {
+              "id": "scrubs:bring:7yamgd",
+              "html": "<a href=\"https://runescape.wiki/w/Diving_apparatus\" target=\"_blank\" rel=\"noopener\">Diving apparatus</a>",
+              "text": "Diving apparatus"
+            },
+            {
+              "id": "scrubs:bring:g6wng2",
+              "html": "<a href=\"https://runescape.wiki/w/Hammer\" target=\"_blank\" rel=\"noopener\">Hammer</a> (tool belt does not work)",
+              "text": "Hammer (tool belt does not work)"
+            },
+            {
+              "id": "scrubs:bring:x9xgyi",
+              "html": "<a href=\"https://runescape.wiki/w/Tinderbox\" target=\"_blank\" rel=\"noopener\">Tinderbox</a> (tool belt does not work, can be picked up on the pirate ship)",
+              "text": "Tinderbox (tool belt does not work, can be picked up on the pirate ship)"
+            },
+            {
+              "id": "scrubs:bring:lmcud0",
+              "html": "<a href=\"https://runescape.wiki/w/Combat_gear\" target=\"_blank\" rel=\"noopener\">Combat gear</a>",
+              "text": "Combat gear"
+            },
+            {
+              "id": "scrubs:bring:5np2bq",
+              "html": "At least 6 backpack spaces",
+              "text": "At least 6 backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:rl5jaj",
+          "html": "Travel back to Mos Le&#39;Harmless.",
+          "text": "Travel back to Mos Le'Harmless.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "scrubs:rl5jaj:thqur7",
+              "html": "You can buy a <a href=\"https://runescape.wiki/w/Hammer\" target=\"_blank\" rel=\"noopener\">hammer</a> and a <a href=\"https://runescape.wiki/w/Tinderbox\" target=\"_blank\" rel=\"noopener\">tinderbox</a> from the <a href=\"https://runescape.wiki/w/Trader_Crewmember\" target=\"_blank\" rel=\"noopener\">Trader Crewmember</a> (located south-west on the dock).",
+              "text": "You can buy a hammer and a tinderbox from the Trader Crewmember (located south-west on the dock).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "scrubs:b8gq4s",
+          "html": "Speak with Brother Tranquillity to get back on <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a>. (Brother Tranquillity now also has a &quot;transport&quot; option available to players)",
+          "text": "Speak with Brother Tranquillity to get back on Harmony Island. (Brother Tranquillity now also has a \"transport\" option available to players)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes. please."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:ju6b5b",
+          "html": "<i>Climb down</i> the ladder and talk to Dr Fenkenstrain.",
+          "text": "Climb down the ladder and talk to Dr Fenkenstrain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "scrubs:ju6b5b:lpav6j",
+              "html": "If he is not there, exit to lobby and join the world again.",
+              "text": "If he is not there, exit to lobby and join the world again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "scrubs:14e9ro9",
+          "html": "Return up the ladder.",
+          "text": "Return up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:1utiyvk",
+          "html": "Equip your diving suit and head north to the ship that has run aground.",
+          "text": "Equip your diving suit and head north to the ship that has run aground.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "scrubs:1utiyvk:3n7umc",
+              "html": "If you walk outside without diving suit, you will be teleported back.",
+              "text": "If you walk outside without diving suit, you will be teleported back.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "scrubs:1utiyvk:stgh1x",
+              "html": "Equip your weapons in preparation for fighting enemies, otherwise you will have to return to the windmill to do so. Attempting to do so outside will give the message: &quot;You cannot wear that without the gas affecting you.&quot;",
+              "text": "Equip your weapons in preparation for fighting enemies, otherwise you will have to return to the windmill to do so. Attempting to do so outside will give the message: \"You cannot wear that without the gas affecting you.\"",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "scrubs:kdrri1",
+          "html": "<i>Open</i> and then <i>search</i> the locker on the west end of the ground floor (UK) / 1<sup>st</sup> floor (US) to get a <a href=\"https://runescape.wiki/w/Fuse_(Gunpowder)\" target=\"_blank\" rel=\"noopener\">fuse</a>.",
+          "text": "Open and then search the locker on the west end of the ground floor (UK) / 1st floor (US) to get a fuse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:1gz9bq5",
+          "html": "<i>Climb</i> the ladder and <i>take</i> a <a href=\"https://runescape.wiki/w/Keg\" target=\"_blank\" rel=\"noopener\">keg</a> of powder found next to a cannon.",
+          "text": "Climb the ladder and take a keg of powder found next to a cannon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "scrubs:1gz9bq5:9szv27",
+              "html": "Grab the <a href=\"https://runescape.wiki/w/Tinderbox\" target=\"_blank\" rel=\"noopener\">tinderbox</a> from the front (east side) of the ship if you have not brought your own.",
+              "text": "Grab the tinderbox from the front (east side) of the ship if you have not brought your own.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "scrubs:11tp4pp",
+          "html": "Go to the front door of the monastery (the main building on Harmony Island).",
+          "text": "Go to the front door of the monastery (the main building on Harmony Island).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:14ua13e",
+          "html": "<i>Use</i> the keg on the door.",
+          "text": "Use the keg on the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:2g7yxc",
+          "html": "<i>Use</i> the fuse on the door.",
+          "text": "Use the fuse on the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:p1n3ev",
+          "html": "<i>Use</i> your tinderbox on the fuse.",
+          "text": "Use your tinderbox on the fuse.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:17e2dd3",
+          "html": "<i>Pass</i> the door to enter the monastery.",
+          "text": "Pass the door to enter the monastery.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:11myyjl",
+          "html": "Kill some <a href=\"https://runescape.wiki/w/Sorebones\" target=\"_blank\" rel=\"noopener\">sorebones</a> until you get the following items (the items drop one at a time and the next item won&#39;t spawn until the current one is picked up):",
+          "text": "Kill some sorebones until you get the following items (the items drop one at a time and the next item won't spawn until the current one is picked up):",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "scrubs:11myyjl:8i9nr3",
+              "html": "3 <a href=\"https://runescape.wiki/w/Bell_jar\" target=\"_blank\" rel=\"noopener\">bell jars</a>",
+              "text": "3 bell jars",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "scrubs:11myyjl:1vsqyxu",
+              "html": "A pair of <a href=\"https://runescape.wiki/w/Brain_tongs\" target=\"_blank\" rel=\"noopener\">brain tongs</a>",
+              "text": "A pair of brain tongs",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "scrubs:11myyjl:19cl487",
+              "html": "A <a href=\"https://runescape.wiki/w/Cranial_clamp\" target=\"_blank\" rel=\"noopener\">cranial clamp</a>",
+              "text": "A cranial clamp",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "scrubs:11myyjl:14gxint",
+              "html": "30 <a href=\"https://runescape.wiki/w/Skull_staple\" target=\"_blank\" rel=\"noopener\">skull staples</a>",
+              "text": "30 skull staples",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "scrubs:1r0s32l",
+          "html": "Talk to Dr Fenkenstrain downstairs in the mill. Make sure to give him a <a href=\"https://runescape.wiki/w/Hammer\" target=\"_blank\" rel=\"noopener\">hammer</a> or you will be stuck.",
+          "text": "Talk to Dr Fenkenstrain downstairs in the mill. Make sure to give him a hammer or you will be stuck.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "scrubs:ff0d77",
+          "html": "After the cutscene, go upstairs and talk to Brother Tranquillity.",
+          "text": "After the cutscene, go upstairs and talk to Brother Tranquillity.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Not right now, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "barrelchest",
+      "title": "Barrelchest",
+      "anchor": "Barrelchest",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "barrelchest:bring:h1ghod",
+              "html": "Combat equipment",
+              "text": "Combat equipment"
+            },
+            {
+              "id": "barrelchest:bring:1rt5iug",
+              "html": "Fishbowl helmet",
+              "text": "Fishbowl helmet"
+            },
+            {
+              "id": "barrelchest:bring:7yamgd",
+              "html": "Diving apparatus",
+              "text": "Diving apparatus"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "barrelchest:bring:7x179c",
+              "html": "Food and potions",
+              "text": "Food and potions"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "barrelchest:1t0ben8",
+          "html": "<i>Pass</i> the door of the monastery and <i>confront</i> <a href=\"https://runescape.wiki/w/Mi-Gor\" target=\"_blank\" rel=\"noopener\">Mi-Gor</a>.",
+          "text": "Pass the door of the monastery and confront Mi-Gor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "barrelchest:1i1aqey",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Barrelchest\" target=\"_blank\" rel=\"noopener\">Barrelchest</a>.",
+          "text": "Kill Barrelchest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "barrelchest:1eaojad",
+          "html": "<i>Take</i> the <a href=\"https://runescape.wiki/w/Barrelchest_anchor\" target=\"_blank\" rel=\"noopener\">Barrelchest anchor</a>.",
+          "text": "Take the Barrelchest anchor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "barrelchest:1t6h3iu",
+          "html": "Return to Brother Tranquillity.",
+          "text": "Return to Brother Tranquillity.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "barrelchest:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Great_Brain_Robbery_reward.png?60876",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Great_Brain_Robbery_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "6,000 experience",
+        "text": "6,000 experience",
+        "subs": []
+      },
+      {
+        "html": "3,000 experience",
+        "text": "3,000 experience",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Blessed_lamp\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 30 or higher)",
+        "text": "5,000 experience lamp (Skill must be level 30 or higher)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Barrelchest_anchor\" target=\"_blank\" rel=\"noopener\">Barrelchest anchor</a> (If broken, use on <a href=\"https://runescape.wiki/w/Smith\" target=\"_blank\" rel=\"noopener\">Pirate Smith</a> on the docks of Mos Le&#39;Harmless, while having the <a href=\"https://runescape.wiki/w/Little_Book_o%27_Piracy\" target=\"_blank\" rel=\"noopener\">Book o&#39; piracy</a> and 230,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> in your backpack)",
+        "text": "Barrelchest anchor (If broken, use on Pirate Smith on the docks of Mos Le'Harmless, while having the Book o' piracy and 230,000 coins in your backpack)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Prayer_book\" target=\"_blank\" rel=\"noopener\">Prayer book</a>",
+        "text": "Prayer book",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Harmony_Island\" target=\"_blank\" rel=\"noopener\">Harmony Island</a>",
+        "text": "Access to Harmony Island",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Brain Battle",
+      "where": "When confronting Mi-Gor"
+    },
+    {
+      "name": "Zombiism",
+      "where": "On Harmony Island"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Rocking_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rocking Out</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Clockwork_Syringe/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Clockwork Syringe</a>",
+        "<a href=\"https://runescape.wiki/w/Pieces_of_Hate/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pieces of Hate</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

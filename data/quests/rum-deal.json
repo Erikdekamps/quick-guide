@@ -1,0 +1,737 @@
+{
+  "format": 1,
+  "id": "rum-deal",
+  "title": "Rum Deal",
+  "page": "Rum Deal/Quick guide",
+  "rev": 37080518,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "<a href=\"https://runescape.wiki/w/Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Pirate Pete</a>, at the docks north of <a href=\"https://runescape.wiki/w/Port_Phasmatys\" target=\"_blank\" rel=\"noopener\">Port Phasmatys</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3538,
+      "lon": 3672,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Rum_Deal/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 42,
+        "note": ""
+      },
+      {
+        "skill": "Farming",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Fishing",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Prayer",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Slayer",
+        "level": 42,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Evil spirit (level 56)",
+        "name": "Evil spirit",
+        "count": null,
+        "level": "56",
+        "note": ""
+      },
+      {
+        "text": "Fever spider (level 70)",
+        "name": "Fever spider",
+        "count": null,
+        "level": "70",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Morytania</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Morytania</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1eh2rkr",
+          "html": "<a href=\"https://runescape.wiki/w/Armour\" target=\"_blank\" rel=\"noopener\">Armour</a> and <a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">food</a> to defeat a level 56 monster who uses melee, and a level 70 monster that uses ranged",
+          "text": "Armour and food to defeat a level 56 monster who uses melee, and a level 70 monster that uses ranged",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1qx0d0u",
+          "html": "An <a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">ectophial</a> for easy teleportation",
+          "text": "An ectophial for easy teleportation",
+          "alternatives": []
+        },
+        {
+          "id": "rec:rkryf2",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">Ring of charos</a> (for use when speaking with <a href=\"https://runescape.wiki/w/50%25_Luke\" target=\"_blank\" rel=\"noopener\">50% Luke</a>)",
+          "text": "Ring of charos (for use when speaking with 50% Luke)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1mrd7ne",
+          "html": "<a href=\"https://runescape.wiki/w/Slayer_gloves\" target=\"_blank\" rel=\"noopener\">Slayer gloves</a> (When fighting the fever spider)",
+          "text": "Slayer gloves (When fighting the fever spider)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "braindeath-island",
+      "title": "Braindeath Island",
+      "anchor": "Braindeath_Island",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "braindeath-island:bring:40dbym",
+              "html": "At least four backpack spaces",
+              "text": "At least four backpack spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "braindeath-island:1yijfa0",
+          "html": "Recharge your prayer if you have fewer than 470 points.",
+          "text": "Recharge your prayer if you have fewer than 470 points.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "braindeath-island:evmts2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Pirate Pete</a>, north of Port Phasmatys.",
+          "text": "Talk to Pirate Pete, north of Port Phasmatys.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Of course, I fear no demon!"
+                },
+                {
+                  "key": "1",
+                  "text": "Nonsense! Keep the money!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "braindeath-island:evmts2:tuyn84",
+              "html": "If you have the <a href=\"https://runescape.wiki/w/Ectophial\" target=\"_blank\" rel=\"noopener\">ectophial</a> it will place you close to Pirate Pete.",
+              "text": "If you have the ectophial it will place you close to Pirate Pete.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blindweed",
+      "title": "Blindweed",
+      "anchor": "Blindweed",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "blindweed:18xuown",
+          "html": "<b>Note</b>: If at any point you leave the area you can return via Pirate Pete.",
+          "text": "Note: If at any point you leave the area you can return via Pirate Pete.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Okay!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:16cl4of",
+          "html": "Complete the dialogue with <a href=\"https://runescape.wiki/w/Captain_Braindeath\" target=\"_blank\" rel=\"noopener\">Captain Braindeath</a>. He gives you a <a href=\"https://runescape.wiki/w/Blindweed_seed\" target=\"_blank\" rel=\"noopener\">blindweed seed</a>.",
+          "text": "Complete the dialogue with Captain Braindeath. He gives you a blindweed seed.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:psfc8i",
+          "html": "Run south and <i>Climb-down</i> a Wooden Stair.",
+          "text": "Run south and Climb-down a Wooden Stair.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:apes9p",
+          "html": "Run south to the farming patches.",
+          "text": "Run south to the farming patches.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:178y8c4",
+          "html": "<i>Rake</i> the south-easternmost <a href=\"https://runescape.wiki/w/Blindweed_Patch_(patch)\" target=\"_blank\" rel=\"noopener\">Blindweed Patch</a> (the only one which isn&#39;t labelled as &#39;trashed&#39;).",
+          "text": "Rake the south-easternmost Blindweed Patch (the only one which isn't labelled as 'trashed').",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:1u8wdgu",
+          "html": "<i>Use</i> the seed on the patch.",
+          "text": "Use the seed on the patch.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:sy0exb",
+          "html": "<i>Pick</i> the <a href=\"https://runescape.wiki/w/Blindweed_Patch\" target=\"_blank\" rel=\"noopener\">blindweed</a> once grown (can take up to 5 minutes).",
+          "text": "Pick the blindweed once grown (can take up to 5 minutes).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:ptg4xi",
+          "html": "Return to and <i>Talk</i> to Captain Braindeath.",
+          "text": "Return to and Talk to Captain Braindeath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:uhxzu5",
+          "html": "In the south-east corner of the building, <i>Climb-up</i> the Ladder.",
+          "text": "In the south-east corner of the building, Climb-up the Ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "blindweed:79r96l",
+          "html": "In the north-west corner, <i>Deposit</i> at the Hopper (1 tile east of the Pressure Barrel).",
+          "text": "In the north-west corner, Deposit at the Hopper (1 tile east of the Pressure Barrel).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "stagnant-water",
+      "title": "Stagnant water",
+      "anchor": "Stagnant_water",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "stagnant-water:1fypxae",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Braindeath\" target=\"_blank\" rel=\"noopener\">Captain Braindeath</a>, he&#39;ll give you an empty bucket if you don&#39;t already have one.",
+          "text": "Talk to Captain Braindeath, he'll give you an empty bucket if you don't already have one.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stagnant-water:1w8phdr",
+          "html": "Go to the bridges to the west and <i>Open</i> the Gate.",
+          "text": "Go to the bridges to the west and Open the Gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "stagnant-water:1w8phdr:mygexk",
+              "html": "<b>Optional</b>: Wear your <a href=\"https://runescape.wiki/w/Ring_of_charos\" target=\"_blank\" rel=\"noopener\">ring of charos</a> to distract <a href=\"https://runescape.wiki/w/50%25_Luke\" target=\"_blank\" rel=\"noopener\">50% Luke</a>.",
+              "text": "Optional: Wear your ring of charos to distract 50% Luke.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "stagnant-water:1w8phdr:4t2xc4",
+              "html": "If no ring just click <i>Open</i> and your character will distract him.",
+              "text": "If no ring just click Open and your character will distract him.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "stagnant-water:1i860gm",
+          "html": "Continue north and up the mountain to the Stagnant Lake.",
+          "text": "Continue north and up the mountain to the Stagnant Lake.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stagnant-water:1njtmnt",
+          "html": "<i>Fill</i> at the Stagnant Lake.",
+          "text": "Fill at the Stagnant Lake.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stagnant-water:1bfyjgg",
+          "html": "<i>Deposit</i> at the Hopper from earlier (keep the empty bucket for later).",
+          "text": "Deposit at the Hopper from earlier (keep the empty bucket for later).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "sluglings",
+      "title": "Sluglings",
+      "anchor": "Sluglings",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "sluglings:7bygfq",
+          "html": "Return to Captain Braindeath. He will give you a <a href=\"https://runescape.wiki/w/Fishbowl_and_net\" target=\"_blank\" rel=\"noopener\">Fishbowl and net</a>",
+          "text": "Return to Captain Braindeath. He will give you a Fishbowl and net",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "sluglings:7bygfq:1eon6du",
+              "html": "If you accidentally <i>Untangle</i> the fishbowl, just <i>Use</i> the bowl on the net to re-tangle them.",
+              "text": "If you accidentally Untangle the fishbowl, just Use the bowl on the net to re-tangle them.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "sluglings:xncgff",
+          "html": "Fish a total of 5 <a href=\"https://runescape.wiki/w/Sluglings\" target=\"_blank\" rel=\"noopener\">sluglings</a> and/or <a href=\"https://runescape.wiki/w/Karamthulhu\" target=\"_blank\" rel=\"noopener\">karamthulhu</a> near the farming patches (a mix of 5 will work).",
+          "text": "Fish a total of 5 sluglings and/or karamthulhu near the farming patches (a mix of 5 will work).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sluglings:1kckm7e",
+          "html": "<i>Use</i> all 5 on the <a href=\"https://runescape.wiki/w/Pressure_Barrel\" target=\"_blank\" rel=\"noopener\">Pressure Barrel</a> next to the Hopper.",
+          "text": "Use all 5 on the Pressure Barrel next to the Hopper.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sluglings:w8v3yp",
+          "html": "<i>Pull</i> the lever.",
+          "text": "Pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "trouble-brewing",
+      "title": "Trouble Brewing",
+      "anchor": "Trouble_Brewing",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "trouble-brewing:bring:1r2hopj",
+              "html": "Bucket",
+              "text": "Bucket"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:1k1syfv",
+          "html": "Return to Captain Braindeath. He will give you a <a href=\"https://runescape.wiki/w/Wrench\" target=\"_blank\" rel=\"noopener\">wrench</a>.",
+          "text": "Return to Captain Braindeath. He will give you a wrench.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:faasat",
+          "html": "Enter the western room and <i>Talk</i> to <a href=\"https://runescape.wiki/w/Davey\" target=\"_blank\" rel=\"noopener\">Davey</a> to get the <a href=\"https://runescape.wiki/w/Holy_wrench\" target=\"_blank\" rel=\"noopener\">holy wrench</a>.",
+          "text": "Enter the western room and Talk to Davey to get the holy wrench.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:9lnoit",
+          "html": "Right-click <i>Use</i> the wrench on the brewing control to the east (the object shaking crazily).",
+          "text": "Right-click Use the wrench on the brewing control to the east (the object shaking crazily).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:1841luh",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Evil_spirit\" target=\"_blank\" rel=\"noopener\">evil spirit</a>.",
+          "text": "Kill the evil spirit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:706m40",
+          "html": "Return to Captain Braindeath.",
+          "text": "Return to Captain Braindeath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:hmog2w",
+          "html": "<i>Climb-down</i> the nearby ladder to the south-west.",
+          "text": "Climb-down the nearby ladder to the south-west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:1rnt9ks",
+          "html": "With <a href=\"https://runescape.wiki/w/Slayer_gloves\" target=\"_blank\" rel=\"noopener\">slayer gloves</a> equipped, kill a <a href=\"https://runescape.wiki/w/Fever_spider\" target=\"_blank\" rel=\"noopener\">fever spider</a> and take its body.",
+          "text": "With slayer gloves equipped, kill a fever spider and take its body.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "trouble-brewing:1rnt9ks:qy4bb2",
+              "html": "Slayer gloves are not required with high life points or when safespotting the spider behind a crate (with Magic/Ranged/Necromancy)",
+              "text": "Slayer gloves are not required with high life points or when safespotting the spider behind a crate (with Magic/Ranged/Necromancy)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:18mj3bp",
+          "html": "<i>Deposit</i> at the hopper.",
+          "text": "Deposit at the hopper.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:706m40-2",
+          "html": "Return to Captain Braindeath.",
+          "text": "Return to Captain Braindeath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "trouble-brewing:18ux2ai",
+          "html": "With an empty bucket, <i>turn</i> the Output Tap (south of the machinery) to receive <a href=\"https://runescape.wiki/w/Unsanitary_swill\" target=\"_blank\" rel=\"noopener\">unsanitary swill</a>.",
+          "text": "With an empty bucket, turn the Output Tap (south of the machinery) to receive unsanitary swill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1unm628",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Donnie\" target=\"_blank\" rel=\"noopener\">Captain Donnie</a> near the farming patches.",
+          "text": "Talk to Captain Donnie near the farming patches.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:706m40",
+          "html": "Return to Captain Braindeath.",
+          "text": "Return to Captain Braindeath.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Rum_Deal_reward.png?31077",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Rum_Deal_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience <a href=\"https://runescape.wiki/w/Farming_XP_lamp_(Rum_Deal)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "7,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience <a href=\"https://runescape.wiki/w/Fishing_XP_lamp_(Rum_Deal)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "7,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience <a href=\"https://runescape.wiki/w/Prayer_XP_lamp_(Rum_Deal)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "7,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Holy_wrench\" target=\"_blank\" rel=\"noopener\">Holy wrench</a> (gives extra Prayer point(s) when drinking a <a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">prayer</a> or <a href=\"https://runescape.wiki/w/Super_restore\" target=\"_blank\" rel=\"noopener\">super restore potion</a>)",
+        "text": "Holy wrench (gives extra Prayer point(s) when drinking a prayer or super restore potion)",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Braindeath_Island\" target=\"_blank\" rel=\"noopener\">Braindeath Island</a>.",
+        "text": "Access to Braindeath Island.",
+        "subs": []
+      },
+      {
+        "html": "Tangled <a href=\"https://runescape.wiki/w/Fishbowl_and_net\" target=\"_blank\" rel=\"noopener\">Fishbowl and net</a>",
+        "text": "Tangled Fishbowl and net",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Aye Car Rum Ba",
+      "where": ""
+    },
+    {
+      "name": "Blistering Barnacles",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Rum_Deal_(achievement)\" target=\"_blank\" rel=\"noopener\">Rum Deal</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Cabin_Fever/Quick_guide\" target=\"_blank\" rel=\"noopener\">Cabin Fever</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Clockwork_Syringe/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Clockwork Syringe</a>",
+        "<a href=\"https://runescape.wiki/w/Pieces_of_Hate/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pieces of Hate</a>",
+        "<a href=\"https://runescape.wiki/w/Ritual_of_the_Mahjarrat/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ritual of the Mahjarrat</a>",
+        "<a href=\"https://runescape.wiki/w/Rocking_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rocking Out</a>",
+        "<a href=\"https://runescape.wiki/w/The_Great_Brain_Robbery/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Great Brain Robbery</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Koschei%27s_Troubles_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Koschei&#39;s Troubles (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nadir_(saga)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nadir (saga)</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Rebuilding_Edgeville_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rebuilding Edgeville (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

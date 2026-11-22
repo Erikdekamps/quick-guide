@@ -1,0 +1,216 @@
+{
+  "format": 1,
+  "id": "dorics-task-vi-miniquest",
+  "title": "Doric's Task VI (miniquest)",
+  "page": "Doric's Task VI (miniquest)/Quick guide",
+  "rev": 36295032,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> just outside the gates of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3439,
+      "lon": 2959,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Doric's_Task_VI_(miniquest)/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Doric's Task V (miniquest)",
+        "depth": 1
+      },
+      {
+        "text": "Doric's Task IV (miniquest)",
+        "depth": 2
+      },
+      {
+        "text": "Doric's Task III (miniquest)",
+        "depth": 3
+      },
+      {
+        "text": "Doric's Task II (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Doric's Task I (miniquest)…",
+        "depth": 5
+      },
+      {
+        "text": "Death Plateau",
+        "depth": 5
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Smithing",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 60,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:9i6g5y",
+          "html": "16 <a href=\"https://runescape.wiki/w/Orikalkum_bar\" target=\"_blank\" rel=\"noopener\">orikalkum bars</a> or",
+          "text": "16 orikalkum bars or",
+          "alternatives": [
+            "8 orikalkum bars",
+            "<a href=\"https://runescape.wiki/w/Orikalkum_warhammer_%2B_2\" target=\"_blank\" rel=\"noopener\">Orikalkum warhammer + 2</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:ipw3m0",
+          "html": "Activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>",
+          "text": "Activated Falador lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1842k0",
+          "html": "<a href=\"https://runescape.wiki/w/Enchanted_lyre\" target=\"_blank\" rel=\"noopener\">Enchanted lyre</a> or <a href=\"https://runescape.wiki/w/Rellekka_tablet\" target=\"_blank\" rel=\"noopener\">Rellekka tablet</a> (or just the <a href=\"https://runescape.wiki/w/Fremennik_Province_lodestone\" target=\"_blank\" rel=\"noopener\">Fremennik Province lodestone</a>)",
+          "text": "Enchanted lyre or Rellekka tablet (or just the Fremennik Province lodestone)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "fremennik-of-war",
+      "title": "Fremennik of War",
+      "anchor": "Fremennik_of_War",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "fremennik-of-war:3ifcno",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Doric\" target=\"_blank\" rel=\"noopener\">Doric</a> in his <a href=\"https://runescape.wiki/w/Doric%27s_hut\" target=\"_blank\" rel=\"noopener\">hut</a> north of <a href=\"https://runescape.wiki/w/Falador\" target=\"_blank\" rel=\"noopener\">Falador</a>.",
+          "text": "Speak to Doric in his hut north of Falador.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Do you have any more Smithing tasks for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-of-war:1w05tk5",
+          "html": "Smith an <a href=\"https://runescape.wiki/w/Orikalkum_warhammer_%2B3\" target=\"_blank\" rel=\"noopener\">orikalkum warhammer +3</a>. This cannot be one that was bought or traded, or smithed before accepting the quest.",
+          "text": "Smith an orikalkum warhammer +3. This cannot be one that was bought or traded, or smithed before accepting the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fremennik-of-war:1d9dgvo",
+          "html": "Deliver the warhammer to <a href=\"https://runescape.wiki/w/Skulgrimen\" target=\"_blank\" rel=\"noopener\">Skulgrimen</a>, in the armour hut just north of the long hall in <a href=\"https://runescape.wiki/w/Rellekka\" target=\"_blank\" rel=\"noopener\">Rellekka</a>.",
+          "text": "Deliver the warhammer to Skulgrimen, in the armour hut just north of the long hall in Rellekka.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I have your order from Doric & Son."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Miniquest complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Doric%27s_Task_VI_%28miniquest%29_reward.png?21e70",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Doric%27s_Task_VI_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "8,000 experience",
+        "text": "8,000 experience",
+        "subs": []
+      },
+      {
+        "html": "24,000 charges for the <a href=\"https://runescape.wiki/w/Gofannon_amulet\" target=\"_blank\" rel=\"noopener\">Gofannon amulet</a>",
+        "text": "24,000 charges for the Gofannon amulet",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VII (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Doric%27s_Task_VIII_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Doric&#39;s Task VIII (miniquest)</a>"
+      ]
+    }
+  ]
+}

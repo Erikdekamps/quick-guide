@@ -1,0 +1,678 @@
+{
+  "format": 1,
+  "id": "daughter-of-chaos",
+  "title": "Daughter of Chaos",
+  "page": "Daughter of Chaos/Quick guide",
+  "rev": 37071686,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Adrasteia\" target=\"_blank\" rel=\"noopener\">Adrasteia</a> in the <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">Falador castle</a> throne room.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3336,
+      "lon": 2984,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Daughter_of_Chaos/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Archaeology",
+        "level": 40,
+        "note": ""
+      },
+      {
+        "skill": "Divination",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Part 1: 3 chaos demons, 3 chaos witches, and 3 Zamorakian cultists",
+        "name": "Part 1: 3 chaos demons, 3 chaos witches, and 3 Zamorakian cultists",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Part 2: 2 chaos demons, 2 chaos witches, and 2 Zamorakian cultists",
+        "name": "Part 2: 2 chaos demons, 2 chaos witches, and 2 Zamorakian cultists",
+        "count": null,
+        "level": "",
+        "note": ""
+      },
+      {
+        "text": "Part 3: Avaryss, the Unceasing",
+        "name": "Part 3: Avaryss, the Unceasing",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span> <span class=\"reg\">Wilderness</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:18rbihs",
+          "html": "<a href=\"https://runescape.wiki/w/Wilderness_sword_1\" target=\"_blank\" rel=\"noopener\">Wilderness sword 1</a> or better for teleporting to <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a> or activated <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a>",
+          "text": "Wilderness sword 1 or better for teleporting to Edgeville or activated Edgeville lodestone",
+          "alternatives": []
+        },
+        {
+          "id": "rec:434a4h",
+          "html": "<a href=\"https://runescape.wiki/w/Falador_Teleport\" target=\"_blank\" rel=\"noopener\">Falador Teleport</a>, activated <a href=\"https://runescape.wiki/w/Falador_lodestone\" target=\"_blank\" rel=\"noopener\">Falador lodestone</a>, <a href=\"https://runescape.wiki/w/Ring_of_respawn\" target=\"_blank\" rel=\"noopener\">ring of respawn</a>, or <a href=\"https://runescape.wiki/w/Master_archaeologist%27s_outfit\" target=\"_blank\" rel=\"noopener\">master archaeologist&#39;s outfit</a> to get to the <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a>",
+          "text": "Falador Teleport, activated Falador lodestone, ring of respawn, or master archaeologist's outfit to get to the White Knights' Castle",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:g57pik",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Adrasteia\" target=\"_blank\" rel=\"noopener\">Adrasteia</a> in the <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a>&#39;s throne room (2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US), east side).",
+          "text": "Talk to Adrasteia in the White Knights' Castle's throne room (2nd floor (UK) / 3rd floor (US), east side).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll see it done."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:pwt28a",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Anne Dimitri</a> downstairs 1 floor in the interrogation room (1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US), centre).",
+          "text": "Talk to Anne Dimitri downstairs 1 floor in the interrogation room (1st floor (UK) / 2nd floor (US), centre).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1ns5mqq",
+          "html": "Teleport to <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>.",
+          "text": "Teleport to Edgeville.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:1qnevuk",
+          "html": "Cross the <a href=\"https://runescape.wiki/w/Wilderness_wall\" target=\"_blank\" rel=\"noopener\">Wilderness wall</a> north of the <a href=\"https://runescape.wiki/w/Underwall_tunnel_(Grand_Exchange)\" target=\"_blank\" rel=\"noopener\">Grand Exchange underwall tunnel</a>.",
+          "text": "Cross the Wilderness wall north of the Grand Exchange underwall tunnel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "starting-out:1qnevuk:18okoyk",
+              "html": "Make sure PVP is turned off. Most of the quest takes place in instances.",
+              "text": "Make sure PVP is turned off. Most of the quest takes place in instances.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moia-s-memories",
+      "title": "Moia's memories",
+      "anchor": "Moia's_memories",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Abandoned camp"
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1bl5o4y",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Anne Dimitri</a>.",
+          "text": "Talk to Anne Dimitri.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:15wyme9",
+          "html": "Talk to Anne Dimitri again after arriving at the abandoned camp.",
+          "text": "Talk to Anne Dimitri again after arriving at the abandoned camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1nsg52i",
+          "html": "Investigate 3 <a href=\"https://runescape.wiki/w/Point_of_interest\" target=\"_blank\" rel=\"noopener\">points of interest</a>. (yellow dots on minimap)",
+          "text": "Investigate 3 points of interest. (yellow dots on minimap)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1bl5o4y-2",
+          "html": "Talk to Anne Dimitri.",
+          "text": "Talk to Anne Dimitri.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:9ivhzr",
+          "html": "Capture 6 <a href=\"https://runescape.wiki/w/Memory_fragment_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">memory fragments</a>.",
+          "text": "Capture 6 memory fragments.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:h5q91k",
+          "html": "Interact with the <a href=\"https://runescape.wiki/w/Restored_Memory\" target=\"_blank\" rel=\"noopener\">Restored Memory</a> twice. Make sure to have dismissed your familiar.",
+          "text": "Interact with the Restored Memory twice. Make sure to have dismissed your familiar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1ngqg6d",
+          "html": "As <a href=\"https://runescape.wiki/w/Moia\" target=\"_blank\" rel=\"noopener\">Moia</a>:",
+          "text": "As Moia:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d:1smpz5o",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Bilrach\" target=\"_blank\" rel=\"noopener\">Bilrach</a> in the west.",
+              "text": "Talk to Bilrach in the west.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d:1f37289",
+              "html": "Kill the 9 enemies.",
+              "text": "Kill the 9 enemies.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": [
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:1720knd",
+                  "html": "You have Vault, Drain, and Blast abilities that you can trigger with the buttons on your screen (not the ability bar).",
+                  "text": "You have Vault, Drain, and Blast abilities that you can trigger with the buttons on your screen (not the ability bar).",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:7fag03",
+                  "html": "Use Vault to escape the area of effect of <a href=\"https://runescape.wiki/w/Chaos_rift_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">chaos rifts</a>.",
+                  "text": "Use Vault to escape the area of effect of chaos rifts.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:1sz1gpn",
+                  "html": "Use Drain as often as possible for healing. This ability is channelled. Moia will be uncommanded for a brief time by running to the target as this ability needs to be use semi-close to the enemy.",
+                  "text": "Use Drain as often as possible for healing. This ability is channelled. Moia will be uncommanded for a brief time by running to the target as this ability needs to be use semi-close to the enemy.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:1r95t3b",
+                  "html": "Use Blast as often as possible near enemies to deal extra damage.",
+                  "text": "Use Blast as often as possible near enemies to deal extra damage.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:2uadvw",
+                  "html": "If you die, you can lower the combat difficulty at any point of the quest when restarting the battle at Anne Dimitri in <a href=\"https://runescape.wiki/w/Wilderness\" target=\"_blank\" rel=\"noopener\">Wilderness</a>.",
+                  "text": "If you die, you can lower the combat difficulty at any point of the quest when restarting the battle at Anne Dimitri in Wilderness.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                },
+                {
+                  "type": "step",
+                  "id": "moia-s-memories:1ngqg6d:1f37289:jwh452",
+                  "html": "Optionally, use the <a href=\"https://runescape.wiki/w/Health_orb\" target=\"_blank\" rel=\"noopener\">health orbs</a> after killing any of the 9 required enemies.",
+                  "text": "Optionally, use the health orbs after killing any of the 9 required enemies.",
+                  "dialogue": [],
+                  "images": [],
+                  "tables": [],
+                  "substeps": []
+                }
+              ]
+            },
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d:vopkdp",
+              "html": "Talk to Bilrach again.",
+              "text": "Talk to Bilrach again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Red Dragon Isle"
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1bl5o4y-3",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Anne Dimitri</a>.",
+          "text": "Talk to Anne Dimitri.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "We should move on."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:3vjk0e",
+          "html": "Talk to Anne Dimitri again.",
+          "text": "Talk to Anne Dimitri again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:r0xqpu",
+          "html": "Inspect 3 <a href=\"https://runescape.wiki/w/Point_of_interest\" target=\"_blank\" rel=\"noopener\">points of interest</a>.",
+          "text": "Inspect 3 points of interest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1bl5o4y-4",
+          "html": "Talk to Anne Dimitri.",
+          "text": "Talk to Anne Dimitri.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:9ivhzr-2",
+          "html": "Capture 6 <a href=\"https://runescape.wiki/w/Memory_fragment_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">memory fragments</a>.",
+          "text": "Capture 6 memory fragments.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1dl3cfz",
+          "html": "Interact with the <a href=\"https://runescape.wiki/w/Restored_Memory\" target=\"_blank\" rel=\"noopener\">Restored Memory</a> twice.",
+          "text": "Interact with the Restored Memory twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1ngqg6d-2",
+          "html": "As <a href=\"https://runescape.wiki/w/Moia\" target=\"_blank\" rel=\"noopener\">Moia</a>:",
+          "text": "As Moia:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d-2:f26ng",
+              "html": "Kill the 6 enemies as in the previous section.",
+              "text": "Kill the 6 enemies as in the previous section.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d-2:7lzcfj",
+              "html": "Talk to the <a href=\"https://runescape.wiki/w/Wounded_cultist\" target=\"_blank\" rel=\"noopener\">wounded cultist</a> in the south-western corner of the isle.",
+              "text": "Talk to the wounded cultist in the south-western corner of the isle.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Wilderness Crater"
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1bl5o4y-5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Anne Dimitri</a>.",
+          "text": "Talk to Anne Dimitri.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1s9ye37",
+          "html": "Interact with the <a href=\"https://runescape.wiki/w/Restored_Memory\" target=\"_blank\" rel=\"noopener\">Restored Memory</a>.",
+          "text": "Interact with the Restored Memory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "moia-s-memories:1ngqg6d-3",
+          "html": "As <a href=\"https://runescape.wiki/w/Moia\" target=\"_blank\" rel=\"noopener\">Moia</a>:",
+          "text": "As Moia:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "moia-s-memories:1ngqg6d-3:1pbsxi8",
+              "html": "Kill <a href=\"https://runescape.wiki/w/Avaryss,_the_Unceasing\" target=\"_blank\" rel=\"noopener\">Avaryss, the Unceasing</a> using the abilities as in previous sections. She periodically summons two <a href=\"https://runescape.wiki/w/Greater_demon_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">greater demons</a> that can be killed for <a href=\"https://runescape.wiki/w/Health_orb\" target=\"_blank\" rel=\"noopener\">health orbs</a>.",
+              "text": "Kill Avaryss, the Unceasing using the abilities as in previous sections. She periodically summons two greater demons that can be killed for health orbs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "confronting-moia",
+      "title": "Confronting Moia",
+      "anchor": "Confronting_Moia",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "confronting-moia:27xlss",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Moia\" target=\"_blank\" rel=\"noopener\">Moia</a>.",
+          "text": "Talk to Moia.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "confronting-moia:hhmey7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Trindine\" target=\"_blank\" rel=\"noopener\">Trindine</a>.",
+          "text": "Talk to Trindine.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'll report back to Adrasteia."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "reporting-back",
+      "title": "Reporting back",
+      "anchor": "Reporting_back",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "reporting-back:bring:1ibtk05",
+              "html": "Three free spaces in <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a>",
+              "text": "Three free spaces in backpack"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "reporting-back:g57pik",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Adrasteia\" target=\"_blank\" rel=\"noopener\">Adrasteia</a> in the <a href=\"https://runescape.wiki/w/White_Knights%27_Castle\" target=\"_blank\" rel=\"noopener\">White Knights&#39; Castle</a>&#39;s throne room (2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US), east side).",
+          "text": "Talk to Adrasteia in the White Knights' Castle's throne room (2nd floor (UK) / 3rd floor (US), east side).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "reporting-back:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Daughter_of_Chaos_reward.png?68d46",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Daughter_of_Chaos_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience <a href=\"https://runescape.wiki/w/Divination_XP_lamp_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "30,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "30,000 experience <a href=\"https://runescape.wiki/w/Archaeology_XP_lamp_(Daughter_of_Chaos)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "30,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Order of Dis weapon cosmetic overrides",
+        "text": "Order of Dis weapon cosmetic overrides",
+        "subs": [
+          "<a href=\"https://runescape.wiki/w/Order_of_Dis_Blade\" target=\"_blank\" rel=\"noopener\">Order of Dis Blade</a> and <a href=\"https://runescape.wiki/w/Order_of_Dis_Off-hand_Blade\" target=\"_blank\" rel=\"noopener\">its off-hand variant</a>",
+          "<a href=\"https://runescape.wiki/w/Order_of_Dis_May(ce)\" target=\"_blank\" rel=\"noopener\">Order of Dis May(ce)</a> and <a href=\"https://runescape.wiki/w/Order_of_Dis_Off-hand_May(ce)\" target=\"_blank\" rel=\"noopener\">its off-hand variant</a>"
+        ]
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Infernal_Puzzle_Box\" target=\"_blank\" rel=\"noopener\">Infernal Puzzle Box</a> tier 2 upgrade",
+        "text": "Infernal Puzzle Box tier 2 upgrade",
+        "subs": [
+          "45% reduced environmental damage within <a href=\"https://runescape.wiki/w/Infernus\" target=\"_blank\" rel=\"noopener\">Infernus</a>",
+          "10% damage reduction in <a href=\"https://runescape.wiki/w/Wilderness\" target=\"_blank\" rel=\"noopener\">Wilderness</a>",
+          "5% increased damage dealt to <a href=\"https://runescape.wiki/w/Monster\" target=\"_blank\" rel=\"noopener\">monsters</a> in the Wilderness"
+        ]
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "The Daughter of Chaos",
+      "where": ""
+    },
+    {
+      "name": "Moia's Anger",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Civil_War_I_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Civil War I (miniquest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Civil_War_II_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Civil War II (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Civil_War_III_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Civil War III (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Succession/Quick_guide\" target=\"_blank\" rel=\"noopener\">Succession</a>"
+      ]
+    }
+  ]
+}

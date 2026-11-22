@@ -1,0 +1,510 @@
+{
+  "format": 1,
+  "id": "a-christmas-reunion",
+  "title": "A Christmas Reunion",
+  "page": "A Christmas Reunion/Quick guide",
+  "rev": 36893037,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a> in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">the Land of Snow&#39;s Christmas Village</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9773,
+      "lon": 5246,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 746,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/A_Christmas_Reunion/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 32,
+        "note": "to start Chef's Assistant (to obtain biscuits)"
+      },
+      {
+        "skill": "Cooking",
+        "level": 38,
+        "note": "(b) (to make a pat of butter for the biscuits, unless obtained from the Culinaromancer's Chest)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "N/A"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:11tk8pa",
+          "html": "3 <a href=\"https://runescape.wiki/w/Split_fir_logs\" target=\"_blank\" rel=\"noopener\">split fir logs</a>",
+          "text": "3 split fir logs",
+          "alternatives": []
+        },
+        {
+          "id": "req:z0ab1x",
+          "html": "15 <a href=\"https://runescape.wiki/w/Steel_nails\" target=\"_blank\" rel=\"noopener\">steel nails</a>",
+          "text": "15 steel nails",
+          "alternatives": []
+        },
+        {
+          "id": "req:182thiu",
+          "html": "6 <a href=\"https://runescape.wiki/w/Bolt_of_cloth\" target=\"_blank\" rel=\"noopener\">bolts of cloth</a>",
+          "text": "6 bolts of cloth",
+          "alternatives": []
+        },
+        {
+          "id": "req:132tevp",
+          "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a> (can be omitted with the effect from a <a href=\"https://runescape.wiki/w/Crafting_cape\" target=\"_blank\" rel=\"noopener\">Crafting cape</a>)",
+          "text": "Thread (can be omitted with the effect from a Crafting cape)",
+          "alternatives": []
+        },
+        {
+          "id": "req:n7poq2",
+          "html": "<a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">Red dye</a>",
+          "text": "Red dye",
+          "alternatives": []
+        },
+        {
+          "id": "req:1868yfe",
+          "html": "<a href=\"https://runescape.wiki/w/Green_dye\" target=\"_blank\" rel=\"noopener\">Green dye</a>",
+          "text": "Green dye",
+          "alternatives": []
+        },
+        {
+          "id": "req:122mpqn",
+          "html": "<a href=\"https://runescape.wiki/w/Chocolate_dust\" target=\"_blank\" rel=\"noopener\">Chocolate dust</a>",
+          "text": "Chocolate dust",
+          "alternatives": []
+        },
+        {
+          "id": "req:1e03n8z",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">Bucket of milk</a>",
+          "text": "Bucket of milk",
+          "alternatives": []
+        },
+        {
+          "id": "req:14o4pl5",
+          "html": "<a href=\"https://runescape.wiki/w/Biscuits\" target=\"_blank\" rel=\"noopener\">Biscuits</a>",
+          "text": "Biscuits",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "talking-to-cait-or-diango",
+      "title": "Talking to Cait or Diango",
+      "anchor": "Talking_to_Cait_or_Diango",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "talking-to-cait-or-diango:3i6kvj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Cait\" target=\"_blank\" rel=\"noopener\">Cait</a> or <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a> in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>.",
+          "text": "Talk to Cait or Diango in Christmas Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-workbenches",
+      "title": "Building the workbenches",
+      "anchor": "Building_the_workbenches",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "building-the-workbenches:bring:11tk8pa",
+              "html": "3 <a href=\"https://runescape.wiki/w/Split_fir_logs\" target=\"_blank\" rel=\"noopener\">split fir logs</a>",
+              "text": "3 split fir logs"
+            },
+            {
+              "id": "building-the-workbenches:bring:z0ab1x",
+              "html": "15 <a href=\"https://runescape.wiki/w/Steel_nails\" target=\"_blank\" rel=\"noopener\">steel nails</a>",
+              "text": "15 steel nails"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-workbenches:14h8h1v",
+          "html": "Fully build the three <a href=\"https://runescape.wiki/w/Pile_of_planks_(Christmas_Village)\" target=\"_blank\" rel=\"noopener\">piles of planks</a>.",
+          "text": "Fully build the three piles of planks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "recruiting-the-pixies",
+      "title": "Recruiting the pixies",
+      "anchor": "Recruiting_the_pixies",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "recruiting-the-pixies:bring:odiwwe",
+              "html": "A free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "A free backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "recruiting-the-pixies:3i6kvj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Cait\" target=\"_blank\" rel=\"noopener\">Cait</a> or <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a> in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>.",
+          "text": "Talk to Cait or Diango in Christmas Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "recruiting-the-pixies:1woxmdy",
+          "html": "Talk to three of the pixies found in the following areas. You can optionally scan with the <a href=\"https://runescape.wiki/w/Magical_thingymabob\" target=\"_blank\" rel=\"noopener\">magical thingymabob</a> for status indicators for how close you are to the correct spot.",
+          "text": "Talk to three of the pixies found in the following areas. You can optionally scan with the magical thingymabob for status indicators for how close you are to the correct spot.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "table",
+          "label": "Pixie · Location",
+          "head": [
+            "Pixie",
+            "<a href=\"https://runescape.wiki/w/Membership_subscription\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/P2P-F2P_icon.png/30px-P2P-F2P_icon.png?9f91c\" alt=\"\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+            "Location",
+            "Map"
+          ],
+          "rows": [
+            [
+              "<a href=\"https://runescape.wiki/w/Aoife\" target=\"_blank\" rel=\"noopener\">Aoife</a>",
+              "<a href=\"https://runescape.wiki/w/Free-to-play\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/F2P_icon.png/30px-F2P_icon.png?3635b\" alt=\"Free-to-play\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>, south of the H.A.M. hideout entrance",
+              ""
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Maeve\" target=\"_blank\" rel=\"noopener\">Maeve</a>",
+              "<a href=\"https://runescape.wiki/w/Free-to-play\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/F2P_icon.png/30px-F2P_icon.png?3635b\" alt=\"Free-to-play\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a> peninsula (upstairs on the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) in the north-western room)",
+              ""
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Niamh\" target=\"_blank\" rel=\"noopener\">Niamh</a>",
+              "<a href=\"https://runescape.wiki/w/Members\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/P2P_icon.png/30px-P2P_icon.png?76a76\" alt=\"Members\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Tree_Gnome_Stronghold\" target=\"_blank\" rel=\"noopener\">Tree Gnome Stronghold</a> (south of <a href=\"https://runescape.wiki/w/Gnome_Ball\" target=\"_blank\" rel=\"noopener\">Gnome Ball</a> field)",
+              ""
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Shannon\" target=\"_blank\" rel=\"noopener\">Shannon</a>",
+              "<a href=\"https://runescape.wiki/w/Members\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/P2P_icon.png/30px-P2P_icon.png?76a76\" alt=\"Members\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Zanaris\" target=\"_blank\" rel=\"noopener\">Zanaris</a> (in a house north-west from the <a href=\"https://runescape.wiki/w/Bank\" target=\"_blank\" rel=\"noopener\">bank</a>)",
+              ""
+            ],
+            [
+              "<a href=\"https://runescape.wiki/w/Shauna\" target=\"_blank\" rel=\"noopener\">Shauna</a>",
+              "<a href=\"https://runescape.wiki/w/Free-to-play\" target=\"_blank\" rel=\"noopener\"><img src=\"https://runescape.wiki/images/thumb/F2P_icon.png/30px-F2P_icon.png?3635b\" alt=\"Free-to-play\" width=\"30\" height=\"30\" loading=\"lazy\" decoding=\"async\"></a>",
+              "<a href=\"https://runescape.wiki/w/Al_Kharid\" target=\"_blank\" rel=\"noopener\">Al Kharid</a> (slightly north-west of the entrance to <a href=\"https://runescape.wiki/w/Abbey_of_St._Elspeth_Citharede\" target=\"_blank\" rel=\"noopener\">Abbey of St. Elspeth Citharede</a>)",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "creating-the-pixie-uniforms",
+      "title": "Creating the pixie uniforms",
+      "anchor": "Creating_the_pixie_uniforms",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "creating-the-pixie-uniforms:bring:odiwwe",
+              "html": "A free <a href=\"https://runescape.wiki/w/Backpack\" target=\"_blank\" rel=\"noopener\">backpack</a> space",
+              "text": "A free backpack space"
+            },
+            {
+              "id": "creating-the-pixie-uniforms:bring:xyitil",
+              "html": "<a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">Thread</a> (or the effect from a <a href=\"https://runescape.wiki/w/Crafting_cape\" target=\"_blank\" rel=\"noopener\">Crafting cape</a>)",
+              "text": "Thread (or the effect from a Crafting cape)"
+            },
+            {
+              "id": "creating-the-pixie-uniforms:bring:182thiu",
+              "html": "6 <a href=\"https://runescape.wiki/w/Bolt_of_cloth\" target=\"_blank\" rel=\"noopener\">bolts of cloth</a>",
+              "text": "6 bolts of cloth"
+            },
+            {
+              "id": "creating-the-pixie-uniforms:bring:n7poq2",
+              "html": "<a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">Red dye</a>",
+              "text": "Red dye"
+            },
+            {
+              "id": "creating-the-pixie-uniforms:bring:1868yfe",
+              "html": "<a href=\"https://runescape.wiki/w/Green_dye\" target=\"_blank\" rel=\"noopener\">Green dye</a>",
+              "text": "Green dye"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "creating-the-pixie-uniforms:3i6kvj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Cait\" target=\"_blank\" rel=\"noopener\">Cait</a> or <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a> in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>.",
+          "text": "Talk to Cait or Diango in Christmas Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creating-the-pixie-uniforms:k61wp2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Iffie\" target=\"_blank\" rel=\"noopener\">Iffie</a> in Varrock.",
+          "text": "Talk to Iffie in Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'A Christmas Reunion'."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creating-the-pixie-uniforms:18km6lb",
+          "html": "Use <a href=\"https://runescape.wiki/w/Red_dye\" target=\"_blank\" rel=\"noopener\">red dye</a> on <a href=\"https://runescape.wiki/w/Green_dye\" target=\"_blank\" rel=\"noopener\">green dye</a>.",
+          "text": "Use red dye on green dye.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Make Christmas dye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "creating-the-pixie-uniforms:ichmqf",
+          "html": "<i>Craft</i> the <a href=\"https://runescape.wiki/w/Pixie_uniform_pattern\" target=\"_blank\" rel=\"noopener\">pixie uniform pattern</a>.",
+          "text": "Craft the pixie uniform pattern.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "stocking-the-kitchen",
+      "title": "Stocking the kitchen",
+      "anchor": "Stocking_the_kitchen",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "stocking-the-kitchen:bring:122mpqn",
+              "html": "<a href=\"https://runescape.wiki/w/Chocolate_dust\" target=\"_blank\" rel=\"noopener\">Chocolate dust</a>",
+              "text": "Chocolate dust"
+            },
+            {
+              "id": "stocking-the-kitchen:bring:1e03n8z",
+              "html": "<a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">Bucket of milk</a>",
+              "text": "Bucket of milk"
+            },
+            {
+              "id": "stocking-the-kitchen:bring:14o4pl5",
+              "html": "<a href=\"https://runescape.wiki/w/Biscuits\" target=\"_blank\" rel=\"noopener\">Biscuits</a>",
+              "text": "Biscuits"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "stocking-the-kitchen:3i6kvj",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Cait\" target=\"_blank\" rel=\"noopener\">Cait</a> or <a href=\"https://runescape.wiki/w/Diango\" target=\"_blank\" rel=\"noopener\">Diango</a> in <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>.",
+          "text": "Talk to Cait or Diango in Christmas Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stocking-the-kitchen:1r86n2",
+          "html": "<i>Add hot chocolate powder</i> to the <a href=\"https://runescape.wiki/w/Hot_chocolate_storage\" target=\"_blank\" rel=\"noopener\">hot chocolate storage</a> and enter &quot;0&quot;, &quot;2&quot;, and &quot;3&quot; when prompted.",
+          "text": "Add hot chocolate powder to the hot chocolate storage and enter \"0\", \"2\", and \"3\" when prompted.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stocking-the-kitchen:5nnvmq",
+          "html": "<i>Add biscuits</i> to the <a href=\"https://runescape.wiki/w/Biscuit_storage\" target=\"_blank\" rel=\"noopener\">biscuit storage</a> and enter &quot;1&quot;, &quot;2&quot;, and &quot;2&quot; when prompted.",
+          "text": "Add biscuits to the biscuit storage and enter \"1\", \"2\", and \"2\" when prompted.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stocking-the-kitchen:3i6kvj-2",
+          "html": "Talk to Cait or Diango in Christmas Village.",
+          "text": "Talk to Cait or Diango in Christmas Village.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "stocking-the-kitchen:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/A_Christmas_Reunion_reward.png?2c5e1",
+      "width": 512,
+      "height": 372,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:A_Christmas_Reunion_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Prismatic_XP_lamp_(A_Christmas_Reunion)\" target=\"_blank\" rel=\"noopener\">Prismatic XP lamp</a> yielding 5,000 <a href=\"https://runescape.wiki/w/Experience\" target=\"_blank\" rel=\"noopener\">experience</a> in a skill of choice",
+        "text": "Prismatic XP lamp yielding 5,000 experience in a skill of choice",
+        "subs": []
+      },
+      {
+        "html": "2,000 <a href=\"https://runescape.wiki/w/Christmas_spirit\" target=\"_blank\" rel=\"noopener\">Christmas spirit</a>",
+        "text": "2,000 Christmas spirit",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Diango%27s_Little_Helper\" target=\"_blank\" rel=\"noopener\">[Name], Diango&#39;s Little Helper</a> title",
+        "text": "[Name], Diango's Little Helper title",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Hot_Chocolate_Rest\" target=\"_blank\" rel=\"noopener\">Hot Chocolate Rest</a> animation override",
+        "text": "Hot Chocolate Rest animation override",
+        "subs": []
+      },
+      {
+        "html": "Green, red, and white <a href=\"https://runescape.wiki/w/Winter_Hat_(green,_red_and_white)\" target=\"_blank\" rel=\"noopener\">Winter Hat</a> and <a href=\"https://runescape.wiki/w/Winter_Scarf_(green,_red_and_white)\" target=\"_blank\" rel=\"noopener\">Winter Scarf</a> (if not unlocked)",
+        "text": "Green, red, and white Winter Hat and Winter Scarf (if not unlocked)",
+        "subs": []
+      },
+      {
+        "html": "Emotes from previous <a href=\"https://runescape.wiki/w/Christmas_event\" target=\"_blank\" rel=\"noopener\">Christmas events</a> (if not unlocked)",
+        "text": "Emotes from previous Christmas events (if not unlocked)",
+        "subs": []
+      },
+      {
+        "html": "Access to the hot chocolate brewing and toy production activities in the <a href=\"https://runescape.wiki/w/Christmas_Village\" target=\"_blank\" rel=\"noopener\">Christmas Village</a>",
+        "text": "Access to the hot chocolate brewing and toy production activities in the Christmas Village",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

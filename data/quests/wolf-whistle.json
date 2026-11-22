@@ -1,0 +1,319 @@
+{
+  "format": 1,
+  "id": "wolf-whistle",
+  "title": "Wolf Whistle",
+  "page": "Wolf Whistle/Quick guide",
+  "rev": 37082496,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Pikkupstix\" target=\"_blank\" rel=\"noopener\">Pikkupstix</a> in his house in <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3448,
+      "lon": 2930,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Wolf_Whistle/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:bdhu4t",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Pikkupstix\" target=\"_blank\" rel=\"noopener\">Pikkupstix</a> in <a href=\"https://runescape.wiki/w/Pikkupstix%27s_Summoning_Shop\" target=\"_blank\" rel=\"noopener\">his summoning shop</a> just north-west of <a href=\"https://runescape.wiki/w/Taverley\" target=\"_blank\" rel=\"noopener\">Taverley</a>&#39;s east entrance.",
+          "text": "Talk to Pikkupstix in his summoning shop just north-west of Taverley's east entrance.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Do you have a quest for me?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "assistants",
+      "title": "Assistants",
+      "anchor": "Assistants",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "assistants:1obvdoq",
+          "html": "Head to south of the <a href=\"https://runescape.wiki/w/Taverley_lodestone\" target=\"_blank\" rel=\"noopener\">Taverley lodestone</a>, enter the well, and watch the short cutscene.",
+          "text": "Head to south of the Taverley lodestone, enter the well, and watch the short cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Look, I'll just go and take a look myself..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "assistants:1kl4paa",
+          "html": "Talk to Pikkupstix back at the east side of Taverley.",
+          "text": "Talk to Pikkupstix back at the east side of Taverley.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Bowloftrix has been kidnapped by trolls!"
+                },
+                {
+                  "key": "5",
+                  "text": "I think I had better go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "pouch-materials",
+      "title": "Pouch materials",
+      "anchor": "Pouch_materials",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "pouch-materials:1xjfp55",
+          "html": "Go upstairs at Pikkupstix&#39;s house and search the cluttered drawers in the north-west corner.",
+          "text": "Go upstairs at Pikkupstix's house and search the cluttered drawers in the north-west corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pouch-materials:pd0mvn",
+          "html": "Go to the pet shop south of Pikkupstix and ask the owner about <a href=\"https://runescape.wiki/w/White_hare_meat\" target=\"_blank\" rel=\"noopener\">white hare meat</a>.",
+          "text": "Go to the pet shop south of Pikkupstix and ask the owner about white hare meat.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about the white hare meat."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pouch-materials:1sbm8kz",
+          "html": "Go back towards the well and go west onto <a href=\"https://runescape.wiki/w/White_Wolf_Mountain\" target=\"_blank\" rel=\"noopener\">White Wolf Mountain</a>.",
+          "text": "Go back towards the well and go west onto White Wolf Mountain.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pouch-materials:1y5u8mx",
+          "html": "Take the eastern path and search <a href=\"https://runescape.wiki/w/Stikklebrix%27s_body\" target=\"_blank\" rel=\"noopener\">Stikklebrix&#39;s body</a>.",
+          "text": "Take the eastern path and search Stikklebrix's body.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pouch-materials:3m9jjz",
+          "html": "Talk to Pikkupstix after the items are obtained.",
+          "text": "Talk to Pikkupstix after the items are obtained.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need to ask you something about the quest..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:8uanp5",
+          "html": "Infuse the pouch using the obelisk on the eastern side of his house.",
+          "text": "Infuse the pouch using the obelisk on the eastern side of his house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:14tdu7w",
+          "html": "Talk to him again.",
+          "text": "Talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I need to ask you something about the quest..."
+                },
+                {
+                  "key": "1",
+                  "text": "I made the giant wolpertinger pouch!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1wzz8ac",
+          "html": "Go west back to the well and talk to Scalectrix (make sure you dismiss your pet if you have one out).",
+          "text": "Go west back to the well and talk to Scalectrix (make sure you dismiss your pet if you have one out).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Wolf_Whistle_reward.png?fd897",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Wolf_Whistle_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "276 experience <a href=\"https://runescape.wiki/w/Summoning_XP_lamp_(Wolf_Whistle)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "276 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "275 <a href=\"https://runescape.wiki/w/Gold_charm\" target=\"_blank\" rel=\"noopener\">gold charms</a>",
+        "text": "275 gold charms",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Troll_cave\" target=\"_blank\" rel=\"noopener\">troll cave</a> with <a href=\"https://runescape.wiki/w/Mountain_troll_(well)\" target=\"_blank\" rel=\"noopener\">mountain trolls</a> in it",
+        "text": "Access to the troll cave with mountain trolls in it",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

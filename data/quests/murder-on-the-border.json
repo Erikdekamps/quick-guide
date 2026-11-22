@@ -1,0 +1,1244 @@
+{
+  "format": 1,
+  "id": "murder-on-the-border",
+  "title": "Murder on the Border",
+  "page": "Murder on the Border/Quick guide",
+  "rev": 37217671,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> in the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a> of <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3570,
+      "lon": 3302,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Murder_on_the_Border/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "New Foundations",
+        "depth": 1
+      },
+      {
+        "text": "Build Town Hall (Tier 1)",
+        "depth": 1
+      },
+      {
+        "text": "Build Command Centre (Tier 1)",
+        "depth": 1
+      },
+      {
+        "text": "Build Workshop (Tier 1)",
+        "depth": 1
+      },
+      {
+        "text": "Build Chapel (Tier 1)",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Woodcutting",
+        "level": 20,
+        "note": "(To chop willow logs for the planks)"
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "One assassin that scales to your combat level (optional)",
+        "name": "One assassin that scales to your combat level (optional)",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:swobre",
+          "html": "6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+          "text": "6 stone wall segments",
+          "alternatives": [
+            "24 <a href=\"https://runescape.wiki/w/Limestone_brick\" target=\"_blank\" rel=\"noopener\">limestone bricks</a>"
+          ]
+        },
+        {
+          "id": "req:1le8p3i",
+          "html": "12 <a href=\"https://runescape.wiki/w/Willow_frame\" target=\"_blank\" rel=\"noopener\">willow frames</a>",
+          "text": "12 willow frames",
+          "alternatives": [
+            "144 <a href=\"https://runescape.wiki/w/Willow_plank\" target=\"_blank\" rel=\"noopener\">willow planks</a>"
+          ]
+        },
+        {
+          "id": "req:dcpd0j",
+          "html": "24 <a href=\"https://runescape.wiki/w/Limestone_brick\" target=\"_blank\" rel=\"noopener\">limestone bricks</a> to make stone wall segments",
+          "text": "24 limestone bricks to make stone wall segments",
+          "alternatives": []
+        },
+        {
+          "id": "req:1izim5m",
+          "html": "144 <a href=\"https://runescape.wiki/w/Willow_plank\" target=\"_blank\" rel=\"noopener\">willow planks</a> to make willow frames",
+          "text": "144 willow planks to make willow frames",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:lmcud0",
+          "html": "Combat gear",
+          "text": "Combat gear",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1gkqhnt",
+          "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+          "text": "Food",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:gynds9",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> in the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a> at <a href=\"https://runescape.wiki/w/Fort_Forinthry\" target=\"_blank\" rel=\"noopener\">Fort Forinthry</a>.",
+          "text": "Talk to Aster in the Town Hall at Fort Forinthry.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about quests..."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about 'Murder on the Border'."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-kitchen",
+      "title": "Building the kitchen",
+      "anchor": "Building_the_kitchen",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "building-the-kitchen:bring:lh2qpa",
+              "html": "12 <a href=\"https://runescape.wiki/w/Willow_frame\" target=\"_blank\" rel=\"noopener\">willow frames</a> and 6 <a href=\"https://runescape.wiki/w/Stone_wall_segment\" target=\"_blank\" rel=\"noopener\">stone wall segments</a>",
+              "text": "12 willow frames and 6 stone wall segments"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-kitchen:v76m4n",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bill\" target=\"_blank\" rel=\"noopener\">Bill</a> about building the Kitchen.",
+          "text": "Talk to Bill about building the Kitchen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Murder on the Border'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-kitchen:wsqg36",
+          "html": "<i>Check plans</i> on the <a href=\"https://runescape.wiki/w/Fort_Forinthry_blueprints\" target=\"_blank\" rel=\"noopener\">Fort Forinthry blueprints</a> table near Bill and choose Kitchen (Tier 1).",
+          "text": "Check plans on the Fort Forinthry blueprints table near Bill and choose Kitchen (Tier 1).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-kitchen:1ckn9hu",
+          "html": "Build the Kitchen located east of the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>.",
+          "text": "Build the Kitchen located east of the Town Hall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-banquet",
+      "title": "The banquet",
+      "anchor": "The_banquet",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [],
+          "recommended": [
+            {
+              "id": "the-banquet:bring:lmcud0",
+              "html": "Combat gear",
+              "text": "Combat gear"
+            },
+            {
+              "id": "the-banquet:bring:1gkqhnt",
+              "html": "Food",
+              "text": "Food"
+            },
+            {
+              "id": "the-banquet:bring:dm6qtb",
+              "html": "Three empty backpack spaces",
+              "text": "Three empty backpack spaces"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:zmr023",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a>.",
+          "text": "Talk to Aster.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about quests..."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about 'Murder on the Border'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:kgxqtr",
+          "html": "Click the light blue <a href=\"https://runescape.wiki/w/Murder_on_the_Border_(portal)\" target=\"_blank\" rel=\"noopener\">portal</a> south of the well to start the cutscene.",
+          "text": "Click the light blue portal south of the well to start the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:1h7tvyx",
+          "html": "Watch the cutscene and welcome the guests as they arrive.",
+          "text": "Watch the cutscene and welcome the guests as they arrive.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:1i30dl9",
+          "html": "Talk to three groups of guests in the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>:",
+          "text": "Talk to three groups of guests in the Town Hall:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-banquet:1i30dl9:1pci1yu",
+              "html": "Any guest in the western room.",
+              "text": "Any guest in the western room.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-banquet:1i30dl9:vuapev",
+              "html": "Any guest on 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US).",
+              "text": "Any guest on 1st floor (UK) / 2nd floor (US).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-banquet:1i30dl9:hz9a2g",
+              "html": "Any character in the central room. ground floor (UK) / 1<sup>st</sup> floor (US).",
+              "text": "Any character in the central room. ground floor (UK) / 1st floor (US).",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "~",
+                      "text": "[Any option]"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:1r5qipc",
+          "html": "Talk to Aster in the central room on ground floor (UK) / 1<sup>st</sup> floor (US).",
+          "text": "Talk to Aster in the central room on ground floor (UK) / 1st floor (US).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Yes, let's start the feast'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:98p38r",
+          "html": "Converse with the guests during the feast cutscene.",
+          "text": "Converse with the guests during the feast cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-banquet:1xe1hlp",
+          "html": "Once the cutscene is completed, continue the conversation with Aster to obtain a <a href=\"https://runescape.wiki/w/Mystery_journal\" target=\"_blank\" rel=\"noopener\">mystery journal</a>.",
+          "text": "Once the cutscene is completed, continue the conversation with Aster to obtain a mystery journal.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "investigating-the-murder",
+      "title": "Investigating the murder",
+      "anchor": "Investigating_the_murder",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 1"
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1oh6y5",
+          "html": "<b>(1/8)</b> Go to the <a href=\"https://runescape.wiki/w/Kitchen\" target=\"_blank\" rel=\"noopener\">Kitchen</a> and investigate the <a href=\"https://runescape.wiki/w/Nut_roast\" target=\"_blank\" rel=\"noopener\">nut roast</a> located on a table in the southeast corner of the room.",
+          "text": "(1/8) Go to the Kitchen and investigate the nut roast located on a table in the southeast corner of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1g1suvp",
+          "html": "<b>(2/8)</b> At the north-west part of the Fort, by the <a href=\"https://runescape.wiki/w/Gates_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">northern gates</a>, investigate the <a href=\"https://runescape.wiki/w/Strange_satchel\" target=\"_blank\" rel=\"noopener\">strange satchel</a> beside the rock (southeast of the guards).",
+          "text": "(2/8) At the north-west part of the Fort, by the northern gates, investigate the strange satchel beside the rock (southeast of the guards).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1lfp6vo",
+          "html": "<b>(3/8)</b> Talk to <a href=\"https://runescape.wiki/w/Simon_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">Simon</a> outside of the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a> and <i>Link</i> &quot;How to Poison Dummies for Dummies&quot;.",
+          "text": "(3/8) Talk to Simon outside of the Town Hall and Link \"How to Poison Dummies for Dummies\".",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Link a clue to Simon."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:2dnlaw",
+          "html": "<b>(4/8)</b> Investigate the <a href=\"https://runescape.wiki/w/Half-buried_box\" target=\"_blank\" rel=\"noopener\">half-buried box</a> in the northeastern corner of the fort.",
+          "text": "(4/8) Investigate the half-buried box in the northeastern corner of the fort.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:6mubw3",
+          "html": "Detect the poison:",
+          "text": "Detect the poison:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "investigating-the-murder:6mubw3:fko9mo",
+              "html": "Investigate the strange satchel again and take a <a href=\"https://runescape.wiki/w/Poison_detection_potion_(base)\" target=\"_blank\" rel=\"noopener\">poison detection potion (base)</a>.",
+              "text": "Investigate the strange satchel again and take a poison detection potion (base).",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Take a vial."
+                    },
+                    {
+                      "key": "2",
+                      "text": "Leave."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:6mubw3:jze613",
+              "html": "Search the <a href=\"https://runescape.wiki/w/Supply_cupboard\" target=\"_blank\" rel=\"noopener\">supply cupboard</a> in the <a href=\"https://runescape.wiki/w/Kitchen\" target=\"_blank\" rel=\"noopener\">Kitchen</a> and take a <a href=\"https://runescape.wiki/w/Hollyhock_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">hollyhock</a>.",
+              "text": "Search the supply cupboard in the Kitchen and take a hollyhock.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Take hollyhock."
+                    },
+                    {
+                      "key": "4",
+                      "text": "Leave."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:6mubw3:h0odb6",
+              "html": "Use the hollyhock on the vial to create an <a href=\"https://runescape.wiki/w/Unheated_poison_detection_potion_(hollyhock)\" target=\"_blank\" rel=\"noopener\">unheated poison detection potion (hollyhock)</a>.",
+              "text": "Use the hollyhock on the vial to create an unheated poison detection potion (hollyhock).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:6mubw3:1abrlx3",
+              "html": "Heat the vial on the range.",
+              "text": "Heat the vial on the range.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:6mubw3:1l05sco",
+              "html": "<b>(5/8)</b> Use the <a href=\"https://runescape.wiki/w/Poison_detection_potion_(hollyhock)\" target=\"_blank\" rel=\"noopener\">poison detection potion (hollyhock)</a> on the <a href=\"https://runescape.wiki/w/Duke%27s_meal\" target=\"_blank\" rel=\"noopener\">duke&#39;s meal</a> (meat pâté) on the dining table.",
+              "text": "(5/8) Use the poison detection potion (hollyhock) on the duke's meal (meat pâté) on the dining table.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Use it on the duke's meat pâté."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:13hlgvo",
+          "html": "<b>(6/8)</b> Talk to <a href=\"https://runescape.wiki/w/King_Roald\" target=\"_blank\" rel=\"noopener\">King Roald</a> in the <a href=\"https://runescape.wiki/w/Chapel_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Chapel</a>.",
+          "text": "(6/8) Talk to King Roald in the Chapel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to King Roald."
+                },
+                {
+                  "key": "1",
+                  "text": "Did you notice anything suspicious?"
+                },
+                {
+                  "key": "3",
+                  "text": "That's all for now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1d2e3d7",
+          "html": "<b>(7/8)</b> Go to the Command Centre and speak to Duchess Alba, and <i>Link</i> the &quot;Nut Roast&quot;.",
+          "text": "(7/8) Go to the Command Centre and speak to Duchess Alba, and Link the \"Nut Roast\".",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Link a clue to Duchess Alba"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:ueovxr",
+          "html": "<b>(8/8)</b> Talk to Bianca outside the chapel",
+          "text": "(8/8) Talk to Bianca outside the chapel",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Link a clue to Bianca."
+                }
+              ]
+            },
+            {
+              "when": "And Link the \"Stolen Jewellery\"",
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 2"
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:h533h0",
+          "html": "Ascend to the top floor of the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a> and talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a>.",
+          "text": "Ascend to the top floor of the Town Hall and talk to Aster.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:aitrsr",
+          "html": "Fight the <a href=\"https://runescape.wiki/w/Assassin_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">assassin</a>.",
+          "text": "Fight the assassin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "investigating-the-murder:aitrsr:dlu7ea",
+              "html": "If you die, <a href=\"https://runescape.wiki/w/Princess_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">Princess</a> will kill the assassin for you.",
+              "text": "If you die, Princess will kill the assassin for you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:8nc27u",
+          "html": "Talk to Aster after defeating the assassin.",
+          "text": "Talk to Aster after defeating the assassin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1gwihm5",
+          "html": "Search the assassin&#39;s body for an assassin&#39;s letter then talk to Aster.",
+          "text": "Search the assassin's body for an assassin's letter then talk to Aster.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:15ainzt",
+          "html": "<b>(1/8)</b> Speak with anyone outside by the well.",
+          "text": "(1/8) Speak with anyone outside by the well.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about the assassin."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:atfx5u",
+          "html": "<b>(2/8)</b> Investigate the <a href=\"https://runescape.wiki/w/Wax_seal\" target=\"_blank\" rel=\"noopener\">wax seal</a> outside the north wall of the <a href=\"https://runescape.wiki/w/Chapel_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Chapel</a>.",
+          "text": "(2/8) Investigate the wax seal outside the north wall of the Chapel.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1ap52dp",
+          "html": "<b>(3/8)</b> Speak to <a href=\"https://runescape.wiki/w/Iris_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">Iris</a> in the <a href=\"https://runescape.wiki/w/Workshop_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Workshop</a>",
+          "text": "(3/8) Speak to Iris in the Workshop",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Link a clue to Iris."
+                }
+              ]
+            },
+            {
+              "when": "And Link the \"Strange Seal\" to obtain the amulet of spanielspeak clue",
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:58htmd",
+          "html": "<b>(4/8)</b> In the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>, investigate the <a href=\"https://runescape.wiki/w/Burnt_parchment\" target=\"_blank\" rel=\"noopener\">burnt parchment</a> on the floor near the fireplace.",
+          "text": "(4/8) In the Town Hall, investigate the burnt parchment on the floor near the fireplace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:tqahd4",
+          "html": "Find the unearthed coffer:",
+          "text": "Find the unearthed coffer:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:nbs5c5",
+              "html": "Talk to <a href=\"https://runescape.wiki/w/Princess_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">Princess</a>, the dog, just east of the <a href=\"https://runescape.wiki/w/Stonecutter\" target=\"_blank\" rel=\"noopener\">stonecutter</a> outside the <a href=\"https://runescape.wiki/w/Workshop_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Workshop</a> and <i>Link</i> the &quot;Amulet of Spanielspeak&quot;.",
+              "text": "Talk to Princess, the dog, just east of the stonecutter outside the Workshop and Link the \"Amulet of Spanielspeak\".",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Link a clue to Princess."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:y2wjry",
+              "html": "Go to the northwestern corner of the fort next to the ladder and speak to Princess. (Princess will follow you, you may have to take a wide way around to get her unstuck on corners.)",
+              "text": "Go to the northwestern corner of the fort next to the ladder and speak to Princess. (Princess will follow you, you may have to take a wide way around to get her unstuck on corners.)",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:momrt6",
+              "html": "Investigate the <a href=\"https://runescape.wiki/w/Miscellaneous_items\" target=\"_blank\" rel=\"noopener\">miscellaneous items</a> that appear nearby.",
+              "text": "Investigate the miscellaneous items that appear nearby.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:153pzsp",
+              "html": "Stand near Queen Ellamaria outside by the well, then speak to Princess again.",
+              "text": "Stand near Queen Ellamaria outside by the well, then speak to Princess again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:19rhbz8",
+              "html": "Stand at the altar in the chapel, then speak to Princess once again.",
+              "text": "Stand at the altar in the chapel, then speak to Princess once again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "investigating-the-murder:tqahd4:dyqf26",
+              "html": "<b>(5/8)</b> Investigate the <a href=\"https://runescape.wiki/w/Unearthed_coffer\" target=\"_blank\" rel=\"noopener\">unearthed coffer</a> (which may be underneath Aster, Princess, or your character).",
+              "text": "(5/8) Investigate the unearthed coffer (which may be underneath Aster, Princess, or your character).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1yplmu7",
+          "html": "<b>(6/8)</b> Talk to Duchess Alba in the Command Centre.",
+          "text": "(6/8) Talk to Duchess Alba in the Command Centre.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to Duchess Alba."
+                },
+                {
+                  "key": "2",
+                  "text": "What's your beef with King Roald?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "3",
+                  "text": "That's all for now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:t5hekl",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Rodney\" target=\"_blank\" rel=\"noopener\">Rodney</a> outside the <a href=\"https://runescape.wiki/w/Workshop_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Workshop</a> and ask about Ellamaria.",
+          "text": "Talk to Rodney outside the Workshop and ask about Ellamaria.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to Rodney."
+                },
+                {
+                  "key": "2",
+                  "text": "Ask about Ellamaria."
+                },
+                {
+                  "key": "3",
+                  "text": "That's all for now"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:7dz9ph",
+          "html": "<b>(7/8)</b> Speak to <a href=\"https://runescape.wiki/w/Rodney\" target=\"_blank\" rel=\"noopener\">Rodney</a> again and <i>Link</i> the &quot;Scorched Will&quot;",
+          "text": "(7/8) Speak to Rodney again and Link the \"Scorched Will\"",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Link a clue to Rodney."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:1xeji8g",
+          "html": "<b>(8/8)</b> Speak to <a href=\"https://runescape.wiki/w/Queen_Ellamaria\" target=\"_blank\" rel=\"noopener\">Queen Ellamaria</a> outside by the well and ask about being friends with Bianca.",
+          "text": "(8/8) Speak to Queen Ellamaria outside by the well and ask about being friends with Bianca.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk to Queen Ellamaria."
+                },
+                {
+                  "key": "2",
+                  "text": "I heard you were once friends with Bianca."
+                },
+                {
+                  "key": "4",
+                  "text": "That's all for now."
+                }
+              ]
+            },
+            {
+              "when": "And finish speaking with Aster",
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm ready."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:14mi941",
+          "html": "Talk to anyone in the courtyard.",
+          "text": "Talk to anyone in the courtyard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "investigating-the-murder:kvsvuq",
+          "html": "Identify the murderer as <a href=\"https://runescape.wiki/w/Bianca\" target=\"_blank\" rel=\"noopener\">Bianca</a>.",
+          "text": "Identify the murderer as Bianca.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Bianca Dunnet"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:1nm0zmt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/King_Roald\" target=\"_blank\" rel=\"noopener\">King Roald</a>.",
+          "text": "Talk to King Roald.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "End the banquet."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:375h84",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Aster\" target=\"_blank\" rel=\"noopener\">Aster</a> in the <a href=\"https://runescape.wiki/w/Town_Hall_(Fort_Forinthry)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>.",
+          "text": "Talk to Aster in the Town Hall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about quests..."
+                },
+                {
+                  "key": "1",
+                  "text": "Talk about 'Murder on the Border'."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1oy6ix9",
+          "html": "Talk to Rodney in the <a href=\"https://runescape.wiki/w/Kitchen\" target=\"_blank\" rel=\"noopener\">Kitchen</a>.",
+          "text": "Talk to Rodney in the Kitchen.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Murder_on_the_Border_reward.png?a4851",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Murder_on_the_Border_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "8,000 experience <a href=\"https://runescape.wiki/w/Construction_XP_lamp_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 40 or higher)",
+        "text": "8,000 experience lamp (Skill must be level 40 or higher)",
+        "subs": []
+      },
+      {
+        "html": "3,000 experience <a href=\"https://runescape.wiki/w/Prismatic_XP_lamp_(Murder_on_the_Border)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 30 or higher)",
+        "text": "3,000 experience lamp (Skill must be level 30 or higher)",
+        "subs": []
+      },
+      {
+        "html": "The ability to build all three tiers of the Fort Forinthry <a href=\"https://runescape.wiki/w/Kitchen\" target=\"_blank\" rel=\"noopener\">Kitchen</a>",
+        "text": "The ability to build all three tiers of the Fort Forinthry Kitchen",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "A Feast to Die For",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Murder_on_the_Border_(achievement)\" target=\"_blank\" rel=\"noopener\">Murder on the Border</a> (0) – Complete this quest."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Princess_and_the_Pauper/Quick_guide\" target=\"_blank\" rel=\"noopener\">Princess and the Pauper</a>",
+        "<a href=\"https://runescape.wiki/w/Unwelcome_Guests/Quick_guide\" target=\"_blank\" rel=\"noopener\">Unwelcome Guests</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Ancient_Awakening/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ancient Awakening</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_Forinthry/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of Forinthry</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Dead_and_Buried/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dead and Buried</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Ode_of_the_Devourer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Ode of the Devourer</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Requiem_for_a_Dragon/Quick_guide\" target=\"_blank\" rel=\"noopener\">Requiem for a Dragon</a>"
+      ]
+    }
+  ]
+}

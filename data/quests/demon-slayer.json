@@ -1,0 +1,543 @@
+{
+  "format": 1,
+  "id": "demon-slayer",
+  "title": "Demon Slayer",
+  "page": "Demon Slayer/Quick guide",
+  "rev": 36857821,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Gideon_Bede\" target=\"_blank\" rel=\"noopener\">Gideon Bede</a> at the <a href=\"https://runescape.wiki/w/Varrock_Saradominist_church\" target=\"_blank\" rel=\"noopener\">Saradominist church</a> north of <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> in north-east <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3483,
+      "lon": 3250,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Demon_Slayer/Quick_guide"
+    },
+    "members": false,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "10 skeletons (level 1)",
+        "name": "skeletons",
+        "count": 10,
+        "level": "1",
+        "note": ""
+      },
+      {
+        "text": "9 Cultists (level 1)",
+        "name": "Cultists",
+        "count": 9,
+        "level": "1",
+        "note": ""
+      },
+      {
+        "text": "Delrith (level 15, attacked with melee only)",
+        "name": "Delrith",
+        "count": null,
+        "level": "15, attacked with melee only",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:lmcud0",
+          "html": "<a href=\"https://runescape.wiki/w/Combat_gear\" target=\"_blank\" rel=\"noopener\">Combat gear</a>",
+          "text": "Combat gear",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ktpw0t",
+          "html": "Food (regardless of combat level)",
+          "text": "Food (regardless of combat level)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-trials",
+      "title": "The trials",
+      "anchor": "The_trials",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-trials:1ewyyfe",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gideon_Bede\" target=\"_blank\" rel=\"noopener\">Gideon Bede</a> inside the church in north-east <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a>.",
+          "text": "Talk to Gideon Bede inside the church in north-east Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-trials:3a20nb",
+          "html": "Climb down the trapdoor in the room.",
+          "text": "Climb down the trapdoor in the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-trials:ig9hl1",
+          "html": "Walk north and speak to any of the spirits.",
+          "text": "Walk north and speak to any of the spirits.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I come seeking Silverlight."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Mind"
+        },
+        {
+          "type": "step",
+          "id": "the-trials:pd7bn0",
+          "html": "Speak to the <a href=\"https://runescape.wiki/w/Spirit_of_the_Mind\" target=\"_blank\" rel=\"noopener\">Spirit of the Mind</a> inside the eastern room.",
+          "text": "Speak to the Spirit of the Mind inside the eastern room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "I seek the Silverlight."
+                },
+                {
+                  "key": "3",
+                  "text": "A sword that slays demons."
+                },
+                {
+                  "key": "2",
+                  "text": "A powerful demon threatens Varrock."
+                },
+                {
+                  "key": "1",
+                  "text": "Delrith."
+                },
+                {
+                  "key": "3",
+                  "text": "Gideon Bede."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Faith"
+        },
+        {
+          "type": "step",
+          "id": "the-trials:1bow6g1",
+          "html": "Speak to the <a href=\"https://runescape.wiki/w/Spirit_of_Faith\" target=\"_blank\" rel=\"noopener\">Spirit of Faith</a> in the northern room, who&#39;ll guide you to the other side.",
+          "text": "Speak to the Spirit of Faith in the northern room, who'll guide you to the other side.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-trials:15g5r8i",
+          "html": "The correct pathway is:",
+          "text": "The correct pathway is:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:1jqug41",
+              "html": "3 north",
+              "text": "3 north",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:1muekdm",
+              "html": "2 east",
+              "text": "2 east",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:1jqug41-2",
+              "html": "3 north",
+              "text": "3 north",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:qn2qmg",
+              "html": "2 west",
+              "text": "2 west",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:1hkc9n9",
+              "html": "1 south",
+              "text": "1 south",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:qn2qmg-2",
+              "html": "2 west",
+              "text": "2 west",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "the-trials:15g5r8i:zwisgo",
+              "html": "4 north",
+              "text": "4 north",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Body"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-trials:bring:lmcud0",
+              "html": "<a href=\"https://runescape.wiki/w/Combat_gear\" target=\"_blank\" rel=\"noopener\">Combat gear</a>",
+              "text": "Combat gear"
+            },
+            {
+              "id": "the-trials:bring:1gkqhnt",
+              "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+              "text": "Food"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-trials:1p338l",
+          "html": "Speak to the <a href=\"https://runescape.wiki/w/Spirit_of_the_Body\" target=\"_blank\" rel=\"noopener\">Spirit of the Body</a> in the western room.",
+          "text": "Speak to the Spirit of the Body in the western room.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-trials:1hg19yc",
+          "html": "Defeat all 10 skeletons.",
+          "text": "Defeat all 10 skeletons.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "for-varrock",
+      "title": "For Varrock!",
+      "anchor": "For_Varrock!",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "for-varrock:bring:wpk2tm",
+              "html": "<a href=\"https://runescape.wiki/w/Melee_gear\" target=\"_blank\" rel=\"noopener\">Melee gear</a>",
+              "text": "Melee gear"
+            },
+            {
+              "id": "for-varrock:bring:1gkqhnt",
+              "html": "<a href=\"https://runescape.wiki/w/Food\" target=\"_blank\" rel=\"noopener\">Food</a>",
+              "text": "Food"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:1nrlq45",
+          "html": "Talk to the spirits in the central room.",
+          "text": "Talk to the spirits in the central room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:182bbu4",
+          "html": "Take Silverlight from the <a href=\"https://runescape.wiki/w/Altar_(Demon_Slayer)\" target=\"_blank\" rel=\"noopener\">altar</a>. Make sure you actually take the Silverlight in the rock in the centre of the room or you will not be able to do the next steps.",
+          "text": "Take Silverlight from the altar. Make sure you actually take the Silverlight in the rock in the centre of the room or you will not be able to do the next steps.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:1pvqhgy",
+          "html": "Go back up the ladder.",
+          "text": "Go back up the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:d4q1xh",
+          "html": "Read the <a href=\"https://runescape.wiki/w/Scroll_(Demon_Slayer)\" target=\"_blank\" rel=\"noopener\">scroll</a> to the north of the trapdoor.",
+          "text": "Read the scroll to the north of the trapdoor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:dq5psl",
+          "html": "Head south to <a href=\"https://runescape.wiki/w/Aubury%27s_Rune_Shop\" target=\"_blank\" rel=\"noopener\">Aubury&#39;s Rune Shop</a>. South of the shop is a <a href=\"https://runescape.wiki/w/Trapdoor_(Zamorakian_Crypt)\" target=\"_blank\" rel=\"noopener\">trapdoor</a> just outside the <a href=\"https://runescape.wiki/w/Temple_of_Zamorak\" target=\"_blank\" rel=\"noopener\">Zamorak temple</a>. Climb down the <a href=\"https://runescape.wiki/w/Trapdoor_(Zamorakian_Crypt)\" target=\"_blank\" rel=\"noopener\">trapdoor</a>.",
+          "text": "Head south to Aubury's Rune Shop. South of the shop is a trapdoor just outside the Zamorak temple. Climb down the trapdoor.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:1j0xf52",
+          "html": "Make your way west to the large room, killing all the cultists along the way.",
+          "text": "Make your way west to the large room, killing all the cultists along the way.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:dvxcvg",
+          "html": "Fight <a href=\"https://runescape.wiki/w/Delrith\" target=\"_blank\" rel=\"noopener\">Delrith</a>. Run into Gideon&#39;s dome shield to negate most of the damage. Only <a href=\"https://runescape.wiki/w/Silverlight\" target=\"_blank\" rel=\"noopener\">Silverlight</a> or <a href=\"https://runescape.wiki/w/Darklight\" target=\"_blank\" rel=\"noopener\">Darklight</a> will work.",
+          "text": "Fight Delrith. Run into Gideon's dome shield to negate most of the damage. Only Silverlight or Darklight will work.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:1x9k3iu",
+          "html": "Speak to Gideon again.",
+          "text": "Speak to Gideon again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "for-varrock:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Demon_Slayer_reward.png?ebeb0",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Demon_Slayer_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "3 × 100 experience <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(Demon_Slayer)\" target=\"_blank\" rel=\"noopener\">lamps</a> in one of the following skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>",
+        "text": "3 × 100 experience lamps in one of the following skills: Attack, Strength, Defence, Constitution, Ranged, Magic or Necromancy",
+        "subs": []
+      },
+      {
+        "html": "The <a href=\"https://runescape.wiki/w/Silverlight\" target=\"_blank\" rel=\"noopener\">Silverlight</a> sword, especially strong against <a href=\"https://runescape.wiki/w/Demon\" target=\"_blank\" rel=\"noopener\">demon</a>-type monsters.",
+        "text": "The Silverlight sword, especially strong against demon-type monsters.",
+        "subs": [
+          "If you lose it, you can get a new one from <a href=\"https://runescape.wiki/w/Gideon_Bede\" target=\"_blank\" rel=\"noopener\">Gideon Bede</a>."
+        ]
+      },
+      {
+        "html": "An <a href=\"https://runescape.wiki/w/Avernic_wand\" target=\"_blank\" rel=\"noopener\">Avernic wand</a> and <a href=\"https://runescape.wiki/w/Avernic_book\" target=\"_blank\" rel=\"noopener\">book</a>.",
+        "text": "An Avernic wand and book.",
+        "subs": []
+      },
+      {
+        "html": "Talk to <a href=\"https://runescape.wiki/w/Historian_Minas\" target=\"_blank\" rel=\"noopener\">Historian Minas</a> at the <a href=\"https://runescape.wiki/w/Varrock_Museum\" target=\"_blank\" rel=\"noopener\">Varrock Museum</a> to receive 5 <a href=\"https://runescape.wiki/w/Kudos\" target=\"_blank\" rel=\"noopener\">kudos</a> (<a href=\"https://runescape.wiki/w/Members\" target=\"_blank\" rel=\"noopener\">members</a> only).",
+        "text": "Talk to Historian Minas at the Varrock Museum to receive 5 kudos (members only).",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Demon_Slayer_(achievement)\" target=\"_blank\" rel=\"noopener\">Demon Slayer</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Desert_achievements\" target=\"_blank\" rel=\"noopener\">Desert achievements</a></b>"
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Demon_Slayer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Demon Slayer</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Foreshadowing/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Foreshadowing</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Shadow_of_the_Storm/Quick_guide\" target=\"_blank\" rel=\"noopener\">Shadow of the Storm</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/%27Phite_Club/Quick_guide\" target=\"_blank\" rel=\"noopener\">&#39;Phite Club</a>",
+        "<a href=\"https://runescape.wiki/w/Beneath_Scabaras%27_Sands/Quick_guide\" target=\"_blank\" rel=\"noopener\">Beneath Scabaras&#39; Sands</a>",
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>",
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Demon_Slayer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Demon Slayer</a>",
+        "<a href=\"https://runescape.wiki/w/Do_No_Evil/Quick_guide\" target=\"_blank\" rel=\"noopener\">Do No Evil</a>",
+        "<a href=\"https://runescape.wiki/w/Eclipse_of_the_Heart/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eclipse of the Heart</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Flashback/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Flashback</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Foreshadowing/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Foreshadowing</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a>",
+        "<a href=\"https://runescape.wiki/w/Our_Man_in_the_North/Quick_guide\" target=\"_blank\" rel=\"noopener\">Our Man in the North</a>",
+        "<a href=\"https://runescape.wiki/w/Pharaoh%27s_Folly/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pharaoh&#39;s Folly</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Evil_Dave/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Freeing Evil Dave</a>",
+        "<a href=\"https://runescape.wiki/w/Shadow_of_the_Storm/Quick_guide\" target=\"_blank\" rel=\"noopener\">Shadow of the Storm</a>"
+      ]
+    }
+  ]
+}

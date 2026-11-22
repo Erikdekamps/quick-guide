@@ -1,0 +1,860 @@
+{
+  "format": 1,
+  "id": "vengeance-saga",
+  "title": "Vengeance (saga)",
+  "page": "Vengeance (saga)/Quick guide",
+  "rev": 37054004,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Find a <a href=\"https://runescape.wiki/w/Collection_of_swords\" target=\"_blank\" rel=\"noopener\">collection of swords</a> while raiding the 12-17 abandoned floors of <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a>, then ask <a href=\"https://runescape.wiki/w/Skaldrun\" target=\"_blank\" rel=\"noopener\">Skaldrun</a> south-west of the Daemonheim entrance to share their story.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3700,
+      "lon": 3430,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Vengeance_(saga)/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Find and free Skaldrun from the frozen floors in Daemonheim",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Dungeoneering",
+        "level": 23,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "4 Forgotten warriors (level 105)",
+        "name": "Forgotten warriors",
+        "count": 4,
+        "level": "105",
+        "note": ""
+      },
+      {
+        "text": "Lotheria Seldorina (level 105)",
+        "name": "Lotheria Seldorina",
+        "count": null,
+        "level": "105",
+        "note": ""
+      },
+      {
+        "text": "Ican Haz (level 105)",
+        "name": "Ican Haz",
+        "count": null,
+        "level": "105",
+        "note": ""
+      },
+      {
+        "text": "Lola Wut (level 98)",
+        "name": "Lola Wut",
+        "count": null,
+        "level": "98",
+        "note": ""
+      },
+      {
+        "text": "Kay Thanxby (level 112)",
+        "name": "Kay Thanxby",
+        "count": null,
+        "level": "112",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Wilderness</span>"
+      }
+    ],
+    "notes": [
+      "This guide is for 100% completion and to receive the unabridged tome.",
+      "It does not matter whether the player completes the Noble or Ruthless path, it purely affects the cutscene at the end of the saga."
+    ]
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:secvh8",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">Ring of kinship</a> to find the collection of swords",
+          "text": "Ring of kinship to find the collection of swords",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:pcjfiz",
+          "html": "<a href=\"https://runescape.wiki/w/Persistent_Rage\" target=\"_blank\" rel=\"noopener\">Persistent Rage</a> relic power, for quick and unlimited healing with <a href=\"https://runescape.wiki/w/Regenerate\" target=\"_blank\" rel=\"noopener\">Regenerate</a>",
+          "text": "Persistent Rage relic power, for quick and unlimited healing with Regenerate",
+          "alternatives": []
+        },
+        {
+          "id": "rec:ebo4pc",
+          "html": "55 <a href=\"https://runescape.wiki/w/Agility\" target=\"_blank\" rel=\"noopener\">Agility</a>",
+          "text": "55 Agility",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1x5xsp9",
+          "html": "55 <a href=\"https://runescape.wiki/w/Thieving\" target=\"_blank\" rel=\"noopener\">Thieving</a>",
+          "text": "55 Thieving",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "beginning-of-the-story",
+      "title": "Beginning of the story",
+      "anchor": "Beginning_of_the_story",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "beginning-of-the-story:10mbexw",
+          "html": "Find a <a href=\"https://runescape.wiki/w/Collection_of_swords\" target=\"_blank\" rel=\"noopener\">collection of swords</a> while raiding the 12-17 abandoned floors of <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a>, and recover memory of them.",
+          "text": "Find a collection of swords while raiding the 12-17 abandoned floors of Daemonheim, and recover memory of them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beginning-of-the-story:1f4judt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Skaldrun\" target=\"_blank\" rel=\"noopener\">Skaldrun</a> and ask him to tell you a story.",
+          "text": "Talk to Skaldrun and ask him to tell you a story.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Forgot what he says here"
+                },
+                {
+                  "key": "1",
+                  "text": "Tell me a story"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "beginning-of-the-story:1f4judt:zmf34t",
+              "html": "You need to bank everything, including the <a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">ring of kinship</a>.",
+              "text": "You need to bank everything, including the ring of kinship.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "noble-path",
+      "title": "Noble path",
+      "anchor": "Noble_path",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Starting room"
+        },
+        {
+          "type": "step",
+          "id": "noble-path:i47hmp",
+          "html": "Head south through the door and kill all 4 Forgotten warriors.",
+          "text": "Head south through the door and kill all 4 Forgotten warriors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Vengeance"
+        },
+        {
+          "type": "step",
+          "id": "noble-path:vhbjeb",
+          "html": "As Vengeance (a forgotten warrior) head back to the starting room and talk to <a href=\"https://runescape.wiki/w/Orin\" target=\"_blank\" rel=\"noopener\">Orin</a>.",
+          "text": "As Vengeance (a forgotten warrior) head back to the starting room and talk to Orin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Give Orin the fish, he needs it more than you do."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:16lrb5i",
+          "html": "Continue south, unlock and open the silver crescent door with the newly acquired key.",
+          "text": "Continue south, unlock and open the silver crescent door with the newly acquired key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1w3hqu5",
+          "html": "Head inside and kill <a href=\"https://runescape.wiki/w/Lotheria_Seldorina\" target=\"_blank\" rel=\"noopener\">Lotheria Seldorina</a>.",
+          "text": "Head inside and kill Lotheria Seldorina.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:eorq9q",
+          "html": "Pick up the food and Lotheria&#39;s ring of kinship.",
+          "text": "Pick up the food and Lotheria's ring of kinship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1ayzoc1",
+          "html": "Solve the puzzle by flipping all the tiles to one colour. Right click the tiles to force change them.",
+          "text": "Solve the puzzle by flipping all the tiles to one colour. Right click the tiles to force change them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:12yl1o1",
+          "html": "Open the east door.",
+          "text": "Open the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "noble-path:12yl1o1:1o2pfed",
+              "html": "Optional: Kill both dungeon spiders for extra food.",
+              "text": "Optional: Kill both dungeon spiders for extra food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1yto8ox",
+          "html": "Continue east through the door.",
+          "text": "Continue east through the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1rmsxlc",
+          "html": "Kill Ican Haz and <b>do not</b> pull the lever.",
+          "text": "Kill Ican Haz and do not pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:lo3852",
+          "html": "Pick up the food, Icans ring of kinship and the blue triangle key.",
+          "text": "Pick up the food, Icans ring of kinship and the blue triangle key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:tyxtyd",
+          "html": "Head back west, unlock the Blue triangle door and enter through it.",
+          "text": "Head back west, unlock the Blue triangle door and enter through it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:c0eus1",
+          "html": "Kill the hellhounds for antipoison elixir and drink it, this will only temporarily stop the poison.",
+          "text": "Kill the hellhounds for antipoison elixir and drink it, this will only temporarily stop the poison.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:14aijce",
+          "html": "Continue north, kill the dungeon spider and talk to <a href=\"https://runescape.wiki/w/Argax\" target=\"_blank\" rel=\"noopener\">Argax</a>.",
+          "text": "Continue north, kill the dungeon spider and talk to Argax.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let her die. She's earned her rest."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1pxnhak",
+          "html": "Continue east and then south to reach a lever room.",
+          "text": "Continue east and then south to reach a lever room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1m4khxv",
+          "html": "Pull all five levers within the time limit and continue east then north.",
+          "text": "Pull all five levers within the time limit and continue east then north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "noble-path:1m4khxv:16cnjoe",
+              "html": "Optional: Kill the hellhound for more antipoison elixir or the dungeon spider for food.",
+              "text": "Optional: Kill the hellhound for more antipoison elixir or the dungeon spider for food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "noble-path:415b3l",
+          "html": "Talk to Korel.",
+          "text": "Talk to Korel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Let Korel go, he's learned his lesson."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:os7t2g",
+          "html": "Continue north and kill Lola Wut, pick up the crimson rectangle key, food and Lola&#39;s ring of kinship.",
+          "text": "Continue north and kill Lola Wut, pick up the crimson rectangle key, food and Lola's ring of kinship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:1wdhd7",
+          "html": "Continue through the west door.",
+          "text": "Continue through the west door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:11h80p9",
+          "html": "Investigate Shianna&#39;s body then continue north and east.",
+          "text": "Investigate Shianna's body then continue north and east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:9p8pei",
+          "html": "Talk to Peleas.",
+          "text": "Talk to Peleas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Lie to him. Give him comfort at the end."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:13ree1a",
+          "html": "Head west, unlock and continue through the Crimson rectangle door and then continue once more west.",
+          "text": "Head west, unlock and continue through the Crimson rectangle door and then continue once more west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "noble-path:cmhq59",
+          "html": "Attack and then show Kay Thanxby the corpses.",
+          "text": "Attack and then show Kay Thanxby the corpses.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Confront Kay's lies, show her the corpses."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Saga Complete!"
+        }
+      ]
+    },
+    {
+      "id": "ruthless-path",
+      "title": "Ruthless path",
+      "anchor": "Ruthless_path",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Starting room"
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:i47hmp",
+          "html": "Head south through the door and kill all 4 Forgotten warriors.",
+          "text": "Head south through the door and kill all 4 Forgotten warriors.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Vengeance"
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:vhbjeb",
+          "html": "As Vengeance (a forgotten warrior) head back to the starting room and talk to <a href=\"https://runescape.wiki/w/Orin\" target=\"_blank\" rel=\"noopener\">Orin</a>.",
+          "text": "As Vengeance (a forgotten warrior) head back to the starting room and talk to Orin.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Keep the fish, you need your strength."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:16lrb5i",
+          "html": "Continue south, unlock and open the silver crescent door with the newly acquired key.",
+          "text": "Continue south, unlock and open the silver crescent door with the newly acquired key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:9n345i",
+          "html": "Head inside and kill <a href=\"https://runescape.wiki/w/Lotheria_Seldorina\" target=\"_blank\" rel=\"noopener\">Lotheria Seldorina</a> sneaking behind pillars.",
+          "text": "Head inside and kill Lotheria Seldorina sneaking behind pillars.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:eorq9q",
+          "html": "Pick up the food and Lotheria&#39;s ring of kinship.",
+          "text": "Pick up the food and Lotheria's ring of kinship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:buwc27",
+          "html": "Solve the puzzle by flipping all the tiles to one colour.",
+          "text": "Solve the puzzle by flipping all the tiles to one colour.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:12yl1o1",
+          "html": "Open the east door.",
+          "text": "Open the east door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ruthless-path:12yl1o1:1o2pfed",
+              "html": "Optional: Kill both dungeon spiders for extra food.",
+              "text": "Optional: Kill both dungeon spiders for extra food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1yto8ox",
+          "html": "Continue east through the door.",
+          "text": "Continue east through the door.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1sn3rjw",
+          "html": "Pull the lever, this summons a horde of skeletons to kill Ican Haz.",
+          "text": "Pull the lever, this summons a horde of skeletons to kill Ican Haz.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1lxdqhi",
+          "html": "Pick up the food, Icans ring of kinship and the Blue triangle key.",
+          "text": "Pick up the food, Icans ring of kinship and the Blue triangle key.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:tyxtyd",
+          "html": "Head back west, unlock the Blue triangle door and enter through it.",
+          "text": "Head back west, unlock the Blue triangle door and enter through it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:14znyns",
+          "html": "Kill the hellhounds for antipoison exlir and drink it, this is only temporarily stop the poison.",
+          "text": "Kill the hellhounds for antipoison exlir and drink it, this is only temporarily stop the poison.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:14aijce",
+          "html": "Continue north, kill the dungeon spider and talk to <a href=\"https://runescape.wiki/w/Argax\" target=\"_blank\" rel=\"noopener\">Argax</a>.",
+          "text": "Continue north, kill the dungeon spider and talk to Argax.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Keep her awake. She has to fight for life."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1pxnhak",
+          "html": "Continue east and then south to reach a lever room.",
+          "text": "Continue east and then south to reach a lever room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1m4khxv",
+          "html": "Pull all five levers within the time limit and continue east then north.",
+          "text": "Pull all five levers within the time limit and continue east then north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "ruthless-path:1m4khxv:9k3zln",
+              "html": "Optional: Kill the hellhound for more antipoison exlir or the dungeon spider for food.",
+              "text": "Optional: Kill the hellhound for more antipoison exlir or the dungeon spider for food.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:415b3l",
+          "html": "Talk to Korel.",
+          "text": "Talk to Korel.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Kill Korel, prevent him from harming again."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1bewcqe",
+          "html": "Continue north and search the table in the south east corner.",
+          "text": "Continue north and search the table in the south east corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1yxurxd",
+          "html": "Head west and use the poison on the fishing spot, then continue north and east to gain visibility of all four rooms. Return to the starting room and wait for Lola to do a full rotation and eat the poisoned fish. This will damage her for 1999 lifepoints and head back to the room to kill Lola Wut for 1 lifepoint. Pick up the crimson rectangle key, food and Lola&#39;s ring of kinship.",
+          "text": "Head west and use the poison on the fishing spot, then continue north and east to gain visibility of all four rooms. Return to the starting room and wait for Lola to do a full rotation and eat the poisoned fish. This will damage her for 1999 lifepoints and head back to the room to kill Lola Wut for 1 lifepoint. Pick up the crimson rectangle key, food and Lola's ring of kinship.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:1q79n9b",
+          "html": "Investigate Shianna&#39;s body in the south-western part of the room then continue north and east.",
+          "text": "Investigate Shianna's body in the south-western part of the room then continue north and east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:9p8pei",
+          "html": "Talk to Peleas.",
+          "text": "Talk to Peleas.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Tell him the truth. He must understand their brutality."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:13ree1a",
+          "html": "Head west, unlock and continue through the Crimson rectangle door and then continue once more west.",
+          "text": "Head west, unlock and continue through the Crimson rectangle door and then continue once more west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "ruthless-path:6c4hk",
+          "html": "Kill Kay Thanxby.",
+          "text": "Kill Kay Thanxby.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Make her suffer."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Saga complete!"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Vengeance_%28saga%29_reward.png?a674f",
+      "width": 424,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Vengeance_(saga)_reward.png"
+    },
+    "items": [
+      {
+        "html": "2,410 experience",
+        "text": "2,410 experience",
+        "subs": []
+      },
+      {
+        "html": "241 <a href=\"https://runescape.wiki/w/Dungeoneering_token\" target=\"_blank\" rel=\"noopener\">Dungeoneering tokens</a>",
+        "text": "241 Dungeoneering tokens",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "",
+        "items": [
+          {
+            "html": "25,415 experience or 25,415 experience (having bonus experience in either skill will be used)",
+            "text": "25,415 experience or 25,415 experience (having bonus experience in either skill will be used)",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "<b>Abridged</b>: An <a href=\"https://runescape.wiki/w/Vengeance_(abridged)\" target=\"_blank\" rel=\"noopener\">abridged book</a>, which when read gives:",
+      "<b>Unabridged</b>: Together with the above rewards, an <a href=\"https://runescape.wiki/w/Vengeance_(unabridged)\" target=\"_blank\" rel=\"noopener\">unabridged book</a>, which when read gives:"
+    ]
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Remains_of_the_Necrolord/Quick_guide\" target=\"_blank\" rel=\"noopener\">Remains of the Necrolord</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Alpha_vs_Omega/Quick_guide\" target=\"_blank\" rel=\"noopener\">Alpha vs Omega</a>"
+      ]
+    }
+  ]
+}

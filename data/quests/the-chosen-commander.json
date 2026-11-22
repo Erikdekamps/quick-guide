@@ -1,0 +1,2171 @@
+{
+  "format": 1,
+  "id": "the-chosen-commander",
+  "title": "The Chosen Commander",
+  "page": "The Chosen Commander/Quick guide",
+  "rev": 37230823,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Captain_Undak\" target=\"_blank\" rel=\"noopener\">Captain Undak</a>, north-east of the market in <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a>, just across from the bank. (via the first location → the second location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 5341,
+      "lon": 2732,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/The_Chosen_Commander/Quick_guide"
+    },
+    "members": true,
+    "length": "Long to Very Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Land of the Goblins",
+        "depth": 1
+      },
+      {
+        "text": "Another Slice of H.A.M.",
+        "depth": 2
+      },
+      {
+        "text": "Death to the Dorgeshuun",
+        "depth": 3
+      },
+      {
+        "text": "The Lost Tribe",
+        "depth": 4
+      },
+      {
+        "text": "Goblin Diplomacy",
+        "depth": 3
+      },
+      {
+        "text": "The Giant Dwarf",
+        "depth": 3
+      },
+      {
+        "text": "Fishing Contest",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 46,
+        "note": ""
+      },
+      {
+        "skill": "Strength",
+        "level": 46,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 46,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Goblin statue (level 70)",
+        "name": "Goblin statue",
+        "count": null,
+        "level": "70",
+        "note": ""
+      },
+      {
+        "text": "Ork statue (level 71)",
+        "name": "Ork statue",
+        "count": null,
+        "level": "71",
+        "note": ""
+      },
+      {
+        "text": "Ogre statue (level 75)",
+        "name": "Ogre statue",
+        "count": null,
+        "level": "75",
+        "note": ""
+      },
+      {
+        "text": "H.A.M. agent Walton (level 49)",
+        "name": "H.A.M. agent Walton",
+        "count": null,
+        "level": "49",
+        "note": ""
+      },
+      {
+        "text": "Sigmund (level 65)",
+        "name": "Sigmund",
+        "count": null,
+        "level": "65",
+        "note": ""
+      },
+      {
+        "text": "Zanik (level 65), 5 times in succession",
+        "name": "Zanik",
+        "count": null,
+        "level": "65",
+        "note": ", 5 times in succession"
+      },
+      {
+        "text": "Bandos avatar (level 77), twice",
+        "name": "Bandos avatar",
+        "count": null,
+        "level": "77",
+        "note": ", twice"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Asgarnia</span> <span class=\"reg\">Fremennik</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1dzcv7x",
+          "html": "A <a href=\"https://runescape.wiki/w/Light_sources\" target=\"_blank\" rel=\"noopener\">light source</a>",
+          "text": "A light source",
+          "alternatives": []
+        },
+        {
+          "id": "req:y7px9r",
+          "html": "Full <a href=\"https://runescape.wiki/w/H.A.M._robe_outfit\" target=\"_blank\" rel=\"noopener\">H.A.M. robe outfit</a> (obtained during quest - you are given a new set)",
+          "text": "Full H.A.M. robe outfit (obtained during quest - you are given a new set)",
+          "alternatives": []
+        },
+        {
+          "id": "req:el1prx",
+          "html": "5,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a> (if player wrongly accuses an innocent merchant)",
+          "text": "5,000 coins (if player wrongly accuses an innocent merchant)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:wxk64h",
+          "html": "Food, armour, and weapon (two different combat styles for fight with H.A.M. agents)",
+          "text": "Food, armour, and weapon (two different combat styles for fight with H.A.M. agents)",
+          "alternatives": []
+        },
+        {
+          "id": "rec:10gtf67",
+          "html": "Underneath Lumbridge Castle, unblock the wall to Lumbridge Swamp Caves south of <a href=\"https://runescape.wiki/w/Kazgar\" target=\"_blank\" rel=\"noopener\">Kazgar</a>. It must be done from Kazgar&#39;s side. This saves a great deal of time later.",
+          "text": "Underneath Lumbridge Castle, unblock the wall to Lumbridge Swamp Caves south of Kazgar. It must be done from Kazgar's side. This saves a great deal of time later.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1k29dxi",
+          "html": "<a href=\"https://runescape.wiki/w/Prayer_potion\" target=\"_blank\" rel=\"noopener\">Prayer potions</a>",
+          "text": "Prayer potions",
+          "alternatives": []
+        },
+        {
+          "id": "rec:3cy8g0",
+          "html": "<a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>/<a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a> teleports",
+          "text": "Ardougne/Fishing Guild teleports",
+          "alternatives": []
+        },
+        {
+          "id": "rec:22xetr",
+          "html": "<a href=\"https://runescape.wiki/w/Ancient_mace\" target=\"_blank\" rel=\"noopener\">Ancient mace</a>",
+          "text": "Ancient mace",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1jxhlqg",
+          "html": "<a href=\"https://runescape.wiki/w/Dorgesh-kaan_sphere\" target=\"_blank\" rel=\"noopener\">Dorgesh-kaan sphere</a>",
+          "text": "Dorgesh-kaan sphere",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "food-poisoning",
+      "title": "Food poisoning",
+      "anchor": "Food_poisoning",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "food-poisoning:k0wtih",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Captain_Undak\" target=\"_blank\" rel=\"noopener\">Captain Undak</a>, east of the bank (by the eastern water fountain) in <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a>. (You must dismiss any follower or pet you have or he will not go with you.)",
+          "text": "Talk to Captain Undak, east of the bank (by the eastern water fountain) in Dorgesh-Kaan. (You must dismiss any follower or pet you have or he will not go with you.)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Can I help with anything?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "2",
+                  "text": "Okay. What's your point?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:1f8u5kt",
+          "html": "Climb the nearby stairs (slightly north of Undak) and talk to <a href=\"https://runescape.wiki/w/Torzek\" target=\"_blank\" rel=\"noopener\">Torzek</a> outside the nursery.",
+          "text": "Climb the nearby stairs (slightly north of Undak) and talk to Torzek outside the nursery.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Calm down. I'm here to help."
+                },
+                {
+                  "key": "1",
+                  "text": "Have the children eaten anything unusual lately?"
+                },
+                {
+                  "key": "1",
+                  "text": "What did they have?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:xnbjo",
+          "html": "Talk to any nearby child against the building wall about what they ate.",
+          "text": "Talk to any nearby child against the building wall about what they ate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "food-poisoning:xnbjo:1lpzaqm",
+              "html": "<a href=\"https://runescape.wiki/w/Andil\" target=\"_blank\" rel=\"noopener\">Andil</a>: <i>The chat options may vary from person to person.</i>",
+              "text": "Andil: The chat options may vary from person to person.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "?",
+                      "text": "What food did you eat yesterday?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "food-poisoning:xnbjo:givy0",
+              "html": "<a href=\"https://runescape.wiki/w/Delgon\" target=\"_blank\" rel=\"noopener\">Delgon</a>:",
+              "text": "Delgon:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "What food did you have yesterday?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "food-poisoning:xnbjo:qtgf6g",
+              "html": "<a href=\"https://runescape.wiki/w/Gerdi\" target=\"_blank\" rel=\"noopener\">Gerdi</a>:",
+              "text": "Gerdi:",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "What food did you eat yesterday?"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:li7fom",
+          "html": "Talk to Captain Undak. (If you are unable to talk with Captain Undak, make sure you do not have &quot;Hide Familiar options&quot; checked under Settings&gt;Combat &amp; Action Bar&gt;Choose Option Menu and log out and back in)",
+          "text": "Talk to Captain Undak. (If you are unable to talk with Captain Undak, make sure you do not have \"Hide Familiar options\" checked under Settings>Combat & Action Bar>Choose Option Menu and log out and back in)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I've worked out which foods are poisoned."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:hc30is",
+          "html": "Go down the stairs and head south to the market.",
+          "text": "Go down the stairs and head south to the market.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:nga7tr",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Markog\" target=\"_blank\" rel=\"noopener\">Markog</a>, at the south-eastern-most stall of the market.",
+          "text": "Talk to Markog, at the south-eastern-most stall of the market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Which merchants have you bought ingredients from?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:lbdrj8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Turgok\" target=\"_blank\" rel=\"noopener\">Turgok</a>, at the south-western-most stall of the market.",
+          "text": "Talk to Turgok, at the south-western-most stall of the market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Which merchants have you bought ingredients from?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:92pf15",
+          "html": "Talk to Merchant Walton, just outside of the market to the south-east.",
+          "text": "Talk to Merchant Walton, just outside of the market to the south-east.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "This is the one, Captain."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'm sure."
+                },
+                {
+                  "key": "3",
+                  "text": "[Attack the merchant]"
+                },
+                {
+                  "key": "1",
+                  "text": "What's that behind you?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "food-poisoning:12zdoro",
+          "html": "Proceed to kill the merchant (Zanik will switch to melee if you use ranged).",
+          "text": "Proceed to kill the merchant (Zanik will switch to melee if you use ranged).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "zanik",
+      "title": "Zanik",
+      "anchor": "Zanik",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "zanik:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes! What happened?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:12keovq",
+          "html": "Climb on the goblin south-west of the bowl statue.",
+          "text": "Climb on the goblin south-west of the bowl statue.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:1y4cnis",
+          "html": "Jump on statues to reach the statue holding the bowl of water.",
+          "text": "Jump on statues to reach the statue holding the bowl of water.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zanik:1y4cnis:n1b4oo",
+              "html": "If the jump-on option does not appear, try clicking on the head.",
+              "text": "If the jump-on option does not appear, try clicking on the head.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "zanik:uintpm",
+          "html": "Continue jumping north and take the crossbow from the ledge.",
+          "text": "Continue jumping north and take the crossbow from the ledge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:i1pa2z",
+          "html": "Grapple the spear of the north-eastern statue and take the pendant.",
+          "text": "Grapple the spear of the north-eastern statue and take the pendant.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:4l9k6p",
+          "html": "Look into the bowl.",
+          "text": "Look into the bowl.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:cf56v7",
+          "html": "Enter the western portal (the statues will move out of the way) for a cutscene.",
+          "text": "Enter the western portal (the statues will move out of the way) for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zanik:1cbkyfa",
+          "html": "Continue conversation with Zanik.",
+          "text": "Continue conversation with Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let's go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-council",
+      "title": "The council",
+      "anchor": "The_council",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-council:15pr067",
+          "html": "With Zanik following, go to the north end of Dorgesh-Kaan and up the northern most set of stairs.",
+          "text": "With Zanik following, go to the north end of Dorgesh-Kaan and up the northern most set of stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:g5gxc9",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "She means well."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:oa9wuq",
+          "html": "Continue conversation with Captain Undak.",
+          "text": "Continue conversation with Captain Undak.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Where should I look?"
+                },
+                {
+                  "key": "4",
+                  "text": "I'll start looking now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:hx27l9",
+          "html": "Run south of the city, up and over staircases until you reach the agility course. Bring a light source.",
+          "text": "Run south of the city, up and over staircases until you reach the agility course. Bring a light source.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:jgk9qa",
+          "html": "Climb-down the ladder top and head all the way south.",
+          "text": "Climb-down the ladder top and head all the way south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "[Sit down next to Zanik.]"
+                },
+                {
+                  "key": "4",
+                  "text": "[Say nothing.]"
+                },
+                {
+                  "key": "4",
+                  "text": "[Say nothing.]"
+                },
+                {
+                  "key": "4",
+                  "text": "[Say nothing.]"
+                },
+                {
+                  "key": "2",
+                  "text": "Yes, but you should have respected the council."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "4",
+                  "text": "What do you wish had happened?"
+                },
+                {
+                  "key": "1",
+                  "text": "Someday, we'll build that world."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:g5gxc9-2",
+          "html": "Watch the cutscene.",
+          "text": "Watch the cutscene.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "3",
+                  "text": "I have nothing else to say."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:nmh75m",
+          "html": "After the cutscene talk to Zanik.",
+          "text": "After the cutscene talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Goodbye, Zanik."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:1vvpt3f",
+          "html": "Talk to Captain Undak for a set of H.A.M. robes.",
+          "text": "Talk to Captain Undak for a set of H.A.M. robes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What is this task?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll do it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-council:hp8ci5",
+          "html": "Prepare for battle, but only wear the H.A.M. robes.",
+          "text": "Prepare for battle, but only wear the H.A.M. robes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "beef-with-h-a-m",
+      "title": "Beef with H.A.M.",
+      "anchor": "Beef_with_H.A.M.",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "beef-with-h-a-m:bring:fpu38z",
+              "html": "Full <a href=\"https://runescape.wiki/w/H.A.M._robe_outfit\" target=\"_blank\" rel=\"noopener\">H.A.M. robe outfit</a>",
+              "text": "Full H.A.M. robe outfit"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:lwmqzh",
+          "html": "Enter the <a href=\"https://runescape.wiki/w/H.A.M._Hideout\" target=\"_blank\" rel=\"noopener\">H.A.M. Hideout</a> in <a href=\"https://runescape.wiki/w/Lumbridge_forest\" target=\"_blank\" rel=\"noopener\">Lumbridge forest</a>.",
+          "text": "Enter the H.A.M. Hideout in Lumbridge forest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:vn170w",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Johanhus_Ulsbrecht\" target=\"_blank\" rel=\"noopener\">Johanhus Ulsbrecht</a> in the centremost of the three southern rooms.",
+          "text": "Talk to Johanhus Ulsbrecht in the centremost of the three southern rooms.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "What are you planning to do about the cave goblins?"
+                },
+                {
+                  "key": "3",
+                  "text": "Isn't Sigmund working with you any more?"
+                },
+                {
+                  "key": "3",
+                  "text": "How can I find Sigmund's base?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll go there now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:vn170w:1q2lc2p",
+              "html": "Before you do, make sure to wear all of the H.A.M. robes",
+              "text": "Before you do, make sure to wear all of the H.A.M. robes",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:1jv1uqc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Milton\" target=\"_blank\" rel=\"noopener\">Milton</a> in the windmill near the <a href=\"https://runescape.wiki/w/Fishing_Guild\" target=\"_blank\" rel=\"noopener\">Fishing Guild</a>, north of the Ardougne lodestone.",
+          "text": "Talk to Milton in the windmill near the Fishing Guild, north of the Ardougne lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "How do I get into the H.A.M. base?"
+                },
+                {
+                  "key": "1",
+                  "text": "Arrav."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:m135p8",
+          "html": "Climb down the ladder inside the windmill.",
+          "text": "Climb down the ladder inside the windmill.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:1tlz7qh",
+          "html": "Run directly east through the door, continuing east through stacks of crates.",
+          "text": "Run directly east through the door, continuing east through stacks of crates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:1efcd00",
+          "html": "Talk to the guard next to the prison.",
+          "text": "Talk to the guard next to the prison.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to see the prisoner."
+                },
+                {
+                  "key": "1",
+                  "text": "Letter?"
+                },
+                {
+                  "key": "3",
+                  "text": "What day is it today?"
+                },
+                {
+                  "key": "3",
+                  "text": "Never mind."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:kqi3j7",
+          "html": "Enter the main area (back through the doors to the west) and pickpocket Sam.",
+          "text": "Enter the main area (back through the doors to the west) and pickpocket Sam.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:1d4g7q7",
+          "html": "Return to the prison guard.",
+          "text": "Return to the prison guard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have my letter here."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:1g7yq83",
+          "html": "Enter the prison and take the key, open the gate.",
+          "text": "Enter the prison and take the key, open the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:y9mrcm",
+          "html": "Escape with Grubfoot:",
+          "text": "Escape with Grubfoot:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:1qo66s7",
+              "html": "Talk to the prisoner, Grubfoot.",
+              "text": "Talk to the prisoner, Grubfoot.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "4",
+                      "text": "Wait there. I'll come back for you."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:1nzrhbb",
+              "html": "Run into the kitchen, squeeze through the hole.",
+              "text": "Run into the kitchen, squeeze through the hole.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:ca9cuz",
+              "html": "Open 1 of the 2 doors.",
+              "text": "Open 1 of the 2 doors.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:1pf8ozx",
+              "html": "Go back through and open the other door as well.",
+              "text": "Go back through and open the other door as well.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:11xypy4",
+              "html": "Return to Grubfoot.",
+              "text": "Return to Grubfoot.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Let's go"
+                    },
+                    {
+                      "key": "3",
+                      "text": "I'll distract the guard so you can make a break for it."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:ig47wp",
+              "html": "Stand north of the guard, talk to him to face you and have his back turned. After selecting the chat option, do not continue the conversation until Grubfoot walks past the guard into the next room.",
+              "text": "Stand north of the guard, talk to him to face you and have his back turned. After selecting the chat option, do not continue the conversation until Grubfoot walks past the guard into the next room.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "~",
+                      "text": "[Any option]"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:1isc8s4",
+              "html": "Talk to Grubfoot in the next room.",
+              "text": "Talk to Grubfoot in the next room.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Wait at the west door; I'll distract the guard."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:81vort",
+              "html": "Squeeze into the kitchen. Take the dirty plates from the sink, and wait for the H.A.M. guard to come talk to you.",
+              "text": "Squeeze into the kitchen. Take the dirty plates from the sink, and wait for the H.A.M. guard to come talk to you.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Yes."
+                    },
+                    {
+                      "key": "~",
+                      "text": "[Any option]"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:71zufk",
+              "html": "Talk to Grubfoot in the bedroom.",
+              "text": "Talk to Grubfoot in the bedroom.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Follow me."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:y9mrcm:uvp625",
+              "html": "Exit the east door and run to the big doors north.",
+              "text": "Exit the east door and run to the big doors north.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Let's get out of here."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:12sfz7q",
+          "html": "Watch the cutscene and wait for Sigmund to confront you.",
+          "text": "Watch the cutscene and wait for Sigmund to confront you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Time for you to die!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:16ez5ui",
+          "html": "Kill Sigmund.",
+          "text": "Kill Sigmund.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:16ez5ui:17hhz67",
+              "html": "If Zanik doesn&#39;t attack Sigmund, climb up the ladder, then back down.",
+              "text": "If Zanik doesn't attack Sigmund, climb up the ladder, then back down.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "beef-with-h-a-m:o2fjn5",
+          "html": "Kill Zanik repeatedly.",
+          "text": "Kill Zanik repeatedly.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I won't kill you, Zanik."
+                },
+                {
+                  "key": "3",
+                  "text": "Zanik! What's happened to you?"
+                },
+                {
+                  "key": "3",
+                  "text": "Does our friendship mean nothing to you?"
+                },
+                {
+                  "key": "1",
+                  "text": "But am I *your* enemy?"
+                },
+                {
+                  "key": "2",
+                  "text": "Zanik, you're being controlled. Fight it!"
+                },
+                {
+                  "key": "3",
+                  "text": "Zanik, it's the pendant. Take it off!"
+                },
+                {
+                  "key": "2",
+                  "text": "You've got to do it, otherwise it will win!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:o2fjn5:41lh3g",
+              "html": "Turn off revolution in combat settings and avoid using bleeds and channelled abilities as they cancel the dialogue forcing you to repeat the phase.",
+              "text": "Turn off revolution in combat settings and avoid using bleeds and channelled abilities as they cancel the dialogue forcing you to repeat the phase.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "beef-with-h-a-m:o2fjn5:p2hq8z",
+              "html": "If revolution was left on and dialogue interrupted, run up and then down the ladder to the west to avoid having to fight again.",
+              "text": "If revolution was left on and dialogue interrupted, run up and then down the ladder to the west to avoid having to fight again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lumbridge-caves",
+      "title": "Lumbridge caves",
+      "anchor": "Lumbridge_caves",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "lumbridge-caves:qmc8yo",
+          "html": "Run west for an earthquake.",
+          "text": "Run west for an earthquake.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:m5500l",
+          "html": "Right click <i>Clear</i> the fallen rocks.",
+          "text": "Right click Clear the fallen rocks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Try grappling across with your crossbow."
+                },
+                {
+                  "key": "1",
+                  "text": "I can see somewhere it could catch."
+                },
+                {
+                  "key": "2",
+                  "text": "Right a bit."
+                },
+                {
+                  "key": "2",
+                  "text": "Right a bit."
+                },
+                {
+                  "key": "1",
+                  "text": "You've overshot. Go left."
+                },
+                {
+                  "key": "1",
+                  "text": "It's alright, Zanik. You can do it."
+                },
+                {
+                  "key": "1",
+                  "text": "Just a bit further left."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm not leaving you, Zanik."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:1r9xity",
+          "html": "Go through the cave and talk to Juna.",
+          "text": "Go through the cave and talk to Juna.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:kb3gzy",
+          "html": "Run north-west to exit the cave.",
+          "text": "Run north-west to exit the cave.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:2q0jd",
+          "html": "Go over the stepping stones and run directly north.",
+          "text": "Go over the stepping stones and run directly north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:1u14hl1",
+          "html": "Squeeze through the hole.",
+          "text": "Squeeze through the hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lumbridge-caves:1u14hl1:1fx1mu",
+              "html": "If you don&#39;t have the shortcut unlocked, you&#39;ll have to go all the way around towards Lumbridge Castle&#39;s Cellar.",
+              "text": "If you don't have the shortcut unlocked, you'll have to go all the way around towards Lumbridge Castle's Cellar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "lumbridge-caves:1u14hl1:us4sd8",
+              "html": "If at any point Zanik stops following you, she can be found back at Juna.",
+              "text": "If at any point Zanik stops following you, she can be found back at Juna.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-caves:1qun91k",
+          "html": "Right click <i>Follow</i> Kazgar.",
+          "text": "Right click Follow Kazgar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Dorgeshuun Mines"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "time-capsule",
+      "title": "Time capsule",
+      "anchor": "Time_capsule",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "time-capsule:bring:1rzzj18",
+              "html": "2 backpack spaces",
+              "text": "2 backpack spaces"
+            },
+            {
+              "id": "time-capsule:bring:1aqsd9c",
+              "html": "<a href=\"https://runescape.wiki/w/Light_sources\" target=\"_blank\" rel=\"noopener\">Light source</a>",
+              "text": "Light source"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:jm7lk8",
+          "html": "Enter Dorgesh-Kaan and talk to Captain Undak north of the market (between the fountains).",
+          "text": "Enter Dorgesh-Kaan and talk to Captain Undak north of the market (between the fountains).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "What can I do?"
+                },
+                {
+                  "key": "4",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:vvqmww",
+          "html": "Climb the northern stairs for a cutscene (close the <i>Bandos&#39;s Ultimatum</i> screen that pops up).",
+          "text": "Climb the northern stairs for a cutscene (close the Bandos's Ultimatum screen that pops up).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:rrczim",
+          "html": "Climb back up the stairs, talk to the Goblin scribe.",
+          "text": "Climb back up the stairs, talk to the Goblin scribe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do you want me to do?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'll help you."
+                },
+                {
+                  "key": "1",
+                  "text": "I'll go now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:t7ou8c",
+          "html": "Climb down the stairs and run south-east through a corridor (near the quest start point).",
+          "text": "Climb down the stairs and run south-east through a corridor (near the quest start point).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:1tytqh8",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Tegdak\" target=\"_blank\" rel=\"noopener\">Tegdak</a> in the north-east room of the ground floor (UK) / 1<sup>st</sup> floor (US).",
+          "text": "Talk to Tegdak in the north-east room of the ground floor (UK) / 1st floor (US).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "The scribe sent me to get a box of artefacts."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:vsfruj",
+          "html": "Return to the Goblin scribe upstairs.",
+          "text": "Return to the Goblin scribe upstairs.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Here it is."
+                },
+                {
+                  "key": "1",
+                  "text": "I'll go now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:1kr0wtc",
+          "html": "Exit the city through the bone door north-east, downstairs.",
+          "text": "Exit the city through the bone door north-east, downstairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "time-capsule:cajvox",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Mistag\" target=\"_blank\" rel=\"noopener\">Mistag</a>.",
+          "text": "Talk to Mistag.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Could you bury this time capsule?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "preparing-for-battle",
+      "title": "Preparing for battle",
+      "anchor": "Preparing_for_battle",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "preparing-for-battle:ae700c",
+          "html": "Return to the city and talk to <a href=\"https://runescape.wiki/w/Oldak\" target=\"_blank\" rel=\"noopener\">Oldak</a> north of the bank.",
+          "text": "Return to the city and talk to Oldak north of the bank.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What are you arguing about?"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "What do you want me to do?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll go now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "preparing-for-battle:ae700c:f3xmx7",
+              "html": "if invention has been unlocked.",
+              "text": "if invention has been unlocked.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "No - talk about quest or other things."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:iy9kms",
+          "html": "Return to the <a href=\"https://runescape.wiki/w/Dorgesh-Kaan_Agility_Course\" target=\"_blank\" rel=\"noopener\">agility course</a> (south end of Dorgesh-Kaan) - do not climb down the ladder.",
+          "text": "Return to the agility course (south end of Dorgesh-Kaan) - do not climb down the ladder.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:1jk86rl",
+          "html": "Run east to the power station and climb down the stairs.",
+          "text": "Run east to the power station and climb down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:1s46k0a",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Turgall\" target=\"_blank\" rel=\"noopener\">Turgall</a>, make sure you have at least 2 free inventory spots.",
+          "text": "Talk to Turgall, make sure you have at least 2 free inventory spots.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Oldak needs a pair of energy projectors and a focusing chamber."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:8dgtvs",
+          "html": "Talk to Oldak, now south-east of the market.",
+          "text": "Talk to Oldak, now south-east of the market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have the parts here."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Oldak has modified your crossbow."
+                },
+                {
+                  "key": "1",
+                  "text": "Oldak said it was certain to work."
+                },
+                {
+                  "key": "3",
+                  "text": "I'll talk to you later."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:45fx55",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Mernik\" target=\"_blank\" rel=\"noopener\">Mernik</a> in the children&#39;s nursery north-east upstairs.",
+          "text": "Talk to Mernik in the children's nursery north-east upstairs.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What can I do?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'll talk to him."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:11cscx",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ambassador_Alvijar\" target=\"_blank\" rel=\"noopener\">Ambassador Alvijar</a> in the house north-west of the nursery.",
+          "text": "Talk to Ambassador Alvijar in the house north-west of the nursery.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I want to talk about the children."
+                },
+                {
+                  "key": "1",
+                  "text": "You coward!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "preparing-for-battle:hl5n0g",
+          "html": "Return to Mernik.",
+          "text": "Return to Mernik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I talked to him... He said no."
+                },
+                {
+                  "key": "1",
+                  "text": "Nothing. Everything is fine."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "final-fight",
+      "title": "Final fight",
+      "anchor": "Final_fight",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "final-fight:tn0pg9",
+          "html": "Prepare to fight enemies weak to magic.",
+          "text": "Prepare to fight enemies weak to magic.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:aezvo4",
+          "html": "Talk to Zanik, south-east of the market.",
+          "text": "Talk to Zanik, south-east of the market.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "I'm ready now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:1nuqh1b",
+          "html": "Defeat the Bandos avatar.",
+          "text": "Defeat the Bandos avatar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "We'll see about that. Zanik - now!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:6odsm8",
+          "html": "Pick up all 4 parts of the crossbow while killing statues.",
+          "text": "Pick up all 4 parts of the crossbow while killing statues.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:13us0vy",
+          "html": "Use the crossbow pieces on each other.",
+          "text": "Use the crossbow pieces on each other.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "5",
+                  "text": "Enough talk."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:h2dh3b",
+          "html": "Kill the avatar again.",
+          "text": "Kill the avatar again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "[Use Zanik's crossbow's special attack.]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:blkskc",
+          "html": "Take the avatar&#39;s pendant.",
+          "text": "Take the avatar's pendant.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "[Sit down next to Zanik.]"
+                },
+                {
+                  "key": "4",
+                  "text": "[Say nothing.]"
+                },
+                {
+                  "key": "3",
+                  "text": "About time you woke up!"
+                },
+                {
+                  "key": "2",
+                  "text": "We won. Oldak's crossbow worked."
+                },
+                {
+                  "key": "3",
+                  "text": "The mark on your forehead is gone."
+                },
+                {
+                  "key": "3",
+                  "text": "Here it is."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:36fwk7",
+          "html": "Exit through the portal.",
+          "text": "Exit through the portal.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:xfgcqh",
+          "html": "Click the screen to exit cutscene.",
+          "text": "Click the screen to exit cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "final-fight:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/The_Chosen_Commander_reward.png?aad3c",
+      "width": 512,
+      "height": 344,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:The_Chosen_Commander_reward.png"
+    },
+    "items": [
+      {
+        "html": "3 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "3 quest points",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "20,000 experience",
+        "text": "20,000 experience",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Zanik%27s_crossbow\" target=\"_blank\" rel=\"noopener\">Zanik&#39;s crossbow</a>",
+        "text": "Zanik's crossbow",
+        "subs": []
+      },
+      {
+        "html": "The ability to buy <a href=\"https://runescape.wiki/w/Bandos_throne_room_sphere\" target=\"_blank\" rel=\"noopener\">Bandos throne room spheres</a> from <a href=\"https://runescape.wiki/w/Oldak\" target=\"_blank\" rel=\"noopener\">Oldak</a> to return to the <a href=\"https://runescape.wiki/w/Bandos%27s_throne_room\" target=\"_blank\" rel=\"noopener\">Bandos&#39;s throne room</a>",
+        "text": "The ability to buy Bandos throne room spheres from Oldak to return to the Bandos's throne room",
+        "subs": []
+      },
+      {
+        "html": "The ability to fight <a href=\"https://runescape.wiki/w/Goblin_statue\" target=\"_blank\" rel=\"noopener\">goblin statues</a>, <a href=\"https://runescape.wiki/w/Ork_statue\" target=\"_blank\" rel=\"noopener\">ork statues</a>, <a href=\"https://runescape.wiki/w/Ogre_statue\" target=\"_blank\" rel=\"noopener\">ogre statues</a>, and <a href=\"https://runescape.wiki/w/Ourg_statue\" target=\"_blank\" rel=\"noopener\">ourg statues</a> inside Bandos&#39;s throne room by climbing on them",
+        "text": "The ability to fight goblin statues, ork statues, ogre statues, and ourg statues inside Bandos's throne room by climbing on them",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Bandos_Agility_Course\" target=\"_blank\" rel=\"noopener\">Bandos Agility Course</a> inside Bandos&#39;s throne room",
+        "text": "Access to the Bandos Agility Course inside Bandos's throne room",
+        "subs": []
+      },
+      {
+        "html": "You can claim the <a href=\"https://runescape.wiki/w/Goblin_cower_shield\" target=\"_blank\" rel=\"noopener\">goblin cower shield</a> by talking to <a href=\"https://runescape.wiki/w/General_Wartface\" target=\"_blank\" rel=\"noopener\">General Wartface</a> or <a href=\"https://runescape.wiki/w/General_Bentnoze\" target=\"_blank\" rel=\"noopener\">General Bentnoze</a> in the <a href=\"https://runescape.wiki/w/Goblin_Village\" target=\"_blank\" rel=\"noopener\">Goblin Village</a>",
+        "text": "You can claim the goblin cower shield by talking to General Wartface or General Bentnoze in the Goblin Village",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "But We Can Fight",
+      "where": ""
+    },
+    {
+      "name": "The Chosen Commander",
+      "where": ""
+    },
+    {
+      "name": "Demise of the Dorgeshuun",
+      "where": ""
+    },
+    {
+      "name": "Don't Panic Zanik",
+      "where": ""
+    },
+    {
+      "name": "Face Off",
+      "where": ""
+    },
+    {
+      "name": "Godslayer",
+      "where": ""
+    },
+    {
+      "name": "The Throne of Bandos",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

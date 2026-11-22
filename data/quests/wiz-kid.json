@@ -1,0 +1,435 @@
+{
+  "format": 1,
+  "id": "wiz-kid",
+  "title": "Wiz Kid",
+  "page": "Wiz Kid/Quick guide",
+  "rev": 37154591,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Ben_(Wiz_Kid)\" target=\"_blank\" rel=\"noopener\">Ben</a> on Marigold Farm in <a href=\"https://runescape.wiki/w/Wendlewick\" target=\"_blank\" rel=\"noopener\">Wendlewick</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1478,
+      "lon": 3562,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Wiz_Kid/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Visions of Havenhythe",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Magic",
+        "level": 33,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Havenhythe</span> <span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:gnkgu2",
+          "html": "8 <a href=\"https://runescape.wiki/w/Air_rune\" target=\"_blank\" rel=\"noopener\">air runes</a>",
+          "text": "8 air runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1610o4v",
+          "html": "6 <a href=\"https://runescape.wiki/w/Water_rune\" target=\"_blank\" rel=\"noopener\">water runes</a>",
+          "text": "6 water runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1vzyhu6",
+          "html": "4 <a href=\"https://runescape.wiki/w/Earth_rune\" target=\"_blank\" rel=\"noopener\">earth runes</a>",
+          "text": "4 earth runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1a6jyfh",
+          "html": "2 <a href=\"https://runescape.wiki/w/Nature_rune\" target=\"_blank\" rel=\"noopener\">nature runes</a>",
+          "text": "2 nature runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:hcaway",
+          "html": "4 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law runes</a>",
+          "text": "4 law runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:w3cf0s",
+          "html": "2 <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a> (obtainable during the quest)",
+          "text": "2 bones (obtainable during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:16yxkdy",
+          "html": "<a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">Stardust</a> or <a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">wicked hood</a> for quick teleport to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>",
+          "text": "Stardust or wicked hood for quick teleport to the Wizards' Tower",
+          "alternatives": []
+        },
+        {
+          "id": "rec:9f33or",
+          "html": "<a href=\"https://runescape.wiki/w/Standard_Spellbook\" target=\"_blank\" rel=\"noopener\">Standard Spellbook</a> for casting Bones to Bananas and Telekinetic Grab",
+          "text": "Standard Spellbook for casting Bones to Bananas and Telekinetic Grab",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "training-ben",
+      "title": "Training Ben",
+      "anchor": "Training_Ben",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "training-ben:182pz34",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ben_(Wiz_Kid)\" target=\"_blank\" rel=\"noopener\">Ben</a> at <a href=\"https://runescape.wiki/w/Marigold_Farm\" target=\"_blank\" rel=\"noopener\">Marigold Farm</a> in Havenhythe.",
+          "text": "Talk to Ben at Marigold Farm in Havenhythe.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "training-ben:10cqv2m",
+          "html": "Talk to him again to give him the runes.",
+          "text": "Talk to him again to give him the runes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I brought enough runes for me too."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "training-ben:fjojzx",
+          "html": "Talk to him again to continue the quest.",
+          "text": "Talk to him again to continue the quest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "teleportation",
+      "title": "Teleportation",
+      "anchor": "Teleportation",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "teleportation:197jz7k",
+          "html": "Talk to him.",
+          "text": "Talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teleportation:xmuj9r",
+          "html": "Cast the <a href=\"https://runescape.wiki/w/Wendlewick_Teleport\" target=\"_blank\" rel=\"noopener\">Wendlewick Teleport</a> spell, and talk to him again.",
+          "text": "Cast the Wendlewick Teleport spell, and talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teleportation:6kyhif",
+          "html": "Enter the windmill to the north, climb up the ladder to the top floor, and talk to him.",
+          "text": "Enter the windmill to the north, climb up the ladder to the top floor, and talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "teleportation:1kmtwl0",
+          "html": "Go back to the bottom floor and talk to him outside.",
+          "text": "Go back to the bottom floor and talk to him outside.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "telekinetic-grab",
+      "title": "Telekinetic Grab",
+      "anchor": "Telekinetic_Grab",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "telekinetic-grab:18f52n6",
+          "html": "Go to the farmhouse to the south and take the <a href=\"https://runescape.wiki/w/Bunch_of_flowers_(Wiz_Kid)\" target=\"_blank\" rel=\"noopener\">flowers</a> off the counter in the eastern room.",
+          "text": "Go to the farmhouse to the south and take the flowers off the counter in the eastern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "telekinetic-grab:16r13s3",
+          "html": "Place the flowers on the stool east of Ben, then cast <a href=\"https://runescape.wiki/w/Telekinetic_Grab\" target=\"_blank\" rel=\"noopener\">Telekinetic Grab</a> on them.",
+          "text": "Place the flowers on the stool east of Ben, then cast Telekinetic Grab on them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "telekinetic-grab:6cbpiy",
+          "html": "Place the flowers back on the stool and talk to Ben.",
+          "text": "Place the flowers back on the stool and talk to Ben.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "bones-to-bananas",
+      "title": "Bones to Bananas",
+      "anchor": "Bones_to_Bananas",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "bones-to-bananas:g1krr5",
+          "html": "If you don&#39;t already have <a href=\"https://runescape.wiki/w/Bones\" target=\"_blank\" rel=\"noopener\">bones</a>, head to the western side of the farmhouse and dig in the dirt mound for 2 sets of <a href=\"https://runescape.wiki/w/Crow_bones\" target=\"_blank\" rel=\"noopener\">crow bones</a>.",
+          "text": "If you don't already have bones, head to the western side of the farmhouse and dig in the dirt mound for 2 sets of crow bones.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bones-to-bananas:1c9gqfy",
+          "html": "Place a bone on the stool near Ben, then cast the <a href=\"https://runescape.wiki/w/Bones_to_Bananas\" target=\"_blank\" rel=\"noopener\">Bones to Bananas</a> spell.",
+          "text": "Place a bone on the stool near Ben, then cast the Bones to Bananas spell.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "bones-to-bananas:14rh8wt",
+          "html": "Talk to Ben.",
+          "text": "Talk to Ben.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finding-a-mentor",
+      "title": "Finding a Mentor",
+      "anchor": "Finding_a_Mentor",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finding-a-mentor:l0u6p9",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a> 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) and talk to <a href=\"https://runescape.wiki/w/Archmage_Sedridor\" target=\"_blank\" rel=\"noopener\">Archmage Sedridor</a> to the southwest.",
+          "text": "Go to the Wizards' Tower 2nd floor (UK) / 3rd floor (US) and talk to Archmage Sedridor to the southwest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Wiz Kid'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finding-a-mentor:l0u6p9:11ng7s",
+              "html": "If unlocked, the teleport option on <a href=\"https://runescape.wiki/w/Stardust\" target=\"_blank\" rel=\"noopener\">stardust</a> in the <a href=\"https://runescape.wiki/w/Currency_pouch\" target=\"_blank\" rel=\"noopener\">currency pouch</a> places you near Archmage Sedridor.",
+              "text": "If unlocked, the teleport option on stardust in the currency pouch places you near Archmage Sedridor.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "finding-a-mentor:1oxpcah",
+          "html": "Go down one floor and talk to <a href=\"https://runescape.wiki/w/Wizard_Isidor\" target=\"_blank\" rel=\"noopener\">Wizard Isidor</a> to the west.",
+          "text": "Go down one floor and talk to Wizard Isidor to the west.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about 'Wiz Kid'."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-mentor:30bqkz",
+          "html": "Return to Ben and talk to him or <a href=\"https://runescape.wiki/w/Wizard_Isidor\" target=\"_blank\" rel=\"noopener\">Wizard Isidor</a>.",
+          "text": "Return to Ben and talk to him or Wizard Isidor.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finding-a-mentor:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Wiz_Kid_reward.png?271e4",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Wiz_Kid_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Ben%27s_spare_hat\" target=\"_blank\" rel=\"noopener\">Ben&#39;s spare hat</a>",
+        "text": "Ben's spare hat",
+        "subs": []
+      },
+      {
+        "html": "10,000 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+        "text": "10,000 coins",
+        "subs": []
+      },
+      {
+        "html": "3,500 experience <a href=\"https://runescape.wiki/w/Magic_XP_lamp_(Wiz_Kid)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "3,500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "Ability to teleport to <a href=\"https://runescape.wiki/w/Marigold_Farm\" target=\"_blank\" rel=\"noopener\">Marigold Farm</a> via the <a href=\"https://runescape.wiki/w/Wendlewick_Teleport\" target=\"_blank\" rel=\"noopener\">Wendlewick Teleport</a> spell",
+        "text": "Ability to teleport to Marigold Farm via the Wendlewick Teleport spell",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": []
+}

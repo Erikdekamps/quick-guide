@@ -1,0 +1,4214 @@
+{
+  "format": 1,
+  "id": "salt-in-the-wound",
+  "title": "Salt in the Wound",
+  "page": "Salt in the Wound/Quick guide",
+  "rev": 37088081,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Kennith\" target=\"_blank\" rel=\"noopener\">Kennith</a> in the east of <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a> peninsula.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3697,
+      "lon": 3505,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Kennith's Concerns",
+        "depth": 1
+      },
+      {
+        "text": "The Slug Menace",
+        "depth": 2
+      },
+      {
+        "text": "Sea Slug",
+        "depth": 3
+      },
+      {
+        "text": "Wanted!",
+        "depth": 3
+      },
+      {
+        "text": "Recruitment Drive",
+        "depth": 4
+      },
+      {
+        "text": "Enter the Abyss (miniquest)",
+        "depth": 4
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 4
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Constitution",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Defence",
+        "level": 60,
+        "note": ""
+      },
+      {
+        "skill": "Dungeoneering",
+        "level": 35,
+        "note": ""
+      },
+      {
+        "skill": "Herblore",
+        "level": 47,
+        "note": ""
+      },
+      {
+        "skill": "Summoning",
+        "level": 45,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Forgotten mage (level 60)",
+        "name": "Forgotten mage",
+        "count": null,
+        "level": "60",
+        "note": ""
+      },
+      {
+        "text": "Forgotten ranger (level 60)",
+        "name": "Forgotten ranger",
+        "count": null,
+        "level": "60",
+        "note": ""
+      },
+      {
+        "text": "Brute (level 70)",
+        "name": "Brute",
+        "count": null,
+        "level": "70",
+        "note": ""
+      },
+      {
+        "text": "Risen knights",
+        "name": "Risen knights",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Wilderness</span> <span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Wilderness</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:13ici57",
+          "html": "Access to <a href=\"https://runescape.wiki/w/Protection_prayers\" target=\"_blank\" rel=\"noopener\">protection prayers</a>.",
+          "text": "Access to protection prayers.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:c49it9",
+          "html": "Some food for low-levelled players and possibly additional food to heal companions.",
+          "text": "Some food for low-levelled players and possibly additional food to heal companions.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1ujurq3",
+          "html": "Armour and weapon, preferrably <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> for killing the <a href=\"https://runescape.wiki/w/Risen_knight\" target=\"_blank\" rel=\"noopener\">risen knights</a>",
+          "text": "Armour and weapon, preferrably Magic, Ranged, or Necromancy for killing the risen knights",
+          "alternatives": []
+        },
+        {
+          "id": "rec:1r40r2c",
+          "html": "<a href=\"https://runescape.wiki/w/Ring_of_kinship\" target=\"_blank\" rel=\"noopener\">Ring of kinship</a>",
+          "text": "Ring of kinship",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-off",
+      "title": "Starting off",
+      "anchor": "Starting_off",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-off:so5gr5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Kennith\" target=\"_blank\" rel=\"noopener\">Kennith</a> along the east coast of Daemonheim near the <a href=\"https://runescape.wiki/w/Fremennik_ship_(Shadow_reef)\" target=\"_blank\" rel=\"noopener\">Fremennik ship (Shadow reef)</a>.",
+          "text": "Talk to Kennith along the east coast of Daemonheim near the Fremennik ship (Shadow reef).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What are you doing here?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:1puvbws",
+          "html": "Go west, and talk to him again.",
+          "text": "Go west, and talk to him again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:k920wz",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ezekial\" target=\"_blank\" rel=\"noopener\">Ezekial</a>",
+          "text": "Talk to Ezekial",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            },
+            {
+              "when": "Then Eva (Temple Knight) and tell her you're ready to start",
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "4",
+                  "text": "I'm ready. Let's go!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-off:11mz2hh",
+          "html": "Enter the opening formed in the mountain nearby.",
+          "text": "Enter the opening formed in the mountain nearby.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "daemonheim-dungeon",
+      "title": "Daemonheim Dungeon",
+      "anchor": "Daemonheim_Dungeon",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "daemonheim-dungeon:bring:16uykp4",
+              "html": "1 free inventory space",
+              "text": "1 free inventory space"
+            }
+          ],
+          "recommended": [
+            {
+              "id": "daemonheim-dungeon:bring:13z97yx",
+              "html": "Food and protection prayers for low levels",
+              "text": "Food and protection prayers for low levels"
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:s6imzm",
+          "html": "Head east two rooms",
+          "text": "Head east two rooms",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:6ost3q",
+          "html": "Kill the three enemies in this room",
+          "text": "Kill the three enemies in this room",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:1a0ttkc",
+          "html": "Find the blue key on the floor",
+          "text": "Find the blue key on the floor",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:12e6kbk",
+          "html": "Return to the first room and unlock and enter the puzzle room door",
+          "text": "Return to the first room and unlock and enter the puzzle room door",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The Puzzle Room"
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:rp6t5r",
+          "html": "Choose a hero (preferably the one with the most health).",
+          "text": "Choose a hero (preferably the one with the most health).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:1hjwpal",
+          "html": "One way to solve the puzzle is:",
+          "text": "One way to solve the puzzle is:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:1xahlac",
+              "html": "Jump south across the first gap",
+              "text": "Jump south across the first gap",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:1oxygy4",
+              "html": "Jump west twice",
+              "text": "Jump west twice",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:1ocwnqg",
+              "html": "Jump south",
+              "text": "Jump south",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:ue6a7",
+              "html": "Jump north, back to the same spot",
+              "text": "Jump north, back to the same spot",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:1bs0ts",
+              "html": "Jump east three times",
+              "text": "Jump east three times",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "daemonheim-dungeon:1hjwpal:1tklrbz",
+              "html": "Jump south twice and the puzzle is completed.",
+              "text": "Jump south twice and the puzzle is completed.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:qrr6jo",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Seeker_of_Truth\" target=\"_blank\" rel=\"noopener\">Seeker of Truth</a> and return across the gap. (Quickest method is to get caught and teleported back).",
+          "text": "Inspect the Seeker of Truth and return across the gap. (Quickest method is to get caught and teleported back).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "daemonheim-dungeon:1ydawak",
+          "html": "Kennith will then teleport you to the <a href=\"https://runescape.wiki/w/Fishing_Platform\" target=\"_blank\" rel=\"noopener\">Fishing Platform</a>.",
+          "text": "Kennith will then teleport you to the Fishing Platform.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Teleport to Fishing Platform."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "fishing-platform",
+      "title": "Fishing Platform",
+      "anchor": "Fishing_Platform",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "fishing-platform:bring:pmzdk7",
+              "html": "3 free inventory spaces",
+              "text": "3 free inventory spaces"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:19nf7ll",
+          "html": "Once on the platform talk to Kennith.",
+          "text": "Once on the platform talk to Kennith.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:2x1mul",
+          "html": "Talk with <a href=\"https://runescape.wiki/w/Bailey\" target=\"_blank\" rel=\"noopener\">Bailey</a>.",
+          "text": "Talk with Bailey.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "*Punch him*"
+                },
+                {
+                  "key": "2",
+                  "text": "So, you don't feel pain?"
+                },
+                {
+                  "key": "2",
+                  "text": "No pain? Prove it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:1330uk9",
+          "html": "Head east to the fishing spots.",
+          "text": "Head east to the fishing spots.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:fapjme",
+          "html": "Lure the fishing spot and go back to Kennith, the slug will follow you.",
+          "text": "Lure the fishing spot and go back to Kennith, the slug will follow you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:1sb5p77",
+          "html": "Talk to Kennith and he will give you a <a href=\"https://runescape.wiki/w/Seeker_gland\" target=\"_blank\" rel=\"noopener\">Seeker gland</a>.",
+          "text": "Talk to Kennith and he will give you a Seeker gland.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:1ntdhnx",
+          "html": "Combine the ingredients to make the <a href=\"https://runescape.wiki/w/Anti-mind_control_serum\" target=\"_blank\" rel=\"noopener\">anti-mind control serum</a>.",
+          "text": "Combine the ingredients to make the anti-mind control serum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:m094yr",
+          "html": "Talk to Kennith, a little to the west.",
+          "text": "Talk to Kennith, a little to the west.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What should we do now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "fishing-platform:1mdno2u",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Slug_thrall\" target=\"_blank\" rel=\"noopener\">Slug thralls</a>.",
+          "text": "Talk to the Slug thralls.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Why can't we come in?"
+                },
+                {
+                  "key": "2",
+                  "text": "I'm not a stranger."
+                },
+                {
+                  "key": "3",
+                  "text": "I seek enlightenment in the joining."
+                },
+                {
+                  "key": "3",
+                  "text": "I wish to hear..."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "slug-citadel",
+      "title": "Slug Citadel",
+      "anchor": "Slug_Citadel",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "Controlling your characters: Your party members will follow you automatically. If they are attacked, they will fight to the end unless you move them. To make a party member stay, go to a specific point, or perform an action, simply click on the character and click where you want them to go or on what you want them to interact with."
+        },
+        {
+          "type": "text",
+          "html": "For more information on controlling your party members, click <a href=\"https://runescape.wiki/w/Salt_in_the_Wound#Slug_Citadel\" target=\"_blank\" rel=\"noopener\">here</a>."
+        },
+        {
+          "type": "text",
+          "html": "If a party member dies, you will have to restart the room you are currently on."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "First Room"
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1hz4k63",
+          "html": "Leave one character by the <a href=\"https://runescape.wiki/w/Witchaven_villager\" target=\"_blank\" rel=\"noopener\">Witchaven villager</a> just north of the entrance and move the other 2 to the metal gate to the north-east and kill the <a href=\"https://runescape.wiki/w/Risen_knight\" target=\"_blank\" rel=\"noopener\">Risen knight</a>.",
+          "text": "Leave one character by the Witchaven villager just north of the entrance and move the other 2 to the metal gate to the north-east and kill the Risen knight.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1e28pz5",
+          "html": "Use the character you left behind to knock out the Witchaven villager and proceed south with your player.",
+          "text": "Use the character you left behind to knock out the Witchaven villager and proceed south with your player.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:bgmm4r",
+          "html": "Go into the room with the lever and pull it.",
+          "text": "Go into the room with the lever and pull it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:ec7xf6",
+          "html": "The metal door to the north will now be open. Send a character through.",
+          "text": "The metal door to the north will now be open. Send a character through.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:12wyyky",
+          "html": "Pull your player&#39;s lever again.",
+          "text": "Pull your player's lever again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1gzjcie",
+          "html": "Use the character you left near the entrance to knock out the other villager again, allowing your player to run north to the other characters you left by the gate.",
+          "text": "Use the character you left near the entrance to knock out the other villager again, allowing your player to run north to the other characters you left by the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:g3ti4a",
+          "html": "Bring the character you left at the entrance to join your player. Use the character in the room to pull the lever to let you all in. Pull the lever again and run south, east, and then north to the exit while killing any <a href=\"https://runescape.wiki/w/Risen_knight\" target=\"_blank\" rel=\"noopener\">risen knights</a> in your path.",
+          "text": "Bring the character you left at the entrance to join your player. Use the character in the room to pull the lever to let you all in. Pull the lever again and run south, east, and then north to the exit while killing any risen knights in your path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Second Room"
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1wfwxrr",
+          "html": "Send everyone to the north as far as they can go while avoiding the villager.",
+          "text": "Send everyone to the north as far as they can go while avoiding the villager.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1suz59w",
+          "html": "Pull the lever and send Kennith and your player into the room to the east. Send Ezekial to the western room and leave Eva in the central chamber.",
+          "text": "Pull the lever and send Kennith and your player into the room to the east. Send Ezekial to the western room and leave Eva in the central chamber.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:yol2iz",
+          "html": "Leave Kennith in the eastern room and send your player south to pull the lever.",
+          "text": "Leave Kennith in the eastern room and send your player south to pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1o131g7",
+          "html": "After the lever is pulled send Kennith into the easternmost room to pull the lever.",
+          "text": "After the lever is pulled send Kennith into the easternmost room to pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:eaogcb",
+          "html": "Have your player pull the southern lever again.",
+          "text": "Have your player pull the southern lever again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:bxyzzn",
+          "html": "Send Ezekial west (if not already in the western room) then all the way south to pull the lever.",
+          "text": "Send Ezekial west (if not already in the western room) then all the way south to pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:10ci8e2",
+          "html": "Make Kennith pull the lever again and then send him into the southernmost room on his side to pull the lever.",
+          "text": "Make Kennith pull the lever again and then send him into the southernmost room on his side to pull the lever.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:x7id6r",
+          "html": "Send your player back to the central chamber with Eva.",
+          "text": "Send your player back to the central chamber with Eva.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1578ing",
+          "html": "Make Ezekial pull his lever again and then send Kennith back to the central chamber.",
+          "text": "Make Ezekial pull his lever again and then send Kennith back to the central chamber.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:jevbgd",
+          "html": "Make Ezekial pull the lever once more and send him back to the central chamber.",
+          "text": "Make Ezekial pull the lever once more and send him back to the central chamber.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:kvol4e",
+          "html": "Now that your party is regrouped, go to the next room.",
+          "text": "Now that your party is regrouped, go to the next room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Third Room"
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:nabu9f",
+          "html": "Kill all of the Risen Knights.",
+          "text": "Kill all of the Risen Knights.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1p8lsl7",
+          "html": "Send a character to each of the rooms in the four corners.",
+          "text": "Send a character to each of the rooms in the four corners.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:302vew",
+          "html": "Pull all four levers in the following order: northeast, southeast, southwest, &amp; then northwest.",
+          "text": "Pull all four levers in the following order: northeast, southeast, southwest, & then northwest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1ulut06",
+          "html": "Run to the newly opened gates and &#39;regroup&#39; all of the characters. Proceed to the next room.",
+          "text": "Run to the newly opened gates and 'regroup' all of the characters. Proceed to the next room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fourth Room"
+        },
+        {
+          "type": "note",
+          "html": "Be careful not to kill the two knights that spawn side-by-side at the same time, or a bug will occur that forces you to re-enter the dungeon. For more information on this room click <a href=\"https://runescape.wiki/w/Salt_in_the_Wound#Fourth_room\" target=\"_blank\" rel=\"noopener\">here</a>."
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:9x9ck6",
+          "html": "Use your player to investigate the strange device. Put your arm in.",
+          "text": "Use your player to investigate the strange device. Put your arm in.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Put your arm in."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1r05baq",
+          "html": "Kill the first wave of knights with Kennith, Ezekial, and Eva. Your player will then investigate the second hole.",
+          "text": "Kill the first wave of knights with Kennith, Ezekial, and Eva. Your player will then investigate the second hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:9caccx",
+          "html": "Kill the second wave of knights. Your player will investigate the third hole.",
+          "text": "Kill the second wave of knights. Your player will investigate the third hole.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:vgcnn7",
+          "html": "Kill the third wave of knights.",
+          "text": "Kill the third wave of knights.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1fmox69",
+          "html": "Enter the tunnel to the north.",
+          "text": "Enter the tunnel to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Fifth Room"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Throwing_serum.png/300px-Throwing_serum.png?efb52",
+          "width": 300,
+          "height": 200,
+          "alt": "",
+          "caption": "Kennith and Ezekial in position to throw the serum. Note Lucy in the corner.",
+          "href": "https://runescape.wiki/w/File:Throwing_serum.png"
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:csw7dj",
+          "html": "Use Kennith to speak to Brother Maledict to the west.",
+          "text": "Use Kennith to speak to Brother Maledict to the west.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:i1gjb4",
+          "html": "Once the gate is open, knock down the wall in the west room with Ezekial and move Kennith north. Place him as close as possible to <a href=\"https://runescape.wiki/w/Mother_Mallum\" target=\"_blank\" rel=\"noopener\">Mother Mallum</a> while standing on the western ledge.",
+          "text": "Once the gate is open, knock down the wall in the west room with Ezekial and move Kennith north. Place him as close as possible to Mother Mallum while standing on the western ledge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:3kuae2",
+          "html": "Take control of Ezekial and knock down the wall to the east and proceed north.",
+          "text": "Take control of Ezekial and knock down the wall to the east and proceed north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:tbwumo",
+          "html": "Kill or run past the knight and position Ezekial directly opposite Kennith.",
+          "text": "Kill or run past the knight and position Ezekial directly opposite Kennith.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:y070ab",
+          "html": "Take control of Kennith and attack <a href=\"https://runescape.wiki/w/Mother_Mallum\" target=\"_blank\" rel=\"noopener\">Mother Mallum</a>.",
+          "text": "Take control of Kennith and attack Mother Mallum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:d88xi1",
+          "html": "You now have control of Eva. Talk to Mayor Hobbs and knock him out, then attack Mallum.",
+          "text": "You now have control of Eva. Talk to Mayor Hobbs and knock him out, then attack Mallum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:fyfx41",
+          "html": "Move Eva north of the statue and topple it.",
+          "text": "Move Eva north of the statue and topple it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1fqt3j7",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lucy\" target=\"_blank\" rel=\"noopener\">Lucy</a>.",
+          "text": "Talk to Lucy.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:1q1dxzr",
+          "html": "Leave the Citadel using the cave exit.",
+          "text": "Leave the Citadel using the cave exit.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slug-citadel:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "title": "Map",
+      "anchor": "Map",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Slug_Citadel\" target=\"_blank\" rel=\"noopener\">Slug Citadel</a>"
+        },
+        {
+          "type": "text",
+          "html": "Floor 1"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4320,
+          "lon": 1760,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 336,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1750.5,
+                  4321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4309.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  4329.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1763.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1766.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4318.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1774.5,
+                  4337.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "to floor 2",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4305.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "from surface",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1810.5,
+                  4322.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1813.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1816.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1815.5,
+                  4344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "to floor 3",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1828.5,
+                  4297.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "from floor 1",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4395.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1748.5,
+                  4383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1756.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4360.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "from floor 2",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4409.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "to floor 4",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4314.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "from floor 3",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4328.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "to floor 5",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1695.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1711.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1694.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mother_Mallum\" title=\"Mother Mallum\">Mother Mallum</a>",
+                "shape": "SquareDot",
+                "fill": "#ff0101"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4312.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Lucy\" title=\"Lucy\">Lucy</a>",
+                "shape": "Dot",
+                "fill": "#ff7f01"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mayor_Hobb#Aquatic\" title=\"Mayor Hobb\">Mayor Hobb</a>",
+                "shape": "Dot",
+                "fill": "#ff017f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1684.5,
+                  4310.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Brother_Maledict#Possessed\" title=\"Brother Maledict\">Brother Maledict</a>",
+                "shape": "Dot",
+                "fill": "#c0407f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "label": "from floor 4",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+        },
+        {
+          "type": "text",
+          "html": "Floor 2"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4320,
+          "lon": 1824,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 337,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1750.5,
+                  4321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4309.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  4329.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1763.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1766.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4318.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1774.5,
+                  4337.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "to floor 2",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4305.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "from surface",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1810.5,
+                  4322.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1813.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1816.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1815.5,
+                  4344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "to floor 3",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1828.5,
+                  4297.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "from floor 1",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4395.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1748.5,
+                  4383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1756.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4360.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "from floor 2",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4409.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "to floor 4",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4314.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "from floor 3",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4328.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "to floor 5",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1695.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1711.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1694.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mother_Mallum\" title=\"Mother Mallum\">Mother Mallum</a>",
+                "shape": "SquareDot",
+                "fill": "#ff0101"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4312.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Lucy\" title=\"Lucy\">Lucy</a>",
+                "shape": "Dot",
+                "fill": "#ff7f01"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mayor_Hobb#Aquatic\" title=\"Mayor Hobb\">Mayor Hobb</a>",
+                "shape": "Dot",
+                "fill": "#ff017f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1684.5,
+                  4310.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Brother_Maledict#Possessed\" title=\"Brother Maledict\">Brother Maledict</a>",
+                "shape": "Dot",
+                "fill": "#c0407f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "label": "from floor 4",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+        },
+        {
+          "type": "text",
+          "html": "Floor 3"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4384,
+          "lon": 1760,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 333,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1750.5,
+                  4321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4309.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  4329.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1763.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1766.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4318.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1774.5,
+                  4337.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "to floor 2",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4305.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "from surface",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1810.5,
+                  4322.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1813.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1816.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1815.5,
+                  4344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "to floor 3",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1828.5,
+                  4297.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "from floor 1",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4395.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1748.5,
+                  4383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1756.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4360.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "from floor 2",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4409.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "to floor 4",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4314.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "from floor 3",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4328.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "to floor 5",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1695.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1711.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1694.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mother_Mallum\" title=\"Mother Mallum\">Mother Mallum</a>",
+                "shape": "SquareDot",
+                "fill": "#ff0101"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4312.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Lucy\" title=\"Lucy\">Lucy</a>",
+                "shape": "Dot",
+                "fill": "#ff7f01"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mayor_Hobb#Aquatic\" title=\"Mayor Hobb\">Mayor Hobb</a>",
+                "shape": "Dot",
+                "fill": "#ff017f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1684.5,
+                  4310.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Brother_Maledict#Possessed\" title=\"Brother Maledict\">Brother Maledict</a>",
+                "shape": "Dot",
+                "fill": "#c0407f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "label": "from floor 4",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+        },
+        {
+          "type": "text",
+          "html": "Floor 4"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4323,
+          "lon": 1632,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 334,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1750.5,
+                  4321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4309.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  4329.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1763.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1766.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4318.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1774.5,
+                  4337.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "to floor 2",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4305.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "from surface",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1810.5,
+                  4322.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1813.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1816.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1815.5,
+                  4344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "to floor 3",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1828.5,
+                  4297.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "from floor 1",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4395.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1748.5,
+                  4383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1756.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4360.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "from floor 2",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4409.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "to floor 4",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4314.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "from floor 3",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4328.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "to floor 5",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1695.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1711.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1694.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mother_Mallum\" title=\"Mother Mallum\">Mother Mallum</a>",
+                "shape": "SquareDot",
+                "fill": "#ff0101"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4312.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Lucy\" title=\"Lucy\">Lucy</a>",
+                "shape": "Dot",
+                "fill": "#ff7f01"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mayor_Hobb#Aquatic\" title=\"Mayor Hobb\">Mayor Hobb</a>",
+                "shape": "Dot",
+                "fill": "#ff017f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1684.5,
+                  4310.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Brother_Maledict#Possessed\" title=\"Brother Maledict\">Brother Maledict</a>",
+                "shape": "Dot",
+                "fill": "#c0407f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "label": "from floor 4",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+        },
+        {
+          "type": "text",
+          "html": "Floor 5"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 4320,
+          "lon": 1696,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 335,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1750.5,
+                  4321.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4309.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1751.5,
+                  4329.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1763.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1766.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4318.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1774.5,
+                  4337.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "to floor 2",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4305.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "336",
+                "label": "from surface",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1810.5,
+                  4322.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1813.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1816.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1815.5,
+                  4344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "to floor 3",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1828.5,
+                  4297.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "337",
+                "label": "from floor 1",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1753.5,
+                  4395.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Witchaven_villager\" title=\"Witchaven villager\">Witchaven villager</a>",
+                "shape": "Dot",
+                "fill": "#ffff00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1744.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1748.5,
+                  4383.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1756.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1761.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1769.5,
+                  4382.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4373.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1773.5,
+                  4399.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4360.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "from floor 2",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1759.5,
+                  4409.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "333",
+                "label": "to floor 4",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4314.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "from floor 3",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1633.5,
+                  4328.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "334",
+                "label": "to floor 5",
+                "direction": "top",
+                "shape": "Text",
+                "plane": 0
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1695.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4313.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1711.5,
+                  4316.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Risen_knight\" title=\"Risen knight\">Risen knight</a>",
+                "shape": "Dot",
+                "fill": "#01ff7f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1694.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mother_Mallum\" title=\"Mother Mallum\">Mother Mallum</a>",
+                "shape": "SquareDot",
+                "fill": "#ff0101"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4312.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Lucy\" title=\"Lucy\">Lucy</a>",
+                "shape": "Dot",
+                "fill": "#ff7f01"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1697.5,
+                  4315.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Mayor_Hobb#Aquatic\" title=\"Mayor Hobb\">Mayor Hobb</a>",
+                "shape": "Dot",
+                "fill": "#ff017f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1684.5,
+                  4310.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "plane": 0,
+                "title": "<a href=\"/w/Brother_Maledict#Possessed\" title=\"Brother Maledict\">Brother Maledict</a>",
+                "shape": "Dot",
+                "fill": "#c0407f"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1696.5,
+                  4303.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "335",
+                "label": "from floor 4",
+                "direction": "bottom",
+                "shape": "Text",
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Salt_in_the_Wound/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "map:11vets6",
+          "html": "<a href=\"https://runescape.wiki/w/Witchaven_villager\" target=\"_blank\" rel=\"noopener\">Witchaven villager</a>",
+          "text": "Witchaven villager",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "map:nllg8n",
+          "html": "<a href=\"https://runescape.wiki/w/Risen_knight\" target=\"_blank\" rel=\"noopener\">Risen knight</a>",
+          "text": "Risen knight",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "map:c4e0jq",
+          "html": "<a href=\"https://runescape.wiki/w/Mother_Mallum\" target=\"_blank\" rel=\"noopener\">Mother Mallum</a>",
+          "text": "Mother Mallum",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "map:t75vgm",
+          "html": "<a href=\"https://runescape.wiki/w/Lucy\" target=\"_blank\" rel=\"noopener\">Lucy</a>",
+          "text": "Lucy",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "map:1brpbeg",
+          "html": "<a href=\"https://runescape.wiki/w/Mayor_Hobb#Aquatic\" target=\"_blank\" rel=\"noopener\">Mayor Hobb</a>",
+          "text": "Mayor Hobb",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "map:q1v2bi",
+          "html": "<a href=\"https://runescape.wiki/w/Brother_Maledict#Possessed\" target=\"_blank\" rel=\"noopener\">Brother Maledict</a>",
+          "text": "Brother Maledict",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Slug_Citadel\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Slug_Citadel\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Slug_Citadel?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Salt_in_the_Wound_reward.png?8e5fe",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Salt_in_the_Wound_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "45,000 experience",
+        "text": "45,000 experience",
+        "subs": []
+      },
+      {
+        "html": "17,500 experience",
+        "text": "17,500 experience",
+        "subs": []
+      },
+      {
+        "html": "15,000 experience",
+        "text": "15,000 experience",
+        "subs": []
+      },
+      {
+        "html": "12,500 experience",
+        "text": "12,500 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "100 more bound ammunition/runes in <a href=\"https://runescape.wiki/w/Daemonheim\" target=\"_blank\" rel=\"noopener\">Daemonheim</a> (raising the total to 225)",
+        "text": "100 more bound ammunition/runes in Daemonheim (raising the total to 225)",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Slug Poison",
+      "where": ""
+    }
+  ],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Salt_in_the_Wound_(achievement)\" target=\"_blank\" rel=\"noopener\">Salt in the Wound</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Daemonheim_achievements\" target=\"_blank\" rel=\"noopener\">Daemonheim achievements</a></b>"
+  ],
+  "requiredFor": []
+}

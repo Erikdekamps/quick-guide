@@ -126,6 +126,24 @@ wiki again when you open it; your ticks stay.
 
 No other service is used. The fonts come with the app (`vendor/fonts/`).
 
+## The data
+
+`data/` holds everything the app shows of the wiki, as JSON files in git: an index of every quest, area and cape, and
+one file for each guide, area and cape. [data/README.md](data/README.md) says what is in them. The app does not read
+them yet: that is the next step, and then a player's browser no longer asks the wiki for guides.
+
+- `npm run data` builds them. It reads the wiki with the app's own reader, in Chromium (about 400 requests, a few at a
+  time, three minutes), and writes only the files that changed.
+- GitHub runs it every night (`.github/workflows/data.yml`). When something changed it opens a pull request that says
+  what, or updates the one that is open; the tests run on it. Nothing changes until you merge it.
+- A file only changes when the wiki did. What is new gets the day it was first seen (`added`).
+- When the wiki is broken (the lists cannot be read, an area or a cape is missing, more than 10 guides fail), the
+  build stops and changes nothing. One guide that fails keeps its file from before.
+- The data goes on GitHub Pages with the app, but is no part of the app's version: a change to it needs no new
+  version and no line in the changelog.
+- Once, in the repo settings: Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve
+  pull requests". Without it the nightly build cannot open its pull request.
+
 ## Files
 
 | File | What it is |
@@ -156,6 +174,9 @@ No other service is used. The fonts come with the app (`vendor/fonts/`).
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
 | `appconfig.json`, `icon.png` | What Alt1 needs to add the app (`icon.png` is made from `icon.svg`: `npm run icon`) |
 | `tools/icon.js` | Makes `icon.png` from `icon.svg` |
+| `data/` | The wiki's quests, area tasks and capes as JSON files, made by a build (see [The data](#the-data)). Its text is the wiki's, under CC BY-NC-SA 3.0 (`data/LICENSE.md`) |
+| `tools/data/` | The build of `data/`: `npm run data` |
+| `.github/workflows/data.yml` | Builds `data/` every night, and opens a pull request when the wiki changed |
 | `CHANGELOG.md`, `tools/version.js` | What changed in each version, and the tool that raises and checks the version (see [Versions](#versions)). It also has the list of the app's files, and copies them for GitHub Pages |
 | `tests/`, `playwright.config.js`, `package.json` | The tests |
 | `tests/unit/` | The unit tests: the app's files in Node, without a browser (`tests/unit/load.js` loads them) |
@@ -183,7 +204,7 @@ changed in each version. The three numbers are MAJOR.MINOR.PATCH ([semantic vers
 - **MINOR** goes up for something new you can see or do.
 - **PATCH** goes up for a fix, or a change you do not see.
 
-The app is what GitHub Pages serves: `index.html`, `style.css`, `appconfig.json`, `icon.svg`, `icon.png`, `js/`, `vendor/`. Nothing else goes on the site.
+The app is what GitHub Pages serves (next to `data/`, which has no version): `index.html`, `style.css`, `appconfig.json`, `icon.svg`, `icon.png`, `js/`, `vendor/`. Only these and `data/` go on the site.
 Every change to the app gets a new version, in the same pull request:
 
 1. Write what changed under `## [Unreleased]` in `CHANGELOG.md`.
@@ -249,6 +270,7 @@ npm test
 - `npm run bump -- patch|minor|major` and `npm run check:version` (see [Versions](#versions)).
 - `npm run security` checks for known security problems and newer versions (see below).
 - `npm run icon` makes `icon.png` again after you change `icon.svg` (a test checks the two are the same picture).
+- `npm run data` builds `data/` again from the wiki (see [The data](#the-data); needs the internet).
 - `npm run designs` builds the design boards and their pictures again from the app (see [designs/README.md](designs/README.md)).
 
 ## Security and updates

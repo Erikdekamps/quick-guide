@@ -1,0 +1,574 @@
+{
+  "format": 1,
+  "id": "sheep-herder",
+  "title": "Sheep Herder",
+  "page": "Sheep Herder/Quick guide",
+  "rev": 37033670,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Councillor_Halgrive\" target=\"_blank\" rel=\"noopener\">Councillor Halgrive</a> outside of the <a href=\"https://runescape.wiki/w/East_Ardougne_church\" target=\"_blank\" rel=\"noopener\">East Ardougne church</a>, north of the <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">zoo</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3300,
+      "lon": 2616,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Sheep_Herder/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:p8wzqe",
+          "html": "100 <a href=\"https://runescape.wiki/w/Coins\" target=\"_blank\" rel=\"noopener\">coins</a>",
+          "text": "100 coins",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "starting-out",
+      "title": "Starting out",
+      "anchor": "Starting_out",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "starting-out:11yy9tv",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Councillor_Halgrive\" target=\"_blank\" rel=\"noopener\">Councillor Halgrive</a> south of the <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a> church and north of the <a href=\"https://runescape.wiki/w/Ardougne_Zoo\" target=\"_blank\" rel=\"noopener\">zoo</a>.",
+          "text": "Talk to Councillor Halgrive south of the Ardougne church and north of the zoo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What's wrong?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "starting-out:13snsgm",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Doctor_Orbon\" target=\"_blank\" rel=\"noopener\">Doctor Orbon</a> inside the church and buy a pair of clothes for 100 coins.",
+          "text": "Talk to Doctor Orbon inside the church and buy a pair of clothes for 100 coins.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Talk about something else."
+                },
+                {
+                  "key": "2",
+                  "text": "Ok, I'll take it."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "herding-the-sheep",
+      "title": "Herding the sheep",
+      "anchor": "Herding_the_sheep",
+      "blocks": [
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep\" target=\"_blank\" rel=\"noopener\">Sick-looking sheep</a>"
+        },
+        {
+          "type": "map",
+          "caption": "",
+          "lat": 3370,
+          "lon": 2590,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2609.5,
+                  3344.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3343.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3345.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(1)\" title=\"Sick-looking sheep (1)\">Sick-looking-sheep (red)</a>",
+                "shape": "Dot",
+                "fill": "#FF0000"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2610.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2611.5,
+                  3384.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2612.5,
+                  3385.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(4)\" title=\"Sick-looking sheep (4)\">Sick-looking-sheep (yellow)</a>",
+                "shape": "Dot",
+                "fill": "#FFFF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2616.5,
+                  3370.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2617.5,
+                  3371.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2618.5,
+                  3370.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(2)\" title=\"Sick-looking sheep (2)\">Sick-looking-sheep (green)</a>",
+                "shape": "Dot",
+                "fill": "#00FF00"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2560.5,
+                  3389.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2561.5,
+                  3388.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  2561.5,
+                  3390.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "title": "<a href=\"/w/Sick-looking_sheep_(3)\" title=\"Sick-looking sheep (3)\">Sick-looking-sheep (blue)</a>",
+                "shape": "Dot",
+                "fill": "#0000FF"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Sheep_Herder/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:c6npnv",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(1)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (red)</a>",
+          "text": "Sick-looking-sheep (red)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:1wyutm4",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(4)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (yellow)</a>",
+          "text": "Sick-looking-sheep (yellow)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:1flfhn",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(2)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (green)</a>",
+          "text": "Sick-looking-sheep (green)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:ydczfs",
+          "html": "<a href=\"https://runescape.wiki/w/Sick-looking_sheep_(3)\" target=\"_blank\" rel=\"noopener\">Sick-looking-sheep (blue)</a>",
+          "text": "Sick-looking-sheep (blue)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<a href=\"https://runescape.wiki/w/Map:Sick-looking-sheep\" target=\"_blank\" rel=\"noopener\">v</a> • <a href=\"https://runescape.wiki/w/Map_talk:Sick-looking-sheep\" target=\"_blank\" rel=\"noopener\">d</a> • <a href=\"https://runescape.wiki/w/Map:Sick-looking-sheep?action=edit\" target=\"_blank\" rel=\"noopener\">e</a>"
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:4jpro3",
+          "html": "Return to the lodestone and go west until you reach the fenced enclosure with a stone building and incinerator (looks like a furnace). It is south of the fishing guild.",
+          "text": "Return to the lodestone and go west until you reach the fenced enclosure with a stone building and incinerator (looks like a furnace). It is south of the fishing guild.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:16ue57l",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Plague_jacket\" target=\"_blank\" rel=\"noopener\">plague jacket</a> and <a href=\"https://runescape.wiki/w/Plague_trousers\" target=\"_blank\" rel=\"noopener\">trousers</a> and enter the gate.",
+          "text": "Equip the plague jacket and trousers and enter the gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:1qohkof",
+          "html": "Pick up the <a href=\"https://runescape.wiki/w/Cattleprod\" target=\"_blank\" rel=\"noopener\">cattleprod</a> inside the stone enclosure, equip it.",
+          "text": "Pick up the cattleprod inside the stone enclosure, equip it.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "herding-the-sheep:eftm8u",
+          "html": "Prod 1 of each colour sheep in and through the incinerator pen&#39;s gate. If the sheep are stuck, simply switch worlds.",
+          "text": "Prod 1 of each colour sheep in and through the incinerator pen's gate. If the sheep are stuck, simply switch worlds.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Sheep<br>Location<br>Blue sheep<br>North-west of the incinerator, just past the <a href=\"https://runescape.wiki/w/Warrior_Woman\" target=\"_blank\" rel=\"noopener\">Warrior Woman</a> camp.<br>Yellow sheep<br>North of the incinerator, in front of the Fishing Guild.<br>Green sheep<br>East of the incinerator, near a Mysterious Statue.<br>Red sheep<br>South of the incinerator, in front of Ardougne North bank."
+        }
+      ]
+    },
+    {
+      "id": "euthanising-the-sheep",
+      "title": "Euthanising the sheep",
+      "anchor": "Euthanising_the_sheep",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "euthanising-the-sheep:1v3h0l8",
+          "html": "Enter the pen and use the <a href=\"https://runescape.wiki/w/Sheep_feed\" target=\"_blank\" rel=\"noopener\">sheep feed</a> on each of them.",
+          "text": "Enter the pen and use the sheep feed on each of them.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "euthanising-the-sheep:1po68lg",
+          "html": "Take all 4 bones, then use them on the incinerator.",
+          "text": "Take all 4 bones, then use them on the incinerator.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:73uing",
+          "html": "Return to Councillor Halgrive.",
+          "text": "Return to Councillor Halgrive.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Sheep_Herder_reward.png?6b9f6",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Sheep_Herder_reward.png"
+    },
+    "items": [
+      {
+        "html": "4 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "4 quest points",
+        "subs": []
+      },
+      {
+        "html": "3,100 coins (reimbursement for plague set, and 3,000 coins as reward)",
+        "text": "3,100 coins (reimbursement for plague set, and 3,000 coins as reward)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Plague_jacket\" target=\"_blank\" rel=\"noopener\">Plague jacket</a>",
+        "text": "Plague jacket",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Plague_trousers\" target=\"_blank\" rel=\"noopener\">Plague trousers</a>",
+        "text": "Plague trousers",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Cattleprod\" target=\"_blank\" rel=\"noopener\">Cattleprod</a>",
+        "text": "Cattleprod",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part I</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/Mourning%27s_End_Part_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mourning&#39;s End Part II</a>",
+        "<a href=\"https://runescape.wiki/w/Plague%27s_End/Quick_guide\" target=\"_blank\" rel=\"noopener\">Plague&#39;s End</a>",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/Within_the_Light/Quick_guide\" target=\"_blank\" rel=\"noopener\">Within the Light</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

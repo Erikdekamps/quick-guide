@@ -1,0 +1,407 @@
+{
+  "format": 1,
+  "id": "elemental-workshop-i",
+  "title": "Elemental Workshop I",
+  "page": "Elemental Workshop I/Quick guide",
+  "rev": 37225595,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Search the <a href=\"https://runescape.wiki/w/Bookcase_(Elemental_Workshop_I)\" target=\"_blank\" rel=\"noopener\">shelves</a> in a house in <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a> for an <a href=\"https://runescape.wiki/w/Battered_book\" target=\"_blank\" rel=\"noopener\">old book</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3481,
+      "lon": 2715,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Elemental_Workshop_I/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Mining",
+        "level": 20,
+        "note": ""
+      },
+      {
+        "skill": "Smithing",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Earth elemental (level 44)",
+        "name": "Earth elemental",
+        "count": null,
+        "level": "44",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:fbu970",
+          "html": "1 <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a>",
+          "text": "1 thread",
+          "alternatives": []
+        },
+        {
+          "id": "req:37x642",
+          "html": "Soft <a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">leather</a> (obtainable during the quest)",
+          "text": "Soft leather (obtainable during the quest)",
+          "alternatives": []
+        },
+        {
+          "id": "req:hnb5ke",
+          "html": "4 <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a>",
+          "text": "4 coal",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:n0sr7s",
+          "html": "In <a href=\"https://runescape.wiki/w/Seers%27_Village\" target=\"_blank\" rel=\"noopener\">Seers&#39; Village</a>, go to the house immediately south of the anvil.",
+          "text": "In Seers' Village, go to the house immediately south of the anvil.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:5wa82w",
+          "html": "Search the bookcase on the eastern wall to find a <a href=\"https://runescape.wiki/w/Battered_book\" target=\"_blank\" rel=\"noopener\">battered book</a>.",
+          "text": "Search the bookcase on the eastern wall to find a battered book.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1vo59sl",
+          "html": "Read the book, then right-click on the book and click &quot;Cut-open&quot; to get a <a href=\"https://runescape.wiki/w/Battered_key\" target=\"_blank\" rel=\"noopener\">battered key</a>. Do not drop the book.",
+          "text": "Read the book, then right-click on the book and click \"Cut-open\" to get a battered key. Do not drop the book.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ay7qjy",
+          "html": "Go to the building with the anvil and click on the northern wall to open the <a href=\"https://runescape.wiki/w/Odd-looking_wall\" target=\"_blank\" rel=\"noopener\">odd-looking wall</a>.",
+          "text": "Go to the building with the anvil and click on the northern wall to open the odd-looking wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1t5q3au",
+          "html": "Go down the stairs.",
+          "text": "Go down the stairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "repairing-a-workshop",
+      "title": "Repairing a workshop",
+      "anchor": "Repairing_a_workshop",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:7kzyr2",
+          "html": "Go into the room to the north.",
+          "text": "Go into the room to the north.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:1mxacw",
+          "html": "(Red Indicator) Turn the water controls east of the water wheel to turn it green.",
+          "text": "(Red Indicator) Turn the water controls east of the water wheel to turn it green.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:425a42",
+          "html": "(Red Indicator) Turn the water controls west of the water wheel to turn it green.",
+          "text": "(Red Indicator) Turn the water controls west of the water wheel to turn it green.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:c84f6h",
+          "html": "Pull the lever by the water wheel. (The wheel should start spinning.)",
+          "text": "Pull the lever by the water wheel. (The wheel should start spinning.)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:hda3d9",
+          "html": "(Optional) To obtain <a href=\"https://runescape.wiki/w/Leather\" target=\"_blank\" rel=\"noopener\">leather</a>, search the singular <a href=\"https://runescape.wiki/w/Crate_(Elemental_Workshop_I)\" target=\"_blank\" rel=\"noopener\">crate</a> north-west of the hatch in the middle room.",
+          "text": "(Optional) To obtain leather, search the singular crate north-west of the hatch in the middle room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:61v4i0",
+          "html": "Go to the eastern room.",
+          "text": "Go to the eastern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:lp1vi9",
+          "html": "With <a href=\"https://runescape.wiki/w/Thread\" target=\"_blank\" rel=\"noopener\">thread</a> and leather, fix the bellows.",
+          "text": "With thread and leather, fix the bellows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:51jwmp",
+          "html": "Pull the lever by the bellows.",
+          "text": "Pull the lever by the bellows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:bz012v",
+          "html": "Go to the western room and mine an <a href=\"https://runescape.wiki/w/Elemental_rock\" target=\"_blank\" rel=\"noopener\">elemental rock</a>.",
+          "text": "Go to the western room and mine an elemental rock.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:x2gs9h",
+          "html": "Kill the <a href=\"https://runescape.wiki/w/Earth_elemental\" target=\"_blank\" rel=\"noopener\">earth elemental</a> and pick up the <a href=\"https://runescape.wiki/w/Elemental_ore\" target=\"_blank\" rel=\"noopener\">elemental ore</a> it drops.",
+          "text": "Kill the earth elemental and pick up the elemental ore it drops.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "repairing-a-workshop:wyinm9",
+          "html": "Go back to the middle room and search the small <a href=\"https://runescape.wiki/w/Boxes_(Elemental_Workshop_I)\" target=\"_blank\" rel=\"noopener\">boxes</a> north-east of the hatch to obtain <a href=\"https://runescape.wiki/w/A_stone_bowl\" target=\"_blank\" rel=\"noopener\">a stone bowl</a>.",
+          "text": "Go back to the middle room and search the small boxes north-east of the hatch to obtain a stone bowl.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:11f23fh",
+          "html": "Go to the south room.",
+          "text": "Go to the south room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:f1snc8",
+          "html": "Use the stone bowl on the <a href=\"https://runescape.wiki/w/Lava_trough\" target=\"_blank\" rel=\"noopener\">lava trough</a> to the south.",
+          "text": "Use the stone bowl on the lava trough to the south.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1ckg87h",
+          "html": "Use the bowl of lava on the <a href=\"https://runescape.wiki/w/Furnace\" target=\"_blank\" rel=\"noopener\">furnace</a> in the room.",
+          "text": "Use the bowl of lava on the furnace in the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:aelzhs",
+          "html": "Use the elemental ore and four <a href=\"https://runescape.wiki/w/Coal\" target=\"_blank\" rel=\"noopener\">coal</a> on the furnace.",
+          "text": "Use the elemental ore and four coal on the furnace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:braljz",
+          "html": "With the <a href=\"https://runescape.wiki/w/Slashed_book\" target=\"_blank\" rel=\"noopener\">slashed book</a>, go to the middle room and smith an <a href=\"https://runescape.wiki/w/Elemental_shield\" target=\"_blank\" rel=\"noopener\">elemental shield</a> on an anvil workbench.",
+          "text": "With the slashed book, go to the middle room and smith an elemental shield on an anvil workbench.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Elemental_Workshop_I_reward.png?de4f8",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Elemental_Workshop_I_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "5,000 experience",
+        "text": "5,000 experience",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Elemental_Workshop\" target=\"_blank\" rel=\"noopener\">Elemental Workshop</a>",
+        "text": "Access to the Elemental Workshop",
+        "subs": []
+      },
+      {
+        "html": "An <a href=\"https://runescape.wiki/w/Elemental_shield\" target=\"_blank\" rel=\"noopener\">elemental shield</a>, as well as the ability to make them.",
+        "text": "An elemental shield, as well as the ability to make them.",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Twilight",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop II</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_III/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop III</a>",
+        "<a href=\"https://runescape.wiki/w/Elemental_Workshop_IV/Quick_guide\" target=\"_blank\" rel=\"noopener\">Elemental Workshop IV</a>"
+      ]
+    }
+  ]
+}

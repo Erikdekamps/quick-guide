@@ -1,0 +1,434 @@
+{
+  "format": 1,
+  "id": "monks-friend",
+  "title": "Monk's Friend",
+  "page": "Monk's Friend/Quick guide",
+  "rev": 37153487,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Brother_Omad\" target=\"_blank\" rel=\"noopener\">Brother Omad</a> at the <a href=\"https://runescape.wiki/w/Ardougne_Monastery\" target=\"_blank\" rel=\"noopener\">Monastery</a> south of <a href=\"https://runescape.wiki/w/Ardougne\" target=\"_blank\" rel=\"noopener\">Ardougne</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3210,
+      "lon": 2606,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Monk's_Friend/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "You can choose to defeat two level 21 thieves and a level 25 head thief.",
+        "name": "You can choose to defeat two level 21 thieves and a level 25 head thief.",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Kandarin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Kandarin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:16xdajm",
+          "html": "A <a href=\"https://runescape.wiki/w/Jug_of_water\" target=\"_blank\" rel=\"noopener\">jug of water</a> (you can buy a jug at the general stores in <a href=\"https://runescape.wiki/w/Port_Khazard\" target=\"_blank\" rel=\"noopener\">Port Khazard</a>; there is a sink in a house to the south of the monastery)",
+          "text": "A jug of water (you can buy a jug at the general stores in Port Khazard; there is a sink in a house to the south of the monastery)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1lgvjj1",
+          "html": "Normal <a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">logs</a> (there are plenty of trees nearby)",
+          "text": "Normal logs (there are plenty of trees nearby)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Start point of the quest",
+          "lat": 3209,
+          "lon": 2604,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2599.5,
+                      3204.5
+                    ],
+                    [
+                      2599.5,
+                      3214.5
+                    ],
+                    [
+                      2609.5,
+                      3214.5
+                    ],
+                    [
+                      2609.5,
+                      3204.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Monk's_Friend/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nyutmn",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Brother_Omad\" target=\"_blank\" rel=\"noopener\">Brother Omad</a> on the ground floor (UK) / 1<sup>st</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Monastery_(Kandarin)\" target=\"_blank\" rel=\"noopener\">Monastery</a> south of <a href=\"https://runescape.wiki/w/East_Ardougne\" target=\"_blank\" rel=\"noopener\">East Ardougne</a> zoo.",
+          "text": "Talk to Brother Omad on the ground floor (UK) / 1st floor (US) of the Monastery south of East Ardougne zoo.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Why can't you sleep?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-secret-tunnel",
+      "title": "The secret tunnel",
+      "anchor": "The_secret_tunnel",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Circle of stones and ladder location",
+          "lat": 3221,
+          "lon": 2561,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2556,
+                      3216
+                    ],
+                    [
+                      2556,
+                      3226
+                    ],
+                    [
+                      2566,
+                      3226
+                    ],
+                    [
+                      2566,
+                      3216
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": 28,
+                "plane": 0
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Monk's_Friend/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "the-secret-tunnel:lw4k9g",
+          "html": "Exit the monastery and head west to the location shown on the map, there is a circle of stones (visible on the minimap).",
+          "text": "Exit the monastery and head west to the location shown on the map, there is a circle of stones (visible on the minimap).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-secret-tunnel:tjswse",
+          "html": "Stand in the circle of stones and climb down the ladder that appears. The stones are the same colour as the grass in high graphics modes, and are very easy to overlook.",
+          "text": "Stand in the circle of stones and climb down the ladder that appears. The stones are the same colour as the grass in high graphics modes, and are very easy to overlook.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-secret-tunnel:34uv4q",
+          "html": "Go south, enter the room with <a href=\"https://runescape.wiki/w/Thief#Monk&#39;s_Friend\" target=\"_blank\" rel=\"noopener\">thieves</a>, and grab the <a href=\"https://runescape.wiki/w/Child%27s_blanket\" target=\"_blank\" rel=\"noopener\">Child&#39;s blanket</a> on the table to the east.",
+          "text": "Go south, enter the room with thieves, and grab the Child's blanket on the table to the east.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-secret-tunnel:721zqa",
+          "html": "Return to the monastery and talk to Brother Omad.",
+          "text": "Return to the monastery and talk to Brother Omad.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Is there anything else I can help with?"
+                },
+                {
+                  "key": "1",
+                  "text": "Who's Brother Cedric?"
+                },
+                {
+                  "key": "2",
+                  "text": "Where should I look?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-party",
+      "title": "The party",
+      "anchor": "The_party",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Brother Cedric's location",
+          "lat": 3244,
+          "lon": 2618,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  [
+                    [
+                      2613.5,
+                      3239.5
+                    ],
+                    [
+                      2613.5,
+                      3249.5
+                    ],
+                    [
+                      2623.5,
+                      3249.5
+                    ],
+                    [
+                      2623.5,
+                      3239.5
+                    ]
+                  ]
+                ],
+                "type": "Polygon"
+              },
+              "properties": {
+                "mapID": "28",
+                "plane": 0,
+                "stroke": "#00ffff",
+                "fill": "#00ffff"
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Monk's_Friend/Quick_guide"
+        },
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "the-party:bring:1o4chwp",
+              "html": "<a href=\"https://runescape.wiki/w/Jug_of_water\" target=\"_blank\" rel=\"noopener\">Jug of water</a>",
+              "text": "Jug of water"
+            },
+            {
+              "id": "the-party:bring:mnp3mu",
+              "html": "<a href=\"https://runescape.wiki/w/Logs\" target=\"_blank\" rel=\"noopener\">Logs</a>",
+              "text": "Logs"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:yn6100",
+          "html": "North of the Monastery and near a crashed cart, <a href=\"https://runescape.wiki/w/Brother_Cedric\" target=\"_blank\" rel=\"noopener\">Brother Cedric</a> will be wandering around. Talk to him.",
+          "text": "North of the Monastery and near a crashed cart, Brother Cedric will be wandering around. Talk to him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:qh6zdb",
+          "html": "Talk to him again to give him a <a href=\"https://runescape.wiki/w/Jug_of_water\" target=\"_blank\" rel=\"noopener\">jug of water</a>.",
+          "text": "Talk to him again to give him a jug of water.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Yes, I'd be happy to!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:yw3tes",
+          "html": "Talk to him once more to give him one log.",
+          "text": "Talk to him once more to give him one log.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:1fkb93f",
+          "html": "Talk to Brother Omad.",
+          "text": "Talk to Brother Omad.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-party:3d8nd9",
+          "html": "Pop a balloon for area task.",
+          "text": "Pop a balloon for area task.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Monk%27s_Friend_reward.png?06c99",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Monk%27s_Friend_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "8 <a href=\"https://runescape.wiki/w/Law_rune\" target=\"_blank\" rel=\"noopener\">law runes</a>",
+        "text": "8 law runes",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience",
+        "text": "2,000 experience",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Monk%27s_Friend_(achievement)\" target=\"_blank\" rel=\"noopener\">Monk&#39;s Friend</a> (0) – Complete this quest.",
+    "<b><a href=\"https://runescape.wiki/w/Ardougne_achievements\" target=\"_blank\" rel=\"noopener\">Ardougne achievements</a></b>"
+  ],
+  "requiredFor": []
+}

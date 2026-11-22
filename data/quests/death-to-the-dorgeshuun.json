@@ -1,0 +1,1202 @@
+{
+  "format": 1,
+  "id": "death-to-the-dorgeshuun",
+  "title": "Death to the Dorgeshuun",
+  "page": "Death to the Dorgeshuun/Quick guide",
+  "rev": 37123750,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Mistag\" target=\"_blank\" rel=\"noopener\">Mistag</a> in the <a href=\"https://runescape.wiki/w/Dorgeshuun_Mines\" target=\"_blank\" rel=\"noopener\">Dorgeshuun Mines</a>. (via a location)",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9612,
+      "lon": 3314,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Death_to_the_Dorgeshuun/Quick_guide"
+    },
+    "members": true,
+    "length": "Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Lost Tribe",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Agility",
+        "level": 23,
+        "note": ""
+      },
+      {
+        "skill": "Thieving",
+        "level": 23,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Sigmund (level 42)",
+        "name": "Sigmund",
+        "count": null,
+        "level": "42",
+        "note": ""
+      },
+      {
+        "text": "3x Guard (level 36)",
+        "name": "Guard",
+        "count": 3,
+        "level": "36",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      },
+      {
+        "label": "League auto-complete",
+        "html": "Unlocking <span class=\"reg\">Misthalin</span> will auto-complete the quest."
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1c76ww3",
+          "html": "2 full sets of <a href=\"https://runescape.wiki/w/H.A.M._robes\" target=\"_blank\" rel=\"noopener\">H.A.M. robes</a> (<a href=\"https://runescape.wiki/w/H.A.M._hood\" target=\"_blank\" rel=\"noopener\">hood</a>, <a href=\"https://runescape.wiki/w/H.A.M._shirt\" target=\"_blank\" rel=\"noopener\">shirt</a>, <a href=\"https://runescape.wiki/w/H.A.M._robe\" target=\"_blank\" rel=\"noopener\">robe</a>, <a href=\"https://runescape.wiki/w/H.A.M._gloves\" target=\"_blank\" rel=\"noopener\">gloves</a>, <a href=\"https://runescape.wiki/w/H.A.M._boots\" target=\"_blank\" rel=\"noopener\">boots</a>, <a href=\"https://runescape.wiki/w/H.A.M._cloak\" target=\"_blank\" rel=\"noopener\">cloak</a>, and <a href=\"https://runescape.wiki/w/H.A.M._logo\" target=\"_blank\" rel=\"noopener\">logo</a>). If obtaining them yourself, the chance to pickpocket outfit pieces is increased during the quest.",
+          "text": "2 full sets of H.A.M. robes (hood, shirt, robe, gloves, boots, cloak, and logo). If obtaining them yourself, the chance to pickpocket outfit pieces is increased during the quest.",
+          "alternatives": []
+        },
+        {
+          "id": "req:asy3yn",
+          "html": "A <a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">light source</a> (such as a <a href=\"https://runescape.wiki/w/Bullseye_lantern\" target=\"_blank\" rel=\"noopener\">bullseye lantern</a>)",
+          "text": "A light source (such as a bullseye lantern)",
+          "alternatives": []
+        },
+        {
+          "id": "req:1419nu2",
+          "html": "A <a href=\"https://runescape.wiki/w/Melee\" target=\"_blank\" rel=\"noopener\">melee</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">magic</a>, or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">necromancy</a> weapon or ability",
+          "text": "A melee, magic, or necromancy weapon or ability",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:4pqjzz",
+          "html": "Non-<a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a> armour and weapons, and food",
+          "text": "Non-Ranged armour and weapons, and food",
+          "alternatives": []
+        },
+        {
+          "id": "rec:oweiyb",
+          "html": "<a href=\"https://runescape.wiki/w/Lockpick\" target=\"_blank\" rel=\"noopener\">Lockpick</a>",
+          "text": "Lockpick",
+          "alternatives": []
+        },
+        {
+          "id": "rec:c5lyko",
+          "html": "<a href=\"https://runescape.wiki/w/Spiny_helmet\" target=\"_blank\" rel=\"noopener\">Spiny helmet</a> or a <a href=\"https://runescape.wiki/w/Slayer_helmet\" target=\"_blank\" rel=\"noopener\">Slayer helmet</a>. If you use this method, a rope may be needed if you have never ventured into the <a href=\"https://runescape.wiki/w/Lumbridge_swamp_caves\" target=\"_blank\" rel=\"noopener\">Lumbridge swamp caves</a> before.",
+          "text": "Spiny helmet or a Slayer helmet. If you use this method, a rope may be needed if you have never ventured into the Lumbridge swamp caves before.",
+          "alternatives": []
+        },
+        {
+          "id": "rec:8qns14",
+          "html": "<a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">Games necklace</a> (only if <a href=\"https://runescape.wiki/w/Tears_of_Guthix_(quest)\" target=\"_blank\" rel=\"noopener\">Tears of Guthix</a> has been completed)",
+          "text": "Games necklace (only if Tears of Guthix has been completed)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "what-s-with-the-cabal",
+      "title": "What's with the cabal?",
+      "anchor": "What's_with_the_cabal?",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "what-s-with-the-cabal:bring:1dzcv7x",
+              "html": "A <a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">light source</a>",
+              "text": "A light source"
+            },
+            {
+              "id": "what-s-with-the-cabal:bring:1fl33kt",
+              "html": "2 full sets of <a href=\"https://runescape.wiki/w/H.A.M._robes\" target=\"_blank\" rel=\"noopener\">H.A.M. robes</a>",
+              "text": "2 full sets of H.A.M. robes"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "what-s-with-the-cabal:19621ff",
+          "html": "Take a <a href=\"https://runescape.wiki/w/Light_source\" target=\"_blank\" rel=\"noopener\">light source</a> and go to the <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> cellar.",
+          "text": "Take a light source and go to the Lumbridge Castle cellar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "what-s-with-the-cabal:1ao591p",
+          "html": "Squeeze through the hole in the wall.",
+          "text": "Squeeze through the hole in the wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "what-s-with-the-cabal:ez171j",
+          "html": "Right click on <a href=\"https://runescape.wiki/w/Kazgar\" target=\"_blank\" rel=\"noopener\">Kazgar</a>, and use the option &quot;Follow&quot;.",
+          "text": "Right click on Kazgar, and use the option \"Follow\".",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "what-s-with-the-cabal:153s0z6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Mistag\" target=\"_blank\" rel=\"noopener\">Mistag</a> and ask about the favour.",
+          "text": "Talk to Mistag and ask about the favour.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What is this favour?"
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "4",
+                  "text": "Can you show me the way out of the mines?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "what-s-with-the-cabal:153s0z6:xmx6s4",
+              "html": "Alternatively to leave mines, right click on Mistag and use &quot;Follow&quot;.",
+              "text": "Alternatively to leave mines, right click on Mistag and use \"Follow\".",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "what-s-with-the-cabal:1ce91ig",
+          "html": "Return to the Lumbridge Castle cellar, dismiss any pets or followers, then talk to <a href=\"https://runescape.wiki/w/Zanik\" target=\"_blank\" rel=\"noopener\">Zanik</a>.",
+          "text": "Return to the Lumbridge Castle cellar, dismiss any pets or followers, then talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm [Player name]!"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I have two sets of robes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "lumbridge-safari",
+      "title": "Lumbridge safari",
+      "anchor": "Lumbridge_safari",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "Do not teleport or you will lose Zanik. If you lose Zanik at any time, she can be found back in the Lumbridge Castle cellar. You will need to dismiss any pets or followers to have Zanik follow you."
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:17pi9yi",
+          "html": "Talk to the Cook inside Lumbridge Castle.",
+          "text": "Talk to the Cook inside Lumbridge Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1ytac3x",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Duke_Horacio\" target=\"_blank\" rel=\"noopener\">Duke Horacio</a> upstairs in the castle.",
+          "text": "Talk to Duke Horacio upstairs in the castle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Have you heard of any HAM activity lately?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1hovmn6",
+          "html": "Go east outside the castle on the ground floor (UK) / 1<sup>st</sup> floor (US) for a cutscene.",
+          "text": "Go east outside the castle on the ground floor (UK) / 1st floor (US) for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1qg35ze",
+          "html": "Talk to an unnamed man or a woman (there are many in the marketplace).",
+          "text": "Talk to an unnamed man or a woman (there are many in the marketplace).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1oqd2c3",
+          "html": "Talk to either the <a href=\"https://runescape.wiki/w/Lumbridge_General_Store\" target=\"_blank\" rel=\"noopener\">Lumbridge General Store</a> shopkeeper or his assistant.",
+          "text": "Talk to either the Lumbridge General Store shopkeeper or his assistant.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "No, thanks."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:imenyf",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Doomsayer\" target=\"_blank\" rel=\"noopener\">Doomsayer</a> near the castle gate.",
+          "text": "Talk to Doomsayer near the castle gate.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Don't worry, Zanik."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1slvh4b",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Lumbridge_Sage\" target=\"_blank\" rel=\"noopener\">Lumbridge Sage</a> right in front of the castle gate.",
+          "text": "Talk to the Lumbridge Sage right in front of the castle gate.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:hyv008",
+          "html": "Take Zanik to a level 2 <a href=\"https://runescape.wiki/w/Goblin\" target=\"_blank\" rel=\"noopener\">goblin</a> across the east bridge.",
+          "text": "Take Zanik to a level 2 goblin across the east bridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lumbridge-safari:hyv008:hd3lfu",
+              "html": "Make sure to not click while Zanik walks off the bridge of the east side. She starts a dialogue that is easy to click away from accidentally.",
+              "text": "Make sure to not click while Zanik walks off the bridge of the east side. She starts a dialogue that is easy to click away from accidentally.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:15nu7iu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Father_Aereck\" target=\"_blank\" rel=\"noopener\">Father Aereck</a> in the church.",
+          "text": "Talk to Father Aereck in the church.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Bye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1cnsr5n",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Bob\" target=\"_blank\" rel=\"noopener\">Bob</a> at <a href=\"https://runescape.wiki/w/Bob%27s_Brilliant_Axes\" target=\"_blank\" rel=\"noopener\">Bob&#39;s Brilliant Axes</a>.",
+          "text": "Talk to Bob at Bob's Brilliant Axes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let's go, Zanik."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Will you tell me about the mark on your forehead?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "lumbridge-safari:v4ddlt:16mmrnw",
+              "html": "If she doesn&#39;t have the talk option, teleport away and talk to her in the Lumbridge Castle cellar.",
+              "text": "If she doesn't have the talk option, teleport away and talk to her in the Lumbridge Castle cellar.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "lumbridge-safari:1dzthog",
+          "html": "After the cutscene, put on your set of H.A.M. robes and prepare to head to the <a href=\"https://runescape.wiki/w/H.A.M._hideout\" target=\"_blank\" rel=\"noopener\">H.A.M. hideout</a>.",
+          "text": "After the cutscene, put on your set of H.A.M. robes and prepare to head to the H.A.M. hideout.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "requiescat-in-pace",
+      "title": "Requiescat in pace",
+      "anchor": "Requiescat_in_pace",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "requiescat-in-pace:1riyi99",
+          "html": "Open and then climb down the <a href=\"https://runescape.wiki/w/Trapdoor_(H.A.M._Hideout)\" target=\"_blank\" rel=\"noopener\">trapdoor</a> in the <a href=\"https://runescape.wiki/w/Lumbridge_forest\" target=\"_blank\" rel=\"noopener\">Lumbridge forest</a> northwest of the Lumbridge Castle to enter the hideout.",
+          "text": "Open and then climb down the trapdoor in the Lumbridge forest northwest of the Lumbridge Castle to enter the hideout.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "requiescat-in-pace:1pnnfqc",
+          "html": "Talk with <a href=\"https://runescape.wiki/w/Johanhus_Ulsbrecht\" target=\"_blank\" rel=\"noopener\">Johanhus Ulsbrecht</a> (in the southern room) about the cave goblins.",
+          "text": "Talk with Johanhus Ulsbrecht (in the southern room) about the cave goblins.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "4",
+                  "text": "Are you planning to do anything about the cave goblins?"
+                },
+                {
+                  "key": "3",
+                  "text": "That's good."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "requiescat-in-pace:114clb5",
+          "html": "Go next to the southern hanging brazier in the main room - Zanik will spot a trapdoor (Make sure Zanik is beside you and not trapped in the previous room).",
+          "text": "Go next to the southern hanging brazier in the main room - Zanik will spot a trapdoor (Make sure Zanik is beside you and not trapped in the previous room).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "requiescat-in-pace:qn887r",
+          "html": "Pick-lock on the hidden trap door by right clicking it, then climb down.",
+          "text": "Pick-lock on the hidden trap door by right clicking it, then climb down.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "slipping-past-the-guards",
+      "title": "Slipping past the guards",
+      "anchor": "Slipping_past_the_guards",
+      "blocks": [
+        {
+          "type": "note",
+          "html": "In the following section, if any of the guards catch you, you will be sent to jail, which is located on the floor above. Do not worry though; Zanik will pick-lock the door to the jail, but you will have to kill the guards with Zanik all over again."
+        },
+        {
+          "type": "text",
+          "html": "<b>First guard</b>"
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:qsweap",
+          "html": "Walk west past the first guard",
+          "text": "Walk west past the first guard",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:1li8ofi",
+          "html": "Zanik shoots him.",
+          "text": "Zanik shoots him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<b>Second guard</b>"
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:3d2xfh",
+          "html": "Squeeze through the crack in the wall behind where the first guard stood.",
+          "text": "Squeeze through the crack in the wall behind where the first guard stood.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:1k06ije",
+          "html": "Squeeze through the crack in the opposite wall <b>while the guard in the corridor has his back turned.</b>",
+          "text": "Squeeze through the crack in the opposite wall while the guard in the corridor has his back turned.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:15fjw8m",
+          "html": "Go behind the west guard.",
+          "text": "Go behind the west guard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:1x86zjt",
+          "html": "Talk to him for a cutscene, Zanik will kill him.",
+          "text": "Talk to him for a cutscene, Zanik will kill him.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<b>Third guard</b>"
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:1nif7xi",
+          "html": "Continue the dialogue with Zanik.",
+          "text": "Continue the dialogue with Zanik.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:1nif7xi:67inaa",
+              "html": "Wait for the central corridor&#39;s guard to turn his back / walk away from you.",
+              "text": "Wait for the central corridor's guard to turn his back / walk away from you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:1nif7xi:1p2sysz",
+              "html": "While the guard is facing away tell Zanik &quot;Now!&quot;.",
+              "text": "While the guard is facing away tell Zanik \"Now!\".",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "1",
+                      "text": "Now!"
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "<b>Fourth guard</b>"
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:az0vd",
+          "html": "Go east to the end of the central corridor, <b>but not around the corner.</b>",
+          "text": "Go east to the end of the central corridor, but not around the corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:az0vd:z7opk",
+              "html": "Wait for Zanik to come behind you near the corner.",
+              "text": "Wait for Zanik to come behind you near the corner.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:az0vd:1nc71pr",
+              "html": "Talk to Zanik, telling her to wait.",
+              "text": "Talk to Zanik, telling her to wait.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Wait here."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:az0vd:d8lorv",
+              "html": "Head back through the central corridor, down to the south and along the southern corridor to the south-east corner.",
+              "text": "Head back through the central corridor, down to the south and along the southern corridor to the south-east corner.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:az0vd:k31ee",
+              "html": "The north-east guard follow you.",
+              "text": "The north-east guard follow you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:az0vd:12l89z7",
+              "html": "Zanik will shoot him.",
+              "text": "Zanik will shoot him.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "html": "<b>Final Guard</b>"
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:17jpbsz",
+          "html": "Go to the north end of either the west or east passages, <b>but not around the corner.</b>",
+          "text": "Go to the north end of either the west or east passages, but not around the corner.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "slipping-past-the-guards:17jpbsz:2dy39z",
+              "html": "Talk to Zanik, telling her to wait again.",
+              "text": "Talk to Zanik, telling her to wait again.",
+              "dialogue": [
+                {
+                  "when": null,
+                  "options": [
+                    {
+                      "key": "2",
+                      "text": "Wait here."
+                    }
+                  ]
+                }
+              ],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:17jrif2",
+          "html": "Go to the other passage, via the central corridor, and approach the guard (Zanik shoots him).",
+          "text": "Go to the other passage, via the central corridor, and approach the guard (Zanik shoots him).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "slipping-past-the-guards:17a5bo1",
+          "html": "Listen at the door (you will be caught).",
+          "text": "Listen at the door (you will be caught).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "divine-resurrection",
+      "title": "Divine resurrection",
+      "anchor": "Divine_resurrection",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "divine-resurrection:178x77t",
+          "html": "Pick the jail&#39;s door lock and leave the H.A.M. hideout.",
+          "text": "Pick the jail's door lock and leave the H.A.M. hideout.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:z6vqfj",
+          "html": "Pick up Zanik, lying near a tree south of the hideout entrance.",
+          "text": "Pick up Zanik, lying near a tree south of the hideout entrance.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:1lk283u",
+          "html": "If you have finished the <a href=\"https://runescape.wiki/w/Tears_of_Guthix_(quest)\" target=\"_blank\" rel=\"noopener\">Tears of Guthix</a> quest, you can teleport there with her using a <a href=\"https://runescape.wiki/w/Games_necklace\" target=\"_blank\" rel=\"noopener\">games necklace</a>.",
+          "text": "If you have finished the Tears of Guthix quest, you can teleport there with her using a games necklace.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:jhw9rf",
+          "html": "Climb down the trapdoor in the Lumbridge castle, and squeeze through the hole in the cellar wall.",
+          "text": "Climb down the trapdoor in the Lumbridge castle, and squeeze through the hole in the cellar wall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:19eed8d",
+          "html": "Squeeze through the hole to the south, run south then jump across the stepping stones.",
+          "text": "Squeeze through the hole to the south, run south then jump across the stepping stones.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:2jj0j7",
+          "html": "Enter the tunnel to reach the <a href=\"https://runescape.wiki/w/Tears_of_Guthix_cavern\" target=\"_blank\" rel=\"noopener\">Tears of Guthix cavern</a>.",
+          "text": "Enter the tunnel to reach the Tears of Guthix cavern.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:iwmkp3",
+          "html": "With Zanik in your inventory and both hands free, talk to <a href=\"https://runescape.wiki/w/Juna\" target=\"_blank\" rel=\"noopener\">Juna</a>.",
+          "text": "With Zanik in your inventory and both hands free, talk to Juna.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:1g0az38",
+          "html": "Collect 20 blue tears from the walls to trigger a cutscene.",
+          "text": "Collect 20 blue tears from the walls to trigger a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "divine-resurrection:1g0az38:h24xz9",
+              "html": "Green tears empty your bowl.",
+              "text": "Green tears empty your bowl.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "divine-resurrection:v4ddlt",
+          "html": "Talk to Zanik.",
+          "text": "Talk to Zanik.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let's Go!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "to-be-continued",
+      "title": "To be continued...",
+      "anchor": "To_be_continued...",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "to-be-continued:brab3",
+          "html": "Prepare for the fight against Sigmund and his guards (but keep the H.A.M robes with you). Zanik is considered a follower. Pets and familiars cannot be used during the battle.",
+          "text": "Prepare for the fight against Sigmund and his guards (but keep the H.A.M robes with you). Zanik is considered a follower. Pets and familiars cannot be used during the battle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:xsp0p5",
+          "html": "Teleport to Lumbridge then enter the castle cellar.",
+          "text": "Teleport to Lumbridge then enter the castle cellar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:mam46x",
+          "html": "Talk to Zanik and have her follow you.",
+          "text": "Talk to Zanik and have her follow you.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Let's go!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:1of1geo",
+          "html": "Go to <a href=\"https://runescape.wiki/w/Seth_Groats\" target=\"_blank\" rel=\"noopener\">Seth Groats</a>&#39;s farm on the east side of the river near the cow paddock, walk into the fenced area through the gap on the south side.",
+          "text": "Go to Seth Groats's farm on the east side of the river near the cow paddock, walk into the fenced area through the gap on the south side.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:1ivpn32",
+          "html": "Unequip any weapons or shields.",
+          "text": "Unequip any weapons or shields.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:fhp74",
+          "html": "Equip full H.A.M. set.",
+          "text": "Equip full H.A.M. set.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:wu49x8",
+          "html": "Search one of the empty crates by the tree.",
+          "text": "Search one of the empty crates by the tree.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I don't know, what are you thinking?"
+                },
+                {
+                  "key": "1",
+                  "text": "Good idea."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:1h7vn81",
+          "html": "After Zanik climbs in the crate, carry it down into the trapdoor just north of the empty crates.",
+          "text": "After Zanik climbs in the crate, carry it down into the trapdoor just north of the empty crates.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:2nhz9z",
+          "html": "Go west and walk up to Sigmund, instead of immediately clicking to attack him. You must trigger the dialogue with Sigmund in order to have Zanik attack him, which is needed to complete the quest.",
+          "text": "Go west and walk up to Sigmund, instead of immediately clicking to attack him. You must trigger the dialogue with Sigmund in order to have Zanik attack him, which is needed to complete the quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "to-be-continued:2nhz9z:1inxfzt",
+              "html": "Kill the guards first. This allows Zanik to attack Sigmund who will then switch to <a href=\"https://runescape.wiki/w/Protect_from_Missiles\" target=\"_blank\" rel=\"noopener\">Protect from Missiles</a>.",
+              "text": "Kill the guards first. This allows Zanik to attack Sigmund who will then switch to Protect from Missiles.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "to-be-continued:2nhz9z:ghnhzf",
+              "html": "Kill <a href=\"https://runescape.wiki/w/Sigmund\" target=\"_blank\" rel=\"noopener\">Sigmund</a>, who uses the <a href=\"https://runescape.wiki/w/Protect_from_Missiles\" target=\"_blank\" rel=\"noopener\">Protect from Missiles</a> prayer. If he&#39;s protecting against your attack style, avoid him so he switches back to Protect from Missile.",
+              "text": "Kill Sigmund, who uses the Protect from Missiles prayer. If he's protecting against your attack style, avoid him so he switches back to Protect from Missile.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:4tg4yc",
+          "html": "Smash the drilling machine at the centre of the room.",
+          "text": "Smash the drilling machine at the centre of the room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:150gukk",
+          "html": "Go east then south and unblock the tunnel for a cutscene.",
+          "text": "Go east then south and unblock the tunnel for a cutscene.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Note: If you forgot your lightsource, it is ok. You will be given a lit torch upon completing the cutscene."
+        },
+        {
+          "type": "step",
+          "id": "to-be-continued:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Death_to_the_Dorgeshuun_reward.png?30ea4",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Death_to_the_Dorgeshuun_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Death_to_the_Dorgeshuun)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "2,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(Death_to_the_Dorgeshuun)\" target=\"_blank\" rel=\"noopener\">lamp</a> in either <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>",
+        "text": "2,000 experience lamp in either Attack, Strength, Defence, Constitution, Ranged, Magic or Necromancy",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/H.A.M._Hideout#Store_rooms\" target=\"_blank\" rel=\"noopener\">H.A.M. storerooms</a>, where you can loot items.",
+        "text": "Access to the H.A.M. storerooms, where you can loot items.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Dorgesh-Kaan\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan</a>, the <a href=\"https://runescape.wiki/w/Dorgeshuun\" target=\"_blank\" rel=\"noopener\">Dorgeshuun</a> city.",
+        "text": "Access to Dorgesh-Kaan, the Dorgeshuun city.",
+        "subs": []
+      },
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Dorgesh-Kaan_South_Dungeon\" target=\"_blank\" rel=\"noopener\">Dorgesh-Kaan South Dungeon</a> and a route to <a href=\"https://runescape.wiki/w/Kalphite_Lair\" target=\"_blank\" rel=\"noopener\">Kalphite Lair</a> from there.",
+        "text": "Access to Dorgesh-Kaan South Dungeon and a route to Kalphite Lair from there.",
+        "subs": []
+      },
+      {
+        "html": "Access to the watermill tunnel (<a href=\"https://runescape.wiki/w/Dartog\" target=\"_blank\" rel=\"noopener\">Dartog</a> will appear there, and you&#39;ll be able to freely travel between the <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> cellar, the <a href=\"https://runescape.wiki/w/Dorgeshuun_Mines\" target=\"_blank\" rel=\"noopener\">Dorgeshuun Mines</a> and the watermill tunnel).",
+        "text": "Access to the watermill tunnel (Dartog will appear there, and you'll be able to freely travel between the Lumbridge Castle cellar, the Dorgeshuun Mines and the watermill tunnel).",
+        "subs": []
+      },
+      {
+        "html": "Access to the <a href=\"https://runescape.wiki/w/Cave_goblin_technology_tree\" target=\"_blank\" rel=\"noopener\">cave goblin technology tree</a> with 40 <a href=\"https://runescape.wiki/w/Invention\" target=\"_blank\" rel=\"noopener\">Invention</a>",
+        "text": "Access to the cave goblin technology tree with 40 Invention",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "H.A.M. Fisted - H.A.M. storerooms",
+      "where": ""
+    },
+    {
+      "name": "Sigmund's Showdown - During the battle with Sigmund",
+      "where": ""
+    },
+    {
+      "name": "The Power of Tears - In the Tears of Guthix cavern",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Another_Slice_of_H.A.M./Quick_guide\" target=\"_blank\" rel=\"noopener\">Another Slice of H.A.M.</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Hopespear%27s_Will_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hopespear&#39;s Will (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Land_of_the_Goblins/Quick_guide\" target=\"_blank\" rel=\"noopener\">Land of the Goblins</a>",
+        "<a href=\"https://runescape.wiki/w/The_Chosen_Commander/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Chosen Commander</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/Children_of_Mah/Quick_guide\" target=\"_blank\" rel=\"noopener\">Children of Mah</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Dishonour_among_Thieves/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dishonour among Thieves</a>",
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Fate_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Fate of the Gods</a>",
+        "<a href=\"https://runescape.wiki/w/Heart_of_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Heart of Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Hero%27s_Welcome/Quick_guide\" target=\"_blank\" rel=\"noopener\">Hero&#39;s Welcome</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Kindred_Spirits/Quick_guide\" target=\"_blank\" rel=\"noopener\">Kindred Spirits</a>",
+        "<a href=\"https://runescape.wiki/w/Mahjarrat_Memories_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Mahjarrat Memories (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Missing,_Presumed_Death/Quick_guide\" target=\"_blank\" rel=\"noopener\">Missing, Presumed Death</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Nomad%27s_Elegy/Quick_guide\" target=\"_blank\" rel=\"noopener\">Nomad&#39;s Elegy</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>",
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Fortunes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/One_of_a_Kind/Quick_guide\" target=\"_blank\" rel=\"noopener\">One of a Kind</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Sliske%27s_Endgame/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sliske&#39;s Endgame</a>",
+        "<a href=\"https://runescape.wiki/w/Tales_of_Nomad_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Tales of Nomad (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/The_Death_of_Chivalry/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Death of Chivalry</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_Light_Within/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Light Within</a>",
+        "<a href=\"https://runescape.wiki/w/The_Mighty_Fall/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Mighty Fall</a>",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/The_World_Wakes/Quick_guide\" target=\"_blank\" rel=\"noopener\">The World Wakes</a> (full completion)",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

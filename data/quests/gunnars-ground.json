@@ -1,0 +1,552 @@
+{
+  "format": 1,
+  "id": "gunnars-ground",
+  "title": "Gunnar's Ground",
+  "page": "Gunnar's Ground/Quick guide",
+  "rev": 37183106,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a> at the <a href=\"https://runescape.wiki/w/Gunnarsgrunn\" target=\"_blank\" rel=\"noopener\">Gunnarsgrunn</a> gate.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3422,
+      "lon": 3099,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Gunnar's_Ground/Quick_guide"
+    },
+    "members": false,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Crafting",
+        "level": 5,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Haakon the Champion (level 40, optional); if he wants you to challenge him.",
+        "name": "Haakon the Champion",
+        "count": null,
+        "level": "40, optional",
+        "note": "; if he wants you to challenge him."
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:17t739u",
+          "html": "<a href=\"https://runescape.wiki/w/Skull_sceptre\" target=\"_blank\" rel=\"noopener\">Skull sceptre</a> (teleports you to the <a href=\"https://runescape.wiki/w/Barbarian_Village\" target=\"_blank\" rel=\"noopener\">Barbarian Village</a>)",
+          "text": "Skull sceptre (teleports you to the Barbarian Village)",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-the-ring",
+      "title": "Getting the ring",
+      "anchor": "Getting_the_ring",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Gunnar%27s_Ground_-_Depressed_Dororan.png/300px-Gunnar%27s_Ground_-_Depressed_Dororan.png?913d2",
+          "width": 300,
+          "height": 169,
+          "alt": "",
+          "caption": "Dororan, looking very depressed.",
+          "href": "https://runescape.wiki/w/File:Gunnar%27s_Ground_-_Depressed_Dororan.png"
+        },
+        {
+          "type": "step",
+          "id": "getting-the-ring:1xodv5r",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a> near the eastern entrance to <a href=\"https://runescape.wiki/w/Barbarian_Village\" target=\"_blank\" rel=\"noopener\">Barbarian Village</a>.",
+          "text": "Speak to Dororan near the eastern entrance to Barbarian Village.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "2",
+                  "text": "Get to the point."
+                },
+                {
+                  "key": "1",
+                  "text": "There must be something you can do."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-ring:1w8ewct",
+          "html": "You will receive a scroll containing a <a href=\"https://runescape.wiki/w/Love_poem\" target=\"_blank\" rel=\"noopener\">love poem</a>, go to <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a> and speak to <a href=\"https://runescape.wiki/w/Jeffery\" target=\"_blank\" rel=\"noopener\">Jeffery</a> near the furnace.",
+          "text": "You will receive a scroll containing a love poem, go to Edgeville and speak to Jeffery near the furnace.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here about a gold ring."
+                },
+                {
+                  "key": "1",
+                  "text": "I was hoping you would trade me a gold ring."
+                },
+                {
+                  "key": "1",
+                  "text": "This splendid love poem."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, he did."
+                },
+                {
+                  "key": "1",
+                  "text": "Just a plain, gold ring."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-ring:jjqdxg",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Ring_from_Jeffery\" target=\"_blank\" rel=\"noopener\">gold ring</a> back to <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a>.",
+          "text": "Take the gold ring back to Dororan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "What do you want me to engrave?"
+                },
+                {
+                  "key": "2",
+                  "text": "That sounds simple enough."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-ring:1p9gfki",
+          "html": "Click the &#39;engrave&#39; option on the <a href=\"https://runescape.wiki/w/Dororan%27s_engraved_ring\" target=\"_blank\" rel=\"noopener\">ring</a> (tool belt chisel works), and show it to <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a>.",
+          "text": "Click the 'engrave' option on the ring (tool belt chisel works), and show it to Dororan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "It's come out perfectly."
+                },
+                {
+                  "key": "1",
+                  "text": "Of course."
+                },
+                {
+                  "key": "1",
+                  "text": "Very well."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "promoting-the-courtship",
+      "title": "Promoting the courtship",
+      "anchor": "Promoting_the_courtship",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Gunnar%27s_Ground_-_Showing_Gudrun_the_ring.png/300px-Gunnar%27s_Ground_-_Showing_Gudrun_the_ring.png?c6278",
+          "width": 300,
+          "height": 231,
+          "alt": "",
+          "caption": "Showing the ring to Gudrun.",
+          "href": "https://runescape.wiki/w/File:Gunnar%27s_Ground_-_Showing_Gudrun_the_ring.png"
+        },
+        {
+          "type": "step",
+          "id": "promoting-the-courtship:sc6ywk",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Gudrun\" target=\"_blank\" rel=\"noopener\">Gudrun</a> (west of Dororan), but avoid telling her that Dororan is a dwarf.",
+          "text": "Speak to Gudrun (west of Dororan), but avoid telling her that Dororan is a dwarf.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "The ring isn't from me!"
+                },
+                {
+                  "key": "1",
+                  "text": "A great poet."
+                },
+                {
+                  "key": "1",
+                  "text": "So, you want me to talk to your father?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "promoting-the-courtship:lglkb6",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gunthor\" target=\"_blank\" rel=\"noopener\">Gunthor</a>, found in the longhall.",
+          "text": "Talk to Gunthor, found in the longhall.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I need to speak with you, chieftain."
+                },
+                {
+                  "key": "1",
+                  "text": "Your daughter seeks permission to court an outlander."
+                },
+                {
+                  "key": "1",
+                  "text": "You're barbarians"
+                },
+                {
+                  "key": "1",
+                  "text": "Please wait a moment."
+                },
+                {
+                  "key": "1",
+                  "text": "I'm going!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "promoting-the-courtship:iix3hk",
+          "html": "Return and talk to <a href=\"https://runescape.wiki/w/Gudrun\" target=\"_blank\" rel=\"noopener\">Gudrun</a>.",
+          "text": "Return and talk to Gudrun.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "What should we do now?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-poem",
+      "title": "The poem",
+      "anchor": "The_poem",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-poem:2x9z3h",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a>.",
+          "text": "Speak to Dororan.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "No, she liked the ring."
+                },
+                {
+                  "key": "2",
+                  "text": "What are we going to do?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-poem:cn0ltz",
+          "html": "Help him with his poem.",
+          "text": "Help him with his poem.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm sure that's not true."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "5",
+                  "text": "More words"
+                },
+                {
+                  "key": "3",
+                  "text": "Stray."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "5",
+                  "text": "More words"
+                },
+                {
+                  "key": "1",
+                  "text": "Threat."
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "5",
+                  "text": "More words"
+                },
+                {
+                  "key": "3",
+                  "text": "Swept to war."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-poem:cn0ltz:scoxxm",
+              "html": "The phrases are &quot;stray&quot;, &quot;threat&quot;, and &quot;swept to war&quot;.",
+              "text": "The phrases are \"stray\", \"threat\", and \"swept to war\".",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sending-the-poem",
+      "title": "Sending the poem",
+      "anchor": "Sending_the_poem",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "sending-the-poem:1nak57n",
+          "html": "Give the poem to <a href=\"https://runescape.wiki/w/Gudrun\" target=\"_blank\" rel=\"noopener\">Gudrun</a> to read to her father.",
+          "text": "Give the poem to Gudrun to read to her father.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                },
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "sending-the-poem:14fhmuy",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Gudrun\" target=\"_blank\" rel=\"noopener\">Gudrun</a> again to complete the quest.",
+          "text": "Talk to Gudrun again to complete the quest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Gunnar%27s_Ground_reward.png?76893",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Gunnar%27s_Ground_reward.png"
+    },
+    "items": [
+      {
+        "html": "5 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a> (only if <a href=\"https://runescape.wiki/w/Romeo_%26_Juliet\" target=\"_blank\" rel=\"noopener\">Romeo &amp; Juliet</a> has not been completed)",
+        "text": "5 quest points (only if Romeo & Juliet has not been completed)",
+        "subs": []
+      },
+      {
+        "html": "300 experience",
+        "text": "300 experience",
+        "subs": []
+      },
+      {
+        "html": "200 experience <a href=\"https://runescape.wiki/w/Antique_lamp_(Gunnar%27s_Ground)\" target=\"_blank\" rel=\"noopener\">lamp</a> (Skill must be level 5 or higher)",
+        "text": "200 experience lamp (Skill must be level 5 or higher)",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Swanky_boots\" target=\"_blank\" rel=\"noopener\">Swanky boots</a>",
+        "text": "Swanky boots",
+        "subs": []
+      },
+      {
+        "html": "Ability to get further <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a> tasks from <a href=\"https://runescape.wiki/w/Dororan\" target=\"_blank\" rel=\"noopener\">Dororan</a> (requiring up to level 90 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>, <a href=\"https://runescape.wiki/w/Temporary_skill_boost\" target=\"_blank\" rel=\"noopener\">temporary skill boosts</a> allowed)",
+        "text": "Ability to get further Crafting tasks from Dororan (requiring up to level 90 Crafting, temporary skill boosts allowed)",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "2,000 experience for engraving <i>&quot;With beauty blessed.&quot;</i> on a <a href=\"https://runescape.wiki/w/Ruby_bracelet\" target=\"_blank\" rel=\"noopener\">ruby bracelet</a> - requires 42 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>",
+            "text": "2,000 experience for engraving \"With beauty blessed.\" on a ruby bracelet - requires 42 Crafting",
+            "subs": []
+          },
+          {
+            "html": "10,000 experience for engraving <i>&quot;Gudrun&quot;</i> on a <a href=\"https://runescape.wiki/w/Dragonstone_necklace\" target=\"_blank\" rel=\"noopener\">dragonstone necklace</a> - requires 72 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>",
+            "text": "10,000 experience for engraving \"Gudrun\" on a dragonstone necklace - requires 72 Crafting",
+            "subs": []
+          },
+          {
+            "html": "20,000 experience for engraving <i>&quot;The most beautiful girl in the room.&quot;</i> on an <a href=\"https://runescape.wiki/w/Onyx_amulet\" target=\"_blank\" rel=\"noopener\">onyx amulet</a> - requires 90 <a href=\"https://runescape.wiki/w/Crafting\" target=\"_blank\" rel=\"noopener\">Crafting</a>",
+            "text": "20,000 experience for engraving \"The most beautiful girl in the room.\" on an onyx amulet - requires 90 Crafting",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "After the quest, you can go to what used to be <a href=\"https://runescape.wiki/w/Juliet\" target=\"_blank\" rel=\"noopener\">Juliet&#39;s</a> house (southeast of the <a href=\"https://runescape.wiki/w/Cooks%27_Guild\" target=\"_blank\" rel=\"noopener\">Cooks&#39; Guild</a>) and Dororan is now living there with Gudrun. You can talk to Dororan and ask for additional tasks to engrave jewellery for him and receive up to 32,000 experience. This is done within the dialogue and no items in the backpack are involved or required. <a href=\"https://runescape.wiki/w/Free-to-play\" target=\"_blank\" rel=\"noopener\">Free-to-play</a> players can engrave the jewellery even though they can only be obtained by members. Temporary boosts work."
+    ]
+  },
+  "music": [
+    {
+      "name": "Gunnarsgrunn",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": []
+}

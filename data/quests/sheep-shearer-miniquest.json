@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "id": "sheep-shearer-miniquest",
+  "title": "Sheep Shearer (miniquest)",
+  "page": "Sheep Shearer (miniquest)/Quick guide",
+  "rev": 36948398,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Fred_the_Farmer\" target=\"_blank\" rel=\"noopener\">Fred the Farmer</a>, found in his house in <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>, found North of the <a href=\"https://runescape.wiki/w/Lumbridge#Lumbridge_Market\" target=\"_blank\" rel=\"noopener\">Lumbridge Market</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3290,
+      "lon": 3206,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Sheep_Shearer_(miniquest)/Quick_guide"
+    },
+    "members": false,
+    "length": "Very Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "None, but watch out for rams.",
+        "name": "None, but watch out for rams.",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1uy2dnd",
+          "html": "20 <a href=\"https://runescape.wiki/w/Ball_of_wool\" target=\"_blank\" rel=\"noopener\">balls of wool</a> (unnoted, can be obtained during the miniquest)",
+          "text": "20 balls of wool (unnoted, can be obtained during the miniquest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "walkthrough",
+      "title": "Walkthrough",
+      "anchor": "Walkthrough",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "If you already have the 20 unnoted balls of wool"
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:fjocna",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Fred_the_Farmer\" target=\"_blank\" rel=\"noopener\">Fred the Farmer</a> north of <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>.",
+          "text": "Talk to Fred the Farmer north of Lumbridge.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm looking for work."
+                },
+                {
+                  "key": "1",
+                  "text": "It takes all sorts, I suppose."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm something of an expert, actually."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:u84k47",
+          "html": "Fred takes the 20 <a href=\"https://runescape.wiki/w/Balls_of_wool\" target=\"_blank\" rel=\"noopener\">balls of wool</a>.",
+          "text": "Fred takes the 20 balls of wool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<b>Congratulations, miniquest complete!</b>"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "If you don't have the balls of wool"
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:fjocna-2",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Fred_the_Farmer\" target=\"_blank\" rel=\"noopener\">Fred the Farmer</a> north of <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>.",
+          "text": "Talk to Fred the Farmer north of Lumbridge.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "I'm looking for work."
+                },
+                {
+                  "key": "1",
+                  "text": "It takes all sorts, I suppose."
+                },
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "1",
+                  "text": "Of course!"
+                },
+                {
+                  "key": "1",
+                  "text": "I'm something of an expert, actually."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:jqf6xc",
+          "html": "<i>Climb-over</i> the stile into the sheep pen west of his house.",
+          "text": "Climb-over the stile into the sheep pen west of his house.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "walkthrough:jqf6xc:m40nxe",
+              "html": "Alternatively purchase 20 balls of wool from the Grand exchange and continue to the last step.",
+              "text": "Alternatively purchase 20 balls of wool from the Grand exchange and continue to the last step.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:9xhz30",
+          "html": "Shear the six <a href=\"https://runescape.wiki/w/Sheep\" target=\"_blank\" rel=\"noopener\">sheep</a>.",
+          "text": "Shear the six sheep.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "walkthrough:9xhz30:1y1qxn7",
+              "html": "You cannot shear black <a href=\"https://runescape.wiki/w/Sheep_(black)\" target=\"_blank\" rel=\"noopener\">sheep</a>, <a href=\"https://runescape.wiki/w/Ram\" target=\"_blank\" rel=\"noopener\">rams</a> or the odd-looking <a href=\"https://runescape.wiki/w/Sheep_(penguins)\" target=\"_blank\" rel=\"noopener\">sheep</a>. If you attack a ram and cannot kill it, run out of the pen until it stops targeting you.",
+              "text": "You cannot shear black sheep, rams or the odd-looking sheep. If you attack a ram and cannot kill it, run out of the pen until it stops targeting you.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:9p59tu",
+          "html": "Wait 12 seconds for their wool to grow back, shearing them again.",
+          "text": "Wait 12 seconds for their wool to grow back, shearing them again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:s6se7t",
+          "html": "Repeat this process until you have 20 pieces of <a href=\"https://runescape.wiki/w/Wool\" target=\"_blank\" rel=\"noopener\">wool</a>.",
+          "text": "Repeat this process until you have 20 pieces of wool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:foa81",
+          "html": "Head to the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+          "text": "Head to the 1st floor (UK) / 2nd floor (US) of the Lumbridge Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:16vawqf",
+          "html": "Use the <a href=\"https://runescape.wiki/w/Spinning_wheel\" target=\"_blank\" rel=\"noopener\">spinning wheel</a> in the southern room to spin the <a href=\"https://runescape.wiki/w/Balls_of_wool\" target=\"_blank\" rel=\"noopener\">balls of wool</a>.",
+          "text": "Use the spinning wheel in the southern room to spin the balls of wool.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "walkthrough:8cjjay",
+          "html": "Talk to Fred and hand them in.",
+          "text": "Talk to Fred and hand them in.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I have some balls of wool for you."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "<b>Congratulations, miniquest complete!</b>"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Sheep_Shearer_%28miniquest%29_reward.png?f6154",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Sheep_Shearer_(miniquest)_reward.png"
+    },
+    "items": [
+      {
+        "html": "60 coins",
+        "text": "60 coins",
+        "subs": []
+      },
+      {
+        "html": "300 experience",
+        "text": "300 experience",
+        "subs": []
+      }
+    ],
+    "groups": [
+      {
+        "label": "Additional rewards/activities",
+        "items": [
+          {
+            "html": "1,940 coins when talking to Fred after completing the quest, for a total of 2,000 coins.",
+            "text": "1,940 coins when talking to Fred after completing the quest, for a total of 2,000 coins.",
+            "subs": []
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Sheep_Shearer_(miniquest)_(achievement)\" target=\"_blank\" rel=\"noopener\">Sheep Shearer (miniquest)</a> (5) – Complete this miniquest.",
+    "<a href=\"https://runescape.wiki/w/Fred%27s_Shearings\" target=\"_blank\" rel=\"noopener\">Fred&#39;s Shearings</a> (5) – Claim 1,940 coins from Fred the Farmer after the &#39;Sheep Shearer&#39; miniquest."
+  ],
+  "requiredFor": []
+}
