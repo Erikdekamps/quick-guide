@@ -222,7 +222,7 @@ test.describe('menus', () => {
     expect(wiki.asked().filter((x) => x === 'List of quests')).toHaveLength(2);
     wiki.fail('List of quests', 'network');
     await page.getByRole('button', { name: 'Update from the wiki' }).click();
-    await expect(toast(page)).toHaveText('Could not update the quest list. Could not reach the wiki. Check your internet, then try again.');
+    await expect(toast(page)).toHaveText("Could not reach the app's data. Try again in a moment.");
   });
 
   test('update from the wiki shows a message while it works', async ({ page, wiki }) => {
@@ -272,7 +272,7 @@ test.describe('the quest menu', () => {
     wiki.fail(WGS, 'network');
     await page.locator('#menu-btn').click();
     await page.getByRole('menuitem', { name: 'Refresh from wiki' }).click();
-    await expect(toast(page)).toHaveText('Could not update. Could not reach the wiki. Check your internet, then try again.');
+    await expect(toast(page)).toHaveText("Could not update. Could not reach the app's data. Check your internet, then try again.");
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
   });
 
@@ -332,11 +332,12 @@ test.describe('saved guides from older versions', () => {
   test('are read again quietly when opened', async ({ page, wiki }) => {
     const q = await parsedQuest(page, 'while-guthix-sleeps.html', WGS);
     q.version = 2;
-    await seed(page, { ['quest.' + WGS]: q, last: WGS, list: { at: Date.now(), quests: [] } });
+    await seed(page, { ['quest.' + WGS]: q, last: WGS, list: { at: Date.now(), quests: [] }, minis: { at: Date.now(), quests: [] },
+      upd: { at: Date.now(), found: {}, failed: 0 } });
     await page.goto('/');
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');
     await expect.poll(async () => (await stored(page, 'quest.' + WGS)).version).toBe(4);
-    expect(wiki.asked()).toEqual([WGS]);
+    expect(wiki.dataCalls).toEqual(['index.json', 'quests/while-guthix-sleeps.json']);
     await expect(toast(page)).toBeHidden();
   });
 });

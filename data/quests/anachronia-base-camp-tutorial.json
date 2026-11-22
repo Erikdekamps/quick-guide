@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "id": "anachronia-base-camp-tutorial",
+  "title": "Anachronia base camp tutorial",
+  "page": "Anachronia base camp tutorial/Quick guide",
+  "rev": 36939785,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Board <i><a href=\"https://runescape.wiki/w/The_Stormbreaker\" target=\"_blank\" rel=\"noopener\">the Stormbreaker</a></i> on the west side of <a href=\"https://runescape.wiki/w/River_Salve\" target=\"_blank\" rel=\"noopener\">River Salve</a> at the <a href=\"https://runescape.wiki/w/Varrock_Dig_Site\" target=\"_blank\" rel=\"noopener\">Varrock Dig Site</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3415,
+      "lon": 3395,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Anachronia_base_camp_tutorial/Quick_guide"
+    },
+    "members": true,
+    "length": "",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "set-sail",
+      "title": "Set sail",
+      "anchor": "Set_sail",
+      "blocks": [
+        {
+          "type": "map",
+          "caption": "Location of the Stormbreaker",
+          "lat": 3415,
+          "lon": 3395,
+          "zoom": 2,
+          "plane": 0,
+          "mapId": 28,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  3395.5,
+                  3415.5,
+                  0
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": 28,
+                "description": "<b>Object</b>: The Stormbreaker<br /><b>Object ID</b>: 83794",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 0,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/Anachronia_base_camp_tutorial/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "set-sail:9tsa5q",
+          "html": "Board <i><a href=\"https://runescape.wiki/w/The_Stormbreaker\" target=\"_blank\" rel=\"noopener\">the Stormbreaker</a></i> on the west side of <a href=\"https://runescape.wiki/w/River_Salve\" target=\"_blank\" rel=\"noopener\">River Salve</a> at the <a href=\"https://runescape.wiki/w/Varrock_Dig_Site\" target=\"_blank\" rel=\"noopener\">Varrock Dig Site</a>.",
+          "text": "Board the Stormbreaker on the west side of River Salve at the Varrock Dig Site.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "set-sail:9tsa5q:m09mz",
+              "html": "You may teleport to <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a> or to the <a href=\"https://runescape.wiki/w/Archaeology_Campus\" target=\"_blank\" rel=\"noopener\">Archaeology Campus</a>.",
+              "text": "You may teleport to Varrock or to the Archaeology Campus.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arriving-at-anachronia",
+      "title": "Arriving at Anachronia",
+      "anchor": "Arriving_at_Anachronia",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Anachronia_Guide_Map.png/400px-Anachronia_Guide_Map.png?4081e",
+          "width": 400,
+          "height": 234,
+          "alt": "",
+          "caption": "Follow this map to reach the bones and base camp",
+          "href": "https://runescape.wiki/w/File:Anachronia_Guide_Map.png"
+        },
+        {
+          "type": "step",
+          "id": "arriving-at-anachronia:149nsvj",
+          "html": "Complete the intro animations until you wind up at the landing zone.",
+          "text": "Complete the intro animations until you wind up at the landing zone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arriving-at-anachronia:416byy",
+          "html": "Follow the directions on the map and investigate the <a href=\"https://runescape.wiki/w/Bones_(Anachronia)\" target=\"_blank\" rel=\"noopener\">bones</a> blocking your path.",
+          "text": "Follow the directions on the map and investigate the bones blocking your path.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "arriving-at-anachronia:fyuusv",
+          "html": "After investigating the second bones, you will be teleported to the base camp.",
+          "text": "After investigating the second bones, you will be teleported to the base camp.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "safe-haven-away-from-monsters",
+      "title": "Safe haven away from monsters",
+      "anchor": "Safe_haven_away_from_monsters",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "safe-haven-away-from-monsters:pzyerd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Giles\" target=\"_blank\" rel=\"noopener\">Giles</a> in the base camp to begin the tutorial.",
+          "text": "Talk to Giles in the base camp to begin the tutorial.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "safe-haven-away-from-monsters:sn9gwf",
+          "html": "Assign at least one worker to gather <a href=\"https://runescape.wiki/w/Wood_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">wood</a>, <a href=\"https://runescape.wiki/w/Vines_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">vines</a> and <a href=\"https://runescape.wiki/w/Stone_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">stone</a> respectively on the base camp management interface.",
+          "text": "Assign at least one worker to gather wood, vines and stone respectively on the base camp management interface.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "safe-haven-away-from-monsters:13b4o15",
+          "html": "Continue talking to Giles to skip the wait.",
+          "text": "Continue talking to Giles to skip the wait.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "safe-haven-away-from-monsters:5evrl0",
+          "html": "When the base camp management interface appears again, build the <a href=\"https://runescape.wiki/w/Town_Hall_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>.",
+          "text": "When the base camp management interface appears again, build the Town Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "safe-haven-away-from-monsters:1ivb3p8",
+          "html": "<b>Congratulations, tutorial complete!</b>",
+          "text": "Congratulations, tutorial complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "building-the-lodestone",
+      "title": "Building the lodestone",
+      "anchor": "Building_the_lodestone",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "building-the-lodestone:xk7ok8",
+          "html": "Manage base camp with Giles in the Town Hall on the eastern side of the base camp. Alternatively, you may attempt to build <a href=\"https://runescape.wiki/w/Anachronia_lodestone\" target=\"_blank\" rel=\"noopener\">Anachronia lodestone</a> to open the interface.",
+          "text": "Manage base camp with Giles in the Town Hall on the eastern side of the base camp. Alternatively, you may attempt to build Anachronia lodestone to open the interface.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-lodestone:no87a1",
+          "html": "Unassign workers and assign 10 workers to gather <a href=\"https://runescape.wiki/w/Clay_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">clay</a>.",
+          "text": "Unassign workers and assign 10 workers to gather clay.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-lodestone:aspvin",
+          "html": "Wait for about 20 minutes. You may do anything during this period but you need to board <i>the Stormbreaker</i> to Anachronia if you leave the island.",
+          "text": "Wait for about 20 minutes. You may do anything during this period but you need to board the Stormbreaker to Anachronia if you leave the island.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-lodestone:yaaf8m",
+          "html": "Manage base camp with Giles again.",
+          "text": "Manage base camp with Giles again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "building-the-lodestone:x1sf1x",
+          "html": "Once your workers have collected adequate materials, build the lodestone.",
+          "text": "Once your workers have collected adequate materials, build the lodestone.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": null,
+    "items": [
+      {
+        "html": "Access to <a href=\"https://runescape.wiki/w/Anachronia_base_camp\" target=\"_blank\" rel=\"noopener\">Anachronia base camp</a> and its facilities",
+        "text": "Access to Anachronia base camp and its facilities",
+        "subs": []
+      },
+      {
+        "html": "Tier 1 <a href=\"https://runescape.wiki/w/Town_Hall_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">Town Hall</a>",
+        "text": "Tier 1 Town Hall",
+        "subs": []
+      },
+      {
+        "html": "250 <a href=\"https://runescape.wiki/w/Wood_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">wood</a> and 250 <a href=\"https://runescape.wiki/w/Stone_(Anachronia_base_camp)\" target=\"_blank\" rel=\"noopener\">stone</a>",
+        "text": "250 wood and 250 stone",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Setting_The_Foundation\" target=\"_blank\" rel=\"noopener\">Setting The Foundation</a> (5) – Complete the base camp tutorial on Anachronia."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Benedict%27s_World_Tour_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Benedict&#39;s World Tour (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Father_and_Son_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Father and Son (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Helping_Laniakea_(miniquest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Helping Laniakea (miniquest)</a>",
+        "<a href=\"https://runescape.wiki/w/Osseous_Rex/Quick_guide\" target=\"_blank\" rel=\"noopener\">Osseous Rex</a>",
+        "<a href=\"https://runescape.wiki/w/Raksha,_the_Shadow_Colossus_(quest)/Quick_guide\" target=\"_blank\" rel=\"noopener\">Raksha, the Shadow Colossus (quest)</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

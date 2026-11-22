@@ -30,20 +30,15 @@
     });
     return out;
   }
-  function newer(a, b) { return (Date.parse(a) || 0) > (Date.parse(b) || 0); }
-  // Did a page change since the app read it? A quest guide: when it was edited (its revision). An area or a cape list:
-  // when anything on it changed (their tables come from templates, so a new task does not edit the page itself); a
-  // cape also when one of its achievements' pages was edited. Unknown (the wiki did not say): read it. A page the wiki
-  // does not have any more: keep what we have.
+  // Did a page change since the app read it? The data has a mark for every file (its hash): another mark is another
+  // file. Unknown (the data did not say): read it. A page the data does not have any more: keep what we have.
+  // A guide that was saved before the app had its data has no mark: then its revision on the wiki says it.
   function changed(p, info) {
     var i = info[p.title];
     if (!i) return true;
     if (i.missing) return false;
-    if (p.kind === 'quest') return p.old.revid ? i.rev !== p.old.revid : newer(i.edited, p.old.fetchedAt);
-    if (newer(i.touched, p.old.fetchedAt)) return true;
-    // a cape whose levels page could not be read last time
-    if (p.old.partial) return true;
-    return p.kind === 'cape' && p.old.cheevos.some(function (x) { var j = info[x.page]; return !j || (!j.missing && j.rev !== x.rev); });
+    if (p.kind === 'quest' && !p.old.hash) return !!p.old.revid && i.rev !== p.old.revid;
+    return i.hash !== p.old.hash;
   }
 
   // ---------- what it found ----------
@@ -90,18 +85,21 @@
     pages = pages || keptPages();
     pages.forEach(function (p) {
       if (titles.indexOf(p.title) < 0) titles.push(p.title);
-      if (p.kind === 'cape') p.old.cheevos.forEach(function (x) { if (x.page && titles.indexOf(x.page) < 0) titles.push(x.page); });
     });
     S.upd = { step: 'check', done: 0, total: titles.length };
     if (!quiet) toast('Checking the wiki…', 0);
     showStatus();
-    var lists = quiet ? Promise.resolve() : Promise.all([A.fetchList(true), A.fetchMinis(), S.order || S.set.sort === 'opt' ? A.fetchOrder(true) : null]).then(function (r) {
+    // The data is asked what it has now (its index, again); the lists then come from that same answer.
+    var asked = QG.pageInfo(titles);
+    var lists = quiet ? Promise.resolve() : asked.then(function () {
+      return Promise.all([A.fetchList(true), A.fetchMinis(), S.order || S.set.sort === 'opt' ? A.fetchOrder(true) : null]);
+    }).then(function (r) {
       if (r[0] && r[0].error) listErr = r[0].error;
       found.quests += ((r[0] && r[0].added) || 0) + ((r[1] && r[1].added) || 0);
     });
     var reached = true;
-    var rest = QG.pageInfo(titles).then(function (info) {
-      // The wiki did not answer at all: nothing is read again (it would be everything).
+    var rest = asked.then(function (info) {
+      // The data did not answer at all: nothing is read again (it would be everything).
       if (titles.length && !Object.keys(info).length) { reached = false; failed = pages.length; return; }
       var todo = pages.filter(function (p) { return changed(p, info); });
       S.upd = { step: 'read', done: 0, total: todo.length };
@@ -119,8 +117,8 @@
       var what = foundText(found), msg = what ? 'Updated: ' + what + '.' : '';
       if (failed) msg = (msg ? msg + ' ' : '') + 'Could not read ' + plural(failed, 'page', 'pages') + '.';
       if (quiet) { if (what) toast('New on the wiki: ' + what + '.', 5000); return; }
-      if (listErr) toast('Could not update the quest list. ' + loadError(listErr), 5000);
-      else if (!reached) toast('Could not reach the wiki. Try again in a moment.', 5000);
+      if (!reached) toast('Could not reach the app\'s data. Try again in a moment.', 5000);
+      else if (listErr) toast('Could not update the quest list. ' + loadError(listErr), 5000);
       else toast(msg || 'Everything is up to date.', msg ? 5000 : undefined);
     }).then(null, function () {
       // something went wrong on the way: the button works again

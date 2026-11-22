@@ -26,6 +26,8 @@ function questEntry(l, order, guide) {
     combat: l.cb || '', qp: l.qp || 0, series: l.ser || '', release: l.rel || '' };
   if (order) e.order = order;
   if (l.mini) e.mini = true;
+  // a guide that is no quest of the lists: a part of a bigger quest, which another guide or an achievement names
+  if (l.extra) e.extra = true;
   if (guide) e.rev = guide.revid || 0;
   return e;
 }
@@ -66,13 +68,14 @@ const tasksOf = (area) => [].concat(...area.tiers.map((t) => t.tasks));
 
 // Everything a build read, as files: { "<path in data/>": text }, and what it found.
 //   read: { list: [rows], order: [titles], guides: { title: guide or null }, areas: [area], capes: [cape] }
+//         (a row with extra: true is a guide outside the quest lists; it is only kept when it has a guide)
 //   before: (path) => the parsed file that is there now, or null
 //   today: "2026-11-22"
 function build(read, before, today) {
   const files = {}, rank = {}, seen = {};
   read.order.forEach((t, i) => { if (rank[t] == null) rank[t] = i + 1; });
   const was = before('index.json');
-  const quests = read.list.map((l) => {
+  const quests = read.list.filter((l) => !l.extra || read.guides[l.t] || before('quests/' + slug(l.t) + '.json')).map((l) => {
     const g = read.guides[l.t] || null, e = questEntry(l, rank[l.t] || 0, g), path = 'quests/' + e.id + '.json';
     if (!e.id || seen[e.id]) throw new Error('Two quests would get the same file: ' + l.t + ' and ' + seen[e.id]);
     seen[e.id] = l.t;

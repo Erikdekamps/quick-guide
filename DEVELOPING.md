@@ -66,7 +66,7 @@ Everything is in the browser's local storage, on your computer. All keys start w
 
 | Key | What |
 | --- | --- |
-| `list`, `minis` | Every quest and miniquest from the wiki's lists |
+| `list`, `minis` | Every quest and miniquest, from the data's index |
 | `order` | The wiki's optimal quest order |
 | `quest.<page>`, `prog.<page>` | A quest's guide, and your ticks for it |
 | `meta` | One small entry per quest you opened (steps done, total, last opened) |
@@ -93,6 +93,19 @@ wiki again when you open it; your ticks stay.
 
 ## How it reads the wiki
 
+The app does not read the wiki's pages itself. A build does, every night, and keeps what it reads as files in `data/`
+(see [The data](#the-data)). The app reads those files, from where it is served itself:
+
+- `js/wiki/data.js` asks for `data/index.json` once at the start: the quest lists, the optimal order, and every area
+  and cape, each with a mark (the hash of its file).
+- A guide, an area or a cape is one more file, asked for when you open it, for example
+  `data/quests/cooks-assistant.json?h=0a1b2c3d4e`. The mark in the address makes the browser take a new copy only when
+  the file changed. What you opened is saved, so it opens without asking the next time.
+- Update from the wiki asks for the index again, and reads again what has another mark than the one saved with it.
+  A guide saved before the app had its data has no mark: its revision on the wiki says if it changed.
+
+The build reads the wiki with the reader in `js/wiki/` (these files are not loaded by the app):
+
 - `js/wiki/quests.js` reads the quest lists and the optimal order through the wiki's API, for example
   `https://runescape.wiki/api.php?action=parse&page=List_of_quests&origin=*`.
 - `js/wiki/guide.js` reads one guide (`<Quest>/Quick_guide`, or the quest's own page if it has no Quick guide),
@@ -102,6 +115,11 @@ wiki again when you open it; your ticks stay.
   it counts for and its tip come from its own page, 20 pages a time: the infobox of the first section, and the first
   paragraph, for example
   `https://runescape.wiki/api.php?action=query&prop=revisions|extracts&rvprop=content&rvsection=0&exintro=1&titles=Advanced_Sweeping|Annihilator&format=json&origin=*`.
+- A name a guide or an area shows as a quest, which the quest lists do not have (a part of Recipe for Disaster, say),
+  gets a file too when it has a Quick guide of its own. The index marks it `extra`: it is not in the quest list.
+
+What the app itself still asks others:
+
 - Map pictures load from `maps.runescape.wiki`.
 - The character lookup uses Jagex's [Player Data API](https://developer.runescape.com/platform/modules/adventurers-log/player-data.html)
   (quests, skill levels and quest points in one answer), through the wiki first, then at Jagex itself:
@@ -114,23 +132,19 @@ wiki again when you open it; your ticks stay.
 - My list asks the wiki whether it has a page for a goal you wrote yourself (for **Open on the wiki**), for example
   `https://runescape.wiki/api.php?action=query&titles=Crystal%20hatchet&redirects=1&format=json&origin=*`.
 
-- Update from the wiki asks when pages last changed, 50 at a time, without reading them, for example
-  `https://runescape.wiki/api.php?action=query&prop=info|revisions&rvprop=ids|timestamp&titles=Cook%27s_Assistant/Quick_guide|Ardougne_achievements&format=json&origin=*`.
-  Each saved guide, area and cape keeps the revision it was read from.
-
 - Every question goes through one helper, `askWiki` in `js/wiki/base.js`. It gives the wiki 25 seconds. When the wiki
   says it is busy (error 429 or 5xx, "maxlag", "ratelimited"), or the connection drops, the question is asked once
   more: after as long as the wiki asks (at most 5 seconds), else after a second. Any other error, also one inside a
   normal answer, is said in the wiki's own words. When a query's answer comes in parts (the wiki says `continue`), the
-  rest is asked for too. What an update still cannot read is kept as it was saved, and read again at the next update.
+  rest is asked for too. A file of the data gets 25 seconds too, and is asked for once.
 
 No other service is used. The fonts come with the app (`vendor/fonts/`).
 
 ## The data
 
 `data/` holds everything the app shows of the wiki, as JSON files in git: an index of every quest, area and cape, and
-one file for each guide, area and cape. [data/README.md](data/README.md) says what is in them. The app does not read
-them yet: that is the next step, and then a player's browser no longer asks the wiki for guides.
+one file for each guide, area and cape. [data/README.md](data/README.md) says what is in them. The app reads them
+(see [How it reads the wiki](#how-it-reads-the-wiki)): a player's browser does not ask the wiki for guides.
 
 - `npm run data` builds them. It reads the wiki with the app's own reader, in Chromium (about 400 requests, a few at a
   time, three minutes), and writes only the files that changed.
@@ -155,20 +169,21 @@ them yet: that is the next step, and then a player's browser no longer asks the 
 | `js/app/pages.js` | What an area and a cape share: they open, fold, reset, and are read again with what is new |
 | `js/app/areas.js` | Achievements: the list of tiers, search, and one area |
 | `js/app/capes.js` | Achievements: the cape cards, and one cape's page |
-| `js/app/update.js` | Update from the wiki: checks everything the app keeps, reads again only what changed, marks what is new |
+| `js/app/update.js` | Update from the wiki: asks the data what changed, reads again only that, marks what is new |
 | `js/app/todo-data.js` | My list: the saved lists, goals and sub tasks, wiki links, export and import |
 | `js/app/todo-view.js` | My list: what it shows, its count in the bar at the bottom, Add to list in the ⋯ menus, the menus and boxes |
 | `js/app/todo.js` | My list: adding, ticking, and what the menus of a goal, a sub task and a list do |
 | `js/app/backup.js` | Export and import |
 | `js/app/main.js` | Loaded last: the clicks and keys of every screen, and the start |
-| `js/wiki/base.js` | The wiki reader's shared parts: small helpers, links, and `askWiki`, the one way to ask the wiki |
-| `js/wiki/html.js` | The wiki's HTML made small and safe (only a few tags survive), and a page's maps and pictures |
-| `js/wiki/steps.js` | The parts of a guide: chat options, tables, text, "bring" boxes, steps and sub-steps |
-| `js/wiki/guide.js` | A quest guide as JSON: its details box, its parts, and the ids of steps and items |
+| `js/wiki/base.js` | Shared by the app and the wiki reader: small helpers, links, the areas and capes there are, and `askWiki`, the one way to ask the wiki |
+| `js/wiki/html.js` | The reader (the build loads it, the app does not): the wiki's HTML made small and safe (only a few tags survive), and a page's maps and pictures |
+| `js/wiki/steps.js` | The reader: the parts of a guide: chat options, tables, text, "bring" boxes, steps and sub-steps |
+| `js/wiki/guide.js` | The reader: a quest guide as JSON: its details box, its parts, and the ids of steps and items |
 | `js/wiki/player.js` | A player's quests and levels, from Jagex |
-| `js/wiki/areas.js` | An area page: its tiers, tasks, needs and rewards |
-| `js/wiki/capes.js` | A cape's achievements, and what each one needs |
-| `js/wiki/quests.js` | Reads the quest lists and the optimal order |
+| `js/wiki/areas.js` | The reader: an area page: its tiers, tasks, needs and rewards |
+| `js/wiki/capes.js` | The reader: a cape's achievements, and what each one needs |
+| `js/wiki/quests.js` | The reader: the quest lists and the optimal order |
+| `js/wiki/data.js` | The app's side of the data: reads the files of `data/` and gives the app its lists, guides, areas and capes |
 | `vendor/leaflet/` | Leaflet 1.9.4, the map library (BSD-2 licence) |
 | `vendor/fonts/` | The fonts (Cinzel, Fira Sans, Fira Mono; SIL Open Font License), so the app needs no font service |
 | `icon.svg` | The app's icon: a tick box with a green tick on a grey tile. Only greys and green, so it fits both themes |
@@ -238,7 +253,8 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
 
   `main` only takes pull requests whose checks passed, and is then put on GitHub Pages. (CodeQL, GitHub's own code
   scan, runs next to them: GitHub starts it by itself.)
-- They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet.
+- They use a fake copy of the wiki (`tests/fixtures/wiki/`), so they need no internet. The app's data is made from
+  it for each test, by the reader and the build's own code, the way the nightly build makes `data/`.
 - An error in the page that nobody catches fails the test, in every test.
 - New code comes with tests. GitHub runs them with `npm run coverage`, which fails when a pull request adds code
   that no test runs (a part of an `if`, a fallback, a function), in the unit tests or in the browser.
@@ -250,8 +266,8 @@ in a 360 × 720 window, like Alt1, and click through it like a person would.
   own clock, or counts what the app asked the wiki.
 - `tests/unit/code.spec.js` checks the code's own rules without a browser: every file is loaded and listed, every name a
   file takes from another one is shared, and every saved key is in the table above.
-- GitHub checks the app against the real wiki once a week, and on a pull request that changes how the app reads
-  the wiki (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
+- GitHub checks the reader and the app against the real wiki once a week, and on a pull request that changes the
+  reader (`js/wiki/`). **Actions → Live wiki check → Run workflow** starts it by hand.
 
 To run them on your own computer, with [Node.js](https://nodejs.org/) 22:
 

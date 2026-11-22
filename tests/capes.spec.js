@@ -152,11 +152,11 @@ test.describe('Achievements', () => {
 });
 
 test.describe('a cape', () => {
-  test('opens from the wiki once, then from storage; a reload keeps it open', async ({ page, wiki }) => {
+  test('is read once, then opens from storage; a reload keeps it open', async ({ page, wiki }) => {
     withCapes(wiki);
     await openCape(page, 'mqc', MQC);
-    // the achievements, and the item page with the levels (asked together)
-    expect(wiki.asked().slice(1).sort()).toEqual(['Master Quest Cape (achievement)', 'Master quest cape']);
+    // one file has it all: the achievements, what each needs, and the levels
+    expect(wiki.dataCalls).toEqual(['index.json', 'achievements/capes/mqc.json']);
     expect((await stored(page, 'cape.mqc')).cheevos).toHaveLength(23);
     expect((await stored(page, 'cape.mqc')).levels).toHaveLength(28);
     expect(await stored(page, 'last')).toBe('cape:mqc');
@@ -169,25 +169,17 @@ test.describe('a cape', () => {
     expect(wiki.asked().filter((x) => x === 'Master Quest Cape (achievement)')).toHaveLength(1);
   });
 
-  test('the completionist cape reads Master Skiller for its levels', async ({ page, wiki }) => {
+  test('the completionist cape has the levels of Master Skiller', async ({ page, wiki }) => {
     withCapes(wiki);
     await openCape(page, 'comp', COMP);
-    expect(wiki.asked().slice(1).sort()).toEqual(['Completionist Cape (achievement)', 'Master Skiller']);
     expect((await stored(page, 'cape.comp')).skiller).toHaveLength(29);
-  });
-
-  test('a cape opens even when its extra page fails', async ({ page, wiki }) => {
-    withCapes(wiki).fail('Master quest cape', 'http');
-    await openCape(page, 'mqc', MQC);
-    expect((await stored(page, 'cape.mqc')).levels).toEqual([]);
-    await expect(part(page, 'needs')).toHaveCount(0);
   });
 
   test('says when the wiki fails', async ({ page, wiki }) => {
     withCapes(wiki).fail('Master Quest Cape (achievement)', 'http');
     await achievements(page);
     await card(page, 'mqc').click();
-    await expect(page.locator('#load-err')).toHaveText('The wiki answered with error 500. Try again in a moment.');
+    await expect(page.locator('#load-err')).toHaveText("The app's data answered with error 500. Try again in a moment.");
   });
 
   test('a tab per category, the biggest first; the rest together in Other', async ({ page, wiki }) => {
@@ -446,6 +438,27 @@ test.describe('a cape', () => {
     expect(wiki.asked().filter((x) => x === 'Master Quest Cape (achievement)')).toHaveLength(2);
   });
 
+  test('a saved cape opens when the data cannot be reached, with the quests it needs', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    await page.evaluate(() => localStorage.removeItem('qg1.minis'));
+    wiki.fail('List of quests', 'network');
+    await page.reload();
+    await expect(page.locator('h1.qt')).toHaveText(MQC);
+    await expect(cheevo(page, '2111').locator('.need')).toContainText('Swept Away');
+    expect(page.errors).toEqual([]);
+  });
+
+  test('a refresh that fails says so, and the cape stays', async ({ page, wiki }) => {
+    withCapes(wiki);
+    await openCape(page, 'mqc', MQC);
+    wiki.fail('Master Quest Cape (achievement)', 'http');
+    await page.locator('#menu-btn').click();
+    await page.locator('[data-act="crefresh"]').click();
+    await expect(page.locator('#toast')).toHaveText("Could not update. The app's data answered with error 500. Try again in a moment.");
+    await expect(page.locator('h1.qt')).toHaveText(MQC);
+  });
+
   test('a cape saved by an older version opens at once, and is read again quietly', async ({ page, wiki }) => {
     withCapes(wiki);
     const old = await parsedCape(page, 'master-quest-cape-achievement.html', 'mqc');
@@ -549,18 +562,16 @@ test.describe('export and import', () => {
 });
 
 test.describe('more about each achievement', () => {
-  test('a cape is read with what each achievement needs and a tip: 20 pages at a time', async ({ page, wiki }) => {
+  test('a cape comes with what each achievement needs and a tip', async ({ page, wiki }) => {
     withCapes(wiki);
     await openCape(page, 'mqc', MQC);
-    expect(wiki.detailCalls.map((x) => x.length).sort((a, b) => b - a)).toEqual([20, 3]);
-    expect(wiki.detailCalls.flat()).toContain("A Cultist's Journey (achievement)");
     const x = (await stored(page, 'cape.mqc')).cheevos.find((y) => y.id === '2111');
     expect(x).toMatchObject({ page: 'Advanced Sweeping', skills: [{ skill: 'Magic', level: 93, boost: true }], also: [] });
     expect(x.tip).toMatch(/^Fully enchant the broomstick/);
     // read once: from storage after that
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText(MQC);
-    expect(wiki.detailCalls).toHaveLength(2);
+    expect(wiki.dataCalls.filter((f) => f === 'achievements/capes/mqc.json')).toHaveLength(1);
   });
 
   test('like an area task: what it needs, with your levels, and the tip', async ({ page, wiki }) => {
@@ -629,9 +640,14 @@ test.describe('more about each achievement', () => {
     expect((await stored(page, 'cprog.comp')).ticks).toEqual({ 2115: 1, 2543: 1 });
   });
 
-  test('when the pages cannot be read, the cape still opens, without needs and tips', async ({ page, wiki }) => {
-    withCapes(wiki).detailFail = true;
-    await openCape(page, 'mqc', MQC);
+  test('a saved cape without what its achievements need still opens, without needs and tips', async ({ page, wiki }) => {
+    withCapes(wiki);
+    // (as the reader gives it before it reads each achievement's page; saved today, so it is not read again)
+    const c = await parsedCape(page, 'master-quest-cape-achievement.html', 'mqc');
+    await seed(page, { 'cape.mqc': c, settings: { home: 'areas' }, upd: { at: Date.now(), found: {}, failed: 0 } });
+    await openApp(page, expect);
+    await card(page, 'mqc').click();
+    await expect(page.locator('h1.qt')).toHaveText(MQC);
     await expect(page.locator('li[data-cheevo]').first()).toBeVisible();
     await expect(page.locator('li[data-cheevo] .need')).toHaveCount(0);
     await expect(page.locator('li[data-cheevo] .howto')).toHaveCount(0);

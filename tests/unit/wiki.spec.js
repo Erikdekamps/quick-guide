@@ -5,7 +5,9 @@ const path = require('path');
 const { test, expect, load, fakeFetch, titlesOf, ROOT } = require('./load');
 
 const W = 'https://runescape.wiki/w/';
-const { QG, D } = load();
+// The wiki reader (the data build uses it; the app reads data/).
+const reader = (o) => load(Object.assign({ reader: true }, o));
+const { QG, D } = reader();
 
 test.describe('reading what you type', () => {
   const cases = [
@@ -147,7 +149,7 @@ test.describe('asking the wiki', () => {
     const fetch = fakeFetch((url) => (/rvcontinue=/.test(url) ?
       { json: { batchcomplete: true, query: { pages: [{ title: 'A', touched: '2026-11-01T00:00:00Z', revisions: [{ revid: 5, timestamp: '2026-10-01T00:00:00Z' }] }, { title: 'B', lastrevid: 7 }] } } } :
       { json: { continue: { rvcontinue: '12|x', continue: '||' }, query: { normalized: [{ from: 'a', to: 'A' }], pages: [{ title: 'A', lastrevid: 5 }] } } }));
-    const out = await load({ fetch }).QG.pageInfo(['a', 'B']);
+    const out = await reader({ fetch }).QG.pageInfo(['a', 'B']);
     expect(fetch.urls).toHaveLength(2);
     expect(fetch.urls[1]).toContain('&rvcontinue=12%7Cx&continue=%7C%7C');
     expect(out).toEqual({ a: { rev: 5, edited: '2026-10-01T00:00:00Z', touched: '2026-11-01T00:00:00Z' }, B: { rev: 7, edited: '', touched: '' } });
@@ -160,30 +162,30 @@ test.describe('asking the wiki', () => {
       { json: { continue: { c: '2' }, query: { redirects: [{ from: 'Old', to: 'New' }], pages: [{ title: 'New' }] } } },
       { json: { batchcomplete: true } }
     ][n++]);
-    expect(await load({ fetch }).QG.findPages(['Old'])).toEqual({ Old: 'New' });
+    expect(await reader({ fetch }).QG.findPages(['Old'])).toEqual({ Old: 'New' });
     expect(fetch.urls).toHaveLength(3);
   });
 
   test('an answer that never stops saying "continue" is asked for 20 times at most', async () => {
     const fetch = fakeFetch(() => ({ json: { continue: { c: '1' }, query: { pages: [{ title: 'A', missing: true }] } } }));
-    expect(await load({ fetch }).QG.findPages(['A'])).toEqual({});
+    expect(await reader({ fetch }).QG.findPages(['A'])).toEqual({});
     expect(fetch.urls).toHaveLength(20);
   });
 
   test('only a question (action=query) is asked again for the rest', async () => {
     const fetch = fakeFetch(() => ({ json: { continue: { c: '1' }, parse: { title: 'X', text: '<p>x</p>' } } }));
-    const p = await load({ fetch }).window.QuickGuideWiki.fetchPage('X');
+    const p = await reader({ fetch }).window.QuickGuideWiki.fetchPage('X');
     expect(p).toMatchObject({ title: 'X', html: '<p>x</p>', revid: 0 });
     expect(fetch.urls).toHaveLength(1);
   });
 
   test('an answer that is no JSON is said plainly', async () => {
-    await expect(load({ fetch: fakeFetch(() => ({ json: null })) }).QG.findPages(['X'])).rejects.toMatchObject({ code: 'format', message: 'The wiki sent something unexpected.' });
-    await expect(load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).window.QuickGuideWiki.fetchPage('X')).rejects.toMatchObject({ code: 'format' });
+    await expect(reader({ fetch: fakeFetch(() => ({ json: null })) }).QG.findPages(['X'])).rejects.toMatchObject({ code: 'format', message: 'The wiki sent something unexpected.' });
+    await expect(reader({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).window.QuickGuideWiki.fetchPage('X')).rejects.toMatchObject({ code: 'format' });
   });
 
   test('the quest lists and the order: a page the wiki does not send says which', async () => {
-    const app = load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) });
+    const app = reader({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) });
     await expect(app.D.loadList()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the quest list.' });
     await expect(app.D.loadMinis()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the miniquest list.' });
     await expect(app.D.loadOrder()).rejects.toMatchObject({ code: 'format', message: 'The wiki did not send the quest order.' });
@@ -205,7 +207,7 @@ test.describe('asking the wiki', () => {
   test('when pages changed: 50 a request, 2 requests at once', async () => {
     const fetch = fakeFetch((url) => ({ json: { query: { pages: titlesOf(url).map((t, i) => ({ title: t, lastrevid: 1000 + i, touched: '2026-11-20T10:00:00Z',
       revisions: [{ revid: 1000 + i, timestamp: '2026-11-19T10:00:00Z' }] })) } } }));
-    const info = await load({ fetch }).QG.pageInfo(Array.from({ length: 120 }, (_, i) => 'Page ' + i));
+    const info = await reader({ fetch }).QG.pageInfo(Array.from({ length: 120 }, (_, i) => 'Page ' + i));
     expect(fetch.urls.map((u) => titlesOf(u).length)).toEqual([50, 50, 20]);
     expect(fetch.most).toBe(2);
     expect(fetch.urls[0]).toContain('prop=info%7Crevisions&rvprop=ids%7Ctimestamp');
@@ -219,7 +221,7 @@ test.describe('asking the wiki', () => {
       redirects: [{ from: "Cook's assistant", to: "Cook's Assistant" }],
       pages: [{ title: "Cook's Assistant", lastrevid: 7, touched: 'T', revisions: [{ revid: 7, timestamp: 'E' }] }, { title: 'Gone', missing: true }]
     } } }));
-    expect(await load({ fetch }).QG.pageInfo(["cook's assistant", 'Gone', 'Not in the answer']))
+    expect(await reader({ fetch }).QG.pageInfo(["cook's assistant", 'Gone', 'Not in the answer']))
       .toEqual({ "cook's assistant": { rev: 7, edited: 'E', touched: 'T' }, Gone: { missing: true } });
   });
 
@@ -230,7 +232,7 @@ test.describe('asking the wiki', () => {
       if (first === 'Page 50') throw new TypeError('Failed to fetch');
       return { json: { query: { pages: titlesOf(url).map((t) => ({ title: t, lastrevid: 1 })) } } };
     });
-    const info = await load({ fetch }).QG.pageInfo(Array.from({ length: 120 }, (_, i) => 'Page ' + i));
+    const info = await reader({ fetch }).QG.pageInfo(Array.from({ length: 120 }, (_, i) => 'Page ' + i));
     expect(Object.keys(info)).toEqual(Array.from({ length: 20 }, (_, i) => 'Page ' + (100 + i)));
   });
 
@@ -240,21 +242,21 @@ test.describe('asking the wiki', () => {
       redirects: [{ from: 'Dragon slayer', to: 'Dragon Slayer' }],
       pages: [{ title: 'Dragon Slayer' }, { title: 'Nope', missing: true }, { title: 'Bad<', invalid: true }]
     } } }));
-    expect(await load({ fetch }).QG.findPages(['dragon slayer', 'Nope', 'Bad<'])).toEqual({ 'dragon slayer': 'Dragon Slayer' });
+    expect(await reader({ fetch }).QG.findPages(['dragon slayer', 'Nope', 'Bad<'])).toEqual({ 'dragon slayer': 'Dragon Slayer' });
     expect(titlesOf(fetch.urls[0])).toEqual(['dragon slayer', 'Nope', 'Bad<']);
   });
 
   test('which names the wiki has: what goes wrong is said plainly', async () => {
-    await expect(load({ fetch: fakeFetch(() => ({ status: 503, json: {} })) }).QG.findPages(['X'])).rejects.toThrow('The wiki answered with error 503.');
+    await expect(reader({ fetch: fakeFetch(() => ({ status: 503, json: {} })) }).QG.findPages(['X'])).rejects.toThrow('The wiki answered with error 503.');
     // an error inside a normal answer is said too, in the wiki's words
-    await expect(load({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki could not answer.');
-    await expect(load({ fetch: fakeFetch(() => ({ json: { error: { code: 'badtitle', info: 'Bad title "<".' } } })) }).QG.findPages(['<'])).rejects.toMatchObject({ code: 'badtitle', message: 'Bad title "<".' });
-    await expect(load({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
+    await expect(reader({ fetch: fakeFetch(() => ({ json: { error: 'x' } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki could not answer.');
+    await expect(reader({ fetch: fakeFetch(() => ({ json: { error: { code: 'badtitle', info: 'Bad title "<".' } } })) }).QG.findPages(['<'])).rejects.toMatchObject({ code: 'badtitle', message: 'Bad title "<".' });
+    await expect(reader({ fetch: fakeFetch(() => ({ json: { batchcomplete: true } })) }).QG.findPages(['X'])).rejects.toThrow('The wiki sent something unexpected.');
   });
 
   // The app with a clock that does not wait; waits: how long it would have waited each time (not the 25 seconds a read gets).
   const quick = (fetch) => {
-    const app = load({ fetch });
+    const app = reader({ fetch });
     app.waits = [];
     app.window.setTimeout = (f, ms) => { if (ms !== 25000) app.waits.push(ms); return setTimeout(f, ms === 25000 ? ms : 0); };
     app.window.clearTimeout = clearTimeout;
@@ -296,7 +298,7 @@ test.describe('asking the wiki', () => {
   test('not asked again: an answer that takes too long, and a mistake in the question', async () => {
     let asked = 0;
     const slow = (url, opts) => { asked++; return new Promise((done, fail) => { opts.signal.addEventListener('abort', () => fail(Object.assign(new Error('Cut off'), { name: 'AbortError' }))); }); };
-    const app = load({ fetch: slow });
+    const app = reader({ fetch: slow });
     app.window.setTimeout = (f) => setTimeout(f, 5);
     expect(await app.QG.pageInfo(['A'])).toEqual({});
     expect(asked).toBe(1);
@@ -311,7 +313,7 @@ test.describe('asking the wiki', () => {
     opts.signal.addEventListener('abort', () => fail(Object.assign(new Error('Cut off'), { name: 'AbortError' })));
   }) });
   // The app, with a clock where the wiki's time is up at once.
-  const hasty = () => { const app = load({ fetch: stalled }); app.window.setTimeout = (f) => setTimeout(f, 5); return app; };
+  const hasty = () => { const app = reader({ fetch: stalled }); app.window.setTimeout = (f) => setTimeout(f, 5); return app; };
 
   test('which names the wiki has: an answer that never ends is cut off', async () => {
     // (it ends with an error, so the lookups after it go on)

@@ -1,0 +1,301 @@
+{
+  "format": 1,
+  "id": "that-old-black-magic-flesh-and-bone",
+  "title": "That Old Black Magic: Flesh and Bone",
+  "page": "That Old Black Magic: Flesh and Bone/Quick guide",
+  "rev": 36526629,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Zommy_%27Brains%27_Walker\" target=\"_blank\" rel=\"noopener\">Zommy &#39;Brains&#39; Walker</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>&#39;s bandstand.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1777,
+      "lon": 1115,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/That_Old_Black_Magic:_Flesh_and_Bone/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "That Old Black Magic: My One and Only Lute",
+        "depth": 1
+      },
+      {
+        "text": "The Blood Pact",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 50,
+        "note": ""
+      },
+      {
+        "skill": "Runecrafting",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [
+      "<a href=\"https://runescape.wiki/w/Rune_Mythos\" target=\"_blank\" rel=\"noopener\">Rune Mythos</a>"
+    ],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1enkvop",
+          "html": "520 <a href=\"https://runescape.wiki/w/Bone_rune\" target=\"_blank\" rel=\"noopener\">bone runes</a>",
+          "text": "520 bone runes",
+          "alternatives": []
+        },
+        {
+          "id": "req:1wk5hsn",
+          "html": "360 <a href=\"https://runescape.wiki/w/Flesh_rune\" target=\"_blank\" rel=\"noopener\">flesh runes</a>",
+          "text": "360 flesh runes",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "delivering-the-keys",
+      "title": "Delivering the keys",
+      "anchor": "Delivering_the_keys",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "delivering-the-keys:bring:1l3x5k1",
+              "html": "360 <a href=\"https://runescape.wiki/w/Flesh_rune\" target=\"_blank\" rel=\"noopener\">flesh</a> and 520 <a href=\"https://runescape.wiki/w/Bone_rune\" target=\"_blank\" rel=\"noopener\">bone runes</a>",
+              "text": "360 flesh and 520 bone runes"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "map",
+          "caption": "Former Master crafter (blue) and Zommy (red)",
+          "lat": 1793,
+          "lon": 1121,
+          "zoom": 2,
+          "plane": 1,
+          "mapId": -1,
+          "version": "2026-10-12-a",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1131,
+                  1811,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "-1",
+                "description": "<a href=\"/w/Former_Master_Crafter\" title=\"Former Master Crafter\">Former Master Crafter</a>",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 1,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_blue.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                  1112,
+                  1776,
+                  1
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "mapID": "-1",
+                "description": "<a href=\"/w/Zommy_%27Brains%27_Walker\" title=\"Zommy &#39;Brains&#39; Walker\">Zommy 'Brains' Walker</a>",
+                "iconAnchor": [
+                  13,
+                  31
+                ],
+                "plane": 1,
+                "iconWikiLink": "https://runescape.wiki/images/Pin_red.svg?98a19",
+                "providerID": 0,
+                "iconSize": [
+                  26,
+                  31
+                ],
+                "popupAnchor": [
+                  0,
+                  -31
+                ]
+              }
+            }
+          ],
+          "href": "https://runescape.wiki/w/That_Old_Black_Magic:_Flesh_and_Bone/Quick_guide"
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:1sjwsuc",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zommy_%27Brains%27_Walker\" target=\"_blank\" rel=\"noopener\">Zommy &#39;Brains&#39; Walker</a> (red pin on map to the right) at the centre of the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>, behind <a href=\"https://runescape.wiki/w/Death#City_of_Um\" target=\"_blank\" rel=\"noopener\">Death</a>, to accept the subquest.",
+          "text": "Talk to Zommy 'Brains' Walker (red pin on map to the right) at the centre of the City of Um, behind Death, to accept the subquest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:md7u1y",
+          "html": "Head north-east to talk to the <a href=\"https://runescape.wiki/w/Former_Master_Crafter\" target=\"_blank\" rel=\"noopener\">Former Master Crafter</a> (blue pin on map to the right).",
+          "text": "Head north-east to talk to the Former Master Crafter (blue pin on map to the right).",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Ask about piano keys."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:1vfnhp7",
+          "html": "Talk to him to give him 520 <a href=\"https://runescape.wiki/w/Bone_rune\" target=\"_blank\" rel=\"noopener\">bone runes</a> and 360 <a href=\"https://runescape.wiki/w/Flesh_rune\" target=\"_blank\" rel=\"noopener\">flesh runes</a>.",
+          "text": "Talk to him to give him 520 bone runes and 360 flesh runes.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:1r2ufg",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Zommy%27s_piano_keys_(white)\" target=\"_blank\" rel=\"noopener\">white</a> and <a href=\"https://runescape.wiki/w/Zommy%27s_piano_keys_(black)\" target=\"_blank\" rel=\"noopener\">black piano keys</a> from the Former Master Crafter and return to Zommy.",
+          "text": "Take the white and black piano keys from the Former Master Crafter and return to Zommy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:hq6cjo",
+          "html": "Give Zommy the piano keys.",
+          "text": "Give Zommy the piano keys.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "delivering-the-keys:1k0rf3j",
+          "html": "Subquest complete!",
+          "text": "Subquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/That_Old_Black_Magic-_Flesh_and_Bone_reward.png?f9eb2",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:That_Old_Black_Magic-_Flesh_and_Bone_reward.png"
+    },
+    "items": [
+      {
+        "html": "12,500 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Flesh_and_Bone)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "12,500 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25 <a href=\"https://runescape.wiki/w/Soul_(Well_of_Souls)\" target=\"_blank\" rel=\"noopener\">vessel souls</a>",
+        "text": "25 vessel souls",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Flesh_and_Bone_(achievement)\" target=\"_blank\" rel=\"noopener\">Flesh and Bone</a> (10) – Complete this miniquest."
+  ],
+  "requiredFor": []
+}

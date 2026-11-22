@@ -1,0 +1,697 @@
+{
+  "format": 1,
+  "id": "recipe-for-disaster-freeing-pirate-pete",
+  "title": "Recipe for Disaster: Freeing Pirate Pete",
+  "page": "Recipe for Disaster: Freeing Pirate Pete/Quick guide",
+  "rev": 37089564,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Inspect <a href=\"https://runescape.wiki/w/Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Pirate Pete</a> in the banquet hall in <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Recipe for Disaster: Another Cook's Quest",
+        "depth": 1
+      },
+      {
+        "text": "Cook's Assistant",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 31,
+        "note": "(boostable) (not required to start)"
+      },
+      {
+        "skill": "Crafting",
+        "level": 42,
+        "note": "(if glassblowing your own fishbowl)"
+      },
+      {
+        "skill": "Fishing",
+        "level": 23,
+        "note": "(if catching your own raw cod)"
+      }
+    ],
+    "otherReqs": [
+      "Can also be obtained as a drop from <a href=\"https://runescape.wiki/w/Mogre\" target=\"_blank\" rel=\"noopener\">mogres</a> (32 <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a> and completion of the <a href=\"https://runescape.wiki/w/Mogre_(lore_activity)\" target=\"_blank\" rel=\"noopener\">Mogre lore activity</a> to kill)"
+    ],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "5 Mudskipper (Level 33/35)",
+        "name": "Mudskipper",
+        "count": 5,
+        "level": "33/35",
+        "note": ""
+      },
+      {
+        "text": "Crab (Level 29/30)",
+        "name": "Crab",
+        "count": null,
+        "level": "29/30",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1kr295n",
+          "html": "<a href=\"https://runescape.wiki/w/Raw_cod\" target=\"_blank\" rel=\"noopener\">Raw cod</a>",
+          "text": "Raw cod",
+          "alternatives": []
+        },
+        {
+          "id": "req:17iq26d",
+          "html": "<a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">Bread</a>",
+          "text": "Bread",
+          "alternatives": []
+        },
+        {
+          "id": "req:ypzjsv",
+          "html": "An empty <a href=\"https://runescape.wiki/w/Fishbowl\" target=\"_blank\" rel=\"noopener\">fishbowl</a>",
+          "text": "An empty fishbowl",
+          "alternatives": []
+        },
+        {
+          "id": "req:1n1bop6",
+          "html": "<a href=\"https://runescape.wiki/w/Needle\" target=\"_blank\" rel=\"noopener\">Needle</a> (Only a normal needle will work. Tool belt will not work.)",
+          "text": "Needle (Only a normal needle will work. Tool belt will not work.)",
+          "alternatives": []
+        },
+        {
+          "id": "req:19tpco",
+          "html": "3 <a href=\"https://runescape.wiki/w/Bronze_wire\" target=\"_blank\" rel=\"noopener\">bronze wires</a>",
+          "text": "3 bronze wires",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "pirate-pete",
+      "title": "Pirate Pete",
+      "anchor": "Pirate_Pete",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "pirate-pete:a5tr8d",
+          "html": "Inspect <a href=\"https://runescape.wiki/w/Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Pirate Pete</a> in the banquet hall in Lumbridge Castle.",
+          "text": "Inspect Pirate Pete in the banquet hall in Lumbridge Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "pirate-pete:hqv2t6",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/Cook_(Lumbridge)\" target=\"_blank\" rel=\"noopener\">Cook</a> in the <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+          "text": "Talk to the Cook in the Lumbridge Castle.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Protecting the Pirate"
+                },
+                {
+                  "key": "1",
+                  "text": "Where do I get Ground Cod?"
+                },
+                {
+                  "key": "2",
+                  "text": "Where do I get Ground Giant Crab Meat?"
+                },
+                {
+                  "key": "3",
+                  "text": "Where do I get Breadcrumbs?"
+                },
+                {
+                  "key": "5",
+                  "text": "Thanks!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "diving",
+      "title": "Diving",
+      "anchor": "Diving",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "diving:bring:1lyzygy",
+              "html": "1 <a href=\"https://runescape.wiki/w/Fishbowl\" target=\"_blank\" rel=\"noopener\">fishbowl</a>",
+              "text": "1 fishbowl"
+            },
+            {
+              "id": "diving:bring:1okv617",
+              "html": "1 <a href=\"https://runescape.wiki/w/Needle\" target=\"_blank\" rel=\"noopener\">needle</a>",
+              "text": "1 needle"
+            },
+            {
+              "id": "diving:bring:2tfse3",
+              "html": "3 <a href=\"https://runescape.wiki/w/Bronze_wire\" target=\"_blank\" rel=\"noopener\">bronze wire</a>",
+              "text": "3 bronze wire"
+            },
+            {
+              "id": "diving:bring:1f3t9sd",
+              "html": "Any weapon unequipped in the backpack",
+              "text": "Any weapon unequipped in the backpack"
+            },
+            {
+              "id": "diving:bring:15ut9ez",
+              "html": "At least 8 backpack space",
+              "text": "At least 8 backpack space"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1vthccg",
+          "html": "Bank any <a href=\"https://runescape.wiki/w/Summoning_pouches\" target=\"_blank\" rel=\"noopener\">Summoning pouches</a> or <a href=\"https://runescape.wiki/w/Pets\" target=\"_blank\" rel=\"noopener\">Pets</a>.",
+          "text": "Bank any Summoning pouches or Pets.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1xypxus",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Murphy\" target=\"_blank\" rel=\"noopener\">Murphy</a> on the docks of <a href=\"https://runescape.wiki/w/Port_Khazard\" target=\"_blank\" rel=\"noopener\">Port Khazard</a>.",
+          "text": "Talk to Murphy on the docks of Port Khazard.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Recipe for Disaster."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:15zl9cn",
+          "html": "With your <a href=\"https://runescape.wiki/w/Fishbowl\" target=\"_blank\" rel=\"noopener\">fishbowl</a>, talk to him again.",
+          "text": "With your fishbowl, talk to him again.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Recipe for Disaster."
+                },
+                {
+                  "key": "2",
+                  "text": "Not just yet."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:9zyem0",
+          "html": "Equip the <a href=\"https://runescape.wiki/w/Fishbowl_helmet\" target=\"_blank\" rel=\"noopener\">fishbowl helmet</a> and <a href=\"https://runescape.wiki/w/Diving_apparatus\" target=\"_blank\" rel=\"noopener\">diving apparatus</a>.",
+          "text": "Equip the fishbowl helmet and diving apparatus.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:qbhu8q",
+          "html": "Whilst weighing under or exactly 27 kg, having your <a href=\"https://runescape.wiki/w/Needle\" target=\"_blank\" rel=\"noopener\">needle</a> and <a href=\"https://runescape.wiki/w/Bronze_wire\" target=\"_blank\" rel=\"noopener\">bronze wire</a>, talk to Murphy again. There is a bank deposit box next to Murphy.",
+          "text": "Whilst weighing under or exactly 27 kg, having your needle and bronze wire, talk to Murphy again. There is a bank deposit box next to Murphy.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Talk about Recipe for Disaster."
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, Let's go diving."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:ki9gxs",
+          "html": "Pick some <a href=\"https://runescape.wiki/w/Kelp_(Mogre_Camp)\" target=\"_blank\" rel=\"noopener\">kelp</a> (your inventory is hidden).",
+          "text": "Pick some kelp (your inventory is hidden).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "diving:ki9gxs:ryvwbi",
+              "html": "It is advisable to obtain multiple in the event you burn the fishcake.",
+              "text": "It is advisable to obtain multiple in the event you burn the fishcake.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "diving:gu88sk",
+          "html": "Swim north and talk to <a href=\"https://runescape.wiki/w/Nung\" target=\"_blank\" rel=\"noopener\">Nung</a>.",
+          "text": "Swim north and talk to Nung.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1vlouu2",
+          "html": "Head west to the <a href=\"https://runescape.wiki/w/Mudskipper\" target=\"_blank\" rel=\"noopener\">Mudskipper</a> cave and pick up five <a href=\"https://runescape.wiki/w/Rock_(Mogre_camp)\" target=\"_blank\" rel=\"noopener\">rocks</a>.",
+          "text": "Head west to the Mudskipper cave and pick up five rocks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:11r014z",
+          "html": "Enter the cave and equip your weapon.",
+          "text": "Enter the cave and equip your weapon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1nlr549",
+          "html": "Kill mudskippers for 5 <a href=\"https://runescape.wiki/w/Mudskipper_hide\" target=\"_blank\" rel=\"noopener\">hides</a>.",
+          "text": "Kill mudskippers for 5 hides.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1s9dwru",
+          "html": "Return to Nung with the five hides, your needle, and three bronze wire.",
+          "text": "Return to Nung with the five hides, your needle, and three bronze wire.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:12cjv4c",
+          "html": "Talk to Nung again.",
+          "text": "Talk to Nung again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:1joq8w3",
+          "html": "Enter the crab pen and equip your weapon.",
+          "text": "Enter the crab pen and equip your weapon.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "diving:jwksu3",
+          "html": "Kill some crabs and take their meat.",
+          "text": "Kill some crabs and take their meat.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "diving:jwksu3:18bli21",
+              "html": "It is advised to obtain multiple in the event you burn the fishcake.",
+              "text": "It is advised to obtain multiple in the event you burn the fishcake.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "diving:5lerig",
+          "html": "While in the pen teleport out to Lumbridge.",
+          "text": "While in the pen teleport out to Lumbridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "diving:5lerig:lzhlz7",
+              "html": "Alternatively, leave the crab pen and climb up the anchor chain to the south.",
+              "text": "Alternatively, leave the crab pen and climb up the anchor chain to the south.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "freeing-pirate-pete",
+      "title": "Freeing Pirate Pete",
+      "anchor": "Freeing_Pirate_Pete",
+      "blocks": [
+        {
+          "type": "bring",
+          "needed": [
+            {
+              "id": "freeing-pirate-pete:bring:kw3gcp",
+              "html": "<a href=\"https://runescape.wiki/w/Kelp_(Mogre_Camp)\" target=\"_blank\" rel=\"noopener\">Kelp</a>",
+              "text": "Kelp"
+            },
+            {
+              "id": "freeing-pirate-pete:bring:1p72xym",
+              "html": "<a href=\"https://runescape.wiki/w/Crab_meat\" target=\"_blank\" rel=\"noopener\">Crab meat</a>",
+              "text": "Crab meat"
+            },
+            {
+              "id": "freeing-pirate-pete:bring:1kr295n",
+              "html": "<a href=\"https://runescape.wiki/w/Raw_cod\" target=\"_blank\" rel=\"noopener\">Raw cod</a>",
+              "text": "Raw cod"
+            },
+            {
+              "id": "freeing-pirate-pete:bring:17iq26d",
+              "html": "<a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">Bread</a>",
+              "text": "Bread"
+            }
+          ],
+          "recommended": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:vx4ktj",
+          "html": "Return to the kitchen in Lumbridge Castle.",
+          "text": "Return to the kitchen in Lumbridge Castle.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:1cztgfb",
+          "html": "Prepare the ingredients:",
+          "text": "Prepare the ingredients:",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:1cztgfb:jafbck",
+              "html": "<i>Grind</i> the <a href=\"https://runescape.wiki/w/Kelp_(Mogre_Camp)\" target=\"_blank\" rel=\"noopener\">kelp</a>.",
+              "text": "Grind the kelp.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:1cztgfb:1sdy5q9",
+              "html": "Choose the <i>Grind</i> option on the <a href=\"https://runescape.wiki/w/Crab_meat\" target=\"_blank\" rel=\"noopener\">crab meat</a>.",
+              "text": "Choose the Grind option on the crab meat.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:1cztgfb:1n7azea",
+              "html": "Choose the <i>Grind</i> option on the <a href=\"https://runescape.wiki/w/Raw_cod\" target=\"_blank\" rel=\"noopener\">raw cod</a>.",
+              "text": "Choose the Grind option on the raw cod.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:1cztgfb:njscy4",
+              "html": "Choose the <i>Slice</i> option on the <a href=\"https://runescape.wiki/w/Bread\" target=\"_blank\" rel=\"noopener\">bread</a>.",
+              "text": "Choose the Slice option on the bread.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            },
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:1cztgfb:15zzbb3",
+              "html": "If at any point while preparing the ingredients, the message &quot;Nothing interesting happens&quot; appears, talk to the Cook.",
+              "text": "If at any point while preparing the ingredients, the message \"Nothing interesting happens\" appears, talk to the Cook.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:1wh9s2d",
+          "html": "Talk to the Cook.",
+          "text": "Talk to the Cook.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Protecting the Pirate"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:1jr1nfn",
+          "html": "<i>Use</i> the ingredients on each other.",
+          "text": "Use the ingredients on each other.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:zl79jw",
+          "html": "Cook the <a href=\"https://runescape.wiki/w/Raw_fishcake\" target=\"_blank\" rel=\"noopener\">Raw fishcake</a>.",
+          "text": "Cook the Raw fishcake.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:18xjqg6",
+          "html": "<i>Use</i> fishcake on Pirate Pete.",
+          "text": "Use fishcake on Pirate Pete.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "freeing-pirate-pete:18xjqg6:sw3y6i",
+              "html": "If the fishcake is eaten, you need to re-obtain all of the ingredients.",
+              "text": "If the fishcake is eaten, you need to re-obtain all of the ingredients.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "freeing-pirate-pete:1k0rf3j",
+          "html": "Subquest complete!",
+          "text": "Subquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Recipe_for_Disaster_%28Freeing_Pirate_Pete%29_reward.png?d1738",
+      "width": 512,
+      "height": 447,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Recipe_for_Disaster_(Freeing_Pirate_Pete)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "1,000 experience",
+        "text": "1,000 experience",
+        "subs": []
+      },
+      {
+        "html": "The ability to go diving and fight crabs (you need your <a href=\"https://runescape.wiki/w/Diving_apparatus\" target=\"_blank\" rel=\"noopener\">diving apparatus</a>) at <a href=\"https://runescape.wiki/w/Mogre_Camp\" target=\"_blank\" rel=\"noopener\">Mogre Camp</a>",
+        "text": "The ability to go diving and fight crabs (you need your diving apparatus) at Mogre Camp",
+        "subs": []
+      },
+      {
+        "html": "The ability to cook crab meat (heals 100 <a href=\"https://runescape.wiki/w/Life_points\" target=\"_blank\" rel=\"noopener\">life points</a> in five bites)",
+        "text": "The ability to cook crab meat (heals 100 life points in five bites)",
+        "subs": []
+      },
+      {
+        "html": "Ability to dive underwater and trade <a href=\"https://runescape.wiki/w/Crunchy_claw_token\" target=\"_blank\" rel=\"noopener\">crunchy claw tokens</a> for <a href=\"https://runescape.wiki/w/Giant_crab\" target=\"_blank\" rel=\"noopener\">giant crab</a> pets",
+        "text": "Ability to dive underwater and trade crunchy claw tokens for giant crab pets",
+        "subs": []
+      },
+      {
+        "html": "(Further) access to the <a href=\"https://runescape.wiki/w/Culinaromancer%27s_chest\" target=\"_blank\" rel=\"noopener\">Culinaromancer&#39;s chest</a>",
+        "text": "(Further) access to the Culinaromancer's chest",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>",
+        "<a href=\"https://runescape.wiki/w/The_Great_Brain_Robbery/Quick_guide\" target=\"_blank\" rel=\"noopener\">The Great Brain Robbery</a>"
+      ]
+    },
+    {
+      "label": "Indirectly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/A_Clockwork_Syringe/Quick_guide\" target=\"_blank\" rel=\"noopener\">A Clockwork Syringe</a>",
+        "<a href=\"https://runescape.wiki/w/Pieces_of_Hate/Quick_guide\" target=\"_blank\" rel=\"noopener\">Pieces of Hate</a>",
+        "<a href=\"https://runescape.wiki/w/Rocking_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Rocking Out</a>"
+      ]
+    },
+    {
+      "label": "Indirectly, for the story",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Aftermath/Quick_guide\" target=\"_blank\" rel=\"noopener\">Aftermath</a>",
+        "<a href=\"https://runescape.wiki/w/Azzanadra%27s_Quest/Quick_guide\" target=\"_blank\" rel=\"noopener\">Azzanadra&#39;s Quest</a>",
+        "<a href=\"https://runescape.wiki/w/Battle_of_the_Monolith/Quick_guide\" target=\"_blank\" rel=\"noopener\">Battle of the Monolith</a>",
+        "<a href=\"https://runescape.wiki/w/City_of_Senntisten/Quick_guide\" target=\"_blank\" rel=\"noopener\">City of Senntisten</a>",
+        "<a href=\"https://runescape.wiki/w/Curse_of_the_Black_Stone/Quick_guide\" target=\"_blank\" rel=\"noopener\">Curse of the Black Stone</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Desperate_Creatures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Creatures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Measures/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Measures</a>",
+        "<a href=\"https://runescape.wiki/w/Desperate_Times/Quick_guide\" target=\"_blank\" rel=\"noopener\">Desperate Times</a> (full comprehension)",
+        "<a href=\"https://runescape.wiki/w/Extinction/Quick_guide\" target=\"_blank\" rel=\"noopener\">Extinction</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_I/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het I</a>",
+        "<a href=\"https://runescape.wiki/w/Eye_of_Het_II/Quick_guide\" target=\"_blank\" rel=\"noopener\">Eye of Het II</a>",
+        "<a href=\"https://runescape.wiki/w/Sins_of_the_Father/Quick_guide\" target=\"_blank\" rel=\"noopener\">Sins of the Father</a>",
+        "<a href=\"https://runescape.wiki/w/Twilight_of_the_Gods/Quick_guide\" target=\"_blank\" rel=\"noopener\">Twilight of the Gods</a>"
+      ]
+    }
+  ]
+}

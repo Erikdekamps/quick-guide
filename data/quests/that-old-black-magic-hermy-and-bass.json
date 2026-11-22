@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "id": "that-old-black-magic-hermy-and-bass",
+  "title": "That Old Black Magic: Hermy and Bass",
+  "page": "That Old Black Magic: Hermy and Bass/Quick guide",
+  "rev": 36828659,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>&#39;s bandstand about her drummer.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1773,
+      "lon": 1111,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide"
+    },
+    "members": true,
+    "length": "Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "That Old Black Magic: My One and Only Lute",
+        "depth": 1
+      },
+      {
+        "text": "The Blood Pact",
+        "depth": 2
+      },
+      {
+        "text": "The Spirit of War",
+        "depth": 1
+      },
+      {
+        "text": "Vessel of the Harbinger",
+        "depth": 2
+      },
+      {
+        "text": "Rune Mythos",
+        "depth": 3
+      },
+      {
+        "text": "Necromancy!",
+        "depth": 4
+      },
+      {
+        "text": "Ghosts Ahoy",
+        "depth": 3
+      },
+      {
+        "text": "The Restless Ghost",
+        "depth": 4
+      },
+      {
+        "text": "Ability to enter Morytania",
+        "depth": 4
+      },
+      {
+        "text": "3,000 City of Um vessel souls",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 65,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Multiple kills of Hermod, the Spirit of War (level 732)",
+        "name": "Multiple kills of Hermod, the Spirit of War",
+        "count": null,
+        "level": "732",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:17cdoc8",
+          "html": "<a href=\"https://runescape.wiki/w/Animated_drumsticks\" target=\"_blank\" rel=\"noopener\">Animated drumsticks</a> (may obtain during the quest)",
+          "text": "Animated drumsticks (may obtain during the quest)",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:onjs29",
+          "html": "<a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> weapon and armour",
+          "text": "Necromancy weapon and armour",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-drummer",
+      "title": "The drummer",
+      "anchor": "The_drummer",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-drummer:15ovxxh",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a> about the drummer.",
+          "text": "Talk to Lady Grey about the drummer.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Drummer."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:si23zt",
+          "html": "Kill <a href=\"https://runescape.wiki/w/Hermod,_the_Spirit_of_War\" target=\"_blank\" rel=\"noopener\">Hermod, the Spirit of War</a> until you receive <a href=\"https://runescape.wiki/w/Animated_drumsticks\" target=\"_blank\" rel=\"noopener\">animated drumsticks</a>.",
+          "text": "Kill Hermod, the Spirit of War until you receive animated drumsticks.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-drummer:si23zt:1hnqe4a",
+              "html": "Requires 65 <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> and completion of <a href=\"https://runescape.wiki/w/The_Spirit_of_War\" target=\"_blank\" rel=\"noopener\">The Spirit of War</a>.",
+              "text": "Requires 65 Necromancy and completion of The Spirit of War.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:15u095v",
+          "html": "Return to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a>.",
+          "text": "Return to Lady Grey.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "?",
+                  "text": "Drummer."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:mpfrjg",
+          "html": "Talk to the <a href=\"https://runescape.wiki/w/The_Spirit_of_Rhythm\" target=\"_blank\" rel=\"noopener\">The Spirit of Rhythm</a>.",
+          "text": "Talk to the The Spirit of Rhythm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:1qj0ids",
+          "html": "Unequip items from both hand slots and talk to <a href=\"https://runescape.wiki/w/Ed\" target=\"_blank\" rel=\"noopener\">Ed</a>.",
+          "text": "Unequip items from both hand slots and talk to Ed.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Take a boat out onto the lake."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "the-drummer:1qj0ids:palat4",
+              "html": "He&#39;s in the boat rental shop east of the northernmost docks.",
+              "text": "He's in the boat rental shop east of the northernmost docks.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:1fyrtmb",
+          "html": "<i>Manifest</i> the animated drumsticks and a splash will appear at the location of a lost drum. Refer to the location maps below.",
+          "text": "Manifest the animated drumsticks and a splash will appear at the location of a lost drum. Refer to the location maps below.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:1afzaxg",
+          "html": "Continue to <i>manifest</i> the animated drumsticks until you have found all four drums.",
+          "text": "Continue to manifest the animated drumsticks until you have found all four drums.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-drummer:144k4oc",
+          "html": "Return to the bandstand and talk to the <a href=\"https://runescape.wiki/w/The_Spirit_of_Rhythm\" target=\"_blank\" rel=\"noopener\">The Spirit of Rhythm</a>.",
+          "text": "Return to the bandstand and talk to the The Spirit of Rhythm.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "First drum location"
+        },
+        {
+          "type": "text",
+          "html": "Second drum location"
+        },
+        {
+          "type": "text",
+          "html": "Third drum location"
+        },
+        {
+          "type": "text",
+          "html": "Fourth drum location"
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/That_Old_Black_Magic-_Hermy_and_Bass_reward.png?058ec",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:That_Old_Black_Magic-_Hermy_and_Bass_reward.png"
+    },
+    "items": [
+      {
+        "html": "20,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(Hermy_and_Bass)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "20,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "25 <a href=\"https://runescape.wiki/w/Soul_(Well_of_Souls)\" target=\"_blank\" rel=\"noopener\">vessel souls</a>",
+        "text": "25 vessel souls",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Hermy_and_Bass_(achievement)\" target=\"_blank\" rel=\"noopener\">Hermy and Bass</a> (10) – Complete this miniquest."
+  ],
+  "requiredFor": []
+}

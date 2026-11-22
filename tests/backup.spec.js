@@ -472,7 +472,7 @@ test.describe('danger zone', () => {
     await expect(page.locator('#toast')).toHaveText('Everything is deleted.');
     // the app starts again: the quest list is read again from the wiki, and nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');
-    expect(await all(page)).toEqual(['list']);
+    expect(await all(page)).toEqual(['list', 'minis']);
     await expect(page.locator('html')).toHaveCSS('font-size', '14px');
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'brown');
     await expect(page.locator('.bn[data-home="quests"]')).toHaveAttribute('aria-current', 'page');
@@ -491,7 +491,7 @@ test.describe('danger zone', () => {
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');
     // the quest list is read again from the wiki: wait for it, then nothing else is saved
     await expect(page.locator('#qcount')).toHaveText('11 quests');
-    await expect.poll(() => all(page)).toEqual(['list']);
+    await expect.poll(() => all(page)).toEqual(['list', 'minis']);
     // a reload does not open the old quest
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Quick Guide');

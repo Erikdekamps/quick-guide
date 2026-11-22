@@ -22,6 +22,8 @@ const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const FILES = [...html.matchAll(/<script src="(js\/[^"?]+)/g)].map((m) => m[1]).filter((f) => f !== 'js/app/main.js');
 const VERSION = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 const SOURCES = FILES.map((f) => [f, fs.readFileSync(path.join(ROOT, f), 'utf8')]);
+// The wiki reader: the files the data build uses (the app itself does not load them).
+const READER_SOURCES = require('../../tools/data/collect').READER.map((f) => [f, fs.readFileSync(path.join(ROOT, f), 'utf8')]);
 
 // Anything that needs a real page: using it throws.
 const NO_PAGE = new Proxy({}, {
@@ -69,7 +71,8 @@ function load(opts = {}) {
   };
   window.window = window;
   const ctx = vm.createContext(window);
-  for (const [f, src] of SOURCES) {
+  // opts.reader: the wiki reader, not the app.
+  for (const [f, src] of opts.reader ? READER_SOURCES : SOURCES) {
     // core.js reads the version from the ?v= it is loaded with, like in the browser
     document.currentScript = f === 'js/app/core.js' ? { src: ORIGIN + '/' + f + '?v=' + VERSION } : null;
     vm.runInContext(src, ctx, { filename: path.join(ROOT, f) });

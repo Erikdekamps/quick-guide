@@ -145,6 +145,8 @@
     if (c === 'missingtitle') return 'The wiki has no page for this quest yet.';
     if (c === 'invalidtitle') return 'That is not a valid wiki page name.';
     if (c === 'timeout') return 'The wiki took too long to answer. Try again.';
+    if (c === 'slow') return e.message + ' Try again.';
+    if (c === 'offline') return e.message + ' Check your internet, then try again.';
     if (c === 'http' || c === 'format') return (e.message || 'The wiki had a problem.') + ' Try again in a moment.';
     if (e instanceof TypeError) return 'Could not reach the wiki. Check your internet, then try again.';
     return (e && e.message) || 'Something went wrong. Try again.';
@@ -206,7 +208,7 @@
   }
   function reloadQuest(key, q) {
     var t = q.notQuickGuide ? { title: q.page, base: q.page } : { title: q.page, base: q.title };
-    return QG.load(t).then(function (nq) {
+    return QG.load(t, true).then(function (nq) {
       // The page has another name now: your ticks go with it (unless the new name has ticks already), and what was
       // kept under the old name goes away, so the quest is not there twice.
       if (nq.page !== key) {

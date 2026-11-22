@@ -1,0 +1,711 @@
+{
+  "format": 1,
+  "id": "dimension-of-disaster-defender-of-varrock",
+  "title": "Dimension of Disaster: Defender of Varrock",
+  "page": "Dimension of Disaster: Defender of Varrock/Quick guide",
+  "rev": 36914986,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a> in the <a href=\"https://runescape.wiki/w/Varrock_Palace\" target=\"_blank\" rel=\"noopener\">New Varrock Palace</a> library.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9121,
+      "lon": 3713,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Dimension_of_Disaster:_Defender_of_Varrock/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Dimension of Disaster: Coin of the Realm",
+        "depth": 1
+      },
+      {
+        "text": "Defender of Varrock",
+        "depth": 1
+      },
+      {
+        "text": "Shield of Arrav",
+        "depth": 2
+      },
+      {
+        "text": "The Knight's Sword",
+        "depth": 2
+      },
+      {
+        "text": "Family Crest",
+        "depth": 2
+      },
+      {
+        "text": "What Lies Below",
+        "depth": 2
+      },
+      {
+        "text": "Claim Kudos from Historian Minas in Varrock Museum for completing Shield of Arrav",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Magic",
+        "level": 43,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "2 Armoured zombies (level 42)",
+        "name": "Armoured zombies",
+        "count": 2,
+        "level": "42",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Wilderness</span> <span class=\"reg\">Asgarnia</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:wosb9i",
+          "html": "<a href=\"https://runescape.wiki/w/Vial\" target=\"_blank\" rel=\"noopener\">Vial</a> (not necessary if you already have a vial of red mist)",
+          "text": "Vial (not necessary if you already have a vial of red mist)",
+          "alternatives": []
+        },
+        {
+          "id": "req:18nir7k",
+          "html": "500 <a href=\"https://runescape.wiki/w/Zemomark\" target=\"_blank\" rel=\"noopener\">zemomarks</a> for:",
+          "text": "500 zemomarks for:",
+          "alternatives": [
+            "If unlocked, the New Varrock Zombie cosmetic override works in place of wearing the items (unlocked with silver pennies from Aris&#39; reward shop from finishing the quest series).",
+            "<a href=\"https://runescape.wiki/w/Zombie_mask_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie mask</a>",
+            "<a href=\"https://runescape.wiki/w/Zombie_shirt_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie shirt</a>",
+            "<a href=\"https://runescape.wiki/w/Zombie_trousers_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie trousers</a>",
+            "<a href=\"https://runescape.wiki/w/Zombie_gloves_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie gloves</a>",
+            "<a href=\"https://runescape.wiki/w/Zombie_boots_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie boots</a>"
+          ]
+        },
+        {
+          "id": "req:1jwz9ml",
+          "html": "To get the code (not necessary on replays as it will show when unlocking the door):",
+          "text": "To get the code (not necessary on replays as it will show when unlocking the door):",
+          "alternatives": [
+            "3 <a href=\"https://runescape.wiki/w/Tin_ore\" target=\"_blank\" rel=\"noopener\">tin ores</a>",
+            "4 <a href=\"https://runescape.wiki/w/Fire_rune\" target=\"_blank\" rel=\"noopener\">fire runes</a> (or a <a href=\"https://runescape.wiki/w/Fire_staff\" target=\"_blank\" rel=\"noopener\">fire staff</a>)",
+            "1 <a href=\"https://runescape.wiki/w/Nature_rune\" target=\"_blank\" rel=\"noopener\">nature rune</a>"
+          ]
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "zombie-disguise",
+      "title": "Zombie disguise",
+      "anchor": "Zombie_disguise",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "zombie-disguise:9v9js4",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a> in the Castle library of New Varrock.",
+          "text": "Speak to Reldo in the Castle library of New Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "5",
+                  "text": "Arrav?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:1h164pu",
+          "html": "In the courtyard just east of you, talk to Arrav.",
+          "text": "In the courtyard just east of you, talk to Arrav.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Would you be willing to bring down Zemouregal?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:1yhkjo8",
+          "html": "Tell Reldo what you learned from Arrav.",
+          "text": "Tell Reldo what you learned from Arrav.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:11z5bxm",
+          "html": "Search the northern-most bookshelf along the western wall for <a href=\"https://runescape.wiki/w/Heart_magic_notes_(Dimension_of_Disaster)\" target=\"_blank\" rel=\"noopener\">Heart magic notes</a>.",
+          "text": "Search the northern-most bookshelf along the western wall for Heart magic notes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:76c6ec",
+          "html": "Talk to Reldo again.",
+          "text": "Talk to Reldo again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:1hj1ton",
+          "html": "If not wearing the zombie override version, equip the full <a href=\"https://runescape.wiki/w/Zombie_outfit_(New_Varrock)\" target=\"_blank\" rel=\"noopener\">Zombie outfit</a> (mask, shirt, trousers, gloves, and boots). This can be purchased from Thessalia&#39;s Fine Clothes. See <a href=\"https://runescape.wiki/w/Zemomark\" target=\"_blank\" rel=\"noopener\">Zemomark</a> for ways to earn more currency.",
+          "text": "If not wearing the zombie override version, equip the full Zombie outfit (mask, shirt, trousers, gloves, and boots). This can be purchased from Thessalia's Fine Clothes. See Zemomark for ways to earn more currency.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zombie-disguise:1hj1ton:1k95wng",
+              "html": "<b>Replay:</b> Full <a href=\"https://runescape.wiki/w/New_Varrock_Zombie\" target=\"_blank\" rel=\"noopener\">New Varrock Zombie</a> outfit cosmetic override can be purchased from Aris&#39; Reward shop with silver pennies (you must talk to Aris in the real Varrock. You must exit New Varrock to access her reward shop in Varrock Square in the southwest corner).",
+              "text": "Replay: Full New Varrock Zombie outfit cosmetic override can be purchased from Aris' Reward shop with silver pennies (you must talk to Aris in the real Varrock. You must exit New Varrock to access her reward shop in Varrock Square in the southwest corner).",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:18deb79",
+          "html": "Return to the New Varrock Castle. Enter the kitchen which is located on the ground floor (UK) / 1<sup>st</sup> floor (US) on the east side of the castle. You must enter the kitchen via the west door as a barrier prevents you from entering via the south door. Take 2 vials from the table.",
+          "text": "Return to the New Varrock Castle. Enter the kitchen which is located on the ground floor (UK) / 1st floor (US) on the east side of the castle. You must enter the kitchen via the west door as a barrier prevents you from entering via the south door. Take 2 vials from the table.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zombie-disguise:18deb79:1bd5nah",
+              "html": "<b>Replay:</b> If you have saved red mist from a previous run, just head <a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Defender_of_Varrock/Quick_guide#Black_prism\" target=\"_blank\" rel=\"noopener\">upstairs</a>.",
+              "text": "Replay: If you have saved red mist from a previous run, just head upstairs.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "zombie-disguise:3ih6m3",
+          "html": "Head upstairs via the south-east staircase of the castle and kill 2 <a href=\"https://runescape.wiki/w/Armoured_zombie\" target=\"_blank\" rel=\"noopener\">armoured zombies</a> - collecting the red mist that they emit upon dying by clicking on it with a vial in your inventory.",
+          "text": "Head upstairs via the south-east staircase of the castle and kill 2 armoured zombies - collecting the red mist that they emit upon dying by clicking on it with a vial in your inventory.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "zombie-disguise:3ih6m3:owsaxq",
+              "html": "<b>Replay:</b> If you have saved red mist, skip.",
+              "text": "Replay: If you have saved red mist, skip.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tin-soldier",
+      "title": "Tin soldier",
+      "anchor": "Tin_soldier",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "tin-soldier:c1rtt1",
+          "html": "<b>Replay:</b> Skip this step.",
+          "text": "Replay: Skip this step.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:af1c8s",
+          "html": "Go north and listen to Zemouregal over balcony.",
+          "text": "Go north and listen to Zemouregal over balcony.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:1fqyjji",
+          "html": "On this same floor, enter the red barrier in the hallway to the centre balcony.",
+          "text": "On this same floor, enter the red barrier in the hallway to the centre balcony.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:1j6miug",
+          "html": "Head west, passing through 2 additional red barriers. You will be in a room with several coffins, a large wood table, and a tin soldier strapped to the table.",
+          "text": "Head west, passing through 2 additional red barriers. You will be in a room with several coffins, a large wood table, and a tin soldier strapped to the table.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:u4q86z",
+          "html": "<i>Inspect</i> the tin soldier on the operating table in the south-western room.",
+          "text": "Inspect the tin soldier on the operating table in the south-western room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:xfdwmt",
+          "html": "Exit the castle by returning the way in which you entered.",
+          "text": "Exit the castle by returning the way in which you entered.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:4b5k3l",
+          "html": "Talk to the Trial Announcer at the east Varrock bank to get tin soldier head.",
+          "text": "Talk to the Trial Announcer at the east Varrock bank to get tin soldier head.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "3",
+                  "text": "Can I have a tin soldier head?"
+                },
+                {
+                  "key": "1",
+                  "text": "I'd like to get ahead of competition."
+                },
+                {
+                  "key": "3",
+                  "text": "I have to go."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:slhoba",
+          "html": "Get three tin ores, four fire runes, and a nature rune. These can be purchased from Sani&#39;s ore shop south of the west bank and Aubury&#39;s rune shop south of the east bank.",
+          "text": "Get three tin ores, four fire runes, and a nature rune. These can be purchased from Sani's ore shop south of the west bank and Aubury's rune shop south of the east bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "tin-soldier:11f0p5q",
+          "html": "Return to the tin soldier. Inspect him three times to activate him fully.,,",
+          "text": "Return to the tin soldier. Inspect him three times to activate him fully.,,",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Go-go, roboto!"
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "tin-soldier:11f0p5q:sd9fro",
+              "html": "Inspect the tin soldier one last time or just use a vial of red mist on the tin soldier if it has not automatically been applied.",
+              "text": "Inspect the tin soldier one last time or just use a vial of red mist on the tin soldier if it has not automatically been applied.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "getting-the-code",
+      "title": "Getting the code",
+      "anchor": "Getting_the_code",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-the-code:1luzxgn",
+          "html": "<b>Replay:</b> Skip this step if you have the decoder strips.",
+          "text": "Replay: Skip this step if you have the decoder strips.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-the-code:1luzxgn:15eoa7a",
+              "html": "If you don&#39;t have the decoder strips, go to the armoured zombie room on the east side of the 1<sup>st</sup> floor (UK) / 2<sup>nd</sup> floor (US) of the castle, take the strips from the crate, then go to the next section.",
+              "text": "If you don't have the decoder strips, go to the armoured zombie room on the east side of the 1st floor (UK) / 2nd floor (US) of the castle, take the strips from the crate, then go to the next section.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:qujsg1",
+          "html": "Return to the far eastern room.",
+          "text": "Return to the far eastern room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:8l7cxt",
+          "html": "Search the crate in the armoured zombie room for some decoder strips.",
+          "text": "Search the crate in the armoured zombie room for some decoder strips.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:v6nzlb",
+          "html": "Kill another armoured zombie if you need to refill empty vial with red mist.",
+          "text": "Kill another armoured zombie if you need to refill empty vial with red mist.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:1vyz27a",
+          "html": "Enter the red barrier to the far north-western room.",
+          "text": "Enter the red barrier to the far north-western room.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:98jd6l",
+          "html": "<i>Scry</i> the scrying pool in the north-eastern corner. Select (need to re-click on the scrying pool after each one) to unlock the medium <a href=\"https://runescape.wiki/w/New_Varrock_achievements\" target=\"_blank\" rel=\"noopener\">New Varrock achievement</a> <a href=\"https://runescape.wiki/w/Scrying_Game\" target=\"_blank\" rel=\"noopener\">Scrying Game</a> and then to continue the quest.",
+          "text": "Scry the scrying pool in the north-eastern corner. Select (need to re-click on the scrying pool after each one) to unlock the medium New Varrock achievement Scrying Game and then to continue the quest.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "New Varrock square"
+                },
+                {
+                  "key": "2",
+                  "text": "Demon camp"
+                },
+                {
+                  "key": "3",
+                  "text": "Graveyard"
+                },
+                {
+                  "key": "4",
+                  "text": "Saradominist church"
+                },
+                {
+                  "key": "5",
+                  "text": "Throne room balcony"
+                },
+                {
+                  "key": "6",
+                  "text": "Garden of Hostility"
+                }
+              ]
+            },
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "7",
+                  "text": "Control the tin soldier"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-the-code:z1e0wx",
+          "html": "As the tin soldier, enter the room north and <i>search</i> Zemouregal&#39;s lab desk for the code.",
+          "text": "As the tin soldier, enter the room north and search Zemouregal's lab desk for the code.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "black-prism",
+      "title": "Black prism",
+      "anchor": "Black_prism",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "black-prism:5uw7z",
+          "html": "<i>Unlock</i> the treasure room safe (north-west corner of the north-west room) using the code you were given in the chatbox. Drag the red sliders over the numbers.",
+          "text": "Unlock the treasure room safe (north-west corner of the north-west room) using the code you were given in the chatbox. Drag the red sliders over the numbers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "black-prism:1wkjumj",
+          "html": "<i>Enter</i> the treasure room safe.",
+          "text": "Enter the treasure room safe.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "black-prism:1squxn8",
+          "html": "<i>Smash</i> the black prism.",
+          "text": "Smash the black prism.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:7w5576",
+          "html": "Talk to Arrav twice.",
+          "text": "Talk to Arrav twice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:1d1qf8z",
+          "html": "Pick up the watering can for the next sub-quest.",
+          "text": "Pick up the watering can for the next sub-quest.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "finishing-up:1d1qf8z:1oxgpmg",
+              "html": "<b>Replay:</b> Not needed if you saved purple mist.",
+              "text": "Replay: Not needed if you saved purple mist.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "final-sub-quest",
+      "title": "Final sub-quest",
+      "anchor": "Final_sub-quest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "final-sub-quest:ju9nie",
+          "html": "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav/Quick guide</a>",
+          "text": "Dimension of Disaster: Curse of Arrav/Quick guide",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Defender_of_Varrock_%28Dimension_of_Disaster%29_reward.png?d5490",
+      "width": 512,
+      "height": 342,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Defender_of_Varrock_(Dimension_of_Disaster)_reward.png"
+    },
+    "items": [
+      {
+        "html": "2 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest points</a>",
+        "text": "2 quest points",
+        "subs": []
+      },
+      {
+        "html": "15,000 experience <a href=\"https://runescape.wiki/w/Combat_XP_lamp_(Dimension_of_Disaster:_Defender_of_Varrock)\" target=\"_blank\" rel=\"noopener\">Combat XP lamp</a> in one of the following skills: <a href=\"https://runescape.wiki/w/Attack\" target=\"_blank\" rel=\"noopener\">Attack</a>, <a href=\"https://runescape.wiki/w/Strength\" target=\"_blank\" rel=\"noopener\">Strength</a>, <a href=\"https://runescape.wiki/w/Defence\" target=\"_blank\" rel=\"noopener\">Defence</a>, <a href=\"https://runescape.wiki/w/Constitution\" target=\"_blank\" rel=\"noopener\">Constitution</a>, <a href=\"https://runescape.wiki/w/Ranged\" target=\"_blank\" rel=\"noopener\">Ranged</a>, <a href=\"https://runescape.wiki/w/Magic\" target=\"_blank\" rel=\"noopener\">Magic</a> or <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a>",
+        "text": "15,000 experience Combat XP lamp in one of the following skills: Attack, Strength, Defence, Constitution, Ranged, Magic or Necromancy",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience <a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Dimension_of_Disaster:_Defender_of_Varrock)\" target=\"_blank\" rel=\"noopener\">Thieving XP lamp</a>",
+        "text": "10,000 experience Thieving XP lamp",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience <a href=\"https://runescape.wiki/w/Magic_XP_lamp_(Dimension_of_Disaster:_Defender_of_Varrock)\" target=\"_blank\" rel=\"noopener\">Magic XP lamp</a>",
+        "text": "10,000 experience Magic XP lamp",
+        "subs": []
+      },
+      {
+        "html": "10,000 experience <a href=\"https://runescape.wiki/w/Defence_XP_lamp_(Dimension_of_Disaster:_Defender_of_Varrock)\" target=\"_blank\" rel=\"noopener\">Defence XP lamp</a>",
+        "text": "10,000 experience Defence XP lamp",
+        "subs": []
+      },
+      {
+        "html": "2,000 experience <a href=\"https://runescape.wiki/w/Construction_XP_lamp_(Dimension_of_Disaster:_Defender_of_Varrock)\" target=\"_blank\" rel=\"noopener\">Construction XP lamp</a>",
+        "text": "2,000 experience Construction XP lamp",
+        "subs": []
+      },
+      {
+        "html": "<b>Always:</b> 600 <a href=\"https://runescape.wiki/w/Zemomark\" target=\"_blank\" rel=\"noopener\">zemomarks</a>",
+        "text": "Always: 600 zemomarks",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>"
+      ]
+    }
+  ]
+}

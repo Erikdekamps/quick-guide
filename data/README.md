@@ -19,6 +19,8 @@ How to read them:
 - `rev` is the wiki's revision of the page a file was read from.
 - `hash`, in the index, is a short mark of a file's text. It changes when the file does: the app sees by it what changed.
 - `added` is the day a build first saw a quest, a task or an achievement. The first build marked nothing.
+- A quest with `extra` in the index is no quest of the wiki's lists: it is a part of a bigger quest (of Recipe for
+  Disaster, say) that has a Quick guide of its own. The app opens it from a link, and does not list it.
 - `updated`, in the index, is the day the data last changed.
 - An `id` of a step, an item, a task or an achievement is the one the app saves your ticks by.
 - Tasks, steps and achievements are lists, in the wiki's order. (JSON does not keep the order of keys that are numbers.)

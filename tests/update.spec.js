@@ -55,15 +55,11 @@ test.describe('Update from the wiki', () => {
     await page.locator('.q[data-area="Desert"]').first().click();
     await page.locator('#next-btn').click();
     const ticks = await stored(page, 'cprog.mqc'), aticks = await stored(page, 'aprog.Desert');
-    const before = wiki.asked().length, details = wiki.detailCalls.length;
+    const before = wiki.dataCalls.length;
     newCheevo(wiki);
     await update(page, 'Updated: 1 new achievement.');
-    // asked when they changed: the guide, the area, the cape and its 23 achievements, in one request
-    expect(wiki.infoCalls[0]).toHaveLength(26);
-    expect(wiki.infoCalls).toHaveLength(1);
-    // read again: the cape (and its levels page); not the area, not the guide; of its achievements, only the new one
-    expect(wiki.asked().slice(before).sort()).toEqual(['List of quests', MQC, 'Master quest cape'].sort());
-    expect(wiki.detailCalls.slice(details)).toEqual([['Brand New']]);
+    // asked what changed: the index, once. Read again: the cape; not the area, not the guide
+    expect(wiki.dataCalls.slice(before)).toEqual(['index.json', 'achievements/capes/mqc.json']);
     expect(await stored(page, 'cprog.mqc')).toEqual(ticks);
     expect(await stored(page, 'aprog.Desert')).toEqual(aticks);
     const c = await stored(page, 'cape.mqc');
@@ -115,9 +111,7 @@ test.describe('Update from the wiki', () => {
     await openCape(page, 'mqc', 'Master quest cape');
     const d = JSON.parse(fixture('cape-achievements.json'))['Advanced Sweeping'];
     wiki.edit('Advanced Sweeping', { lead: d.lead.replace('{{Skillreq|Magic|93}}', '{{Skillreq|Magic|95}}'), extract: d.extract });
-    const details = wiki.detailCalls.length;
     await update(page, 'Everything is up to date.');
-    expect(wiki.detailCalls.slice(details)).toEqual([['Advanced Sweeping']]);
     await closeSettings(page);
     await expect(cheevo(page, '2111').locator('.need')).toContainText('95 Magic');
   });
@@ -177,34 +171,6 @@ test.describe('Update from the wiki', () => {
     expect(page.errors).toEqual([]);
   });
 
-  test('a cape keeps what the wiki could not give this time: its levels, and what an achievement needs', async ({ page, wiki }) => {
-    withCapes(wiki);
-    await openApp(page, expect);
-    await openCape(page, 'mqc', 'Master quest cape');
-    const before = await stored(page, 'cape.mqc');
-    expect(before.levels.length).toBeGreaterThan(0);
-    expect(before.partial).toBeUndefined();
-    // the levels page fails, and so do the achievements' pages; one of them was edited
-    wiki.fail('Master quest cape', 'http');
-    wiki.edit('Advanced Sweeping');
-    wiki.detailFail = true;
-    await update(page, 'Everything is up to date.');
-    let c = await stored(page, 'cape.mqc');
-    expect(c.levels).toEqual(before.levels);
-    expect(c.partial).toBe(true);
-    const was = before.cheevos.find((x) => x.page === 'Advanced Sweeping'), is = c.cheevos.find((x) => x.page === 'Advanced Sweeping');
-    expect(is).toEqual(was);
-    // the wiki is back: the next update reads both again
-    wiki.page('Master quest cape', fixture('master-quest-cape.html'));
-    wiki.detailFail = false;
-    const details = wiki.detailCalls.length;
-    await update(page, 'Everything is up to date.');
-    c = await stored(page, 'cape.mqc');
-    expect(c.partial).toBeUndefined();
-    expect(wiki.detailCalls.slice(details)).toEqual([['Advanced Sweeping']]);
-    expect(c.cheevos.find((x) => x.page === 'Advanced Sweeping').rev).toBe(2);
-  });
-
   test('a new quest in the quest list says New', async ({ page, wiki }) => {
     await openApp(page, expect);
     const list = fixture('list-of-quests.html'), imp = /<tr>\s*<td><a href="\/w\/Imp_Catcher"[\s\S]*?<\/tr>/.exec(list)[0];
@@ -221,11 +187,12 @@ test.describe('Update from the wiki', () => {
     await openApp(page, expect);
     await openCape(page, 'mqc', 'Master quest cape');
     // checked yesterday: not again
+    const asked = wiki.dataCalls.length;
     await page.evaluate(() => localStorage.setItem('qg1.upd', JSON.stringify({ at: Date.now() - 24 * 3600 * 1000, found: {} })));
     await page.reload();
     await expect(page.locator('h1.qt')).toHaveText('Master quest cape');
     await caughtUp(page);
-    expect(wiki.infoCalls).toHaveLength(0);
+    expect(wiki.dataCalls).toHaveLength(asked);
     // a week ago: it checks, and reads the cape again
     newCheevo(wiki);
     await page.evaluate((w) => localStorage.setItem('qg1.upd', JSON.stringify({ at: Date.now() - w - 1000, found: {} })), WEEK);
@@ -239,19 +206,25 @@ test.describe('Update from the wiki', () => {
   test('nothing kept yet: no weekly check', async ({ page, wiki }) => {
     await openApp(page, expect);
     await caughtUp(page);
-    expect(wiki.infoCalls).toHaveLength(0);
+    expect(wiki.dataCalls).toEqual(['index.json']);
     expect(await stored(page, 'upd')).toBeNull();
   });
 
-  test('when the wiki cannot be reached, nothing changes, and the weekly check tries again next time', async ({ page, wiki }) => {
+  test('when the data cannot be reached, nothing changes, and the weekly check tries again next time', async ({ page, wiki }) => {
     withCapes(wiki);
     await openApp(page, expect);
     await openCape(page, 'mqc', 'Master quest cape');
     const c = await stored(page, 'cape.mqc');
-    wiki.infoFail = true;
-    await update(page, 'Could not reach the wiki. Try again in a moment.');
+    wiki.fail('List of quests', 'network');
+    await update(page, "Could not reach the app's data. Try again in a moment.");
     expect(await stored(page, 'cape.mqc')).toEqual(c);
     expect(await stored(page, 'upd')).toBeNull();
+  });
+
+  test('nothing kept yet, and the data cannot be reached: it says the quest list could not be updated', async ({ page, wiki }) => {
+    await openApp(page, expect);
+    wiki.fail('List of quests', 'network');
+    await update(page, "Could not update the quest list. Could not reach the app's data. Check your internet, then try again.");
   });
 
   test('a page that cannot be read again keeps what was saved; the others still update', async ({ page, wiki }) => {

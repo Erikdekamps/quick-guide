@@ -1,6 +1,6 @@
 // The data build's reading step (tools/data/collect.js), in a browser against the fake wiki: it reads the quest
 // lists, every guide, the areas and the capes with the app's own reader, and says what it could not read.
-const { test, expect, addWiki, withAllAreas, withCapes, AREAS } = require('./support/app');
+const { test, expect, addWiki, fixture, withAllAreas, withCapes, AREAS } = require('./support/app');
 const { collect } = require('../tools/data/collect');
 const shape = require('../tools/data/shape');
 
@@ -43,7 +43,34 @@ test('an area or a cape that fails is said, and is missing from what was read (t
   expect(read.failed).toEqual(expect.arrayContaining(['area Desert: http', 'cape comp: format']));
 });
 
-test('when the quest list cannot be read, the reading fails as a whole', async ({ page, wiki }) => {
-  wiki.fail('List of quests', 'http');
+test('a cape that misses its levels page, or what some achievements need, is not whole: it counts as not read', async ({ page, wiki }) => {
+  wiki.fail('Master quest cape', 'http').fail('Master Skiller', 'http');
+  let read = await collect(page);
+  expect(read.capes.map((c) => c.key)).toEqual(['trim']);
+  expect(read.failed).toEqual(expect.arrayContaining(['cape mqc: a part of it', 'cape comp: a part of it']));
+  wiki.page('Master quest cape', fixture('master-quest-cape.html')).page('Master Skiller', fixture('master-skiller.html'));
+  wiki.detailFail = true;
+  read = await collect(page);
+  expect(read.capes).toEqual([]);
+  expect(read.failed).toEqual(expect.arrayContaining(['cape mqc: a part of it', 'cape comp: a part of it', 'cape trim: a part of it']));
+});
+
+test('a guide outside the lists that another guide names comes along, when it has a Quick guide of its own', async ({ page, wiki }) => {
+  // While Guthix Sleeps names Nomad's Elegy, Shield of Arrav and more: none is in the fake wiki's list
+  wiki.page("Nomad's Elegy/Quick guide", fixture('cooks-assistant.html'));
+  wiki.page('Shield of Arrav', fixture('rune-mysteries.html'));   // its own page only: no Quick guide
+  const read = await collect(page);
+  expect(read.list.filter((q) => q.extra)).toEqual([{ t: "Nomad's Elegy", extra: true }]);
+  expect(read.guides["Nomad's Elegy"].title).toBe("Nomad's Elegy");
+  expect(read.guides['Shield of Arrav']).toBeUndefined();
+  expect(read.failed.filter((f) => /Nomad|Arrav/.test(f))).toEqual([]);
+  const index = JSON.parse(shape.build(read, () => null, '2026-11-22')['index.json']);
+  expect(index.quests.find((q) => q.id === 'nomads-elegy')).toMatchObject({ title: "Nomad's Elegy", extra: true });
+});
+
+test('when the quest list or the optimal order cannot be read, the reading fails as a whole', async ({ page, wiki }) => {
+  wiki.page('Quests/Progression guide', '<p>Nothing here.</p>');
+  await expect(collect(page)).rejects.toThrow(/Could not read the order on the wiki/);
+  wiki.page('Quests/Progression guide', fixture('progression-guide.html')).fail('List of quests', 'http');
   await expect(collect(page)).rejects.toThrow(/error 500/);
 });

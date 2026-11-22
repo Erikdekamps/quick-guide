@@ -1,12 +1,16 @@
 // Shared test setup for Quick Guide.
 // - The app's files are served from this folder at http://quick-guide.test (no web server needed).
 // - The RuneScape Wiki is faked: each test says which pages exist (see tests/fixtures/wiki).
+// - The app's data (data/) is made from that fake wiki, by the real wiki reader and the real build (see DataSite):
+//   a test changes a page of the wiki, and the app gets the data a build would make of it.
 // - Map tiles and wiki pictures are stubbed, and anything else on the internet is blocked. (The fonts are the app's own.)
 const base = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
+const shape = require('../../tools/data/shape');
+const { READER } = require('../../tools/data/collect');
 const FIXTURES = path.join(ROOT, 'tests', 'fixtures', 'wiki');
 const ORIGIN = 'http://quick-guide.test';
 // A 1x1 transparent PNG, for map tiles and wiki pictures.
@@ -32,6 +36,7 @@ class Wiki {
     this.revs = {};       // { title: { rev, edited, touched } } when a page changed; every other page is revision 1 of long ago
     this.infoCalls = [];  // every "when did these pages change" call: the titles it asked for
     this.infoFail = false;
+    this.dataCalls = [];  // every file of data/ the app asked for: 'index.json', 'quests/cooks-assistant.json', …
   }
   // The revision of a page, and when it changed.
   rev(title) { return Object.assign({ rev: 1, edited: '2000-01-01T00:00:00Z', touched: '2000-01-01T00:00:00Z' }, this.revs[title]); }
@@ -49,9 +54,9 @@ class Wiki {
     return this;
   }
   // The wiki's answer to action=query&prop=info|revisions&titles=A|B: when each page last changed.
-  answerInfo(route, url) {
+  answerInfo(route, url, quiet) {
     const asked = (url.searchParams.get('titles') || '').split('|');
-    this.infoCalls.push(asked);
+    if (!quiet) this.infoCalls.push(asked);
     if (this.infoFail) return route.abort('failed');
     const pages = asked.map((t, i) => {
       const p = this.pages[t];
@@ -64,9 +69,9 @@ class Wiki {
   // Achievement pages, for a cape's needs and tips (see withCapes).
   details(map) { Object.assign(this.cheevos, map); return this; }
   // The wiki's answer to action=query&prop=revisions|extracts&titles=A|B: each page's first section and first paragraphs.
-  answerDetails(route, url) {
+  answerDetails(route, url, quiet) {
     const asked = (url.searchParams.get('titles') || '').split('|');
-    this.detailCalls.push(asked);
+    if (!quiet) this.detailCalls.push(asked);
     if (this.detailFail) return route.fulfill({ status: 500, headers: CORS, body: 'oops' });
     const pages = asked.map((t, i) => {
       const d = this.cheevos[t];
@@ -126,7 +131,8 @@ class Wiki {
   askedAll() { return this.calls.map((c) => c.page); }
   // The wiki's miniquest list (not in the standard set, so most tests see quests only).
   minis() { return this.page('Miniquests', fixture('miniquests.html')); }
-  async handle(route) {
+  // quiet: the data build asks (see DataSite), not the app: it is not written down in calls.
+  async handle(route, quiet) {
     const url = new URL(route.request().url());
     if (url.pathname !== '/api.php') {
       if (url.pathname.startsWith('/images/')) return route.fulfill({ body: PNG, contentType: 'image/png' });
@@ -135,14 +141,14 @@ class Wiki {
     }
     if (url.searchParams.get('action') === 'query') {
       const prop = url.searchParams.get('prop') || '';
-      if (/\binfo\b/.test(prop)) return this.answerInfo(route, url);
-      return /revisions|extracts/.test(prop) ? this.answerDetails(route, url) : this.answerLookup(route, url);
+      if (/\binfo\b/.test(prop)) return this.answerInfo(route, url, quiet);
+      return /revisions|extracts/.test(prop) ? this.answerDetails(route, url, quiet) : this.answerLookup(route, url);
     }
     const title = url.searchParams.get('page');
-    this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
+    if (!quiet) this.calls.push({ page: title, prop: url.searchParams.get('prop'), url: url.href });
     const p = this.pages[title];
     if (!p) return route.fulfill({ headers: CORS, json: { error: { code: 'missingtitle', info: "The page you specified doesn't exist." } } });
-    if (p.wait) await p.wait;
+    if (p.wait && !quiet) await p.wait;
     if (p.error) return route.fulfill({ headers: CORS, json: { error: p.error } });
     if (p.fail === 'http') return route.fulfill({ status: 500, headers: CORS, body: 'oops' });
     if (p.fail === 'network') return route.abort('failed');
@@ -197,6 +203,124 @@ class Wiki {
   }
 }
 
+// The app's data, made from the fake wiki the way the nightly build makes it from the real one: the wiki reader
+// (js/wiki, in a page of its own) reads the fake wiki's pages, and tools/data/shape.js makes the files. A page of the
+// wiki that fails makes its file fail the same way (error 500, no network, not readable, never answers), and a page the
+// wiki does not have has no file.
+// Each file the app asks for is written down in wiki.dataCalls, and in wiki.calls as the wiki page it stands for.
+const CAPE_PAGES = { mqc: 'Master Quest Cape (achievement)', comp: 'Completionist Cape (achievement)', trim: 'Trimmed Completionist Cape (achievement)' };
+class DataSite {
+  constructor(wiki, reader) { this.wiki = wiki; this.reader = reader; }
+  // A page of the fake wiki that can be read (not missing, not failing), or null.
+  ok(title) { const p = this.wiki.pages[title]; return p && !p.error && !p.fail ? p : null; }
+  // What the reader makes of a page, kept for the next test that has the same page.
+  async parsed(kind, key, run) {
+    const k = kind + '\0' + key, memo = this.reader.memo;
+    if (!memo.has(k)) memo.set(k, await run());
+    return JSON.parse(JSON.stringify(memo.get(k)));
+  }
+  wrap(html) { return '<div class="mw-parser-output">' + html + '</div>'; }
+  // The guide of a quest of the list: { page (the wiki page it comes from), guide } or { page, failing: the page } or null.
+  async guide(title) {
+    const w = this.wiki;
+    for (const [page, notQuick] of [[title + '/Quick guide', false], [title, true]]) {
+      const p = w.pages[page];
+      if (!p || p.error) continue;
+      if (p.fail) return { page, failing: p, wait: p.wait };
+      const to = p.to || page, rev = w.rev(to).rev;
+      const guide = await this.parsed('guide', JSON.stringify([to, title, notQuick, rev, p.html, p.live]), () => this.reader.page.evaluate(
+        ([h, t, b, n, l, r]) => window.QuickGuide.parse(h, { title: t, base: b, notQuick: n, live: l, revid: r }), [this.wrap(p.html), to, title, notQuick, p.live || {}, rev]));
+      return { page, guide, wait: p.wait };
+    }
+    return null;
+  }
+  // Everything the fake wiki has now, as the files of data/: { files: { path: text }, failing: { path: page }, pages: { path: wiki page } }.
+  async build() {
+    const w = this.wiki, r = this.reader, failing = {}, pages = {}, waits = {};
+    const list = this.ok('List of quests'), minis = this.ok('Miniquests'), order = this.ok('Quests/Progression guide');
+    const rows = (list ? await this.parsed('list', list.html, () => r.page.evaluate((h) => window.QuickGuideData.parseList(h), list.html)) : [])
+      .concat(minis ? await this.parsed('minis', minis.html, () => r.page.evaluate((h) => window.QuickGuideData.parseMinis(h), minis.html)) : []);
+    const read = { list: rows, guides: {}, areas: [], capes: [],
+      order: order ? await this.parsed('order', order.html, () => r.page.evaluate((h) => window.QuickGuideData.parseOrder(h), order.html)) : [] };
+    // A Quick guide of a quest the lists do not have comes along too (the build finds these in other guides).
+    const inList = new Set(rows.map((q) => q.t));
+    for (const page of Object.keys(w.pages)) {
+      const base = page.replace(/\/Quick guide$/, '');
+      if (base !== page && !inList.has(base) && !w.pages[page].error) rows.push({ t: base, extra: true });
+    }
+    for (const q of rows) {
+      const g = await this.guide(q.t), path = 'quests/' + shape.slug(q.t) + '.json';
+      read.guides[q.t] = g && g.guide ? g.guide : null;
+      if (g) pages[path] = g.page;
+      if (g && g.failing) failing[path] = g.failing;
+      if (g && g.wait) waits[path] = g.wait;
+    }
+    const areaStubs = [];
+    for (const name of AREAS) {
+      const page = name + ' achievements', p = w.pages[page], path = 'achievements/areas/' + shape.slug(name) + '.json';
+      if (!p || p.error) continue;
+      pages[path] = page;
+      if (p.wait) waits[path] = p.wait;
+      if (p.fail) { failing[path] = p; areaStubs.push(name); continue; }
+      const rev = w.rev(page).rev;
+      try {
+        const a = await this.parsed('area', JSON.stringify([name, rev, p.html]), () => r.page.evaluate(([h, n]) => window.QuickGuide.parseArea(h, n), [this.wrap(p.html), name]));
+        a.revid = rev;
+        read.areas.push(a);
+      } catch (e) { failing[path] = { fail: 'format' }; areaStubs.push(name); }
+    }
+    const capeStubs = [];
+    for (const key of Object.keys(CAPE_PAGES)) {
+      const page = CAPE_PAGES[key], p = w.pages[page], path = 'achievements/capes/' + key + '.json';
+      if (!p || p.error) continue;
+      pages[path] = page;
+      if (p.wait) waits[path] = p.wait;
+      if (p.fail) { failing[path] = p; capeStubs.push(key); continue; }
+      // The reader reads a cape from several pages: it asks the fake wiki itself (quietly).
+      const state = JSON.stringify([key, w.pages, w.cheevos, w.revs, w.detailFail]);
+      try {
+        r.current.wiki = w;
+        const cape = await this.parsed('cape', state, () => r.page.evaluate((k) => window.QuickGuide.loadCape(k), key));
+        // a cape that is not whole gets no file, like in the build (there the file from before stays)
+        if (cape.partial) { delete pages[path]; continue; }
+        read.capes.push(cape);
+      } catch (e) { failing[path] = { fail: 'format' }; capeStubs.push(key); }
+    }
+    const files = shape.build(read, () => null, '2026-11-21');
+    // A file that fails is in the index all the same (the app then asks for it, and gets the failure).
+    const index = JSON.parse(files['index.json']);
+    for (const q of index.quests) if (failing['quests/' + q.id + '.json']) { q.rev = 1; q.hash = 'failing'; }
+    for (const name of areaStubs) index.areas.push({ id: shape.slug(name), name, rev: 1, hash: 'failing', tiers: [] });
+    for (const key of capeStubs) index.capes.push({ id: key, name: key, achievements: 0, rev: 1, hash: 'failing' });
+    files['index.json'] = shape.text(index);
+    return { files, failing, pages, waits, list: w.pages['List of quests'] };
+  }
+  fail(route, p) {
+    if (p.fail === 'http') return route.fulfill({ status: 500, body: 'oops' });
+    if (p.fail === 'network') return route.abort('failed');
+    if (p.fail === 'format') return route.fulfill({ json: { format: 1 } });
+    return undefined;   // 'slow': never answers
+  }
+  async handle(route) {
+    const w = this.wiki, path = decodeURIComponent(new URL(route.request().url()).pathname.replace(/^\/data\//, ''));
+    w.dataCalls.push(path);
+    const d = await this.build();
+    if (path === 'index.json') {
+      const lp = d.list;
+      w.calls.push({ page: 'List of quests', prop: 'data', url: route.request().url() });
+      if (lp && lp.wait) await lp.wait;
+      if (!lp || lp.error) return route.fulfill({ status: 404, body: 'not found' });
+      if (lp.fail) return this.fail(route, lp);
+      return route.fulfill({ body: d.files[path], contentType: 'application/json; charset=utf-8' });
+    }
+    if (d.pages[path]) w.calls.push({ page: d.pages[path], prop: 'data', url: route.request().url() });
+    if (d.waits[path]) await d.waits[path];
+    if (d.failing[path]) return this.fail(route, d.failing[path]);
+    if (!d.files[path]) return route.fulfill({ status: 404, body: 'not found' });
+    return route.fulfill({ body: d.files[path], contentType: 'application/json; charset=utf-8' });
+  }
+}
+
 // Every error the app throws in a browser context that nobody catches (also a promise that fails and nobody handles).
 // The function it returns fails the test with them, except the ones a test allows.
 function watchErrors(context) {
@@ -210,12 +334,28 @@ function watchErrors(context) {
 
 const test = base.test.extend({
   wiki: async ({}, use) => { await use(new Wiki().standard()); },
+  // The wiki reader in a page of its own, one for all the tests of a worker: it makes the app's data from the fake
+  // wiki of the test that runs (see DataSite). memo: what it parsed before.
+  reader: [async ({ browser }, use) => {
+    const context = await browser.newContext(), current = { wiki: null };
+    await context.route(/^https?:\/\//, (route) => route.abort('blockedbyclient'));
+    await context.route(/^https:\/\/runescape\.wiki\//, (route) => current.wiki.handle(route, true));
+    await context.route(ORIGIN + '/**', (route) => serveFile(route));
+    const page = await context.newPage();
+    await page.goto(ORIGIN + '/__blank');
+    // QG_COVERAGE=dir: what the reader runs counts too (the page fixture below saves it after each test).
+    if (process.env.QG_COVERAGE) await page.coverage.startJSCoverage({ resetOnNavigation: false });
+    for (const f of READER) await page.addScriptTag({ url: '/' + f });
+    await use({ page, current, memo: new Map() });
+    await context.close();
+  }, { scope: 'worker' }],
   // Map tile requests, so a test can check them.
   tiles: async ({}, use) => { await use([]); },
   // Errors the app may throw in a test: none. An error nobody catches (or a promise that fails and nobody handles)
   // fails the test, in every test, on every page. A test that wants one says which: test.use({ pageErrors: [/text/] }).
   pageErrors: [[], { option: true }],
-  context: async ({ context, wiki, tiles, pageErrors }, use) => {
+  context: async ({ context, wiki, tiles, pageErrors, reader }, use) => {
+    const data = new DataSite(wiki, reader);
     const checkErrors = watchErrors(context);
     // Routes run newest first, so this catch-all only gets what nothing else handles.
     await context.route(/^https?:\/\//, (route) => route.abort('blockedbyclient'));
@@ -224,10 +364,11 @@ const test = base.test.extend({
     await context.route(/^https:\/\/sync\.runescape\.wiki\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
     await context.route(/^https:\/\/secure\.runescape\.com\//, (route) => wiki.answerPlayer(route, new URL(route.request().url())));
     await context.route(ORIGIN + '/**', (route) => serveFile(route));
+    await context.route(ORIGIN + '/data/**', (route) => data.handle(route));
     await use(context);
     checkErrors(pageErrors);
   },
-  page: async ({ page }, use, info) => {
+  page: async ({ page, reader }, use, info) => {
     page.errors = [];
     page.on('pageerror', (e) => page.errors.push(e.message));
     // QG_COVERAGE=dir: save which code of the app each test ran (see tests/support/coverage.js).
@@ -253,6 +394,9 @@ const test = base.test.extend({
     await use(page);
     if (cov) {
       ran.push(...await page.coverage.stopJSCoverage());
+      // and what the reader ran for this test, in its own page
+      ran.push(...await reader.page.coverage.stopJSCoverage());
+      await reader.page.coverage.startJSCoverage({ resetOnNavigation: false });
       const out = ran.filter((e) => /^http:\/\/quick-guide\.test\/js\/[a-z-]+\/[a-z-]+\.js/.test(e.url))
         .map((e) => ({ url: e.url.replace(/\?.*$/, ''), functions: e.functions }));
       fs.mkdirSync(cov, { recursive: true });
@@ -279,10 +423,13 @@ function serveFile(route) {
 // Puts things in the app's storage before it starts. Keys are without the "qg1." prefix.
 async function seed(page, data) {
   await page.goto('/__blank');
+  // What a test saves has no mark of the data, so the weekly check would read it all again at the start. It ran
+  // today, unless the test says otherwise (upd: null for "never").
+  const all = Object.assign({ upd: { at: Date.now(), found: {}, failed: 0 } }, data);
   await page.evaluate((d) => {
     localStorage.clear();
-    for (const k of Object.keys(d)) localStorage.setItem('qg1.' + k, JSON.stringify(d[k]));
-  }, data);
+    for (const k of Object.keys(d)) if (d[k] !== null) localStorage.setItem('qg1.' + k, JSON.stringify(d[k]));
+  }, all);
 }
 // Settings is open: both clicks of Delete everything. The app then starts again.
 async function deleteEverything(page) {
@@ -391,11 +538,12 @@ function item(page, text) {
 function part(page, title) {
   return page.locator('section.sec').filter({ has: page.locator('.sech .n', { hasText: title }) }).first();
 }
-// The wiki reader on a page of its own (window.QuickGuide): the files of js/wiki, in the order index.html loads them.
-const WIKI_FILES = [...fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').matchAll(/<script src="(js\/wiki\/[^"?]+)/g)].map((m) => m[1]);
+// The wiki reader on a page of its own (window.QuickGuide): the files the data build uses, in their order.
 async function addWiki(page) {
-  for (const f of WIKI_FILES) await page.addScriptTag({ url: '/' + f });
+  for (const f of READER) await page.addScriptTag({ url: '/' + f });
 }
+// The files of js/wiki the app loads itself, in the order index.html loads them.
+const WIKI_FILES = [...fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').matchAll(/<script src="(js\/wiki\/[^"?]+)/g)].map((m) => m[1]);
 // A quest, parsed by the app's own parser from a fixture, ready to put in storage.
 async function parsedQuest(page, file, title, live) {
   await page.goto('/__blank');

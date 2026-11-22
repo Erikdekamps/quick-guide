@@ -7,6 +7,9 @@ const GUIDE = 'Quests/Progression guide';
 const ORDER = ["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps'];
 const REST = ['101 Test Quest', "'Phite Club", 'Recipe for Disaster: Freeing King Awowogei'];
 
+// The quest lists, saved a moment ago: the app starts without asking for anything.
+const SAVED = { list: { at: Date.now(), quests: [{ t: "Cook's Assistant" }, { t: 'Imp Catcher' }] }, minis: { at: Date.now(), quests: [] } };
+
 const setting = toggle;
 
 test.describe('optimal order', () => {
@@ -17,7 +20,7 @@ test.describe('optimal order', () => {
     expect(order).toEqual(["Cook's Assistant", 'Imp Catcher', 'Rune Mysteries', 'Demon Slayer', 'The Blood Pact', 'Dragon Slayer', 'Druidic Ritual', 'Desert Treasure', 'While Guthix Sleeps']);
   });
 
-  test('the sort menu offers it; choosing it reads the wiki once and sorts the list', async ({ page, wiki }) => {
+  test('the sort menu offers it; choosing it sorts the list, with what the data has already', async ({ page, wiki }) => {
     await openApp(page, expect);
     await openSettings(page);
     await expect(page.locator('#sort option')).toHaveText(['A to Z', 'Optimal order', 'Difficulty', 'Length', 'Series', 'Newest']);
@@ -27,9 +30,10 @@ test.describe('optimal order', () => {
     await expect(names(page)).toHaveText(ORDER.concat(REST));
     await expect(groups(page)).toHaveText(['Optimal order', 'Not in the guide']);
     await expect(page.locator('.ghb[data-group="Optimal order"] .c')).toHaveText('8');
-    expect(wiki.asked()).toEqual(['List of quests', GUIDE]);
+    // the order comes with the quest list: nothing more is asked
+    expect(wiki.dataCalls).toEqual(['index.json']);
     const saved = await stored(page, 'order');
-    expect(saved.order).toHaveLength(9);
+    expect(saved.order).toHaveLength(8);
     expect(Date.now() - saved.at).toBeLessThan(60000);
   });
 
@@ -50,31 +54,33 @@ test.describe('optimal order', () => {
     await expect(page.locator('#sort')).toHaveValue('opt');
     await closeSettings(page);
     await expect(names(page)).toHaveText(ORDER.concat(REST));
-    expect(wiki.asked().filter((x) => x === GUIDE)).toHaveLength(1);
+    expect(wiki.dataCalls).toEqual(['index.json']);
   });
 
   test('shows a message while it loads', async ({ page, wiki }) => {
-    wiki.fail(GUIDE, 'slow');
+    await seed(page, SAVED);
+    wiki.fail('List of quests', 'slow');
     await openApp(page, expect);
     await choose(page, '#sort', 'opt');
     await expect(page.locator('#qarea .state')).toHaveText('Getting the optimal order…');
   });
 
   test('shows an error and can try again', async ({ page, wiki }) => {
-    wiki.fail(GUIDE, 'network');
+    await seed(page, SAVED);
+    wiki.fail('List of quests', 'network');
     await openApp(page, expect);
     await choose(page, '#sort', 'opt');
-    await expect(page.locator('#qarea .err')).toHaveText('Could not get the optimal order. Could not reach the wiki. Check your internet, then try again.');
-    wiki.page(GUIDE, fixture('progression-guide.html'));
+    await expect(page.locator('#qarea .err')).toHaveText("Could not get the optimal order. Could not reach the app's data. Check your internet, then try again.");
+    wiki.page('List of quests', fixture('list-of-quests.html'));
     await page.getByRole('button', { name: 'Try again' }).click();
     await expect(names(page).first()).toHaveText("Cook's Assistant");
   });
 
-  test('a wiki page without the order table is an error', async ({ page, wiki }) => {
+  test('data without the order is an error', async ({ page, wiki }) => {
     wiki.page(GUIDE, '<p>Nothing here.</p>');
     await openApp(page, expect);
     await choose(page, '#sort', 'opt');
-    await expect(page.locator('#qarea .err')).toHaveText('Could not get the optimal order. Could not read the order on the wiki. Try again in a moment.');
+    await expect(page.locator('#qarea .err')).toHaveText('Could not get the optimal order. Could not read the optimal order. Try again in a moment.');
   });
 
   test('quests in progress still come first; search still works', async ({ page }) => {
@@ -104,7 +110,7 @@ test.describe('optimal order', () => {
     await seed(page, { order: { at: Date.now() - 8 * 24 * 3600 * 1000, order: ['Dragon Slayer'] }, settings: { sort: 'opt' } });
     await openApp(page, expect);
     await expect(names(page).first()).toHaveText("Cook's Assistant");
-    expect(wiki.asked()).toContain(GUIDE);
+    await expect.poll(async () => (await stored(page, 'order')).order.length).toBe(8);
   });
 });
 

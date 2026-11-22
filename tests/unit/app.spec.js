@@ -247,40 +247,28 @@ test.describe('My list: a pasted list', () => {
 });
 
 test.describe('Update from the wiki: what to read again', () => {
-  const quest = (old) => ({ kind: 'quest', title: 'Q', old });
-  const area = { kind: 'area', title: 'Ardougne achievements', old: { fetchedAt: '2026-11-10T00:00:00Z' } };
-  const cape = { kind: 'cape', title: 'Master quest cape', old: { fetchedAt: '2026-11-10T00:00:00Z', cheevos: [{ page: 'Swept Away', rev: 5 }] } };
-  const touched = (t) => ({ rev: 1, edited: '', touched: t });
+  const area = { kind: 'area', title: 'Ardougne achievements', old: { hash: 'aaa' } };
 
-  test('a quest guide: when it was edited', () => {
-    expect(A.pageChanged(quest({ revid: 9 }), { Q: { rev: 9 } })).toBe(false);
-    expect(A.pageChanged(quest({ revid: 9 }), { Q: { rev: 10 } })).toBe(true);
-    // saved before the app kept revisions: by date
-    expect(A.pageChanged(quest({ fetchedAt: '2026-11-10T00:00:00Z' }), { Q: { rev: 10, edited: '2026-11-11T00:00:00Z' } })).toBe(true);
-    expect(A.pageChanged(quest({ fetchedAt: '2026-11-10T00:00:00Z' }), { Q: { rev: 10, edited: '2026-11-09T00:00:00Z' } })).toBe(false);
+  test('a guide, an area or a cape: when the data has another file for it (another mark)', () => {
+    expect(A.pageChanged({ kind: 'quest', title: 'Q', old: { hash: 'abc' } }, { Q: { hash: 'abc', rev: 9 } })).toBe(false);
+    expect(A.pageChanged({ kind: 'quest', title: 'Q', old: { hash: 'abc' } }, { Q: { hash: 'abd', rev: 9 } })).toBe(true);
+    expect(A.pageChanged(area, { 'Ardougne achievements': { hash: 'aaa' } })).toBe(false);
+    expect(A.pageChanged(area, { 'Ardougne achievements': { hash: 'bbb' } })).toBe(true);
   });
 
-  test('an area: when anything on it changed (a new task comes from a template, not an edit)', () => {
-    expect(A.pageChanged(area, { 'Ardougne achievements': touched('2026-11-11T00:00:00Z') })).toBe(true);
-    expect(A.pageChanged(area, { 'Ardougne achievements': touched('2026-11-09T00:00:00Z') })).toBe(false);
+  test('an area or a cape saved before the app read its data from files (it has no mark) is read once more', () => {
+    expect(A.pageChanged({ kind: 'cape', title: 'C', old: { revid: 9, fetchedAt: '2026-11-20T10:00:00Z', cheevos: [] } }, { C: { hash: 'abc', rev: 9 } })).toBe(true);
+    expect(A.pageChanged({ kind: 'area', title: 'A achievements', old: { revid: 9 } }, { 'A achievements': { hash: 'abc', rev: 9 } })).toBe(true);
   });
 
-  test("a cape: also when one of its achievements' pages was edited", () => {
-    const page = touched('2026-11-09T00:00:00Z');
-    expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { rev: 5 } })).toBe(false);
-    expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { rev: 6 } })).toBe(true);
-    expect(A.pageChanged(cape, { 'Master quest cape': page })).toBe(true);
-    expect(A.pageChanged(cape, { 'Master quest cape': page, 'Swept Away': { missing: true } })).toBe(false);
+  test('a guide without a mark: its revision on the wiki says it; without one too, it stays', () => {
+    const info = { Q: { hash: 'abc', rev: 9 } };
+    expect(A.pageChanged({ kind: 'quest', title: 'Q', old: { revid: 9 } }, info)).toBe(false);
+    expect(A.pageChanged({ kind: 'quest', title: 'Q', old: { revid: 8 } }, info)).toBe(true);
+    expect(A.pageChanged({ kind: 'quest', title: 'Q', old: {} }, info)).toBe(false);
   });
 
-  test('a cape whose levels page could not be read last time is read again', () => {
-    const cape = { kind: 'cape', title: 'C', old: { fetchedAt: '2026-11-20T10:00:00Z', partial: true, cheevos: [] } };
-    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(true);
-    delete cape.old.partial;
-    expect(A.pageChanged(cape, { C: { rev: 1, touched: '2026-11-01T10:00:00Z' } })).toBe(false);
-  });
-
-  test('the wiki did not say: read it; the page is gone: keep what we have', () => {
+  test('the data did not say: read it; the page is gone: keep what we have', () => {
     expect(A.pageChanged(area, {})).toBe(true);
     expect(A.pageChanged(area, { 'Ardougne achievements': { missing: true } })).toBe(false);
   });

@@ -27,12 +27,13 @@ test.describe('miniquests', () => {
     await expect(page.locator('#qcount')).toHaveText('15 quests');
     await expect(row(page, 'Bar Crawl (miniquest)').locator('.q1 b')).toHaveText('Bar Crawl');
     await expect(row(page, 'Bar Crawl (miniquest)').locator('.q2')).toHaveText('Miniquest · Intermediate · Short to Medium · Members');
-    expect(wiki.askedAll()).toEqual(['List of quests', 'Miniquests']);
+    // they come with the quest list, in one file
+    expect(wiki.dataCalls).toEqual(['index.json']);
     expect((await stored(page, 'minis')).quests).toHaveLength(4);
     // saved: no second visit after a reload
     await page.reload();
     await expect(page.locator('#qcount')).toHaveText('15 quests');
-    expect(wiki.askedAll()).toEqual(['List of quests', 'Miniquests']);
+    expect(wiki.dataCalls).toEqual(['index.json']);
   });
 
   test('without "Miniquests" they are left out, and it is remembered', async ({ page, wiki }) => {
@@ -156,10 +157,11 @@ test.describe('search', () => {
   });
 
   test('Enter opens the best match: a name that starts with the text comes before one that only has it inside', async ({ page, wiki }) => {
+    wiki.page('Recipe for Disaster: Freeing King Awowogei/Quick guide', fixture('cooks-assistant.html'));
     await openApp(page, expect);
     await page.locator('#quest-link').fill('re');   // "Desert Treasure" has it inside, "Recipe for Disaster…" starts with it
     await page.locator('#quest-link').press('Enter');
-    await expect.poll(() => wiki.asked().slice(-1)[0]).toMatch(/^Recipe for Disaster/);
+    await expect(page.locator('h1.qt')).toHaveText('Recipe for Disaster: Freeing King Awowogei');
   });
 
   test('an empty box asks for a name', async ({ page }) => {

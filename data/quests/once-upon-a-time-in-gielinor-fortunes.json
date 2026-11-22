@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "id": "once-upon-a-time-in-gielinor-fortunes",
+  "title": "Once Upon a Time in Gielinor: Fortunes",
+  "page": "Once Upon a Time in Gielinor: Fortunes/Quick guide",
+  "rev": 37028940,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Talk to <a href=\"https://runescape.wiki/w/Closure\" target=\"_blank\" rel=\"noopener\">Closure</a> in <a href=\"https://runescape.wiki/w/Closure%27s_study\" target=\"_blank\" rel=\"noopener\">his office</a>, which can be accessed through <a href=\"https://runescape.wiki/w/Death%27s_office\" target=\"_blank\" rel=\"noopener\">Death&#39;s realm</a>, to find out more.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3308,
+      "lon": 3105,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Fortunes/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Once Upon a Time in Gielinor: Flashback",
+        "depth": 1
+      },
+      {
+        "text": "Once Upon a Time in Gielinor: Foreshadowing",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [
+      "Missing, Presumed Death",
+      "Koschei's Troubles (miniquest)",
+      "Blood Runs Deep…",
+      "Ritual of the Mahjarrat…",
+      "The Chosen Commander",
+      "Land of the Goblins…",
+      "Ritual of the Mahjarrat",
+      "The Temple at Senntisten…",
+      "While Guthix Sleeps…",
+      "Hazeel Cult",
+      "Enakhra's Lament",
+      "The Slug Menace…",
+      "A Fairy Tale II - Cure a Queen…",
+      "Cabin Fever…",
+      "A Tail of Two Cats…",
+      "Fight Arena",
+      "The General's Shadow (miniquest)…",
+      "The World Wakes",
+      "The Firemaker's Curse",
+      "The Branches of Darkmeyer…",
+      "The Void Stares Back…",
+      "The Chosen Commander…",
+      "The Death of Chivalry",
+      "The World Wakes…",
+      "Dishonour among Thieves",
+      "Missing, Presumed Death…",
+      "Ability to enter Morytania",
+      "Nomad's Requiem",
+      "King's Ransom…",
+      "Complete the Knight Waves in Camelot",
+      "Complete the Soul Wars tutorial",
+      "Nadir (saga)",
+      "Find and free Skaldrun from the frozen floors in Daemonheim",
+      "The Death of Chivalry…"
+    ],
+    "enemies": [
+      {
+        "text": "A scaled, safe combat encounter. You cannot bring food or equipment.",
+        "name": "A scaled, safe combat encounter. You cannot bring food or equipment.",
+        "count": null,
+        "level": "",
+        "note": ""
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:3zvekt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Closure\" target=\"_blank\" rel=\"noopener\">Closure</a>.",
+          "text": "Talk to Closure.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:18qvf9u",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Ariane\" target=\"_blank\" rel=\"noopener\">Ariane</a>.",
+          "text": "Talk to Ariane.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1vw5bce",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Sir_Tiffy_Cashien\" target=\"_blank\" rel=\"noopener\">Sir Tiffy</a>.",
+          "text": "Talk to Sir Tiffy.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:v4ddlt",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Zanik\" target=\"_blank\" rel=\"noopener\">Zanik</a>.",
+          "text": "Talk to Zanik.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:3zvekt-2",
+          "html": "Talk to Closure.",
+          "text": "Talk to Closure.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Icthlarin"
+                },
+                {
+                  "key": "2",
+                  "text": "Sliske"
+                },
+                {
+                  "key": "3",
+                  "text": "Death"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "setting-up-the-quest",
+      "title": "Setting up the quest",
+      "anchor": "Setting_up_the_quest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:7w1fjg",
+          "html": "Go into the wheat field in <a href=\"https://runescape.wiki/w/Draynor_Village\" target=\"_blank\" rel=\"noopener\">Draynor Village</a> south east of the lodestone and pick up three <a href=\"https://runescape.wiki/w/Spooky_scarecrow\" target=\"_blank\" rel=\"noopener\">spooky scarecrows</a>.",
+          "text": "Go into the wheat field in Draynor Village south east of the lodestone and pick up three spooky scarecrows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:1d6o5s6",
+          "html": "Place the scarecrows at the <a href=\"https://runescape.wiki/w/Marker\" target=\"_blank\" rel=\"noopener\"> markers</a> north-west of the lodestone, just behind the entrance to <a href=\"https://runescape.wiki/w/Death%27s_Office\" target=\"_blank\" rel=\"noopener\">Death&#39;s Office</a> by the trees. Look for the lit candles near wooden markers. Click on the wooden markers to plant the scarecrows.",
+          "text": "Place the scarecrows at the markers north-west of the lodestone, just behind the entrance to Death's Office by the trees. Look for the lit candles near wooden markers. Click on the wooden markers to plant the scarecrows.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:almint",
+          "html": "Go back and talk to Closure again.",
+          "text": "Go back and talk to Closure again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:1rggchx",
+          "html": "Hide the <a href=\"https://runescape.wiki/w/Confiscated_sword\" target=\"_blank\" rel=\"noopener\">confiscated sword</a> at the marker just west of the scarecrow markers.",
+          "text": "Hide the confiscated sword at the marker just west of the scarecrow markers.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:almint-2",
+          "html": "Go back and talk to Closure again.",
+          "text": "Go back and talk to Closure again.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:16bg0lq",
+          "html": "Go to the <a href=\"https://runescape.wiki/w/Dancing_Donkey_Inn\" target=\"_blank\" rel=\"noopener\">Dancing Donkey Inn</a> (south east <a href=\"https://runescape.wiki/w/Varrock\" target=\"_blank\" rel=\"noopener\">Varrock</a>) and talk to <a href=\"https://runescape.wiki/w/Relomia\" target=\"_blank\" rel=\"noopener\">Relomia</a> twice.",
+          "text": "Go to the Dancing Donkey Inn (south east Varrock) and talk to Relomia twice.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "~",
+                  "text": "[Any option]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "setting-up-the-quest:96vsjb",
+          "html": "Empty your Backpack and get rid of all your worn equipment and followers, then talk to Closure.",
+          "text": "Empty your Backpack and get rid of all your worn equipment and followers, then talk to Closure.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "relomia-s-quest",
+      "title": "Relomia's quest",
+      "anchor": "Relomia's_quest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "relomia-s-quest:1vmfbm1",
+          "html": "Talk to Relomia.",
+          "text": "Talk to Relomia.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "relomia-s-quest:1a9kc24",
+          "html": "Follow Relomia and talk to her each time she approaches the Evil Goons, and finally at the sword.",
+          "text": "Follow Relomia and talk to her each time she approaches the Evil Goons, and finally at the sword.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "relomia-s-quest:vzfmk0",
+          "html": "Equip the wand. Attempt to kill Relomia but let her defeat you.",
+          "text": "Equip the wand. Attempt to kill Relomia but let her defeat you.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "relomia-s-quest:1vmfbm1-2",
+          "html": "Talk to Relomia.",
+          "text": "Talk to Relomia.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "relomia-s-quest:3zvekt",
+          "html": "Talk to Closure.",
+          "text": "Talk to Closure.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Once_Upon_a_Time_in_Gielinor_Fortunes_reward.png?cb855",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Once_Upon_a_Time_in_Gielinor_Fortunes_reward.png"
+    },
+    "items": [
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Medium_XP_lamp_(event)\" target=\"_blank\" rel=\"noopener\">Medium XP lamp</a>",
+        "text": "Medium XP lamp",
+        "subs": []
+      },
+      {
+        "html": "<a href=\"https://runescape.wiki/w/Relomia%27s_wand_(override)\" target=\"_blank\" rel=\"noopener\">Relomia&#39;s wand</a> <a href=\"https://runescape.wiki/w/Cosmetic_override\" target=\"_blank\" rel=\"noopener\">cosmetic override</a>",
+        "text": "Relomia's wand cosmetic override",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Skirmish",
+      "where": "if not unlocked already during The Death of Chivalry"
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Once_Upon_a_Time_in_Gielinor:_Finale/Quick_guide\" target=\"_blank\" rel=\"noopener\">Once Upon a Time in Gielinor: Finale</a>"
+      ]
+    }
+  ]
+}

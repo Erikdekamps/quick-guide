@@ -261,12 +261,33 @@
     });
   }
 
+  // ---------- what the app and the reader both know: the areas, the capes, and the versions of what is read ----------
+  var AREA_VERSION = 5;   // a new number makes saved areas read the wiki again
+  var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
+    "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
+    return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
+  });
+  // Each cape is an achievement made of other achievements. Where to buy a cape and its picture do not change: they
+  // are here. (page, levelsPage and skillsPage: the wiki pages the data build reads it from.)
+  var CAPE_VERSION = 2;   // a new number makes saved capes read the wiki again
+  function capeImage(file) { return WIKI + '/images/thumb/' + encodeURIComponent(file) + '/96px-' + encodeURIComponent(file); }
+  var CAPES = [
+    { key: 'mqc', name: 'Master quest cape', page: 'Master Quest Cape (achievement)', levelsPage: 'Master quest cape',
+      image: capeImage('Master_quest_cape_detail.png'), buy: 'Buy it from Curator Haig Halen in the Varrock Museum, for 120,000 coins.' },
+    { key: 'comp', name: 'Completionist cape', page: 'Completionist Cape (achievement)', skillsPage: 'Master Skiller',
+      image: capeImage('Completionist_cape_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' },
+    { key: 'trim', name: 'Trimmed completionist cape', page: 'Trimmed Completionist Cape (achievement)',
+      image: capeImage('Completionist_cape_(t)_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' }
+  ];
+  function capeOf(key) { return CAPES.filter(function (c) { return c.key === key; })[0]; }
+
   W.share({ WIKI: WIKI, API: API, VERSION: VERSION, MAP_VERSION: MAP_VERSION, CUR: CUR, MARK: MARK, SKILLS: SKILLS, SKILL_RE: SKILL_RE,
     FAIRY_RE: FAIRY_RE, BLOCK_RE: BLOCK_RE, DROP_RE: DROP_RE, INLINE_RE: INLINE_RE, scratch: scratch, clean: clean, text: text, arr: arr,
     kids: kids, cap: cap, esc: esc, slug: slug, hash: hash, plainOf: plainOf, unique: unique, pageUrl: pageUrl, absUrl: absUrl,
     docOf: docOf, normName: normName, coded: coded, getJson: getJson, askWiki: askWiki, fetchPage: fetchPage, inTurns: inTurns,
-    landed: landed, pageInfo: pageInfo });
-  W.publish({ WIKI: WIKI, titleFromInput: titleFromInput, findPages: findPages, inTurns: inTurns, pageInfo: pageInfo,
+    landed: landed, pageInfo: pageInfo, AREAS: AREAS, AREA_VERSION: AREA_VERSION, CAPES: CAPES, CAPE_VERSION: CAPE_VERSION, capeOf: capeOf });
+  W.publish({ VERSION: VERSION, MAP_VERSION: MAP_VERSION, AREAS: AREAS, AREA_VERSION: AREA_VERSION, CAPES: CAPES, CAPE_VERSION: CAPE_VERSION,
+    WIKI: WIKI, titleFromInput: titleFromInput, findPages: findPages, inTurns: inTurns, pageInfo: pageInfo,
     normName: normName, hash: hash, slug: slug, pageUrl: pageUrl });
   W.loaded.base = true;
 })();

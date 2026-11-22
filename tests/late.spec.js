@@ -7,9 +7,9 @@ const bar = (page, home) => page.locator('.bn[data-home="' + home + '"]');
 const WGS = 'While Guthix Sleeps/Quick guide';
 // What is read, where its row is, and what it is saved as.
 const KINDS = [
-  { what: 'a quest', wikiPage: WGS, home: 'quests', other: 'areas', row: '.q[data-quest="While Guthix Sleeps"]', key: 'quest.' + WGS, title: 'While Guthix Sleeps', setup: () => {} },
-  { what: 'an area', wikiPage: 'Ardougne achievements', home: 'areas', other: 'quests', row: '.q[data-area="Ardougne"][data-atier="easy"]', key: 'area.Ardougne', title: 'Ardougne', setup: withAllAreas },
-  { what: 'a cape', wikiPage: 'Master Quest Cape (achievement)', home: 'areas', other: 'quests', row: '[data-cape="mqc"]', key: 'cape.mqc', title: 'Master quest cape', setup: withCapes }
+  { what: 'a quest', wikiPage: WGS, file: 'quests/while-guthix-sleeps.json', home: 'quests', other: 'areas', row: '.q[data-quest="While Guthix Sleeps"]', key: 'quest.' + WGS, title: 'While Guthix Sleeps', setup: () => {} },
+  { what: 'an area', wikiPage: 'Ardougne achievements', file: 'achievements/areas/ardougne.json', home: 'areas', other: 'quests', row: '.q[data-area="Ardougne"][data-atier="easy"]', key: 'area.Ardougne', title: 'Ardougne', setup: withAllAreas },
+  { what: 'a cape', wikiPage: 'Master Quest Cape (achievement)', file: 'achievements/capes/mqc.json', home: 'areas', other: 'quests', row: '[data-cape="mqc"]', key: 'cape.mqc', title: 'Master quest cape', setup: withCapes }
 ];
 async function startReading(page, k) {
   await openApp(page, expect);
@@ -17,9 +17,9 @@ async function startReading(page, k) {
   await page.locator(k.row).first().click();
   await expect(page.locator('.state')).toContainText('from the wiki');
 }
-// The wiki's answer for a page has arrived, and the app has had its turn with it.
-async function answered(page, wikiPage, go) {
-  const there = page.waitForResponse((r) => r.url().includes('/api.php') && new URL(r.url()).searchParams.get('page') === wikiPage);
+// The answer for a file of the data has arrived, and the app has had its turn with it.
+async function answered(page, file, go) {
+  const there = page.waitForResponse((r) => new URL(r.url()).pathname.endsWith('/data/' + file));
   go();
   await there;
   await page.evaluate(() => new Promise((done) => { setTimeout(done, 50); }));
@@ -55,7 +55,7 @@ test.describe('you went on while the wiki was slow', () => {
       await startReading(page, k);
       await bar(page, k.other).click();
       await expect(page.locator('.state')).toHaveCount(0);
-      await answered(page, k.wikiPage, go);
+      await answered(page, k.file, go);
       await expect(bar(page, k.other)).toHaveAttribute('aria-current', 'page');
       await expect(page.locator('#load-err')).toHaveCount(0);
       await expect(page.locator('.state')).toHaveCount(0);
@@ -63,11 +63,17 @@ test.describe('you went on while the wiki was slow', () => {
     });
   }
 
-  test('while you wait, another answer (the miniquests) does not bring the list back', async ({ page, wiki }) => {
-    wiki.minis();
-    const minis = wiki.hold('Miniquests'), guide = wiki.hold(WGS);
-    await startReading(page, KINDS[0]);
-    await answered(page, 'Miniquests', minis);
+  test('while you wait, another answer (the optimal order) does not bring the list back', async ({ page, wiki }) => {
+    // the lists are saved, the order is not: it is asked for at the start, and so is the index
+    await seed(page, { list: { at: Date.now(), quests: [{ t: 'While Guthix Sleeps' }] }, minis: { at: Date.now(), quests: [] }, settings: { sort: 'opt' } });
+    const index = wiki.hold('List of quests'), guide = wiki.hold(WGS);
+    await page.goto('/');
+    await expect(page.locator('#qarea .state')).toHaveText('Getting the optimal order…');
+    await page.locator('#quest-link').fill('While Guthix Sleeps');
+    await page.locator('#quest-link').press('Enter');
+    await expect(page.locator('.state')).toContainText('from the wiki');
+    await answered(page, 'index.json', index);   // the index came, with the order: the guide is asked for now
+    await expect.poll(async () => !!(await stored(page, 'order'))).toBe(true);
     await expect(page.locator('.state')).toContainText('from the wiki');
     await expect(page.locator('#qarea')).toBeEmpty();
     guide();
@@ -134,7 +140,7 @@ test.describe('things that happen while an answer is on its way', () => {
     await page.locator('#menu-btn').click();
     await page.locator('#menu .mi', { hasText: 'Add to list…' }).click();
     await page.locator('#ta-name').fill('Cooking');
-    await answered(page, COOK, go);
+    await answered(page, 'quests/cooks-assistant.json', go);
     // the box and what you typed are still there, over the guide as it was
     await expect(page.locator('#ta-name')).toHaveValue('Cooking');
     await expect(page.locator('#main')).toContainText('Talk to the Cook');
@@ -181,7 +187,7 @@ test.describe('things that happen while an answer is on its way', () => {
     await expect(page.locator('#qcount')).toHaveText('11 quests');
     go();
     await page.evaluate(() => new Promise((done) => { setTimeout(done, 300); }));
-    expect(await storedKeys(page)).toEqual(['list']);
+    expect(await storedKeys(page)).toEqual(['list', 'minis']);
     // the address is clean again, so a reload does not say it twice
     expect(new URL(page.url()).hash).toBe('');
     expect(page.errors).toEqual([]);

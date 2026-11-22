@@ -22,7 +22,7 @@ test.describe('the quest list', () => {
   test('shows an error and can try again', async ({ page, wiki }) => {
     wiki.fail('List of quests', 'http');
     await page.goto('/');
-    await expect(page.locator('#qarea .err')).toHaveText('Could not get the quest list. The wiki answered with error 500. Try again in a moment.');
+    await expect(page.locator('#qarea .err')).toHaveText("Could not get the quest list. The app's data answered with error 500. Try again in a moment.");
     wiki.page('List of quests', fixture('list-of-quests.html'));
     await page.getByRole('button', { name: 'Try again' }).click();
     await expect(page.locator('#qcount')).toHaveText('11 quests');
@@ -37,7 +37,7 @@ test.describe('the quest list', () => {
   });
 
   test('a fresh saved list is not read again', async ({ page, wiki }) => {
-    await seed(page, { list: { at: Date.now() - 3600 * 1000, quests: [{ t: 'Fresh quest', dif: 'Novice' }] } });
+    await seed(page, { list: { at: Date.now() - 3600 * 1000, quests: [{ t: 'Fresh quest', dif: 'Novice' }] }, minis: { at: Date.now(), quests: [] } });
     await page.goto('/');
     await expect(page.locator('#qcount')).toHaveText('1 quest');
     await expect(names(page)).toHaveText(['Fresh quest']);
@@ -238,7 +238,7 @@ test.describe('opening a quest', () => {
     await openApp(page, expect);
     await page.locator('.q[data-quest="Rune Mysteries"]').click();
     await expect(page.locator('h1.qt')).toHaveText('Rune Mysteries');
-    expect(wiki.asked()).toEqual(['List of quests', 'Rune Mysteries/Quick guide', 'Rune Mysteries']);
+    expect(wiki.asked()).toEqual(['List of quests', 'Rune Mysteries']);
     await expect(page.locator('#main .note').first()).toHaveText('This quest has no Quick guide on the wiki, so this is its full page.');
   });
 
@@ -253,9 +253,9 @@ test.describe('opening a quest', () => {
 
   const loadErrors = [
     ['missing', 'The wiki has no page for this quest yet.'],
-    ['http', 'The wiki answered with error 500. Try again in a moment.'],
-    ['network', 'Could not reach the wiki. Check your internet, then try again.'],
-    ['format', 'The wiki sent something unexpected. Try again in a moment.']
+    ['http', "The app's data answered with error 500. Try again in a moment."],
+    ['network', "Could not reach the app's data. Check your internet, then try again."],
+    ['format', "The app's data could not be read. Try again in a moment."]
   ];
   for (const [how, message] of loadErrors) {
     test('wiki error: ' + how, async ({ page, wiki }) => {
@@ -274,12 +274,13 @@ test.describe('opening a quest', () => {
     await page.locator('.q[data-quest="Imp Catcher"]').click();
     await expect(page.locator('.state')).toBeVisible();
     await page.clock.runFor(26000);
-    await expect(page.locator('#load-err')).toHaveText('The wiki took too long to answer. Try again.');
+    await expect(page.locator('#load-err')).toHaveText("The app's data took too long to come. Try again.");
   });
 
   test('a saved guide opens without the wiki', async ({ page, wiki }) => {
     const q = await parsedQuest(page, 'while-guthix-sleeps.html', WGS);
-    await seed(page, { ['quest.' + WGS]: q, meta: { [WGS]: { title: q.title, done: 0, total: 14, at: 1 } }, list: { at: Date.now(), quests: [{ t: 'While Guthix Sleeps' }] } });
+    await seed(page, { ['quest.' + WGS]: q, meta: { [WGS]: { title: q.title, done: 0, total: 14, at: 1 } }, list: { at: Date.now(), quests: [{ t: 'While Guthix Sleeps' }] }, minis: { at: Date.now(), quests: [] },
+      upd: { at: Date.now(), found: {}, failed: 0 } });
     await page.goto('/');
     await page.locator('.q[data-quest="While Guthix Sleeps"]').click();
     await expect(page.locator('h1.qt')).toHaveText('While Guthix Sleeps');

@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const espree = require('espree');
 const { test, expect } = require('@playwright/test');
+const { READER } = require('../../tools/data/collect');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -80,9 +81,12 @@ test.describe('the code check', () => {
 });
 
 test.describe('the files', () => {
-  test('index.html loads every file in js/: the wiki reader first, then core.js, and main.js last', () => {
-    expect([...scripts].sort()).toEqual([...onDisk('js/wiki'), ...onDisk('js/app')].sort());
-    expect(scripts.slice(0, 8)).toEqual(['base', 'html', 'steps', 'guide', 'player', 'areas', 'capes', 'quests'].map((f) => 'js/wiki/' + f + '.js'));
+  test('index.html loads every file in js/app, and of js/wiki only what the app needs; the build loads the reader', () => {
+    const wiki = ['base', 'player', 'data'].map((f) => 'js/wiki/' + f + '.js');
+    expect(scripts.slice(0, 3)).toEqual(wiki);
+    expect([...scripts].sort()).toEqual([...wiki, ...onDisk('js/app')].sort());
+    // every file of js/wiki is the app's, the build's, or both
+    expect([...new Set([...READER, ...wiki])].sort()).toEqual(onDisk('js/wiki').sort());
     expect(appFiles[0]).toBe('js/app/core.js');
     expect(appFiles[appFiles.length - 1]).toBe('js/app/main.js');
   });
@@ -99,7 +103,7 @@ test.describe('the files', () => {
   });
 
   test('DEVELOPING.md and the top of core.js name every file', () => {
-    for (const f of scripts) expect(dev, 'DEVELOPING.md, Files').toContain('| `' + f + '` |');
+    for (const f of [...onDisk('js/wiki'), ...appFiles]) expect(dev, 'DEVELOPING.md, Files').toContain('| `' + f + '` |');
     for (const f of appFiles) expect(core, 'the top of core.js').toMatch(new RegExp('^ \\* {3}' + path.basename(f).replace('.', '\\.') + ' ', 'm'));
   });
 });

@@ -1,0 +1,193 @@
+{
+  "format": 1,
+  "id": "mogre-lore-activity",
+  "title": "Mogre (lore activity)",
+  "page": "Mogre (lore activity)/Quick guide",
+  "rev": 37051129,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Skippy\" target=\"_blank\" rel=\"noopener\">Skippy</a> located south-east of the town of <a href=\"https://runescape.wiki/w/Rimmington\" target=\"_blank\" rel=\"noopener\">Rimmington</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 3196,
+      "lon": 2983,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": 28,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Mogre_(lore_activity)/Quick_guide"
+    },
+    "members": true,
+    "length": "",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 20,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1qx5hmv",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_water\" target=\"_blank\" rel=\"noopener\">Bucket of water</a>",
+          "text": "Bucket of water",
+          "alternatives": []
+        },
+        {
+          "id": "req:y25f61",
+          "html": "<a href=\"https://runescape.wiki/w/Nettle_tea\" target=\"_blank\" rel=\"noopener\">Nettle tea</a>",
+          "text": "Nettle tea",
+          "alternatives": []
+        },
+        {
+          "id": "req:pdudez",
+          "html": "<a href=\"https://runescape.wiki/w/Chocolatey_milk\" target=\"_blank\" rel=\"noopener\">Chocolatey milk</a>",
+          "text": "Chocolatey milk",
+          "alternatives": []
+        },
+        {
+          "id": "req:aw9awi",
+          "html": "<a href=\"https://runescape.wiki/w/Snape_grass\" target=\"_blank\" rel=\"noopener\">Snape grass</a>",
+          "text": "Snape grass",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:6roofd",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Skippy\" target=\"_blank\" rel=\"noopener\">Skippy</a>, south-west of the <a href=\"https://runescape.wiki/w/Port_Sarim_lodestone\" target=\"_blank\" rel=\"noopener\">Port Sarim lodestone</a>.",
+          "text": "Talk to Skippy, south-west of the Port Sarim lodestone.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Who are (Dramatic pause) THEY?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1te3b89",
+          "html": "&#39;Right-click&#39; Skippy, Sober-Up.",
+          "text": "'Right-click' Skippy, Sober-Up.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Throw the water!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:333wb6",
+          "html": "Talk to Skippy again to give him <a href=\"https://runescape.wiki/w/Nettle_tea\" target=\"_blank\" rel=\"noopener\">nettle tea</a>.",
+          "text": "Talk to Skippy again to give him nettle tea.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:emqbd9",
+          "html": "Make a <a href=\"https://runescape.wiki/w/Hangover_cure\" target=\"_blank\" rel=\"noopener\">hangover cure</a> by using <a href=\"https://runescape.wiki/w/Chocolate_dust\" target=\"_blank\" rel=\"noopener\">chocolate dust</a> on a <a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">bucket of milk</a>, then <a href=\"https://runescape.wiki/w/Snape_grass\" target=\"_blank\" rel=\"noopener\">snape grass</a> on <a href=\"https://runescape.wiki/w/Chocolatey_milk\" target=\"_blank\" rel=\"noopener\">chocolatey milk</a>.",
+          "text": "Make a hangover cure by using chocolate dust on a bucket of milk, then snape grass on chocolatey milk.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1z09ctm",
+          "html": "Give Skippy the hangover cure.",
+          "text": "Give Skippy the hangover cure.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:15kke9q",
+          "html": "Activity complete!",
+          "text": "Activity complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": null,
+    "items": [
+      {
+        "html": "Ability to slay <a href=\"https://runescape.wiki/w/Mogre\" target=\"_blank\" rel=\"noopener\">mogres</a> at level 32 <a href=\"https://runescape.wiki/w/Slayer\" target=\"_blank\" rel=\"noopener\">Slayer</a>.",
+        "text": "Ability to slay mogres at level 32 Slayer.",
+        "subs": []
+      },
+      {
+        "html": "Ability to own a <a href=\"https://runescape.wiki/w/Giant_crab\" target=\"_blank\" rel=\"noopener\">giant crab</a> pet, after completing the <a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Freeing_Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Freeing Pirate Pete</a> subquest of <a href=\"https://runescape.wiki/w/Recipe_for_Disaster\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster</a> (with level 40 <a href=\"https://runescape.wiki/w/Summoning\" target=\"_blank\" rel=\"noopener\">Summoning</a>).",
+        "text": "Ability to own a giant crab pet, after completing the Freeing Pirate Pete subquest of Recipe for Disaster (with level 40 Summoning).",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [
+    "<a href=\"https://runescape.wiki/w/Milk_of_Chocolate,_Snape_of_Grass\" target=\"_blank\" rel=\"noopener\">Milk of Chocolate, Snape of Grass</a> (5) – Sober up Skippy."
+  ],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Rag_and_Bone_Man/Wish_list\" target=\"_blank\" rel=\"noopener\">Rag and Bone Man/Wish list</a>"
+      ]
+    }
+  ]
+}

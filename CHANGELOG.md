@@ -10,6 +10,16 @@ The version is three numbers, MAJOR.MINOR.PATCH ([semantic versioning](https://s
 
 ## [Unreleased]
 
+## [1.46.0] - 2026-11-22
+
+### Changed
+
+- The app gets its quests, guides, area tasks and capes from its own data files (`data/`), not from the wiki. A build
+  reads the wiki every night. The list, the miniquests and the optimal order come in one request, and a guide, an
+  area or a cape is one small file. A cape no longer needs dozens of requests.
+- Update from the wiki asks the data what changed: one request.
+- When the data cannot be read, the message says "the app's data", not "the wiki".
+
 ## [1.45.0] - 2026-11-21
 
 ### Added

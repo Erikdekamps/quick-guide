@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "id": "recipe-for-disaster-freeing-evil-dave",
+  "title": "Recipe for Disaster: Freeing Evil Dave",
+  "page": "Recipe for Disaster: Freeing Evil Dave/Quick guide",
+  "rev": 37171016,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Inspect <a href=\"https://runescape.wiki/w/Evil_Dave\" target=\"_blank\" rel=\"noopener\">Evil Dave</a> in the banquet hall in <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Medium to Long",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Recipe for Disaster: Another Cook's Quest",
+        "depth": 1
+      },
+      {
+        "text": "Cook's Assistant",
+        "depth": 2
+      },
+      {
+        "text": "Gertrude's Cat",
+        "depth": 1
+      },
+      {
+        "text": "Shadow of the Storm",
+        "depth": 1
+      },
+      {
+        "text": "Demon Slayer",
+        "depth": 2
+      },
+      {
+        "text": "The Golem",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span> <span class=\"reg\">Desert</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:11fozlm",
+          "html": "<a href=\"https://runescape.wiki/w/Wily_cat\" target=\"_blank\" rel=\"noopener\">Wily cat</a>, <a href=\"https://runescape.wiki/w/Cat\" target=\"_blank\" rel=\"noopener\">cat</a>, <a href=\"https://runescape.wiki/w/Kitten\" target=\"_blank\" rel=\"noopener\">kitten</a>, or <a href=\"https://runescape.wiki/w/Lazy_cat\" target=\"_blank\" rel=\"noopener\">lazy cat</a>",
+          "text": "Wily cat, cat, kitten, or lazy cat",
+          "alternatives": [
+            "<a href=\"https://runescape.wiki/w/Overgrown_cat\" target=\"_blank\" rel=\"noopener\">Overgrown cats</a> won&#39;t work as they do not hunt rats",
+            "A kitten is not recommended as the chance of them catching a rat is a low 15% compared to 50% for a normal cat, and will take longer to complete"
+          ]
+        },
+        {
+          "id": "req:gu4iu9",
+          "html": "Up to 10 bowls of <a href=\"https://runescape.wiki/w/Stew\" target=\"_blank\" rel=\"noopener\">stew</a> (If you make no mistakes, you will not need more than 10 bowls. The <a href=\"https://runescape.wiki/w/Forester%27s_Arms\" target=\"_blank\" rel=\"noopener\">Forester&#39;s Arms</a> sells stew for 20 coins).",
+          "text": "Up to 10 bowls of stew (If you make no mistakes, you will not need more than 10 bowls. The Forester's Arms sells stew for 20 coins).",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:1n0nh0r",
+          "html": "Charged <a href=\"https://runescape.wiki/w/Amulet_of_glory\" target=\"_blank\" rel=\"noopener\">amulet of glory</a> or the <a href=\"https://runescape.wiki/w/Wilderness_sword\" target=\"_blank\" rel=\"noopener\">Wilderness sword</a> for quick teleport to Edgeville. Alternatively, <a href=\"https://runescape.wiki/w/Edgeville_lodestone\" target=\"_blank\" rel=\"noopener\">Edgeville lodestone</a> can be used.",
+          "text": "Charged amulet of glory or the Wilderness sword for quick teleport to Edgeville. Alternatively, Edgeville lodestone can be used.",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "freeing-evil-dave",
+      "title": "Freeing Evil Dave",
+      "anchor": "Freeing_Evil_Dave",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:pxnm53",
+          "html": "Inspect <a href=\"https://runescape.wiki/w/Evil_Dave\" target=\"_blank\" rel=\"noopener\">Evil Dave</a> inside <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a> Banquet Hall.",
+          "text": "Inspect Evil Dave inside Lumbridge Castle Banquet Hall.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:nsoc2a",
+          "html": "Optional: West of <a href=\"https://runescape.wiki/w/Edgeville\" target=\"_blank\" rel=\"noopener\">Edgeville</a>&#39;s bank, talk to <a href=\"https://runescape.wiki/w/Doris\" target=\"_blank\" rel=\"noopener\">Doris</a>.",
+          "text": "Optional: West of Edgeville's bank, talk to Doris.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Is Dave in?"
+                },
+                {
+                  "key": "1",
+                  "text": "Yes, I'm evil!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1imok2r",
+          "html": "Head into the house&#39;s <a href=\"https://runescape.wiki/w/Evil_Dave%27s_Basement_of_Doom\" target=\"_blank\" rel=\"noopener\">basement</a>.",
+          "text": "Head into the house's basement.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:lq2jue",
+          "html": "Talk to Evil Dave.",
+          "text": "Talk to Evil Dave.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "General chat"
+                },
+                {
+                  "key": "3",
+                  "text": "What did you eat at the secret council meeting?"
+                },
+                {
+                  "key": "4",
+                  "text": "You've got to tell me because the magic requires it!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1qdfwx",
+          "html": "Speak to Doris, upstairs in the house. If you miss this step, the hellrats will only drop ashes.",
+          "text": "Speak to Doris, upstairs in the house. If you miss this step, the hellrats will only drop ashes.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:i0lnk9",
+          "html": "Head back in the basement, interact with your cat and select &quot;Chase-Vermin&quot;. (Switch off &#39;Hide Familiar Options&#39; in Gameplay-&gt;Combat &amp; Action Bar-&gt; &#39;Choose Option&#39; Menu)",
+          "text": "Head back in the basement, interact with your cat and select \"Chase-Vermin\". (Switch off 'Hide Familiar Options' in Gameplay->Combat & Action Bar-> 'Choose Option' Menu)",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "2",
+                  "text": "Chase-Vermin"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:lgnowg",
+          "html": "As your cat catches the rats, pick up the spices that drop.",
+          "text": "As your cat catches the rats, pick up the spices that drop.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1l9404c",
+          "html": "Do so until at least six doses of each of the four spices are collected.",
+          "text": "Do so until at least six doses of each of the four spices are collected.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:13unkrx",
+          "html": "Make Dave&#39;s <a href=\"https://runescape.wiki/w/Evil_stew\" target=\"_blank\" rel=\"noopener\">Evil stew</a> by combining doses of each spice on the <a href=\"https://runescape.wiki/w/Stews\" target=\"_blank\" rel=\"noopener\">stews</a>.",
+          "text": "Make Dave's Evil stew by combining doses of each spice on the stews.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "For each of the spice collected, test each of them individually, a max of 9 stews is needed if done correctly."
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1ogs0vz",
+          "html": "Start with 1 dose of any spice on the stew, then use the spicy stew on Evil Dave (right click and use).",
+          "text": "Start with 1 dose of any spice on the stew, then use the spicy stew on Evil Dave (right click and use).",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1uj822u",
+          "html": "If he says one spice is right, note the number of dose using Spice type below.",
+          "text": "If he says one spice is right, note the number of dose using Spice type below.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1i34j9k",
+          "html": "(Skip if 1 dose is correct) Use 2 dose of spice on the stew, then use on Evil Dave, repeat step 2. Do not try for three spices, if 2 doses is wrong then it is 3 doses.",
+          "text": "(Skip if 1 dose is correct) Use 2 dose of spice on the stew, then use on Evil Dave, repeat step 2. Do not try for three spices, if 2 doses is wrong then it is 3 doses.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:123lom6",
+          "html": "Repeat for each spice.",
+          "text": "Repeat for each spice.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1h88tmf",
+          "html": "Once all 4 types of spice dosage are confirmed, use it on another stew with corresponding doses, then use on Evil Dave one last time.",
+          "text": "Once all 4 types of spice dosage are confirmed, use it on another stew with corresponding doses, then use on Evil Dave one last time.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "This method is sort of like a game of <a href=\"https://en.wikipedia.org/wiki/Mastermind_(board_game)\" target=\"_blank\" rel=\"noopener\">Mastermind</a>."
+        },
+        {
+          "type": "text",
+          "html": "Spice type<br><a href=\"https://runescape.wiki/w/Brown_spice\" target=\"_blank\" rel=\"noopener\">Brown spice</a><br><a href=\"https://runescape.wiki/w/Orange_spice\" target=\"_blank\" rel=\"noopener\">Orange spice</a><br><a href=\"https://runescape.wiki/w/Red_spice\" target=\"_blank\" rel=\"noopener\">Red spice</a><br><a href=\"https://runescape.wiki/w/Yellow_spice\" target=\"_blank\" rel=\"noopener\">Yellow spice</a><br>1 brown<br>1 orange<br>1 red<br>1 yellow<br>2 brown<br>2 orange<br>2 red<br>2 yellow<br>3 brown<br>3 orange<br>3 red<br>3 yellow"
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:19lroid",
+          "html": "After determining the right combination, have Evil Dave taste it and finish the dialogue. This won&#39;t consume the stew.",
+          "text": "After determining the right combination, have Evil Dave taste it and finish the dialogue. This won't consume the stew.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:101gnf",
+          "html": "Head to <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a> and give Evil Dave the stew.",
+          "text": "Head to Lumbridge and give Evil Dave the stew.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-evil-dave:1k0rf3j",
+          "html": "Subquest complete!",
+          "text": "Subquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Recipe_for_Disaster_%28Freeing_Evil_Dave%29_reward.png?009f9",
+      "width": 512,
+      "height": 357,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Recipe_for_Disaster_(Freeing_Evil_Dave)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "7,000 experience",
+        "text": "7,000 experience",
+        "subs": []
+      },
+      {
+        "html": "The ability to catch <a href=\"https://runescape.wiki/w/Hellrat\" target=\"_blank\" rel=\"noopener\">hellrats</a> to get a <a href=\"https://runescape.wiki/w/Hellcat\" target=\"_blank\" rel=\"noopener\">hellcat</a>",
+        "text": "The ability to catch hellrats to get a hellcat",
+        "subs": []
+      },
+      {
+        "html": "The ability to add coloured spices to stew by catching Hellrats (<a href=\"https://runescape.wiki/w/Spicy_stew\" target=\"_blank\" rel=\"noopener\">spicy stews</a> can boost or lower certain stats)",
+        "text": "The ability to add coloured spices to stew by catching Hellrats (spicy stews can boost or lower certain stats)",
+        "subs": []
+      },
+      {
+        "html": "(Further) access to the <a href=\"https://runescape.wiki/w/Culinaromancer%27s_chest\" target=\"_blank\" rel=\"noopener\">Culinaromancer&#39;s chest</a>",
+        "text": "(Further) access to the Culinaromancer's chest",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Evil_Dave%27s_Big_Day_Out/Quick_guide\" target=\"_blank\" rel=\"noopener\">Evil Dave&#39;s Big Day Out</a>",
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    }
+  ]
+}

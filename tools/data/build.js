@@ -11,8 +11,8 @@
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('@playwright/test');
-const { serveFile, WIKI_FILES, ORIGIN, ROOT } = require('../../tests/support/app');
-const { collect } = require('./collect');
+const { serveFile, ORIGIN, ROOT } = require('../../tests/support/app');
+const { READER, collect } = require('./collect');
 const shape = require('./shape');
 
 const DATA = path.join(ROOT, 'data');
@@ -49,7 +49,7 @@ async function readWiki() {
     // The reader's own files come from this folder; everything else is the real wiki.
     await page.route(ORIGIN + '/**', (route) => serveFile(route));
     await page.goto(ORIGIN + '/__blank');
-    for (const f of WIKI_FILES) await page.addScriptTag({ url: '/' + f });
+    for (const f of READER) await page.addScriptTag({ url: '/' + f });
     return await collect(page);
   } finally { await browser.close(); }
 }

@@ -1,0 +1,481 @@
+{
+  "format": 1,
+  "id": "recipe-for-disaster-freeing-the-lumbridge-sage",
+  "title": "Recipe for Disaster: Freeing the Lumbridge Sage",
+  "page": "Recipe for Disaster: Freeing the Lumbridge Sage/Quick guide",
+  "rev": 37121466,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Inspect the <a href=\"https://runescape.wiki/w/Lumbridge_Sage\" target=\"_blank\" rel=\"noopener\">Lumbridge Sage</a> in the banquet hall in <a href=\"https://runescape.wiki/w/Lumbridge_Castle\" target=\"_blank\" rel=\"noopener\">Lumbridge Castle</a>.",
+    "startMap": null,
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Recipe for Disaster: Another Cook's Quest",
+        "depth": 1
+      },
+      {
+        "text": "Cook's Assistant",
+        "depth": 2
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Cooking",
+        "level": 40,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span> <span class=\"reg\">Kandarin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:1e03n8z",
+          "html": "<a href=\"https://runescape.wiki/w/Bucket_of_milk\" target=\"_blank\" rel=\"noopener\">Bucket of milk</a>",
+          "text": "Bucket of milk",
+          "alternatives": []
+        },
+        {
+          "id": "req:1guxk6e",
+          "html": "<a href=\"https://runescape.wiki/w/Egg\" target=\"_blank\" rel=\"noopener\">Egg</a>",
+          "text": "Egg",
+          "alternatives": []
+        },
+        {
+          "id": "req:1clo6nd",
+          "html": "<a href=\"https://runescape.wiki/w/Pot_of_flour\" target=\"_blank\" rel=\"noopener\">Pot of flour</a>",
+          "text": "Pot of flour",
+          "alternatives": []
+        },
+        {
+          "id": "req:1l5li1i",
+          "html": "<a href=\"https://runescape.wiki/w/Cake_tin\" target=\"_blank\" rel=\"noopener\">Cake tin</a>",
+          "text": "Cake tin",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:8yujgi",
+          "html": "<a href=\"https://runescape.wiki/w/Wicked_hood\" target=\"_blank\" rel=\"noopener\">Wicked hood</a>, <a href=\"https://runescape.wiki/w/Skills_necklace\" target=\"_blank\" rel=\"noopener\">skills necklace</a>, or <a href=\"https://runescape.wiki/w/Traveller%27s_necklace\" target=\"_blank\" rel=\"noopener\">traveller&#39;s necklace</a> - to reach the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a>",
+          "text": "Wicked hood, skills necklace, or traveller's necklace - to reach the Wizards' Tower",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "the-sage",
+      "title": "The sage",
+      "anchor": "The_sage",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-sage:1qjg0bd",
+          "html": "Inspect the <a href=\"https://runescape.wiki/w/Lumbridge_Sage\" target=\"_blank\" rel=\"noopener\">Lumbridge Sage</a>.",
+          "text": "Inspect the Lumbridge Sage.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes, I'm sure I can make a cake."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "the-sage:1xh9fjz",
+          "html": "Head to the 2<sup>nd</sup> floor (UK) / 3<sup>rd</sup> floor (US) of the <a href=\"https://runescape.wiki/w/Wizards%27_Tower\" target=\"_blank\" rel=\"noopener\">Wizards&#39; Tower</a> and talk to <a href=\"https://runescape.wiki/w/Wizard_Traiborn\" target=\"_blank\" rel=\"noopener\">Wizard Traiborn</a> who is west of the beam.",
+          "text": "Head to the 2nd floor (UK) / 3rd floor (US) of the Wizards' Tower and talk to Wizard Traiborn who is west of the beam.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Ask about the Lumbridge Sage.]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "the-egg",
+      "title": "The egg",
+      "anchor": "The_egg",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-egg:nce55k",
+          "html": "Talk to Traiborn again for the first quiz.",
+          "text": "Talk to Traiborn again for the first quiz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Ask about the Lumbridge Sage.]"
+                },
+                {
+                  "key": "1",
+                  "text": "Ok. Let's Start!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quiz answers<br><a href=\"https://runescape.wiki/w/Reldo\" target=\"_blank\" rel=\"noopener\">Reldo</a><br><a href=\"https://runescape.wiki/w/Thessalia\" target=\"_blank\" rel=\"noopener\">Thessalia</a><br><a href=\"https://runescape.wiki/w/Ali_Morrisane\" target=\"_blank\" rel=\"noopener\">Ali Morrisane</a><br><a href=\"https://runescape.wiki/w/Sir_Amik\" target=\"_blank\" rel=\"noopener\">Sir Amik</a><br><a href=\"https://runescape.wiki/w/King_Lathas\" target=\"_blank\" rel=\"noopener\">King Lathas</a><br><a href=\"https://runescape.wiki/w/Unferth\" target=\"_blank\" rel=\"noopener\">Unferth</a><br><a href=\"https://runescape.wiki/w/Gertrude\" target=\"_blank\" rel=\"noopener\">Gertrude</a><br><a href=\"https://runescape.wiki/w/Hetty\" target=\"_blank\" rel=\"noopener\">Hetty</a><br><a href=\"https://runescape.wiki/w/Pirate_Pete\" target=\"_blank\" rel=\"noopener\">Pirate Pete</a><br><a href=\"https://runescape.wiki/w/Observatory_professor\" target=\"_blank\" rel=\"noopener\">Professor Gronigen</a>"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Reldo%29.png/107px-%3F_%3F_%3F_%3F_%28Reldo%29.png?bab22",
+          "width": 107,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Reldo).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Thessalia%29.png/112px-%3F_%3F_%3F_%3F_%28Thessalia%29.png?55e4f",
+          "width": 112,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Thessalia).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Ali_Morrisane%29.png/105px-%3F_%3F_%3F_%3F_%28Ali_Morrisane%29.png?82400",
+          "width": 105,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Ali_Morrisane).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Sir_Amik%29.png/118px-%3F_%3F_%3F_%3F_%28Sir_Amik%29.png?c5114",
+          "width": 118,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Sir_Amik).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28King_Lathas%29.png/104px-%3F_%3F_%3F_%3F_%28King_Lathas%29.png?fefdc",
+          "width": 104,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(King_Lathas).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Unferth%29.png/112px-%3F_%3F_%3F_%3F_%28Unferth%29.png?3f047",
+          "width": 112,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Unferth).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Gertrude%29.png/107px-%3F_%3F_%3F_%3F_%28Gertrude%29.png?67cf5",
+          "width": 107,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Gertrude).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Hetty%29.png/101px-%3F_%3F_%3F_%3F_%28Hetty%29.png?b3c42",
+          "width": 101,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Hetty).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Pirate_Pete%29.png/107px-%3F_%3F_%3F_%3F_%28Pirate_Pete%29.png?ffe44",
+          "width": 107,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Pirate_Pete).png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/%3F_%3F_%3F_%3F_%28Professor_Gronigen%29.png/108px-%3F_%3F_%3F_%3F_%28Professor_Gronigen%29.png?ca8d9",
+          "width": 108,
+          "height": 200,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:%3F_%3F_%3F_%3F_(Professor_Gronigen).png"
+        }
+      ]
+    },
+    {
+      "id": "the-milk",
+      "title": "The milk",
+      "anchor": "The_milk",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-milk:j6nl8k",
+          "html": "Talk to Traiborn again for the second quiz.",
+          "text": "Talk to Traiborn again for the second quiz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Ask about the Lumbridge Sage.]"
+                },
+                {
+                  "key": "1",
+                  "text": "Ok. I'm ready!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quiz answers<br>Question<br>Answer<br>What is the Defence level requirement to wear a Mystic Hat?<br>50<br>What doesn&#39;t lie between Morytania and Asgarnia?<br>Keep Le Faye<br>What is the nearest guild to the Fishing Platform (as the seagull flies)?<br>Legends&#39;<br>What is the name of the toy seller in Draynor Village?<br>Diango<br>The River Salve runs from...?<br>North to South<br>Take the number of Fire Runes requires to cast Fire Strike, and multiply by the number by the number of Air Runes used to cast Air Strike before adding the number of Earth Runes used to cast Earth Wave. What do you get?<br>5<br>The combat level of unarmed goblins near Lumbridge is:<br>2<br>If I&#39;m going to need glass, first I will need:<br>Sand, bucket, soda ash, glass blowing pipe<br>A gold ring is to 5 as a holy symbol is to...<br>16<br>A glass vial is to 33, as a glass orb is to...<br>46<br>What ingredients are used in a cake?<br>Flour, Eggs and milk<br>I can hear howling in one direction and buzzing in the other - where am I?<br>Catherby<br>I&#39;m in a bar west of Pollnivneach. Where am I?<br>Bandit Camp<br>Which tower is closest to the Crafting Guild?<br>Dark Wizards&#39;<br>GP to bribe an Al Kharid gate guard<br>10"
+        }
+      ]
+    },
+    {
+      "id": "the-flour",
+      "title": "The flour",
+      "anchor": "The_flour",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "the-flour:19ls8cu",
+          "html": "Talk to Traiborn for the final quiz.",
+          "text": "Talk to Traiborn for the final quiz.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "[Ask about the Lumbridge Sage.]"
+                },
+                {
+                  "key": "1",
+                  "text": "Quiz me!"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Quiz answers<br>Picture<br>Question<br>Answer<br>Which item began with the letter &quot;m&quot;?<br>Mind Talisman<br>How many weapons were you shown?<br>3<br>Which items were amongst those you were shown?<br>Guthix Prayer Book, Magic Logs, Pike<br>Which of the following items were NOT shown to you?<br>Trout<br>How many types of rune were there?<br>2"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Memorisation_test_1.png/150px-Memorisation_test_1.png?961e4",
+          "width": 150,
+          "height": 76,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Memorisation_test_1.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Memorisation_test_2.png/150px-Memorisation_test_2.png?7031a",
+          "width": 150,
+          "height": 76,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Memorisation_test_2.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Memorisation_test_3.png/150px-Memorisation_test_3.png?b1d4b",
+          "width": 150,
+          "height": 76,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Memorisation_test_3.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Memorisation_test_4.png/150px-Memorisation_test_4.png?0ed48",
+          "width": 150,
+          "height": 76,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Memorisation_test_4.png"
+        },
+        {
+          "type": "image",
+          "src": "https://runescape.wiki/images/thumb/Memorisation_test_5.png/150px-Memorisation_test_5.png?2f4cc",
+          "width": 150,
+          "height": 76,
+          "alt": "",
+          "caption": "",
+          "href": "https://runescape.wiki/w/File:Memorisation_test_5.png"
+        },
+        {
+          "type": "step",
+          "id": "the-flour:1ab74ug",
+          "html": "After completing his final quiz, you receive an <a href=\"https://runescape.wiki/w/Enchanted_egg\" target=\"_blank\" rel=\"noopener\">enchanted egg</a>, a bucket of <a href=\"https://runescape.wiki/w/Enchanted_milk\" target=\"_blank\" rel=\"noopener\">enchanted milk</a> and pot of <a href=\"https://runescape.wiki/w/Enchanted_flour\" target=\"_blank\" rel=\"noopener\">enchanted flour</a>.",
+          "text": "After completing his final quiz, you receive an enchanted egg, a bucket of enchanted milk and pot of enchanted flour.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "freeing-the-lumbridge-sage",
+      "title": "Freeing the Lumbridge Sage",
+      "anchor": "Freeing_the_Lumbridge_Sage",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "freeing-the-lumbridge-sage:rbd8tn",
+          "html": "Use any of the raw ingredients on a cake tin.",
+          "text": "Use any of the raw ingredients on a cake tin.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-the-lumbridge-sage:g50ujw",
+          "html": "Bake the <a href=\"https://runescape.wiki/w/Raw_guide_cake\" target=\"_blank\" rel=\"noopener\">raw guide cake</a> on a range.",
+          "text": "Bake the raw guide cake on a range.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-the-lumbridge-sage:15smk5g",
+          "html": "<i>Use</i> the <a href=\"https://runescape.wiki/w/Cake_of_guidance\" target=\"_blank\" rel=\"noopener\">cake of guidance</a> on the Lumbridge Sage back in <a href=\"https://runescape.wiki/w/Lumbridge\" target=\"_blank\" rel=\"noopener\">Lumbridge</a>.",
+          "text": "Use the cake of guidance on the Lumbridge Sage back in Lumbridge.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "freeing-the-lumbridge-sage:1k0rf3j",
+          "html": "Subquest complete!",
+          "text": "Subquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Recipe_for_Disaster_%28Freeing_the_Lumbridge_Sage%29_reward.png?6a7c6",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Recipe_for_Disaster_(Freeing_the_Lumbridge_Sage)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "2,500 experience",
+        "text": "2,500 experience",
+        "subs": []
+      },
+      {
+        "html": "(Further) access to the <a href=\"https://runescape.wiki/w/Culinaromancer%27s_chest\" target=\"_blank\" rel=\"noopener\">Culinaromancer&#39;s chest</a>",
+        "text": "(Further) access to the Culinaromancer's chest",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Mastermindless",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Recipe_for_Disaster:_Defeating_the_Culinaromancer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Recipe for Disaster: Defeating the Culinaromancer</a>"
+      ]
+    }
+  ]
+}

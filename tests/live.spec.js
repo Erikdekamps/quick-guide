@@ -14,7 +14,7 @@ const test = base.test.extend({
 });
 const { expect } = base;
 
-test('the quest list is read from the wiki', async ({ page }) => {
+test('the quest list comes from the data', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
   const n = parseInt(await page.locator('#qcount').textContent(), 10);
@@ -66,7 +66,7 @@ test('wiki map tiles load', async ({ page }) => {
   await expect.poll(() => ok.length, { timeout: 30000 }).toBeGreaterThan(0);
 });
 
-test('the optimal order is read from the wiki and matches the quest list', async ({ page }) => {
+test('the optimal order comes with the data and matches the quest list', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#qcount')).toHaveText(/^\d+ quests$/);
   // The guide is about quests, so leave the miniquests out.

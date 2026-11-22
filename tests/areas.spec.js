@@ -384,6 +384,19 @@ test.describe('searching the area tasks', () => {
     expect((await stored(page, 'aprog.Ardougne')).tasks).toEqual({});
   });
 
+  test('typing on while the areas are read does not read them twice', async ({ page, wiki }) => {
+    withAllAreas(wiki);
+    const go = wiki.hold('Desert achievements');
+    await areasTab(page);
+    await search(page, 'yo');
+    await expect(page.locator('#qarea .state')).toHaveCount(1);   // still reading
+    await search(page, 'yoink');
+    go();
+    await expect(taskRows(page)).toHaveCount(1);
+    await expect(page.locator('#qarea .state')).toHaveCount(0);
+    expect(wiki.dataCalls.filter((f) => /^achievements\/areas\//.test(f)).sort()).toEqual(AREAS.map((n) => 'achievements/areas/' + n.toLowerCase().replace(/[^a-z]+/g, '-') + '.json').sort());
+  });
+
   test('only names are searched, not the descriptions', async ({ page, wiki }) => {
     withAllAreas(wiki);
     await areasTab(page);
@@ -597,7 +610,7 @@ test.describe('an area', () => {
     wiki.fail('Desert achievements', 'http');
     await areasTab(page);
     await area(page, 'Desert').first().click();
-    await expect(page.locator('#load-err')).toHaveText('The wiki answered with error 500. Try again in a moment.');
+    await expect(page.locator('#load-err')).toHaveText("The app's data answered with error 500. Try again in a moment.");
   });
 
   test('a tab per tier; the tier is remembered', async ({ page, wiki }) => {

@@ -6,16 +6,12 @@
 (function (W) {
   'use strict';
   if (!W) return;
+  var AREA_VERSION = W.AREA_VERSION;
   var arr = W.arr, clean = W.clean, fetchPage = W.fetchPage, hash = W.hash, kids = W.kids, pageUrl = W.pageUrl,
     plainOf = W.plainOf, scratch = W.scratch, text = W.text, inline = W.inline, isHidden = W.isHidden, tidy = W.tidy,
     unwrapSections = W.unwrapSections;
 
   // ---------- Area Tasks: the "<Area> achievements" pages ----------
-  var AREA_VERSION = 5;   // a new number makes saved areas read the wiki again
-  var AREAS = ['Ardougne', 'Daemonheim', 'Desert', 'Falador', 'Fremennik', 'Karamja', 'Lumbridge', 'Morytania',
-    "Seers' Village", 'Tirannwn', 'Underworld', 'Varrock', 'Wilderness'].map(function (n) {
-    return { name: n, tiers: n === 'Lumbridge' ? ['Beginner', 'Easy', 'Medium', 'Hard'] : ['Easy', 'Medium', 'Hard', 'Elite'] };
-  });
   var TIER_RE = /^(Beginner|Easy|Medium|Hard|Elite)_achievements$/;
 
   // The parts of a page between two headings of one level: [{ head, nodes }]
@@ -164,6 +160,6 @@
     return fetchPage(name + ' achievements').then(function (p) { var a = parseArea(p.html, name); a.revid = p.revid; return a; });
   }
 
-  W.publish({ AREAS: AREAS, AREA_VERSION: AREA_VERSION, parseArea: parseArea, loadArea: loadArea });
+  W.publish({ parseArea: parseArea, loadArea: loadArea });
   W.loaded.areas = true;
 })(window.QuickGuideWiki);

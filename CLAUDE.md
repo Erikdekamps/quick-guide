@@ -40,10 +40,11 @@ Quick Guide is plain files in the browser: no build step, and no npm packages in
 - Never strip markup with a single regex replace: repeat it until nothing changes, or use DOMParser.
 - A regex that finds HTML tags (also in tools and tests) matches any case, and an end tag with more after its name: `/<script\b[^>]*>…<\/script\b[^>]*>/gi`. GitHub's code scan flags it otherwise.
 - Text from the wiki goes through esc() before it becomes HTML, unless the parser already cleaned it.
-- When the app reads a new kind of wiki page, add a check for it to tests/live.spec.js.
+- When the reader reads a new kind of wiki page, add a check for it to tests/live.spec.js.
 
 ## Data
 
+- The app reads the wiki's text only from data/ (js/wiki/data.js). The reader (the other files in js/wiki) is for the build: index.html does not load it.
 - Never change a file in data/ by hand: `npm run data` builds them from the wiki, and the nightly build writes them again.
 - A file in data/ has nothing that changes with every build (no dates of the build): the same wiki gives the same files.
 - A change to the shape of the files raises FORMAT in tools/data/shape.js, and tests/unit/data.spec.js checks the files.

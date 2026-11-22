@@ -43,8 +43,9 @@
   var QG = window.QuickGuide;
   var D = window.QuickGuideData;
   var app = document.getElementById('app');
-  // The files of the wiki reader (js/wiki), in the order index.html loads them. Each says it loaded.
-  var WIKI_FILES = ['base', 'html', 'steps', 'guide', 'player', 'areas', 'capes', 'quests'];
+  // The files of js/wiki the app uses, in the order index.html loads them. Each says it loaded. (The other files
+  // there are the wiki reader: the data build uses them, the app does not.)
+  var WIKI_FILES = ['base', 'player', 'data'];
   var loaded = (window.QuickGuideWiki || { loaded: {} }).loaded;
   var gone = WIKI_FILES.filter(function (f) { return !loaded[f]; })[0];
   if (gone || !app) {

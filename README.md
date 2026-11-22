@@ -26,7 +26,8 @@ The app asks for one permission, **Overlay**, because Alt1 wants at least one. I
 ## Your data
 
 - Everything stays on your computer, in the browser's storage. There is no account.
-- The app only talks to the RuneScape Wiki, and to Jagex when you look up your character.
+- The guides come with the app. It only asks the RuneScape Wiki for pictures and maps, and Jagex when you look up
+  your character.
 - **Settings → Export state** saves your ticks and lists to a file. **Import state** brings them back.
 - **Update from the wiki** (in Settings) brings in new quests, tasks and achievements. The app also does this once a week.
 

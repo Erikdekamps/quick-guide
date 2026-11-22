@@ -409,7 +409,7 @@
   // about them, when it was asked already). The cape on screen is drawn again. Gives how many achievements are new.
   function reloadCape(key, old, info) {
     var nc = null;
-    return A.reloadPage({ key: 'cape.' + key, old: old, load: function () { return QG.loadCape(key, old, info).then(function (p) { nc = p; return p; }); },
+    return A.reloadPage({ key: 'cape.' + key, old: old, load: function () { return QG.loadCape(key, old).then(function (p) { nc = p; return p; }); },
       items: function (c) { return c.cheevos; },
       here: function () { return S.capeKey === key && !!S.cape; },
       use: function (p) { S.cape = p; },

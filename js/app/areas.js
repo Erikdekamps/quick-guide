@@ -414,7 +414,7 @@
   // Gives how many tasks are new.
   function reloadArea(name, old) {
     var na = null;
-    return A.reloadPage({ key: 'area.' + name, old: old, load: function () { return QG.loadArea(name).then(function (p) { na = p; return p; }); },
+    return A.reloadPage({ key: 'area.' + name, old: old, load: function () { return QG.loadArea(name, true).then(function (p) { na = p; return p; }); },
       items: taskList,
       kept: function (p) { indexArea(name, p); },
       here: function () { return S.areaKey === name && !!S.area; },

@@ -1,0 +1,572 @@
+{
+  "format": 1,
+  "id": "dimension-of-disaster-shield-of-arrav",
+  "title": "Dimension of Disaster: Shield of Arrav",
+  "page": "Dimension of Disaster: Shield of Arrav/Quick guide",
+  "rev": 36893350,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Orlando_Smith\" target=\"_blank\" rel=\"noopener\">Orlando Smith</a> in the <a href=\"https://runescape.wiki/w/Varrock_museum\" target=\"_blank\" rel=\"noopener\">New Varrock museum</a>.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 9084,
+      "lon": 3775,
+      "zoom": 2,
+      "plane": 0,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/Dimension_of_Disaster:_Shield_of_Arrav/Quick_guide"
+    },
+    "members": true,
+    "length": "Short to Medium",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "Dimension of Disaster: Coin of the Realm",
+        "depth": 1
+      },
+      {
+        "text": "Shield of Arrav",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": [
+        {
+          "id": "req:ifqkaw",
+          "html": "2 <a href=\"https://runescape.wiki/w/Zemomark\" target=\"_blank\" rel=\"noopener\">zemomarks</a>",
+          "text": "2 zemomarks",
+          "alternatives": []
+        }
+      ]
+    },
+    "recommended": {
+      "note": "",
+      "items": []
+    }
+  },
+  "sections": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "anchor": "Getting_started",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "getting-started:eq68pu",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Orlando_Smith\" target=\"_blank\" rel=\"noopener\">Orlando Smith</a> in the New Varrock Museum.",
+          "text": "Talk to Orlando Smith in the New Varrock Museum.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                },
+                {
+                  "key": "3",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "The quest diverges based on the gang you most recently joined (if you replay and want the <a href=\"https://runescape.wiki/w/South_AND_West_Side_Story\" target=\"_blank\" rel=\"noopener\">South AND West Side Story</a> achievement check which one you joined last time in your quest journal):"
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1np00xj",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Charlie_the_Tramp\" target=\"_blank\" rel=\"noopener\">Charlie the Tramp</a>",
+          "text": "Speak to Charlie the Tramp",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Can you help me find the Black Arm Gang hideout?"
+                },
+                {
+                  "key": "1",
+                  "text": "Give him a couple Zemomarks"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:d158y4",
+          "html": "Speak to <a href=\"https://runescape.wiki/w/Katrine\" target=\"_blank\" rel=\"noopener\">Katrine</a> in the Black Arm Gang Hideout.",
+          "text": "Speak to Katrine in the Black Arm Gang Hideout.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've heard you're the Black Arm Gang."
+                },
+                {
+                  "key": "1",
+                  "text": "I'd rather not reveal my sources."
+                },
+                {
+                  "key": "2",
+                  "text": "I want to join your gang."
+                },
+                {
+                  "key": "4",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nzu743",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Jonny_the_Beard\" target=\"_blank\" rel=\"noopener\">Jonny the Beard</a> in the <a href=\"https://runescape.wiki/w/Blue_Moon_Inn\" target=\"_blank\" rel=\"noopener\">Blue Moon Inn</a>.",
+          "text": "Talk to Jonny the Beard in the Blue Moon Inn.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:nqsspk",
+          "html": "Talk again and defeat Jonny the Beard.",
+          "text": "Talk again and defeat Jonny the Beard.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:nqsspk:kmvhi2",
+              "html": "If he disappears when you start fighting him, be sure to have auto retaliate on. You can reset the fight by walking upstairs and talking to him again.",
+              "text": "If he disappears when you start fighting him, be sure to have auto retaliate on. You can reset the fight by walking upstairs and talking to him again.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:a6yf41",
+          "html": "Take the <a href=\"https://runescape.wiki/w/Black_arm\" target=\"_blank\" rel=\"noopener\">black arm</a> to Katrine",
+          "text": "Take the black arm to Katrine",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've got your arm."
+                },
+                {
+                  "key": "1",
+                  "text": "I want to join the Black Arm Gang."
+                },
+                {
+                  "key": "4",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": [
+            {
+              "type": "step",
+              "id": "getting-started:a6yf41:3nywkc",
+              "html": "Join the Black Arm Gang.",
+              "text": "Join the Black Arm Gang.",
+              "dialogue": [],
+              "images": [],
+              "tables": [],
+              "substeps": []
+            }
+          ]
+        },
+        {
+          "type": "step",
+          "id": "getting-started:uwkklo",
+          "html": "Talk to Moira in the back room until you get the documents.",
+          "text": "Talk to Moira in the back room until you get the documents.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:w9h70q",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Baraek\" target=\"_blank\" rel=\"noopener\">Baraek</a> in New Varrock square.",
+          "text": "Talk to Baraek in New Varrock square.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Can you tell me where I can find the Phoenix Gang?"
+                },
+                {
+                  "key": "1",
+                  "text": "Sure have 2 zemomarks."
+                },
+                {
+                  "key": "4",
+                  "text": "Farewell."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:1hfc5an",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Straven\" target=\"_blank\" rel=\"noopener\">Straven</a> near the south-eastern wall of New Varrock.",
+          "text": "Talk to Straven near the south-eastern wall of New Varrock.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I know who you are!"
+                },
+                {
+                  "key": "2",
+                  "text": "I want to join your gang."
+                },
+                {
+                  "key": "1",
+                  "text": "What do I have to do to join the Phoenix gang?"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:y9e1cw",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lowe\" target=\"_blank\" rel=\"noopener\">Lowe</a> in <a href=\"https://runescape.wiki/w/Lowe%27s_Archery_Emporium\" target=\"_blank\" rel=\"noopener\">his archery emporium</a>.",
+          "text": "Talk to Lowe in his archery emporium.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:wt0p6n",
+          "html": "Go upstairs and take the moving egg by walking around the normal eggs.",
+          "text": "Go upstairs and take the moving egg by walking around the normal eggs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:ok6aaf",
+          "html": "Talk to Straven.",
+          "text": "Talk to Straven.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I've got your phoenix eggling."
+                },
+                {
+                  "key": "3",
+                  "text": "Clap at the egg."
+                },
+                {
+                  "key": "1",
+                  "text": "I want to join the Phoenix Gang."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:16o4jc5",
+          "html": "Join Phoenix Gang.",
+          "text": "Join Phoenix Gang.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:4fm6ea",
+          "html": "Open the door to Molly&#39;s room using the pass phrase.",
+          "text": "Open the door to Molly's room using the pass phrase.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "getting-started:eu51qv",
+          "html": "Talk to Molly in the next room until you get the documents.",
+          "text": "Talk to Molly in the next room until you get the documents.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "finishing-up",
+      "title": "Finishing up",
+      "anchor": "Finishing_up",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "finishing-up:liw0fk",
+          "html": "Head to the <i>West</i> New Varrock Bank.",
+          "text": "Head to the West New Varrock Bank.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fzde48",
+          "html": "Talk to Skeleton Clerk.",
+          "text": "Talk to Skeleton Clerk.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here for the Shield of Arrav."
+                },
+                {
+                  "key": "3",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:167xynq",
+          "html": "Head to the <i>East</i> New Varrock Bank and go upstairs.",
+          "text": "Head to the East New Varrock Bank and go upstairs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:8f0u7v",
+          "html": "Talk to the Skeleton Clerk.",
+          "text": "Talk to the Skeleton Clerk.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "I'm here for the Shield of Arrav."
+                },
+                {
+                  "key": "3",
+                  "text": "Goodbye."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:2m9imx",
+          "html": "Use the 2 shield pieces together to make the Shield of Arrav.",
+          "text": "Use the 2 shield pieces together to make the Shield of Arrav.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:nkjxfo",
+          "html": "Talk to Orlando Smith at the New Varrock Museum.",
+          "text": "Talk to Orlando Smith at the New Varrock Museum.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "finishing-up:fvxipr",
+          "html": "Quest complete!",
+          "text": "Quest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    },
+    {
+      "id": "next-sub-quest",
+      "title": "Next sub-quest",
+      "anchor": "Next_sub-quest",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "next-sub-quest:11wi0ug",
+          "html": "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Demon_Slayer/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Demon Slayer (Quick guide)</a>",
+          "text": "Dimension of Disaster: Demon Slayer (Quick guide)",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "text",
+          "html": "Before continuing with other subquests, it is recommended that you loot the chests in your respective gang in order to work towards completing the <a href=\"https://runescape.wiki/w/Pick_All\" target=\"_blank\" rel=\"noopener\">Pick All</a> achievement. The stashes can be found in each of the gang&#39;s hideout."
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/Shield_of_Arrav_%28Dimension_of_Disaster%29_reward.png?9a9ef",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:Shield_of_Arrav_(Dimension_of_Disaster)_reward.png"
+    },
+    "items": [
+      {
+        "html": "1 <a href=\"https://runescape.wiki/w/Quest_points\" target=\"_blank\" rel=\"noopener\">quest point</a>",
+        "text": "1 quest point",
+        "subs": []
+      },
+      {
+        "html": "100 experience <a href=\"https://runescape.wiki/w/Thieving_XP_lamp_(Dimension_of_Disaster:_Shield_of_Arrav)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "100 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "<b>Always:</b> 60 <a href=\"https://runescape.wiki/w/Zemomark\" target=\"_blank\" rel=\"noopener\">zemomarks</a>",
+        "text": "Always: 60 zemomarks",
+        "subs": []
+      },
+      {
+        "html": "<b>Always:</b> Access to the Black Arm Gang/Phoenix Gang stash",
+        "text": "Always: Access to the Black Arm Gang/Phoenix Gang stash",
+        "subs": []
+      },
+      {
+        "html": "<b>Always:</b> A <a href=\"https://runescape.wiki/w/Lockpick_(Dimension_of_Disaster)\" target=\"_blank\" rel=\"noopener\">lockpick</a>",
+        "text": "Always: A lockpick",
+        "subs": []
+      },
+      {
+        "html": "<b>Always:</b> A <a href=\"https://runescape.wiki/w/Mith_grapple_(Dimension_of_Disaster)\" target=\"_blank\" rel=\"noopener\">mithril grapple</a> and a <a href=\"https://runescape.wiki/w/Mith_crossbow_(Dimension_of_Disaster)\" target=\"_blank\" rel=\"noopener\">mithril crossbow</a>",
+        "text": "Always: A mithril grapple and a mithril crossbow",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [
+    {
+      "name": "Exorcism",
+      "where": ""
+    },
+    {
+      "name": "Medi-Evil",
+      "where": ""
+    }
+  ],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/Dimension_of_Disaster:_Curse_of_Arrav/Quick_guide\" target=\"_blank\" rel=\"noopener\">Dimension of Disaster: Curse of Arrav</a>"
+      ]
+    }
+  ]
+}

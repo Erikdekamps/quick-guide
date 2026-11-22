@@ -1,0 +1,205 @@
+{
+  "format": 1,
+  "id": "that-old-black-magic-my-one-and-only-lute",
+  "title": "That Old Black Magic: My One and Only Lute",
+  "page": "That Old Black Magic: My One and Only Lute/Quick guide",
+  "rev": 36319994,
+  "mapVersion": "2026-10-12-a",
+  "overview": {
+    "startPoint": "Speak to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>&#39;s bandstand.",
+    "startMap": {
+      "type": "map",
+      "caption": "Start point",
+      "lat": 1775,
+      "lon": 1113,
+      "zoom": 2,
+      "plane": 1,
+      "mapId": -1,
+      "version": "",
+      "features": [],
+      "href": "https://runescape.wiki/w/That_Old_Black_Magic:_My_One_and_Only_Lute/Quick_guide"
+    },
+    "members": true,
+    "length": "Short",
+    "difficulty": "",
+    "description": "",
+    "questReqs": [
+      {
+        "text": "The Blood Pact",
+        "depth": 1
+      }
+    ],
+    "skillReqs": [
+      {
+        "skill": "Necromancy",
+        "level": 32,
+        "note": ""
+      }
+    ],
+    "otherReqs": [],
+    "followsEvents": [],
+    "enemies": [
+      {
+        "text": "Dragith Nurn (level 26; must be killed with necromancy)",
+        "name": "Dragith Nurn",
+        "count": null,
+        "level": "26",
+        "note": "must be killed with necromancy"
+      }
+    ],
+    "extra": [
+      {
+        "label": "League region required",
+        "html": "<span class=\"reg\">Misthalin</span>"
+      }
+    ],
+    "notes": []
+  },
+  "items": {
+    "required": {
+      "note": "Items from the <a href=\"https://runescape.wiki/w/Tool_belt\" target=\"_blank\" rel=\"noopener\">tool belt</a> are not listed unless they do not work or are not automatically added.",
+      "items": []
+    },
+    "recommended": {
+      "note": "",
+      "items": [
+        {
+          "id": "rec:3yo31n",
+          "html": "<a href=\"https://runescape.wiki/w/Underworld_Grimoire\" target=\"_blank\" rel=\"noopener\">Underworld Grimoire</a> for a quick teleport to the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a>",
+          "text": "Underworld Grimoire for a quick teleport to the City of Um",
+          "alternatives": []
+        },
+        {
+          "id": "rec:onjs29",
+          "html": "<a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">Necromancy</a> weapon and armour",
+          "text": "Necromancy weapon and armour",
+          "alternatives": []
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "help-the-band",
+      "title": "Help the band",
+      "anchor": "Help_the_band",
+      "blocks": [
+        {
+          "type": "step",
+          "id": "help-the-band:1p1soo5",
+          "html": "Talk to <a href=\"https://runescape.wiki/w/Lady_Grey\" target=\"_blank\" rel=\"noopener\">Lady Grey</a>, behind <a href=\"https://runescape.wiki/w/Death\" target=\"_blank\" rel=\"noopener\">Death</a> in the <a href=\"https://runescape.wiki/w/City_of_Um\" target=\"_blank\" rel=\"noopener\">City of Um</a> and agree to get her guitar back.",
+          "text": "Talk to Lady Grey, behind Death in the City of Um and agree to get her guitar back.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "✓",
+                  "text": "[Accept Quest]"
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "help-the-band:1vy1ckc",
+          "html": "Travel to <a href=\"https://runescape.wiki/w/Lumbridge_Catacombs\" target=\"_blank\" rel=\"noopener\">Lumbridge Catacombs</a>.",
+          "text": "Travel to Lumbridge Catacombs.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "help-the-band:13brg5w",
+          "html": "At the end of the catacombs, kill <a href=\"https://runescape.wiki/w/Dragith_Nurn\" target=\"_blank\" rel=\"noopener\">Dragith Nurn</a> using <a href=\"https://runescape.wiki/w/Necromancy\" target=\"_blank\" rel=\"noopener\">necromancy</a> and pick up <a href=\"https://runescape.wiki/w/Lady_Grey%27s_guitar\" target=\"_blank\" rel=\"noopener\">Lady Grey&#39;s guitar</a>.",
+          "text": "At the end of the catacombs, kill Dragith Nurn using necromancy and pick up Lady Grey's guitar.",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "help-the-band:1qhizqt",
+          "html": "Return to the City of Um and speak to Lady Grey. Hand her the guitar.",
+          "text": "Return to the City of Um and speak to Lady Grey. Hand her the guitar.",
+          "dialogue": [
+            {
+              "when": null,
+              "options": [
+                {
+                  "key": "1",
+                  "text": "Yes."
+                },
+                {
+                  "key": "1",
+                  "text": "Trumpeter."
+                },
+                {
+                  "key": "4",
+                  "text": "None right now."
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        },
+        {
+          "type": "step",
+          "id": "help-the-band:1k0rf3j",
+          "html": "Subquest complete!",
+          "text": "Subquest complete!",
+          "dialogue": [],
+          "images": [],
+          "tables": [],
+          "substeps": []
+        }
+      ]
+    }
+  ],
+  "rewards": {
+    "image": {
+      "type": "image",
+      "src": "https://runescape.wiki/images/That_Old_Black_Magic_-_My_One_and_Only_Lute_reward.png?b6329",
+      "width": 512,
+      "height": 334,
+      "alt": "",
+      "caption": "",
+      "href": "https://runescape.wiki/w/File:That_Old_Black_Magic_-_My_One_and_Only_Lute_reward.png"
+    },
+    "items": [
+      {
+        "html": "5,000 experience <a href=\"https://runescape.wiki/w/Necromancy_XP_lamp_(My_One_and_Only_Lute)\" target=\"_blank\" rel=\"noopener\">lamp</a>",
+        "text": "5,000 experience lamp",
+        "subs": []
+      },
+      {
+        "html": "10 <a href=\"https://runescape.wiki/w/Soul_(Well_of_Souls)\" target=\"_blank\" rel=\"noopener\">vessel souls</a>",
+        "text": "10 vessel souls",
+        "subs": []
+      }
+    ],
+    "groups": [],
+    "notes": []
+  },
+  "music": [],
+  "achievements": [],
+  "requiredFor": [
+    {
+      "label": "Directly",
+      "items": [
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Flesh_and_Bone/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Flesh and Bone</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Hermy_and_Bass/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Hermy and Bass</a>",
+        "<a href=\"https://runescape.wiki/w/That_Old_Black_Magic:_Skelly_By_Everlight/Quick_guide\" target=\"_blank\" rel=\"noopener\">That Old Black Magic: Skelly By Everlight</a>"
+      ]
+    }
+  ]
+}

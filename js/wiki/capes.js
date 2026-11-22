@@ -6,24 +6,14 @@
 (function (W) {
   'use strict';
   if (!W) return;
-  var API = W.API, SKILLS = W.SKILLS, SKILL_RE = W.SKILL_RE, WIKI = W.WIKI, arr = W.arr, askWiki = W.askWiki,
+  var CAPE_VERSION = W.CAPE_VERSION, capeOf = W.capeOf;
+  var API = W.API, SKILLS = W.SKILLS, SKILL_RE = W.SKILL_RE, arr = W.arr, askWiki = W.askWiki,
     clean = W.clean, docOf = W.docOf, fetchPage = W.fetchPage, hash = W.hash, inTurns = W.inTurns, landed = W.landed,
-    pageInfo = W.pageInfo, pageUrl = W.pageUrl, text = W.text, skillReqs = W.skillReqs;
+    pageUrl = W.pageUrl, text = W.text, skillReqs = W.skillReqs;
 
   // ---------- Capes: the master quest, completionist and trimmed completionist capes ----------
   // Each cape is an achievement made of other achievements. Its "(achievement)" page has them all in one table, each
   // with its category (Lore, Skills, Exploration, …). Where to buy a cape and its picture do not change: they are here.
-  var CAPE_VERSION = 2;   // a new number makes saved capes read the wiki again
-  function capeImage(file) { return WIKI + '/images/thumb/' + encodeURIComponent(file) + '/96px-' + encodeURIComponent(file); }
-  var CAPES = [
-    { key: 'mqc', name: 'Master quest cape', page: 'Master Quest Cape (achievement)', levelsPage: 'Master quest cape',
-      image: capeImage('Master_quest_cape_detail.png'), buy: 'Buy it from Curator Haig Halen in the Varrock Museum, for 120,000 coins.' },
-    { key: 'comp', name: 'Completionist cape', page: 'Completionist Cape (achievement)', skillsPage: 'Master Skiller',
-      image: capeImage('Completionist_cape_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' },
-    { key: 'trim', name: 'Trimmed completionist cape', page: 'Trimmed Completionist Cape (achievement)',
-      image: capeImage('Completionist_cape_(t)_detail.png'), buy: 'Buy it from the Museum guard, on the top floor of the Varrock Museum, for 5,000,000 coins.' }
-  ];
-  function capeOf(key) { return CAPES.filter(function (c) { return c.key === key; })[0]; }
   // The achievements of a cape: [{ id, name, page, desc, members, cat, sub }], in the wiki's order. page: the
   // achievement's own wiki page, where its needs and tip are (see loadDetails).
   function parseCape(html, key) {
@@ -207,8 +197,8 @@
     return cut !== first && t ? t.charAt(0).toUpperCase() + t.slice(1) : t;
   }
   // Reads the needs, capes and tip of these pages: { "<page>": { skills, links, other, also, tip } }. A batch that
-  // fails is left out (its achievements just have no details).
-  function loadDetails(pages) {
+  // fails is left out (its achievements just have no details), and failed.any says so.
+  function loadDetails(pages, failed) {
     var batches = [], out = {};
     for (var i = 0; i < pages.length; i += DETAIL_BATCH) batches.push(pages.slice(i, i + DETAIL_BATCH));
     function one(titles) {
@@ -228,7 +218,7 @@
           d.rev = (rev && rev.revid) || 0;
           out[t] = d;
         });
-      }, function () { /* this batch has no details */ });
+      }, function () { failed.any = true; });
     }
     return inTurns(batches, one, DETAIL_PARALLEL).then(function () { return out; });
   }
@@ -244,46 +234,27 @@
     return cape;
   }
   // Reads a cape: its achievements, the page with its levels when it has one, and each achievement's details.
-  // Without the levels page or the details it still works. old: the cape as it was saved; an achievement whose page was
-  // not edited since keeps its details, so only new and edited pages are read again. info: what pageInfo said about
-  // those pages, when it was asked already.
-  // What could not be read this time is kept from old: the levels, and the details of an achievement. A cape that
-  // misses its levels page says so (partial), so the next update reads it again.
-  function loadCape(key, old, info) {
+  // A cape that misses its levels page, or the details of some achievements, says so (partial): the build then keeps
+  // the file it had.
+  function loadCape(key) {
     var c = capeOf(key);
     if (!c) { var e = new Error('There is no such cape.'); e.code = 'format'; return Promise.reject(e); }
-    var kept = old || {};
-    var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return { levels: kept.levels, partial: true }; }) :
-      c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return { skiller: kept.skiller, partial: true }; }) : Promise.resolve({});
+    var more = c.levelsPage ? fetchPage(c.levelsPage).then(function (p) { return { levels: minLevels(p.html) }; }, function () { return { partial: true }; }) :
+      c.skillsPage ? fetchPage(c.skillsPage).then(function (p) { return { skiller: skillReqs(p.html) }; }, function () { return { partial: true }; }) : Promise.resolve({});
     return Promise.all([fetchPage(c.page), more]).then(function (r) {
-      var cape = parseCape(r[0].html, key), had = {}, pages = [];
+      var cape = parseCape(r[0].html, key), pages = [], failed = { any: false };
       cape.revid = r[0].revid;
       if (r[1].levels) cape.levels = r[1].levels;
       if (r[1].skiller) cape.skiller = r[1].skiller;
       if (r[1].partial) cape.partial = true;
-      ((old && old.cheevos) || []).forEach(function (x) { if (x.rev && x.tip != null) had[x.page] = x; });
       cape.cheevos.forEach(function (x) { if (pages.indexOf(x.page) < 0) pages.push(x.page); });
-      var known = pages.filter(function (p) { return had[p]; });
-      return (info ? Promise.resolve(info) : pageInfo(known)).then(function (info) {
-        var d = {}, read = pages.filter(function (p) {
-          var x = had[p], i = info[p];
-          if (!x || !i || !i.rev || i.rev !== x.rev) return true;
-          d[p] = { skills: x.skills, links: x.links, oneOf: x.oneOf, other: x.other, tip: x.tip, rev: x.rev, also: (x.also || []).concat([key]) };
-          return false;
-        });
-        return loadDetails(read).then(function (nd) {
-          read.forEach(function (p) {
-            var x = had[p];
-            // Not read this time: what was saved stays (with its old revision, so the next update asks again).
-            if (nd[p]) d[p] = nd[p];
-            else if (x) d[p] = { skills: x.skills, links: x.links, oneOf: x.oneOf, other: x.other, tip: x.tip, rev: x.rev, also: (x.also || []).concat([key]) };
-          });
-          return addDetails(cape, d);
-        });
+      return loadDetails(pages, failed).then(function (d) {
+        if (failed.any) cape.partial = true;
+        return addDetails(cape, d);
       });
     });
   }
 
-  W.publish({ CAPES: CAPES, CAPE_VERSION: CAPE_VERSION, parseCape: parseCape, minLevels: minLevels, cheevoNeeds: cheevoNeeds, cheevoCapes: cheevoCapes, cheevoTip: cheevoTip, loadCape: loadCape, noComments: noComments });
+  W.publish({ parseCape: parseCape, minLevels: minLevels, cheevoNeeds: cheevoNeeds, cheevoCapes: cheevoCapes, cheevoTip: cheevoTip, loadCape: loadCape, noComments: noComments });
   W.loaded.capes = true;
 })(window.QuickGuideWiki);

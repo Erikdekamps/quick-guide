@@ -380,6 +380,6 @@
   }
 
   W.share({ unwrapSections: unwrapSections });
-  W.publish({ VERSION: VERSION, MAP_VERSION: MAP_VERSION, parse: parse, load: load });
+  W.publish({ parse: parse, load: load });
   W.loaded.guide = true;
 })(window.QuickGuideWiki);
