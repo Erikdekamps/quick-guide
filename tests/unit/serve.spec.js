@@ -3,20 +3,23 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { test, expect } = require('@playwright/test');
-const { server, start, fileFor } = require('../../tools/serve');
+const { server, start, filesIn, fileFor } = require('../../tools/serve');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 
-test('which file a path stands for: inside the folder only, no hidden files, no folders', () => {
-  expect(fileFor(ROOT, '/')).toBe(path.join(ROOT, 'index.html'));
-  expect(fileFor(ROOT, '/data/index.json?h=abc')).toBe(path.join(ROOT, 'data', 'index.json'));
-  expect(fileFor(ROOT, '/js/app/core.js')).toBe(path.join(ROOT, 'js', 'app', 'core.js'));
-  expect(fileFor(ROOT, '/../../etc/passwd')).toBeNull();
-  expect(fileFor(ROOT, '/%2e%2e/%2e%2e/etc/passwd')).toBeNull();
-  expect(fileFor(ROOT, '/.git/config')).toBeNull();
-  expect(fileFor(ROOT, '/js')).toBeNull();
-  expect(fileFor(ROOT, '/nothing.html')).toBeNull();
-  expect(fileFor(ROOT, '/%E0%A4%A')).toBeNull();
+test('which file a path stands for: only a file of the folder, no hidden files, no folders, not node_modules', () => {
+  const files = filesIn(ROOT);
+  expect(fileFor(files, '/')).toBe(path.join(ROOT, 'index.html'));
+  expect(fileFor(files, '/data/index.json?h=abc')).toBe(path.join(ROOT, 'data', 'index.json'));
+  expect(fileFor(files, '/js/app/core.js')).toBe(path.join(ROOT, 'js', 'app', 'core.js'));
+  expect(fileFor(files, '/../../etc/passwd')).toBeNull();
+  expect(fileFor(files, '/%2e%2e/%2e%2e/etc/passwd')).toBeNull();
+  expect(fileFor(files, '/js/../index.html')).toBeNull();
+  expect(fileFor(files, '/.git/config')).toBeNull();
+  expect(fileFor(files, '/node_modules/eslint/package.json')).toBeNull();
+  expect(fileFor(files, '/js')).toBeNull();
+  expect(fileFor(files, '/nothing.html')).toBeNull();
+  expect(fileFor(files, '/%E0%A4%A')).toBeNull();
 });
 
 test('it serves the files with their type, never an old copy, and 404 for the rest', async () => {
@@ -40,6 +43,11 @@ test('it serves the files with their type, never an old copy, and 404 for the re
     expect(head.status).toBe(200);
     expect(await head.text()).toBe('');
     expect((await fetch(at + '/nope')).status).toBe(404);
+    // a file made after the start is found too; one that went away is not
+    fs.writeFileSync(path.join(dir, 'new.json'), '{"n":1}');
+    expect(await (await fetch(at + '/new.json')).json()).toEqual({ n: 1 });
+    fs.rmSync(path.join(dir, 'new.json'));
+    expect((await fetch(at + '/new.json')).status).toBe(404);
     expect((await fetch(at + '/', { method: 'POST' })).status).toBe(404);
   } finally {
     await new Promise((done) => { s.close(done); });
