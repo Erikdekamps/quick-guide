@@ -4,8 +4,12 @@
 // A file only changes when the wiki changed: there are no dates of the build in it. "added" is the day a quest, a task
 // or an achievement was first seen by a build (the app says New by it); it is carried over from the file before.
 'use strict';
+const crypto = require('crypto');
 
 const FORMAT = 1;
+// A short mark of a file's text. The index has it for every file: the app sees by it that a file changed, and asks
+// for the file with it, so a browser never shows an old copy.
+function hash(text) { return crypto.createHash('sha1').update(text).digest('hex').slice(0, 10); }
 
 // A name as a file name and an id: "Cook's Assistant" -> "cooks-assistant".
 function slug(s) {
@@ -43,8 +47,8 @@ function capeFile(c) {
 function indexFile(quests, areas, capes, updated) {
   return { format: FORMAT, updated,
     quests,
-    areas: areas.map((a) => ({ id: a.id, name: a.name, rev: a.rev, tiers: a.tiers.map((t) => ({ id: t.id, name: t.name, tasks: t.tasks.length })) })),
-    capes: capes.map((c) => ({ id: c.id, name: c.name, achievements: c.achievements.length, rev: c.rev })) };
+    areas: areas.map((a) => ({ id: a.id, name: a.name, rev: a.rev, hash: a.hash, tiers: a.tiers.map((t) => ({ id: t.id, name: t.name, tasks: t.tasks.length })) })),
+    capes: capes.map((c) => ({ id: c.id, name: c.name, achievements: c.achievements.length, rev: c.rev, hash: c.hash })) };
 }
 
 // "added": what was in the list before keeps its day (or stays without one); what is new gets today. With no list
@@ -78,6 +82,7 @@ function build(read, before, today) {
       const old = before(path);
       if (old) { files[path] = text(old); e.rev = old.rev; }
     }
+    if (files[path]) e.hash = hash(files[path]);
     return e;
   });
   carryAdded(was && was.quests, quests, today);
@@ -85,12 +90,14 @@ function build(read, before, today) {
     const f = areaFile(a), old = before('achievements/areas/' + f.id + '.json');
     carryAdded(old && tasksOf(old), tasksOf(f), today);
     files['achievements/areas/' + f.id + '.json'] = text(f);
+    f.hash = hash(files['achievements/areas/' + f.id + '.json']);
     return f;
   });
   const capes = read.capes.map((c) => {
     const f = capeFile(c), old = before('achievements/capes/' + f.id + '.json');
     carryAdded(old && old.achievements, f.achievements, today);
     files['achievements/capes/' + f.id + '.json'] = text(f);
+    f.hash = hash(files['achievements/capes/' + f.id + '.json']);
     return f;
   });
   // The index says when the data last changed: today when a file is new, gone or different, else the day it said.
@@ -122,4 +129,4 @@ function summary(now, old) {
   return { lines, changed: n + (old['index.json'] !== now['index.json'] ? 1 : 0) };
 }
 
-module.exports = { FORMAT, slug, text, questEntry, questFile, areaFile, capeFile, indexFile, carryAdded, build, summary };
+module.exports = { FORMAT, hash, slug, text, questEntry, questFile, areaFile, capeFile, indexFile, carryAdded, build, summary };

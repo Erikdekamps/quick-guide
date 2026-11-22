@@ -41,15 +41,30 @@ test.describe('a build', () => {
   test('makes the index, a file for each guide, area and cape, and nothing else', () => {
     const files = S.build(read(), none, '2026-11-22');
     expect(Object.keys(files).sort()).toEqual(['achievements/areas/ardougne.json', 'achievements/capes/mqc.json', 'index.json', 'quests/bar-crawl-miniquest.json', 'quests/cooks-assistant.json']);
+    const h = (p) => S.hash(files[p]);
     expect(JSON.parse(files['index.json'])).toEqual({
       format: 1, updated: '2026-11-22',
       quests: [
-        { id: 'cooks-assistant', title: "Cook's Assistant", members: false, difficulty: 'Novice', length: 'Short', age: 'Fifth Age', combat: 'None', qp: 1, series: 'N/A', release: '4 January 2001', order: 2, rev: 100 },
-        { id: 'bar-crawl-miniquest', title: 'Bar Crawl (miniquest)', members: true, difficulty: 'Novice', length: 'Short', age: 'Fifth Age', combat: 'None', qp: 1, series: 'N/A', release: '4 January 2001', order: 1, mini: true, rev: 200 }
+        { id: 'cooks-assistant', title: "Cook's Assistant", members: false, difficulty: 'Novice', length: 'Short', age: 'Fifth Age', combat: 'None', qp: 1, series: 'N/A', release: '4 January 2001', order: 2, rev: 100, hash: h('quests/cooks-assistant.json') },
+        { id: 'bar-crawl-miniquest', title: 'Bar Crawl (miniquest)', members: true, difficulty: 'Novice', length: 'Short', age: 'Fifth Age', combat: 'None', qp: 1, series: 'N/A', release: '4 January 2001', order: 1, mini: true, rev: 200, hash: h('quests/bar-crawl-miniquest.json') }
       ],
-      areas: [{ id: 'ardougne', name: 'Ardougne', rev: 7, tiers: [{ id: 'easy', name: 'Easy', tasks: 2 }] }],
-      capes: [{ id: 'mqc', name: 'Cape mqc', achievements: 1, rev: 9 }]
+      areas: [{ id: 'ardougne', name: 'Ardougne', rev: 7, hash: h('achievements/areas/ardougne.json'), tiers: [{ id: 'easy', name: 'Easy', tasks: 2 }] }],
+      capes: [{ id: 'mqc', name: 'Cape mqc', achievements: 1, rev: 9, hash: h('achievements/capes/mqc.json') }]
     });
+  });
+
+  test('the index has a mark of every file\'s text: it changes when the file does, also when its page\'s revision did not', () => {
+    const first = S.build(read(), none, '2026-11-22');
+    expect(S.hash('a')).toMatch(/^[0-9a-f]{10}$/);
+    // an achievement's own page changed: the cape's list page has the same revision
+    const c = cape('mqc', ['2111']);
+    c.cheevos[0].tip = 'A new tip.';
+    const next = S.build(read({ capes: [c] }), from(first), '2026-11-23');
+    const was = JSON.parse(first['index.json']).capes[0], now = JSON.parse(next['index.json']).capes[0];
+    expect(now.rev).toBe(was.rev);
+    expect(now.hash).not.toBe(was.hash);
+    expect(now.hash).toBe(S.hash(next['achievements/capes/mqc.json']));
+    expect(next['achievements/capes/mqc.json']).not.toContain('"hash"');
   });
 
   test('a guide: its page and revision, its items and parts; nothing that changes with every build', () => {
@@ -83,6 +98,7 @@ test.describe('a build', () => {
     expect(next['quests/brand-new.json']).toBeUndefined();
     const ix = JSON.parse(next['index.json']);
     expect(ix.quests.map((q) => [q.id, q.rev, q.added])).toEqual([['cooks-assistant', 100, undefined], ['bar-crawl-miniquest', 200, undefined], ['brand-new', undefined, '2026-11-23']]);
+    expect(ix.quests.map((q) => q.hash)).toEqual([S.hash(first['quests/cooks-assistant.json']), S.hash(first['quests/bar-crawl-miniquest.json']), undefined]);
     expect(ix.updated).toBe('2026-11-23');
   });
 });
@@ -170,7 +186,7 @@ test.describe('this project: data/', () => {
   test('a guide: the quest of its file, parts with steps, and no id twice (your ticks are saved by them)', () => {
     for (const e of index.quests.filter((q) => q.rev != null)) {
       const q = json('quests/' + e.id + '.json'), ids = [];
-      expect([q.id, q.rev], e.id).toEqual([e.id, e.rev]);
+      expect([q.id, q.rev, S.hash(files['quests/' + e.id + '.json'])], e.id).toEqual([e.id, e.rev, e.hash]);
       expect(typeof q.page === 'string' && q.page.length > 0, e.id).toBe(true);
       expect(Array.isArray(q.sections), e.id).toBe(true);
       (function walk(steps) { for (const s of steps || []) { if (s.id) ids.push(s.id); walk(s.substeps); } })([].concat(...q.sections.map((s) => s.blocks.filter((b) => b.type === 'step'))));
@@ -183,7 +199,7 @@ test.describe('this project: data/', () => {
   test('an area: its tiers as in the index, and no task twice', () => {
     for (const e of index.areas) {
       const a = json('achievements/areas/' + e.id + '.json');
-      expect([a.id, a.name, a.rev], e.id).toEqual([e.id, e.name, e.rev]);
+      expect([a.id, a.name, a.rev, S.hash(files['achievements/areas/' + e.id + '.json'])], e.id).toEqual([e.id, e.name, e.rev, e.hash]);
       expect(a.tiers.map((t) => ({ id: t.id, name: t.name, tasks: t.tasks.length })), e.id).toEqual(e.tiers);
       expect(twice([].concat(...a.tiers.map((t) => t.tasks.map((x) => x.id)))), e.id).toEqual([]);
       for (const t of a.tiers) expect(t.tasks.length, e.id + ' ' + t.id).toBeGreaterThan(0);
@@ -193,7 +209,7 @@ test.describe('this project: data/', () => {
   test('a cape: as many achievements as the index says, each with a category, none twice', () => {
     for (const e of index.capes) {
       const c = json('achievements/capes/' + e.id + '.json');
-      expect([c.id, c.name, c.achievements.length], e.id).toEqual([e.id, e.name, e.achievements]);
+      expect([c.id, c.name, c.achievements.length, S.hash(files['achievements/capes/' + e.id + '.json'])], e.id).toEqual([e.id, e.name, e.achievements, e.hash]);
       expect(c.achievements.length, e.id).toBeGreaterThan(20);
       expect(twice(c.achievements.map((x) => x.id)), e.id).toEqual([]);
       for (const x of c.achievements) expect(typeof x.category === 'string' && !!x.name, e.id + ' ' + x.id).toBe(true);
